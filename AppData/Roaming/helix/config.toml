@@ -1,22 +1,11 @@
 theme = "nordic"
 [keys.normal]
 C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
-A-c = [":insert-output vscode"]
-i = "move_visual_line_up"
-j = "move_char_left"
-k = "move_visual_line_down"
-l = "move_char_right"
-"C-j" = "move_prev_word_end"
-"C-l" = "move_next_word_start"
 ins = "insert_mode"
-a = "no_op"
-I = "no_op"
-A = "no_op"
 C-s = ":w"
 C-S-s = ":wa"
 C-w = ":q"
 C-S-x = ":qa"
-A-i = "insert_mode"
 C-z = "undo"
 C-y = "redo"
 C-f = "search"
@@ -32,24 +21,37 @@ h = "no_op"
 "tab" = ["rotate_view"]
 "C-c" = [":clipboard-yank"]
 "C-x" = [":clipboard-yank", "delete_selection"]
+"S-v" = "paste_after"
+esc = ["collapse_selection", "keep_primary_selection"]
+"i" = "move_visual_line_up"
+"j" = "move_char_left"
+"k" = "move_visual_line_down"
+"l" = "move_char_right"
+"C-i" = ["select_mode", "move_visual_line_up", "normal_mode"]
+"C-j" = ["select_mode", "move_char_left", "normal_mode"]
+"C-k" = ["select_mode", "move_visual_line_down", "normal_mode"]
+"C-l" = ["select_mode", "move_char_right", "normal_mode"]
+"A-i" = "insert_mode"
 # try to fix this i guess
 # "C-w" = { "i" = "jump_view_up", "j" = "jump_view_left", "k" = "jump_view_down", "l" = "jump_view-right" }
+"=" = "increment"
+"-" = "decrement"
+"u" = "no_op"
+"S-u" = "no_op"
+"?" = "no_op"
 [keys.select]
 i = "extend_visual_line_up"
 j = "extend_char_left"
 k = "extend_visual_line_down"
 l = "extend_char_right"
 ins = "insert_mode"
-a = "no_op"
-I = "no_op"
-A = "no_op"
-C-c = ":clipboard-yank"
-"C-x" = [":clipboard-yank", "delete_selection"]
+"C" = ":clipboard-yank"
+"X" = [":clipboard-yank", "delete_selection"]
 [keys.insert]
 C-s = ["normal_mode", ":w"]
-C-x = ":q"
+C-w = ":q"
 C-S-s = ":wa"
-C-S-x = ":qa"
+C-S-w = ":qa"
 "A-v" = "select_mode"
 "A-i" = "move_visual_line_up"
 "A-j" = "move_char_left"
@@ -58,20 +60,22 @@ C-S-x = ":qa"
 C-z = "undo"
 C-y = "redo"
 C-f = "search"
-C-S-f = "rsearch"
 C-o = "file_picker_in_current_directory"
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 [editor]
 scrolloff = 0
 scroll-lines = 1
 cursorline = true
+line-number = "absolute"
+continue-comments = false
+color-modes = true
 [editor.inline-diagnostics]
 cursor-line = "info"
 other-lines = "info"
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "file-modification-indicator", "read-only-indicator"]
 center = []
-right = ["diagnostics", "position", "file-encoding", "file-type"]
+right = ["diagnostics", "position", "file-encoding", "file-encoding"]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
@@ -80,3 +84,6 @@ mode.select = "SELECT"
 normal = "underline"
 insert = "bar"
 select = "block"
+[editor.indent-guides]
+render = true
+character = ""

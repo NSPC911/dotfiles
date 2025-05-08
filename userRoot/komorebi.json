@@ -4,14 +4,15 @@
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
   "default_workspace_padding": 0,
-  "default_container_padding": 0,
+  "default_container_padding": -1,
   "border": false,
   "border_width": 5,
   "border_offset": 0,
+  "mouse_follows_focus": true,
   "animation": {
     "enabled": true,
-    "duration": 250,
-    "fps": 60,
+    "duration": 100,
+    "fps": 30,
     "style": "EaseInOutCubic"
   },
   "theme": {
@@ -26,15 +27,15 @@
       "workspaces": [
         {
           "name": "I",
-          "layout": "VerticalStack"
+          "layout": "BSP"
         },
         {
           "name": "II",
-          "layout": "Grid"
+          "layout": "BSP"
         },
         {
           "name": "III",
-          "layout": "VerticalStack"
+          "layout": "BSP"
         },
         {
           "name": "IV",
@@ -42,15 +43,15 @@
         },
         {
           "name": "V",
-          "layout": "VerticalStack"
+          "layout": "BSP"
         },
         {
           "name": "VI",
-          "layout": "VerticalStack"
+          "layout": "BSP"
         },
         {
           "name": "VII",
-          "layout": "VerticalStack"
+          "layout": "BSP"
         },
         {
           "name": "VIII",

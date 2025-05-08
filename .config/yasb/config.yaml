@@ -1,6 +1,10 @@
 watch_stylesheet: true
 watch_config: true
 debug: true
+komorebi:
+  start_command: "komorebic start --whkd --masir"
+  stop_command: "komorebic stop --whkd --masir"
+  reload_command: "komorebic stop --whkd --masir && komorebic start --whkd --masir"
 bars:
   task-bar:
     enabled: true
@@ -34,11 +38,7 @@ bars:
       right: 0
     widgets:
       left: []
-      center: [
-        "cava",
-        "media",
-        "cava"
-      ]
+      center: ["cava", "cpu", "media", "cava"]
       right: []
     layouts:
       center:
@@ -75,24 +75,9 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: [
-        "power_menu",
-        "active_window"
-      ]
-      center: [
-        "clock",
-        "obs"
-      ]
-      right: [
-        "komorebi_active_layout",
-        "komorebi_workspaces",
-        "bluetooth",
-        "wifi",
-        "brightness",
-        "battery",
-        "volume",
-        "notifications"
-      ]
+      left: ["power_menu","active_window"]
+      center: ["clock"]
+      right: ["komorebi_active_layout", "komorebi_workspaces", "bluetooth", "wifi", "brightness", "battery", "volume", "notifications"]
 #    layouts:
 #      center:
 #        alignment: "center"
@@ -154,9 +139,9 @@ widgets:
         offset: [ 1, 1 ]
       container_padding:
         top: 0
-        left: 0
+        left: 10
         bottom: 0
-        right: 0
+        right: 10
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
@@ -179,8 +164,8 @@ widgets:
       label: "{%A, %d %B %H:%M:%S}"
       timezones: []
       calendar:
-        blur: true
-        round_corners: false
+        blur: false
+        round_corners: true
         alignment: "center"
         direction: "up"
       callbacks:
@@ -277,13 +262,7 @@ widgets:
         on_middle: "do_nothing"
         on_left: "toggle_label"
       ethernet_icon: "\ueba9"
-      wifi_icons: [
-        "\udb82\udd2e",  # Icon for 0% strength
-        "\udb82\udd1f",  # Icon for 1-24% strength
-        "\udb82\udd22",  # Icon for 25-49% strength
-        "\udb82\udd25",  # Icon for 50-74% strength
-        "\udb82\udd28"   # Icon for 75-100% strength
-      ]
+      wifi_icons: [ "\udb82\udd2e", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28" ]
       container_padding:
         top: 0
         left: 0
@@ -319,12 +298,7 @@ widgets:
       auto_light_night_start_time: "19:00"
       auto_light_night_end_time: "06:45"
       auto_light_day_level: 75
-      brightness_icons: [
-        "\udb80\udcde",  # Icon for 0-25% brightness
-        "\udb80\udcdd",  # Icon for 26-50% brightness
-        "\udb80\udcdf",  # Icon for 51-75% brightness
-        "\udb80\udce0"   # Icon for 76-100% brightness
-      ]
+      brightness_icons: [ "\udb80\udcde", "\udb80\udcdd", "\udb80\udcdf", "\udb80\udce0" ]
       brightness_menu:
         blur: true
         round_corners: true
@@ -341,19 +315,6 @@ widgets:
         left: 0
         bottom: 0
         right: 0
-  obs:
-    type: "yasb.obs.ObsWidget"
-    options:  
-      connection:
-        host: "172.31.208.1"
-        port: 4455
-        password: "observer"
-      icons:
-        recording: "\ueba7"
-        stopped: "\ueba5"
-        paused: "\ueba7"
-      hide_when_not_recording: false
-      blinking_icon: false
   cava:
     type: "yasb.cava.CavaWidget"
     options:
@@ -362,9 +323,9 @@ widgets:
       gradient: 1
       reverse: 0
       foreground: "#000000"
-      gradient_color_1: '#00ffff'
-      gradient_color_2: '#3fcfff'
-      gradient_color_3: '#7f7fff'
+      gradient_color_1: '#00cfcf'
+      gradient_color_2: '#289fcf'
+      gradient_color_3: '#5f5fcf'
       bars_number: 10
       bar_spacing: 0
       bar_width: 4
@@ -441,6 +402,30 @@ widgets:
         bottom: 0
         right: 0
       btn_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+  cpu:
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "<span>\uf4bc</span> {info[percent][total]}%"
+      label_alt: "<span>\uf437</span> {info[histograms][cpu_percent]}"
+      update_interval: 2000
+      histogram_icons:
+        - '\u2581' # 0%
+        - '\u2581' # 10%
+        - '\u2582' # 20%
+        - '\u2583' # 30%
+        - '\u2584' # 40%
+        - '\u2585' # 50%
+        - '\u2586' # 60%
+        - '\u2587' # 70%
+        - '\u2588' # 80%+
+      histogram_num_columns: 8
+      callbacks:
+        on_right: "do_nothing"
+      label_shadow:
         enabled: false
         color: "black"
         radius: 3
