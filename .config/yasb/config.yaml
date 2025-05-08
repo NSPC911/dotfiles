@@ -34,11 +34,7 @@ bars:
       right: 0
     widgets:
       left: []
-      center: [
-        "cava",
-        "media",
-        "cava"
-      ]
+      center: ["cava","media","cava"]
       right: []
     layouts:
       center:
@@ -75,24 +71,9 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: [
-        "power_menu",
-        "active_window"
-      ]
-      center: [
-        "clock",
-        "obs"
-      ]
-      right: [
-        "komorebi_active_layout",
-        "komorebi_workspaces",
-        "bluetooth",
-        "wifi",
-        "brightness",
-        "battery",
-        "volume",
-        "notifications"
-      ]
+      left: ["power_menu","active_window"]
+      center: ["clock"]
+      right: ["komorebi_active_layout", "komorebi_workspaces", "bluetooth", "wifi", "brightness", "battery", "volume", "notifications"]
 #    layouts:
 #      center:
 #        alignment: "center"
@@ -341,19 +322,6 @@ widgets:
         left: 0
         bottom: 0
         right: 0
-  obs:
-    type: "yasb.obs.ObsWidget"
-    options:  
-      connection:
-        host: "172.31.208.1"
-        port: 4455
-        password: "observer"
-      icons:
-        recording: "\ueba7"
-        stopped: "\ueba5"
-        paused: "\ueba7"
-      hide_when_not_recording: false
-      blinking_icon: false
   cava:
     type: "yasb.cava.CavaWidget"
     options:
@@ -362,9 +330,9 @@ widgets:
       gradient: 1
       reverse: 0
       foreground: "#000000"
-      gradient_color_1: '#00ffff'
-      gradient_color_2: '#3fcfff'
-      gradient_color_3: '#7f7fff'
+      gradient_color_1: '#00cfcf'
+      gradient_color_2: '#289fcf'
+      gradient_color_3: '#5f5fcf'
       bars_number: 10
       bar_spacing: 0
       bar_width: 4

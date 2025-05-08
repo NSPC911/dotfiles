@@ -19,8 +19,8 @@ h = "no_op"
 "C-right" = [":buffer-next"]
 "C-left" = [":buffer-previous"]
 "tab" = ["rotate_view"]
-"C" = [":clipboard-yank"]
-"X" = [":clipboard-yank", "delete_selection"]
+"C-c" = [":clipboard-yank"]
+"C-x" = [":clipboard-yank", "delete_selection"]
 "S-v" = "paste_after"
 esc = ["collapse_selection", "keep_primary_selection"]
 # try to fix this i guess
