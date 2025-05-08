@@ -1,0 +1,82 @@
+theme = "nordic"
+[keys.normal]
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+A-c = [":insert-output vscode"]
+i = "move_visual_line_up"
+j = "move_char_left"
+k = "move_visual_line_down"
+l = "move_char_right"
+"C-j" = "move_prev_word_end"
+"C-l" = "move_next_word_start"
+ins = "insert_mode"
+a = "no_op"
+I = "no_op"
+A = "no_op"
+C-s = ":w"
+C-S-s = ":wa"
+C-w = ":q"
+C-S-x = ":qa"
+A-i = "insert_mode"
+C-z = "undo"
+C-y = "redo"
+C-f = "search"
+C-S-f = "rsearch"
+C-o = "file_picker_in_current_directory"
+h = "no_op"
+"C-S-up" = [":hsplit", "rotate_view"]
+"C-S-down" = ["hsplit"]
+"C-S-left" = [":vsplit", "rotate_view"]
+"C-S-right" = [":vsplit"]
+"C-right" = [":buffer-next"]
+"C-left" = [":buffer-previous"]
+"tab" = ["rotate_view"]
+"C-c" = [":clipboard-yank"]
+"C-x" = [":clipboard-yank", "delete_selection"]
+# try to fix this i guess
+# "C-w" = { "i" = "jump_view_up", "j" = "jump_view_left", "k" = "jump_view_down", "l" = "jump_view-right" }
+[keys.select]
+i = "extend_visual_line_up"
+j = "extend_char_left"
+k = "extend_visual_line_down"
+l = "extend_char_right"
+ins = "insert_mode"
+a = "no_op"
+I = "no_op"
+A = "no_op"
+C-c = ":clipboard-yank"
+"C-x" = [":clipboard-yank", "delete_selection"]
+[keys.insert]
+C-s = ["normal_mode", ":w"]
+C-x = ":q"
+C-S-s = ":wa"
+C-S-x = ":qa"
+"A-v" = "select_mode"
+"A-i" = "move_visual_line_up"
+"A-j" = "move_char_left"
+"A-k" = "move_visual_line_down"
+"A-l" = "move_char_right"
+C-z = "undo"
+C-y = "redo"
+C-f = "search"
+C-S-f = "rsearch"
+C-o = "file_picker_in_current_directory"
+esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
+[editor]
+scrolloff = 0
+scroll-lines = 1
+cursorline = true
+[editor.inline-diagnostics]
+cursor-line = "info"
+other-lines = "info"
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator", "read-only-indicator"]
+center = []
+right = ["diagnostics", "position", "file-encoding", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+[editor.cursor-shape]
+normal = "underline"
+insert = "bar"
+select = "block"

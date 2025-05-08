@@ -1,0 +1,6 @@
+{
+    "alias":  {
+                  "upgrade":  "scoop-upgrade",
+                  "nuke":  "scoop-nuke"
+              }
+}
