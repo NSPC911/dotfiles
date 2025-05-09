@@ -126,7 +126,7 @@ function taskfind {
 }
 
 ##### better sudo (not really) #####
-function sd { Start-Process powershell -Verb RunAs -ArgumentList "-Command cd '$pwd'; Clear-Host ; $args ; Write-Output 'This window will close in 5 seconds' ; Start-Sleep -Seconds 5" }
+function sd { Start-Process powershell -Verb RunAs -ArgumentList "-Command cd '$pwd'; Clear-Host ; $args ; Write-Output 'This window will close in 5 seconds' ; Start-Sleep -Seconds 1" }
 
 ##### Other stuff #####
 fastfetch
