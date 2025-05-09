@@ -164,8 +164,8 @@ widgets:
       label: "{%A, %d %B %H:%M:%S}"
       timezones: []
       calendar:
-        blur: true
-        round_corners: false
+        blur: false
+        round_corners: true
         alignment: "center"
         direction: "up"
       callbacks:
