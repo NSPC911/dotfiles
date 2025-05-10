@@ -8,7 +8,7 @@
   "border": false,
   "border_width": 5,
   "border_offset": 0,
-  "mouse_follows_focus": true,
+  "mouse_follows_focus": false,
   "animation": {
     "enabled": true,
     "duration": 100,
