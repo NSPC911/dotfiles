@@ -75,9 +75,19 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: ["power_menu","active_window"]
+      left: ["power_menu", "active_window"]
       center: ["clock"]
-      right: ["komorebi_active_layout", "komorebi_workspaces", "bluetooth", "wifi", "brightness", "battery", "volume", "notifications"]
+      right:
+        [
+          "komorebi_active_layout",
+          "komorebi_workspaces",
+          "bluetooth",
+          "wifi",
+          "brightness",
+          "battery",
+          "volume",
+          "notifications",
+        ]
 #    layouts:
 #      center:
 #        alignment: "center"
@@ -136,7 +146,7 @@ widgets:
         enabled: true
         color: "black"
         radius: 3
-        offset: [ 1, 1 ]
+        offset: [1, 1]
       container_padding:
         top: 0
         left: 10
@@ -203,7 +213,7 @@ widgets:
     options:
       label: "<span>{icon}</span>"
       label_alt: "<span>{icon}</span> {device_name}"
-      icons: 
+      icons:
         bluetooth_on: "\udb80\udcaf"
         bluetooth_off: "\udb80\udcb2"
         bluetooth_connected: "\udb80\udcb1"
@@ -262,7 +272,14 @@ widgets:
         on_middle: "do_nothing"
         on_left: "toggle_label"
       ethernet_icon: "\ueba9"
-      wifi_icons: [ "\udb82\udd2e", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28" ]
+      wifi_icons:
+        [
+          "\udb82\udd2e",
+          "\udb82\udd1f",
+          "\udb82\udd22",
+          "\udb82\udd25",
+          "\udb82\udd28",
+        ]
       container_padding:
         top: 0
         left: 0
@@ -298,7 +315,8 @@ widgets:
       auto_light_night_start_time: "19:00"
       auto_light_night_end_time: "06:45"
       auto_light_day_level: 75
-      brightness_icons: [ "\udb80\udcde", "\udb80\udcdd", "\udb80\udcdf", "\udb80\udce0" ]
+      brightness_icons:
+        ["\udb80\udcde", "\udb80\udcdd", "\udb80\udcdf", "\udb80\udce0"]
       brightness_menu:
         blur: true
         round_corners: true
@@ -307,9 +325,9 @@ widgets:
         alignment: "right"
         direction: "down"
       callbacks:
-          on_left: "toggle_brightness_menu"
-          on_middle: "toggle_level_next"
-          on_right: "exec cmd.exe /c start ms-settings:display"
+        on_left: "toggle_brightness_menu"
+        on_middle: "toggle_level_next"
+        on_right: "exec cmd.exe /c start ms-settings:display"
       container_padding:
         top: 0
         left: 0
@@ -318,15 +336,15 @@ widgets:
   cava:
     type: "yasb.cava.CavaWidget"
     options:
-      bar_height: 30
+      bar_height: 35
       min_bar_height: 0
       gradient: 1
-      reverse: 0
+      reverse: 1
       foreground: "#000000"
-      gradient_color_1: '#00cfcf'
-      gradient_color_2: '#289fcf'
-      gradient_color_3: '#5f5fcf'
       bars_number: 10
+      gradient_color_1: "#008888"
+      gradient_color_2: "#226688"
+      gradient_color_3: "#444488"
       bar_spacing: 0
       bar_width: 4
       sleep_timer: 2
@@ -341,7 +359,17 @@ widgets:
     options:
       hide_if_offline: true
       label: "{icon} {layout_name}"
-      layouts: ['bsp', 'columns', 'rows', 'grid', 'vertical_stack', 'horizontal_stack', 'ultrawide_vertical_stack','right_main_vertical_stack']
+      layouts:
+        [
+          "bsp",
+          "columns",
+          "rows",
+          "grid",
+          "vertical_stack",
+          "horizontal_stack",
+          "ultrawide_vertical_stack",
+          "right_main_vertical_stack",
+        ]
       layout_icons:
         bsp: "\uebeb"
         columns: "\uebf7"
@@ -357,9 +385,9 @@ widgets:
         paused: "\udb83\udf89"
         tiling: "\udb81\ude40"
       callbacks:
-        on_left: 'toggle_layout_menu'
-        on_middle: 'next_layout'
-        on_right: 'prev_layout'
+        on_left: "toggle_layout_menu"
+        on_middle: "next_layout"
+        on_right: "prev_layout"
       layout_menu:
         blur: true
         round_corners: true
@@ -370,7 +398,7 @@ widgets:
         offset_top: 0
         offset_left: 0
         show_layout_icons: true
-      container_padding: 
+      container_padding:
         top: 0
         left: 0
         bottom: 0
@@ -379,7 +407,7 @@ widgets:
         enabled: false
         color: "black"
         radius: 3
-        offset: [ 1, 1 ]
+        offset: [1, 1]
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
@@ -396,7 +424,7 @@ widgets:
         enabled: false
         tiling_label: "Tiling"
         floating_label: "Floating"
-      container_padding: 
+      container_padding:
         top: 0
         left: 0
         bottom: 0
@@ -405,7 +433,7 @@ widgets:
         enabled: false
         color: "black"
         radius: 3
-        offset: [ 1, 1 ]
+        offset: [1, 1]
   cpu:
     type: "yasb.cpu.CpuWidget"
     options:
@@ -429,4 +457,4 @@ widgets:
         enabled: false
         color: "black"
         radius: 3
-        offset: [ 1, 1 ]
+        offset: [1, 1]

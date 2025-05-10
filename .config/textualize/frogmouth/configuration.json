@@ -1,8 +1,5 @@
 {
-    "light_mode": false,
-    "markdown_extensions": [
-        ".md",
-        ".markdown"
-    ],
-    "navigation_left": true
+  "light_mode": false,
+  "markdown_extensions": [".md", ".markdown"],
+  "navigation_left": true
 }

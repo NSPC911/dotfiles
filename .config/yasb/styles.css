@@ -59,7 +59,7 @@ QToolTip {
 }
 
 .task-bar .container-center {
-  background-color: rgba(29, 29, 29, 1);
+  background-color: rgba(29, 29, 29, 0.75);
   border-radius: 8px;
   padding-left: 8px;
   padding-right: 5px;
@@ -112,13 +112,13 @@ QToolTip {
   margin-bottom: 8px;
   font-size: 16px;
   font-weight: 500;
-  color: var(--overlay2)
+  color: var(--overlay2);
 }
 
 .power-menu-popup .button .icon {
   font-size: 64px;
   padding-top: 32px;
-  color: var(--surface2)
+  color: var(--surface2);
 }
 
 .power-menu-popup .button.cancel .icon {
@@ -172,7 +172,7 @@ QToolTip {
 }
 
 .media-widget .btn.prev {
-  padding: 0 1px 0 10px
+  padding: 0 1px 0 10px;
 }
 
 .media-widget .btn:hover {
@@ -236,7 +236,6 @@ QToolTip {
   border-radius: 3px;
   background-color: #bac2de;
   padding: 2px 4px;
-
 }
 
 .media-menu .source.firefox {
@@ -282,7 +281,7 @@ QToolTip {
 
 .media-menu .btn.play {
   background-color: rgba(255, 255, 255, 0.1);
-  font-size: 20px
+  font-size: 20px;
 }
 
 .media-menu .btn.disabled:hover,
@@ -309,7 +308,6 @@ QToolTip {
   height: 2px;
   border-radius: 3px;
   background: rgba(255, 255, 255, 0.1);
-
 }
 
 .media-menu .progress-slider::groove:hover {
@@ -326,7 +324,7 @@ QToolTip {
 }
 
 .komorebi-layout-menu {
-  background-color: rgba(17, 17, 27, 0.4)
+  background-color: rgba(17, 17, 27, 0.4);
 }
 
 .komorebi-layout-menu .menu-item {
