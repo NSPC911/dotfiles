@@ -1,3 +1,4 @@
+#:schema https://zakj.github.io/helix-theme-schema/theme.json
 # Nordic theme for Helix
 # From https://github.com/5-pebbles/nordic-helix
 # Author : Owen Friedman <5-pebble@protonmail.com>
@@ -5,28 +6,51 @@
 
 # Syntax Highlighting
 "attribute" = { fg = "yellow_base" }
-"type" = { fg = "yellow_bright" }
-"type.enum.variant" = { fg = "cyan_bright" }
 "constructor" = { fg = "cyan_bright" }
-"constant" = { fg = "magenta_bright" }
-"constant.character" = { fg = "green_base" }
-"constant.character.escape" = { fg = "magenta_bright" }
-"string" = { fg = "green_base" }
-"string.regex" = { fg = "magenta_bright" }
-"comment" = { fg = "gray4", modifiers = ["italic"] }
-"variable" = { fg = "white0" }
-"variable.builtin" = { fg = "blue0" }
-"variable.other.member" = { fg = "cyan_bright" }
 "label" = { fg = "orange_base", modifiers = ["bold"] }
-"punctuation.delimiter" = { fg = "gray5", modifiers = ["italic"] }
-"punctuation.special" = { fg = "orange_base" }
-"keyword" = { fg = "orange_base" }
 "operator" = { fg = "white0" }
-"function" = { fg = "blue2" }
-"function.macro" = { fg = "red_base" }
 "tag" = { fg = "blue1" }
 "namespace" = { fg = "yellow_dim" }
 "special" = { fg = "orange_base" } # fuzzy highlight (picker)
+
+# types
+"type" = { fg = "yellow_bright" }
+"type.enum.variant" = { fg = "cyan_bright" }
+
+# constants
+"constant" = { fg = "magenta_bright" }
+"constant.character" = { fg = "green_base" }
+"constant.character.escape" = { fg = "magenta_bright" }
+
+# string
+"string" = { fg = "green_base" }
+"string.regex" = { fg = "magenta_bright" }
+
+# variables
+"variable" = { fg = "white0" }
+"variable.builtin" = { fg = "blue0" }
+"variable.parameter" = { fg = "whiteblue0" }
+"variable.other.member" = { fg = "cyan_bright" }
+
+# functions
+"function" = { fg = "blue2" }
+"function.macro" = { fg = "red_base" }
+
+# punctuations
+"punctuation.delimiter" = { fg = "gray5", modifiers = ["italic"] }
+"punctuation.special" = { fg = "orange_base" }
+
+# comments
+"comment" = { fg = "gray4", modifiers = ["italic"] }
+
+# keywords
+"keyword" = { fg = "orange_base" }
+"keyword.control.conditional" = { fg = "orange_bright", modifiers = ["bold"] }
+"keyword.control.import" = { fg = "green_base", modifiers = ["bold"]}
+"keyword.control.return" = { fg = "gray6" }
+"keyword.control.exception" = { fg = "red_dim" }
+"keyword.operator" = { fg = "yellow_dim" }
+"keyword.function" = { fg = "orange_dim" }
 
 # Markup Formatting
 "markup.heading.1" = { fg = "yellow_base", modifiers = ["bold"] }
@@ -38,13 +62,19 @@
 "markup.bold" = { modifiers = ["bold"] }
 "markup.italic" = { modifiers = ["italic"] }
 "markup.list" = { fg = "orange_base" }
-"markup.link" = { fg = "blue1", "underline.style" = "line" }
+"markup.link.url" = { fg = "blue1", modifiers = ["underlined"] }
+"markup.link.label" = { fg = "blue2", modifiers = ["underlined"] }
+"markup.link.text" = { fg = "magenta_dim"}
 "markup.quote" = { fg = "gray4", modifiers = ["italic"] }
+"markup.raw" = { bg = "black0", fg = "white2" }
+"markup.raw.block" = { bg = "black0", fg = "white2" }
+"markup.raw.inline" = { bg = "black0", fg = "white2" }
 
 # Diffs
 "diff.plus" = { fg = "green_base" }
 "diff.minus" = { fg = "red_base" }
-"diff.delta" = { fg = "blue1" }
+"diff.delta" = { fg = "blue0" }
+"diff.delta.moved" = { bg = "blue2" }
 
 # UI
 "ui.background" = { fg = "white0", bg = "black2" }
@@ -55,16 +85,17 @@
 "ui.linenr.selected" = { fg = "gray4" }
 "ui.statusline" = { fg = "white0", bg = "black0" }
 "ui.statusline.inactive" = { fg = "gray4", bg = "black0" }
-"ui.statusline.normal" = { bg = "red_dim", fg = "black0" }
-"ui.statusline.insert" = { bg = "cyan_base", fg = "gray4" }
-"ui.statusline.select" = { bg = "yellow_base", fg = "gray4" }
+"ui.statusline.normal" = { bg = "gray5", fg = "black0" }
+"ui.statusline.insert" = { bg = "cyan_dim", fg = "black0" }
+"ui.statusline.select" = { bg = "blue0", fg = "black0" }
 "ui.popup" = { bg = "black1" }
+"ui.popup.info" = { bg = "gray0", fg = "white0" }
 "ui.window" = { fg = "gray4" }
 "ui.help" = { bg = "black1" }
 "ui.text.focus" = { bg = "gray2" }
 "ui.virtual.ruler" = { bg = "gray1" }
-"ui.menu" = { bg = "black1" }
-"ui.menu.selected" = { bg = "gray4" }
+"ui.menu" = { bg = "black1", fg = "white0" }
+"ui.menu.selected" = { bg = "white0", fg = "black1" }
 "ui.menu.scroll" = { fg = "gray4", bg = "gray0" } # fg sets thumb color, bg sets track color of scrollbar
 "ui.selection" = { bg = "gray2" }
 "ui.cursorline.primary" = { bg = "gray1" }
@@ -97,6 +128,8 @@ gray4 = "#4C566A"
 # a light blue/gray
 # from @nightfox.nvim
 gray5 = "#60728A"
+# extra grays
+gray6 = "#727F9A"
 
 # White
 # reduce_blue variant
@@ -105,6 +138,8 @@ white0 = "#C0C8D8"
 white1 = "#D8DEE9"
 white2 = "#E5E9F0"
 white3 = "#ECEFF4"
+
+whiteblue0 = "#C1D0D1"
 
 # Blue
 # Frost
