@@ -13,7 +13,6 @@ C-y = "redo"
 C-f = "search"
 C-S-f = "rsearch"
 C-o = "file_picker_in_current_directory"
-h = "no_op"
 "C-S-up" = [":hsplit", "rotate_view"]
 "C-S-down" = ["hsplit"]
 "C-S-left" = [":vsplit", "rotate_view"]
@@ -21,7 +20,7 @@ h = "no_op"
 "C-right" = [":buffer-next"]
 "C-left" = [":buffer-previous"]
 "tab" = ["rotate_view"]
-"C-c" = [":clipboard-yank"]
+"C-c" = ":clipboard-yank"
 "C-x" = [":clipboard-yank", "delete_selection"]
 "S-v" = "paste_after"
 esc = ["collapse_selection", "keep_primary_selection"]
@@ -29,15 +28,29 @@ esc = ["collapse_selection", "keep_primary_selection"]
 "j" = "move_char_left"
 "k" = "move_visual_line_down"
 "l" = "move_char_right"
-"A-i" = "insert_mode"
 "=" = "increment"
 "-" = "decrement"
-"u" = "no_op"
-"S-u" = "no_op"
-"?" = "no_op"
-C-r = ":config-reload"
 "w" = "@<C-w>" # easier to press 'w' than press 'C-w'
+"A-I" = "append_mode"
+"A-i" = "insert_mode"
+"I" = "extend_line_up"
+"J" = "extend_char_left"
+"K" = "extend_line_down"
+"L" = "extend_char_right"
+"u" = "move_prev_word_end"
+"S-u" = "extend_prev_word_end"
+"o" = "move_next_word_start"
+"S-o" = "extend_next_word_start"
 
+"W" = "no_op"
+"a" = "no_op"
+"A" = "no_op"
+"e" = "no_op"
+"E" = "no_op"
+"?" = "no_op"
+"h" = "no_op"
+"b" = "no_op"
+"B" = "no_op"
 # goto mode (why is there two versions)
 [keys.normal.g]
 i = "page_up"
@@ -123,6 +136,7 @@ H = "no_op"
 [keys.normal."space"]
 w = "@<C-w>"
 c = "changed_file_picker"
+r = ":config-reload"
 d = "no_op"
 D = "no_op"
 S = "no_op"
@@ -172,6 +186,7 @@ cursorline = true
 line-number = "absolute"
 continue-comments = false
 color-modes = true
+popup-border = "all"
 [editor.inline-diagnostics]
 cursor-line = "info"
 other-lines = "info"

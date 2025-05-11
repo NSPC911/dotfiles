@@ -68,7 +68,7 @@ bars:
       #hide_on_desktop: true
     dimensions:
       width: "100%"
-      height: 26
+      height: 36
     padding:
       top: 0
       left: 0
@@ -413,7 +413,7 @@ widgets:
     options:
       label_offline: ""
       label_workspace_btn: ""
-      label_workspace_active_btn: "\uee03\uee04\uee05"
+      label_workspace_active_btn: "\uee03\uee04\uee04\uee05"
       label_workspace_populated_btn: "\uee00\uee02"
       label_default_name: ""
       label_zero_index: false
