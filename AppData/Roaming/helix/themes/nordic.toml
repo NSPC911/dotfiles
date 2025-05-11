@@ -55,6 +55,9 @@
 "ui.linenr.selected" = { fg = "gray4" }
 "ui.statusline" = { fg = "white0", bg = "black0" }
 "ui.statusline.inactive" = { fg = "gray4", bg = "black0" }
+"ui.statusline.normal" = { bg = "red_dim", fg = "black0" }
+"ui.statusline.insert" = { bg = "cyan_base", fg = "gray4" }
+"ui.statusline.select" = { bg = "yellow_base", fg = "gray4" }
 "ui.popup" = { bg = "black1" }
 "ui.window" = { fg = "gray4" }
 "ui.help" = { bg = "black1" }
