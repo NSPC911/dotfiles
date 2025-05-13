@@ -344,7 +344,7 @@ QToolTip {
   margin-right: -1px;
 }
 
-.yasb-ber .active-window-widget,
+.yasb-bar .active-window-widget,
 .yasb-bar .clock-widget,
 .yasb-bar .notification-widget {
   border-top-right-radius: 8px;
