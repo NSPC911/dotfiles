@@ -241,10 +241,10 @@ QToolTip {
 }
 
 .media-widget .label {
-  background-color: rgba(24, 24, 37, 0.5);
+  background-color: rgba(24, 24, 37, 0.375);
   color: #bac2db;
   font-size: 12px;
-  padding: 10px 0
+  padding: 0px;
 }
 
 .power-menu-popup {
@@ -301,8 +301,8 @@ QToolTip {
 .task-bar .container-center {
   background-color: rgba(29, 29, 29, 0.75);
   border-radius: 8px;
-  padding-left: 8px;
-  padding-right: 5px
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .uptime {
@@ -321,7 +321,7 @@ QToolTip {
 }
 
 .widget {
-  padding: 0 8px
+  padding: 0 8px;
 }
 
 .widget .label {

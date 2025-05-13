@@ -6,6 +6,43 @@ komorebi:
   stop_command: "komorebic stop --whkd --masir"
   reload_command: "komorebic stop --whkd --masir && komorebic start --whkd --masir"
 bars:
+  cava-bar:
+    enabled: true
+    screens: ["*"]
+    class_name: "cava-bar"
+    alignment:
+      position: "bottom"
+      center: true
+    animation:
+      enabled: false
+      duration: 1000
+    blur_effect:
+      enabled: false
+      acrylic: false
+      dark_mode: false
+      round_corners: false
+      round_corners_type: "small"
+      border_color: "System"
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+      hide_on_fullscreen: true
+    dimensions:
+      width: "100%"
+      height: 48
+    padding:
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+    widgets:
+      left: []
+      center: ["cava"]
+      right: []
+    layouts:
+      center:
+        alignment: "center"
+        stretch: true
   task-bar:
     enabled: true
     screens: ["*"]
@@ -38,7 +75,7 @@ bars:
       right: 0
     widgets:
       left: []
-      center: ["cava", "cpu", "media", "cava"]
+      center: ["cpu", "media"]
       right: []
     layouts:
       center:
@@ -116,8 +153,8 @@ widgets:
       controls_only: false
       controls_left: false
       thumbnail_alpha: 255
-      thumbnail_padding: 8
-      thumbnail_corner_radius: 8
+      thumbnail_padding: 24
+      thumbnail_corner_radius: 0
       icons:
         prev_track: "\ue892"
         next_track: "\ue893"
@@ -149,9 +186,9 @@ widgets:
         offset: [1, 1]
       container_padding:
         top: 0
-        left: 10
+        left: 0
         bottom: 0
-        right: 10
+        right: 0
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
@@ -336,17 +373,17 @@ widgets:
   cava:
     type: "yasb.cava.CavaWidget"
     options:
-      bar_height: 35
+      bar_height: 40
       min_bar_height: 0
       gradient: 1
       reverse: 1
       foreground: "#000000"
-      bars_number: 10
-      gradient_color_1: "#008888"
-      gradient_color_2: "#226688"
-      gradient_color_3: "#444488"
+      bars_number: 100
+      gradient_color_1: "#00FFFF"
+      gradient_color_2: "#40BFFF"
+      gradient_color_3: "#7F7FFF"
       bar_spacing: 0
-      bar_width: 4
+      bar_width: 10
       sleep_timer: 2
       hide_empty: true
       container_padding:
