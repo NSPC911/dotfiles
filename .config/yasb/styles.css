@@ -5,7 +5,7 @@
   --flamingo: #f2cdcd;
   --green: #a6e3a1;
   --lavender: #b4befe;
-  --main: rgba(29, 29, 29, 1);
+  --main: rgba(29, 29, 29, 0.75);
   --mantle: rgba(24, 24, 37, 0.5);
   --maroon: #eba0ac;
   --mauve: #cba6f7;
@@ -19,7 +19,7 @@
   --sapphire: #74c7ec;
   --sky: #89dceb;
   --subtext0: #a6adc8;
-  --subtext1: #bac2de;
+  --subtext1: #c2c2de;
   --surface0: #282936;
   --surface1: #45475a;
   --surface2: #585b70;
