@@ -5,7 +5,7 @@
   --flamingo: #f2cdcd;
   --green: #a6e3a1;
   --lavender: #b4befe;
-  --main: rgba(29, 29, 29, 1);
+  --main: rgba(29, 29, 29, 0.75);
   --mantle: rgba(24, 24, 37, 0.5);
   --maroon: #eba0ac;
   --mauve: #cba6f7;
@@ -19,7 +19,7 @@
   --sapphire: #74c7ec;
   --sky: #89dceb;
   --subtext0: #a6adc8;
-  --subtext1: #bac2de;
+  --subtext1: #c2c2de;
   --surface0: #282936;
   --surface1: #45475a;
   --surface2: #585b70;
@@ -210,7 +210,7 @@ QToolTip {
   border-radius: 0;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  padding: 0
+  padding: 0 !important
 }
 
 .media-widget .btn {
@@ -241,10 +241,11 @@ QToolTip {
 }
 
 .media-widget .label {
-  background-color: rgba(24, 24, 37, 0.5);
+  background-color: rgba(24, 24, 37, 0.375);
   color: #bac2db;
   font-size: 12px;
-  padding: 10px 0
+  padding: 0px;
+  padding-right: 10px;
 }
 
 .power-menu-popup {
@@ -301,8 +302,8 @@ QToolTip {
 .task-bar .container-center {
   background-color: rgba(29, 29, 29, 0.75);
   border-radius: 8px;
-  padding-left: 8px;
-  padding-right: 5px
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .uptime {
@@ -321,7 +322,7 @@ QToolTip {
 }
 
 .widget {
-  padding: 0 8px
+  padding: 0 8px;
 }
 
 .widget .label {
@@ -331,7 +332,7 @@ QToolTip {
 .yasb-bar {
   border-radius: 0px;
   margin: 0;
-  padding: 4.5px 10px 5.5px 10px;
+  padding: 5px 13px 5px 13px;
 }
 
 .yasb-bar .widget {
@@ -344,7 +345,7 @@ QToolTip {
   margin-right: -1px;
 }
 
-.yasb-ber .active-window-widget,
+.yasb-bar .active-window-widget,
 .yasb-bar .clock-widget,
 .yasb-bar .notification-widget {
   border-top-right-radius: 8px;
