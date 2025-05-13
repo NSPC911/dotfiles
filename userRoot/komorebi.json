@@ -9,6 +9,7 @@
   "border_width": 5,
   "border_offset": -1,
   "mouse_follows_focus": true,
+  "transparency": true,
   "animation": {
     "enabled": true,
     "duration": 100,
