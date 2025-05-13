@@ -210,7 +210,7 @@ QToolTip {
   border-radius: 0;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  padding: 0
+  padding: 0 !important
 }
 
 .media-widget .btn {
@@ -245,6 +245,7 @@ QToolTip {
   color: #bac2db;
   font-size: 12px;
   padding: 0px;
+  padding-right: 10px;
 }
 
 .power-menu-popup {
@@ -331,7 +332,7 @@ QToolTip {
 .yasb-bar {
   border-radius: 0px;
   margin: 0;
-  padding: 4.5px 13px 5.5px 13px;
+  padding: 5px 13px 5px 13px;
 }
 
 .yasb-bar .widget {
