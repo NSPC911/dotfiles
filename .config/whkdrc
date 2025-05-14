@@ -1,7 +1,7 @@
 .shell powershell
 
 # Reload whkd configuration
-alt + o                  : komorebic stop --whkd --masir && komorebic restore-windows && komorebic start --whkd --masir
+alt + o                  : komorebic stop --whkd --masir ; komorebic restore-windows ; komorebic start --whkd --masir
 
 # App shortcuts - these require shell to be pwsh / powershell
 # The apps will be focused if open, or launched if not open
