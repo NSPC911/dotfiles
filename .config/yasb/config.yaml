@@ -373,7 +373,7 @@ widgets:
   cava:
     type: "yasb.cava.CavaWidget"
     options:
-      bar_height: 40
+      bar_height: 48
       min_bar_height: 0
       gradient: 1
       reverse: 1
@@ -383,7 +383,7 @@ widgets:
       gradient_color_2: "#40BFFF"
       gradient_color_3: "#7F7FFF"
       bar_spacing: 0
-      bar_width: 10
+      bar_width: 12
       sleep_timer: 2
       hide_empty: true
       container_padding:
