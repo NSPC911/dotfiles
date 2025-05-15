@@ -187,6 +187,7 @@ line-number = "absolute"
 continue-comments = false
 color-modes = true
 popup-border = "all"
+bufferline = "always"
 [editor.inline-diagnostics]
 cursor-line = "info"
 other-lines = "info"
