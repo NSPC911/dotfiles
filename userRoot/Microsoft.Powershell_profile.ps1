@@ -93,14 +93,23 @@ function goto {
     }
 }
 function pyvenv() {
-    if (-not (Test-Path venv)) {
+    if (Test-Path .venv) {
+        echo "Using .venv"
+        echo "Activating virtual environment"
+        .\.venv\Scripts\Activate.ps1
+    } elseif (-not (Test-Path venv)) {
         echo "Creating new virtual environment"
         uv venv venv
     }
-    echo "Activating virtual environment"
-    .\venv\Scripts\Activate.ps1
-    if (Test-Path requirements.txt) {
-        echo "Installing Packages"
+    if (Test-Path venv) {
+        echo "Activating virtual environment"
+        .\venv\Scripts\Activate.ps1
+    }
+    if (Test-Path pyproject.toml) {
+        echo "Installing packages with 'pyproject.toml'"
+        uv sync --active
+    } elseif (Test-Path requirements.txt) {
+        echo "Installing packages with 'requirements.txt'"
         uv pip install -r requirements.txt
     } else {
         echo "Creating a new requirements.txt"

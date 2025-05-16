@@ -112,6 +112,7 @@ L = "vsplit"
 "C-j" = "swap_view_left"
 "C-k" = "swap_view_down"
 "C-l" = "swap_view_right"
+w = ":buffer-close"
 t = "no_op"
 "C-t" = "no_op"
 f = "no_op"
@@ -124,7 +125,6 @@ v = "no_op"
 s = "no_op"
 "C-v" = "no_op"
 "C-s" = "no_op"
-w = "no_op"
 "C-w" = "no_op"
 H = "no_op"
 "left" = "no_op"
@@ -150,6 +150,7 @@ P = "no_op"
 R = "no_op"
 "/" = "no_op"
 k = "no_op"
+n = ":new"
 # select mode
 [keys.select]
 i = "extend_visual_line_up"
@@ -159,7 +160,6 @@ l = "extend_char_right"
 ins = "insert_mode"
 "C" = ":clipboard-yank"
 "X" = [":clipboard-yank", "delete_selection"]
-
 
 # insert mode
 [keys.insert]
@@ -188,6 +188,9 @@ continue-comments = false
 color-modes = true
 popup-border = "all"
 bufferline = "always"
+auto-format = false
+preview-completion-insert = false
+completion-trigger-len = 1
 [editor.inline-diagnostics]
 cursor-line = "info"
 other-lines = "info"
