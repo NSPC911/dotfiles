@@ -160,7 +160,6 @@ ins = "insert_mode"
 "C" = ":clipboard-yank"
 "X" = [":clipboard-yank", "delete_selection"]
 
-
 # insert mode
 [keys.insert]
 C-s = ["normal_mode", ":w"]
@@ -188,6 +187,9 @@ continue-comments = false
 color-modes = true
 popup-border = "all"
 bufferline = "always"
+auto-format = false
+preview-completion-insert = false
+completion-trigger-len = 1
 [editor.inline-diagnostics]
 cursor-line = "info"
 other-lines = "info"
