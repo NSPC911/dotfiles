@@ -196,6 +196,9 @@ bufferline = "always"
 auto-format = false
 preview-completion-insert = false
 completion-trigger-len = 1
+[editor.file-picker]
+hidden = false
+parents = false
 [editor.inline-diagnostics]
 cursor-line = "info"
 other-lines = "info"
