@@ -357,3 +357,7 @@ QToolTip {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
+
+.komorebi-active-layout {
+  margin-right: -1px
+}
