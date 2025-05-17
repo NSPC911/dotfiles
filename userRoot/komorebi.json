@@ -19,8 +19,8 @@
   "transparency": false,
   "transparency_alpha": 233,
   "animation": {
-    "enabled": false,
-    "duration": 100,
+    "enabled": true,
+    "duration": 75,
     "fps": 30,
     "style": "EaseInOutCubic"
   },

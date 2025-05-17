@@ -1,3 +1,15 @@
 {
-  "theme": "Squircle"
+  "theme": "Squircle",
+  "controlStyles[0].target": "Taskbar.ExperienceToggleButton#LaunchListButton[AutomationProperties.AutomationId=StartButton] > Taskbar.TaskListButtonPanel@CommonStates > Border#BackgroundElement",
+  "controlStyles[0].styles[0]": "Background@InactiveNormal:=<ImageBrush ImageSource=\"<your-loc>/scp-logo.png\" />",
+  "controlStyles[1].target": "Taskbar.ExperienceToggleButton#LaunchListButton[AutomationProperties.AutomationId=StartButton] > Taskbar.TaskListButtonPanel > Microsoft.UI.Xaml.Controls.AnimatedVisualPlayer#Icon",
+  "controlStyles[1].styles[0]": "Visibility=Collapsed",
+  "controlStyles[0].styles[1]": "Background@InactivePointerOver:=<ImageBrush ImageSource=\"<your-loc>/scp-logo.png\" />",
+  "controlStyles[0].styles[2]": "Background@InactivePressed:=<ImageBrush ImageSource=\"<your-loc>/scp-logo.png\" />",
+  "controlStyles[2].target": "Taskbar.TaskListButtonPanel#ExperienceToggleButtonRootPanel",
+  "controlStyles[2].styles[0]": "Padding=0,0,0,0",
+  "controlStyles[0].styles[3]": "BorderThickness=0",
+  "controlStyles[0].styles[4]": "Background@ActiveNormal:=<ImageBrush ImageSource=\"<your-loc>/scp-logo.png\" />",
+  "controlStyles[0].styles[5]": "Background@ActivePointerOver:=<ImageBrush ImageSource=\"<your-loc>/scp-logo.png\" />",
+  "controlStyles[0].styles[6]": "Background@ActivePressed:=<ImageBrush ImageSource=\"<your-loc>/scp-logo.png\" />"
 }

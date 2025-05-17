@@ -20,6 +20,8 @@ C-o = "file_picker_in_current_directory"
 "C-right" = [":buffer-next"]
 "C-left" = [":buffer-previous"]
 "tab" = ["rotate_view"]
+"{" = ":buffer-previous"
+"}" = ":buffer-next"
 "C-c" = ":clipboard-yank"
 "C-x" = [":clipboard-yank", "delete_selection"]
 "S-v" = "paste_after"
@@ -41,7 +43,9 @@ esc = ["collapse_selection", "keep_primary_selection"]
 "S-u" = "extend_prev_word_end"
 "o" = "move_next_word_start"
 "S-o" = "extend_next_word_start"
+"C-a" = "select_all"
 
+"%" = "no_op"
 "W" = "no_op"
 "a" = "no_op"
 "A" = "no_op"
@@ -137,6 +141,8 @@ H = "no_op"
 w = "@<C-w>"
 c = "changed_file_picker"
 r = ":config-reload"
+n = ":new"
+"A-F" = [":write", ":sh prettier --write %{buffer_name}", ":reload"]
 d = "no_op"
 D = "no_op"
 S = "no_op"
@@ -150,7 +156,6 @@ P = "no_op"
 R = "no_op"
 "/" = "no_op"
 k = "no_op"
-n = ":new"
 # select mode
 [keys.select]
 i = "extend_visual_line_up"
@@ -158,8 +163,13 @@ j = "extend_char_left"
 k = "extend_visual_line_down"
 l = "extend_char_right"
 ins = "insert_mode"
-"C" = ":clipboard-yank"
-"X" = [":clipboard-yank", "delete_selection"]
+u = "extend_prev_word_end"
+o = "extend_next_word_start"
+"C-c" = ":clipboard-yank"
+"C-x" = [":clipboard-yank", "delete_selection"]
+"?" = "no_op"
+"A-i" = "insert_mode"
+
 
 # insert mode
 [keys.insert]
@@ -191,6 +201,9 @@ bufferline = "always"
 auto-format = false
 preview-completion-insert = false
 completion-trigger-len = 1
+[editor.file-picker]
+hidden = false
+parents = false
 [editor.inline-diagnostics]
 cursor-line = "info"
 other-lines = "info"
