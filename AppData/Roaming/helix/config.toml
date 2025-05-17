@@ -163,8 +163,13 @@ j = "extend_char_left"
 k = "extend_visual_line_down"
 l = "extend_char_right"
 ins = "insert_mode"
-"C" = ":clipboard-yank"
-"X" = [":clipboard-yank", "delete_selection"]
+u = "extend_prev_word_end"
+o = "extend_next_word_start"
+"C-c" = ":clipboard-yank"
+"C-x" = [":clipboard-yank", "delete_selection"]
+"?" = "no_op"
+"A-i" = "insert_mode"
+
 
 # insert mode
 [keys.insert]
