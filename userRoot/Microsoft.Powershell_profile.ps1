@@ -137,5 +137,10 @@ function taskfind {
 ##### better sudo (not really) #####
 function sd { Start-Process powershell -Verb RunAs -ArgumentList "-Command cd '$pwd'; Clear-Host ; $args ; Write-Output 'This window will close in 5 seconds' ; Start-Sleep -Seconds 1" }
 
+##### ffmpeg extract one #####
+function extractFrame {
+    ffmpeg -i "$args" -vf "select=eq(n\,0)" -update 1 -frames:v 1 -q:v 3 output.jpg
+}
+
 ##### Other stuff #####
 fastfetch
