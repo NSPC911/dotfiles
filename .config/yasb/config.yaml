@@ -7,7 +7,7 @@ komorebi:
   reload_command: "komorebic stop --whkd --masir && komorebic start --whkd --masir"
 bars:
   cava-bar:
-    enabled: true
+    enabled: false
     screens: ["*"]
     class_name: "cava-bar"
     alignment:

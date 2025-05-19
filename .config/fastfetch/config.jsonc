@@ -8,7 +8,10 @@
     "title",
     "separator",
     "os",
-    "host",
+    {
+      "type": "host",
+      "format": "{family} | {name} | {version}"
+    },
     "uptime",
     "packages",
     "shell",
@@ -19,9 +22,13 @@
     "cpu",
     "gpu",
     "memory",
-    "swap",
     "disk",
     "battery",
-    "poweradapter"
+    "poweradapter",
+    "editor",
+    {
+      "type": "media",
+      "format": "{status} {title} - {artist}"
+    }
   ]
 }
