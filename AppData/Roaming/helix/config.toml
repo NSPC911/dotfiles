@@ -57,6 +57,7 @@ b = "no_op"
 B = "no_op"
 C-d = "no_op"
 C-u = "no_op"
+
 # goto mode (why is there two versions)
 [keys.normal.g]
 i = "page_up"
@@ -80,6 +81,7 @@ w = "no_op"
 s = "no_op"
 h = "no_op"
 g = "no_op"
+
 [keys.select.g]
 i = "page_up"
 j = "goto_first_nonwhitespace"
@@ -119,6 +121,8 @@ C-j = "swap_view_left"
 C-k = "swap_view_down"
 C-l = "swap_view_right"
 w = ":buffer-close"
+W = ":buffer-close!"
+
 t = "no_op"
 C-t = "no_op"
 f = "no_op"
