@@ -60,6 +60,11 @@ QToolTip {
   background-color: rgba(51, 51, 51, 0.5)
 }
 
+.cpu-widget {
+  padding-left: 13px;
+  padding-top: 0;
+}
+
 .icon {
   font-size: 16px
 }
@@ -208,8 +213,8 @@ QToolTip {
 
 .media-widget {
   border-radius: 0;
-  margin-left: -8px !important;
-  margin-right: -8px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   padding: 0 !important
 }
 
@@ -360,4 +365,12 @@ QToolTip {
 
 .komorebi-active-layout {
   margin-right: -1px
+}
+.komorebi-workspaces .ws-btn {
+  background: transparent !important;
+}
+.komorebi-workspaces .ws-btn:hover {
+  background: transparent !important;.komorebi-workspaces .ws-btn:hover {
+    background: transparent !important;
+  }
 }
