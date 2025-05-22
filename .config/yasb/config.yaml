@@ -6,43 +6,6 @@ komorebi:
   stop_command: "komorebic stop --whkd --masir"
   reload_command: "komorebic stop --whkd --masir && komorebic start --whkd --masir"
 bars:
-  cava-bar:
-    enabled: false
-    screens: ["*"]
-    class_name: "cava-bar"
-    alignment:
-      position: "bottom"
-      center: true
-    animation:
-      enabled: false
-      duration: 1000
-    blur_effect:
-      enabled: false
-      acrylic: false
-      dark_mode: false
-      round_corners: false
-      round_corners_type: "small"
-      border_color: "System"
-    window_flags:
-      always_on_top: false
-      windows_app_bar: false
-      hide_on_fullscreen: true
-    dimensions:
-      width: "100%"
-      height: 48
-    padding:
-      top: 0
-      left: 0
-      bottom: 0
-      right: 0
-    widgets:
-      left: []
-      center: ["cava"]
-      right: []
-    layouts:
-      center:
-        alignment: "center"
-        stretch: true
   task-bar:
     enabled: true
     screens: ["*"]
@@ -75,7 +38,7 @@ bars:
       right: 0
     widgets:
       left: []
-      center: ["cpu", "media"]
+      center: ["cpu", "media_album", "media_controls"]
       right: []
     layouts:
       center:
@@ -136,7 +99,7 @@ bars:
 #        alignment: "right"
 #        stretch: false
 widgets:
-  media:
+  media_album:
     type: "yasb.media.MediaWidget"
     options:
       label: "{title}"
@@ -152,6 +115,7 @@ widgets:
       show_thumbnail: true
       controls_only: false
       controls_left: false
+      controls_hide: true
       thumbnail_alpha: 255
       thumbnail_padding: 24
       thumbnail_corner_radius: 0
@@ -165,9 +129,9 @@ widgets:
         round_corners: true
         round_corners_type: "normal"
         border_color: "system"
-        alignment: "right"
-        direction: "down"
-        offset_top: 6
+        alignment: "center"
+        direction: "up"
+        offset_top: 0
         offset_left: 0
         thumbnail_corner_radius: 8
         thumbnail_size: 120
@@ -180,7 +144,61 @@ widgets:
         prev_track: "\ue892"
         next_track: "\ue893"
       label_shadow:
-        enabled: true
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+  media_controls:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: "{title}"
+      label_alt: "{title} - {artist}"
+      hide_empty: true
+      callbacks:
+        on_left: "do_nothing"
+        on_right: "do_nothing"
+        on_middle: "do_nothing"
+      max_field_size:
+        label: 50
+        label_alt: 75
+      show_thumbnail: false
+      controls_only: true
+      controls_left: false
+      controls_hide: false
+      thumbnail_alpha: 255
+      thumbnail_padding: 0
+      thumbnail_corner_radius: 0
+      icons:
+        prev_track: "\ue892"
+        next_track: "\ue893"
+        play: "\ue768"
+        pause: "\ue769"
+      media_menu:
+        blur: false
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "center"
+        direction: "up"
+        offset_top: 0
+        offset_left: 0
+        thumbnail_corner_radius: 8
+        thumbnail_size: 120
+        max_title_size: 80
+        max_artist_size: 20
+        show_source: true
+      media_menu_icons:
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+      label_shadow:
+        enabled: false
         color: "black"
         radius: 3
         offset: [1, 1]
@@ -214,7 +232,8 @@ widgets:
         blur: false
         round_corners: true
         alignment: "center"
-        direction: "up"
+        direction: "down"
+        offset_top: 6
       callbacks:
         on_left: "toggle_calendar"
         on_middle: "next_timezone"
@@ -449,12 +468,12 @@ widgets:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
       label_offline: ""
-      label_workspace_btn: ""
+      label_workspace_btn: "\uea72"
       label_workspace_active_btn: "\uee03\uee04\uee04\uee05"
       label_workspace_populated_btn: "\uee00\uee02"
       label_default_name: ""
       label_zero_index: false
-      hide_empty_workspaces: true
+      hide_empty_workspaces: false
       hide_if_offline: true
       animation: false
       toggle_workspace_layer:

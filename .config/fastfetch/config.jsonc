@@ -10,7 +10,7 @@
     "os",
     {
       "type": "host",
-      "format": "{family} | {name} | {version}"
+      "format": "{name}"
     },
     "uptime",
     "packages",

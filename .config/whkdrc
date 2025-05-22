@@ -18,7 +18,11 @@ alt + 6                 : komorebic focus-workspace 5
 alt + 7                 : komorebic focus-workspace 6
 alt + 8                 : komorebic focus-workspace 7
 
-# Move windows across workspaces
+## Cycle Workspace
+alt + oem_comma         : komorebic cycle-workspace previous
+alt + oem_period        : komorebic cycle-workspace next
+
+# Move windows across Workspaces
 alt + shift + 1         : komorebic move-to-workspace 0
 alt + shift + 2         : komorebic move-to-workspace 1
 alt + shift + 3         : komorebic move-to-workspace 2
@@ -27,6 +31,10 @@ alt + shift + 5         : komorebic move-to-workspace 4
 alt + shift + 6         : komorebic move-to-workspace 5
 alt + shift + 7         : komorebic move-to-workspace 6
 alt + shift + 8         : komorebic move-to-workspace 7
+
+## Cycle move windows across Workspaces
+alt + shift + oem_comma : komorebic cycle-move-to-workspace previous
+alt + shift + oem_period: komorebic cycle-move-to-workspace next
 
 # Focus windows
 alt + vk_left           : komorebic focus left
@@ -56,7 +64,7 @@ alt + w                 : komorebic close
 alt + m                 : komorebic minimize
 
 # Window manager options
-alt + shift + r         : komorebic retile
+alt + shift + r         : komorebic manage
 alt + p                 : komorebic toggle-pause
 
 # Layouts

@@ -33,7 +33,15 @@ Set-Alias -Name "whereis" -Value "where.exe"
 function Remove-Location { Remove-Item -Recurse -Force $args }
 Set-Alias -Name rmloc -Value Remove-Location
 
-function Search-For-String { Invoke-Expression "rg --ignore-case --pretty --context-separator=... $args"}
+function Search-For-String {
+    param(
+        [Parameter(Position = 0)]
+        [string]$ItemToSearchFor,
+
+        [Parameter(ValueFromRemainingArguments)]
+        [string[]]$AdditionalArgs
+    )
+    Invoke-Expression "rg --ignore-case --pretty --context-separator=... `"$ItemToSearchFor`" $AdditionalArgs"}
 Set-Alias -Name searchfor -Value Search-For-String
 
 function symlink {
