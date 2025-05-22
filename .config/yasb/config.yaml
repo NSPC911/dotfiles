@@ -6,43 +6,6 @@ komorebi:
   stop_command: "komorebic stop --whkd --masir"
   reload_command: "komorebic stop --whkd --masir && komorebic start --whkd --masir"
 bars:
-  cava-bar:
-    enabled: false
-    screens: ["*"]
-    class_name: "cava-bar"
-    alignment:
-      position: "bottom"
-      center: true
-    animation:
-      enabled: false
-      duration: 1000
-    blur_effect:
-      enabled: false
-      acrylic: false
-      dark_mode: false
-      round_corners: false
-      round_corners_type: "small"
-      border_color: "System"
-    window_flags:
-      always_on_top: false
-      windows_app_bar: false
-      hide_on_fullscreen: true
-    dimensions:
-      width: "100%"
-      height: 48
-    padding:
-      top: 0
-      left: 0
-      bottom: 0
-      right: 0
-    widgets:
-      left: []
-      center: ["cava"]
-      right: []
-    layouts:
-      center:
-        alignment: "center"
-        stretch: true
   task-bar:
     enabled: true
     screens: ["*"]
@@ -165,9 +128,9 @@ widgets:
         round_corners: true
         round_corners_type: "normal"
         border_color: "system"
-        alignment: "right"
-        direction: "down"
-        offset_top: 6
+        alignment: "center"
+        direction: "up"
+        offset_top: 0
         offset_left: 0
         thumbnail_corner_radius: 8
         thumbnail_size: 120
@@ -180,7 +143,7 @@ widgets:
         prev_track: "\ue892"
         next_track: "\ue893"
       label_shadow:
-        enabled: true
+        enabled: false
         color: "black"
         radius: 3
         offset: [1, 1]
@@ -214,7 +177,8 @@ widgets:
         blur: false
         round_corners: true
         alignment: "center"
-        direction: "up"
+        direction: "down"
+        offset_top: 6
       callbacks:
         on_left: "toggle_calendar"
         on_middle: "next_timezone"
