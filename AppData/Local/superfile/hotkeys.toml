@@ -52,6 +52,6 @@ parent_directory = ['j', 'left', 'backspace']
 search_bar = ['/', '']
 # =================================================================================================
 # Select mode hotkeys (can conflict with other modes, cannot conflict with global hotkeys)
-file_panel_select_mode_items_select_down = ['shift+down', 'J']
-file_panel_select_mode_items_select_up = ['shift+up', 'K']
+file_panel_select_mode_items_select_down = ['shift+down', 'K']
+file_panel_select_mode_items_select_up = ['shift+up', 'I']
 file_panel_select_all_items = ['A', '']

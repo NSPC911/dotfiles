@@ -468,9 +468,9 @@ widgets:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
       label_offline: ""
-      label_workspace_btn: "\uea72"
-      label_workspace_active_btn: "\uee03\uee04\uee04\uee05"
-      label_workspace_populated_btn: "\uee00\uee02"
+      label_workspace_btn: "\uf0c8"
+      label_workspace_active_btn: "\uf0c8"
+      label_workspace_populated_btn: "\uf0c8"
       label_default_name: ""
       label_zero_index: false
       hide_empty_workspaces: false

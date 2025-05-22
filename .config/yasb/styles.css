@@ -367,10 +367,27 @@ QToolTip {
   margin-right: -1px
 }
 .komorebi-workspaces .ws-btn {
-  background: transparent !important;
+  background: #333;
+  border-radius: 6px;
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  margin: 0 1px;
+  color: transparent;
+}
+.komorebi-workspaces .ws-btn.populated {
+  background: #777
+}
+.komorebi-workspaces .ws-btn.active {
+  background: #bbb;
+  width: 36px;
 }
 .komorebi-workspaces .ws-btn:hover {
-  background: transparent !important;.komorebi-workspaces .ws-btn:hover {
-    background: transparent !important;
-  }
+  background: #666;
+}
+.komorebi-workspaces .ws-btn.populated:hover {
+  background: #aaa
+}
+.komorebi-workspaces .ws-btn.active:hover {
+  background: #fff
 }
