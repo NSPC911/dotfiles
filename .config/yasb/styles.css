@@ -368,9 +368,12 @@ QToolTip {
 }
 .komorebi-workspaces .ws-btn {
   background: transparent !important;
+  color: #444;
+}
+.komorebi-workspaces .ws-btn.populated,
+.komorebi-workspaces .ws-btn.active {
+  color: white;
 }
 .komorebi-workspaces .ws-btn:hover {
-  background: transparent !important;.komorebi-workspaces .ws-btn:hover {
-    background: transparent !important;
-  }
+  background: transparent !important;
 }
