@@ -57,6 +57,7 @@ b = "no_op"
 B = "no_op"
 C-d = "no_op"
 C-u = "no_op"
+Z = "no_op"
 
 # goto mode (why is there two versions)
 [keys.normal.g]
@@ -122,7 +123,9 @@ C-k = "swap_view_down"
 C-l = "swap_view_right"
 w = ":buffer-close"
 W = ":buffer-close!"
+Q = "wonly"
 
+o = "no_op"
 t = "no_op"
 C-t = "no_op"
 f = "no_op"
@@ -163,6 +166,28 @@ P = "no_op"
 R = "no_op"
 "/" = "no_op"
 k = "no_op"
+
+[keys.normal.z]
+i = "page_up"
+j = "goto_first_nonwhitespace"
+J = "goto_line_start"
+k = "page_down"
+l = "goto_line_end_newline"
+I = "page_cursor_up"
+K = "page_cursor_down"
+"backspace" = "no_op"
+"C-u" = "no_op"
+"pageup" = "no_op"
+"pagedown" = "no_op"
+c = "no_op"
+z = "no_op"
+b = "no_op"
+t = "no_op"
+"C-b" = "no_op"
+"space" = "no_op"
+"C-z" = "no_op"
+"C-f" = "no_op"
+
 # select mode
 [keys.select]
 i = "extend_visual_line_up"
