@@ -17,8 +17,6 @@ C-S-up = [":hsplit", "rotate_view"]
 C-S-down = ["hsplit"]
 C-S-left = [":vsplit", "rotate_view"]
 C-S-right = [":vsplit"]
-C-right = [":buffer-next"]
-C-left = [":buffer-previous"]
 tab = ["rotate_view"]
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
@@ -44,6 +42,7 @@ S-u = "extend_prev_word_end"
 o = "move_next_word_start"
 S-o = "extend_next_word_start"
 C-a = "select_all"
+"ret" = "insert_newline"
 
 "%" = "no_op"
 W = "no_op"
@@ -57,6 +56,7 @@ b = "no_op"
 B = "no_op"
 C-d = "no_op"
 C-u = "no_op"
+Z = "no_op"
 
 # goto mode (why is there two versions)
 [keys.normal.g]
@@ -122,7 +122,9 @@ C-k = "swap_view_down"
 C-l = "swap_view_right"
 w = ":buffer-close"
 W = ":buffer-close!"
+Q = "wonly"
 
+o = "no_op"
 t = "no_op"
 C-t = "no_op"
 f = "no_op"
@@ -142,6 +144,15 @@ right = "no_op"
 up = "no_op"
 down = "no_op"
 
+[keys.normal."C-w"."n"]
+s = "no_op"
+C-s = "no_op"
+v = "no_op"
+C-v = "no_op"
+i = "hsplit_new"
+j = "vsplit_new"
+k = "hsplit_new"
+l = "vsplit_new"
 # space mode, my favourite
 [keys.normal."space"]
 w = "@<C-w>"
@@ -163,6 +174,28 @@ P = "no_op"
 R = "no_op"
 "/" = "no_op"
 k = "no_op"
+
+[keys.normal.z]
+i = "page_up"
+j = "goto_first_nonwhitespace"
+J = "goto_line_start"
+k = "page_down"
+l = "goto_line_end_newline"
+I = "page_cursor_up"
+K = "page_cursor_down"
+"backspace" = "no_op"
+"C-u" = "no_op"
+"pageup" = "no_op"
+"pagedown" = "no_op"
+c = "no_op"
+z = "no_op"
+b = "no_op"
+t = "no_op"
+"C-b" = "no_op"
+"space" = "no_op"
+"C-z" = "no_op"
+"C-f" = "no_op"
+
 # select mode
 [keys.select]
 i = "extend_visual_line_up"
