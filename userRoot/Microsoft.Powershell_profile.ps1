@@ -5,6 +5,7 @@ oh-my-posh init powershell --config $env:USERPROFILE\.config\kushal.omp.json | O
 uv generate-shell-completion powershell | Out-String | Invoke-Expression
 regolith completion powershell | Out-String | Invoke-Expression
 zoxide init powershell --cmd zd | Out-String | Invoke-Expression
+onefetch --generate powershell | Out-String | Invoke-Expression
 
 ##### Superfile Go To Last Dir #####
 function spf {
