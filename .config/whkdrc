@@ -22,6 +22,10 @@ alt + 8                 : komorebic focus-workspace 7
 alt + oem_comma         : komorebic cycle-workspace previous
 alt + oem_period        : komorebic cycle-workspace next
 
+## Manipulate Workspace
+alt + shift + n         : komorebic new-workspace
+alt + shift + w         : komorebic close-workspace
+
 # Move windows across Workspaces
 alt + shift + 1         : komorebic move-to-workspace 0
 alt + shift + 2         : komorebic move-to-workspace 1
