@@ -77,28 +77,28 @@
 "diff.delta.moved" = { bg = "blue2" }
 
 # UI
-"ui.background" = { fg = "white0", bg = "black2" }
 "ui.cursor" = { fg = "black1", bg = "gray4" }
 "ui.cursor.primary" = { fg = "black1", bg = "white0" }
+"ui.background" = {}
 "ui.cursor.match" = { modifiers = ["bold"] }
 "ui.linenr" = { fg = "gray2" }
 "ui.linenr.selected" = { fg = "gray4" }
 "ui.statusline" = { fg = "white0", bg = "black0" }
-"ui.statusline.inactive" = { fg = "gray4", bg = "black0" }
+"ui.statusline.inactive" = {}
 "ui.statusline.normal" = { bg = "gray5", fg = "black0" }
 "ui.statusline.insert" = { bg = "cyan_dim", fg = "black0" }
 "ui.statusline.select" = { bg = "blue0", fg = "black0" }
-"ui.popup" = { bg = "black1" }
-"ui.popup.info" = { bg = "gray0", fg = "white0" }
-"ui.window" = { fg = "gray4" }
-"ui.help" = { bg = "black1" }
+"ui.popup" = {}
+"ui.popup.info" = {}
+"ui.window" = {}
+"ui.help" = {}
 "ui.text.focus" = { bg = "gray2" }
 "ui.virtual.ruler" = { bg = "gray1" }
-"ui.menu" = { bg = "black1", fg = "white0" }
+"ui.menu" = {}
 "ui.menu.selected" = { bg = "white0", fg = "black1" }
 "ui.menu.scroll" = { fg = "gray4", bg = "gray0" } # fg sets thumb color, bg sets track color of scrollbar
 "ui.selection" = { bg = "gray2" }
-"ui.cursorline.primary" = { bg = "gray1" }
+"ui.cursorline.primary" = { bg = "gray0" }
 
 # Diagnostic Messages
 "error" = { fg = "red_base" }
