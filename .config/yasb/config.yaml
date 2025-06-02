@@ -68,7 +68,7 @@ bars:
       #hide_on_desktop: true
     dimensions:
       width: "100%"
-      height: 36
+      height: 31
     padding:
       top: 0
       left: 0
