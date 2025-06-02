@@ -13,10 +13,6 @@ C-y = "redo"
 C-f = "search"
 C-S-f = "rsearch"
 C-o = "file_picker_in_current_directory"
-C-S-up = [":hsplit", "rotate_view"]
-C-S-down = ["hsplit"]
-C-S-left = [":vsplit", "rotate_view"]
-C-S-right = [":vsplit"]
 tab = ["rotate_view"]
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
@@ -43,6 +39,7 @@ o = "move_next_word_start"
 S-o = "extend_next_word_start"
 C-a = "select_all"
 "ret" = "insert_newline"
+A-j = "save_selection"
 
 "%" = "no_op"
 W = "no_op"
@@ -227,6 +224,7 @@ C-y = "redo"
 C-f = "search"
 C-o = "file_picker_in_current_directory"
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
+A-J = "save_selection"
 
 ## editor config
 [editor]
