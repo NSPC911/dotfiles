@@ -40,6 +40,7 @@ S-o = "extend_next_word_start"
 C-a = "select_all"
 "ret" = "insert_newline"
 A-j = "save_selection"
+A-F = [":insert-output prettier --write %{buffer_name}", "delete_selection", ":reload"]
 
 "%" = "no_op"
 W = "no_op"
@@ -120,6 +121,7 @@ C-l = "swap_view_right"
 w = ":buffer-close"
 W = ":buffer-close!"
 Q = "wonly"
+R = ":reload-all"
 
 o = "no_op"
 t = "no_op"
@@ -156,8 +158,12 @@ w = "@<C-w>"
 c = "changed_file_picker"
 r = ":config-reload"
 n = ":new"
-A-F = [":write", ":sh prettier --write %{buffer_name}", ":reload"]
 o = ":config-open"
+f = "file_explorer"
+F = "file_explorer_in_current_directory"
+b = "file_explorer_in_current_buffer_directory"
+e = "no_op"
+E = "no_op"
 d = "no_op"
 D = "no_op"
 S = "no_op"
@@ -240,15 +246,15 @@ auto-format = false
 preview-completion-insert = false
 completion-trigger-len = 1
 [editor.file-picker]
-hidden = false
-parents = false
+hidden = true
+parents = true
 [editor.inline-diagnostics]
 cursor-line = "info"
 other-lines = "error"
 [editor.statusline]
-left = ["mode", "spinner", "file-name", "file-modification-indicator", "read-only-indicator"]
+left = ["mode", "version-control", "file-name", "file-modification-indicator", "spinner", "read-only-indicator"]
 center = []
-right = ["diagnostics", "position", "file-encoding", "file-encoding"]
+right = ["file-encoding", "diagnostics", "position", "total-line-numbers"]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
@@ -260,3 +266,8 @@ select = "block"
 [editor.indent-guides]
 render = true
 character = ""
+[editor.lsp]
+display-inlay-hints = true
+[editor.soft-wrap]
+enable = false
+wrap-indicator = "   󱞶 "
