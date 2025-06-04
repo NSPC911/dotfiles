@@ -11,7 +11,7 @@
 "operator" = { fg = "white0" }
 "tag" = { fg = "blue1" }
 "namespace" = { fg = "yellow_dim" }
-"special" = { fg = "orange_base" } # fuzzy highlight (picker)
+"special" = { fg = "orange_base" }                     # fuzzy highlight (picker)
 
 # types
 "type" = { fg = "yellow_bright" }
@@ -46,7 +46,7 @@
 # keywords
 "keyword" = { fg = "orange_base" }
 "keyword.control.conditional" = { fg = "orange_bright", modifiers = ["bold"] }
-"keyword.control.import" = { fg = "green_base", modifiers = ["bold"]}
+"keyword.control.import" = { fg = "green_base", modifiers = ["bold"] }
 "keyword.control.return" = { fg = "gray6" }
 "keyword.control.exception" = { fg = "red_dim" }
 "keyword.operator" = { fg = "yellow_dim" }
@@ -64,7 +64,7 @@
 "markup.list" = { fg = "orange_base" }
 "markup.link.url" = { fg = "blue1", modifiers = ["underlined"] }
 "markup.link.label" = { fg = "blue2", modifiers = ["underlined"] }
-"markup.link.text" = { fg = "magenta_dim"}
+"markup.link.text" = { fg = "magenta_dim" }
 "markup.quote" = { fg = "gray4", modifiers = ["italic"] }
 "markup.raw" = { bg = "black0", fg = "white2" }
 "markup.raw.block" = { bg = "black0", fg = "white2" }
@@ -80,11 +80,14 @@
 "ui.cursor" = { fg = "black1", bg = "gray4" }
 "ui.cursor.primary" = { fg = "black1", bg = "white0" }
 "ui.background" = {}
+"ui.bufferline" = {}
+"ui.bufferline.active" = { underline = { color = "gray4", style = "line" } }
 "ui.cursor.match" = { modifiers = ["bold"] }
-"ui.linenr" = { fg = "gray2" }
-"ui.linenr.selected" = { fg = "gray4" }
-"ui.statusline" = { fg = "white0", bg = "black0" }
-"ui.statusline.inactive" = {}
+"ui.linenr" = { fg = "gray6" }
+"ui.linenr.selected" = { fg = "white3" }
+"ui.statusline" = { bg = "black0" }
+"ui.gutter.selected" = { bg = "black0" }
+"ui.statusline.inactive" = { bg = "black0" }
 "ui.statusline.normal" = { bg = "gray5", fg = "black0" }
 "ui.statusline.insert" = { bg = "cyan_dim", fg = "black0" }
 "ui.statusline.select" = { bg = "blue0", fg = "black0" }
@@ -96,9 +99,9 @@
 "ui.virtual.ruler" = { bg = "gray1" }
 "ui.menu" = {}
 "ui.menu.selected" = { bg = "white0", fg = "black1" }
-"ui.menu.scroll" = { fg = "gray4", bg = "gray0" } # fg sets thumb color, bg sets track color of scrollbar
+"ui.menu.scroll" = { fg = "gray4", bg = "gray0" }                            # fg sets thumb color, bg sets track color of scrollbar
 "ui.selection" = { bg = "gray2" }
-"ui.cursorline.primary" = { bg = "gray0" }
+"ui.cursorline.primary" = {}
 
 # Diagnostic Messages
 "error" = { fg = "red_base" }
@@ -110,6 +113,11 @@
 "diagnostic.info" = { underline = { color = "blue1", style = "curl" } }
 "diagnostic.hint" = { underline = { color = "green_base", style = "curl" } }
 
+# Requires PR:13666
+"ui.statusline.version-control" = { fg = "black0", bg = "green_bright" }
+"ui.statusline.file-modification-indicator" = { fg = "red", modifiers = [ "bold" ] }
+"ui.statusline.position" = { fg = "white", bg = "gray4" }
+"ui.statusline.diagnostics" = { bg = "magenta_base" }
 
 # Color Palette
 [palette]
