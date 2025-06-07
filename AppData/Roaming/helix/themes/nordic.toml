@@ -85,7 +85,7 @@
 "ui.cursor.match" = { modifiers = ["bold"] }
 "ui.linenr" = { fg = "gray6" }
 "ui.linenr.selected" = { fg = "white3" }
-"ui.statusline" = { bg = "black0" }
+"ui.statusline" = { bg = "black2" }
 "ui.gutter.selected" = { bg = "black0" }
 "ui.statusline.inactive" = { bg = "black0" }
 "ui.statusline.normal" = { bg = "gray5", fg = "black0" }
@@ -99,7 +99,7 @@
 "ui.virtual.ruler" = { bg = "gray1" }
 "ui.menu" = {}
 "ui.menu.selected" = { bg = "white0", fg = "black1" }
-"ui.menu.scroll" = { fg = "gray4", bg = "gray0" }                            # fg sets thumb color, bg sets track color of scrollbar
+"ui.menu.scroll" = { fg = "white1", bg = "gray0" }                            # fg sets thumb color, bg sets track color of scrollbar
 "ui.selection" = { bg = "gray2" }
 "ui.cursorline.primary" = {}
 
@@ -117,8 +117,10 @@
 "ui.statusline.version-control" = { fg = "black0", bg = "green_bright" }
 "ui.statusline.file-modification-indicator" = { fg = "red", modifiers = [ "bold" ] }
 "ui.statusline.position" = { fg = "white", bg = "gray4" }
-"ui.statusline.diagnostics" = { bg = "magenta_base" }
 
+"ui.statusline.inactive.version-control" = { fg = "black0", bg = "green_dim" }
+"ui.statusline.inactive.file-modification-indicator" = { fg = "red_dim", modifiers = [ "bold" ] }
+"ui.statusline.inactive.position" = { fg = "white", bg = "gray2" }
 # Color Palette
 [palette]
 # Black
