@@ -224,7 +224,7 @@ function taskfind {
 }
 
 ##### better sudo (not really) #####
-function sd { Start-Process powershell -Verb RunAs -ArgumentList "-Command cd '$pwd'; Clear-Host ; $args ; Read-Host 'Exit Now?'" }
+function sd { Start-Process pwsh -Verb RunAs -ArgumentList "-Command cd '$pwd'; Clear-Host ; $args ; Read-Host 'Exit Now?'" }
 
 ##### ffmpeg extract one #####
 function extractFrame {
