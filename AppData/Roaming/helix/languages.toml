@@ -9,3 +9,8 @@ args = ["server"]
 [[language]]
 name = "python"
 language-servers = ["ruff", "pylsp"]
+
+[[language]]
+name = "scss"
+file-types = ["scss", "tcss"]
+injection-regex = "(t|s)?css"
