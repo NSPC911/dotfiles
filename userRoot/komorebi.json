@@ -20,9 +20,9 @@
   "transparency_alpha": 233,
   "animation": {
     "enabled": true,
-    "duration": 50,
-    "fps": 30,
-    "style": "EaseInOutCubic"
+    "duration": 500,
+    "fps": 60,
+    "style": "EaseOutExpo"
   },
   "theme": {
     "palette": "Base16",
