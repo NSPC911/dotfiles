@@ -4,8 +4,20 @@ oh-my-posh init powershell --config $HOME\.config\kushal.omp.json | Out-String |
 ##### Completions #####
 uv generate-shell-completion powershell | Out-String | Invoke-Expression
 regolith completion powershell | Out-String | Invoke-Expression
-zoxide init powershell --cmd zd | Out-String | Invoke-Expression
+zoxide init powershell --cmd zxd | Out-String | Invoke-Expression
 onefetch --generate powershell | Out-String | Invoke-Expression
+
+##### cool zoxide + onefetch #####
+function zd {
+	param (
+        [string[]]$Params
+    )
+	__zoxide_z @Params
+
+	if (Test-Path ".git") {
+		onefetch --no-color-palette --nerd-fonts
+	}
+}
 
 ##### Copilot really is built different bruh ####
 function ghcs {
@@ -156,25 +168,25 @@ function fzf {
     param(
         [Parameter(Position = 0)]
         [string]$SearchQuery,
-        
+
         [Parameter(ValueFromRemainingArguments)]
         [string[]]$AdditionalArgs
     )
-    
+
     $fzfArgs = @()
     if ($SearchQuery) {
         $fzfArgs += "-q"
-        $fzfArgs += "`"$SearchQuery`""
+        $fzfArgs += "$SearchQuery"
     }
     if ($AdditionalArgs) {
         $fzfArgs += $AdditionalArgs
     }
-    
+
     if ($fzfArgs.Count -gt 0) {
-        & fzf.exe $fzfArgs
+        & fzf.exe --border rounded --multi --separator "-" --input-border "rounded" --preview "bat --color always --number --theme Nord {}" --color "dark" --preview-border "rounded" $fzfArgs
     } else {
-        & fzf.exe
-    }
+        & fzf.exe --border rounded --multi --separator "-" --input-border "rounded" --preview "bat --color always --number --theme Nord {}" --color "dark" --preview-border "rounded"
+	}
 }
 
 
