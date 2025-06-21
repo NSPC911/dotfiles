@@ -44,10 +44,6 @@ A-F = [":insert-output prettier --write %{buffer_name}", "delete_selection", ":r
 A-c = "toggle_line_comments"
 A-C = "toggle_block_comments"
 
-x = "no_op"
-X = "no_op"
-p = "no_op"
-P = "no_op"
 "%" = "no_op"
 W = "no_op"
 a = "no_op"
@@ -132,7 +128,6 @@ Q = "wonly"
 R = ":reload-all"
 
 o = "no_op"
-t = "no_op"
 C-t = "no_op"
 f = "no_op"
 F = "no_op"
@@ -160,6 +155,7 @@ i = "hsplit_new"
 j = "vsplit_new"
 k = "hsplit_new"
 l = "vsplit_new"
+
 # space mode, my favourite
 [keys.normal."space"]
 w = "@<C-w>"
@@ -276,9 +272,7 @@ W = "no_op"
 # insert mode
 [keys.insert]
 C-s = ["normal_mode", ":w"]
-C-w = ":q"
 C-S-s = ":wa"
-C-S-w = ":qa"
 A-v = "select_mode"
 A-i = "move_visual_line_up"
 A-j = "move_char_left"
@@ -290,8 +284,10 @@ C-f = "search"
 C-o = "file_picker_in_current_directory"
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 A-J = "save_selection"
-j = {k = "@<esc>"}
+j = { k = "@<esc>" }
+g = { g = { i = "page_up", j = "goto_first_nonwhitespace", k = "page_down", l = "goto_line_end", J = "goto_line_start", L = "goto_line_end_newline" } }
 C-a = "select_all"
+w = { w = { r = "rotate_view", i = "jump_view_up", j = "jump_view_left", k = "jump_view_down", l = "jump_view_right", I = ["hsplit", "jump_view_up"], J = ["vsplit", "jump_view_right"], K = "hsplit", L = "vsplit", C-i = "swap_view_up", C-j = "swap_view_left", C-k = "swap_view_down", C-l = "swap_view_right", w = ":buffer-close", W = ":buffer-close!", Q = "wonly", R = ":reload-all" } }
 
 ## editor config
 [editor]
