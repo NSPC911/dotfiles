@@ -329,9 +329,11 @@ display-inlay-hints = true
 [editor.soft-wrap]
 enable = false
 wrap-indicator = "   󱞶 "
+[icons.kind]
+enabled = true
+workspace = " W"
 [icons.vcs]
 enabled = true
-icon = "⌬"
 [icons.mime]
 enabled = true
 [icons.diagnostic]

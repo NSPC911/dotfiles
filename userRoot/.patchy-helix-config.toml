@@ -1,84 +1,27 @@
-# Main github repository to fetch from.
-# This is going to be our base, into which we merge patches and pull requests.
-#
-# Examples
-#
-# repo = "helix-editor/helix"
-# repo = "microsoft/vscode"
-
 repo = "helix-editor/helix"
-
-# The main repository's branch
-#
-# Examples
-#
-# remote-branch = "master"
-# remote-branch = "main"
-#
-# The above always fetch the latest commit.
-# -> To use a specific commit, use the following syntax:
-#   remote-branch = "<branch> @ <hash-of-commit>"
-#
-# so for example:
-#
-# remote-branch = "master @ fccc58957eece10d0818dfa000bf5123e26ee32f"
 
 remote-branch = "master"
 
-# Branch which patchy will use to do all of its work on
-#
-# Examples
-#
-# local-branch = "some-branch-1234"
-
 local-branch = "patchy"
-
-# list of pull requests numbers which you would like to merge into the repository and branch you have specified previously
-#
-# Examples
-#
-# pull-requests = [ "12254", "10000", "8145" ]
-#
-# The above always fetch the latest commit for each pull request.
-#
-# To use a specific commit, use the following syntax:
-#   "<pull-request-number> @ <hash-of-commit>"
-#
-# so for example:
-#
-# pull-requests = [
-#   "12254",
-#   "10000 @ a556aeef3736a3b6b79bb9507d26224f5c0c3449",
-#   "8145 @ 840cb7e9982699ff107d0577691b5db9806b3b66"
-# ]
 
 pull-requests = [
   "12944", # ":left" ":center" and ":right"
   "13666", # status element styling
   "13197", # welcome screen
   "12806", # path in file picker
-  "12369", # icons
-  "13448", # harpoon2 for helix
-  #"8362", # scroll bufferline
+  "12369", # icons (disabled for testing)
+  # "13448", # harpoon2 for helix (need to look into what it does...)
+  # "8362", # scroll bufferline (merge conflict)
   "13206", # word completion
-  #"13530", # rainbow brackets
+  # "13530", # rainbow brackets (merge conflict)
   "7783", # horizontal picker preview
+  "11497", # rounded corners
+  # "13627", # better file sizes (merged)
+  # "12520", # Picker titles (merge conflict)
+  # "12902", # file explorer is a file explorer (merge conflict)
+  # "13306", # add custom icon for color swatches (merge conflict)
+  "13318", # allow themeing the diagnostics
+  # "12151", # allow themeing the items in completion (merge conflict)
 ]
-
-# Optional: A list of patches to apply
-#
-# A patch allows you to do specify custom commits and not have to rely on there being a pull request for that change
-#
-# You can generate patches from a commit with: `patchy gen-patch <commit-hash>`.
-# See `patchy gen-patch --help` for more info.
-#
-# Examples
-#
-# With the below config, patchy will look for the following files:
-# - `.patchy/my-patch123.patch`
-# - `.patchy/another-patch.patch`
-# - `.patchy/1234.patch`
-#
-# patches = [ "my-patch123", "another-patch", "1234" ]
 
 patches = []

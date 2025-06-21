@@ -11,7 +11,7 @@ bars:
     screens: ["*"]
     class_name: "media-area"
     alignment:
-      position: "bottom"
+      position: "top"
       center: true
     animation:
       enabled: false
@@ -30,11 +30,11 @@ bars:
       #hide_on_desktop: true
     dimensions:
       width: "100%"
-      height: 35
+      height: 31
     padding:
-      top: -54
+      top: 33
       left: 0
-      bottom: 54
+      bottom: -33
       right: 0
     widgets:
       left: ["media"]
@@ -168,9 +168,9 @@ widgets:
         round_corners_type: "normal"
         border_color: "system"
         alignment: "center"
-        direction: "up"
+        direction: "down"
         offset_top: 0
-        offset_left: 32
+        offset_left: 50
         thumbnail_corner_radius: 8
         thumbnail_size: 120
         max_title_size: 80
@@ -210,7 +210,8 @@ widgets:
   clock:
     type: "yasb.clock.ClockWidget"
     options:
-      label: "{%A, %d %B %H:%M:%S}"
+      label: "{%a %d %b %H:%M:%S}"
+      label_alt: "{%A %d %B %Y, %H:%M:%S}"
       timezones: []
       calendar:
         blur: false
@@ -378,10 +379,10 @@ widgets:
     options:
       bar_height: 42
       min_bar_height: 0
-      gradient: 1
+      gradient: 0
       reverse: 1
-      foreground: "#000000"
-      bars_number: 100
+      foreground: "#88C0D0"
+      bars_number: 110
       gradient_color_1: "#88C0D0"
       gradient_color_2: "#81A1C1"
       gradient_color_3: "#5E81AC"

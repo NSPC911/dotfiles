@@ -1,23 +1,8 @@
 :root {
-  --base: #1e1e2e;
-  --blue: #89b4fa;
-  --crust: rgba(17, 17, 27, 0.85);
-  --flamingo: #f2cdcd;
-  --green: #a6e3a1;
-  --lavender: #b4befe;
-  --main: #1D1D1DCC;
-  --mantle: rgba(24, 24, 37, 0.5);
-  --maroon: #eba0ac;
-  --mauve: #cba6f7;
+  --main: #2E34408F;
   --overlay0: #6c7086;
   --overlay1: #7f849c;
   --overlay2: #9399b2;
-  --peach: #fab387;
-  --pink: #f5c2e7;
-  --red: #f38ba8;
-  --rosewater: #f5e0dc;
-  --sapphire: #74c7ec;
-  --sky: #89dceb;
   --subtext0: #a6adc8;
   --subtext1: #c2c2de;
   --surface0: #282936;
@@ -75,12 +60,13 @@
   padding: 0
 }
 
-.brightness-menu, .audio-menu {
+.brightness-menu,
+.audio-menu {
   background-color: var(--nord-black2);
 }
 
 .calendar {
-  background-color: var(--nord-black0);
+  background-color: var(--main);
   border-radius: 8px
 }
 
@@ -96,6 +82,7 @@
 .cpu-widget {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  margin-left: 0px;
 }
 
 .icon {
@@ -326,11 +313,12 @@
 }
 
 .media-area {
-  padding: 7px 0 0 15px;
+  padding: 2px 0 0 12px;
 }
 
 .media-area .container-left {
-  background-color: rgba(29, 29, 29, 0.75);
+  background-color: var(--main);
+  border: 2px solid #3E5492;
   border-radius: 8px;
 }
 
@@ -367,20 +355,20 @@
   background-color: var(--main)
 }
 
-.yasb-bar .power-menu-widget {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  margin-right: -1px;
-}
-
 .yasb-bar .active-window-widget,
 .yasb-bar .notification-widget {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
 
+.clock-widget,
+.yasb-bar .power-menu-widget {
+  margin-right: -1px;
+}
+
 .yasb-bar .clock-widget,
-.yasb-bar .komorebi-active-layout {
+.yasb-bar .komorebi-active-layout,
+.yasb-bar .power-menu-widget {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
