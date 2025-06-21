@@ -6,10 +6,10 @@ komorebi:
   stop_command: "komorebic stop --whkd --masir"
   reload_command: "komorebic stop --whkd --masir && komorebic start --whkd --masir"
 bars:
-  task-bar:
+  media-area:
     enabled: true
     screens: ["*"]
-    class_name: "task-bar"
+    class_name: "media-area"
     alignment:
       position: "bottom"
       center: true
@@ -30,15 +30,53 @@ bars:
       #hide_on_desktop: true
     dimensions:
       width: "100%"
-      height: 40
+      height: 35
     padding:
-      top: -4
+      top: -54
       left: 0
-      bottom: 4
+      bottom: 54
+      right: 0
+    widgets:
+      left: ["media"]
+      center: []
+      right: []
+    layouts:
+      left:
+        alignment: "center"
+        stretch: false
+  cava-task-bar:
+    enabled: false
+    screens: ["*"]
+    class_name: "cava-task-bar"
+    alignment:
+      position: "bottom"
+      center: true
+    animation:
+      enabled: false
+      duration: 1000
+    blur_effect:
+      enabled: false
+      acrylic: false
+      dark_mode: false
+      round_corners: false
+      round_corners_type: "small"
+      border_color: "System"
+    window_flags:
+      always_on_top: false
+      windows_app_bar: false
+      hide_on_fullscreen: true
+      #hide_on_desktop: true
+    dimensions:
+      width: "100%"
+      height: 48
+    padding:
+      top: 0
+      left: 0
+      bottom: 0
       right: 0
     widgets:
       left: []
-      center: ["cpu", "media_album", "media_controls"]
+      center: ["cava"]
       right: []
     layouts:
       center:
@@ -76,7 +114,7 @@ bars:
       right: 0
     widgets:
       left: ["power_menu", "active_window"]
-      center: ["clock"]
+      center: ["clock", "cpu"]
       right:
         [
           "komorebi_active_layout",
@@ -99,11 +137,11 @@ bars:
 #        alignment: "right"
 #        stretch: false
 widgets:
-  media_album:
+  media:
     type: "yasb.media.MediaWidget"
     options:
-      label: "{title}"
-      label_alt: "{title} - {artist}"
+      label: " {title} "
+      label_alt: " {title} - {artist} "
       hide_empty: true
       callbacks:
         on_left: "toggle_media_menu"
@@ -114,60 +152,6 @@ widgets:
         label_alt: 75
       show_thumbnail: true
       controls_only: false
-      controls_left: false
-      controls_hide: true
-      thumbnail_alpha: 255
-      thumbnail_padding: 24
-      thumbnail_corner_radius: 0
-      icons:
-        prev_track: "\ue892"
-        next_track: "\ue893"
-        play: "\ue768"
-        pause: "\ue769"
-      media_menu:
-        blur: false
-        round_corners: true
-        round_corners_type: "normal"
-        border_color: "system"
-        alignment: "center"
-        direction: "up"
-        offset_top: 0
-        offset_left: 0
-        thumbnail_corner_radius: 8
-        thumbnail_size: 120
-        max_title_size: 80
-        max_artist_size: 20
-        show_source: true
-      media_menu_icons:
-        play: "\ue768"
-        pause: "\ue769"
-        prev_track: "\ue892"
-        next_track: "\ue893"
-      label_shadow:
-        enabled: false
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-  media_controls:
-    type: "yasb.media.MediaWidget"
-    options:
-      label: "{title}"
-      label_alt: "{title} - {artist}"
-      hide_empty: true
-      callbacks:
-        on_left: "do_nothing"
-        on_right: "do_nothing"
-        on_middle: "do_nothing"
-      max_field_size:
-        label: 50
-        label_alt: 75
-      show_thumbnail: false
-      controls_only: true
       controls_left: false
       controls_hide: false
       thumbnail_alpha: 255
@@ -186,12 +170,12 @@ widgets:
         alignment: "center"
         direction: "up"
         offset_top: 0
-        offset_left: 0
+        offset_left: 32
         thumbnail_corner_radius: 8
         thumbnail_size: 120
         max_title_size: 80
         max_artist_size: 20
-        show_source: true
+        show_source: false
       media_menu_icons:
         play: "\ue768"
         pause: "\ue769"
@@ -248,7 +232,7 @@ widgets:
     options:
       label: "<span>{icon}</span> {level}"
       label_alt: "{volume}"
-      tooltip: false
+      tooltip: true
       volume_icons:
         - "\ueee8"
         - "\uf026"
@@ -285,8 +269,8 @@ widgets:
     options:
       label: "\u23fb"
       uptime: True
-      blur: True
-      blur_background: True
+      blur: False
+      blur_background: False
       animation_duration: 0
       button_row: 5
       buttons:
@@ -392,18 +376,18 @@ widgets:
   cava:
     type: "yasb.cava.CavaWidget"
     options:
-      bar_height: 48
+      bar_height: 42
       min_bar_height: 0
       gradient: 1
       reverse: 1
       foreground: "#000000"
       bars_number: 100
-      gradient_color_1: "#00FFFF"
-      gradient_color_2: "#40BFFF"
-      gradient_color_3: "#7F7FFF"
+      gradient_color_1: "#88C0D0"
+      gradient_color_2: "#81A1C1"
+      gradient_color_3: "#5E81AC"
       bar_spacing: 0
       bar_width: 12
-      sleep_timer: 2
+      sleep_timer: 10
       hide_empty: true
       container_padding:
         top: 0

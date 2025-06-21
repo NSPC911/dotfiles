@@ -5,7 +5,7 @@
   --flamingo: #f2cdcd;
   --green: #a6e3a1;
   --lavender: #b4befe;
-  --main: rgba(29, 29, 29, 0.75);
+  --main: #1D1D1DCC;
   --mantle: rgba(24, 24, 37, 0.5);
   --maroon: #eba0ac;
   --mauve: #cba6f7;
@@ -25,11 +25,49 @@
   --surface2: #585b70;
   --teal: #94e2d5;
   --text: #cdd6f4;
-  --yellow: #f9e2af
+  --yellow: #f9e2af;
+  --nord-black0: #191D24;
+  --nord-black1: #1E222A;
+  --nord-black2: #222630;
+  --nord-black2-75p: #222630AF;
+  --nord-gray0: #242933;
+  --nord-gray1: #2E3440;
+  --nord-gray2: #3B4252;
+  --nord-gray3: #434C5E;
+  --nord-gray4: #4C566A;
+  --nord-gray5: #60728A;
+  --nord-gray6: #727F9A;
+  --nord-gray-white: #9AA2BC;
+  --nord-white0: #C0C8D8;
+  --nord-white1: #D8DEE9;
+  --nord-white2: #E5E9F0;
+  --nord-white3: #ECEFF4;
+  --nord-whiteblue0: #C1D0D1;
+  --nord-blue0: #5E81AC;
+  --nord-blue1: #81A1C1;
+  --nord-blue2: #88C0D0;
+  --nord-cyan_base: #8FBCBB;
+  --nord-cyan_bright: #9FC6C5;
+  --nord-cyan_dim: #80B3B2;
+  --nord-red_base: #BF616A;
+  --nord-red_bright: #C5727A;
+  --nord-red_dim: #B74E58;
+  --nord-orange_base: #D08770;
+  --nord-orange_bright: #D79784;
+  --nord-orange_dim: #CB775D;
+  --nord-yellow_base: #EBCB8B;
+  --nord-yellow_bright: #EFD49F;
+  --nord-yellow_dim: #E7C173;
+  --nord-green_base: #A3BE8C;
+  --nord-green_bright: #B1C89D;
+  --nord-green_dim: #97B67C;
+  --nord-magenta_base: #B48EAD;
+  --nord-magenta_bright: #BE9DB8;
+  --nord-magenta_dim: #A97EA1;
 }
 
 * {
-  color: var(--subtext1);
+  color: var(--nord-gray-white);
   font-family: "CaskaydiaCove NFP";
   font-size: 12px;
   font-weight: 600;
@@ -37,32 +75,27 @@
   padding: 0
 }
 
-QToolTip {
-  background-color: #1e1e2e;
-  border-radius: 6px;
-  border: 0px solid #313244;
-  color: #cdd6f4;
- font-size: 12px;
-  padding: 6px
+.brightness-menu, .audio-menu {
+  background-color: var(--nord-black2);
 }
 
 .calendar {
-  background-color: rgba(29, 29, 29, 0.5);
+  background-color: var(--nord-black0);
   border-radius: 8px
 }
 
 .calendar .calendar-table {
-  background-color: rgba(51, 51, 51, 0);
+  background-color: transparent;
   border-radius: 8px
 }
 
 .calendar .calendar-table::item {
-  background-color: rgba(51, 51, 51, 0.5)
+  background-color: var(--nord-gray0);
 }
 
 .cpu-widget {
-  padding-left: 13px;
-  padding-top: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .icon {
@@ -70,7 +103,7 @@ QToolTip {
 }
 
 .komorebi-layout-menu {
-  background-color: rgba(17, 17, 27, 0.4)
+  background: var(--nord-black2)
 }
 
 .komorebi-layout-menu .menu-item {
@@ -79,7 +112,7 @@ QToolTip {
 }
 
 .komorebi-layout-menu .menu-item-icon {
-  color: #cdd6f4;
+  color: var(--nord-whiteblue0);
   font-size: 16px
 }
 
@@ -89,7 +122,7 @@ QToolTip {
 }
 
 .komorebi-layout-menu .menu-item:hover {
-  background-color: rgba(128, 130, 158, 0.15);
+  background-color: var(--nord-gray0);
   color: #fff
 }
 
@@ -98,7 +131,7 @@ QToolTip {
 }
 
 .media-menu {
-  background-color: rgba(29, 29, 29, 0.5);
+  background-color: var(--nord-black2-75p);
   border-radius: 8px;
   width: 200px
 }
@@ -131,7 +164,7 @@ QToolTip {
 
 .media-menu .btn.disabled,
 .media-menu .btn.disabled:hover {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   color: #4e525c
 }
 
@@ -163,14 +196,12 @@ QToolTip {
 }
 
 .media-menu .progress-slider::groove {
-  background: rgba(255, 255, 255, 0.1);
   background: transparent;
   border-radius: 3px;
   height: 2px
 }
 
 .media-menu .progress-slider::groove:hover {
-  background: rgba(255, 255, 255, 0.2);
   background: transparent;
   border-radius: 3px;
   height: 6px
@@ -213,13 +244,11 @@ QToolTip {
 
 .media-widget {
   border-radius: 0;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding: 0 !important
+  padding: 0 !important;
 }
 
 .media-widget .btn {
-  color: #cccccc;
+  color: var(--nord-white0);
   font-family: Segoe Fluent Icons;
   font-weight: 400;
   margin: 0;
@@ -228,8 +257,8 @@ QToolTip {
 
 .media-widget .btn.disabled,
 .media-widget .btn.disabled:hover {
-  background-color: rgba(0, 0, 0, 0);
-  color: #999999;
+  background-color: transparent;
+  color: var(--nord-gray6);
   font-size: 12px
 }
 
@@ -249,42 +278,37 @@ QToolTip {
   background-color: rgba(24, 24, 37, 0.375);
   color: #bac2db;
   font-size: 12px;
-  padding: 0px;
-  padding-right: 10px;
 }
 
 .power-menu-popup {
-  background-color: rgba(0, 0, 0, 0.5)
+  background-color: var(--nord-black2-75p);
+  border-radius: 16px;
 }
 
 .power-menu-popup .button {
-  background-color: var(--crust);
-  border-bottom: 4px solid rgba(58, 59, 83, 0);
-  border-left: 4px solid rgba(58, 59, 83, 0);
-  border-radius: 8px;
-  border-right: 4px solid rgba(58, 59, 83, 0);
-  border-top: 4px solid rgba(58, 59, 83, 0);
-  color: var(--text);
-  height: 230px;
+  background-color: var(--nord-gray0);
+  border-radius: 12px;
+  height: 200px;
   padding: 0;
   width: 180px
 }
 
 .power-menu-popup .button .icon {
-  color: var(--surface2);
+  color: var(--nord-cyan_bright);
   font-size: 64px;
   padding-top: 32px
 }
 
 .power-menu-popup .button .label {
-  color: var(--overlay2);
+  color: var(--nord-cyan_base);
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 8px
 }
 
 .power-menu-popup .button.cancel {
-  border-radius: 4px;
+  border-radius: 12px;
+  padding: 0;
   height: 32px
 }
 
@@ -293,29 +317,28 @@ QToolTip {
 }
 
 .power-menu-popup .button.cancel .label {
-  color: rgba(255, 0, 0, 1)
+  padding: 0;
+  margin: 0;
 }
 
 .power-menu-popup .button.hover {
-  background-color: var(--base);
-  border-bottom: 4px solid var(--base);
-  border-left: 4px solid var(--base);
-  border-right: 4px solid var(--base);
-  border-top: 4px solid var(--base)
+  background-color: var(--nord-gray1);
 }
 
-.task-bar .container-center {
+.media-area {
+  padding: 7px 0 0 15px;
+}
+
+.media-area .container-left {
   background-color: rgba(29, 29, 29, 0.75);
   border-radius: 8px;
-  padding-left: 6px;
-  padding-right: 10px;
 }
 
 .uptime {
-  color: var(--surface2);
+  color: var(--nord-cyan_base);
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 10px
+  margin-bottom: 72px
 }
 
 .volume-widget {
@@ -337,7 +360,7 @@ QToolTip {
 .yasb-bar {
   border-radius: 0px;
   margin: 0;
-  padding: 5px 13px 0px 13px;
+  padding: 6px 13px -1px 13px;
 }
 
 .yasb-bar .widget {
@@ -351,7 +374,6 @@ QToolTip {
 }
 
 .yasb-bar .active-window-widget,
-.yasb-bar .clock-widget,
 .yasb-bar .notification-widget {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -366,6 +388,7 @@ QToolTip {
 .komorebi-active-layout {
   margin-right: -1px
 }
+
 .komorebi-workspaces .ws-btn {
   background: #333;
   border-radius: 6px;
@@ -375,19 +398,24 @@ QToolTip {
   margin: 0 1px;
   color: transparent;
 }
+
 .komorebi-workspaces .ws-btn.populated {
   background: #777
 }
+
 .komorebi-workspaces .ws-btn.active {
   background: #bbb;
   width: 36px;
 }
+
 .komorebi-workspaces .ws-btn:hover {
   background: #666;
 }
+
 .komorebi-workspaces .ws-btn.populated:hover {
   background: #aaa
 }
+
 .komorebi-workspaces .ws-btn.active:hover {
   background: #fff
 }
