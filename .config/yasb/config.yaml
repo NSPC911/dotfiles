@@ -45,7 +45,7 @@ bars:
         alignment: "center"
         stretch: false
   cava-task-bar:
-    enabled: true
+    enabled: false
     screens: ["*"]
     class_name: "cava-task-bar"
     alignment:
@@ -210,7 +210,8 @@ widgets:
   clock:
     type: "yasb.clock.ClockWidget"
     options:
-      label: "{%A, %d %B %H:%M:%S}"
+      label: "{%a %d %b %H:%M:%S}"
+      label_alt: "{%A %d %B %Y, %H:%M:%S}"
       timezones: []
       calendar:
         blur: false
