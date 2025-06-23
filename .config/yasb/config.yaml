@@ -6,82 +6,6 @@ komorebi:
   stop_command: "komorebic stop --whkd --masir"
   reload_command: "komorebic stop --whkd --masir && komorebic start --whkd --masir"
 bars:
-  media-area:
-    enabled: true
-    screens: ["*"]
-    class_name: "media-area"
-    alignment:
-      position: "top"
-      center: true
-    animation:
-      enabled: false
-      duration: 1000
-    blur_effect:
-      enabled: false
-      acrylic: false
-      dark_mode: false
-      round_corners: false
-      round_corners_type: "small"
-      border_color: "System"
-    window_flags:
-      always_on_top: true
-      windows_app_bar: false
-      hide_on_fullscreen: true
-      #hide_on_desktop: true
-    dimensions:
-      width: "100%"
-      height: 31
-    padding:
-      top: 33
-      left: 0
-      bottom: -33
-      right: 0
-    widgets:
-      left: ["media"]
-      center: []
-      right: []
-    layouts:
-      left:
-        alignment: "center"
-        stretch: false
-  cava-task-bar:
-    enabled: false
-    screens: ["*"]
-    class_name: "cava-task-bar"
-    alignment:
-      position: "bottom"
-      center: true
-    animation:
-      enabled: false
-      duration: 1000
-    blur_effect:
-      enabled: false
-      acrylic: false
-      dark_mode: false
-      round_corners: false
-      round_corners_type: "small"
-      border_color: "System"
-    window_flags:
-      always_on_top: false
-      windows_app_bar: false
-      hide_on_fullscreen: true
-      #hide_on_desktop: true
-    dimensions:
-      width: "100%"
-      height: 48
-    padding:
-      top: 0
-      left: 0
-      bottom: 0
-      right: 0
-    widgets:
-      left: []
-      center: ["cava"]
-      right: []
-    layouts:
-      center:
-        alignment: "center"
-        stretch: false
   primary-bar:
     enabled: true
     screens: ["*"]
@@ -113,7 +37,7 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: ["power_menu", "active_window"]
+      left: ["power_menu", "media", "active_window"]
       center: ["clock", "cpu"]
       right:
         [
@@ -377,18 +301,18 @@ widgets:
   cava:
     type: "yasb.cava.CavaWidget"
     options:
-      bar_height: 42
+      bar_height: 31
       min_bar_height: 0
       gradient: 0
       reverse: 1
       foreground: "#88C0D0"
-      bars_number: 110
+      bars_number: 20
       gradient_color_1: "#88C0D0"
       gradient_color_2: "#81A1C1"
       gradient_color_3: "#5E81AC"
       bar_spacing: 0
-      bar_width: 12
-      sleep_timer: 10
+      bar_width: 2
+      sleep_timer: 2
       hide_empty: true
       container_padding:
         top: 0
