@@ -85,9 +85,9 @@
 "ui.cursor.match" = { modifiers = ["bold"] }
 "ui.linenr" = { fg = "gray6" }
 "ui.linenr.selected" = { fg = "white3" }
-"ui.statusline" = {}
 "ui.gutter.selected" = { bg = "black0" }
-"ui.statusline.inactive" = {}
+"ui.statusline" = { bg = "black0" }
+"ui.statusline.inactive" = { bg = "black0" }
 "ui.statusline.normal" = { bg = "gray5", fg = "black0" }
 "ui.statusline.insert" = { bg = "cyan_dim", fg = "black0" }
 "ui.statusline.select" = { bg = "blue0", fg = "black0" }
@@ -98,8 +98,8 @@
 "ui.text.focus" = { bg = "gray2" }
 "ui.virtual.ruler" = { bg = "gray1" }
 "ui.menu" = {}
-"ui.menu.selected" = { bg = "white0", fg = "black1" }
-"ui.menu.scroll" = { fg = "white1", bg = "gray0" }                            # fg sets thumb color, bg sets track color of scrollbar
+"ui.menu.selected" = { fg = "white1", underline = { color = "white1", style = "line" } }
+"ui.menu.scroll" = { fg = "white1", bg = "gray0" }
 "ui.selection" = { bg = "gray2" }
 "ui.cursorline.primary" = {}
 
@@ -116,9 +116,11 @@
 # Requires PR:13666
 ## left
 "ui.statusline.version-control" = { fg = "black0", bg = "green_bright" }
-"ui.statusline.file-name" = {fg = "white2", bg = "black0"}
 "ui.statusline.file-modification-indicator" = { fg = "red", bg = "black0", modifiers = [ "bold" ] }
 "ui.statusline.file-encoding" = { fg = "white2", bg = "black0" }
+## center
+"ui.statusline.file-type" = { fg = "white2" }
+"ui.statusline.file-name" = { fg = "white2" }
 ## right
 "ui.statusline.workspace-diagnostics" = { fg = "black0", bg = "red_base" }
 "ui.statusline.diagnostics" = { fg = "black0", bg = "orange_base" }
@@ -126,12 +128,14 @@
 "ui.statusline.primary-selection-length" = { fg = "black0", bg = "green_base" }
 "ui.statusline.total-line-numbers" = { fg = "black0", bg = "blue1" }
 
-# inactive left
+## inactive left
 "ui.statusline.inactive.version-control" = { fg = "black0", bg = "green_bright" }
-"ui.statusline.inactive.file-name" = {fg = "white2", bg = "black0"}
 "ui.statusline.inactive.file-modification-indicator" = { fg = "red", bg = "black0", modifiers = [ "bold" ] }
 "ui.statusline.inactive.file-encoding" = { fg = "white2", bg = "black0" }
-# inactive right
+## center
+"ui.statusline.inactive.file-name" = { fg = "white2" }
+"ui.statusline.inactive.file-type" = { fg = "white2" }
+## inactive right
 "ui.statusline.inactive.workspace-diagnostics" = { fg = "black0", bg = "red_base" }
 "ui.statusline.inactive.diagnostics" = { fg = "black0", bg = "orange_base" }
 "ui.statusline.inactive.position" = { fg = "black0", bg = "yellow_base" }

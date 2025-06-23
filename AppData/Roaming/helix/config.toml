@@ -311,8 +311,8 @@ parents = true
 cursor-line = "info"
 other-lines = "error"
 [editor.statusline]
-left = ["mode", "version-control", "file-name", "file-modification-indicator", "spinner", "read-only-indicator"]
-center = []
+left = ["mode", "version-control", "file-modification-indicator", "spinner", "read-only-indicator"]
+center = ["file-type", "file-name"]
 right = ["file-encoding", "workspace-diagnostics", "diagnostics", "position", "primary-selection-length", "total-line-numbers"]
 mode.normal = "NOR"
 mode.insert = "INS"
