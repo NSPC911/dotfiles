@@ -245,3 +245,6 @@ function extractFrame {
 
 ##### Other stuff #####
 fastfetch
+
+##### tabb #####
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
