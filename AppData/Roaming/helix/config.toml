@@ -327,14 +327,15 @@ preview-completion-insert = false
 completion-trigger-len = 1
 default-line-ending = "lf"
 trim-trailing-whitespace = true
+end-of-line-diagnostics = "hint"
 [editor.file-picker]
 hidden = true
 parents = true
 [editor.inline-diagnostics]
-cursor-line = "info"
+cursor-line = "warning"
 other-lines = "error"
 [editor.statusline]
-left = ["mode", "version-control", "file-type", "file-absolute-path", "file-modification-indicator", "spinner", "read-only-indicator"]
+left = ["mode", "version-control", "file-type", "file-name", "file-modification-indicator", "spinner", "read-only-indicator"]
 center = []
 right = ["file-encoding", "workspace-diagnostics", "diagnostics", "position", "primary-selection-length", "total-line-numbers"]
 mode.normal = "NOR"
@@ -349,6 +350,7 @@ render = true
 character = ""
 [editor.lsp]
 display-inlay-hints = true
+display-progress-messages = true
 [editor.soft-wrap]
 enable = false
 wrap-indicator = "   󱞶 "
