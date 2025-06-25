@@ -11,7 +11,7 @@
 "operator" = { fg = "white0" }
 "tag" = { fg = "blue1" }
 "namespace" = { fg = "yellow_dim" }
-"special" = { fg = "orange_base" }                     # fuzzy highlight (picker)
+"special" = { fg = "orange_base" }
 
 # types
 "type" = { fg = "yellow_bright" }
@@ -88,9 +88,9 @@
 "ui.gutter.selected" = { bg = "black0" }
 "ui.statusline" = { bg = "black0" }
 "ui.statusline.inactive" = { bg = "black0" }
-"ui.statusline.normal" = { bg = "gray5", fg = "black0" }
-"ui.statusline.insert" = { bg = "cyan_dim", fg = "black0" }
-"ui.statusline.select" = { bg = "blue0", fg = "black0" }
+"ui.statusline.normal" = { bg = "gray6", fg = "black0" }
+"ui.statusline.insert" = { bg = "cyan_base", fg = "black0" }
+"ui.statusline.select" = { bg = "green_dim", fg = "black0" }
 "ui.popup" = {}
 "ui.popup.info" = {}
 "ui.window" = {}
@@ -104,7 +104,7 @@
 "ui.cursorline.primary" = {}
 
 # Diagnostic Messages
-"error" = { fg = "red_base" }
+"error" = { fg = "red_bright" }
 "warning" = { fg = "yellow_base" }
 "info" = { fg = "blue1" }
 "hint" = { fg = "green_base" }
@@ -116,28 +116,26 @@
 # Requires PR:13666
 ## left
 "ui.statusline.version-control" = { fg = "black0", bg = "green_bright" }
-"ui.statusline.file-modification-indicator" = { fg = "red", bg = "black0", modifiers = [ "bold" ] }
-"ui.statusline.file-encoding" = { fg = "white2", bg = "black0" }
-## center
 "ui.statusline.file-type" = { fg = "white2" }
 "ui.statusline.file-name" = { fg = "white2" }
+"ui.statusline.file-modification-indicator" = { fg = "red", bg = "black0", modifiers = [ "bold" ] }
+"ui.statusline.file-encoding" = { fg = "white2", bg = "black0" }
 ## right
-"ui.statusline.workspace-diagnostics" = { fg = "black0", bg = "red_base" }
-"ui.statusline.diagnostics" = { fg = "black0", bg = "orange_base" }
+"ui.statusline.workspace-diagnostics" = { fg = "black0", bg = "red_dim" }
+"ui.statusline.diagnostics" = { fg = "black0", bg = "orange_dim" }
 "ui.statusline.position" = { fg = "black0", bg = "yellow_base" }
 "ui.statusline.primary-selection-length" = { fg = "black0", bg = "green_base" }
 "ui.statusline.total-line-numbers" = { fg = "black0", bg = "blue1" }
 
 ## inactive left
 "ui.statusline.inactive.version-control" = { fg = "black0", bg = "green_bright" }
-"ui.statusline.inactive.file-modification-indicator" = { fg = "red", bg = "black0", modifiers = [ "bold" ] }
-"ui.statusline.inactive.file-encoding" = { fg = "white2", bg = "black0" }
-## center
 "ui.statusline.inactive.file-name" = { fg = "white2" }
 "ui.statusline.inactive.file-type" = { fg = "white2" }
+"ui.statusline.inactive.file-modification-indicator" = { fg = "red", bg = "black0", modifiers = [ "bold" ] }
+"ui.statusline.inactive.file-encoding" = { fg = "white2", bg = "black0" }
 ## inactive right
-"ui.statusline.inactive.workspace-diagnostics" = { fg = "black0", bg = "red_base" }
-"ui.statusline.inactive.diagnostics" = { fg = "black0", bg = "orange_base" }
+"ui.statusline.inactive.workspace-diagnostics" = { fg = "black0", bg = "red_dim" }
+"ui.statusline.inactive.diagnostics" = { fg = "black0", bg = "orange_dim" }
 "ui.statusline.inactive.position" = { fg = "black0", bg = "yellow_base" }
 "ui.statusline.inactive.primary-selection-length" = { fg = "black0", bg = "green_base" }
 "ui.statusline.inactive.total-line-numbers" = { fg = "black0", bg = "blue1" }
@@ -186,13 +184,13 @@ cyan_dim = "#80B3B2"
 # Aurora (from Nord theme)
 # Red
 red_base = "#BF616A"
-red_bright = "#C5727A"
-red_dim = "#B74E58"
+red_bright = "#F5727A"
+red_dim = "#A04049"
 
 # Orange
 orange_base = "#D08770"
 orange_bright = "#D79784"
-orange_dim = "#CB775D"
+orange_dim = "#AB573D"
 
 # Yellow
 yellow_base = "#EBCB8B"

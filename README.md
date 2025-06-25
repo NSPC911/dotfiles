@@ -3,6 +3,7 @@
 A bunch of configurations (not themes) that I have for my apps
 
 Apps with their configs in this repository:
+
 - Komorebi
 - whkdrc
 - YASB

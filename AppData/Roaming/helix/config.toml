@@ -57,6 +57,9 @@ B = "no_op"
 C-d = "no_op"
 C-u = "no_op"
 Z = "no_op"
+"&" = "no_op"
+N = "no_op"
+n = "no_op"
 
 # goto mode (why is there two versions)
 [keys.normal.g]
@@ -64,6 +67,7 @@ i = "page_up"
 j = "goto_first_nonwhitespace"
 J = "goto_line_start"
 k = "page_down"
+K = "goto_last_line"
 L = "goto_line_end_newline"
 l = "goto_line_end"
 ret = "goto_file_start"
@@ -88,6 +92,7 @@ i = "page_up"
 j = "goto_first_nonwhitespace"
 J = "goto_line_start"
 k = "page_down"
+K = "goto_last_line"
 L = "goto_line_end_newline"
 l = "goto_line_end"
 ret = "goto_file_start"
@@ -106,6 +111,7 @@ w = "no_op"
 s = "no_op"
 h = "no_op"
 g = "no_op"
+
 
 # window mode (why is there two different modes bruh)
 [keys.normal."C-w"]
@@ -163,16 +169,16 @@ c = "changed_file_picker"
 r = ":config-reload"
 n = ":new"
 o = ":config-open"
-f = "file_explorer"
-F = "file_explorer_in_current_directory"
+f = "file_explorer_in_current_directory"
+e = "file_picker_in_current_directory"
 b = "file_explorer_in_current_buffer_directory"
+g = "global_search"
 A-c = "no_op"
-e = "no_op"
 E = "no_op"
+F = "no_op"
 d = "no_op"
 D = "no_op"
 S = "no_op"
-g = "no_op"
 C = "no_op"
 y = "no_op"
 Y = "no_op"
@@ -189,16 +195,15 @@ c = "changed_file_picker"
 r = ":config-reload"
 n = ":new"
 o = ":config-open"
-f = "file_explorer"
-F = "file_explorer_in_current_directory"
+f = "file_explorer_in_current_directory"
+e = "file_picker_in_current_directory"
 b = "file_explorer_in_current_buffer_directory"
+g = "global_search"
 A-c = "no_op"
-e = "no_op"
 E = "no_op"
 d = "no_op"
 D = "no_op"
 S = "no_op"
-g = "no_op"
 C = "no_op"
 y = "no_op"
 Y = "no_op"
@@ -210,47 +215,51 @@ R = "no_op"
 k = "no_op"
 
 [keys.normal.z]
-i = "page_up"
-j = "goto_first_nonwhitespace"
-J = "goto_line_start"
-k = "page_down"
-l = "goto_line_end_newline"
-I = "page_cursor_up"
-K = "page_cursor_down"
+k = "align_view_top"
+i = "align_view_bottom"
+f = "search_next"
+F = "search_prev"
+n = "no_op"
+N = "no_op"
+j = "no_op"
+C-d = "no_op"
 "backspace" = "no_op"
 "C-u" = "no_op"
 "pageup" = "no_op"
 "pagedown" = "no_op"
 c = "no_op"
-z = "no_op"
 b = "no_op"
 t = "no_op"
 "C-b" = "no_op"
 "space" = "no_op"
 "C-z" = "no_op"
 "C-f" = "no_op"
+"/" = "no_op"
+"?" = "no_op"
 
 [keys.select.z]
-i = "page_up"
-j = "goto_first_nonwhitespace"
-J = "goto_line_start"
-k = "page_down"
-l = "goto_line_end_newline"
-I = "page_cursor_up"
-K = "page_cursor_down"
+k = "align_view_top"
+i = "align_view_bottom"
+f = "search_next"
+F = "search_prev"
+n = "no_op"
+N = "no_op"
+j = "no_op"
+C-d = "no_op"
 "backspace" = "no_op"
 "C-u" = "no_op"
 "pageup" = "no_op"
 "pagedown" = "no_op"
 c = "no_op"
-z = "no_op"
 b = "no_op"
 t = "no_op"
 "C-b" = "no_op"
 "space" = "no_op"
 "C-z" = "no_op"
 "C-f" = "no_op"
-# select mode
+"/" = "no_op"
+"?" = "no_op"
+
 [keys.select]
 i = "extend_visual_line_up"
 j = "extend_char_left"
@@ -265,15 +274,28 @@ C-x = [":clipboard-yank", "delete_selection"]
 "}" = ":buffer-next"
 C-a = "select_all"
 A-i = "insert_mode"
-"?" = "no_op"
-w = "no_op"
+"%" = "no_op"
 W = "no_op"
+a = "no_op"
+A = "no_op"
+e = "no_op"
+E = "no_op"
+"?" = "no_op"
+h = "no_op"
+b = "no_op"
+B = "no_op"
+C-d = "no_op"
+C-u = "no_op"
+Z = "no_op"
+"&" = "no_op"
+N = "no_op"
+n = "no_op"
 
 # insert mode
 [keys.insert]
 C-s = ["normal_mode", ":w"]
 C-S-s = ":wa"
-A-v = "select_mode"
+v = { v = "select_mode" }
 A-i = "move_visual_line_up"
 A-j = "move_char_left"
 A-k = "move_visual_line_down"
@@ -285,9 +307,10 @@ C-o = "file_picker_in_current_directory"
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 A-J = "save_selection"
 j = { k = "@<esc>" }
-g = { g = { i = "page_up", j = "goto_first_nonwhitespace", k = "page_down", l = "goto_line_end", J = "goto_line_start", L = "goto_line_end_newline" } }
+g = { g = { i = "page_up", j = "goto_first_nonwhitespace", k = "page_down", l = "goto_line_end_newline", J = "goto_line_start" } }
 C-a = "select_all"
 w = { w = { r = "rotate_view", i = "jump_view_up", j = "jump_view_left", k = "jump_view_down", l = "jump_view_right", I = ["hsplit", "jump_view_up"], J = ["vsplit", "jump_view_right"], K = "hsplit", L = "vsplit", C-i = "swap_view_up", C-j = "swap_view_left", C-k = "swap_view_down", C-l = "swap_view_right", w = ":buffer-close", W = ":buffer-close!", Q = "wonly", R = ":reload-all" } }
+C-v = ":clipboard-paste-before"
 
 ## editor config
 [editor]
@@ -311,8 +334,8 @@ parents = true
 cursor-line = "info"
 other-lines = "error"
 [editor.statusline]
-left = ["mode", "version-control", "file-modification-indicator", "spinner", "read-only-indicator"]
-center = ["file-type", "file-name"]
+left = ["mode", "version-control", "file-type", "file-absolute-path", "file-modification-indicator", "spinner", "read-only-indicator"]
+center = []
 right = ["file-encoding", "workspace-diagnostics", "diagnostics", "position", "primary-selection-length", "total-line-numbers"]
 mode.normal = "NOR"
 mode.insert = "INS"
@@ -329,6 +352,10 @@ display-inlay-hints = true
 [editor.soft-wrap]
 enable = false
 wrap-indicator = "   󱞶 "
+[icons.gutter]
+enabled = true
+warning = "\uf071"
+error = "\uebfb"
 [icons.kind]
 enabled = true
 workspace = " W"
@@ -337,5 +364,5 @@ enabled = true
 [icons.mime]
 enabled = true
 [icons.diagnostic]
-warn = ""
-error = ""
+warning = "\uf071"
+error = "\uf06a"
