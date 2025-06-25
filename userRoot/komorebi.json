@@ -25,17 +25,17 @@
     "style": "EaseOutExpo"
   },
   "stackbar": {
-      "height": 36,
-      "mode": "OnStack",
-      "tabs": {
-        "width": 200,
-        "focused_text": "#ECEFF4",
-        "unfocused_text": "#000000",
-        "background": "#2E3440",
-        "font_family": "CaskaydiaCove NFP"
-      },
-      "label": "Title"
+    "height": 36,
+    "mode": "OnStack",
+    "tabs": {
+      "width": 200,
+      "focused_text": "#ECEFF4",
+      "unfocused_text": "#000000",
+      "background": "#2E3440",
+      "font_family": "CaskaydiaCove NFP"
     },
+    "label": "Title"
+  },
   "theme": {
     "palette": "Base16",
     "name": "Nord",
