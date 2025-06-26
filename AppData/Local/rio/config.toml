@@ -24,7 +24,7 @@ level = 1
 filters = []
 
 [keyboard]
-use-kitty-keyboard-protocol = true
+use-kitty-keyboard-protocol = false
 
 [fonts]
 family = "CaskaydiaCove NFP"
@@ -37,7 +37,7 @@ divider = 1.0
 
 [navigation]
 mode = "bookmark"
-clickable = true
+clickable = false
 hide-if-single = false
 use-current-path = false
 color-automation = []
@@ -47,7 +47,12 @@ program = "pwsh"
 args = ["-NoProfileLoadTime", "-NoLogo"]
 
 [bindings]
-keys = []
+keys = [
+  { key = "[", with = "control | shift", action = "None" },
+  { key = "[", with = "control | shift", action = "None" },
+  { key = "l", with = "control", action = "SplitRight" },
+  { key = "k", with = "control", action = "SplitDown" }
+]
 
 [colors]
 background = '#2e3441'
