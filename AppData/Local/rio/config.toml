@@ -1,0 +1,84 @@
+hide-cursor-when-typing = true
+padding-x = 10
+padding-y = [5, 5]
+# env-vars = []
+confirm-before-quit = true
+
+[editor]
+program = "hx"
+args = []
+
+[window]
+# width = 600
+# height = 400
+mode = "windowed"
+opacity = 0.75
+blur = false
+decorations = "Disabled"
+
+[renderer]
+performance = "low"
+backend = "automatic"
+disable-unfocused-render = false
+level = 1
+filters = []
+
+[keyboard]
+use-kitty-keyboard-protocol = false
+
+[fonts]
+family = "CaskaydiaCove NFP"
+features = ["ss02", "ss03", "ss05", "ss19"]
+use-drawable-characters = true
+
+[scroll]
+multiplier = 3.0
+divider = 1.0
+
+[navigation]
+mode = "bookmark"
+clickable = false
+hide-if-single = false
+use-current-path = false
+color-automation = []
+
+[shell]
+program = "pwsh"
+args = ["-NoProfileLoadTime", "-NoLogo"]
+
+[bindings]
+keys = [
+  { key = "[", with = "control | shift", action = "None" },
+  { key = "[", with = "control | shift", action = "None" },
+  { key = "l", with = "control", action = "SplitRight" },
+  { key = "k", with = "control", action = "SplitDown" }
+]
+
+[colors]
+background = '#2e3441'
+foreground = '#d8dee9'
+selection-background = '#eceff4'
+selection-foreground = '#4c566a'
+cursor = '#eceff4'
+black = '#3b4252'
+red = '#bf616a'
+green = '#a3be8c'
+yellow = '#ebcb8b'
+blue = '#81a1c1'
+magenta = '#b48ead'
+cyan = '#88c0d0'
+white = '#e5e9f0'
+light_black = '#4c566a'
+light_red = '#bf616a'
+light_green = '#a3be8c'
+light_yellow = '#ebcb8b'
+light_blue = '#81a1c1'
+light_magenta = '#b48ead'
+light_cyan = '#8fbcbb'
+light_white = '#eceff4'
+tabs = "#81a1c1"
+tabs-foregroud = "#d8dee9"
+tabs-active = "#434c5e"
+tabs-active-highlight = "#8fbcbb"
+tabs-active-foreground = "#D8DEE9"
+bar = "#000000"

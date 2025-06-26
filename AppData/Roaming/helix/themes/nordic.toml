@@ -41,7 +41,7 @@
 "punctuation.special" = { fg = "orange_base" }
 
 # comments
-"comment" = { fg = "gray4", modifiers = ["italic"] }
+"comment" = { fg = "gray8", modifiers = ["italic"] } # gray4 is unreadable
 
 # keywords
 "keyword" = { fg = "orange_base" }
@@ -77,7 +77,7 @@
 "diff.delta.moved" = { bg = "blue2" }
 
 # UI
-"ui.cursor" = { fg = "black1", bg = "gray4" }
+"ui.cursor" = { fg = "black0", bg = "gray4" }
 "ui.cursor.primary" = { fg = "black1", bg = "white0" }
 "ui.background" = {}
 "ui.bufferline" = {}
@@ -159,6 +159,8 @@ gray4 = "#4C566A"
 gray5 = "#60728A"
 # extra grays
 gray6 = "#727F9A"
+gray7 = "#848DAA"
+gray8 = "#969BBA"
 
 # White
 # reduce_blue variant
