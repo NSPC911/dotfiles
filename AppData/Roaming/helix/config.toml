@@ -38,7 +38,6 @@ S-u = "extend_prev_word_end"
 o = "move_next_word_start"
 S-o = "extend_next_word_start"
 C-a = "select_all"
-"ret" = "insert_newline"
 A-j = "save_selection"
 A-F = [":insert-output prettier --write %{buffer_name}", "delete_selection", ":reload"]
 A-c = "toggle_line_comments"
@@ -60,6 +59,7 @@ Z = "no_op"
 "&" = "no_op"
 N = "no_op"
 n = "no_op"
+S-A-j = "no_op"
 
 # goto mode (why is there two versions)
 [keys.normal.g]
@@ -317,7 +317,7 @@ C-v = ":clipboard-paste-before"
 scrolloff = 0
 scroll-lines = 1
 cursorline = true
-line-number = "absolute"
+line-number = "relative"
 continue-comments = false
 color-modes = true
 popup-border = "all"
