@@ -1,7 +1,7 @@
 theme = "nordic"
 
 [keys.normal]
-C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw", ":rla"]
 ins = "insert_mode"
 C-s = ":w"
 C-S-s = ":wa"
@@ -12,7 +12,6 @@ C-z = "undo"
 C-y = "redo"
 C-f = "search"
 C-S-f = "rsearch"
-C-o = "file_picker_in_current_directory"
 tab = ["rotate_view"]
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
@@ -314,7 +313,6 @@ g = { g = { i = "page_up", j = "goto_first_nonwhitespace", k = "page_down", l = 
 C-a = "select_all"
 w = { w = { r = "rotate_view", i = "jump_view_up", j = "jump_view_left", k = "jump_view_down", l = "jump_view_right", I = ["hsplit", "jump_view_up"], J = ["vsplit", "jump_view_right"], K = "hsplit", L = "vsplit", C-i = "swap_view_up", C-j = "swap_view_left", C-k = "swap_view_down", C-l = "swap_view_right", w = ":buffer-close", W = ":buffer-close!", Q = "wonly", R = ":reload-all" } }
 C-v = ":clipboard-paste-before"
-
 ## editor config
 [editor]
 scrolloff = 0
