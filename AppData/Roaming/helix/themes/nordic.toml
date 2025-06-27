@@ -41,7 +41,7 @@
 "punctuation.special" = { fg = "orange_base" }
 
 # comments
-"comment" = { fg = "gray6", modifiers = ["italic"] } # gray4 is unreadable
+"comment" = { fg = "gray8", modifiers = ["italic"] } # gray4 is unreadable
 
 # keywords
 "keyword" = { fg = "orange_base" }
@@ -159,6 +159,8 @@ gray4 = "#4C566A"
 gray5 = "#60728A"
 # extra grays
 gray6 = "#727F9A"
+gray7 = "#848DAA"
+gray8 = "#969BBA"
 
 # White
 # reduce_blue variant
