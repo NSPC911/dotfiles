@@ -2,7 +2,7 @@ hide-cursor-when-typing = true
 padding-x = 10
 padding-y = [5, 5]
 # env-vars = []
-confirm-before-quit = true
+confirm-before-quit = false
 
 [editor]
 program = "hx"
@@ -48,10 +48,21 @@ args = ["-NoProfileLoadTime", "-NoLogo"]
 
 [bindings]
 keys = [
-  { key = "[", with = "control | shift", action = "None" },
-  { key = "[", with = "control | shift", action = "None" },
-  { key = "l", with = "control", action = "SplitRight" },
-  { key = "k", with = "control", action = "SplitDown" }
+  { key = "[", with = "control | shift", action = "ReceiveChar" },
+  { key = "]", with = "control | shift", action = "ReceiveChar" },
+  { key = "r", with = "control | shift", action = "ReceiveChar" },
+  { key = "d", with = "control | shift", action = "ReceiveChar" },
+  { key = "[", with = "control", action = "SelectPrevTab" },
+  { key = "]", with = "control", action = "SelectNextTab" },
+  { key = "tab", with = "control", action = "ReceiveChar" },
+  { key = "tab", with = "control | shift", action = "ReceiveChar" },
+  { key = "space", with = "control | shift", action = "ReceiveChar" },
+  { key = "v", with = "alt", action =  "ToggleViMode" },
+  { key = "t", with = "control | shift", action = "ReceiveChar" },
+  { key = "n", with = "control | shift", action = "ReceiveChar" },
+  { key = "w", with = "control | shift", action = "ReceiveChar" },
+  { key = "t", with = "control", action = "CreateTab" },
+  { key = "w", with = "control", action = "CloseTab" }
 ]
 
 [colors]

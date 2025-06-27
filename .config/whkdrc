@@ -1,8 +1,8 @@
 .shell powershell
 
 # Reload whkd configuration
-alt + o                     : komorebic stop --whkd --masir ; komorebic restore-windows ; komorebic start --whkd --masir
-alt + n                     : start rio.exe
+ctrl + alt + shift + o      : komorebic stop ; komorebic restore-windows ; komorebic start --whkd --masir
+alt + n                     : start rio
 
 # App shortcuts - these require shell to be pwsh / powershell
 # The apps will be focused if open, or launched if not open
@@ -72,7 +72,6 @@ alt + m                     : komorebic minimize
 
 # Window manager options
 alt + shift + r             : komorebic unmanage ; komorebic manage
-alt + p                     : komorebic toggle-pause
 
 # Layouts
 alt + x                     : komorebic flip-layout horizontal
