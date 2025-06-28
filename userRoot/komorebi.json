@@ -19,9 +19,9 @@
   "transparency": false,
   "transparency_alpha": 233,
   "animation": {
-    "enabled": true,
-    "duration": 500,
-    "fps": 120,
+    "enabled": false,
+    "duration": 250,
+    "fps": 48,
     "style": "EaseOutExpo"
   },
   "stackbar": {

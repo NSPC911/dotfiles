@@ -41,7 +41,7 @@ A-F = [":insert-output prettier --write %{buffer_name}", "delete_selection", ":r
 A-c = "toggle_line_comments"
 A-C = "toggle_block_comments"
 "`" = "switch_case"
-A-r = "repeat_last_motion"
+C-r = [":lsp-restart", ":reload-all"]
 
 "A-." = "no_op"
 "%" = "no_op"
@@ -133,7 +133,43 @@ C-l = "swap_view_right"
 w = ":buffer-close"
 W = ":buffer-close!"
 Q = "wonly"
-R = ":reload-all"
+
+o = "no_op"
+C-t = "no_op"
+f = "no_op"
+F = "no_op"
+C-q = "no_op"
+C-o = "no_op"
+h = "no_op"
+C-h = "no_op"
+v = "no_op"
+s = "no_op"
+C-v = "no_op"
+C-s = "no_op"
+C-w = "no_op"
+H = "no_op"
+left = "no_op"
+right = "no_op"
+up = "no_op"
+down = "no_op"
+
+[keys.select."C-w"]
+r = "rotate_view"
+i = "jump_view_up"
+j = "jump_view_left"
+k = "jump_view_down"
+l = "jump_view_right"
+I = ["hsplit", "jump_view_up"]
+J = ["vsplit", "jump_view_right"]
+K = "hsplit"
+L = "vsplit"
+C-i = "swap_view_up"
+C-j = "swap_view_left"
+C-k = "swap_view_down"
+C-l = "swap_view_right"
+w = ":buffer-close"
+W = ":buffer-close!"
+Q = "wonly"
 
 o = "no_op"
 C-t = "no_op"
@@ -155,6 +191,16 @@ up = "no_op"
 down = "no_op"
 
 [keys.normal."C-w"."n"]
+s = "no_op"
+C-s = "no_op"
+v = "no_op"
+C-v = "no_op"
+i = "hsplit_new"
+j = "vsplit_new"
+k = "hsplit_new"
+l = "vsplit_new"
+
+[keys.select."C-w"."n"]
 s = "no_op"
 C-s = "no_op"
 v = "no_op"
@@ -293,6 +339,7 @@ Z = "no_op"
 "&" = "no_op"
 N = "no_op"
 n = "no_op"
+w = "@<C-w>"
 
 # insert mode
 [keys.insert]
@@ -310,9 +357,9 @@ C-o = "file_picker_in_current_directory"
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 A-J = "save_selection"
 j = { k = "@<esc>" }
-g = { g = { i = "page_up", j = "goto_first_nonwhitespace", k = "page_down", l = "goto_line_end_newline", J = "goto_line_start" } }
+g = { g = { i = "page_cursor_up", j = "goto_first_nonwhitespace", k = "page_cursor_down", l = "goto_line_end_newline", J = "goto_line_start" } }
 C-a = "select_all"
-w = { w = { r = "rotate_view", i = "jump_view_up", j = "jump_view_left", k = "jump_view_down", l = "jump_view_right", I = ["hsplit", "jump_view_up"], J = ["vsplit", "jump_view_right"], K = "hsplit", L = "vsplit", C-i = "swap_view_up", C-j = "swap_view_left", C-k = "swap_view_down", C-l = "swap_view_right", w = ":buffer-close", W = ":buffer-close!", Q = "wonly", R = ":reload-all" } }
+w = { w = { r = "rotate_view", i = "jump_view_up", j = "jump_view_left", k = "jump_view_down", l = "jump_view_right", I = ["hsplit", "jump_view_up"], J = ["vsplit", "jump_view_right"], K = "hsplit", L = "vsplit", C-i = "swap_view_up", C-j = "swap_view_left", C-k = "swap_view_down", C-l = "swap_view_right", w = ":buffer-close", W = ":buffer-close!", Q = "wonly", R = ":reload-all", t = "transpose_view"} }
 C-v = ":clipboard-paste-before"
 ## editor config
 [editor]
@@ -325,7 +372,7 @@ color-modes = true
 popup-border = "all"
 bufferline = "always"
 auto-format = false
-preview-completion-insert = false
+preview-completion-insert = true
 completion-trigger-len = 1
 default-line-ending = "lf"
 trim-trailing-whitespace = true

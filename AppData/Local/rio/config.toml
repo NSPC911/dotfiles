@@ -1,6 +1,6 @@
 hide-cursor-when-typing = true
 padding-x = 10
-padding-y = [5, 5]
+padding-y = [5, -5]
 # env-vars = []
 confirm-before-quit = false
 
@@ -24,12 +24,21 @@ level = 1
 filters = []
 
 [keyboard]
-use-kitty-keyboard-protocol = false
+use-kitty-keyboard-protocol = true
 
 [fonts]
 family = "CaskaydiaCove NFP"
 features = ["ss02", "ss03", "ss05", "ss19"]
 use-drawable-characters = true
+
+[fonts.regular]
+family = "CaskaydiaCove NFP"
+[fonts.bold]
+family = "CaskaydiaCove NFP"
+[fonts.italic]
+family = "CaskaydiaCove NFP"
+[fonts.bold-italic]
+family = "CaskaydiaCove NFP"
 
 [scroll]
 multiplier = 3.0
@@ -40,7 +49,10 @@ mode = "bookmark"
 clickable = false
 hide-if-single = false
 use-current-path = false
-color-automation = []
+unfocused-split-opacity = 0.80
+color-automation = [
+  { program = "hx.exe", color = "#FF0000" }
+]
 
 [shell]
 program = "pwsh"
@@ -52,17 +64,18 @@ keys = [
   { key = "]", with = "control | shift", action = "ReceiveChar" },
   { key = "r", with = "control | shift", action = "ReceiveChar" },
   { key = "d", with = "control | shift", action = "ReceiveChar" },
-  { key = "[", with = "control", action = "SelectPrevTab" },
-  { key = "]", with = "control", action = "SelectNextTab" },
-  { key = "tab", with = "control", action = "ReceiveChar" },
-  { key = "tab", with = "control | shift", action = "ReceiveChar" },
-  { key = "space", with = "control | shift", action = "ReceiveChar" },
-  { key = "v", with = "alt", action =  "ToggleViMode" },
   { key = "t", with = "control | shift", action = "ReceiveChar" },
   { key = "n", with = "control | shift", action = "ReceiveChar" },
   { key = "w", with = "control | shift", action = "ReceiveChar" },
+  { key = "space", with = "control | shift", action = "ReceiveChar" },
+  { key = "[", with = "control", action = "SelectPrevSplit" },
+  { key = "]", with = "control", action = "SelectNextSplit" },
+  { key = "v", with = "alt", action =  "ToggleViMode" },
   { key = "t", with = "control", action = "CreateTab" },
-  { key = "w", with = "control", action = "CloseTab" }
+  { key = "w", with = "control", action = "CloseSplitOrTab" },
+  { key = "o", with = "control", action = "OpenConfigEditor" },
+  { key = "l", with = "control", action = "SplitRight" },
+  { key = "k", with = "control", action = "SplitDown"},
 ]
 
 [colors]
