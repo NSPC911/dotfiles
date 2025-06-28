@@ -53,7 +53,7 @@
 
 * {
   color: var(--nord-gray-white);
-  font-family: "CaskaydiaCove NFP";
+  font-family: "CaskaydiaCove NFP" !important;
   font-size: 12px;
   font-weight: 600;
   margin: 0;
@@ -124,7 +124,7 @@
 }
 
 .media-menu .artist {
-  color: #6c7086;
+  color: var(--nord-gray-white);
   font-size: 13px;
   margin-top: 0px;
 }
@@ -406,4 +406,210 @@
 
 .komorebi-workspaces .ws-btn.active:hover {
   background: #fff;
+}
+
+/* Context menu style */
+.launchpad .context-menu {
+  background-color: #202020;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 0px;
+  font-size: 12px;
+  color: #FFFFFF;
+  font-weight: 600
+}
+
+.launchpad .context-menu::item {
+  background-color: transparent;
+  padding: 6px 12px;
+  margin: 2px 6px;
+  border-radius: 4px;
+  min-width: 100px;
+}
+
+.launchpad .context-menu::item:selected {
+  background-color: #3a3a3a;
+  color: #FFFFFF;
+}
+
+.launchpad .context-menu::item:pressed {
+  background-color: #3A3A3A;
+}
+
+.launchpad .context-menu::separator {
+  height: 1px;
+  background-color: #404040;
+  margin: 4px 8px;
+}
+
+.launchpad .context-menu::item:disabled {
+  color: #666666;
+  background-color: transparent;
+}
+
+/* App dialog style */
+.launchpad .app-dialog {
+  background-color: #202020;
+}
+
+.launchpad .app-dialog .buttons-container {
+  background-color: #171717;
+  margin-top: 16px;
+  border-top: 1px solid #000;
+  max-height: 80px;
+  min-height: 80px;
+  padding: 0 20px 0 20px;
+}
+
+.launchpad .app-dialog .message {
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 0
+}
+
+.launchpad .app-dialog .title-field,
+.launchpad .app-dialog .path-field,
+.launchpad .app-dialog .icon-field {
+  background-color: var(--nord-black-2);
+  border: 1px solid #303030;
+  border-radius: 4px;
+  padding: 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 10px 0px 5px 0;
+  min-height: 30px;
+}
+
+.launchpad .app-dialog .title-field:focus,
+.launchpad .app-dialog .path-field:focus,
+.launchpad .app-dialog .icon-field:focus {
+  border-bottom-color: #4cc2ff;
+}
+
+.launchpad .app-dialog .button {
+  background-color: var(--nord-black-2);
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #FFFFFF;
+  min-width: 80px;
+  padding: 0 6px;
+  margin: 10px 0 5px 6px;
+  min-height: 28px;
+}
+
+.launchpad .app-dialog .buttons-container .button {
+  margin: 10px 0 5px 0px;
+  font-size: 13px;
+}
+
+.launchpad .app-dialog .button:hover {
+  background-color: #4A4A4A;
+}
+
+.launchpad .app-dialog .button:pressed {
+  background-color: #3A3A3A;
+}
+
+.launchpad .app-dialog .button.add,
+.launchpad .app-dialog .button.save {
+  background-color: #0078D4;
+}
+
+.launchpad .app-dialog .button.add:hover,
+.launchpad .app-dialog .button.save:hover {
+  background-color: #0066B2;
+}
+
+.launchpad .app-dialog .button.add:pressed,
+.launchpad .app-dialog .button.save:pressed {
+  background-color: #00509E;
+}
+
+.launchpad .app-dialog .button.delete {
+  background-color: #bd2d14;
+}
+
+.launchpad .app-dialog .button.delete:hover {
+  background-color: #b30f00;
+}
+
+.launchpad .app-dialog .button.delete:pressed {
+  background-color: #a00b00;
+}
+
+.launchpad .app-dialog .warning-message {
+  background-color: #2b0b0e;
+  border: 1px solid #5a303c;
+  border-radius: 4px;
+  color: #cc9b9f;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 12px;
+  margin: 4px 0px;
+}
+
+/* Popup style */
+.launchpad .launchpad-container {
+  background-color: var(--nord-black2-75p);
+}
+
+.launchpad .search-container {
+  min-height: 80px;
+  margin: 0;
+  padding: 0
+}
+
+.launchpad .search-input {
+  max-width: 400px;
+  padding: 8px 12px;
+  font-size: 14px;
+  min-height: 24px;
+  max-height: 24px;
+  border-radius: 20px;
+  border: 2px solid var(--nord-black-2);
+  background-color: var(--nord-black2-75p);
+  color: #a6adc8;
+}
+
+.launchpad .search-input:focus {
+  border: 2px solid rgb(22, 114, 190);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.launchpad .launchpad-scroll-area {
+  background-color: transparent;
+  border: none;
+}
+
+.launchpad .app-icon {
+  background-color: rgba(102, 10, 10, 0);
+  border-radius: 12px;
+  border: 2px solid rgba(112, 76, 32, 0);
+  padding-top: 10px;
+  margin: 24px 6px 6px 6px;
+  max-width: 110px;
+  min-width: 110px;
+  min-height: 110px;
+  max-height: 110px;
+}
+
+.launchpad .app-icon:focus {
+  border: 2px solid #89b4fa;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.launchpad .app-icon:hover {
+  border: 2px solid #89b4fa;
+  background-color: rgba(255, 255, 255, 0.13);
+}
+
+.launchpad .app-icon .title {
+  color: #a6adc8;
+  font-size: 14px;
+  margin-top: 2px;
+  font-weight: 600
 }
