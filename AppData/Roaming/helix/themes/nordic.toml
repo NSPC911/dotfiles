@@ -100,8 +100,8 @@
 "ui.menu" = {}
 "ui.menu.selected" = { fg = "white1", modifiers = ["reversed"] }
 "ui.menu.scroll" = { fg = "white1", bg = "gray0" }
-"ui.selection" = { modifiers = ["dim"] }
-"ui.cursorline.primary" = {}
+"ui.selection" = { bg = "gray4" }
+"ui.cursorline.primary" = { modifiers = ["dim"] }
 
 # Diagnostic Messages
 "error" = { fg = "red_bright" }
