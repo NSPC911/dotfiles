@@ -81,7 +81,7 @@
 "ui.cursor.primary" = { fg = "black1", bg = "white0" }
 "ui.background" = {}
 "ui.bufferline" = {}
-"ui.bufferline.active" = { underline = { color = "gray4", style = "line" } }
+"ui.bufferline.active" = { modifiers = ["reversed"] }
 "ui.cursor.match" = { modifiers = ["bold"] }
 "ui.linenr" = { fg = "gray6" }
 "ui.linenr.selected" = { fg = "white3" }
@@ -98,9 +98,9 @@
 "ui.text.focus" = { bg = "gray2" }
 "ui.virtual.ruler" = { bg = "gray1" }
 "ui.menu" = {}
-"ui.menu.selected" = { fg = "white1", underline = { color = "white1", style = "line" } }
+"ui.menu.selected" = { fg = "white1", modifiers = ["reversed"] }
 "ui.menu.scroll" = { fg = "white1", bg = "gray0" }
-"ui.selection" = { bg = "gray2" }
+"ui.selection" = { modifiers = ["dim"] }
 "ui.cursorline.primary" = {}
 
 # Diagnostic Messages

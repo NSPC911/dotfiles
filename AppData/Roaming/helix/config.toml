@@ -15,7 +15,7 @@ C-S-f = "rsearch"
 tab = ["rotate_view"]
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
-Y = ":clipboard-yank"
+C-c = ":clipboard-yank"
 S-v = {"j" = ":clipboard-paste-before", "k" = ":clipboard-paste-replace", "l" = ":clipboard-paste-after"}
 esc = ["collapse_selection", "keep_primary_selection"]
 i = "move_visual_line_up"
@@ -277,6 +277,7 @@ C-x = [":clipboard-yank", "delete_selection"]
 C-a = "select_all"
 A-i = "insert_mode"
 "%" = "no_op"
+C-s = "no_op"
 W = "no_op"
 a = "no_op"
 A = "no_op"
@@ -355,17 +356,16 @@ display-progress-messages = true
 [editor.soft-wrap]
 enable = false
 wrap-indicator = "   󱞶 "
-[icons.gutter]
+[icons.mime]
 enabled = true
-warning = "\uf071"
-error = "\uebfb"
 [icons.kind]
 enabled = true
 workspace = " W"
-[icons.vcs]
-enabled = true
-[icons.mime]
-enabled = true
 [icons.diagnostic]
 warning = "\uf071"
 error = "\uf06a"
+[icons.vcs]
+enabled = true
+[icons.gutter]
+enabled = true
+deleted = "⏽"
