@@ -71,8 +71,8 @@ widgets:
         on_right: "toggle_label"
         on_middle: "do_nothing"
       max_field_size:
-        label: 50
-        label_alt: 75
+        label: 40
+        label_alt: 40
       show_thumbnail: true
       controls_only: false
       controls_left: false
@@ -92,8 +92,8 @@ widgets:
         border_color: "system"
         alignment: "center"
         direction: "down"
-        offset_top: 0
-        offset_left: 50
+        offset_top: 5
+        offset_left: 0
         thumbnail_corner_radius: 8
         thumbnail_size: 120
         max_title_size: 80
@@ -122,9 +122,9 @@ widgets:
       label_no_window: ""
       label_icon: true
       label_icon_size: 14
-      max_length: 56
+      max_length: 40
       max_length_ellipsis: "..."
-      monitor_exclusive: true
+      monitor_exclusive: false
       container_padding:
         top: 0
         left: 0
