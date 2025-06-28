@@ -4,20 +4,21 @@ oh-my-posh init powershell --config $HOME\.config\kushal.omp.json | Out-String |
 ##### Completions #####
 uv generate-shell-completion powershell | Out-String | Invoke-Expression
 regolith completion powershell | Out-String | Invoke-Expression
-zoxide init powershell --cmd zxd | Out-String | Invoke-Expression
+zoxide init powershell --cmd zd | Out-String | Invoke-Expression
 onefetch --generate powershell | Out-String | Invoke-Expression
 
 ##### cool zoxide + onefetch #####
-function zd {
-	param (
-        [string[]]$Params
-    )
-	__zoxide_z @Params
+# waste of time
+# function zd {
+# 	param (
+#         [string[]]$Params
+#     )
+# 	__zoxide_z @Params
 
-	if (Test-Path ".git") {
-		onefetch --no-color-palette --nerd-fonts
-	}
-}
+# 	if (Test-Path ".git") {
+# 		onefetch --no-color-palette --nerd-fonts
+# 	}
+# }
 
 ##### Copilot really is built different bruh ####
 function ghcs {
