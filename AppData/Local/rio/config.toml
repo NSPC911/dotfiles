@@ -12,7 +12,7 @@ args = []
 # width = 600
 # height = 400
 mode = "windowed"
-opacity = 0.875
+opacity = 0.75
 blur = false
 decorations = "Disabled"
 
@@ -27,18 +27,22 @@ filters = []
 use-kitty-keyboard-protocol = true
 
 [fonts]
-family = "CaskaydiaCove NFP"
+family = "Hack Nerd Font Propo"
 features = ["ss02", "ss03", "ss05", "ss19"]
-use-drawable-characters = true
-
+use-drawable-characters = false
 [fonts.regular]
-family = "CaskaydiaCove NFP"
+family = "Hack Nerd Font Propo"
+# weight = 525
 [fonts.bold]
-family = "CaskaydiaCove NFP"
+family = "Hack Nerd Font Propo"
+# weight = 800
 [fonts.italic]
-family = "CaskaydiaCove NFP"
+family = "Hack Nerd Font Propo"
+style = "Italic"
+# weight = 525
 [fonts.bold-italic]
-family = "CaskaydiaCove NFP"
+family = "Hack Nerd Font Propo"
+# weight = 800
 
 [scroll]
 multiplier = 3.0

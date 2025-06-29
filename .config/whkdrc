@@ -76,6 +76,8 @@ alt + shift + r             : komorebic unmanage ; komorebic manage
 # Layouts
 alt + x                     : komorebic flip-layout horizontal
 alt + y                     : komorebic flip-layout vertical
+alt + oem_5                 : komorebic cycle-layout next
+alt + shift + oem_5         : komorebic cycle-layout previous
 
 # Stacking
 ctrl + alt + left           : komorebic stack left
@@ -85,4 +87,4 @@ ctrl + alt + right          : komorebic stack right
 alt + shift + oem_4         : komorebic cycle-stack previous
 alt + shift + oem_6         : komorebic cycle-stack next
 alt + oem_1                 : komorebic unstack
-alt + shift + oem_1         : komorebic unstack-all
+ctrl + alt + oem_1          : komorebic unstack-all

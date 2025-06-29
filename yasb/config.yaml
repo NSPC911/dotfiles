@@ -49,16 +49,6 @@ bars:
           "volume",
           "notifications",
         ]
-#    layouts:
-#      center:
-#        alignment: "center"
-#        stretch: false
-#      left:
-#        alignment: "left"
-#        stretch: false
-#      right:
-#        alignment: "right"
-#        stretch: false
 widgets:
   media:
     type: "yasb.media.MediaWidget"

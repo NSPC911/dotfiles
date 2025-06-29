@@ -352,6 +352,9 @@
 
 .widget {
   padding: 0 8px;
+  border: 2px solid var(--nord-cyan-base);
+  border-left: none;
+  border-right: none;
 }
 
 .widget .label {
@@ -361,7 +364,7 @@
 .yasb-bar {
   border-radius: 0px;
   margin: 0;
-  padding: 6px 13px 0px 13px;
+  padding: 6px 7px 0px 11px;
 }
 
 .yasb-bar .widget {
@@ -369,9 +372,11 @@
 }
 
 .yasb-bar .active-window-widget,
-.yasb-bar .notification-widget {
+.yasb-bar .notification-widget,
+.yasb-bar .cpu-widget {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  border-right: 2px solid var(--nord-cyan-base)
 }
 
 .clock-widget,
@@ -384,6 +389,7 @@
 .yasb-bar .power-menu-widget {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  border-left: 2px solid var(--nord-cyan-base);
 }
 
 .komorebi-active-layout {
