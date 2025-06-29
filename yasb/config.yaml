@@ -86,7 +86,7 @@ widgets:
         play: "\ue768"
         pause: "\ue769"
       media_menu:
-        blur: false
+        blur: true
         round_corners: true
         round_corners_type: "normal"
         border_color: "system"
@@ -119,11 +119,11 @@ widgets:
     options:
       label: "{win[title]}"
       label_alt: "[exe='{win[process][name]}' hwnd={win[hwnd]}]"
-      label_no_window: ""
+      label_no_window: " "
       label_icon: true
       label_icon_size: 14
       max_length: 40
-      max_length_ellipsis: "..."
+      max_length_ellipsis: "-"
       monitor_exclusive: false
       container_padding:
         top: 0
@@ -137,11 +137,12 @@ widgets:
       label_alt: "{%A %d %B %Y, %H:%M:%S}"
       timezones: []
       calendar:
-        blur: false
+        blur: true
         round_corners: true
         alignment: "center"
         direction: "down"
-        offset_top: 6
+        offset_top: 0
+        offset_left: 30
       callbacks:
         on_left: "toggle_calendar"
         on_middle: "next_timezone"
@@ -194,15 +195,15 @@ widgets:
       label: "\u23fb"
       uptime: True
       blur: False
-      blur_background: False
+      blur_background: True
       animation_duration: 0
       button_row: 5
       buttons:
         shutdown: ["\u23fb", "Shut Down"]
         restart: ["\uead2", "Restart"]
-        signout: ["\udb80\udf43", "Sign out"]
         hibernate: ["\uf28e", "Hibernate"]
         sleep: ["\u23fe", "Sleep"]
+        signout: ["\udb80\udf43", "Sign out"]
         cancel: ["", "Cancel"]
       container_padding:
         top: 0

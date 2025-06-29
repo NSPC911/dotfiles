@@ -1,5 +1,5 @@
 :root {
-  --main: #1e2430bb;
+  --main: #00000066;
   --overlay0: #6c7086;
   --overlay1: #7f849c;
   --overlay2: #9399b2;
@@ -52,7 +52,7 @@
 }
 
 * {
-  color: var(--nord-gray-white);
+  color: var(--nord-cyan-bright);
   font-family: "CaskaydiaCove NFP" !important;
   font-size: 12px;
   font-weight: 600;
@@ -76,7 +76,9 @@
 }
 
 .calendar .calendar-table::item {
-  background-color: var(--nord-gray0);
+  background-color: var(--nord-gray2);
+  margin: 2px;
+  border-radius: 8px;
 }
 
 .cpu-widget {
@@ -109,7 +111,7 @@
 }
 
 .komorebi-layout-menu .menu-item:hover {
-  background-color: var(--nord-gray0);
+  background-color: var(--nord-gray3);
   color: #fff;
 }
 
@@ -225,9 +227,8 @@
 }
 
 .media-widget .btn {
-  color: var(--nord-white0);
   font-family: Segoe Fluent Icons;
-  font-weight: 400;
+  font-weight: 550;
   margin: 0;
   padding: 0 1px;
 }
@@ -258,7 +259,7 @@
 }
 
 .power-menu-popup {
-  background-color: var(--nord-black2-75p);
+  background-color: var(--main);
   border-radius: 16px;
 }
 
@@ -283,6 +284,26 @@
   margin-bottom: 8px;
 }
 
+.power-menu-popup .button.shutdown .icon,
+.power-menu-popup .button.shutdown .label {
+  color: var(--nord-red-base)
+}
+
+.power-menu-popup .button.restart .icon,
+.power-menu-popup .button.restart .label {
+  color: var(--nord-yellow-base)
+}
+
+.power-menu-popup .button.hibernate .icon,
+.power-menu-popup .button.hibernate .label {
+  color: var(--nord-green-base)
+}
+
+.power-menu-popup .button.signout .icon,
+.power-menu-popup .button.signout .label {
+  color: var(--nord-magenta-base)
+}
+
 .power-menu-popup .button.cancel {
   border-radius: 12px;
   padding: 0;
@@ -291,11 +312,13 @@
 
 .power-menu-popup .button.cancel .icon {
   padding: 0;
+  color: var(--nord-gray6)
 }
 
 .power-menu-popup .button.cancel .label {
   padding: 0;
   margin: 0;
+  color: var(--nord-gray6)
 }
 
 .power-menu-popup .button.hover {
