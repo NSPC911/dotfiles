@@ -361,6 +361,8 @@ g = { g = { i = "page_cursor_up", j = "goto_first_nonwhitespace", k = "page_curs
 C-a = "select_all"
 w = { w = { r = "rotate_view", i = "jump_view_up", j = "jump_view_left", k = "jump_view_down", l = "jump_view_right", I = ["hsplit", "jump_view_up"], J = ["vsplit", "jump_view_right"], K = "hsplit", L = "vsplit", C-i = "swap_view_up", C-j = "swap_view_left", C-k = "swap_view_down", C-l = "swap_view_right", w = ":buffer-close", W = ":buffer-close!", Q = "wonly", R = ":reload-all", t = "transpose_view"} }
 C-v = ":clipboard-paste-before"
+C-c = ":clipboard-yank"
+
 ## editor config
 [editor]
 scrolloff = 0
