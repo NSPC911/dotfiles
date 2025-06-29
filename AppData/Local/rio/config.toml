@@ -12,7 +12,7 @@ args = []
 # width = 600
 # height = 400
 mode = "windowed"
-opacity = 0.75
+opacity = 0.875
 blur = false
 decorations = "Disabled"
 
@@ -74,8 +74,8 @@ keys = [
   { key = "t", with = "control", action = "CreateTab" },
   { key = "w", with = "control", action = "CloseSplitOrTab" },
   { key = "o", with = "control", action = "OpenConfigEditor" },
-  { key = "l", with = "control", action = "SplitRight" },
-  { key = "k", with = "control", action = "SplitDown"},
+  { key = "l", with = "control | shift", action = "SplitRight" },
+  { key = "k", with = "control | shift", action = "SplitDown"},
 ]
 
 [colors]
