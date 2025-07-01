@@ -249,3 +249,5 @@ fastfetch
 
 ##### tabb #####
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+
+Import-Module posh-git
