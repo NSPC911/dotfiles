@@ -26,7 +26,7 @@ bars:
     window_flags:
       always_on_top: true
       windows_app_bar: true
-      hide_on_fullscreen: true
+      hide_on_fullscreen: false
     dimensions:
       width: "100%"
       height: 31
@@ -36,7 +36,7 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: ["power_menu", "media", "active_window"]
+      left: ["power_menu", "launchpad", "media", "active_window"]
       center: ["clock", "cpu"]
       right:
         [
@@ -312,7 +312,7 @@ widgets:
   komorebi_active_layout:
     type: "komorebi.active_layout.ActiveLayoutWidget"
     options:
-      hide_if_offline: true
+      hide_if_offline: false
       label: "{icon} {layout_name}"
       layouts:
         [
@@ -423,9 +423,9 @@ widgets:
         fullscreen: false
         width: 800
         height: 600
-        overlay_block: false
+        overlay_block: true
       window_style:
-        enable_blur: false
+        enable_blur: true
         round_corners: true
         round_corners_type: "normal"
         border_color: "system"
@@ -435,12 +435,12 @@ widgets:
       callbacks:
         on_left: "toggle_launchpad"
       app_title_shadow:
-        enabled: true
+        enabled: false
         color: "#00000090"
         offset: [1, 1]
         radius: 2
       app_icon_shadow:
-        enabled: true
+        enabled: false
         color: "#00000090"
         offset: [0, 2]
         radius: 8

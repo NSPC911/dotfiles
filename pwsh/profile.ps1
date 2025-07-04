@@ -8,6 +8,7 @@ zoxide init powershell --cmd zd | Out-String | Invoke-Expression
 onefetch --generate powershell | Out-String | Invoke-Expression
 gh completion -s powershell | Out-String | Invoke-Expression
 gh copilot alias -- pwsh | Out-String | Invoke-Expression
+bat --completion ps1 | Out-String | Invoke-Expression
 
 ##### cool zoxide + onefetch #####
 # waste of time

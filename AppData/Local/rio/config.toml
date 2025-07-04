@@ -1,8 +1,11 @@
-hide-cursor-when-typing = true
+hide-cursor-when-typing = false
 padding-x = 10
 padding-y = [5, -5]
 # env-vars = []
 confirm-before-quit = false
+
+# [title]
+# placeholder = ""
 
 [editor]
 program = "hx"
@@ -13,6 +16,7 @@ args = []
 # height = 400
 mode = "windowed"
 opacity = 0.75
+# opacity = 1
 blur = false
 decorations = "Disabled"
 
@@ -25,24 +29,23 @@ filters = []
 
 [keyboard]
 use-kitty-keyboard-protocol = true
-
 [fonts]
-family = "Hack Nerd Font Propo"
-features = ["ss02", "ss03", "ss05", "ss19"]
+family = "JetBrainsMono NF"
+features = ["cv12", "cv18", "calt"]
 use-drawable-characters = false
 [fonts.regular]
-family = "Hack Nerd Font Propo"
-# weight = 525
+family = "JetBrainsMono NF"
+weight = 525
 [fonts.bold]
-family = "Hack Nerd Font Propo"
-# weight = 800
+family = "JetBrainsMono NF"
+weight = 800
 [fonts.italic]
-family = "Hack Nerd Font Propo"
+family = "JetBrainsMono NF"
 style = "Italic"
-# weight = 525
+weight = 525
 [fonts.bold-italic]
-family = "Hack Nerd Font Propo"
-# weight = 800
+family = "JetBrainsMono NF"
+weight = 800
 
 [scroll]
 multiplier = 3.0
@@ -53,10 +56,11 @@ mode = "bookmark"
 clickable = false
 hide-if-single = false
 use-current-path = false
-unfocused-split-opacity = 0.80
+unfocused-split-opacity = 1
 color-automation = [
   { program = "hx.exe", color = "#FF0000" }
 ]
+open-config-with-split = true
 
 [shell]
 program = "pwsh"
@@ -64,12 +68,14 @@ args = ["-NoProfileLoadTime", "-NoLogo"]
 
 [bindings]
 keys = [
+  { key = "{", with = "control", action = "ReceiveChar" },
+  { key = "}", with = "control", action = "ReceiveChar" },
   { key = "[", with = "control | shift", action = "ReceiveChar" },
   { key = "]", with = "control | shift", action = "ReceiveChar" },
   { key = "r", with = "control | shift", action = "ReceiveChar" },
   { key = "d", with = "control | shift", action = "ReceiveChar" },
   { key = "t", with = "control | shift", action = "ReceiveChar" },
-  { key = "n", with = "control | shift", action = "ReceiveChar" },
+  { key = "n", with = "control | shift", action = "CreateWindow" },
   { key = "w", with = "control | shift", action = "ReceiveChar" },
   { key = "space", with = "control | shift", action = "ReceiveChar" },
   { key = "[", with = "control", action = "SelectPrevSplit" },
@@ -109,4 +115,4 @@ tabs-foregroud = "#d8dee9"
 tabs-active = "#434c5e"
 tabs-active-highlight = "#8fbcbb"
 tabs-active-foreground = "#D8DEE9"
-bar = "#000000"
+bar = "#00000000"
