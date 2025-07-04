@@ -4,10 +4,10 @@
     "color": "cyan",
     "bar": {
       "borderLeft": "[ ",
-      "borderRight": " ]",
+      "borderRight": " ]"
     },
     "hideCursor": true,
-    "separator": " - ",
+    "separator": " - "
   },
   "modules": [
     "title",
@@ -15,25 +15,28 @@
     "os",
     {
       "type": "host",
-      "format": "{name}",
+      "format": "{name}"
     },
     "uptime",
     "packages",
     "shell",
     "display",
-    "font",
     "terminal",
     "terminalfont",
     "cpu",
-    "gpu",
     "memory",
     "disk",
     "battery",
     "poweradapter",
     "editor",
     {
-      "type": "media",
-      "format": "{status} {title} - {artist}",
+      "type": "wm",
+      "format": "komorebi"
     },
-  ],
+    {
+      "type": "media",
+      "format": "{status} {title} - {artist}"
+    },
+    "break"
+  ]
 }
