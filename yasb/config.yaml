@@ -312,17 +312,17 @@ widgets:
   komorebi_active_layout:
     type: "komorebi.active_layout.ActiveLayoutWidget"
     options:
-      hide_if_offline: false
+      hide_if_offline: true
       label: "{icon} {layout_name}"
       layouts:
         [
           "bsp",
           "columns",
           "rows",
-          "grid",
           "vertical_stack",
           "horizontal_stack",
           "ultrawide_vertical_stack",
+          "grid",
           "right_main_vertical_stack",
         ]
       layout_icons:

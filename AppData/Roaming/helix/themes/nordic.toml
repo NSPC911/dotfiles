@@ -1,8 +1,5 @@
 #:schema https://zakj.github.io/helix-theme-schema/theme.json
-# Nordic theme for Helix
 # From https://github.com/5-pebbles/nordic-helix
-# Author : Owen Friedman <5-pebble@protonmail.com>
-# License: MIT License
 
 # Syntax Highlighting
 "attribute" = { fg = "yellow_base" }
@@ -15,7 +12,6 @@
 
 # types
 "type" = { fg = "yellow_bright" }
-"type.enum.variant" = { fg = "cyan_bright" }
 
 # constants
 "constant" = { fg = "magenta_bright" }
@@ -39,6 +35,7 @@
 # punctuations
 "punctuation.delimiter" = { fg = "gray5", modifiers = ["italic"] }
 "punctuation.special" = { fg = "orange_base" }
+"punctuation.bracket" = { fg = "cyan_bright" }
 
 # comments
 "comment" = { fg = "gray8", modifiers = ["italic"] } # gray4 is unreadable
@@ -46,6 +43,7 @@
 # keywords
 "keyword" = { fg = "orange_base" }
 "keyword.control.conditional" = { fg = "orange_bright", modifiers = ["bold"] }
+"keyword.control.repeat" = { fg = "orange_base", modifiers = ["bold"] }
 "keyword.control.import" = { fg = "green_base", modifiers = ["bold"] }
 "keyword.control.return" = { fg = "gray6" }
 "keyword.control.exception" = { fg = "red_dim" }
@@ -53,15 +51,18 @@
 "keyword.function" = { fg = "orange_dim" }
 
 # Markup Formatting
-"markup.heading.1" = { fg = "yellow_base", modifiers = ["bold"] }
-"markup.heading.2" = { fg = "orange_base", modifiers = ["bold"] }
-"markup.heading.3" = { fg = "magenta_base", modifiers = ["bold"] }
-"markup.heading.4" = { fg = "green_base" }
+"markup.heading.1" = { fg = "yellow_bright", modifiers = ["bold", "underlined"] }
+"markup.heading.2" = { fg = "orange_bright", modifiers = ["bold"] }
+"markup.heading.3" = { fg = "magenta_bright", modifiers = ["bold"] }
+"markup.heading.4" = { fg = "green_bright" }
 "markup.heading.5" = { fg = "blue2", modifiers = ["italic"] }
-"markup.heading.6" = { fg = "cyan_base", modifiers = ["italic"] }
+"markup.heading.6" = { fg = "cyan_bright", modifiers = ["italic"] }
 "markup.bold" = { modifiers = ["bold"] }
 "markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
 "markup.list" = { fg = "orange_base" }
+"markup.list.checked" = { fg = "green_base" }
+"markup.list.unchecked" = { fg = "red_base" }
 "markup.link.url" = { fg = "blue1", modifiers = ["underlined"] }
 "markup.link.label" = { fg = "blue2", modifiers = ["underlined"] }
 "markup.link.text" = { fg = "magenta_dim" }
@@ -186,7 +187,7 @@ cyan_dim = "#80B3B2"
 # Aurora (from Nord theme)
 # Red
 red_base = "#BF616A"
-red_bright = "#F5727A"
+red_bright = "#E5727A"
 red_dim = "#A04049"
 
 # Orange

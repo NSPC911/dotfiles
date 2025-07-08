@@ -6,9 +6,14 @@ plugins.black.enabled = false
 command = "ruff"
 args = ["server"]
 
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
 [[language]]
 name = "python"
-language-servers = ["ruff", "pylsp"]
+language-servers = ["ruff", "pylsp", "ty"]
+auto-format = true
 
 [[language]]
 name = "scss"
@@ -22,3 +27,23 @@ args = []
 [[language]]
 name = "scheme"
 language-servers = ["steel"]
+
+
+[[language]]
+name = "json"
+formatter = { command = "prettierd", args = [".json"] }
+auto-format = true
+
+[[language]]
+name = "javascript"
+formatter = { command = "pretterd", args = [".js"] }
+auto-format = true
+
+[[language]]
+name = "jsonc"
+formatter = { command = "prettierd", args = [".jsonc"] }
+auto-format = true
+
+[[language]]
+name = "yaml"
+formatter = { command = "prettierd", args = [".yaml"] }

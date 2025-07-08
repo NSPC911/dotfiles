@@ -325,27 +325,17 @@
 
 .launchpad .search-container {
   margin: 0;
-  min-height: 80px;
+  min-height: 0;
   padding: 0;
+  height: 0;
 }
 
 .launchpad .search-input {
-  background-color: var(--nord-black2-75p);
-  border-radius: 20px;
-  border: 2px solid var(--nord-cyan-base);
-  color: #a6adc8;
-  font-size: 14px;
-  max-height: 24px;
-  max-width: 400px;
-  min-height: 24px;
-  padding: 8px 12px;
+  font-size: 0;
+  max-height: 0;
+  max-width: 0;
+  min-height: 0;
 }
-
-.launchpad .search-input:focus {
-  background-color: rgba(255,255,255,0.05);
-  border: 2px solid var(--nord-blue0);
-}
-
 .media-area {
   padding: 2px 0 0 12px;
 }
@@ -584,6 +574,7 @@
   border-top: 2px solid var(--nord-cyan-base);
   border-bottom: 2px solid var(--nord-cyan-base);
   padding: 0 8px;
+  margin: 0 -0.5px;
 }
 
 .widget .label {
@@ -600,12 +591,14 @@
   border-bottom-right-radius: 8px;
   border-right: 2px solid var(--nord-cyan-base);
   border-top-right-radius: 8px;
+  margin-right: 0;
 }
 
 .yasb-bar .clock-widget, .yasb-bar .komorebi-active-layout, .yasb-bar .power-menu-widget {
   border-bottom-left-radius: 8px;
   border-left: 2px solid var(--nord-cyan-base);
   border-top-left-radius: 8px;
+  margin-left: 0;
 }
 
 .yasb-bar .widget {

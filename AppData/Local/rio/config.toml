@@ -56,7 +56,7 @@ mode = "bookmark"
 clickable = false
 hide-if-single = false
 use-current-path = false
-unfocused-split-opacity = 1
+unfocused-split-opacity = 0.99
 color-automation = [
   { program = "hx.exe", color = "#FF0000" }
 ]

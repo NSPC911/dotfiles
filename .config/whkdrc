@@ -88,3 +88,5 @@ alt + shift + oem_4         : komorebic cycle-stack previous
 alt + shift + oem_6         : komorebic cycle-stack next
 alt + oem_1                 : komorebic unstack
 ctrl + alt + oem_1          : komorebic unstack-all
+
+alt + s                     : yasbc toggle-widget launchpad --follow-mouse
