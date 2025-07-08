@@ -378,8 +378,9 @@ end-of-line-diagnostics = "hint"
 hidden = true
 parents = true
 [editor.inline-diagnostics]
-cursor-line = "warning"
-other-lines = "error"
+cursor-line = "hint"
+other-lines = "hint"
+max-wrap = 0
 [editor.statusline]
 left = ["mode", "version-control", "file-type", "file-name", "file-modification-indicator", "spinner", "read-only-indicator"]
 center = []
@@ -395,8 +396,9 @@ select = "block"
 render = true
 character = ""
 [editor.lsp]
-display-inlay-hints = true
+display-inlay-hints = false
 display-progress-messages = true
+inlay-hints-length-limit = 1
 [editor.soft-wrap]
 enable = false
 wrap-indicator = "   󱞶 "
@@ -407,7 +409,9 @@ enabled = true
 workspace = " W"
 [icons.diagnostic]
 warning = "\uf071"
-error = "\uf06a"
+error = "\uebfb"
+hint = "\ued83"
+info = "\uf449"
 [icons.vcs]
 enabled = true
 [icons.gutter]

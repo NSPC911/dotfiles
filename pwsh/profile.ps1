@@ -102,29 +102,29 @@ function fzf {
 ##### Python Venv #####
 function pyvenv() {
     if (Test-Path .venv\Scripts) {
-        echo "Using .venv"
-        echo "Activating virtual environment"
+        Write-Output "Using .venv"
+        Write-Output "Activating virtual environment"
         .\.venv\Scripts\Activate.ps1
     } elseif (-not (Test-Path venv)) {
-        echo "Creating new virtual environment"
+        Write-Output "Creating new virtual environment"
         uv venv venv
     }
     if (Test-Path venv\Scripts) {
-        echo "Activating virtual environment"
+        Write-Output "Activating virtual environment"
         .\venv\Scripts\Activate.ps1
     }
-    echo "Virtual Environment is active!"
+    Write-Output "Virtual Environment is active!"
     if (Test-Path pyproject.toml) {
-        echo "Installing packages with 'pyproject.toml'"
+        Write-Output "Installing packages with 'pyproject.toml'"
         uv sync --active
     } elseif (Test-Path requirements.txt) {
-        echo "Installing packages with 'requirements.txt'"
+        Write-Output "Installing packages with 'requirements.txt'"
         uv pip install -r requirements.txt
     } else {
-        echo "Creating a new requirements.txt"
+        Write-Output "Creating a new requirements.txt"
         touch requirements.txt
     }
-    echo "Virtual Environment has been synced!"
+    Write-Output "Virtual Environment has been synced!"
 }
 
 ##### Pretty Print 'Invoke-Webrequest's #####

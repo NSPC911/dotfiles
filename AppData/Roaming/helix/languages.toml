@@ -10,9 +10,23 @@ args = ["server"]
 command = "ty"
 args = ["server"]
 
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
+[language-server.steel]
+command = "steel-language-server"
+args = []
+
+[language-server.powershell-editor-services]
+name = 'powershell-editor-services'
+transport = 'stdio'
+command = 'pwsh'
+args = ['-NoLogo', '-NoProfile', '-Command', '%USERPROFILE%\\Git\\PowerShellEditorServices\\PowerShellEditorServices\\Start-EditorServices.ps1 -SessionDetailsPath %USERPROFILE%\\Git\\PowerShellEditorServices\\PowerShellEditorServices.sessions.lsp.json -LanguageServiceOnly -Stdio']
+
 [[language]]
 name = "python"
-language-servers = ["ruff", "pylsp", "ty"]
+language-servers = ["ruff", "pylsp", "ty", "harper-ls"]
 auto-format = true
 
 [[language]]
@@ -20,14 +34,9 @@ name = "scss"
 file-types = ["scss", "tcss"]
 injection-regex = "(t|s)?css"
 
-[language-server.steel]
-command = "steel-language-server"
-args = []
-
 [[language]]
 name = "scheme"
 language-servers = ["steel"]
-
 
 [[language]]
 name = "json"
@@ -47,3 +56,17 @@ auto-format = true
 [[language]]
 name = "yaml"
 formatter = { command = "prettierd", args = [".yaml"] }
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "markdown-oxide", "harper-ls"]
+formatter = { command = "prettierd", args = [".md"] }
+
+[[language]]
+name = 'powershell'
+scope = 'source.ps1'
+file-types = ['ps1', 'psm1']
+roots = ['.git']
+comment-token = '#'
+indent = { tab-width = 4, unit = '    ' }
+language-servers = [ 'powershell-editor-services' ]

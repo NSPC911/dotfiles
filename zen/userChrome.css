@@ -1,8 +1,16 @@
 #zen-main-app-wrapper {
-  --funny-accent-background-colour: color-mix(in oklab, transparent 50%, #2E3440);
+  --funny-accent-background-colour: color-mix(
+    in oklab,
+    transparent 50%,
+    #2e3440
+  );
   --zen-main-browser-background-toolbar: transparent !important;
   --sidebar-border-color: transparent;
-  --toolbarbutton-hover-background: color-mix(in oklab, transparent 50%, #2E3440) !important;
+  --toolbarbutton-hover-background: color-mix(
+    in oklab,
+    transparent 50%,
+    #2e3440
+  ) !important;
   .tab-close-button {
     position: absolute !important;
   }
@@ -18,12 +26,15 @@
   #zen-workspaces-button {
     display: none !important;
   }
-  #zen-current-workspace-indicator-container > .zen-current-workspace-indicator:has(> .zen-current-workspace-indicator-icon) {
+  #zen-current-workspace-indicator-container
+    > .zen-current-workspace-indicator:has(
+      > .zen-current-workspace-indicator-icon
+    ) {
     opacity: 1 !important;
   }
 
   .tab-background {
-    border-radius: 8px !important
+    border-radius: 8px !important;
   }
 
   .tab-close-button {
@@ -42,10 +53,10 @@
     /*! z-index: 10000; */
     /*! overflow: visible; */
     .swipe-nav-icon-arrow {
-      transform: translateX(12.5%)!important;
+      transform: translateX(12.5%) !important;
     }
   }
-  
+
   #zen-media-controls-toolbar > toolbaritem {
     backdrop-filter: blur(10px) !important;
     --zen-media-control-bg: var(--main-browser-background) !important;
