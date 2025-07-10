@@ -8,8 +8,8 @@
   --sidebar-border-color: transparent;
   --toolbarbutton-hover-background: color-mix(
     in oklab,
-    transparent 50%,
-    #2e3440
+    transparent 12.5%,
+    #4c566a
   ) !important;
   .tab-close-button {
     position: absolute !important;
@@ -56,26 +56,56 @@
       transform: translateX(12.5%) !important;
     }
   }
-
   #zen-media-controls-toolbar > toolbaritem {
     backdrop-filter: blur(10px) !important;
     --zen-media-control-bg: var(--main-browser-background) !important;
     box-shadow: unset !important;
-    border: 1px solid var(--sidebar-border-color);
+    border: 1px solid var(--toolbarbutton-hover-background);
+    #zen-media-info-vbox {
+      overflow-x: hidden !important;
+    }
   }
   #navigator-toolbox#navigator-toolbox#navigator-toolbox {
-    transition-duration: 0.125s !important;
+    transition-duration: 0s !important;
     margin-top: 6.125em !important;
     height: calc(100% - 6em - 0.7em) !important;
     margin-left: calc(5px + 0.125em);
     background: transparent !important;
-    border: unset !important;
     > #titlebar {
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px) !important;
       background: var(--funny-accent-background-colour) !important;
-      &::before {
+      &::before,
+      &::after {
         background: none !important;
+        backdrop-filter: unset !important;
       }
     }
   }
+  [overflow] {
+    animation-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96) !important;
+  }
+}
+
+/* url bar zoom animation */
+#browser:has(#urlbar[open][zen-floating-urlbar="true"]) {
+  pointer-events: none;
+  filter: blur(5px) brightness(70%) !important;
+}
+
+.browserStack:has(
+    #historySwipeAnimationPreviousArrow:not([style="translate: none;"])
+  )
+  browser {
+  scale: 0.95 !important;
+  transform: translateX(3%) !important;
+  border-radius: 1em !important;
+}
+
+.browserStack:has(
+    #historySwipeAnimationNextArrow:not([style="translate: none;"])
+  )
+  browser {
+  scale: 0.95 !important;
+  transform: translateX(-3%) !important;
+  border-radius: 1em !important;
 }

@@ -14,6 +14,18 @@ args = ["server"]
 command = "harper-ls"
 args = ["--stdio"]
 
+[language-server.harper-ls.config.harper-ls]
+dialact = "British"
+isolateEnglish = false
+
+[language-server.harper-ls.config.harper-ls.linters]
+UnclosedQuotes = true
+WrongQuotes = true
+LongSentences = true
+RepeatedWords = true
+SpellCheck = false
+SentenceCapitalization = false
+
 [language-server.steel]
 command = "steel-language-server"
 args = []
