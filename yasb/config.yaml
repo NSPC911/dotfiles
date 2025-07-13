@@ -41,7 +41,9 @@ bars:
       right:
         [
           "komorebi_active_layout",
+          # "glazewm_tiling_direction",
           "komorebi_workspaces",
+          # "glazewm_workspaces",
           "bluetooth",
           "wifi",
           "brightness",
@@ -61,13 +63,13 @@ widgets:
         on_right: "toggle_label"
         on_middle: "do_nothing"
       max_field_size:
-        label: 40
-        label_alt: 40
+        label: 35
+        label_alt: 35
       show_thumbnail: true
       controls_only: false
       controls_left: false
       controls_hide: false
-      thumbnail_alpha: 255
+      thumbnail_alpha: 127
       thumbnail_padding: 0
       thumbnail_corner_radius: 0
       icons:
@@ -112,7 +114,7 @@ widgets:
       label_no_window: " "
       label_icon: true
       label_icon_size: 14
-      max_length: 40
+      max_length: 35
       max_length_ellipsis: "-"
       monitor_exclusive: false
       container_padding:
@@ -363,6 +365,16 @@ widgets:
         color: "black"
         radius: 3
         offset: [1, 1]
+  glazewm_tiling_direction:
+    type: "glazewm.tiling_direction.GlazewmTilingDirectionWidget"
+    options:
+      horizontal_label: "\udb81\udce1 Horizontal"
+      vertical_label: "\udb81\udce2 Vertical"
+      btn_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
@@ -389,6 +401,26 @@ widgets:
         color: "black"
         radius: 3
         offset: [1, 1]
+  glazewm_workspaces:
+    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
+    options:
+      offline_label: " "
+      hide_empty_workspaces: false
+      hide_if_offline: true
+      populated_label: " "
+      empty_label: "e"
+      active_populated_label: " "
+      active_empty_label: " "
+      btn_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
   cpu:
     type: "yasb.cpu.CpuWidget"
     options:

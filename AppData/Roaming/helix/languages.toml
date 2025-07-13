@@ -30,6 +30,10 @@ SentenceCapitalization = false
 command = "steel-language-server"
 args = []
 
+[language-server.pyrefly]
+command = "pyrefly"
+args = ["lsp"]
+
 [language-server.powershell-editor-services]
 name = 'powershell-editor-services'
 transport = 'stdio'

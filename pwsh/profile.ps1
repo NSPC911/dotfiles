@@ -1,14 +1,24 @@
 ##### posh setup #####
+Write-Output "`e[HSetting up oh-my-posh"
 oh-my-posh init powershell --config $HOME\.config\kushal.omp.json | Out-String | Invoke-Expression
 
-##### Completions #####
-uv generate-shell-completion powershell | Out-String | Invoke-Expression
-regolith completion powershell | Out-String | Invoke-Expression
+##### Zoxide #####
+Write-Output "`e[HSetting up zoxide    "
+## `zd` is used instead of `cd` because `cd` cannot be remapped
 zoxide init powershell --cmd zd | Out-String | Invoke-Expression
-onefetch --generate powershell | Out-String | Invoke-Expression
+
+##### Completions #####
+Write-Output "`e[HSetting up uv completions"
+uv generate-shell-completion powershell | Out-String | Invoke-Expression
+Write-Output "`e[HSetting up gh completions"
 gh completion -s powershell | Out-String | Invoke-Expression
 gh copilot alias -- pwsh | Out-String | Invoke-Expression
+Write-Output "`e[HSetting up batcat completions  "
 bat --completion ps1 | Out-String | Invoke-Expression
+Write-Output "`e[HSetting up regolith completions"
+regolith completion powershell | Out-String | Invoke-Expression
+Write-Output "`e[HSetting up onefetch completions"
+onefetch --generate powershell | Out-String | Invoke-Expression
 
 ##### cool zoxide + onefetch #####
 # waste of time
@@ -24,6 +34,7 @@ bat --completion ps1 | Out-String | Invoke-Expression
 # }
 
 ##### Superfile Go To Last Dir #####
+Write-Output "`e[HDealing with functions and aliases..."
 function spf {
     param (
         [string[]]$Params
@@ -70,6 +81,10 @@ function symlink {
         [string]$ItemToSymlinkTo
     )
     New-Item -ItemType SymbolicLink -Path "$ItemToSymlinkTo" -Target "$ItemToSymlinkFrom"
+}
+
+function Get-Folder-Size {
+    Get-ChildItem -Recurse | Measure-Object -Property Length -Sum | Select-Object @{Name="Size(GB)";Expression={[math]::round($_.Sum/1GB,2)}}
 }
 
 ##### better fzf #####
@@ -147,15 +162,12 @@ function taskfind {
 ##### better sudo (not really) #####
 function sd { Start-Process pwsh -Verb RunAs -ArgumentList "-Command cd '$pwd'; Clear-Host ; $args ; Read-Host 'Exit Now?'" }
 
-##### ffmpeg extract one #####
-function extractFrame {
-    ffmpeg -i "$args" -vf "select=eq(n\,0)" -update 1 -frames:v 1 -q:v 3 output.jpg
-}
-
-##### Other stuff #####
-fastfetch
-
 ##### tabb #####
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
+Write-Output "Importing posh-git                       "
 Import-Module posh-git
+
+##### Other stuff #####
+Clear-Host
+fastfetch
