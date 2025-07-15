@@ -16,7 +16,7 @@ args = []
 # width = 600
 # height = 400
 mode = "windowed"
-opacity = 0.75
+opacity = 0.625
 # opacity = 1
 blur = false
 decorations = "Disabled"
@@ -31,19 +31,19 @@ filters = []
 [keyboard]
 use-kitty-keyboard-protocol = true
 [fonts]
-family = "JetBrainsMono NF"
+family = "CaskaydiaCove NF"
 features = ["cv12", "cv18", "calt"]
 use-drawable-characters = true
 [fonts.regular]
 family = "CaskaydiaCove NF"
-weight = 525
+weight = 400
 [fonts.bold]
 family = "CaskaydiaCove NF"
 weight = 800
 [fonts.italic]
 family = "CaskaydiaCove NF"
 style = "Italic"
-weight = 525
+weight = 400
 [fonts.bold-italic]
 family = "CaskaydiaCove NF"
 weight = 800

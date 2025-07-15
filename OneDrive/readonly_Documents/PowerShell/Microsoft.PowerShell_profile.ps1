@@ -4,8 +4,13 @@ oh-my-posh init powershell --config $HOME\.config\kushal.omp.json | Out-String |
 
 ##### Zoxide #####
 Write-Output "`e[HSetting up zoxide    "
-## `zd` is used instead of `cd` because `cd` cannot be remapped
-zoxide init powershell --cmd zd | Out-String | Invoke-Expression
+zoxide init powershell --no-cmd | Out-String | Invoke-Expression
+Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
+Set-Alias -Option AllScope -Name "cdi" -Value "__zoxide_zi"
+Set-Alias -Option AllScope -Name "cdb" -Value "__zoxide_bin"
+function zd {
+    Write-Output "Did you mean cd?"
+}
 
 ##### Completions #####
 Write-Output "`e[HSetting up uv completions"
@@ -17,12 +22,13 @@ Write-Output "`e[HSetting up batcat completions  "
 bat --completion ps1 | Out-String | Invoke-Expression
 Write-Output "`e[HSetting up regolith completions"
 regolith completion powershell | Out-String | Invoke-Expression
+Write-Output "`e[HSetting up chezmoi completions"
+chezmoi completion powershell | Out-String | Invoke-Expression
 Write-Output "`e[HSetting up onefetch completions"
 onefetch --generate powershell | Out-String | Invoke-Expression
-
 ##### cool zoxide + onefetch #####
 # waste of time
-# function zd {
+# function zoxide_with_onefetch {
 # 	param (
 #         [string[]]$Params
 #     )
@@ -36,9 +42,7 @@ onefetch --generate powershell | Out-String | Invoke-Expression
 ##### Superfile Go To Last Dir #####
 Write-Output "`e[HDealing with functions and aliases..."
 function spf {
-    param (
-        [string[]]$Params
-    )
+    param ( [string[]]$Params )
     $spf_location = "C:\Users\notso\scoop\shims\spf.exe"
     $SPF_LAST_DIR_PATH = [Environment]::GetFolderPath("LocalApplicationData") + "\superfile\lastdir"
 
@@ -69,7 +73,8 @@ function Search-For-String {
         [Parameter(ValueFromRemainingArguments)]
         [string[]]$AdditionalArgs
     )
-    Invoke-Expression "rg --ignore-case --pretty --context-separator=... `"$ItemToSearchFor`" $AdditionalArgs"}
+    Invoke-Expression "rg --ignore-case --pretty --context-separator=... `"$ItemToSearchFor`" $AdditionalArgs"
+}
 Set-Alias -Name searchfor -Value Search-For-String
 
 function symlink {
@@ -102,15 +107,10 @@ function fzf {
         $fzfArgs += "-q"
         $fzfArgs += "$SearchQuery"
     }
-    if ($AdditionalArgs) {
-        $fzfArgs += $AdditionalArgs
-    }
+    if ($AdditionalArgs) { $fzfArgs += $AdditionalArgs }
 
-    if ($fzfArgs.Count -gt 0) {
-        & fzf.exe --border rounded --multi --separator "-" --input-border "rounded" --preview "bat --color always --number --theme Nord {}" --color "dark" --preview-border "rounded" $fzfArgs
-    } else {
-        & fzf.exe --border rounded --multi --separator "-" --input-border "rounded" --preview "bat --color always --number --theme Nord {}" --color "dark" --preview-border "rounded"
-	}
+    if ($fzfArgs.Count -gt 0) { & fzf.exe --border rounded --multi --separator "-" --input-border "rounded" --preview "bat --color always --number --theme Nord {}" --color "dark" --preview-border "rounded" $fzfArgs }
+    else { & fzf.exe --border rounded --multi --separator "-" --input-border "rounded" --preview "bat --color always --number --theme Nord {}" --color "dark" --preview-border "rounded" }
 }
 
 
@@ -155,17 +155,19 @@ function curlout {
 }
 
 ##### better than to search for nothing in the tasklist.exe #####
-function taskfind {
-    Invoke-Expression "tasklist.exe | Out-String | rg $args --ignore-case"
-}
+function taskfind { Invoke-Expression "tasklist.exe | Out-String | rg $args --ignore-case" }
 
 ##### better sudo (not really) #####
 function sd { Start-Process pwsh -Verb RunAs -ArgumentList "-Command cd '$pwd'; Clear-Host ; $args ; Read-Host 'Exit Now?'" }
 
+#### LazyGit #####
+Set-Alias -Name "lz" -Value "lazygit"
+
 ##### tabb #####
+Write-Output "`e[HAdding Tab Autocomplete...               "
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
-Write-Output "Importing posh-git                       "
+Write-Output "`e[HImporting posh-git        "
 Import-Module posh-git
 
 ##### Other stuff #####

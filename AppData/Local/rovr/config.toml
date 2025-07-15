@@ -1,0 +1,20 @@
+[interface]
+nerd_font = true
+[plugins.zoxide]
+enabled = true
+keybinds = ["z"]
+[plugins.bat]
+enabled = true
+executable = "bat"
+show_line_numbers = true
+[plugins.file_editor]
+enabled = true
+executable = "hx"
+keybinds = ["e"]
+[keybinds]
+up = ["up", "i"]
+down = ["down", "k"]
+up_tree = ["left", "j"]
+down_tree = ["right", "l", "enter"]
+toggle_preview_sidebar = ["W"]
+focus_toggle_preview_sidebar = ["w"]

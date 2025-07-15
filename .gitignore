@@ -1,5 +1,6 @@
 yasb.log*
-superfile.log
+*.log
 .config/scoop
 superfile.log
 yasb/launchpad
+dot_config/yasb/launchpad

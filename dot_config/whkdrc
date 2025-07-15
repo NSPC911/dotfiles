@@ -2,7 +2,7 @@
 
 ## Reload whkd configuration
 ctrl + alt + shift + o      : komorebic stop ; komorebic restore-windows ; komorebic start --whkd --masir
-alt + n                     : start rio
+alt + n                     : Start-Process -WindowStyle Hidden rio.exe
 
 ## App shortcuts - these require shell to be pwsh / powershell
 ## The apps will be focused if open, or launched if not open

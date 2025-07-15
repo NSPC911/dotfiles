@@ -40,10 +40,10 @@ bars:
       center: ["clock", "cpu"]
       right:
         [
-          "komorebi_active_layout",
-          # "glazewm_tiling_direction",
-          "komorebi_workspaces",
-          # "glazewm_workspaces",
+          "glazewm_tiling_direction",
+          # "komorebi_active_layout",
+          "glazewm_workspaces",
+          # "komorebi_workspaces",
           "bluetooth",
           "wifi",
           "brightness",
@@ -109,8 +109,8 @@ widgets:
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
-      label: "{win[title]}"
-      label_alt: "[exe='{win[process][name]}' hwnd={win[hwnd]}]"
+      label: "{win[process][name]} ({win[hwnd]})"
+      label_alt: ""
       label_no_window: " "
       label_icon: true
       label_icon_size: 14
@@ -122,6 +122,8 @@ widgets:
         left: 0
         bottom: 0
         right: 0
+      callbacks:
+        on_left: "do_nothing"
   clock:
     type: "yasb.clock.ClockWidget"
     options:
@@ -326,6 +328,7 @@ widgets:
           "ultrawide_vertical_stack",
           "grid",
           "right_main_vertical_stack",
+          "scrolling"
         ]
       layout_icons:
         bsp: "\uebeb"
@@ -341,6 +344,7 @@ widgets:
         floating: "\uf2d2"
         paused: "\udb83\udf89"
         tiling: "\udb81\ude40"
+        scrolling: "\uf514"
       callbacks:
         on_left: "toggle_layout_menu"
         on_middle: "next_layout"
