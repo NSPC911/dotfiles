@@ -78,6 +78,7 @@ alt + x                     : komorebic flip-layout horizontal
 alt + y                     : komorebic flip-layout vertical
 alt + oem_5                 : komorebic cycle-layout next
 alt + shift + oem_5         : komorebic cycle-layout previous
+ctrl + alt + oem_5          : komorebic change-layout scrolling
 
 ## Stacking
 ctrl + alt + left           : komorebic stack left

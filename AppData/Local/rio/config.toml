@@ -16,7 +16,7 @@ args = []
 # width = 600
 # height = 400
 mode = "windowed"
-opacity = 0.625
+opacity = 0.75
 # opacity = 1
 blur = false
 decorations = "Disabled"
@@ -76,7 +76,7 @@ keys = [
   { key = "r", with = "control | shift", action = "ReceiveChar" },
   { key = "d", with = "control | shift", action = "ReceiveChar" },
   { key = "t", with = "control | shift", action = "ReceiveChar" },
-  { key = "n", with = "control | shift", action = "CreateWindow" },
+  { key = "n", with = "control", action = "CreateWindow" },
   { key = "w", with = "control | shift", action = "ReceiveChar" },
   { key = "space", with = "control | shift", action = "ReceiveChar" },
   { key = "[", with = "control", action = "SelectPrevSplit" },

@@ -1,5 +1,14 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "data",
+    "source": "    _   __ _____  ____   ______ ____  ___ ___\n   / | / // ___/ / __ \\ / ____// __ \\[  /[  /\n  /  |/ / \\__ \\ / /_/ // /    / /_/ // / / /\n / /|  / ___/ // ____// /___  \\__  // / / /\n/_/ |_/ /____//_/     \\____/ /____//_/ /_/\u001b[2A",
+    "color": {
+      "1": "cyan",
+      "2": "bright_"
+    },
+    "position": "top"
+  },
   "display": {
     "color": "cyan",
     "bar": {
@@ -10,32 +19,72 @@
     "separator": " - "
   },
   "modules": [
-    "title",
-    "separator",
-    "os",
     {
       "type": "host",
-      "format": "{name}"
+      "format": "{name}",
+      "key": "╭─ Host\t   "
     },
-    "uptime",
-    "packages",
-    "shell",
-    "display",
-    "terminal",
-    "terminalfont",
-    "cpu",
-    "memory",
-    "disk",
-    "battery",
-    "poweradapter",
-    "editor",
     {
-      "type": "wm",
-      "format": "komorebi"
+      "type": "os",
+      "format": "{pretty-name}-{arch}",
+      "key": "├─ OS\t   "
+    },
+    {
+      "type": "cpu",
+      "key": "├─ CPU\t   "
+    },
+    {
+      "type": "memory",
+      "key": "├─ RAM\t   "
+    },
+    {
+      "type": "disk",
+      "key": "├─ Disk\t   "
+    },
+    {
+      "type": "display",
+      "key": "╰─ Display ",
+      "format": "{width}x{height} ({scaled-width}x{scaled-height}) in {inch}\""
+    },
+    {
+      "type": "terminal",
+      "key": "╭─ Terminal"
+    },
+    {
+      "type": "shell",
+      "key": "├─ Shell   "
+    },
+    {
+      "type": "terminalfont",
+      "key": "╰─ Font\t   "
+    },
+    {
+      "type": "uptime",
+      "key": "╭─ Uptime  "
     },
     {
       "type": "media",
-      "format": "{status} {title} - {artist}"
+      "format": "{status} {title} - {artist}",
+      "key": "├─ Media   "
+    },
+    {
+      "type": "packages",
+      "format": "{all}",
+      "key": "├─ Packages"
+    },
+    {
+      "type": "editor",
+      "key": "├─ Editor  "
+    },
+    {
+      "type": "wm",
+      "format": "komorebi",
+      "key": "├─ WM\t   "
+    },
+    {
+      "type": "custom",
+      "format": "Nord",
+      "key": "╰─ Theme   "
     },
     "break"
   ]
