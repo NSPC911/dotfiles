@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.36/schema.json",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.json",
   "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
@@ -12,6 +12,7 @@
   },
   "default_container_padding": 3,
   "border": true,
+  "border_implementation": "Windows",
   "border_width": 5,
   "border_offset": -1,
   "border_style": "Rounded",

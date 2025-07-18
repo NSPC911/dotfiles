@@ -1,10 +1,75 @@
-##### posh setup #####
-Write-Output "`e[HSetting up oh-my-posh"
-oh-my-posh init powershell --config $HOME\.config\kushal.omp.json | Out-String | Invoke-Expression
+cd $HOME
+##### Cache Completions #####
+$shouldGenerate = $false
+$cacheCompletionLocation = "$PROFILE/../completion-cache.ps1"
+if (-not (Test-Path $cacheCompletionLocation)) {
+    New-Item -Path $cacheCompletionLocation -Force
+    $shouldGenerate = $true
+} elseif ((Get-Item $cacheCompletionLocation).LastWriteTime -lt (Get-Date).AddDays(-3)) {
+    $shouldGenerate = $true
+}
 
-##### Zoxide #####
-Write-Output "`e[HSetting up zoxide    "
-zoxide init powershell --no-cmd | Out-String | Invoke-Expression
+if ($shouldGenerate) {
+    Remove-Item $cacheCompletionLocation
+    New-Item -Path $cacheCompletionLocation -Force
+
+    $completions = @()
+
+    Write-Output "`e[HSetting up oh-my-posh"
+    $completions += oh-my-posh init powershell --config $HOME\.config\kushal.omp.json
+
+    Write-Output "`e[HSetting up zoxide    "
+    $completions += zoxide init powershell --no-cmd
+
+    Write-Output "`e[HSetting up uv completions"
+    $completions += uv generate-shell-completion powershell
+
+    Write-Output "`e[HSetting up gh completions"
+    $completions += gh completion -s powershell
+    $completions += gh copilot alias -- pwsh
+
+    Write-Output "`e[HSetting up batcat completions  "
+    $completions += bat --completion ps1
+
+    Write-Output "`e[HSetting up regolith completions"
+    $completions += regolith completion powershell
+
+    Write-Output "`e[HSetting up onefetch completions"
+    $completions += onefetch --generate powershell
+
+    # Extract all 'using' statements and remove duplicates
+    $usingStatements = @()
+    $cleanedCompletions = @()
+
+    foreach ($completion in $completions) {
+        $lines = $completion -split "`n"
+        $nonUsingLines = @()
+
+        foreach ($line in $lines) {
+            if ($line.Trim() -match '^using\s+') {
+                if ($usingStatements -notcontains $line.Trim()) {
+                    $usingStatements += $line.Trim()
+                }
+            } else {
+                $nonUsingLines += $line
+            }
+        }
+
+        $cleanedCompletions += ($nonUsingLines -join "`n")
+    }
+
+    # Write consolidated file: using statements first, then completions
+    $finalContent = @()
+    $finalContent += $usingStatements
+    $finalContent += ""  # Empty line separator
+    $finalContent += $cleanedCompletions
+
+    $finalContent -join "`n" | Out-File $cacheCompletionLocation -Encoding UTF8
+}
+
+. $cacheCompletionLocation
+
+## zoxide cant add them for some reason /shrug
 Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
 Set-Alias -Option AllScope -Name "cdi" -Value "__zoxide_zi"
 Set-Alias -Option AllScope -Name "cdb" -Value "__zoxide_bin"
@@ -13,19 +78,6 @@ function zd {
 }
 
 ##### Completions #####
-Write-Output "`e[HSetting up uv completions"
-uv generate-shell-completion powershell | Out-String | Invoke-Expression
-Write-Output "`e[HSetting up gh completions"
-gh completion -s powershell | Out-String | Invoke-Expression
-gh copilot alias -- pwsh | Out-String | Invoke-Expression
-Write-Output "`e[HSetting up batcat completions  "
-bat --completion ps1 | Out-String | Invoke-Expression
-Write-Output "`e[HSetting up regolith completions"
-regolith completion powershell | Out-String | Invoke-Expression
-Write-Output "`e[HSetting up chezmoi completions"
-chezmoi completion powershell | Out-String | Invoke-Expression
-Write-Output "`e[HSetting up onefetch completions"
-onefetch --generate powershell | Out-String | Invoke-Expression
 ##### cool zoxide + onefetch #####
 # waste of time
 # function zoxide_with_onefetch {
@@ -166,9 +218,6 @@ Set-Alias -Name "lz" -Value "lazygit"
 ##### tabb #####
 Write-Output "`e[HAdding Tab Autocomplete...               "
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-
-Write-Output "`e[HImporting posh-git        "
-Import-Module posh-git
 
 ##### Other stuff #####
 Clear-Host

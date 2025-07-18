@@ -81,7 +81,7 @@ keys = [
   { key = "space", with = "control | shift", action = "ReceiveChar" },
   { key = "[", with = "control", action = "SelectPrevSplit" },
   { key = "]", with = "control", action = "SelectNextSplit" },
-  { key = "v", with = "alt", action =  "ToggleViMode" },
+  { key = "v", with = "alt | shift", action =  "ToggleViMode" },
   { key = "t", with = "control", action = "CreateTab" },
   { key = "w", with = "control", action = "CloseSplitOrTab" },
   { key = "o", with = "control", action = "OpenConfigEditor" },

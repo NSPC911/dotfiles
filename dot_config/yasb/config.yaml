@@ -40,10 +40,10 @@ bars:
       center: ["clock", "cpu"]
       right:
         [
-          # "glazewm_tiling_direction",
-          "komorebi_active_layout",
-          # "glazewm_workspaces",
-          "komorebi_workspaces",
+          "glazewm_tiling_direction",
+          # "komorebi_active_layout",
+          "glazewm_workspaces",
+          # "komorebi_workspaces",
           "bluetooth",
           "wifi",
           "brightness",

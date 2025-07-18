@@ -153,7 +153,7 @@
 .glazewm-workspaces .ws-btn.active_empty,
 .glazewm-workspaces .ws-btn.active_populated {
   background: var(--nord-cyan-base);
-  width: 36px;
+  width: 40px;
 }
 
 .komorebi-workspaces .ws-btn.active:hover,
@@ -607,8 +607,8 @@
 .widget {
   border-left: none;
   border-right: none;
-  border-top: 2px solid var(--nord-cyan-base);
-  border-bottom: 2px solid var(--nord-cyan-base);
+  border-top: 1px solid var(--nord-cyan-base);
+  border-bottom: 1px solid var(--nord-cyan-base);
   padding: 0 8px;
   margin: 0 -0.5px;
 }
@@ -627,7 +627,7 @@
 .yasb-bar .cpu-widget,
 .yasb-bar .notification-widget {
   border-bottom-right-radius: 8px;
-  border-right: 2px solid var(--nord-cyan-base);
+  border-right: 1px solid var(--nord-cyan-base);
   border-top-right-radius: 8px;
   margin-right: 0;
 }
@@ -637,7 +637,7 @@
 .yasb-bar .glazewm-tiling-direction,
 .yasb-bar .power-menu-widget {
   border-bottom-left-radius: 8px;
-  border-left: 2px solid var(--nord-cyan-base);
+  border-left: 1px solid var(--nord-cyan-base);
   border-top-left-radius: 8px;
   margin-left: 0;
 }

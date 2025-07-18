@@ -8,12 +8,11 @@ My Windows 11 config files, Nord + Translucency
 
 | Type                  | App                                                                                                                 | Location in repository                                                    |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| Tiling Manager        | [komorebi](https://github.com/LGUG2Z/komorebi)                                                                      | `komorebi.json`                                                           |
-| Tiling Manager v2     | [GlazeWM](https://github.com/glzr-io/glazewm)                                                                       | `dot_glzr/glazewm/config.yaml`                                            |
+| Tiling Manager        | [GlazeWM](https://github.com/glzr-io/glazewm)                                                                       | `dot_glzr/glazewm/config.yaml`                                            |
 | Tiling Helper         | [AltSnap](https://github.com/RamonUnch/AltSnap)                                                                     | `readonly_scoop/persist/altsnap/AltSnap.ini`                              |
 | Hotkey Daemon         | [whkd](https://github.com/LGUG2Z/whkd)                                                                              | `dot_config/whkdrc`                                                       |
 | Status Bar            | [yasb](https://github.com/amnweb/yasb)                                                                              | `dot_config/yasb/`                                                        |
-| Terminal **emulator** | [rio](https://github.com/raphamorim/rio)                                                                            | `AppData/Local/rio/config.toml`                                           |
+| Terminal **emulator** | [wezterm](https://github.com/wezterm/wezterm)                                                                       | `.wezterm.lua`                                                            |
 | Terminal              | [PowerShell 7.5](https://github.com/PowerShell/PowerShell)                                                          | `OneDrive\readonly_Documents\PowerShell\Microsoft.PowerShell_profile.ps1` |
 | Fetch                 | [fastfetch](https://github.com/fastfetch-cli/fastfetch)                                                             | `dot_config/fastfetch/config.jsonc`                                       |
 | Prompt                | [oh-my-posh](https://github.com/jandedobbeleer/oh-my-posh)                                                          | `dot_config/kushal.omp.json`                                              |
@@ -40,3 +39,11 @@ My Windows 11 config files, Nord + Translucency
 | Git UI          | [lazygit](https://github.com/jesseduffield/lazygit)                                                |
 | Roblox Mod      | [BloxStrap](https://github.com/bloxstraplabs/bloxstrap)                                            |
 | File Output     | [bat](https://github.com/sharkdp/bat)                                                              |
+
+#### Previously used, but no longer using
+
+| Type              | App                                                 | Location                     |
+| ----------------- | --------------------------------------------------- | ---------------------------- |
+| Terminal emulator | [rio](https://github.com/raphamorim/rio)            | `AppData/Local/rio/`         |
+| Terminal emulator | [alacritty](https://github.com/alacritty/alacritty) | `AppData/Roaming/alacritty/` |
+| Tiling Manager    | [komorebi](https://github.com/LGUG2Z/komorebi)      | `komorebi.json`              |

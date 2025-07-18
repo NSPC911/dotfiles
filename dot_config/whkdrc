@@ -1,8 +1,8 @@
 .shell powershell
 
 ## Reload whkd configuration
-ctrl + alt + shift + o      : komorebic stop ; komorebic restore-windows ; komorebic start --whkd --masir
-alt + n                     : Start-Process -WindowStyle Hidden rio.exe
+# ctrl + alt + shift + o      : komorebic stop ; komorebic restore-windows ; komorebic start --whkd --masir
+alt + n                     : Start-Process -WindowStyle Hidden wezterm.exe
 
 ## App shortcuts - these require shell to be pwsh / powershell
 ## The apps will be focused if open, or launched if not open
@@ -10,84 +10,84 @@ alt + n                     : Start-Process -WindowStyle Hidden rio.exe
 ## alt + b                      : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 
 ## Workspaces
-alt + 1                     : komorebic focus-workspace 0
-alt + 2                     : komorebic focus-workspace 1
-alt + 3                     : komorebic focus-workspace 2
-alt + 4                     : komorebic focus-workspace 3
-alt + 5                     : komorebic focus-workspace 4
-alt + 6                     : komorebic focus-workspace 5
-alt + 7                     : komorebic focus-workspace 6
-alt + 8                     : komorebic focus-workspace 7
+# alt + 1                     : komorebic focus-workspace 0
+# alt + 2                     : komorebic focus-workspace 1
+# alt + 3                     : komorebic focus-workspace 2
+# alt + 4                     : komorebic focus-workspace 3
+# alt + 5                     : komorebic focus-workspace 4
+# alt + 6                     : komorebic focus-workspace 5
+# alt + 7                     : komorebic focus-workspace 6
+# alt + 8                     : komorebic focus-workspace 7
 
 ## Cycle Workspace
-alt + oem_comma             : komorebic cycle-workspace previous
-alt + oem_period            : komorebic cycle-workspace next
+# alt + oem_comma             : komorebic cycle-workspace previous
+# alt + oem_period            : komorebic cycle-workspace next
 
 ## Manipulate Workspace
-alt + shift + n             : komorebic new-workspace
-alt + shift + w             : komorebic close-workspace
+# alt + shift + n             : komorebic new-workspace
+# alt + shift + w             : komorebic close-workspace
 
 ## Move windows across Workspaces
-alt + shift + 1             : komorebic move-to-workspace 0
-alt + shift + 2             : komorebic move-to-workspace 1
-alt + shift + 3             : komorebic move-to-workspace 2
-alt + shift + 4             : komorebic move-to-workspace 3
-alt + shift + 5             : komorebic move-to-workspace 4
-alt + shift + 6             : komorebic move-to-workspace 5
-alt + shift + 7             : komorebic move-to-workspace 6
-alt + shift + 8             : komorebic move-to-workspace 7
+# alt + shift + 1             : komorebic move-to-workspace 0
+# alt + shift + 2             : komorebic move-to-workspace 1
+# alt + shift + 3             : komorebic move-to-workspace 2
+# alt + shift + 4             : komorebic move-to-workspace 3
+# alt + shift + 5             : komorebic move-to-workspace 4
+# alt + shift + 6             : komorebic move-to-workspace 5
+# alt + shift + 7             : komorebic move-to-workspace 6
+# alt + shift + 8             : komorebic move-to-workspace 7
 
 ## Cycle move windows across Workspaces
-alt + shift + oem_comma     : komorebic cycle-move-to-workspace previous
-alt + shift + oem_period    : komorebic cycle-move-to-workspace next
+# alt + shift + oem_comma     : komorebic cycle-move-to-workspace previous
+# alt + shift + oem_period    : komorebic cycle-move-to-workspace next
 
 ## Focus windows
-alt + vk_left               : komorebic focus left
-alt + vk_down               : komorebic focus down
-alt + vk_up                 : komorebic focus up
-alt + vk_right              : komorebic focus right
-alt + oem_4                 : komorebic cycle-focus previous
-alt + oem_6                 : komorebic cycle-focus next
+# alt + vk_left               : komorebic focus left
+# alt + vk_down               : komorebic focus down
+# alt + vk_up                 : komorebic focus up
+# alt + vk_right              : komorebic focus right
+# alt + oem_4                 : komorebic cycle-focus previous
+# alt + oem_6                 : komorebic cycle-focus next
 
 ## Move windows
-alt + shift + vk_left       : komorebic move left
-alt + shift + vk_down       : komorebic move down
-alt + shift + vk_up         : komorebic move up
-alt + shift + vk_right      : komorebic move right
-alt + shift + return        : komorebic promote
-vk_LWIN + oem_4             : komorebic cycle-focus previous
-vk_LWIN + oem_6             : komorebic cycle-focus next
+# alt + shift + vk_left       : komorebic move left
+# alt + shift + vk_down       : komorebic move down
+# alt + shift + vk_up         : komorebic move up
+# alt + shift + vk_right      : komorebic move right
+# alt + shift + return        : komorebic promote
+# vk_LWIN + oem_4             : komorebic cycle-focus previous
+# vk_LWIN + oem_6             : komorebic cycle-focus next
 
 ## Resize
-alt + oem_plus              : komorebic resize-axis horizontal increase
-alt + oem_minus             : komorebic resize-axis horizontal decrease
-alt + shift + oem_plus      : komorebic resize-axis vertical increase
-alt + shift + oem_minus     : komorebic resize-axis vertical decrease
+# alt + oem_plus              : komorebic resize-axis horizontal increase
+# alt + oem_minus             : komorebic resize-axis horizontal decrease
+# alt + shift + oem_plus      : komorebic resize-axis vertical increase
+# alt + shift + oem_minus     : komorebic resize-axis vertical decrease
 
 ## Manipulate windows
-alt + t                     : komorebic toggle-float
-alt + f                     : komorebic toggle-monocle
-alt + w                     : komorebic close
-alt + m                     : komorebic minimize
+# alt + t                     : komorebic toggle-float
+# alt + f                     : komorebic toggle-monocle
+# alt + w                     : komorebic close
+# alt + m                     : komorebic minimize
 
 ## Window manager options
-alt + shift + r             : komorebic unmanage ; komorebic manage
+# alt + shift + r             : komorebic unmanage ; komorebic manage
 
 ## Layouts
-alt + x                     : komorebic flip-layout horizontal
-alt + y                     : komorebic flip-layout vertical
-alt + oem_5                 : komorebic cycle-layout next
-alt + shift + oem_5         : komorebic cycle-layout previous
-ctrl + alt + oem_5          : komorebic change-layout scrolling
+# alt + x                     : komorebic flip-layout horizontal
+# alt + y                     : komorebic flip-layout vertical
+# alt + oem_5                 : komorebic cycle-layout next
+# alt + shift + oem_5         : komorebic cycle-layout previous
+# ctrl + alt + oem_5          : komorebic change-layout scrolling
 
 ## Stacking
-ctrl + alt + left           : komorebic stack left
-ctrl + alt + down           : komorebic stack down
-ctrl + alt + up             : komorebic stack up
-ctrl + alt + right          : komorebic stack right
-alt + shift + oem_4         : komorebic cycle-stack previous
-alt + shift + oem_6         : komorebic cycle-stack next
-alt + oem_1                 : komorebic unstack
-ctrl + alt + oem_1          : komorebic unstack-all
+# ctrl + alt + left           : komorebic stack left
+# ctrl + alt + down           : komorebic stack down
+# ctrl + alt + up             : komorebic stack up
+# ctrl + alt + right          : komorebic stack right
+# alt + shift + oem_4         : komorebic cycle-stack previous
+# alt + shift + oem_6         : komorebic cycle-stack next
+# alt + oem_1                 : komorebic unstack
+# ctrl + alt + oem_1          : komorebic unstack-all
 
 alt + s                     : yasbc toggle-widget launchpad --follow-mouse

@@ -124,10 +124,6 @@ workspaces:
   - name: '3'
   - name: '4'
   - name: '5'
-  - name: '6'
-  - name: '7'
-  - name: '8'
-  - name: '9'
 
 window_rules:
   - commands: ['ignore']
@@ -159,13 +155,13 @@ binding_modes:
   - name: 'resize'
     keybindings:
       - commands: ['resize --width -2%']
-        bindings: ['left']
+        bindings: ['a']
       - commands: ['resize --width +2%']
-        bindings: ['right']
+        bindings: ['d']
       - commands: ['resize --height +2%']
-        bindings: ['up']
+        bindings: ['w']
       - commands: ['resize --height -2%']
-        bindings: ['down']
+        bindings: ['s']
       # Press enter/escape to return to default keybindings.
       - commands: ['wm-disable-binding-mode --name resize']
         bindings: ['alt+r']
@@ -222,11 +218,11 @@ keybindings:
     bindings: ['alt+oem_close_brackets', 'alt+oem_open_brackets']
 
   # Change the focused window to be floating.
-  - commands: ['toggle-floating --centered']
+  - commands: ['toggle-floating']
     bindings: ['alt+t']
 
   # Change the focused window to be fullscreen.
-  - commands: ['toggle-fullscreen', 'wm-redraw']
+  - commands: ['toggle-fullscreen']
     bindings: ['alt+f']
 
   # Minimize focused window.
@@ -243,7 +239,7 @@ keybindings:
 
   # Redraw all windows.
   - commands: ['wm-redraw']
-    bindings: ['alt+shift+w']
+    bindings: ['alt+shift+r']
 
 
   # Focus the next/previous active defined in `workspaces` config.
@@ -273,14 +269,6 @@ keybindings:
     bindings: ['alt+4']
   - commands: ['focus --workspace 5']
     bindings: ['alt+5']
-  - commands: ['focus --workspace 6']
-    bindings: ['alt+6']
-  - commands: ['focus --workspace 7']
-    bindings: ['alt+7']
-  - commands: ['focus --workspace 8']
-    bindings: ['alt+8']
-  - commands: ['focus --workspace 9']
-    bindings: ['alt+9']
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ['move --workspace 1', 'focus --workspace 1']
@@ -293,11 +281,3 @@ keybindings:
     bindings: ['alt+shift+4']
   - commands: ['move --workspace 5', 'focus --workspace 5']
     bindings: ['alt+shift+5']
-  - commands: ['move --workspace 6', 'focus --workspace 6']
-    bindings: ['alt+shift+6']
-  - commands: ['move --workspace 7', 'focus --workspace 7']
-    bindings: ['alt+shift+7']
-  - commands: ['move --workspace 8', 'focus --workspace 8']
-    bindings: ['alt+shift+8']
-  - commands: ['move --workspace 9', 'focus --workspace 9']
-    bindings: ['alt+shift+9']
