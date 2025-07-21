@@ -72,6 +72,9 @@ border_bottom_left = '╰'
 border_bottom_right = '╯'
 border_middle_left = '├'
 border_middle_right = '┤'
+
+# Stop warning about missing fields
+ignore_missing_fields = false
 #
 # ==========PLUGINS========== #
 #
@@ -79,3 +82,6 @@ border_middle_right = '┤'
 metadata = false
 # Enable MD5 checksum generation for files
 enable_md5_checksum = false
+# Zoxide support for the fast navigation
+zoxide_support = true
+

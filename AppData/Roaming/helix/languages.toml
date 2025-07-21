@@ -42,7 +42,7 @@ args = ['-NoLogo', '-NoProfile', '-Command', '%USERPROFILE%\\Git\\PowerShellEdit
 
 [[language]]
 name = "python"
-language-servers = ["ruff", "pylsp", "ty", "harper-ls"]
+language-servers = ["ruff", "pylsp", "pyrefly", "harper-ls"]
 auto-format = true
 
 [[language]]
@@ -72,6 +72,10 @@ auto-format = true
 [[language]]
 name = "yaml"
 formatter = { command = "prettierd", args = [".yaml"] }
+
+[[language]]
+name = "css"
+formatter = { command = "prettierd", args = [".css"] }
 
 [[language]]
 name = "markdown"

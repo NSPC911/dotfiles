@@ -33,7 +33,10 @@ bar.apply_to_config(config,
 				enabled = false
 			},
 			clock = {
-	      format = "%H:%M:%S",
+				enabled = true
+			},
+			cwd = {
+				enabled = false
 			}
 		}
 	}
@@ -102,11 +105,6 @@ config.keys = {
 		}),
 	},
 	{
-		key = "p",
-		mods = "CTRL",
-		action = act.PaneSelect
-	},
-	{
 		key = "D",
 		mods = "CTRL|SHIFT",
 		action = act.ShowDebugOverlay
@@ -140,7 +138,7 @@ config.keys = {
 		action = act.PromptInputLine {
 			description = 'Enter name for tab',
 			initial_value = '',
-			action = wezterm.action_callback(function(window, pane, line)
+			action = wezterm.action_callback(function(window, _, line)
 				if line then
 					window:active_tab():set_title(line)
 				end
@@ -180,6 +178,6 @@ config.colors = {
 }
 
 config.window_decorations = "NONE | RESIZE"
-config.default_prog = { "pwsh.exe", "-NoLogo" }
+config.default_prog = { "pwsh.exe", "-NoLogo"}
 config.initial_cols = 80
 return config

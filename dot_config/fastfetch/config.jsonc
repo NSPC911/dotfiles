@@ -31,7 +31,8 @@
     },
     {
       "type": "cpu",
-      "key": "├─ CPU\t   "
+      "key": "├─ CPU\t   ",
+      "format": "{name}"
     },
     {
       "type": "memory",
@@ -55,8 +56,9 @@
       "key": "├─ Shell   "
     },
     {
-      "type": "terminalfont",
-      "key": "╰─ Font\t   "
+      "type": "custom",
+      "key": "╰─ Font\t   ",
+      "format": "CaskaydiaCove NF"
     },
     {
       "type": "uptime",
@@ -78,7 +80,7 @@
     },
     {
       "type": "wm",
-      "format": "komorebi",
+      "format": "GlazeWM",
       "key": "├─ WM\t   "
     },
     {

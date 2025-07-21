@@ -44,6 +44,7 @@ A-C = "toggle_block_comments"
 C-r = [":lsp-restart", ":reload-all"]
 "/" = ":scooter-new"
 X = "extend_line_above"
+Y = ":primary-clipboard-yank"
 
 "A-." = "no_op"
 "%" = "no_op"
