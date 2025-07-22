@@ -90,4 +90,4 @@ alt + n                     : Start-Process -WindowStyle Hidden wezterm.exe
 # alt + oem_1                 : komorebic unstack
 # ctrl + alt + oem_1          : komorebic unstack-all
 
-alt + s                     : yasbc toggle-widget launchpad --follow-mouse
+alt + s                     : yasbc_dev toggle-widget launchpad --follow-mouse

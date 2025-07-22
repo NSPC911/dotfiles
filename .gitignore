@@ -4,3 +4,8 @@ yasb.log*
 superfile.log
 yasb/launchpad
 dot_config/yasb/launchpad
+AppData/Roaming/helix/runtime
+AppData/Local/superfile/themeFileVersion
+AppData/Local/superfile/pinned.json
+AppData/Local/superfile/firstUseCheck
+AppData/Local/superfile/theme

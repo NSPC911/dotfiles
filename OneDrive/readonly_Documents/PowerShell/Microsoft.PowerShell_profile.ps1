@@ -219,6 +219,11 @@ Set-Alias -Name "lz" -Value "lazygit"
 Write-Output "`e[HAdding Tab Autocomplete...               "
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
+##### Give me my full history man #####
+function Get-FullHistory {
+    Get-Content (Get-PSReadlineOption).HistorySavePath | ? {$_ -like "*$find*"} | Get-Unique
+}
+
 ##### Other stuff #####
 Clear-Host
 fastfetch

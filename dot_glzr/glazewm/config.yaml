@@ -148,20 +148,19 @@ window_rules:
         window_class: { not_regex: 'OpusApp' }
       - window_process: { equals: 'POWERPNT' }
         window_class: { not_regex: 'PPTFrameClass' }
-      - window_process: { equals: 'yasb' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: 'resize'
     keybindings:
       - commands: ['resize --width -2%']
-        bindings: ['a']
+        bindings: ['left']
       - commands: ['resize --width +2%']
-        bindings: ['d']
+        bindings: ['right']
       - commands: ['resize --height +2%']
-        bindings: ['w']
+        bindings: ['up']
       - commands: ['resize --height -2%']
-        bindings: ['s']
+        bindings: ['down']
       # Press enter/escape to return to default keybindings.
       - commands: ['wm-disable-binding-mode --name resize']
         bindings: ['alt+r']
@@ -237,8 +236,8 @@ keybindings:
   - commands: ['wm-reload-config']
     bindings: ['ctrl+alt+shift+r']
 
-  # Redraw all windows.
-  - commands: ['wm-redraw']
+  # Redraw all windows and force the active window to tile.
+  - commands: ['wm-redraw', 'set-tiling']
     bindings: ['alt+shift+r']
 
 
