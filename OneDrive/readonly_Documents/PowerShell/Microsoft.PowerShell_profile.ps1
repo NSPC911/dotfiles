@@ -28,8 +28,11 @@ if ($shouldGenerate) {
     $completions += gh completion -s powershell
     $completions += gh copilot alias -- pwsh
 
-    Write-Output "`e[HSetting up batcat completions  "
+    Write-Output "`e[HSetting up batcat completions"
     $completions += bat --completion ps1
+
+    Write-Output "`e[HSetting up wezterm completions"
+    $completions += wezterm shell-completion --shell power-shell
 
     Write-Output "`e[HSetting up regolith completions"
     $completions += regolith completion powershell

@@ -1,16 +1,8 @@
+#:schema  https://raw.githubusercontent.com/NSPC911/rovr/refs/heads/master/src/rovr/config/schema.json
+
 [interface]
 nerd_font = true
-[plugins.zoxide]
-enabled = true
-keybinds = ["z"]
-[plugins.bat]
-enabled = true
-executable = "bat"
-show_line_numbers = true
-[plugins.file_editor]
-enabled = true
-executable = "hx"
-keybinds = ["e"]
+
 [keybinds]
 up = ["up", "i"]
 down = ["down", "k"]
@@ -20,3 +12,21 @@ select_up = ["shift+up", "I"]
 select_down = ["shift+down", "K"]
 toggle_preview_sidebar = ["W"]
 focus_toggle_preview_sidebar = ["w"]
+
+[plugins.zoxide]
+enabled = true
+keybinds = ["z"]
+
+[plugins.bat]
+enabled = false
+executable = "bat"
+show_line_numbers = true
+
+[plugins.editor]
+enabled = true
+file_executable = "hx"
+folder_executable = "hx"
+keybinds = ["e"]
+
+[plugins.zen_mode]
+enabled = true

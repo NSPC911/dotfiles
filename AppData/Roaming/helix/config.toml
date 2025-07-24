@@ -379,6 +379,8 @@ completion-trigger-len = 1
 default-line-ending = "lf"
 trim-trailing-whitespace = true
 end-of-line-diagnostics = "hint"
+shell = ["pwsh", "-Command"]
+completion-replace = true
 [editor.file-picker]
 hidden = true
 parents = true
@@ -407,11 +409,10 @@ inlay-hints-length-limit = 1
 [editor.soft-wrap]
 enable = false
 wrap-indicator = "   󱞶 "
-[icons.mime]
+[icons.fs]
 enabled = true
 [icons.kind]
 enabled = true
-workspace = " W"
 [icons.diagnostic]
 warning = "\uf071"
 error = "\uebfb"

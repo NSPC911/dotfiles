@@ -38,11 +38,11 @@ args = ["lsp"]
 name = 'powershell-editor-services'
 transport = 'stdio'
 command = 'pwsh'
-args = ['-NoLogo', '-NoProfile', '-Command', '%USERPROFILE%\\Git\\PowerShellEditorServices\\PowerShellEditorServices\\Start-EditorServices.ps1 -SessionDetailsPath %USERPROFILE%\\Git\\PowerShellEditorServices\\PowerShellEditorServices.sessions.lsp.json -LanguageServiceOnly -Stdio']
+args = ['-NoLogo', '-NoProfile', '-Command', '%USERPROFILE%/Git/PowerShellEditorServices/PowerShellEditorServices/Start-EditorServices.ps1 -SessionDetailsPath %USERPROFILE%/Git/PowerShellEditorServices/PowerShellEditorServices.sessions.lsp.json -LanguageServiceOnly -Stdio']
 
 [[language]]
 name = "python"
-language-servers = ["ruff", "pylsp", "pyrefly", "harper-ls"]
+language-servers = ["ruff", "pylsp", "ty", "harper-ls"]
 auto-format = true
 
 [[language]]

@@ -82,7 +82,7 @@
 "ui.cursor.primary" = { fg = "black1", bg = "white0" }
 "ui.background" = {}
 "ui.bufferline" = {}
-"ui.bufferline.active" = { modifiers = ["reversed"] }
+"ui.bufferline.active" = { bg="white1", fg="black0", modifiers = [] }
 "ui.cursor.match" = { modifiers = ["bold"] }
 "ui.linenr" = { fg = "gray6" }
 "ui.linenr.selected" = { fg = "white3" }
