@@ -15,7 +15,6 @@ focus_toggle_preview_sidebar = ["w"]
 
 [plugins.zoxide]
 enabled = true
-keybinds = ["z"]
 
 [plugins.bat]
 enabled = false
@@ -26,7 +25,6 @@ show_line_numbers = true
 enabled = true
 file_executable = "hx"
 folder_executable = "hx"
-keybinds = ["e"]
 
 [plugins.zen_mode]
 enabled = true

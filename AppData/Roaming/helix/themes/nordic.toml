@@ -82,16 +82,11 @@
 "ui.cursor.primary" = { fg = "black1", bg = "white0" }
 "ui.background" = {}
 "ui.bufferline" = {}
-"ui.bufferline.active" = { bg="white1", fg="black0", modifiers = [] }
+"ui.bufferline.active" = { modifiers = ["bold", "underlined"] }
 "ui.cursor.match" = { modifiers = ["bold"] }
 "ui.linenr" = { fg = "gray6" }
 "ui.linenr.selected" = { fg = "white3" }
 "ui.gutter.selected" = { bg = "black0" }
-"ui.statusline" = { bg = "black0" }
-"ui.statusline.inactive" = { bg = "black0" }
-"ui.statusline.normal" = { bg = "gray6", fg = "black0" }
-"ui.statusline.insert" = { bg = "cyan_base", fg = "black0" }
-"ui.statusline.select" = { bg = "green_dim", fg = "black0" }
 "ui.popup" = {}
 "ui.popup.info" = {}
 "ui.window" = {}
@@ -99,7 +94,7 @@
 "ui.text.focus" = { bg = "gray2" }
 "ui.virtual.ruler" = { bg = "gray1" }
 "ui.menu" = {}
-"ui.menu.selected" = { modifiers = ["reversed"] }
+"ui.menu.selected" = { modifiers = ["underlined"] }
 "ui.menu.scroll" = { fg = "white1", bg = "gray0" }
 "ui.selection" = { bg = "gray4" }
 "ui.cursorline.primary" = { bg = "black2" }
@@ -114,32 +109,39 @@
 "diagnostic.info" = { underline = { color = "blue1", style = "curl" } }
 "diagnostic.hint" = { underline = { color = "green_base", style = "curl" } }
 
+# statusline
+"ui.statusline" = {bg = "black2"}
+"ui.statusline.inactive" = {bg = "black2"}
+"ui.statusline.normal" = { fg = "blue2" }
+"ui.statusline.insert" = { fg = "cyan_bright" }
+"ui.statusline.select" = { fg = "yellow_bright" }
+
 # Requires PR:13666
 ## left
-"ui.statusline.version-control" = { fg = "black0", bg = "green_bright" }
+"ui.statusline.version-control" = { fg = "green_bright" }
 "ui.statusline.file-type" = { fg = "white2" }
 "ui.statusline.file-name" = { fg = "white2" }
-"ui.statusline.file-modification-indicator" = { fg = "red", bg = "black0", modifiers = [ "bold" ] }
-"ui.statusline.file-encoding" = { fg = "white2", bg = "black0" }
+"ui.statusline.file-modification-indicator" = { fg = "red_bright", modifiers = [ "bold" ] }
+"ui.statusline.file-encoding" = { fg = "black0" }
 ## right
-"ui.statusline.workspace-diagnostics" = { fg = "black0", bg = "red_dim" }
-"ui.statusline.diagnostics" = { fg = "black0", bg = "orange_dim" }
-"ui.statusline.position" = { fg = "black0", bg = "yellow_base" }
-"ui.statusline.primary-selection-length" = { fg = "black0", bg = "green_base" }
-"ui.statusline.total-line-numbers" = { fg = "black0", bg = "blue1" }
+"ui.statusline.workspace-diagnostics" = { fg = "red_bright" }
+"ui.statusline.diagnostics" = { fg = "orange_bright" }
+"ui.statusline.position" = { fg = "yellow_bright" }
+"ui.statusline.primary-selection-length" = { fg = "green_bright" }
+"ui.statusline.total-line-numbers" = { fg = "blue2" }
 
 ## inactive left
-"ui.statusline.inactive.version-control" = { fg = "black0", bg = "green_bright" }
+"ui.statusline.inactive.version-control" = { fg = "green_bright" }
 "ui.statusline.inactive.file-name" = { fg = "white2" }
 "ui.statusline.inactive.file-type" = { fg = "white2" }
-"ui.statusline.inactive.file-modification-indicator" = { fg = "red", bg = "black0", modifiers = [ "bold" ] }
-"ui.statusline.inactive.file-encoding" = { fg = "white2", bg = "black0" }
+"ui.statusline.inactive.file-modification-indicator" = { fg = "red_bright", modifiers = [ "bold" ] }
+"ui.statusline.inactive.file-encoding" = { bg = "white2", fg = "black0" }
 ## inactive right
-"ui.statusline.inactive.workspace-diagnostics" = { fg = "black0", bg = "red_dim" }
-"ui.statusline.inactive.diagnostics" = { fg = "black0", bg = "orange_dim" }
-"ui.statusline.inactive.position" = { fg = "black0", bg = "yellow_base" }
-"ui.statusline.inactive.primary-selection-length" = { fg = "black0", bg = "green_base" }
-"ui.statusline.inactive.total-line-numbers" = { fg = "black0", bg = "blue1" }
+"ui.statusline.inactive.workspace-diagnostics" = { fg = "red_bright" }
+"ui.statusline.inactive.diagnostics" = { fg = "orange_bright" }
+"ui.statusline.inactive.position" = { fg = "yellow_bright" }
+"ui.statusline.inactive.primary-selection-length" = { fg = "green_bright" }
+"ui.statusline.inactive.total-line-numbers" = { fg = "blue2" }
 
 # Color Palette
 [palette]

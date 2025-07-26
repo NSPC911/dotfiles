@@ -1,52 +1,40 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 local config = wezterm.config_builder()
+
+-- Plugins
+local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 bar.apply_to_config(config,
 	{
 		position = "bottom",
 		padding = {
 			left = 1,
 			right = 1,
-			tabs = {
-				left = 1,
-				right = 1,
-			}
+			tabs = { left = 1, right = 1 }
 		},
 		modules = {
-			spotify = {
-				enabled = false,
-			},
-			separator = {
-				space = 1,
-			},
-			workspace = {
-				enabled = false
-			},
-			leader = {
-				enabled = false
-			},
-			username = {
-				enabled = false
-			},
-			hostname = {
-				enabled = false
-			},
-			clock = {
-				enabled = true
-			},
-			cwd = {
-				enabled = false
-			}
+			-- literally only use it because it looks nicer
+			spotify = { enabled = false },
+			separator = { space = 1 },
+			workspace = { enabled = false },
+			leader = { enabled = false },
+			username = { enabled = false },
+			hostname = { enabled = false },
+			clock = { enabled = true },
+			cwd = { enabled = false }
 		}
 	}
 )
-config.front_end = "WebGpu"
+
+-- main config
+config.front_end = "WebGpu" -- surface pro issue
 config.webgpu_power_preference = "LowPower"
+
 config.max_fps = 60
 config.default_cursor_style = "BlinkingBlock"
 config.animation_fps = 1
 config.cursor_blink_rate = 0
+
 config.term = "xterm-256color"
 
 config.font = wezterm.font("CaskaydiaCove NFM")
@@ -149,6 +137,7 @@ config.keys = {
 	{ key = "[", mods = "CTRL", action = wezterm.action { ActivatePaneDirection = "Prev" } },
 }
 
+-- colors
 config.color_scheme = "nord"
 config.colors = {
 	background = "#2e3440",
@@ -178,6 +167,6 @@ config.colors = {
 }
 
 config.window_decorations = "NONE | RESIZE"
-config.default_prog = { "pwsh.exe", "-NoLogo"}
+config.default_prog = { "pwsh.exe", "-NoLogo" }
 config.initial_cols = 80
 return config

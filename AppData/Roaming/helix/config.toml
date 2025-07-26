@@ -1,7 +1,7 @@
 theme = "nordic"
 
 [keys.normal]
-C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw", ":rla"]
+# C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw", ":rla"]
 ins = "insert_mode"
 C-s = ":w"
 C-S-s = ":wa"
@@ -36,7 +36,7 @@ S-u = "extend_prev_word_end"
 o = "move_next_word_start"
 S-o = "extend_next_word_start"
 C-a = "select_all"
-A-j = { j = "save_selection", i = "jump_backward", k = "jump_forward" }
+A-j = { j = "save_selection", i = "jump_backward", k = "jump_forward", p = "jumplist_picker" }
 A-F = [":insert-output prettier --write %{buffer_name}", "delete_selection", ":reload"]
 A-c = "toggle_line_comments"
 A-C = "toggle_block_comments"
@@ -67,6 +67,8 @@ S-A-j = "no_op"
 "A-`" = "no_op"
 A-o = "no_op"
 A-up = "no_op"
+C-i = "no_op"
+C-o = "no_op"
 
 # goto mode (why is there two versions)
 [keys.normal.g]
@@ -379,7 +381,6 @@ completion-trigger-len = 1
 default-line-ending = "lf"
 trim-trailing-whitespace = true
 end-of-line-diagnostics = "hint"
-shell = ["pwsh", "-Command"]
 completion-replace = true
 [editor.file-picker]
 hidden = true
@@ -391,10 +392,10 @@ max-wrap = 0
 [editor.statusline]
 left = ["mode", "version-control", "file-type", "file-name", "file-modification-indicator", "spinner", "read-only-indicator"]
 center = []
-right = ["file-encoding", "workspace-diagnostics", "diagnostics", "position", "primary-selection-length", "total-line-numbers"]
-mode.normal = "NOR"
-mode.insert = "INS"
-mode.select = "SEL"
+right = ["file-encoding", "diagnostics", "workspace-diagnostics", "position", "primary-selection-length", "total-line-numbers"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 [editor.cursor-shape]
 normal = "underline"
 insert = "bar"
@@ -409,6 +410,8 @@ inlay-hints-length-limit = 1
 [editor.soft-wrap]
 enable = false
 wrap-indicator = "   󱞶 "
+[icons.ui.bufferline]
+separator = "|"
 [icons.fs]
 enabled = true
 [icons.kind]
