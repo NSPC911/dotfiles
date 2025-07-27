@@ -110,8 +110,8 @@
 "diagnostic.hint" = { underline = { color = "green_base", style = "curl" } }
 
 # statusline
-"ui.statusline" = {bg = "black2"}
-"ui.statusline.inactive" = {bg = "black2"}
+"ui.statusline" = { bg = "black2" }
+"ui.statusline.inactive" = { bg = "black0" }
 "ui.statusline.normal" = { fg = "blue2" }
 "ui.statusline.insert" = { fg = "cyan_bright" }
 "ui.statusline.select" = { fg = "yellow_bright" }
@@ -124,24 +124,24 @@
 "ui.statusline.file-modification-indicator" = { fg = "red_bright", modifiers = [ "bold" ] }
 "ui.statusline.file-encoding" = { fg = "black0" }
 ## right
-"ui.statusline.workspace-diagnostics" = { fg = "red_bright" }
-"ui.statusline.diagnostics" = { fg = "orange_bright" }
+"ui.statusline.diagnostics" = { fg = "red_bright" }
+"ui.statusline.workspace-diagnostics" = { fg = "orange_bright" }
 "ui.statusline.position" = { fg = "yellow_bright" }
 "ui.statusline.primary-selection-length" = { fg = "green_bright" }
 "ui.statusline.total-line-numbers" = { fg = "blue2" }
 
 ## inactive left
-"ui.statusline.inactive.version-control" = { fg = "green_bright" }
-"ui.statusline.inactive.file-name" = { fg = "white2" }
-"ui.statusline.inactive.file-type" = { fg = "white2" }
-"ui.statusline.inactive.file-modification-indicator" = { fg = "red_bright", modifiers = [ "bold" ] }
-"ui.statusline.inactive.file-encoding" = { bg = "white2", fg = "black0" }
+"ui.statusline.inactive.version-control" = { fg = "green_dim" }
+"ui.statusline.inactive.file-name" = { fg = "white0" }
+"ui.statusline.inactive.file-type" = { fg = "white0" }
+"ui.statusline.inactive.file-modification-indicator" = { fg = "red_dim", modifiers = [ "bold" ] }
+"ui.statusline.inactive.file-encoding" = { bg = "white0", fg = "black0" }
 ## inactive right
-"ui.statusline.inactive.workspace-diagnostics" = { fg = "red_bright" }
-"ui.statusline.inactive.diagnostics" = { fg = "orange_bright" }
-"ui.statusline.inactive.position" = { fg = "yellow_bright" }
-"ui.statusline.inactive.primary-selection-length" = { fg = "green_bright" }
-"ui.statusline.inactive.total-line-numbers" = { fg = "blue2" }
+"ui.statusline.inactive.diagnostics" = { fg = "red_dim" }
+"ui.statusline.inactive.workspace-diagnostics" = { fg = "orange_dim" }
+"ui.statusline.inactive.position" = { fg = "yellow_dim" }
+"ui.statusline.inactive.primary-selection-length" = { fg = "green_dim" }
+"ui.statusline.inactive.total-line-numbers" = { fg = "blue0" }
 
 # Color Palette
 [palette]

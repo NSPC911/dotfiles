@@ -29,6 +29,7 @@ bar.apply_to_config(config,
 -- main config
 config.front_end = "WebGpu" -- surface pro issue
 config.webgpu_power_preference = "LowPower"
+config.automatically_reload_config = true
 
 config.max_fps = 60
 config.default_cursor_style = "BlinkingBlock"
@@ -133,8 +134,27 @@ config.keys = {
 			end),
 		},
 	},
-	{ key = "]", mods = "CTRL", action = wezterm.action { ActivatePaneDirection = "Next" } },
-	{ key = "[", mods = "CTRL", action = wezterm.action { ActivatePaneDirection = "Prev" } },
+	{
+		key = 'E',
+		mods = 'ALT|SHIFT',
+		action = act.PromptInputLine {
+			description = 'Enter name for new workspace',
+			action = wezterm.action_callback(function(window, pane, line)
+				if line then
+					window:perform_action(
+						act.SwitchToWorkspace { name = line },
+						pane
+					)
+				end
+			end),
+		},
+	},
+	{ key = "]", mods = "CTRL",       action = wezterm.action { ActivatePaneDirection = "Next" } },
+	{ key = "[", mods = "CTRL",       action = wezterm.action { ActivatePaneDirection = "Prev" } },
+	{ key = 'l', mods = 'CTRL',       action = act.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' } },
+	{ key = "k", mods = "CTRL",       action = act.ShowLauncherArgs },
+	{ key = "{", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(-1) },
+	{ key = "}", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) }
 }
 
 -- colors

@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+
+git:
+  autoFetch: false
+notARepository: "skip"
+gui:
+  skipAmendWarning: true
+  skipDiscardChangeWarning: true
+  skipStashWarning: true
+  skipNoStagedFilesWarning: true
+  skipRewordInEditorWarning: true
+  useHunkModeInStagingView: true
+  showRootItemInFileTree: false
+  showRandomTip: false
+  showIcons: true
+  showFileIcons: true
+  showDivergenceFromBaseBranch: onlyArrow
+  animateExplosion: false
+  nerdFontsVersion: "3"

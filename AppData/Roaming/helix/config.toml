@@ -227,8 +227,10 @@ o = ":config-open"
 f = "file_explorer_in_current_directory"
 e = "file_picker_in_current_directory"
 b = "file_explorer_in_current_buffer_directory"
+B = "buffer_picker"
 R = ":recentf-open-files"
 g = "global_search"
+t = ":toggle-option soft-wrap.enable"
 A-c = "no_op"
 E = "no_op"
 F = "no_op"
@@ -251,8 +253,10 @@ o = ":config-open"
 f = "file_explorer_in_current_directory"
 e = "file_picker_in_current_directory"
 b = "file_explorer_in_current_buffer_directory"
+B = "buffer_picker"
 R = ":recentf-open-files"
 g = "global_search"
+t = ":toggle-option soft-wrap.enable"
 A-c = "no_op"
 E = "no_op"
 F = "no_op"
@@ -409,7 +413,7 @@ display-progress-messages = true
 inlay-hints-length-limit = 1
 [editor.soft-wrap]
 enable = false
-wrap-indicator = "   󱞶 "
+wrap-indicator = " 󱞶 "
 [icons.ui.bufferline]
 separator = "|"
 [icons.fs]
