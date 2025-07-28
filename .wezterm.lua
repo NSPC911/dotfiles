@@ -16,12 +16,12 @@ bar.apply_to_config(config,
 			-- literally only use it because it looks nicer
 			spotify = { enabled = false },
 			separator = { space = 1 },
-			workspace = { enabled = false },
 			leader = { enabled = false },
 			username = { enabled = false },
 			hostname = { enabled = false },
 			clock = { enabled = true },
-			cwd = { enabled = false }
+			cwd = { enabled = false },
+			workspace = { color = 7 }
 		}
 	}
 )
@@ -151,10 +151,9 @@ config.keys = {
 	},
 	{ key = "]", mods = "CTRL",       action = wezterm.action { ActivatePaneDirection = "Next" } },
 	{ key = "[", mods = "CTRL",       action = wezterm.action { ActivatePaneDirection = "Prev" } },
-	{ key = 'l', mods = 'CTRL',       action = act.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' } },
-	{ key = "k", mods = "CTRL",       action = act.ShowLauncherArgs },
+	{ key = "k", mods = "CTRL",       action = act.ShowLauncher },
 	{ key = "{", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(-1) },
-	{ key = "}", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) }
+	{ key = "}", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) },
 }
 
 -- colors
