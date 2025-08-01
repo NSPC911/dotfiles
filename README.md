@@ -9,6 +9,7 @@ My Windows 11 config files, Nord + Translucency
 | Type                  | App                                                                                                                 | Location in repository                                                    |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | Tiling Manager        | [GlazeWM](https://github.com/glzr-io/glazewm)                                                                       | `dot_glzr/glazewm/config.yaml`                                            |
+| Window Borders        | [Tacky Borders](https://github.com/lukeyou05/tacky-borders)                                                         | `dot_config/tacky-borders/config.yaml`                                    |
 | Tiling Helper         | [AltSnap](https://github.com/RamonUnch/AltSnap)                                                                     | `readonly_scoop/persist/altsnap/AltSnap.ini`                              |
 | Hotkey Daemon         | [whkd](https://github.com/LGUG2Z/whkd)                                                                              | `dot_config/whkdrc`                                                       |
 | Status Bar            | [yasb](https://github.com/amnweb/yasb)                                                                              | `dot_config/yasb/`                                                        |
@@ -24,8 +25,8 @@ My Windows 11 config files, Nord + Translucency
 | Browser               | [Zen](https://github.com/zen-browser/desktop)                                                                       | `zen/userChrome.css` (not managed by chezmoi)                             |
 | Transparency          | [MicaForEveryone](https://github.com/MicaForEveryone/MicaForEveryone)                                               | `AppData/Local/Mica For Everyone/MicaForEveryone.conf`                    |
 | Discord Mod           | [Vencord](https://github.com/Vendicated/Vencord)                                                                    | [NSPC911/themes:vencord](https://github.com/NSPC911/themes/tree/vencord)  |
-| Git UI                | [lazygit](https://github.com/jesseduffield/lazygit)                                                                 | `AppData/Local/lazygit/config.yml`
-| File Output           | [bat](https://github.com/sharkdp/bat)                                                                               | `readonly_scoop/persist/bat/`
+| Git UI                | [lazygit](https://github.com/jesseduffield/lazygit)                                                                 | `AppData/Local/lazygit/config.yml`                                        |
+| File Output           | [bat](https://github.com/sharkdp/bat)                                                                               | `readonly_scoop/persist/bat/`                                             |
 
 #### No config
 

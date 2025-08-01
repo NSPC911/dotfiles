@@ -1,5 +1,5 @@
 [language-server.pylsp.config.pylsp]
-plugins.ruff.enabled = true
+plugins.ruff.enabled = false
 plugins.black.enabled = false
 
 [language-server.ruff]

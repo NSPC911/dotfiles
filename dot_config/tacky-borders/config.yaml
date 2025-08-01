@@ -1,0 +1,94 @@
+watch_config_changes: True
+
+enable_logging: False
+
+rendering_backend: V2
+
+global:
+  border_width: 2.5
+
+  border_offset: -1
+
+  border_radius: Round
+
+  border_z_order: AboveWindow
+  follow_native_border: False
+
+  initialize_delay: 0
+  unminimize_delay: 0
+
+  active_color:
+    colors: ["#5e81ac","#8fbcbb"]
+    direction: -45deg
+
+  inactive_color:
+    colors: ["#2e3440", "#4c566a"]
+    direction: -45deg
+
+
+  komorebi_colors:
+    stack_color: "#e762b7"
+    monocle_color: "#62e793"
+    floating_color: "#f5f5a5"
+    enabled: False
+
+  animations:
+    active:
+      - type: Spiral
+        duration: 5000
+        easing: Linear
+
+    inactive:
+      - type: Spiral
+        duration: 10000
+        easing: Linear
+
+    fps: 30
+    enabled: True
+
+  effects:
+    active:
+      - type: Glow
+        radius: 12.0
+        opacity: 1.0
+
+    inactive:
+
+    enabled: True
+
+window_rules:
+  - match: Class
+    name: "Windows.UI.Core.CoreWindow"
+    enabled: False
+
+  - match: Class
+    name: "XamlExplorerHostIslandWindow"
+    enabled: False
+
+  - match: Process
+    name: "tacky-borders"
+    enabled: False
+
+  - match: Process
+    name: "zebar"
+    enabled: False
+
+  - match: Title
+    name: "komorebi-bar"
+    enabled: False
+
+  - match: Title
+    name: "keyviz"
+    enabled: False
+
+  - match: Title
+    name: "Picture-in-Picture"
+    enabled: False
+
+  - match: Process
+    name: "yasb"
+    enabled: False
+
+  - match: Process
+    name: bongocat
+    enabled: False

@@ -59,7 +59,7 @@ window_effects:
     # Highlight the window with a colored border.
     # ** Exclusive to Windows 11 due to API limitations.
     border:
-      enabled: true
+      enabled: false
       color: "#88c0d0"
 
     # Remove the title bar from the window's frame. Note that this can
@@ -70,7 +70,7 @@ window_effects:
     # Change the corner style of the window's frame.
     # ** Exclusive to Windows 11 due to API limitations.
     corner_style:
-      enabled: true
+      enabled: false
       # Allowed values: 'square', 'rounded', 'small_rounded'.
       style: "rounded"
 
@@ -84,12 +84,12 @@ window_effects:
   # Visual effects to apply to non-focused windows.
   other_windows:
     border:
-      enabled: true
+      enabled: false
       color: "#2e3440"
     hide_title_bar:
       enabled: false
     corner_style:
-      enabled: true
+      enabled: false
       style: "rounded"
     transparency:
       enabled: false
@@ -213,31 +213,31 @@ keybindings:
     bindings: ["alt+v"]
 
   # Change focus from tiling windows -> floating -> fullscreen.
-  - commands: ["wm-cycle-focus"]
+  - commands: ["wm-cycle-focus", "wm-redraw"]
     bindings: ["alt+oem_close_brackets", "alt+oem_open_brackets"]
 
   # Change the focused window to be floating.
-  - commands: ["toggle-floating"]
+  - commands: ["toggle-floating", "wm-redraw"]
     bindings: ["alt+t"]
 
   # Change the focused window to be fullscreen.
-  - commands: ["toggle-fullscreen"]
+  - commands: ["toggle-fullscreen", "wm-redraw"]
     bindings: ["alt+f"]
 
   # Minimize focused window.
-  - commands: ["toggle-minimized"]
+  - commands: ["toggle-minimized", "wm-redraw"]
     bindings: ["alt+m"]
 
   # Close focused window.
-  - commands: ["close"]
+  - commands: ["close", "wm-redraw"]
     bindings: ["alt+w"]
 
   # Re-evaluate configuration file.
-  - commands: ["wm-reload-config"]
+  - commands: ["wm-reload-config", "wm-redraw"]
     bindings: ["ctrl+alt+shift+r"]
 
   # Redraw all windows and force the active window to tile.
-  - commands: ["wm-redraw", "set-tiling"]
+  - commands: ["set-tiling", "wm-redraw"]
     bindings: ["alt+shift+r"]
 
   # Focus the next/previous active defined in `workspaces` config.
