@@ -35,7 +35,7 @@ global:
   animations:
     active:
       - type: Spiral
-        duration: 5000
+        duration: 3750
         easing: Linear
 
     inactive:

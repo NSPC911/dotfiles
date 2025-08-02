@@ -177,23 +177,23 @@ keybindings:
     bindings: ["alt+down"]
 
   # Move focused window in a given direction.
-  - commands: ["move --direction left"]
+  - commands: ["move --direction left", "wm-redraw"]
     bindings: ["alt+shift+left"]
-  - commands: ["move --direction right"]
+  - commands: ["move --direction right", "wm-redraw"]
     bindings: ["alt+shift+right"]
-  - commands: ["move --direction up"]
+  - commands: ["move --direction up", "wm-redraw"]
     bindings: ["alt+shift+up"]
-  - commands: ["move --direction down"]
+  - commands: ["move --direction down", "wm-redraw"]
     bindings: ["alt+shift+down"]
 
   # Resize focused window by a percentage or pixel amount.
-  - commands: ["resize --width -5%"]
+  - commands: ["resize --width -5%", "wm-redraw"]
     bindings: ["alt+oem_minus"]
-  - commands: ["resize --width +5%"]
+  - commands: ["resize --width +5%", "wm-redraw"]
     bindings: ["alt+oem_plus"]
-  - commands: ["resize --height -5%"]
+  - commands: ["resize --height -5%", "wm-redraw"]
     bindings: ["alt+shift+oem_minus"]
-  - commands: ["resize --height +5%"]
+  - commands: ["resize --height +5%", "wm-redraw"]
     bindings: ["alt+shift+oem_plus"]
 
   # As an alternative to the resize keybindings above, resize mode enables
@@ -241,15 +241,15 @@ keybindings:
     bindings: ["alt+shift+r"]
 
   # Focus the next/previous active defined in `workspaces` config.
-  - commands: ["focus --next-workspace"]
+  - commands: ["focus --next-workspace", "wm-redraw"]
     bindings: ["alt+oem_period"]
-  - commands: ["focus --prev-workspace"]
+  - commands: ["focus --prev-workspace", "wm-redraw"]
     bindings: ["alt+oem_comma"]
 
   # Move window into next/previous workspace
-  - commands: ["move --next-workspace", "focus --next-workspace"]
+  - commands: ["move --next-workspace", "focus --next-workspace", "wm-redraw"]
     bindings: ["alt+shift+oem_period"]
-  - commands: ["move --prev-workspace", "focus --prev-workspace"]
+  - commands: ["move --prev-workspace", "focus --prev-workspace", "wm-redraw"]
     bindings: ["alt+shift+oem_comma"]
 
   # Focus the workspace that last had focus.
@@ -257,25 +257,25 @@ keybindings:
     bindings: ["alt+d"]
 
   # Change focus to a workspace defined in `workspaces` config.
-  - commands: ["focus --workspace 1"]
+  - commands: ["focus --workspace 1", "wm-redraw"]
     bindings: ["alt+1"]
-  - commands: ["focus --workspace 2"]
+  - commands: ["focus --workspace 2", "wm-redraw"]
     bindings: ["alt+2"]
-  - commands: ["focus --workspace 3"]
+  - commands: ["focus --workspace 3", "wm-redraw"]
     bindings: ["alt+3"]
-  - commands: ["focus --workspace 4"]
+  - commands: ["focus --workspace 4", "wm-redraw"]
     bindings: ["alt+4"]
-  - commands: ["focus --workspace 5"]
+  - commands: ["focus --workspace 5", "wm-redraw"]
     bindings: ["alt+5"]
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ["move --workspace 1", "focus --workspace 1"]
+  - commands: ["move --workspace 1", "focus --workspace 1", "wm-redraw"]
     bindings: ["alt+shift+1"]
-  - commands: ["move --workspace 2", "focus --workspace 2"]
+  - commands: ["move --workspace 2", "focus --workspace 2", "wm-redraw"]
     bindings: ["alt+shift+2"]
-  - commands: ["move --workspace 3", "focus --workspace 3"]
+  - commands: ["move --workspace 3", "focus --workspace 3", "wm-redraw"]
     bindings: ["alt+shift+3"]
-  - commands: ["move --workspace 4", "focus --workspace 4"]
+  - commands: ["move --workspace 4", "focus --workspace 4", "wm-redraw"]
     bindings: ["alt+shift+4"]
-  - commands: ["move --workspace 5", "focus --workspace 5"]
+  - commands: ["move --workspace 5", "focus --workspace 5", "wm-redraw"]
     bindings: ["alt+shift+5"]
