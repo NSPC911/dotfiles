@@ -12,7 +12,7 @@ global:
   border_radius: Round
 
   border_z_order: AboveWindow
-  follow_native_border: False
+  follow_native_border: True
 
   initialize_delay: 0
   unminimize_delay: 0
@@ -35,13 +35,13 @@ global:
   animations:
     active:
       - type: Spiral
-        duration: 3750
+        duration: 5000
         easing: Linear
 
     inactive:
-      - type: Spiral
-        duration: 10000
-        easing: Linear
+      # - type: Spiral
+      #   duration: 10000
+      #   easing: Linear
 
     fps: 30
     enabled: True
@@ -92,3 +92,15 @@ window_rules:
   - match: Process
     name: bongocat
     enabled: False
+
+  - match: Title
+    name: "Pen Toolbar"
+    enabled: False
+
+  - match: Title
+    name: "XXMI Launcher"
+    enabled: True
+
+  - match: Process
+    name: Discord
+    enabled: True

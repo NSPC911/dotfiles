@@ -108,7 +108,7 @@ widgets:
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
-      label: "{win[process][name]}"
+      label: "{win[title]}"
       label_alt: "{win[process][name]} ({win[hwnd]})"
       label_no_window: " "
       label_icon: true

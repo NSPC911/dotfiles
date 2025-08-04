@@ -42,7 +42,7 @@ args = ['-NoLogo', '-NoProfile', '-Command', '%USERPROFILE%/Git/PowerShellEditor
 
 [[language]]
 name = "python"
-language-servers = ["ruff", "pylsp", "ty", "harper-ls"]
+language-servers = ["ruff", "pylsp", "harper-ls"]
 auto-format = true
 
 [[language]]

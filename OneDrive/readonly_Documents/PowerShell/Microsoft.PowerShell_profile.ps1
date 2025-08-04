@@ -80,20 +80,6 @@ function zd {
     Write-Output "Did you mean cd?"
 }
 
-##### Completions #####
-##### cool zoxide + onefetch #####
-# waste of time
-# function zoxide_with_onefetch {
-# 	param (
-#         [string[]]$Params
-#     )
-# 	__zoxide_z @Params
-
-# 	if (Test-Path ".git") {
-# 		onefetch --no-color-palette --nerd-fonts
-# 	}
-# }
-
 ##### Superfile Go To Last Dir #####
 Write-Output "`e[HDealing with functions and aliases..."
 function spf {
@@ -147,6 +133,14 @@ function Get-Folder-Size {
     Get-ChildItem -Recurse | Measure-Object -Property Length -Sum | Select-Object @{Name="Size(GB)";Expression={[math]::round($_.Sum/1GB,2)}}
 }
 
+function touch {
+    param(
+        [Parameter(Position = 0)]
+        [string]$file
+    )
+    New-Item -ItemType File -Force -Path $file
+}
+
 ##### better fzf #####
 function fzf {
     param(
@@ -195,6 +189,30 @@ function pyvenv() {
         touch requirements.txt
     }
     Write-Output "Virtual Environment has been synced!"
+}
+
+##### Improved python #####
+function python {
+    param(
+        [Parameter(ValueFromRemainingArguments)]
+        [string[]]$AdditionalArgs
+    )
+    # cwd has python
+    if (Test-Path ".venv\Scripts\python.exe") {
+        .venv\Scripts\python.exe $AdditionalArgs
+        return
+    } elseif ($env:VIRTUAL_ENV) {
+        # env has python (venv active)
+        $env:PATH -split ";" | ForEach-Object {
+            if (Test-Path "$_\python.exe") {
+                & "$_\python.exe $AdditionalArgs "
+                return
+            }
+        }
+    } else {
+        # use uv python
+        uv run python $AdditionalArgs
+    }
 }
 
 ##### Pretty Print 'Invoke-Webrequest's #####

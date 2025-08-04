@@ -20,7 +20,7 @@ focus_toggle_preview_sidebar = ["w"]
 enabled = true
 
 [plugins.bat]
-enabled = false
+enabled = true
 executable = "bat"
 show_line_numbers = true
 
