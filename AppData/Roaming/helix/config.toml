@@ -369,7 +369,7 @@ C-a = "select_all"
 C-v = ":clipboard-paste-before"
 C-c = ":clipboard-yank"
 # python f strings autocomplete in the wonkiest way possible
-'f' = {'"' = "@<esc>:insert-output echo f\"\"<ret>s\\\\<ret>d;,<ins><A-l>"}
+'f' = {'"' = "@f<esc>\"\"<esc>jd<A-i>"}
 
 ## editor config
 [editor]
@@ -388,6 +388,7 @@ default-line-ending = "lf"
 trim-trailing-whitespace = true
 end-of-line-diagnostics = "hint"
 completion-replace = true
+rainbow-brackets = true
 [editor.file-picker]
 hidden = true
 parents = true
@@ -398,17 +399,17 @@ max-wrap = 0
 [editor.statusline]
 left = ["mode", "version-control", "file-type", "file-name", "file-modification-indicator", "spinner", "read-only-indicator"]
 center = []
-right = ["file-encoding", "diagnostics", "workspace-diagnostics", "position", "primary-selection-length", "total-line-numbers"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
+right = ["register", "file-encoding", "diagnostics", "workspace-diagnostics", "position", "primary-selection-length", "total-line-numbers"]
 [editor.cursor-shape]
 normal = "underline"
 insert = "bar"
 select = "block"
 [editor.indent-guides]
 render = true
-character = ""
+character = "\ue621"
 [editor.lsp]
 display-inlay-hints = false
 display-progress-messages = true
@@ -416,8 +417,6 @@ inlay-hints-length-limit = 1
 [editor.soft-wrap]
 enable = false
 wrap-indicator = " 󱞶 "
-[icons.ui.bufferline]
-separator = "|"
 [icons.fs]
 enabled = true
 [icons.kind]
@@ -428,7 +427,5 @@ error = "\uebfb"
 hint = "\ued83"
 info = "\uf449"
 [icons.vcs]
-enabled = true
-[icons.gutter]
 enabled = true
 deleted = "⏽"

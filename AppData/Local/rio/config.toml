@@ -24,29 +24,29 @@ decorations = "Disabled"
 [renderer]
 performance = "low"
 backend = "automatic"
-disable-unfocused-render = true
+disable-unfocused-render = false
 level = 1
 filters = []
 
 [keyboard]
 use-kitty-keyboard-protocol = true
 [fonts]
-family = "CaskaydiaCove NF"
+family = "CaskaydiaCove NFM"
 features = ["cv12", "cv18", "calt"]
 use-drawable-characters = true
 size = 16
 [fonts.regular]
-family = "CaskaydiaCove NF"
+family = "CaskaydiaCove NFM"
 weight = 400
 [fonts.bold]
-family = "CaskaydiaCove NF"
+family = "CaskaydiaCove NFM"
 weight = 800
 [fonts.italic]
-family = "CaskaydiaCove NF"
+family = "CaskaydiaCove NFM"
 style = "Italic"
 weight = 400
 [fonts.bold-italic]
-family = "CaskaydiaCove NF"
+family = "CaskaydiaCove NFM"
 weight = 800
 
 [scroll]
@@ -91,7 +91,7 @@ keys = [
 ]
 
 [colors]
-background = '#2e3441'
+background = '#2e3440'
 foreground = '#d8dee9'
 selection-background = '#eceff4'
 selection-foreground = '#4c566a'

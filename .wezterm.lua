@@ -149,11 +149,13 @@ config.keys = {
 			end),
 		},
 	},
-	{ key = "]", mods = "CTRL",       action = wezterm.action { ActivatePaneDirection = "Next" } },
-	{ key = "[", mods = "CTRL",       action = wezterm.action { ActivatePaneDirection = "Prev" } },
-	{ key = "k", mods = "CTRL",       action = act.ShowLauncher },
-	{ key = "{", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(-1) },
-	{ key = "}", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) },
+	{ key = "]",        mods = "CTRL",       action = wezterm.action { ActivatePaneDirection = "Next" } },
+	{ key = "[",        mods = "CTRL",       action = wezterm.action { ActivatePaneDirection = "Prev" } },
+	{ key = "k",        mods = "CTRL",       action = act.ShowLauncher },
+	{ key = "{",        mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(-1) },
+	{ key = "}",        mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) },
+	{ key = "PageUp",   mods = "CTRL",       action = act.SendKey { key = "PageUp", mods = "CTRL" } },
+	{ key = "PageDown", mods = "CTRL",       action = act.SendKey { key = "PageDown", mods = "CTRL" } }
 }
 
 -- colors

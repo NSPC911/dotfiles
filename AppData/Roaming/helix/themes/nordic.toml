@@ -123,6 +123,7 @@
 "ui.statusline.file-name" = { fg = "white2" }
 "ui.statusline.file-modification-indicator" = { fg = "red_bright", modifiers = [ "bold" ] }
 "ui.statusline.file-encoding" = { fg = "black0" }
+"ui.statusline.register" = { fg = "magenta_bright" }
 ## right
 "ui.statusline.diagnostics" = { fg = "red_bright" }
 "ui.statusline.workspace-diagnostics" = { fg = "orange_bright" }
@@ -137,6 +138,7 @@
 "ui.statusline.inactive.file-modification-indicator" = { fg = "red_dim", modifiers = [ "bold" ] }
 "ui.statusline.inactive.file-encoding" = { bg = "white0", fg = "black0" }
 ## inactive right
+"ui.statusline.inactive.register" = { fg = "magenta_bright" }
 "ui.statusline.inactive.diagnostics" = { fg = "red_dim" }
 "ui.statusline.inactive.workspace-diagnostics" = { fg = "orange_dim" }
 "ui.statusline.inactive.position" = { fg = "yellow_dim" }

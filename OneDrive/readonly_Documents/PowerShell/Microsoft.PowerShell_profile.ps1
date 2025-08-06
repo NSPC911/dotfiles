@@ -165,17 +165,17 @@ function fzf {
 
 ##### Python Venv #####
 function pyvenv() {
-    if (Test-Path .venv\Scripts) {
-        Write-Output "Using .venv"
-        Write-Output "Activating virtual environment"
-        .\.venv\Scripts\Activate.ps1
-    } elseif (-not (Test-Path venv)) {
-        Write-Output "Creating new virtual environment"
-        uv venv venv
-    }
     if (Test-Path venv\Scripts) {
+        Write-Output "Using venv"
         Write-Output "Activating virtual environment"
         .\venv\Scripts\Activate.ps1
+    } elseif (-not (Test-Path .venv)) {
+        Write-Output "Creating new virtual environment"
+        uv venv
+    }
+    if (Test-Path .venv\Scripts) {
+        Write-Output "Activating virtual environment"
+        .\.venv\Scripts\Activate.ps1
     }
     Write-Output "Virtual Environment is active!"
     if (Test-Path pyproject.toml) {
