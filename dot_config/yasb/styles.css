@@ -60,6 +60,10 @@
   padding: 0;
 }
 
+QPushButton {
+  outline: none !important;
+}
+
 .audio-menu,
 .brightness-menu,
 .calendar,

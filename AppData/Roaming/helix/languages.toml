@@ -34,11 +34,9 @@ args = []
 command = "pyrefly"
 args = ["lsp"]
 
-[language-server.powershell-editor-services]
-name = 'powershell-editor-services'
-transport = 'stdio'
-command = 'pwsh'
-args = ['-NoLogo', '-NoProfile', '-Command', '%USERPROFILE%/Git/PowerShellEditorServices/PowerShellEditorServices/Start-EditorServices.ps1 -SessionDetailsPath %USERPROFILE%/Git/PowerShellEditorServices/PowerShellEditorServices.sessions.lsp.json -LanguageServiceOnly -Stdio']
+[language-server.tombi]
+command = "tombi"
+args = ["--no-cache", "lsp"]
 
 [[language]]
 name = "python"
@@ -81,12 +79,3 @@ formatter = { command = "prettierd", args = [".css"] }
 name = "markdown"
 language-servers = ["marksman", "markdown-oxide", "harper-ls"]
 formatter = { command = "prettierd", args = [".md"] }
-
-[[language]]
-name = 'powershell'
-scope = 'source.ps1'
-file-types = ['ps1', 'psm1']
-roots = ['.git']
-comment-token = '#'
-indent = { tab-width = 4, unit = '    ' }
-language-servers = [ 'powershell-editor-services' ]

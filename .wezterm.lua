@@ -105,6 +105,8 @@ config.keys = {
 			local overrides = window:get_config_overrides() or {}
 			if overrides.window_background_opacity == 1.0 then
 				overrides.window_background_opacity = 0.75
+			elseif overrides.window_background_opacity == 0.75 then
+				overrides.window_background_opacity = 0.5
 			else
 				overrides.window_background_opacity = 1.0
 			end

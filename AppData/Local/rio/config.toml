@@ -34,7 +34,7 @@ use-kitty-keyboard-protocol = true
 family = "CaskaydiaCove NFM"
 features = ["cv12", "cv18", "calt"]
 use-drawable-characters = true
-size = 16
+size = 18
 [fonts.regular]
 family = "CaskaydiaCove NFM"
 weight = 400

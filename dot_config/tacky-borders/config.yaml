@@ -35,7 +35,7 @@ global:
   animations:
     active:
       - type: Spiral
-        duration: 5000
+        duration: 3750
         easing: Linear
 
     inactive:
@@ -43,7 +43,7 @@ global:
       #   duration: 10000
       #   easing: Linear
 
-    fps: 30
+    fps: 10
     enabled: True
 
   effects:

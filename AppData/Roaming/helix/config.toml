@@ -42,7 +42,7 @@ A-c = "toggle_line_comments"
 A-C = "toggle_block_comments"
 "`" = "switch_case"
 C-r = [":lsp-restart", ":reload-all"]
-"/" = ":scooter"
+"/" = "global_search"
 X = "extend_line_above"
 Y = ":primary-clipboard-yank"
 
