@@ -353,7 +353,6 @@ w = "@<C-w>"
 [keys.insert]
 C-s = ["normal_mode", ":w"]
 C-S-s = ":wa"
-v = { v = "select_mode" }
 A-i = "move_visual_line_up"
 A-j = "move_char_left"
 A-k = "move_visual_line_down"
@@ -387,7 +386,7 @@ completion-trigger-len = 1
 default-line-ending = "lf"
 trim-trailing-whitespace = true
 end-of-line-diagnostics = "hint"
-completion-replace = true
+completion-replace = false
 rainbow-brackets = true
 [editor.file-picker]
 hidden = true

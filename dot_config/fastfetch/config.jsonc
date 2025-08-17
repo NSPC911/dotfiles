@@ -12,8 +12,10 @@
   "display": {
     "color": "cyan",
     "bar": {
-      "borderLeft": "[ ",
-      "borderRight": " ]"
+      "border": {
+        "Left": "[ ",
+        "Right": " ]"
+      }
     },
     "hideCursor": true,
     "separator": " - "

@@ -36,7 +36,7 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: ["power_menu", "launchpad", "media", "active_window"]
+      left: ["power_menu", "launchpad", "active_window", "media"]
       center: ["clock", "cpu"]
       right: [
           "glazewm_tiling_direction",
@@ -50,61 +50,40 @@ bars:
           "volume",
           "notifications",
         ]
+  task-cava-bar:
+    enabled: true
+    screens: ["*"]
+    class_name: "task-cava-bar"
+    alignment:
+      position: "bottom"
+      center: true
+    animation:
+      enabled: false
+      duration: 1000
+    blur_effect:
+      enabled: false
+      acrylic: false
+      dark_mode: false
+      round_corners: false
+      round_corners_type: "small"
+      border_color: "System"
+    window_flags:
+      always_on_top: true
+      windows_app_bar: false
+      hide_on_fullscreen: true
+    dimensions:
+      width: "100%"
+      height: 40
+    padding:
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+    widgets:
+      left: []
+      center: ["cava"]
+      right: []
 widgets:
-  media:
-    type: "yasb.media.MediaWidget"
-    options:
-      label: " {title} "
-      label_alt: " {title} - {artist} "
-      hide_empty: true
-      callbacks:
-        on_left: "toggle_media_menu"
-        on_right: "toggle_label"
-        on_middle: "do_nothing"
-      max_field_size:
-        label: 35
-        label_alt: 35
-      show_thumbnail: true
-      controls_only: false
-      controls_left: false
-      controls_hide: false
-      thumbnail_alpha: 127
-      thumbnail_padding: 0
-      thumbnail_corner_radius: 0
-      icons:
-        prev_track: "\ue892"
-        next_track: "\ue893"
-        play: "\ue768"
-        pause: "\ue769"
-      media_menu:
-        blur: true
-        round_corners: true
-        round_corners_type: "normal"
-        border_color: "system"
-        alignment: "center"
-        direction: "down"
-        offset_top: 5
-        offset_left: 0
-        thumbnail_corner_radius: 8
-        thumbnail_size: 120
-        max_title_size: 80
-        max_artist_size: 20
-        show_source: false
-      media_menu_icons:
-        play: "\ue768"
-        pause: "\ue769"
-        prev_track: "\ue892"
-        next_track: "\ue893"
-      label_shadow:
-        enabled: false
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
@@ -123,86 +102,6 @@ widgets:
         right: 0
       callbacks:
         on_left: "toggle_label"
-  clock:
-    type: "yasb.clock.ClockWidget"
-    options:
-      label: "{%a %d %b %H:%M:%S}"
-      label_alt: "{%A %d %B %Y, %H:%M:%S}"
-      timezones: []
-      calendar:
-        blur: true
-        round_corners: true
-        alignment: "center"
-        direction: "down"
-        offset_top: 0
-        offset_left: 30
-      callbacks:
-        on_left: "toggle_calendar"
-        on_middle: "next_timezone"
-        on_right: "toggle_label"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-  volume:
-    type: "yasb.volume.VolumeWidget"
-    options:
-      label: "<span>{icon}</span> {level}"
-      label_alt: "{volume}"
-      tooltip: true
-      volume_icons:
-        - "\ueee8"
-        - "\uf026"
-        - "\uf027"
-        - "\uf027"
-        - "\uf028"
-      callbacks:
-        on_left: "toggle_volume_menu"
-        on_right: "toggle_mute"
-        on_middle: "exec cmd.exe /c start ms-settings:sound"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-  bluetooth:
-    type: "yasb.bluetooth.BluetoothWidget"
-    options:
-      label: "<span>{icon}</span>"
-      label_alt: "<span>{icon}</span> {device_name}"
-      icons:
-        bluetooth_on: "\udb80\udcaf"
-        bluetooth_off: "\udb80\udcb2"
-        bluetooth_connected: "\udb80\udcb1"
-      callbacks:
-        on_right: "exec cmd.exe /c start ms-settings:bluetooth"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-  power_menu:
-    type: "yasb.power_menu.PowerMenuWidget"
-    options:
-      label: "\u23fb"
-      uptime: True
-      blur: False
-      blur_background: True
-      animation_duration: 0
-      button_row: 5
-      buttons:
-        shutdown: ["\u23fb", "Shut Down"]
-        restart: ["\uead2", "Restart"]
-        hibernate: ["\uf28e", "Hibernate"]
-        sleep: ["\u23fe", "Sleep"]
-        signout: ["\udb80\udf43", "Sign out"]
-        cancel: ["", "Cancel"]
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   battery:
     type: "yasb.battery.BatteryWidget"
     options:
@@ -219,41 +118,17 @@ widgets:
         left: 0
         bottom: 0
         right: 0
-  wifi:
-    type: "yasb.wifi.WifiWidget"
+  bluetooth:
+    type: "yasb.bluetooth.BluetoothWidget"
     options:
-      label: "<span>{wifi_icon}</span>"
-      label_alt: "<span>{wifi_icon}</span>{wifi_name}"
-      update_interval: 5000
+      label: "<span>{icon}</span>"
+      label_alt: "<span>{icon}</span> {device_name}"
+      icons:
+        bluetooth_on: "\udb80\udcaf"
+        bluetooth_off: "\udb80\udcb2"
+        bluetooth_connected: "\udb80\udcb1"
       callbacks:
-        on_right: "exec cmd.exe /c start ms-settings:network"
-        on_middle: "do_nothing"
-        on_left: "toggle_label"
-      ethernet_icon: "\ueba9"
-      wifi_icons:
-        [
-          "\udb82\udd2e",
-          "\udb82\udd1f",
-          "\udb82\udd22",
-          "\udb82\udd25",
-          "\udb82\udd28",
-        ]
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-  notifications:
-    type: "yasb.notifications.NotificationsWidget"
-    options:
-      label: "<span>\uf476</span> {count}"
-      label_alt: "{count} notifications"
-      hide_empty: false
-      tooltip: false
-      callbacks:
-        on_left: "toggle_notification"
-        on_right: "toggle_label"
-        on_middle: "do_nothing"
+        on_right: "exec cmd.exe /c start ms-settings:bluetooth"
       container_padding:
         top: 0
         left: 0
@@ -294,19 +169,95 @@ widgets:
   cava:
     type: "yasb.cava.CavaWidget"
     options:
-      bar_height: 31
+      bar_height: 40
       min_bar_height: 0
-      gradient: 0
-      reverse: 1
+      gradient: 1
+      reverse: 0
       foreground: "#88C0D0"
-      bars_number: 20
-      gradient_color_1: "#88C0D0"
+      bars_number: 100
+      gradient_color_1: "#8FBCBB"
       gradient_color_2: "#81A1C1"
       gradient_color_3: "#5E81AC"
-      bar_spacing: 0
-      bar_width: 2
-      sleep_timer: 2
+      bar_spacing: 6
+      bar_width: 14
+      sleep_timer: 1
       hide_empty: true
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+      label: "{%a %d %b %H:%M:%S}"
+      label_alt: "{%A %d %B %Y, %H:%M:%S}"
+      timezones: []
+      calendar:
+        blur: true
+        round_corners: true
+        alignment: "center"
+        direction: "down"
+        offset_top: 0
+        offset_left: 30
+      callbacks:
+        on_left: "toggle_calendar"
+        on_middle: "next_timezone"
+        on_right: "toggle_label"
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+  cpu:
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "<span>\uf4bc</span> {info[percent][total]}%"
+      label_alt: "<span>\uf437</span> {info[histograms][cpu_percent]}"
+      update_interval: 2000
+      histogram_icons:
+        - "\u2581" # 0%
+        - "\u2581" # 10%
+        - "\u2582" # 20%
+        - "\u2583" # 30%
+        - "\u2584" # 40%
+        - "\u2585" # 50%
+        - "\u2586" # 60%
+        - "\u2587" # 70%
+        - "\u2588" # 80%+
+      histogram_num_columns: 8
+      callbacks:
+        on_right: "do_nothing"
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+  glazewm_tiling_direction:
+    type: "glazewm.tiling_direction.GlazewmTilingDirectionWidget"
+    options:
+      horizontal_label: "\udb81\udce1 Horizontal"
+      vertical_label: "\udb81\udce2 Vertical"
+      btn_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+  glazewm_workspaces:
+    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
+    options:
+      offline_label: " "
+      hide_empty_workspaces: false
+      hide_if_offline: true
+      populated_label: " "
+      empty_label: "e"
+      active_populated_label: " "
+      active_empty_label: " "
+      btn_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [1, 1]
       container_padding:
         top: 0
         left: 0
@@ -368,16 +319,6 @@ widgets:
         color: "black"
         radius: 3
         offset: [1, 1]
-  glazewm_tiling_direction:
-    type: "glazewm.tiling_direction.GlazewmTilingDirectionWidget"
-    options:
-      horizontal_label: "\udb81\udce1 Horizontal"
-      vertical_label: "\udb81\udce2 Vertical"
-      btn_shadow:
-        enabled: false
-        color: "black"
-        radius: 3
-        offset: [1, 1]
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
@@ -400,50 +341,6 @@ widgets:
         bottom: 0
         right: 0
       btn_shadow:
-        enabled: false
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-  glazewm_workspaces:
-    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
-    options:
-      offline_label: " "
-      hide_empty_workspaces: false
-      hide_if_offline: true
-      populated_label: " "
-      empty_label: "e"
-      active_populated_label: " "
-      active_empty_label: " "
-      btn_shadow:
-        enabled: false
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-  cpu:
-    type: "yasb.cpu.CpuWidget"
-    options:
-      label: "<span>\uf4bc</span> {info[percent][total]}%"
-      label_alt: "<span>\uf437</span> {info[histograms][cpu_percent]}"
-      update_interval: 2000
-      histogram_icons:
-        - "\u2581" # 0%
-        - "\u2581" # 10%
-        - "\u2582" # 20%
-        - "\u2583" # 30%
-        - "\u2584" # 40%
-        - "\u2585" # 50%
-        - "\u2586" # 60%
-        - "\u2587" # 70%
-        - "\u2588" # 80%+
-      histogram_num_columns: 8
-      callbacks:
-        on_right: "do_nothing"
-      label_shadow:
         enabled: false
         color: "black"
         radius: 3
@@ -479,3 +376,139 @@ widgets:
         color: "#00000090"
         offset: [0, 2]
         radius: 8
+  media:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: " {title} "
+      label_alt: " {artist} "
+      hide_empty: true
+      callbacks:
+        on_left: "toggle_media_menu"
+        on_right: "toggle_label"
+        on_middle: "do_nothing"
+      max_field_size:
+        label: 35
+        label_alt: 35
+      show_thumbnail: false
+      controls_only: false
+      controls_left: true
+      controls_hide: false
+      thumbnail_alpha: 127
+      thumbnail_padding: 0
+      thumbnail_corner_radius: 0
+      icons:
+        prev_track: "\ue892"
+        next_track: "\ue893"
+        play: "\ue768"
+        pause: "\ue769"
+      media_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "center"
+        direction: "down"
+        offset_top: 5
+        offset_left: 0
+        thumbnail_corner_radius: 8
+        thumbnail_size: 120
+        max_title_size: 80
+        max_artist_size: 20
+        show_source: false
+      media_menu_icons:
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+  notifications:
+    type: "yasb.notifications.NotificationsWidget"
+    options:
+      label: "<span>\uf476</span> {count}"
+      label_alt: "{count} notifications"
+      hide_empty: false
+      tooltip: false
+      callbacks:
+        on_left: "toggle_notification"
+        on_right: "toggle_label"
+        on_middle: "do_nothing"
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+  power_menu:
+    type: "yasb.power_menu.PowerMenuWidget"
+    options:
+      label: "\u23fb"
+      uptime: True
+      blur: False
+      blur_background: True
+      animation_duration: 0
+      button_row: 5
+      buttons:
+        shutdown: ["\u23fb", "Shut Down"]
+        restart: ["\uead2", "Restart"]
+        hibernate: ["\uf28e", "Hibernate"]
+        sleep: ["\u23fe", "Sleep"]
+        signout: ["\udb80\udf43", "Sign out"]
+        cancel: ["", "Cancel"]
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+  volume:
+    type: "yasb.volume.VolumeWidget"
+    options:
+      label: "<span>{icon}</span> {level}"
+      label_alt: "{volume}"
+      tooltip: true
+      volume_icons:
+        - "\ueee8"
+        - "\uf026"
+        - "\uf027"
+        - "\uf027"
+        - "\uf028"
+      callbacks:
+        on_left: "toggle_volume_menu"
+        on_right: "toggle_mute"
+        on_middle: "exec cmd.exe /c start ms-settings:sound"
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+  wifi:
+    type: "yasb.wifi.WifiWidget"
+    options:
+      label: "<span>{wifi_icon}</span>"
+      label_alt: "<span>{wifi_icon}</span>{wifi_name}"
+      update_interval: 5000
+      callbacks:
+        on_right: "exec cmd.exe /c start ms-settings:network"
+        on_middle: "do_nothing"
+        on_left: "toggle_label"
+      ethernet_icon: "\ueba9"
+      wifi_icons:
+        [
+          "\udb82\udd2e",
+          "\udb82\udd1f",
+          "\udb82\udd22",
+          "\udb82\udd25",
+          "\udb82\udd28",
+        ]
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
