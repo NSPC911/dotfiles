@@ -617,14 +617,14 @@ QPushButton {
   /* border-top: 2px solid var(--nord-cyan-base); */
   /* border-bottom: 2px solid var(--nord-cyan-base); */
   padding: 0 8px;
-  margin: 0 -1px;
+  margin: 0 -2px;
 }
 
 .widget .label {
   padding: 0px 2px;
 }
 
-/* .yasb-bar .active-window-widget, */
+/* .yasb-bar .active-window-widget { */
 /* .yasb-bar .cpu-widget, */
 /* .yasb-bar .notification-widget { */
   /* border-bottom-right-radius: 8px; */

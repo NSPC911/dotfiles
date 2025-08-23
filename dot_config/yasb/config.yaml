@@ -391,7 +391,7 @@ widgets:
         label_alt: 35
       show_thumbnail: false
       controls_only: false
-      controls_left: true
+      controls_left: false
       controls_hide: false
       thumbnail_alpha: 127
       thumbnail_padding: 0

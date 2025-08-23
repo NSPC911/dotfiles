@@ -1,7 +1,6 @@
 theme = "nordic"
 
 [keys.normal]
-# C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw", ":rla"]
 ins = "insert_mode"
 C-s = ":w"
 C-S-s = ":wa"
@@ -37,7 +36,6 @@ o = "move_next_word_start"
 S-o = "extend_next_word_start"
 C-a = "select_all"
 A-j = { j = "save_selection", i = "jump_backward", k = "jump_forward", p = "jumplist_picker" }
-A-F = [":insert-output prettier --write %{buffer_name}", "delete_selection", ":reload"]
 A-c = "toggle_line_comments"
 A-C = "toggle_block_comments"
 "`" = "switch_case"
@@ -233,6 +231,7 @@ B = "buffer_picker"
 R = ":recentf-open-files"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
+l = { z = ":sh wezterm cli spawn lazygit --path %{current_working_directory}", p = "last_picker" }
 A-c = "no_op"
 E = "no_op"
 F = ":format"
@@ -256,7 +255,6 @@ f = "file_explorer_in_current_directory"
 e = "file_picker_in_current_directory"
 b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
-R = ":recentf-open-files"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
 A-c = "no_op"
@@ -418,6 +416,8 @@ enable = false
 wrap-indicator = " 󱞶 "
 [icons.fs]
 enabled = true
+[icons.ui.virtual]
+wrap = " 󱞶 "
 [icons.kind]
 enabled = true
 [icons.diagnostic]

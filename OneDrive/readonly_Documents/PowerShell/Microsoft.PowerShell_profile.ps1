@@ -191,30 +191,6 @@ function pyvenv() {
     Write-Output "Virtual Environment has been synced!"
 }
 
-##### Improved python #####
-function python {
-    param(
-        [Parameter(ValueFromRemainingArguments)]
-        [string[]]$AdditionalArgs
-    )
-    # cwd has python
-    if (Test-Path ".venv\Scripts\python.exe") {
-        .venv\Scripts\python.exe $AdditionalArgs
-        return
-    } elseif ($env:VIRTUAL_ENV) {
-        # env has python (venv active)
-        $env:PATH -split ";" | ForEach-Object {
-            if (Test-Path "$_\python.exe") {
-                & "$_\python.exe $AdditionalArgs "
-                return
-            }
-        }
-    } else {
-        # use uv python
-        uv run python $AdditionalArgs
-    }
-}
-
 ##### Pretty Print 'Invoke-Webrequest's #####
 function curlout {
     param(
@@ -229,9 +205,6 @@ function curlout {
 
 ##### better than to search for nothing in the tasklist.exe #####
 function taskfind { Invoke-Expression "tasklist.exe | Out-String | rg $args --ignore-case" }
-
-##### better sudo (not really) #####
-function sd { Start-Process pwsh -Verb RunAs -ArgumentList "-Command cd '$pwd'; Clear-Host ; $args ; Read-Host 'Exit Now?'" }
 
 #### LazyGit #####
 Set-Alias -Name "lz" -Value "lazygit"

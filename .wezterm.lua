@@ -57,7 +57,7 @@ config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
 config.tab_max_width = 100
-config.show_tab_index_in_tab_bar = false
+config.show_tab_index_in_tab_bar = true
 
 -- keymaps
 config.keys = {
@@ -157,7 +157,7 @@ config.keys = {
 	{ key = "{",        mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(-1) },
 	{ key = "}",        mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) },
 	{ key = "PageUp",   mods = "CTRL",       action = act.SendKey { key = "PageUp", mods = "CTRL" } },
-	{ key = "PageDown", mods = "CTRL",       action = act.SendKey { key = "PageDown", mods = "CTRL" } }
+	{ key = "PageDown", mods = "CTRL",       action = act.SendKey { key = "PageDown", mods = "CTRL" } },
 }
 
 -- colors
@@ -172,14 +172,14 @@ config.colors = {
 		background = "rgb(0,0,0/0%)", -- only used if tab is at bottom
 		active_tab = {
 			bg_color = "#88c0d0",
-			fg_color = "#2e3440",
+			fg_color = "hsl(0,0,0/0)",
 			intensity = "Normal",
 			underline = "None",
 			italic = false,
 			strikethrough = false,
 		},
 		inactive_tab = {
-			bg_color = "#2e3440",
+			bg_color = "hsl(0,0,0/0)",
 			fg_color = "#88c0d0",
 			intensity = "Normal",
 			underline = "None",
@@ -192,4 +192,5 @@ config.colors = {
 config.window_decorations = "NONE | RESIZE"
 config.default_prog = { "pwsh.exe", "-NoLogo" }
 config.initial_cols = 80
+
 return config

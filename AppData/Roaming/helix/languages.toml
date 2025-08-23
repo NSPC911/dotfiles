@@ -16,15 +16,20 @@ args = ["--stdio"]
 
 [language-server.harper-ls.config.harper-ls]
 dialact = "British"
-isolateEnglish = false
+isolateEnglish = true
 
 [language-server.harper-ls.config.harper-ls.linters]
 UnclosedQuotes = true
 WrongQuotes = true
 LongSentences = true
 RepeatedWords = true
-SpellCheck = false
+SpellCheck = true
 SentenceCapitalization = false
+NoOxfordComma = true
+SpelledNumbers = true
+
+[language-server.harper-ls.config.markdown]
+IgnoreLinkTitle = true
 
 [language-server.steel]
 command = "steel-language-server"
@@ -40,7 +45,7 @@ args = ["--no-cache", "lsp"]
 
 [[language]]
 name = "python"
-language-servers = ["ruff", "pylsp", "harper-ls"]
+language-servers = ["ruff", "pylsp", "harper-ls", "ty"]
 auto-format = true
 
 [[language]]

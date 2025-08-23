@@ -1,9 +1,10 @@
+#:tombi schema.strict = false
 [window]
 padding = { x = 12, y = 12 }
-decorations = "None"
+decorations = "none"
 opacity = 0.75
 [font]
-normal = { family = "CaskaydiaCove NFP" }
+normal = { family = "CaskaydiaCove NFM" }
 [terminal]
 shell = { program = "pwsh.exe", args = [ "-NoLogo" ] }
 [mouse]
