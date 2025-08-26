@@ -10,6 +10,17 @@ args = ["server"]
 command = "ty"
 args = ["server"]
 
+[language-server.ty.config]
+disableLanguageServices = true
+diagnosticMode = "workspace"
+
+[language-server.ty.config.inlayHints]
+variableTypes = true
+callArgumentNames = true
+
+[language-server.ty.config.experimental]
+rename = true
+
 [language-server.harper-ls]
 command = "harper-ls"
 args = ["--stdio"]
@@ -25,8 +36,8 @@ LongSentences = true
 RepeatedWords = true
 SpellCheck = true
 SentenceCapitalization = false
-NoOxfordComma = true
-SpelledNumbers = true
+NoOxfordComma = false
+SpelledNumbers = false
 
 [language-server.harper-ls.config.markdown]
 IgnoreLinkTitle = true
@@ -84,3 +95,7 @@ formatter = { command = "prettierd", args = [".css"] }
 name = "markdown"
 language-servers = ["marksman", "markdown-oxide", "harper-ls"]
 formatter = { command = "prettierd", args = [".md"] }
+
+[[language]]
+name="typst"
+language-servers = ["tinymist", "harper-ls"]

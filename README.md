@@ -4,7 +4,7 @@ My Windows 11 config files, Nord + Translucency
 
 ## Apps
 
-#### Categorised
+#### Categories
 
 | Type                  | App                                                                                                                 | Location in repository                                                    |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
@@ -19,7 +19,7 @@ My Windows 11 config files, Nord + Translucency
 | Prompt                | [oh-my-posh](https://github.com/jandedobbeleer/oh-my-posh)                                                          | `dot_config/kushal.omp.json`                                              |
 | Mod Manager           | [Windhawk](https://github.com/ramensoftware/windhawk)                                                               | `windhawk/`                                                               |
 | Editor                | [helix](https://github.com/helix-editor/helix) [(custom built)](https://github.com/NSPC911-forks/helix/tree/patchy) | `AppData/Roaming/helix/`                                                  |
-| File Explorer (TUI)   | [superfile](https://github.com/yorukot/superfile)                                                                   | `AppData/Local/superfile/`                                                |
+| File Explorer (TUI)   | [rovr](https://github.com/NSPC911/rovr)                                                                             | `AppData/Local/rovr/`                                                     |
 | File Explorer (GUI)   | [OneCommanger](https://www.onecommander.com)                                                                        | `readonly_scoop/persist/onecommander/Settings/OneCommanderV3.json`        |
 | Wallpaper             | [Wallpaper Engine](https://www.wallpaperengine.io)                                                                  | https://steamcommunity.com/sharedfiles/filedetails/?id=3360569178         |
 | Browser               | [Zen](https://github.com/zen-browser/desktop)                                                                       | `zen/userChrome.css` (not managed by chezmoi)                             |
@@ -43,8 +43,9 @@ My Windows 11 config files, Nord + Translucency
 
 #### Previously used, but no longer using
 
-| Type              | App                                                 | Location                     |
-| ----------------- | --------------------------------------------------- | ---------------------------- |
-| Terminal emulator | [rio](https://github.com/raphamorim/rio)            | `AppData/Local/rio/`         |
-| Terminal emulator | [alacritty](https://github.com/alacritty/alacritty) | `AppData/Roaming/alacritty/` |
-| Tiling Manager    | [komorebi](https://github.com/LGUG2Z/komorebi)      | `komorebi.json`              |
+| Type                | App                                                 | Location                     |
+| ------------------- | --------------------------------------------------- | ---------------------------- |
+| Terminal emulator   | [rio](https://github.com/raphamorim/rio)            | `AppData/Local/rio/`         |
+| Terminal emulator   | [alacritty](https://github.com/alacritty/alacritty) | `AppData/Roaming/alacritty/` |
+| Tiling Manager      | [komorebi](https://github.com/LGUG2Z/komorebi)      | `komorebi.json`              |
+| File Explorer (TUI) | [superfile](https://github.com/yorukot/superfile)   | `AppData/Local/superfile/`   |

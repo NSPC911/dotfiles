@@ -39,6 +39,7 @@ config.cursor_blink_rate = 0
 config.term = "xterm-256color"
 
 config.font = wezterm.font("CaskaydiaCove NFM")
+config.custom_block_glyphs = false
 config.cell_width = 1
 config.window_background_opacity = 0.75
 config.prefer_egl = true

@@ -1,4 +1,5 @@
 cd $HOME
+Clear-Host
 ##### Cache Completions #####
 $shouldGenerate = $false
 $cacheCompletionLocation = "$PROFILE/../completion-cache.ps1"
@@ -15,11 +16,11 @@ if ($shouldGenerate) {
 
     $completions = @()
 
-    Write-Output "`e[HSetting up oh-my-posh"
-    $completions += oh-my-posh init powershell --config $HOME\.config\kushal.omp.json
-
     Write-Output "`e[HSetting up zoxide    "
     $completions += zoxide init powershell --no-cmd
+
+    Write-Output "`e[HSetting up oh-my-posh"
+    $completions += oh-my-posh init powershell --config $HOME\.config\kushal.omp.json
 
     Write-Output "`e[HSetting up uv completions"
     $completions += uv generate-shell-completion powershell
@@ -38,6 +39,7 @@ if ($shouldGenerate) {
     $completions += regolith completion powershell
 
     Write-Output "`e[HSetting up onefetch completions"
+    $completions += "Write-Output `"`e[HSetting up onefetch completions`""
     $completions += onefetch --generate powershell
 
     # Extract all 'using' statements and remove duplicates
@@ -68,6 +70,8 @@ if ($shouldGenerate) {
     $finalContent += $cleanedCompletions
 
     $finalContent -join "`n" | Out-File $cacheCompletionLocation -Encoding UTF8
+} else {
+    Write-Output "Using script cache..."
 }
 
 . $cacheCompletionLocation
@@ -92,6 +96,17 @@ function spf {
         $SPF_LAST_DIR = Get-Content -Path $SPF_LAST_DIR_PATH
         Invoke-Expression $SPF_LAST_DIR
         Remove-Item -Force $SPF_LAST_DIR_PATH
+    }
+}
+
+##### rovr Go To Last Dir #####
+function rovr {
+    param ( [string[]]$Params )
+    & rovr.exe @Params
+    $cd_path_file = "$env:LOCALAPPDATA/rovr/rovr_quit_cd_path"
+    if (Test-Path $cd_path_file) {
+        Set-Location -Path (Get-Content $cd_path_file)
+        Remove-Item $cd_path_file
     }
 }
 

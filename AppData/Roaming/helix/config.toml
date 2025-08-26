@@ -23,6 +23,8 @@ k = "move_visual_line_down"
 l = "move_char_right"
 "=" = "increment"
 "-" = "decrement"
+"_" = "switch_to_lowercase"
+"+" = "switch_to_uppercase"
 w = "@<C-w>" # easier to press 'w' than press 'C-w'
 A-I = "append_mode"
 A-i = "insert_mode"
@@ -386,6 +388,7 @@ trim-trailing-whitespace = true
 end-of-line-diagnostics = "hint"
 completion-replace = false
 rainbow-brackets = true
+atomic-save = false
 [editor.file-picker]
 hidden = true
 parents = true
@@ -413,7 +416,7 @@ display-progress-messages = true
 inlay-hints-length-limit = 1
 [editor.soft-wrap]
 enable = false
-wrap-indicator = " 󱞶 "
+wrap-indicator = "󱞶 "
 [icons.fs]
 enabled = true
 [icons.ui.virtual]
