@@ -8,6 +8,9 @@ cd_on_quit = true
 [interface]
 nerd_font = true
 
+[theme]
+transparent = true
+
 [metadata]
 filesize_suffix = "binary"
 filesize_decimals = 2

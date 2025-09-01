@@ -15,7 +15,7 @@ tab = ["rotate_view"]
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
 C-c = ":clipboard-yank"
-S-v = {"j" = ":clipboard-paste-before", "k" = ":clipboard-paste-replace", "l" = ":clipboard-paste-after"}
+S-v = { "j" = ":clipboard-paste-before", "k" = ":clipboard-paste-replace", "l" = ":clipboard-paste-after" }
 esc = ["collapse_selection", "keep_primary_selection"]
 i = "move_visual_line_up"
 j = "move_char_left"
@@ -25,17 +25,17 @@ l = "move_char_right"
 "-" = "decrement"
 "_" = "switch_to_lowercase"
 "+" = "switch_to_uppercase"
-w = "@<C-w>" # easier to press 'w' than press 'C-w'
+w = "@<C-w>"  # easier to press 'w' than press 'C-w'
 A-I = "append_mode"
 A-i = "insert_mode"
 I = "extend_line_up"
 J = "extend_char_left"
 K = "extend_line_down"
 L = "extend_char_right"
-u = "move_prev_word_end"
-S-u = "extend_prev_word_end"
-o = "move_next_word_start"
-S-o = "extend_next_word_start"
+u = "move_prev_word_start"
+S-u = "extend_prev_word_start"
+o = "move_next_word_end"
+S-o = "extend_next_word_end"
 C-a = "select_all"
 A-j = { j = "save_selection", i = "jump_backward", k = "jump_forward", p = "jumplist_picker" }
 A-c = "toggle_line_comments"
@@ -45,7 +45,6 @@ C-r = [":lsp-restart", ":reload-all"]
 "/" = "global_search"
 X = "extend_line_above"
 Y = ":primary-clipboard-yank"
-
 "A-." = "no_op"
 "%" = "no_op"
 W = "no_op"
@@ -123,7 +122,6 @@ s = "no_op"
 h = "no_op"
 g = "no_op"
 
-
 # window mode (why is there two different modes bruh)
 [keys.normal."C-w"]
 r = "rotate_view"
@@ -139,10 +137,10 @@ C-i = "swap_view_up"
 C-j = "swap_view_left"
 C-k = "swap_view_down"
 C-l = "swap_view_right"
-w = ":buffer-close"
-W = ":buffer-close!"
+w = ":bc"
+W = ":bc!"
+b = { w = ":bco", W = ":bco!" }
 Q = "wonly"
-
 o = "no_op"
 C-t = "no_op"
 f = "no_op"
@@ -179,7 +177,6 @@ C-l = "swap_view_right"
 w = ":buffer-close"
 W = ":buffer-close!"
 Q = "wonly"
-
 o = "no_op"
 C-t = "no_op"
 f = "no_op"
@@ -233,11 +230,16 @@ B = "buffer_picker"
 R = ":recentf-open-files"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
-l = { z = ":sh wezterm cli spawn lazygit --path %{current_working_directory}", p = "last_picker" }
+l = { z = ":sh wezterm cli spawn lazygit --path %{current_working_directory}", p = "last_picker", k = [
+  ":new",
+  ":insert-output taskkill /f /im python.exe",
+  ":buffer-close!",
+  ":lsp-restart",
+] }
+S = "@s\\n<ret>x:sort<ret>"
+F = ":format"
 A-c = "no_op"
 E = "no_op"
-F = ":format"
-S = "no_op"
 C = "no_op"
 y = "no_op"
 Y = "no_op"
@@ -257,12 +259,19 @@ f = "file_explorer_in_current_directory"
 e = "file_picker_in_current_directory"
 b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
+R = ":recentf-open-files"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
+l = { z = ":sh wezterm cli spawn lazygit --path %{current_working_directory}", p = "last_picker", k = [
+  ":new",
+  ":insert-output taskkill /f /im python.exe",
+  ":buffer-close!",
+  ":lsp-restart",
+] }
+S = "@s\\n<ret>x:sort<ret>"
+F = ":format"
 A-c = "no_op"
 E = "no_op"
-F = ":format"
-S = "no_op"
 C = "no_op"
 y = "no_op"
 Y = "no_op"
@@ -368,9 +377,9 @@ C-a = "select_all"
 C-v = ":clipboard-paste-before"
 C-c = ":clipboard-yank"
 # python f strings autocomplete in the wonkiest way possible
-'f' = {'"' = "@f<esc>\"\"<esc>jd<A-i>"}
+'f' = { '"' = "@f<esc>\"\"<esc>jd<A-i>" }
 
-## editor config
+# editor config
 [editor]
 scrolloff = 0
 scroll-lines = 1
@@ -388,46 +397,73 @@ trim-trailing-whitespace = true
 end-of-line-diagnostics = "hint"
 completion-replace = false
 rainbow-brackets = true
-atomic-save = false
+atomic-save = true
+
 [editor.file-picker]
 hidden = true
 parents = true
+
 [editor.inline-diagnostics]
 cursor-line = "hint"
-other-lines = "hint"
-max-wrap = 0
+other-lines = "warning"
+max-wrap = 6
+
 [editor.statusline]
-left = ["mode", "version-control", "file-type", "file-name", "file-modification-indicator", "spinner", "read-only-indicator"]
+left = [
+  "mode",
+  "version-control",
+  "file-type",
+  "file-name",
+  "file-modification-indicator",
+  "spinner",
+  "read-only-indicator",
+]
 center = []
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
-right = ["register", "file-encoding", "diagnostics", "workspace-diagnostics", "position", "primary-selection-length", "total-line-numbers"]
+right = [
+  "register",
+  "file-encoding",
+  "diagnostics",
+  "workspace-diagnostics",
+  "position",
+  "primary-selection-length",
+  "total-line-numbers",
+]
+
 [editor.cursor-shape]
 normal = "underline"
 insert = "bar"
 select = "block"
+
 [editor.indent-guides]
 render = true
 character = "\ue621"
+
 [editor.lsp]
-display-inlay-hints = false
+display-inlay-hints = true
 display-progress-messages = true
-inlay-hints-length-limit = 1
+
 [editor.soft-wrap]
 enable = false
 wrap-indicator = "󱞶 "
+
 [icons.fs]
 enabled = true
+
 [icons.ui.virtual]
 wrap = " 󱞶 "
+
 [icons.kind]
 enabled = true
+
 [icons.diagnostic]
 warning = "\uf071"
 error = "\uebfb"
 hint = "\ued83"
 info = "\uf449"
+
 [icons.vcs]
 enabled = true
 deleted = "⏽"

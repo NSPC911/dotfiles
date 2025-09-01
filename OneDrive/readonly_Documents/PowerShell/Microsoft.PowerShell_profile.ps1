@@ -39,7 +39,6 @@ if ($shouldGenerate) {
     $completions += regolith completion powershell
 
     Write-Output "`e[HSetting up onefetch completions"
-    $completions += "Write-Output `"`e[HSetting up onefetch completions`""
     $completions += onefetch --generate powershell
 
     # Extract all 'using' statements and remove duplicates

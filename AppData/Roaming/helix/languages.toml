@@ -6,6 +6,9 @@ plugins.black.enabled = false
 command = "ruff"
 args = ["server"]
 
+[language-server.ruff.config]
+disableLanguageServices = true
+
 [language-server.ty]
 command = "ty"
 args = ["server"]
@@ -20,6 +23,17 @@ callArgumentNames = true
 
 [language-server.ty.config.experimental]
 rename = true
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.pyright.config]
+reportMissingTypeStubs = false
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "off"
+autoImportCompletions = true
 
 [language-server.harper-ls]
 command = "harper-ls"
@@ -56,7 +70,7 @@ args = ["--no-cache", "lsp"]
 
 [[language]]
 name = "python"
-language-servers = ["ruff", "pylsp", "harper-ls", "ty"]
+language-servers = ["ruff", "pyright", "harper-ls", "ty"]
 auto-format = true
 
 [[language]]
