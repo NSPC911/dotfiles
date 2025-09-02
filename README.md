@@ -20,9 +20,8 @@ My Windows 11 config files, Nord + Translucency
 | Mod Manager           | [Windhawk](https://github.com/ramensoftware/windhawk)                                                               | `windhawk/`                                                               |
 | Editor                | [helix](https://github.com/helix-editor/helix) [(custom built)](https://github.com/NSPC911-forks/helix/tree/patchy) | `AppData/Roaming/helix/`                                                  |
 | File Explorer (TUI)   | [rovr](https://github.com/NSPC911/rovr)                                                                             | `AppData/Local/rovr/`                                                     |
-| File Explorer (GUI)   | [OneCommanger](https://www.onecommander.com)                                                                        | `readonly_scoop/persist/onecommander/Settings/OneCommanderV3.json`        |
 | Wallpaper             | [Wallpaper Engine](https://www.wallpaperengine.io)                                                                  | https://steamcommunity.com/sharedfiles/filedetails/?id=3360569178         |
-| Browser               | [Zen](https://github.com/zen-browser/desktop)                                                                       | `zen/userChrome.css` (not managed by chezmoi)                             |
+| Browser               | [Zen](https://github.com/zen-browser/desktop)                                                                       | `zen/userChrome.css`                                                      |
 | Transparency          | [MicaForEveryone](https://github.com/MicaForEveryone/MicaForEveryone)                                               | `AppData/Local/Mica For Everyone/MicaForEveryone.conf`                    |
 | Discord Mod           | [Vencord](https://github.com/Vendicated/Vencord)                                                                    | [NSPC911/themes:vencord](https://github.com/NSPC911/themes/tree/vencord)  |
 | Git UI                | [lazygit](https://github.com/jesseduffield/lazygit)                                                                 | `AppData/Local/lazygit/config.yml`                                        |
@@ -38,14 +37,15 @@ My Windows 11 config files, Nord + Translucency
 | Fun             | [bongocat](https://github.com/NSPC911/bongo-cat)                                                   |
 | Pixel Art       | [Pixelorama](https://github.com/Orama-Interactive/Pixelorama)                                      |
 | File Indexer    | [everything](https://voidtools.com)                                                                |
-| Music           | [youtube-music](https://github.com/th-ch/youtube-music) (theme in progress)                        |
+| Music           | [youtube-music](https://github.com/th-ch/youtube-music)                                            |
 | Roblox Mod      | [BloxStrap](https://github.com/bloxstraplabs/bloxstrap)                                            |
 
 #### Previously used, but no longer using
 
-| Type                | App                                                 | Location                     |
-| ------------------- | --------------------------------------------------- | ---------------------------- |
-| Terminal emulator   | [rio](https://github.com/raphamorim/rio)            | `AppData/Local/rio/`         |
-| Terminal emulator   | [alacritty](https://github.com/alacritty/alacritty) | `AppData/Roaming/alacritty/` |
-| Tiling Manager      | [komorebi](https://github.com/LGUG2Z/komorebi)      | `komorebi.json`              |
-| File Explorer (TUI) | [superfile](https://github.com/yorukot/superfile)   | `AppData/Local/superfile/`   |
+| Type                | App                                                 | Location                                                           |
+| ------------------- | --------------------------------------------------- | ------------------------------------------------------------------ |
+| Terminal emulator   | [rio](https://github.com/raphamorim/rio)            | `AppData/Local/rio/`                                               |
+| Terminal emulator   | [alacritty](https://github.com/alacritty/alacritty) | `AppData/Roaming/alacritty/`                                       |
+| Tiling Manager      | [komorebi](https://github.com/LGUG2Z/komorebi)      | `komorebi.json`                                                    |
+| File Explorer (TUI) | [superfile](https://github.com/yorukot/superfile)   | `AppData/Local/superfile/`                                         |
+| File Explorer (GUI) | [OneCommanger](https://www.onecommander.com)        | `readonly_scoop/persist/onecommander/Settings/OneCommanderV3.json` |

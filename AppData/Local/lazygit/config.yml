@@ -2,7 +2,11 @@
 
 git:
   autoFetch: false
+  log:
+    showWholeGraph: true
 notARepository: "skip"
+promptToReturnFromSubprocess: true
+disableStartupPopups: true
 gui:
   skipAmendWarning: true
   skipDiscardChangeWarning: true
@@ -17,3 +21,6 @@ gui:
   showDivergenceFromBaseBranch: onlyArrow
   animateExplosion: false
   nerdFontsVersion: "3"
+  showBranchCommitHash: true
+  wrapLinesInStagingView: false
+  showNumstatInFilesView: true
