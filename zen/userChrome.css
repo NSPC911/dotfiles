@@ -8,36 +8,58 @@
     transparent 12.5%,
     #4c566a
   ) !important;
-  .tab-close-button { position: absolute !important }
+  .tab-close-button {
+    position: absolute !important;
+  }
 
-  #urlbar-results * { color: white !important }
+  #urlbar-results * {
+    color: white !important;
+  }
   #urlbar[style*="top"] #urlbar-background,
   #downloadsPanel > * {
     background-color: var(--funny-accent-background-colour) !important;
     backdrop-filter: blur(10px) !important;
   }
-  #zen-workspaces-button { display: none !important }
+  #zen-workspaces-button {
+    display: none !important;
+  }
   #zen-current-workspace-indicator-container
     > .zen-current-workspace-indicator:has(
       > .zen-current-workspace-indicator-icon
-    ) { opacity: 1 !important }
-
-  .tab-background { border-radius: 8px !important }
-
-  .tab-close-button { position: absolute !important }
-
-  .tab-content { position: relative !important }
-  .tabbrowser-tab:not([pinned]):hover .tab-icon-stack { margin-left: 0 !important }
-  #tabbrowser-tabbox:has(> #zen-toast-container > hbox > button#zen-open-background-tab-button ) > #tabbrowser-tabpanels {
-    animation: background_tab 0.25s ease
+    ) {
+    opacity: 1 !important;
   }
 
-  #tabbrowser-tabbox:has(> #zen-toast-container > hbox > button#zen-copy-current-url-button ) > #tabbrowser-tabpanels {
-    animation: clipboard_added 0.25s ease
+  .tab-background {
+    border-radius: 8px !important;
+  }
+
+  .tab-close-button {
+    position: absolute !important;
+  }
+
+  .tab-content {
+    position: relative !important;
+  }
+  .tabbrowser-tab:not([pinned]):hover .tab-icon-stack {
+    margin-left: 0 !important;
+  }
+  #tabbrowser-tabbox:has(
+      > #zen-toast-container > hbox > button#zen-open-background-tab-button
+    )
+    > #tabbrowser-tabpanels {
+    animation: background_tab 0.25s ease;
+  }
+
+  #tabbrowser-tabbox:has(
+      > #zen-toast-container > hbox > button#zen-copy-current-url-button
+    )
+    > #tabbrowser-tabpanels {
+    animation: clipboard_added 0.25s ease;
   }
 
   .zen-toast {
-    background: #2e34407F !important;
+    background: #2e34407f !important;
     border: var(--border-border) !important;
     backdrop-filter: blur(5px);
     transition-duration: 0s !important;
@@ -52,14 +74,18 @@
 
   #swipe-nav-icon {
     transform: scaleX(1000%) translateX(-12.7px) scaleY(1000%);
-    .swipe-nav-icon-arrow { transform: translateX(12.5%) !important }
+    .swipe-nav-icon-arrow {
+      transform: translateX(12.5%) !important;
+    }
   }
   #zen-media-controls-toolbar > toolbaritem {
     backdrop-filter: blur(10px) !important;
     --zen-media-control-bg: var(--main-browser-background) !important;
     box-shadow: unset !important;
     border: 1px solid var(--toolbarbutton-hover-background);
-    #zen-media-info-vbox { overflow-x: hidden !important }
+    #zen-media-info-vbox {
+      overflow-x: hidden !important;
+    }
   }
   #navigator-toolbox#navigator-toolbox#navigator-toolbox {
     transition-duration: 0s !important;
@@ -80,7 +106,9 @@
       }
     }
   }
-  [overflow] { animation-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96) !important }
+  [overflow] {
+    animation-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96) !important;
+  }
 }
 
 /* url bar zoom animation */
@@ -118,27 +146,44 @@
     margin-left: 5px !important;
     border-radius: 50px;
     transition: all 100ms;
-    &.titlebar-min { background-color: hsl(130, 50%, 40%) !important }
-    &.titlebar-max, .titlebar-restore { background-color: hsl(60, 50%, 50%) !important }
-    &.titlebar-close { background-color: hsl(0, 50%, 50%) !important }
-    > image { visibility: collapse !important }
-    &:hover { min-height: 20px !important }
-    &::before { display: none !important }
+    &.titlebar-min {
+      background-color: hsl(130, 50%, 40%) !important;
+    }
+    &.titlebar-max,
+    .titlebar-restore {
+      background-color: hsl(60, 50%, 50%) !important;
+    }
+    &.titlebar-close {
+      background-color: hsl(0, 50%, 50%) !important;
+    }
+    > image {
+      visibility: collapse !important;
+    }
+    &:hover {
+      min-height: 20px !important;
+    }
+    &::before {
+      display: none !important;
+    }
   }
 }
 @keyframes background_tab {
-  0%, 100% {
-    transform: scale(1) translateX(0%)
+  0%,
+  100% {
+    transform: scale(1) translateX(0%);
   }
-  45%, 55% {
-    transform: scale(0.95) translate(2.5%)
+  45%,
+  55% {
+    transform: scale(0.95) translate(2.5%);
   }
 }
 @keyframes clipboard_added {
-  0%, 100% {
-    transform: scale(1) translateY(0%)
+  0%,
+  100% {
+    transform: scale(1) translateY(0%);
   }
-  45%, 55% {
-    transform: scale(0.95) translateY(2.5%)
+  45%,
+  55% {
+    transform: scale(0.95) translateY(2.5%);
   }
 }

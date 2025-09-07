@@ -1,7 +1,4 @@
-[language-server.pylsp.config.pylsp]
-plugins.ruff.enabled = false
-plugins.black.enabled = false
-
+# requires: https://github.com/astral-sh/ruff
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
@@ -9,12 +6,13 @@ args = ["server"]
 [language-server.ruff.config]
 disableLanguageServices = true
 
+# requires: https://github.com/astral-sh/ruff
 [language-server.ty]
 command = "ty"
 args = ["server"]
 
 [language-server.ty.config]
-disableLanguageServices = true
+disableLanguageServices = false
 diagnosticMode = "workspace"
 
 [language-server.ty.config.inlayHints]
@@ -24,6 +22,8 @@ callArgumentNames = true
 [language-server.ty.config.experimental]
 rename = true
 
+# requires: https://github.com/microsoft/pyright
+# couldn't get basedpyright to be working like i wanted
 [language-server.pyright]
 command = "pyright-langserver"
 args = ["--stdio"]
@@ -35,12 +35,16 @@ reportMissingTypeStubs = false
 typeCheckingMode = "off"
 autoImportCompletions = true
 
+[language-server.pyright.config.python.analysis.diagnosticSeverityOverrides]
+reportUndefinedVariable = "none"
+
+# requires: https://github.com/Automattic/harper
 [language-server.harper-ls]
 command = "harper-ls"
 args = ["--stdio"]
 
 [language-server.harper-ls.config.harper-ls]
-dialact = "British"
+dialact = "British"  # shit is not british
 isolateEnglish = true
 
 [language-server.harper-ls.config.harper-ls.linters]
@@ -56,60 +60,112 @@ SpelledNumbers = false
 [language-server.harper-ls.config.markdown]
 IgnoreLinkTitle = true
 
+# requires helix be built with `cargo xtask steel`
+# on a supported branch
 [language-server.steel]
 command = "steel-language-server"
 args = []
 
+# requires: https://github.com/facebook/pyrefly/
+# i don't use it currently
 [language-server.pyrefly]
 command = "pyrefly"
 args = ["lsp"]
 
+# requires: https://github.com/tombi-toml/tombi
 [language-server.tombi]
 command = "tombi"
 args = ["--no-cache", "lsp"]
 
+# requires: https://github.com/zerootoad/discord-rpc-lsp
+[language-server.discord-rpc]
+command = "discord-rpc-lsp"
+
 [[language]]
 name = "python"
-language-servers = ["ruff", "pyright", "harper-ls", "ty"]
+language-servers = [
+  "discord-rpc",
+  "harper-ls",
+  "pyright",
+  "ruff",
+  "ty",
+]
 auto-format = true
 
 [[language]]
 name = "scss"
 file-types = ["scss", "tcss"]
 injection-regex = "(t|s)?css"
+language-servers = [
+  "discord-rpc",
+  "vscode-css-language-server",
+]
 
 [[language]]
 name = "scheme"
-language-servers = ["steel"]
+language-servers = [
+  "discord-rpc",
+  "steel",
+]
 
 [[language]]
 name = "json"
 formatter = { command = "prettierd", args = [".json"] }
+language-servers = [
+  "discord-rpc",
+  "vscode-json-language-server",
+]
 auto-format = true
 
 [[language]]
 name = "javascript"
 formatter = { command = "pretterd", args = [".js"] }
+language-servers = [
+  "discord-rpc",
+  "typescript-language-server",
+]
 auto-format = true
 
 [[language]]
 name = "jsonc"
 formatter = { command = "prettierd", args = [".jsonc"] }
+language-servers = [
+  "discord-rpc",
+  "vscode-json-language-server",
+]
 auto-format = true
 
 [[language]]
 name = "yaml"
 formatter = { command = "prettierd", args = [".yaml"] }
+language-servers = [
+  "ansible-language-server",
+  "discord-rpc",
+  "yaml-language-server",
+]
 
 [[language]]
 name = "css"
 formatter = { command = "prettierd", args = [".css"] }
+language-servers = [
+  "discord-rpc",
+  "vscode-css-language-server",
+]
 
 [[language]]
 name = "markdown"
-language-servers = ["marksman", "markdown-oxide", "harper-ls"]
+language-servers = [
+  "discord-rpc",
+  "harper-ls",
+  "markdown-oxide",
+  "marksman",
+]
 formatter = { command = "prettierd", args = [".md"] }
 
 [[language]]
-name="typst"
-language-servers = ["tinymist", "harper-ls"]
+name = "typst"
+language-servers = [
+  "discord-rpc",
+  "harper-ls",
+  "tinymist",
+]

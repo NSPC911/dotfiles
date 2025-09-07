@@ -1,0 +1,98 @@
+{
+  "widget/bIxGos27QZYy": null,
+  "timeZone": null,
+  "widget/4mwDbeQcbiB_": null,
+  "widget/wpJ0DADXTLD_": null,
+  "widget/dfV4zw30CqUH": null,
+  "widget/WavJnKnXquSr": null,
+  "widget/wsNVS0YMaNAl": null,
+  "widget/nwku2bbrGGcq": null,
+  "widget/default-time": null,
+  "widget/fieoB49XdxU3": null,
+  "widget/TgmpFqKUFMjm": null,
+  "widget/3RepC8-PQa1g": null,
+  "widget/a3rARBvl9Y17": null,
+  "widget/e1MMceBZ-qNq": null,
+  "widget/B63PRB84potz": null,
+  "widget/gpCyqBsm9I6X": null,
+  "widget/HJw03RGfzSAE": null,
+  "widget/nOHq2pGGXObe": {
+    "id": "nOHq2pGGXObe",
+    "key": "widget/time",
+    "order": 1,
+    "display": { "position": "middleCentre", "fontFamily": "CaskaydiaCove NF" }
+  },
+  "widget/Rehc5oXrpnMu": null,
+  "widget/OaZ-6XrGNpa6": null,
+  "widget/q1tfDtvZuTmH": null,
+  "widget/HiNCa8ruAqn6": null,
+  "widget/V5F9_2XXJi6D": null,
+  "widget/6faQJbc6VXdx": null,
+  "widget/AXwv7G2UzUDV": null,
+  "widget/gkp8XFJuWIXw": null,
+  "data/nOHq2pGGXObe": {
+    "mode": "digital",
+    "hour12": false,
+    "showDate": true,
+    "showMinutes": true,
+    "showSeconds": true,
+    "showDayPeriod": true,
+    "timeZone": null,
+    "name": ""
+  },
+  "widget/AI0OHpLPCim-": null,
+  "widget/AP5Ix_syqYFQ": null,
+  "widget/6itJE2eQz-2Q": null,
+  "widget/FZvntfsIz4PJ": null,
+  "widget/Fwu_X94jUbBI": null,
+  "widget/y6dHtYav52Vf": null,
+  "widget/default-greeting": null,
+  "widget/uuX6eFycXrOJ": null,
+  "widget/dVYwOstdjTKL": null,
+  "widget/093ytPeUbY36": null,
+  "widget/t5ROX7diKZjO": null,
+  "widget/oc3NhwI1z_Dg": null,
+  "widget/_p6XRuy4b3hx": null,
+  "widget/LSPdU6kSD46d": null,
+  "widget/hYB4wpABM0gw": null,
+  "data/soaBekxB5YUo": {
+    "showDetails": false,
+    "units": "si",
+    "latitude": 1.2897,
+    "longitude": 103.8501,
+    "name": "Singapore"
+  },
+  "widget/soaBekxB5YUo": {
+    "id": "soaBekxB5YUo",
+    "key": "widget/weather",
+    "order": 0,
+    "display": {
+      "position": "topRight",
+      "fontSize": 18,
+      "fontFamily": "CaskaydiaCove NF"
+    }
+  },
+  "background": {
+    "id": "8mZO7dawu563",
+    "key": "background/unsplash",
+    "display": { "blur": 16, "luminosity": -0.4 }
+  },
+  "data/8mZO7dawu563": {
+    "by": "topics",
+    "collections": "",
+    "featured": false,
+    "paused": false,
+    "search": "",
+    "topics": "xHxYTMHLgOc",
+    "timeout": 0
+  },
+  "widget/I3GZP9AZdaH7": {
+    "id": "I3GZP9AZdaH7",
+    "key": "widget/search",
+    "order": 2,
+    "display": { "position": "middleCentre", "fontFamily": "CaskaydiaCove NF" }
+  },
+  "focus": false,
+  "locale": "en",
+  "version": 3
+}

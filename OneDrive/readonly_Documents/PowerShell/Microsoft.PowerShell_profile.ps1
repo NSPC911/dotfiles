@@ -32,6 +32,9 @@ if ($shouldGenerate) {
     Write-Output "`e[HSetting up batcat completions"
     $completions += bat --completion ps1
 
+    Write-Output "`e[HSetting up ripgrep completions"
+    $completions += rg --generate complete-powershell
+
     Write-Output "`e[HSetting up wezterm completions"
     $completions += wezterm shell-completion --shell power-shell
 
@@ -100,8 +103,8 @@ function spf {
 
 ##### rovr Go To Last Dir #####
 function rovr {
-    param ( [string[]]$Params )
-    & rovr.exe @Params
+    param ( [Parameter(ValueFromRemainingArguments)][string[]]$Params )
+    & rovr.exe $Params
     $cd_path_file = "$env:LOCALAPPDATA/rovr/rovr_quit_cd_path"
     if (Test-Path $cd_path_file) {
         Set-Location -Path (Get-Content $cd_path_file)
@@ -217,8 +220,17 @@ function curlout {
     Invoke-Expression "Invoke-WebRequest $Url | Select-Object -ExpandProperty Content | bat -l $Lang"
 }
 
+##### Convert SVG to other image files #####
+function svg2 {
+    param([string]$InputFile, [string]$OutputFile)
+    resvg --monospace-family "CaskaydiaCove NFM" --font-family "CaskaydiaCove NFM" --shape-rendering crispEdges --serif-family "CaskaydiaCove NFM" --dpi 4000 $InputFile $OutputFile
+}
+
 ##### better than to search for nothing in the tasklist.exe #####
 function taskfind { Invoke-Expression "tasklist.exe | Out-String | rg $args --ignore-case" }
+
+##### id like a sha256 please ######
+function sha256 { Get-FileHash -Algorithm SHA256 $args | Select-Object -ExpandProperty Hash }
 
 #### LazyGit #####
 Set-Alias -Name "lz" -Value "lazygit"

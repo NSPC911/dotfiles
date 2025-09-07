@@ -11,7 +11,7 @@ C-z = "undo"
 C-y = "redo"
 C-f = "search"
 C-S-f = "rsearch"
-tab = ["rotate_view"]
+tab = "rotate_view"
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
 C-c = ":clipboard-yank"
@@ -32,17 +32,17 @@ I = "extend_line_up"
 J = "extend_char_left"
 K = "extend_line_down"
 L = "extend_char_right"
-u = "move_prev_word_start"
-S-u = "extend_prev_word_start"
-o = "move_next_word_end"
-S-o = "extend_next_word_end"
+u = "move_prev_word_end"
+o = "move_next_word_start"
+U = "extend_prev_word_start"
+O = "extend_next_word_end"
 C-a = "select_all"
 A-j = { j = "save_selection", i = "jump_backward", k = "jump_forward", p = "jumplist_picker" }
 A-c = "toggle_line_comments"
 A-C = "toggle_block_comments"
 "`" = "switch_case"
 C-r = [":lsp-restart", ":reload-all"]
-"/" = "global_search"
+"/" = "search"
 X = "extend_line_above"
 Y = ":primary-clipboard-yank"
 "A-." = "no_op"
@@ -133,10 +133,6 @@ I = ["hsplit", "jump_view_up"]
 J = ["vsplit", "jump_view_right"]
 K = "hsplit"
 L = "vsplit"
-C-i = "swap_view_up"
-C-j = "swap_view_left"
-C-k = "swap_view_down"
-C-l = "swap_view_right"
 w = ":bc"
 W = ":bc!"
 b = { w = ":bco", W = ":bco!" }
@@ -149,6 +145,9 @@ C-q = "no_op"
 C-o = "no_op"
 h = "no_op"
 C-h = "no_op"
+C-j = "no_op"
+C-l = "no_op"
+C-k = "no_op"
 v = "no_op"
 s = "no_op"
 C-v = "no_op"
@@ -170,12 +169,9 @@ I = ["hsplit", "jump_view_up"]
 J = ["vsplit", "jump_view_right"]
 K = "hsplit"
 L = "vsplit"
-C-i = "swap_view_up"
-C-j = "swap_view_left"
-C-k = "swap_view_down"
-C-l = "swap_view_right"
-w = ":buffer-close"
-W = ":buffer-close!"
+w = ":bc"
+W = ":bc!"
+b = { w = ":bco", W = ":bco!" }
 Q = "wonly"
 o = "no_op"
 C-t = "no_op"
@@ -185,6 +181,9 @@ C-q = "no_op"
 C-o = "no_op"
 h = "no_op"
 C-h = "no_op"
+C-j = "no_op"
+C-l = "no_op"
+C-k = "no_op"
 v = "no_op"
 s = "no_op"
 C-v = "no_op"
@@ -196,25 +195,37 @@ right = "no_op"
 up = "no_op"
 down = "no_op"
 
-[keys.normal."C-w"."n"]
+[keys.normal."C-w".n]
 s = "no_op"
 C-s = "no_op"
 v = "no_op"
 C-v = "no_op"
-i = "hsplit_new"
-j = "vsplit_new"
+i = ["hsplit_new", "swap_view_up"]
+j = ["vsplit_new", "swap_view_left"]
 k = "hsplit_new"
 l = "vsplit_new"
 
-[keys.select."C-w"."n"]
+[keys.normal."C-w".m]
+i = "swap_view_up"
+j = "swap_view_left"
+k = "swap_view_down"
+l = "swap_view_right"
+
+[keys.select."C-w".n]
 s = "no_op"
 C-s = "no_op"
 v = "no_op"
 C-v = "no_op"
-i = "hsplit_new"
-j = "vsplit_new"
+i = ["hsplit_new", "swap_view_up"]
+j = ["vsplit_new", "swap_view_left"]
 k = "hsplit_new"
 l = "vsplit_new"
+
+[keys.select."C-w".m]
+i = "swap_view_up"
+j = "swap_view_left"
+k = "swap_view_down"
+l = "swap_view_right"
 
 # space mode, my favourite
 [keys.normal."space"]
@@ -227,7 +238,6 @@ f = "file_explorer_in_current_directory"
 e = "file_picker_in_current_directory"
 b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
-R = ":recentf-open-files"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
 l = { z = ":sh wezterm cli spawn lazygit --path %{current_working_directory}", p = "last_picker", k = [
@@ -236,7 +246,12 @@ l = { z = ":sh wezterm cli spawn lazygit --path %{current_working_directory}", p
   ":buffer-close!",
   ":lsp-restart",
 ] }
-S = "@s\\n<ret>x:sort<ret>"
+S = [
+  "split_selection_on_newline",
+  "extend_to_line_bounds",
+  ":sort",
+  "keep_primary_selection",
+]
 F = ":format"
 A-c = "no_op"
 E = "no_op"
@@ -248,6 +263,7 @@ P = "no_op"
 "'" = "no_op"
 "/" = "no_op"
 k = "no_op"
+R = "no_op"
 
 [keys.select."space"]
 w = "@<C-w>"
@@ -259,7 +275,6 @@ f = "file_explorer_in_current_directory"
 e = "file_picker_in_current_directory"
 b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
-R = ":recentf-open-files"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
 l = { z = ":sh wezterm cli spawn lazygit --path %{current_working_directory}", p = "last_picker", k = [
@@ -268,7 +283,12 @@ l = { z = ":sh wezterm cli spawn lazygit --path %{current_working_directory}", p
   ":buffer-close!",
   ":lsp-restart",
 ] }
-S = "@s\\n<ret>x:sort<ret>"
+S = [
+  "split_selection_on_newline",
+  "extend_to_line_bounds",
+  ":sort",
+  "keep_primary_selection",
+]
 F = ":format"
 A-c = "no_op"
 E = "no_op"
@@ -280,6 +300,7 @@ P = "no_op"
 "'" = "no_op"
 "/" = "no_op"
 k = "no_op"
+R = "no_op"
 
 [keys.normal.z]
 k = "align_view_top"
@@ -306,8 +327,8 @@ t = "no_op"
 [keys.select.z]
 k = "align_view_top"
 i = "align_view_bottom"
-l = "search_next"
-j = "search_prev"
+l = "extend_search_next"
+j = "extend_search_prev"
 n = "no_op"
 N = "no_op"
 C-d = "no_op"
@@ -330,9 +351,15 @@ i = "extend_visual_line_up"
 j = "extend_char_left"
 k = "extend_visual_line_down"
 l = "extend_char_right"
+I = "extend_visual_line_up"
+J = "extend_char_left"
+K = "extend_visual_line_down"
+L = "extend_char_right"
 ins = "insert_mode"
 u = "extend_prev_word_end"
 o = "extend_next_word_start"
+U = "extend_prev_word_start"
+O = "extend_next_word_end"
 C-c = ":clipboard-yank"
 C-x = [":clipboard-yank", "delete_selection"]
 "{" = ":buffer-previous"
@@ -348,6 +375,7 @@ e = "no_op"
 E = "no_op"
 "?" = "no_op"
 h = "no_op"
+H = "no_op"
 b = "no_op"
 B = "no_op"
 C-d = "no_op"

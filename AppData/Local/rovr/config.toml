@@ -1,12 +1,12 @@
 #:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/heads/master/src/rovr/config/schema.json
 
 [settings]
-image_protocol = "Sixel"
 preview_full = false
 cd_on_quit = true
 
 [interface]
 nerd_font = true
+truncate_progress_file_path = true
 
 [theme]
 transparent = true

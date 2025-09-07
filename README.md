@@ -40,6 +40,14 @@ My Windows 11 config files, Nord + Translucency
 | Music           | [youtube-music](https://github.com/th-ch/youtube-music)                                            |
 | Roblox Mod      | [BloxStrap](https://github.com/bloxstraplabs/bloxstrap)                                            |
 
+#### Browser extensions (zen)
+
+| Name                                                               | Location                             |
+| ------------------------------------------------------------------ | ------------------------------------ |
+| [Refined GitHub](https://github.com/refined-github/refined-github) | `zen/extensions/refined_github.json` |
+| [tabliss](https://tabliss.io/)                                     | `zen/extensions/tabliss.json`        |
+| [vimium](https://github.com/philc/vimium)                          | `zen/extensions/vimium.vim`          |
+
 #### Previously used, but no longer using
 
 | Type                | App                                                 | Location                                                           |

@@ -627,24 +627,24 @@ QPushButton {
 /* .yasb-bar .active-window-widget { */
 /* .yasb-bar .cpu-widget, */
 /* .yasb-bar .notification-widget { */
-  /* border-bottom-right-radius: 8px; */
-  /* border-right: 2px solid var(--nord-cyan-base); */
-  /* border-top-right-radius: 8px; */
-  /* margin-right: 0; */
+/* border-bottom-right-radius: 8px; */
+/* border-right: 2px solid var(--nord-cyan-base); */
+/* border-top-right-radius: 8px; */
+/* margin-right: 0; */
 /* } */
 
 /* .yasb-bar .clock-widget, */
 /* .yasb-bar .komorebi-active-layout, */
 /* .yasb-bar .glazewm-tiling-direction, */
 /* .yasb-bar .power-menu-widget { */
-  /* border-bottom-left-radius: 8px; */
-  /* border-left: 2px solid var(--nord-cyan-base); */
-  /* border-top-left-radius: 8px; */
-  /* margin-left: 0; */
+/* border-bottom-left-radius: 8px; */
+/* border-left: 2px solid var(--nord-cyan-base); */
+/* border-top-left-radius: 8px; */
+/* margin-left: 0; */
 /* } */
 
 /* .yasb-bar .widget { */
-  /* background-color: var(--main); */
+/* background-color: var(--main); */
 /* } */
 .yasb-bar {
   background-color: var(--main);

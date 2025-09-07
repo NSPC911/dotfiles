@@ -18,13 +18,12 @@ global:
   unminimize_delay: 0
 
   active_color:
-    colors: ["#5e81ac","#8fbcbb"]
+    colors: ["#5e81ac", "#8fbcbb"]
     direction: -45deg
 
   inactive_color:
     colors: ["#2e3440", "#4c566a"]
     direction: -45deg
-
 
   komorebi_colors:
     stack_color: "#e762b7"
@@ -104,3 +103,7 @@ window_rules:
   - match: Process
     name: Discord
     enabled: True
+
+  - match: Process
+    name: overkeys
+    enabled: False
