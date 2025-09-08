@@ -12,30 +12,27 @@ command = "ty"
 args = ["server"]
 
 [language-server.ty.config]
-disableLanguageServices = false
-diagnosticMode = "workspace"
+disableLanguageServices = true
 
-[language-server.ty.config.inlayHints]
-variableTypes = true
-callArgumentNames = true
-
-[language-server.ty.config.experimental]
-rename = true
-
-# requires: https://github.com/microsoft/pyright
-# couldn't get basedpyright to be working like i wanted
-[language-server.pyright]
-command = "pyright-langserver"
+# requires: https://github.com/DetachHead/basedpyright
+[language-server.basedpyright]
+command = "basedpyright-langserver"
 args = ["--stdio"]
 
-[language-server.pyright.config]
-reportMissingTypeStubs = false
+[language-server.basedpyright.config]
+reportMissingTypeStubs = true
 
-[language-server.pyright.config.python.analysis]
+[language-server.basedpyright.config.python.analysis]
 typeCheckingMode = "off"
 autoImportCompletions = true
 
-[language-server.pyright.config.python.analysis.diagnosticSeverityOverrides]
+[language-server.basedpyright.config.python.analysis.inlayHints]
+variableTypes = true
+parameterNames = true
+functionReturnTypes = true
+callArgumentNames = true
+
+[language-server.basedpyright.config.python.analysis.diagnosticSeverityOverrides]
 reportUndefinedVariable = "none"
 
 # requires: https://github.com/Automattic/harper
@@ -86,9 +83,8 @@ name = "python"
 language-servers = [
   "discord-rpc",
   "harper-ls",
-  "pyright",
+  "basedpyright",
   "ruff",
-  "ty",
 ]
 auto-format = true
 
@@ -168,4 +164,11 @@ language-servers = [
   "discord-rpc",
   "harper-ls",
   "tinymist",
+]
+
+[[language]]
+name = "toml"
+language-servers = [
+  "tombi",
+  "discord-rpc"
 ]
