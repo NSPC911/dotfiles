@@ -253,6 +253,7 @@ S = [
   "keep_primary_selection",
 ]
 F = ":format"
+A = ":lsp-workspace-command"
 A-c = "no_op"
 E = "no_op"
 C = "no_op"

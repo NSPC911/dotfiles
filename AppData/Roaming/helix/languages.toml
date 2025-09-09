@@ -12,28 +12,22 @@ command = "ty"
 args = ["server"]
 
 [language-server.ty.config]
-disableLanguageServices = true
+disableLanguageServices = false
 
 # requires: https://github.com/DetachHead/basedpyright
-[language-server.basedpyright]
-command = "basedpyright-langserver"
+[language-server.pyright]
+command = "pyright-langserver"
 args = ["--stdio"]
 
-[language-server.basedpyright.config]
-reportMissingTypeStubs = true
+[language-server.pyright.config]
+pyright.disableOrganizeImports = true
+pyright.openFilesOnly = false
+python.analysis.autoImportCompletions = true
+python.analysis.typeCheckingMode = "off"
 
-[language-server.basedpyright.config.python.analysis]
-typeCheckingMode = "off"
-autoImportCompletions = true
-
-[language-server.basedpyright.config.python.analysis.inlayHints]
-variableTypes = true
-parameterNames = true
-functionReturnTypes = true
-callArgumentNames = true
-
-[language-server.basedpyright.config.python.analysis.diagnosticSeverityOverrides]
+[language-server.pyright.config.python.analysis.diagnosticSeverityOverrides]
 reportUndefinedVariable = "none"
+reportMissingImports = "none"
 
 # requires: https://github.com/Automattic/harper
 [language-server.harper-ls]
@@ -83,8 +77,9 @@ name = "python"
 language-servers = [
   "discord-rpc",
   "harper-ls",
-  "basedpyright",
+  "pyright",
   "ruff",
+  "ty"
 ]
 auto-format = true
 

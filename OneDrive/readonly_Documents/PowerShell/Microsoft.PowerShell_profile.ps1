@@ -28,9 +28,11 @@ if ($shouldGenerate) {
     Write-Output "`e[HSetting up gh completions"
     $completions += gh completion -s powershell
     $completions += gh copilot alias -- pwsh
-
     Write-Output "`e[HSetting up batcat completions"
     $completions += bat --completion ps1
+
+    Write-Output "`e[HSetting up rustup completions"
+    $completions += rustup completions powershell
 
     Write-Output "`e[HSetting up ripgrep completions"
     $completions += rg --generate complete-powershell
@@ -89,11 +91,10 @@ function zd {
 ##### Superfile Go To Last Dir #####
 Write-Output "`e[HDealing with functions and aliases..."
 function spf {
-    param ( [string[]]$Params )
     $spf_location = "C:\Users\notso\scoop\shims\spf.exe"
     $SPF_LAST_DIR_PATH = [Environment]::GetFolderPath("LocalApplicationData") + "\superfile\lastdir"
 
-    & $spf_location @Params
+    & $spf_location $args
     if (Test-Path $SPF_LAST_DIR_PATH) {
         $SPF_LAST_DIR = Get-Content -Path $SPF_LAST_DIR_PATH
         Invoke-Expression $SPF_LAST_DIR
@@ -103,8 +104,7 @@ function spf {
 
 ##### rovr Go To Last Dir #####
 function rovr {
-    param ( [Parameter(ValueFromRemainingArguments)][string[]]$Params )
-    & rovr.exe $Params
+    & rovr.exe $args
     $cd_path_file = "$env:LOCALAPPDATA/rovr/rovr_quit_cd_path"
     if (Test-Path $cd_path_file) {
         Set-Location -Path (Get-Content $cd_path_file)
@@ -123,18 +123,6 @@ Set-Alias -Name "whereis" -Value "where.exe"
 function Remove-Location { Remove-Item -Recurse -Force $args }
 Set-Alias -Name rmloc -Value Remove-Location
 
-function Search-For-String {
-    param(
-        [Parameter(Position = 0)]
-        [string]$ItemToSearchFor,
-
-        [Parameter(ValueFromRemainingArguments)]
-        [string[]]$AdditionalArgs
-    )
-    Invoke-Expression "rg --ignore-case --pretty --context-separator=... `"$ItemToSearchFor`" $AdditionalArgs"
-}
-Set-Alias -Name searchfor -Value Search-For-String
-
 function symlink {
     param(
         [Parameter(Position = 0)]
@@ -151,32 +139,12 @@ function Get-Folder-Size {
 }
 
 function touch {
-    param(
-        [Parameter(Position = 0)]
-        [string]$file
-    )
-    New-Item -ItemType File -Force -Path $file
+    New-Item -ItemType File -Force -Path $args
 }
 
 ##### better fzf #####
 function fzf {
-    param(
-        [Parameter(Position = 0)]
-        [string]$SearchQuery,
-
-        [Parameter(ValueFromRemainingArguments)]
-        [string[]]$AdditionalArgs
-    )
-
-    $fzfArgs = @()
-    if ($SearchQuery) {
-        $fzfArgs += "-q"
-        $fzfArgs += "$SearchQuery"
-    }
-    if ($AdditionalArgs) { $fzfArgs += $AdditionalArgs }
-
-    if ($fzfArgs.Count -gt 0) { & fzf.exe --border rounded --multi --separator "-" --input-border "rounded" --preview "bat --color always --number --theme Nord {}" --color "dark" --preview-border "rounded" $fzfArgs }
-    else { & fzf.exe --border rounded --multi --separator "-" --input-border "rounded" --preview "bat --color always --number --theme Nord {}" --color "dark" --preview-border "rounded" }
+    & fzf.exe --border rounded --multi --separator "-" --input-border "rounded" --preview "bat --color always --number --theme Nord {}" --color "dark" --preview-border "rounded" $args
 }
 
 
@@ -232,17 +200,29 @@ function taskfind { Invoke-Expression "tasklist.exe | Out-String | rg $args --ig
 ##### id like a sha256 please ######
 function sha256 { Get-FileHash -Algorithm SHA256 $args | Select-Object -ExpandProperty Hash }
 
+##### figlet #####
+function figlet {
+    param([Parameter(Position = 0)][string]$name)
+    $figlets = pyfiglet.exe --list_fonts | Out-String -Stream
+    Write-Host "Obtained " -NoNewLine
+    Write-Host $figlets.count -ForegroundColor Cyan -NoNewLine
+    Write-Host " figlet styles!"
+    $figlets | ForEach-Object { Write-Output $_; pyfiglet -f $_ $name -w $Host.UI.RawUI.WindowSize.Width }
+}
+
 #### LazyGit #####
 Set-Alias -Name "lz" -Value "lazygit"
-
-##### tabb #####
-Write-Output "`e[HAdding Tab Autocomplete...               "
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 ##### Give me my full history man #####
 function Get-FullHistory {
     Get-Content (Get-PSReadlineOption).HistorySavePath | ? {$_ -like "*$find*"} | Get-Unique
 }
+
+##### PS Plugins #####
+Write-Output "`e[HAdding Plugins...                        "
+Import-Module -Name Terminal-Icons
+Import-Module posh-git
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 ##### Other stuff #####
 Clear-Host
