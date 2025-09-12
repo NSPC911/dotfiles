@@ -69,6 +69,12 @@ A-up = "no_op"
 C-i = "no_op"
 C-o = "no_op"
 
+[keys.normal."["]
+"[" = "goto_previous_buffer"
+
+[keys.normal."]"]
+"]" = "goto_next_buffer"
+
 # goto mode (why is there two versions)
 [keys.normal.g]
 i = "page_cursor_up"
@@ -240,7 +246,7 @@ b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
-l = { z = ":sh wezterm cli spawn lazygit --path %{current_working_directory}", p = "last_picker", k = [
+l = { z = [":sh wezterm cli spawn lazygit --path %{current_working_directory}"], p = "last_picker", k = [
   ":new",
   ":insert-output taskkill /f /im python.exe",
   ":buffer-close!",
@@ -363,8 +369,6 @@ U = "extend_prev_word_start"
 O = "extend_next_word_end"
 C-c = ":clipboard-yank"
 C-x = [":clipboard-yank", "delete_selection"]
-"{" = ":buffer-previous"
-"}" = ":buffer-next"
 C-a = "select_all"
 A-i = "insert_mode"
 "%" = "no_op"
