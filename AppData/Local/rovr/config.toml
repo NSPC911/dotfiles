@@ -41,6 +41,7 @@ preview_select_right = ["shift+right", "L"]
 
 [plugins.zoxide]
 enabled = true
+show_scores = true
 
 [plugins.bat]
 enabled = true
@@ -52,5 +53,3 @@ enabled = true
 file_executable = "hx"
 folder_executable = "hx"
 
-[plugins.zen_mode]
-enabled = true

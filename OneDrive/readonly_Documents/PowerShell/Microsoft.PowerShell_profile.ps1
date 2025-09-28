@@ -17,7 +17,7 @@ if ($shouldGenerate) {
     $completions = @()
 
     Write-Output "`e[HSetting up zoxide    "
-    $completions += zoxide init powershell --no-cmd
+    $completions += zoxide init powershell --cmd zd
 
     Write-Output "`e[HSetting up oh-my-posh"
     $completions += oh-my-posh init powershell --config $HOME\.config\kushal.omp.json
@@ -28,6 +28,7 @@ if ($shouldGenerate) {
     Write-Output "`e[HSetting up gh completions"
     $completions += gh completion -s powershell
     $completions += gh copilot alias -- pwsh
+
     Write-Output "`e[HSetting up batcat completions"
     $completions += bat --completion ps1
 
@@ -84,9 +85,6 @@ if ($shouldGenerate) {
 Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
 Set-Alias -Option AllScope -Name "cdi" -Value "__zoxide_zi"
 Set-Alias -Option AllScope -Name "cdb" -Value "__zoxide_bin"
-function zd {
-    Write-Output "Did you mean cd?"
-}
 
 ##### Superfile Go To Last Dir #####
 Write-Output "`e[HDealing with functions and aliases..."
