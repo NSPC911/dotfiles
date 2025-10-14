@@ -37,7 +37,7 @@ config.animation_fps = 1
 config.cursor_blink_rate = 0
 
 config.term = "xterm-256color"
-
+config.enable_kitty_keyboard = true
 config.font = wezterm.font("CaskaydiaCove NFM")
 config.custom_block_glyphs = false
 config.cell_width = 1

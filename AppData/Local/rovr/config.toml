@@ -7,6 +7,7 @@ cd_on_quit = true
 [interface]
 nerd_font = true
 truncate_progress_file_path = true
+show_line_numbers = true
 
 [theme]
 transparent = true
@@ -14,6 +15,7 @@ transparent = true
 [metadata]
 filesize_suffix = "binary"
 filesize_decimals = 2
+h
 
 [keybinds]
 new = ["ctrl+n", "n"]
@@ -46,7 +48,6 @@ show_scores = true
 [plugins.bat]
 enabled = true
 executable = "bat"
-show_line_numbers = true
 
 [plugins.editor]
 enabled = true

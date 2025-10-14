@@ -1,23 +1,20 @@
 cd $HOME
-Clear-Host
 ##### Cache Completions #####
 $shouldGenerate = $false
 $cacheCompletionLocation = "$PROFILE/../completion-cache.ps1"
-if (-not (Test-Path $cacheCompletionLocation)) {
-    New-Item -Path $cacheCompletionLocation -Force
-    $shouldGenerate = $true
-} elseif ((Get-Item $cacheCompletionLocation).LastWriteTime -lt (Get-Date).AddDays(-3)) {
+if (-not (Test-Path $cacheCompletionLocation) -or (Get-Item $cacheCompletionLocation).LastWriteTime -lt (Get-Date).AddDays(-3)) {
     $shouldGenerate = $true
 }
 
 if ($shouldGenerate) {
-    Remove-Item $cacheCompletionLocation
+    Remove-Item $cacheCompletionLocation -ErrorAction Ignore
     New-Item -Path $cacheCompletionLocation -Force
+    Clear-Host
 
     $completions = @()
 
-    Write-Output "`e[HSetting up zoxide    "
-    $completions += zoxide init powershell --cmd zd
+    Write-Output "`e[HSetting up zoxide"
+    $completions += zoxide init powershell
 
     Write-Output "`e[HSetting up oh-my-posh"
     $completions += oh-my-posh init powershell --config $HOME\.config\kushal.omp.json
@@ -34,6 +31,9 @@ if ($shouldGenerate) {
 
     Write-Output "`e[HSetting up rustup completions"
     $completions += rustup completions powershell
+
+    Write-Output "`e[HSetting up chezmoi completions"
+    $completions += chezmoi completion powershell
 
     Write-Output "`e[HSetting up ripgrep completions"
     $completions += rg --generate complete-powershell
@@ -85,6 +85,24 @@ if ($shouldGenerate) {
 Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
 Set-Alias -Option AllScope -Name "cdi" -Value "__zoxide_zi"
 Set-Alias -Option AllScope -Name "cdb" -Value "__zoxide_bin"
+# temporary fix for zoxide
+function global:__zoxide_cd($dir, $literal) {
+    $dir = if ($literal) {
+        Set-Location -LiteralPath $dir -Passthru -ErrorAction Stop
+        zoxide add .
+    } else {
+        if ($dir -eq '-' -and ($PSVersionTable.PSVersion -lt 6.1)) {
+            Write-Error "cd - is not supported below PowerShell 6.1. Please upgrade your version of PowerShell."
+        }
+        elseif ($dir -eq '+' -and ($PSVersionTable.PSVersion -lt 6.2)) {
+            Write-Error "cd + is not supported below PowerShell 6.2. Please upgrade your version of PowerShell."
+        }
+        else {
+            Set-Location -Path $dir -Passthru -ErrorAction Stop
+            zoxide add .
+        }
+    }
+}
 
 ##### Superfile Go To Last Dir #####
 Write-Output "`e[HDealing with functions and aliases..."
@@ -219,8 +237,26 @@ function Get-FullHistory {
 ##### PS Plugins #####
 Write-Output "`e[HAdding Plugins...                        "
 Import-Module -Name Terminal-Icons
-Import-Module posh-git
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+
+##### Scoop #####
+function scoop-find {
+    param (
+        [string]$query
+    )
+    cd ~/scoop/buckets/
+    fd --type f | rg $query | rg ".json" | ForEach-Object {
+        scoop info $_
+    }
+}
+
+##### stupid other aliases #####
+Set-Alias -Name "wo" -Value "Write-Output"
+
+##### chezmoi #####
+function chez-cd {
+    __zoxide_cd (chezmoi source-path)
+}
 
 ##### Other stuff #####
 Clear-Host

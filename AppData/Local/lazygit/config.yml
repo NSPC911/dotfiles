@@ -1,9 +1,9 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 
 git:
-  autoFetch: false
+  autoFetch: true
   log:
-    showWholeGraph: true
+    showWholeGraph: false
 notARepository: "skip"
 promptToReturnFromSubprocess: true
 disableStartupPopups: true
@@ -18,7 +18,7 @@ gui:
   showRandomTip: false
   showIcons: true
   showFileIcons: true
-  showDivergenceFromBaseBranch: onlyArrow
+  showDivergenceFromBaseBranch: arrowAndNumber
   animateExplosion: false
   nerdFontsVersion: "3"
   showBranchCommitHash: true

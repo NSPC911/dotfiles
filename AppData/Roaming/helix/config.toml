@@ -77,10 +77,10 @@ C-o = "no_op"
 
 # goto mode (why is there two versions)
 [keys.normal.g]
-i = "page_cursor_up"
+i = ":page-up-smooth"
 j = "goto_first_nonwhitespace"
 J = "goto_line_start"
-k = "page_cursor_down"
+k = ":page-down-smooth"
 K = "goto_last_line"
 L = "goto_line_end_newline"
 l = "goto_line_end"

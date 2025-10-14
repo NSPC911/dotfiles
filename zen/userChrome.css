@@ -11,11 +11,9 @@
   .tab-close-button {
     position: absolute !important;
   }
-
   #urlbar-results * {
     color: white !important;
   }
-  #urlbar[style*="top"] #urlbar-background,
   #downloadsPanel > * {
     background-color: var(--funny-accent-background-colour) !important;
     backdrop-filter: blur(10px) !important;
@@ -89,25 +87,32 @@
   }
   #navigator-toolbox#navigator-toolbox#navigator-toolbox {
     transition-duration: 0s !important;
-    margin-top: calc(6.12em - 1px) !important;
-    height: calc(100% - 6.4em) !important;
-    margin-left: calc(4.1px + 0.11em);
+    margin-top: calc(74.5px) !important;
+    height: calc(100% - 79.25px) !important;
+    margin-left: calc(5px);
     background: transparent !important;
+    border: none !important;
     > #titlebar {
       backdrop-filter: blur(10px) !important;
-      background: var(--funny-accent-background-colour) !important;
-      border: var(--border-border) !important;
-      border-radius: 4px 0 0 4px;
+      border: none !important;
       &::before,
-      &::after {
+      &::after,
+      & > * {
         background: none !important;
         backdrop-filter: unset !important;
         outline: none !important;
+      }
+      & > .zen-toolbar-background {
+        background: var(--funny-accent-background-colour) !important;
+        border-radius: 4px 0 0 4px;
       }
     }
   }
   [overflow] {
     animation-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96) !important;
+  }
+  findbar {
+    background: var(--funny-accent-background-colour) !important;
   }
 }
 
@@ -186,4 +191,8 @@
   55% {
     transform: scale(0.95) translateY(2.5%);
   }
+}
+#statuspanel-label {
+  background: transparent !important;
+  backdrop-filter: blur(10px);
 }

@@ -1,574 +1,607 @@
 {
+  "config": {
+    "aria2-warning-enabled": false,
+    "scoop_repo": "https://github.com/ScoopInstaller/Scoop",
+    "scoop_branch": "master"
+  },
   "buckets": [
     {
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-09-28T04:27:05+08:00",
-      "Manifests": 1402
+      "Updated": "2025-10-15T16:30:14+08:00",
+      "Manifests": 1406
     },
     {
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-09-28T04:27:31+08:00",
-      "Manifests": 2185
+      "Updated": "2025-10-15T17:42:49+08:00",
+      "Manifests": 2197
     },
     {
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-09-28T04:34:18+08:00",
-      "Manifests": 513
+      "Updated": "2025-10-15T16:45:35+08:00",
+      "Manifests": 526
     },
     {
       "Name": "java",
       "Source": "https://github.com/ScoopInstaller/Java",
-      "Updated": "2025-09-27T04:20:11+08:00",
+      "Updated": "2025-10-14T00:24:56+08:00",
       "Manifests": 322
     },
     {
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-09-28T04:27:08+08:00",
-      "Manifests": 362
+      "Updated": "2025-10-15T16:30:29+08:00",
+      "Manifests": 365
     },
     {
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-09-28T04:32:37+08:00",
-      "Manifests": 18
+      "Updated": "2025-10-15T19:19:48+08:00",
+      "Manifests": 20
     }
   ],
   "apps": [
     {
-      "Name": "7zip",
-      "Source": "main",
-      "Updated": "2025-09-13T20:30:36.5438019+08:00",
       "Version": "25.01",
-      "Info": ""
+      "Source": "main",
+      "Updated": "2025-10-14T21:35:18.5437094+08:00",
+      "Info": "",
+      "Name": "7zip"
     },
     {
-      "Name": "adb",
-      "Source": "main",
-      "Updated": "2025-09-13T20:30:39.0637815+08:00",
       "Version": "36.0.0",
-      "Info": ""
+      "Source": "main",
+      "Updated": "2025-10-14T21:43:13.9991+08:00",
+      "Info": "",
+      "Name": "adb"
     },
     {
-      "Name": "altsnap",
-      "Source": "extras",
-      "Updated": "2025-09-23T22:33:40.258318+08:00",
       "Version": "1.66",
-      "Info": ""
+      "Source": "extras",
+      "Updated": "2025-10-14T21:43:16.5373347+08:00",
+      "Info": "",
+      "Name": "altsnap"
     },
     {
-      "Name": "aria2",
-      "Source": "main",
-      "Updated": "2025-09-13T20:30:48.9535949+08:00",
       "Version": "1.37.0-1",
-      "Info": ""
+      "Source": "main",
+      "Updated": "2025-10-14T21:35:40.5784441+08:00",
+      "Info": "",
+      "Name": "aria2"
     },
     {
-      "Name": "bat",
-      "Source": "main",
-      "Updated": "2025-09-13T20:30:54.3846287+08:00",
       "Version": "0.25.0",
-      "Info": ""
+      "Source": "main",
+      "Updated": "2025-10-14T21:43:20.6354373+08:00",
+      "Info": "",
+      "Name": "bat"
     },
     {
-      "Name": "bedrock-launcher",
-      "Source": "games",
-      "Updated": "2025-09-13T20:31:07.4260195+08:00",
       "Version": "2025.8.25.24",
-      "Info": ""
-    },
-    {
-      "Name": "blockbench",
       "Source": "games",
-      "Updated": "2025-09-14T19:31:49.2290251+08:00",
-      "Version": "4.12.6",
-      "Info": ""
+      "Updated": "2025-10-14T21:43:30.8360358+08:00",
+      "Info": "",
+      "Name": "bedrock-launcher"
     },
     {
-      "Name": "bloxstrap",
+      "Version": "5.0.1",
       "Source": "games",
-      "Updated": "2025-09-13T20:31:37.8499564+08:00",
-      "Version": "2.9.1",
-      "Info": ""
+      "Updated": "2025-10-14T21:44:24.8565817+08:00",
+      "Info": "",
+      "Name": "blockbench"
     },
     {
-      "Name": "bun",
-      "Source": "main",
-      "Updated": "2025-09-16T14:41:11.9585224+08:00",
-      "Version": "1.2.22",
-      "Info": ""
-    },
-    {
-      "Name": "cava",
-      "Source": "le-bucket",
-      "Updated": "2025-09-13T20:31:39.5685663+08:00",
-      "Version": "0.10.4",
-      "Info": ""
-    },
-    {
-      "Name": "clink",
-      "Source": "main",
-      "Updated": "2025-09-17T17:43:11.563614+08:00",
-      "Version": "1.8.3",
-      "Info": ""
-    },
-    {
-      "Name": "collapse-launcher",
+      "Version": "2.10.0",
       "Source": "games",
-      "Updated": "2025-09-21T16:03:35.7580145+08:00",
-      "Version": "1.82.34",
-      "Info": ""
+      "Updated": "2025-10-14T21:44:32.2389479+08:00",
+      "Info": "",
+      "Name": "bloxstrap"
     },
     {
-      "Name": "dark",
-      "Source": "main",
-      "Updated": "2025-09-13T20:32:18.9218263+08:00",
-      "Version": "3.14.1",
-      "Info": ""
-    },
-    {
-      "Name": "edit",
-      "Source": "main",
-      "Updated": "2025-09-13T21:17:31.7418279+08:00",
-      "Version": "1.2.0",
-      "Info": ""
-    },
-    {
-      "Name": "element",
-      "Source": "extras",
-      "Updated": "2025-09-24T21:43:41.6469303+08:00",
-      "Version": "1.12.0",
-      "Info": ""
-    },
-    {
-      "Name": "everything",
-      "Source": "extras",
-      "Updated": "2025-09-13T20:33:16.8457797+08:00",
-      "Version": "1.4.1.1028",
-      "Info": ""
-    },
-    {
-      "Name": "fastfetch",
-      "Source": "main",
-      "Updated": "2025-09-23T22:33:00.0157128+08:00",
-      "Version": "2.53.0",
-      "Info": ""
-    },
-    {
-      "Name": "fd",
-      "Source": "main",
-      "Updated": "2025-09-14T20:03:14.156775+08:00",
-      "Version": "10.3.0",
-      "Info": ""
-    },
-    {
-      "Name": "ffmpeg",
-      "Source": "main",
-      "Updated": "2025-09-13T20:35:55.4271577+08:00",
-      "Version": "8.0",
-      "Info": ""
-    },
-    {
-      "Name": "figma",
-      "Source": "extras",
-      "Updated": "2025-09-24T21:44:04.53686+08:00",
-      "Version": "125.8.8",
-      "Info": ""
-    },
-    {
-      "Name": "flow-launcher",
-      "Source": "extras",
-      "Updated": "2025-09-23T22:33:40.1627864+08:00",
-      "Version": "2.0.1",
-      "Info": ""
-    },
-    {
-      "Name": "fzf",
-      "Source": "main",
-      "Updated": "2025-09-13T20:36:11.8224653+08:00",
-      "Version": "0.65.2",
-      "Info": ""
-    },
-    {
-      "Name": "gh",
-      "Source": "main",
-      "Updated": "2025-09-24T21:44:16.3419368+08:00",
-      "Version": "2.80.0",
-      "Info": ""
-    },
-    {
-      "Name": "git",
-      "Source": "main",
-      "Updated": "2025-09-13T20:37:42.4717484+08:00",
-      "Version": "2.51.0",
-      "Info": ""
-    },
-    {
-      "Name": "glazewm",
-      "Source": "extras",
-      "Updated": "2025-09-13T20:38:13.4310717+08:00",
-      "Version": "3.9.1",
-      "Info": ""
-    },
-    {
-      "Name": "go",
-      "Source": "main",
-      "Updated": "2025-09-23T22:33:21.8235683+08:00",
-      "Version": "1.25.1",
-      "Info": ""
-    },
-    {
-      "Name": "harper",
-      "Source": "main",
-      "Updated": "2025-09-23T22:33:46.1615488+08:00",
-      "Version": "0.65.0",
-      "Info": ""
-    },
-    {
-      "Name": "helix-ghost",
+      "Version": "1.0.3",
       "Source": "le-bucket",
-      "Updated": "2025-09-13T20:38:27.9402675+08:00",
-      "Version": "1.0.1",
-      "Info": ""
+      "Updated": "2025-10-15T09:46:41.8829704+08:00",
+      "Info": "",
+      "Name": "bongocat"
     },
     {
-      "Name": "hunt-and-peck",
-      "Source": "extras",
-      "Updated": "2025-09-28T08:54:47.8959345+08:00",
-      "Version": "1.7",
-      "Info": ""
-    },
-    {
-      "Name": "innounp",
-      "Source": "main",
-      "Updated": "2025-09-13T20:38:30.5371553+08:00",
-      "Version": "2.65.2",
-      "Info": ""
-    },
-    {
-      "Name": "jq",
-      "Source": "main",
-      "Updated": "2025-09-13T20:40:16.9711008+08:00",
-      "Version": "1.8.1",
-      "Info": ""
-    },
-    {
-      "Name": "lazygit",
-      "Source": "extras",
-      "Updated": "2025-09-21T16:03:43.1222694+08:00",
-      "Version": "0.55.1",
-      "Info": ""
-    },
-    {
-      "Name": "localsend",
-      "Source": "extras",
-      "Updated": "2025-03-19T17:34:45.1321978+08:00",
-      "Version": "1.17.0",
-      "Info": ""
-    },
-    {
-      "Name": "lua-language-server",
-      "Source": "main",
-      "Updated": "2025-09-13T20:40:42.0417939+08:00",
-      "Version": "3.15.0",
-      "Info": ""
-    },
-    {
-      "Name": "markdown-oxide",
-      "Source": "main",
-      "Updated": "2025-09-13T20:40:55.9231315+08:00",
-      "Version": "0.25.8",
-      "Info": ""
-    },
-    {
-      "Name": "marksman",
-      "Source": "main",
-      "Updated": "2025-09-13T20:41:02.7214026+08:00",
-      "Version": "2024-12-18",
-      "Info": ""
-    },
-    {
-      "Name": "memreduct",
-      "Source": "extras",
-      "Updated": "2025-09-13T20:48:02.1201955+08:00",
-      "Version": "3.5.2",
-      "Info": ""
-    },
-    {
-      "Name": "micaforeveryone",
-      "Source": "extras",
-      "Updated": "2025-09-13T20:41:11.6564979+08:00",
-      "Version": "1.3.1.2",
-      "Info": ""
-    },
-    {
-      "Name": "micro",
-      "Source": "main",
-      "Updated": "2025-09-16T16:48:34.6649952+08:00",
-      "Version": "2.0.14",
-      "Info": ""
-    },
-    {
-      "Name": "moor",
-      "Source": "extras",
-      "Updated": "2025-09-27T21:12:06.3828757+08:00",
-      "Version": "2.3.0",
-      "Info": ""
-    },
-    {
-      "Name": "nodejs",
-      "Source": "main",
-      "Updated": "2025-09-28T08:16:29.3727447+08:00",
-      "Version": "24.9.0",
-      "Info": ""
-    },
-    {
-      "Name": "nu",
-      "Source": "main",
-      "Updated": "2025-09-13T20:41:36.8187621+08:00",
-      "Version": "0.107.0",
-      "Info": ""
-    },
-    {
-      "Name": "oh-my-posh",
-      "Source": "main",
-      "Updated": "2025-09-27T21:12:32.0771119+08:00",
-      "Version": "26.26.0",
-      "Info": ""
-    },
-    {
-      "Name": "onecommander",
-      "Source": "extras",
-      "Updated": "2025-09-14T19:32:42.9012656+08:00",
-      "Version": "3.101.0.0",
-      "Info": ""
-    },
-    {
-      "Name": "onefetch",
-      "Source": "extras",
-      "Updated": "2025-09-13T20:42:00.3411667+08:00",
-      "Version": "2.25.0",
-      "Info": ""
-    },
-    {
-      "Name": "patchy",
-      "Source": "le-bucket",
-      "Updated": "2025-09-13T20:42:04.3503076+08:00",
       "Version": "1.3.0",
-      "Info": ""
+      "Source": "main",
+      "Updated": "2025-10-14T21:48:17.898639+08:00",
+      "Info": "",
+      "Name": "bun"
     },
     {
-      "Name": "pixelorama",
+      "Version": "0.10.4",
+      "Source": "le-bucket",
+      "Updated": "2025-10-14T21:48:21.8572708+08:00",
+      "Info": "",
+      "Name": "cava"
+    },
+    {
+      "Version": "2.66.0",
+      "Source": "main",
+      "Updated": "2025-10-14T21:52:18.3756313+08:00",
+      "Info": "",
+      "Name": "chezmoi"
+    },
+    {
+      "Version": "1.8.6",
+      "Source": "main",
+      "Updated": "2025-10-14T21:48:30.0852976+08:00",
+      "Info": "",
+      "Name": "clink"
+    },
+    {
+      "Version": "0.3.14",
+      "Source": "le-bucket",
+      "Updated": "2025-10-15T19:21:24.975569+08:00",
+      "Info": "",
+      "Name": "codebook"
+    },
+    {
+      "Version": "1.82.34",
+      "Source": "games",
+      "Updated": "2025-10-14T21:48:57.0856241+08:00",
+      "Info": "",
+      "Name": "collapse-launcher"
+    },
+    {
+      "Version": "3.14.1",
+      "Source": "main",
+      "Updated": "2025-10-14T21:49:00.102585+08:00",
+      "Info": "",
+      "Name": "dark"
+    },
+    {
+      "Version": "1.2.0",
+      "Source": "main",
+      "Updated": "2025-10-14T21:49:03.3976932+08:00",
+      "Info": "",
+      "Name": "edit"
+    },
+    {
+      "Version": "1.4.1.1029",
       "Source": "extras",
-      "Updated": "2025-09-13T20:42:13.4844444+08:00",
+      "Updated": "2025-10-14T21:50:26.925361+08:00",
+      "Info": "",
+      "Name": "everything"
+    },
+    {
+      "Version": "2.53.0",
+      "Source": "main",
+      "Updated": "2025-10-14T21:50:32.5850832+08:00",
+      "Info": "",
+      "Name": "fastfetch"
+    },
+    {
+      "Version": "10.3.0",
+      "Source": "main",
+      "Updated": "2025-10-14T21:50:35.7463406+08:00",
+      "Info": "",
+      "Name": "fd"
+    },
+    {
+      "Version": "8.0",
+      "Source": "main",
+      "Updated": "2025-10-14T21:51:19.7947456+08:00",
+      "Info": "",
+      "Name": "ffmpeg"
+    },
+    {
+      "Version": "125.8.9",
+      "Source": "extras",
+      "Updated": "2025-10-14T21:51:39.9227872+08:00",
+      "Info": "",
+      "Name": "figma"
+    },
+    {
+      "Version": "2.0.2",
+      "Source": "extras",
+      "Updated": "2025-10-14T21:52:27.5638553+08:00",
+      "Info": "",
+      "Name": "flow-launcher"
+    },
+    {
+      "Version": "0.66.0",
+      "Source": "main",
+      "Updated": "2025-10-14T21:52:30.3363402+08:00",
+      "Info": "",
+      "Name": "fzf"
+    },
+    {
+      "Version": "2.81.0",
+      "Source": "main",
+      "Updated": "2025-10-14T21:39:23.6459707+08:00",
+      "Info": "",
+      "Name": "gh"
+    },
+    {
+      "Version": "2.51.0.2",
+      "Source": "main",
+      "Updated": "2025-10-14T21:39:22.5507822+08:00",
+      "Info": "",
+      "Name": "git"
+    },
+    {
+      "Version": "3.9.1",
+      "Source": "extras",
+      "Updated": "2025-10-14T21:52:34.1920199+08:00",
+      "Info": "",
+      "Name": "glazewm"
+    },
+    {
+      "Version": "1.25.3",
+      "Source": "main",
+      "Updated": "2025-10-14T22:01:32.918585+08:00",
+      "Info": "",
+      "Name": "go"
+    },
+    {
+      "Version": "0.67.0",
+      "Source": "main",
+      "Updated": "2025-10-14T22:01:39.7414888+08:00",
+      "Info": "",
+      "Name": "harper"
+    },
+    {
+      "Version": "0.5.5.1",
+      "Source": "extras",
+      "Updated": "2025-10-15T10:50:05.3873314+08:00",
+      "Info": "",
+      "Name": "helium"
+    },
+    {
+      "Version": "1.0.1",
+      "Source": "le-bucket",
+      "Updated": "2025-10-14T22:01:43.1202176+08:00",
+      "Info": "",
+      "Name": "helix-ghost"
+    },
+    {
+      "Version": "1.7",
+      "Source": "extras",
+      "Updated": "2025-10-14T22:01:45.7104218+08:00",
+      "Info": "",
+      "Name": "hunt-and-peck"
+    },
+    {
+      "Version": "2.65.2",
+      "Source": "main",
+      "Updated": "2025-10-14T22:01:47.4763141+08:00",
+      "Info": "",
+      "Name": "innounp"
+    },
+    {
+      "Version": "1.8.1",
+      "Source": "main",
+      "Updated": "2025-10-14T22:01:49.0996384+08:00",
+      "Info": "",
+      "Name": "jq"
+    },
+    {
+      "Version": "0.55.1",
+      "Source": "extras",
+      "Updated": "2025-10-14T22:01:52.2306929+08:00",
+      "Info": "",
+      "Name": "lazygit"
+    },
+    {
+      "Version": "1.17.0",
+      "Source": "extras",
+      "Updated": "2025-10-14T22:02:17.6940684+08:00",
+      "Info": "",
+      "Name": "localsend"
+    },
+    {
+      "Version": "3.15.0",
+      "Source": "main",
+      "Updated": "2025-10-14T22:02:33.499431+08:00",
+      "Info": "",
+      "Name": "lua-language-server"
+    },
+    {
+      "Version": "0.25.8",
+      "Source": "main",
+      "Updated": "2025-10-14T22:02:35.8571248+08:00",
+      "Info": "",
+      "Name": "markdown-oxide"
+    },
+    {
+      "Version": "2024-12-18",
+      "Source": "main",
+      "Updated": "2025-10-14T22:02:41.0728664+08:00",
+      "Info": "",
+      "Name": "marksman"
+    },
+    {
+      "Version": "3.5.2",
+      "Source": "extras",
+      "Updated": "2025-10-14T22:02:42.6826448+08:00",
+      "Info": "",
+      "Name": "memreduct"
+    },
+    {
+      "Version": "2.0.14",
+      "Source": "main",
+      "Updated": "2025-10-14T22:02:51.7221947+08:00",
+      "Info": "",
+      "Name": "micro"
+    },
+    {
+      "Version": "2.5.1",
+      "Source": "extras",
+      "Updated": "2025-10-14T22:02:54.7114998+08:00",
+      "Info": "",
+      "Name": "moor"
+    },
+    {
+      "Version": "24.10.0",
+      "Source": "main",
+      "Updated": "2025-10-14T22:03:36.1126094+08:00",
+      "Info": "",
+      "Name": "nodejs"
+    },
+    {
+      "Version": "8.8.6",
+      "Source": "extras",
+      "Updated": "2025-10-14T23:48:42.9513909+08:00",
+      "Info": "",
+      "Name": "notepadplusplus"
+    },
+    {
+      "Version": "0.107.0",
+      "Source": "main",
+      "Updated": "2025-10-14T22:03:46.0345022+08:00",
+      "Info": "",
+      "Name": "nu"
+    },
+    {
+      "Version": "27.2.0",
+      "Source": "main",
+      "Updated": "2025-10-14T22:03:51.3160427+08:00",
+      "Info": "",
+      "Name": "oh-my-posh"
+    },
+    {
+      "Version": "3.102.0.0",
+      "Source": "extras",
+      "Updated": "2025-10-14T22:04:07.4629616+08:00",
+      "Info": "",
+      "Name": "onecommander"
+    },
+    {
+      "Version": "2.25.0",
+      "Source": "extras",
+      "Updated": "2025-10-14T22:04:10.9005011+08:00",
+      "Info": "",
+      "Name": "onefetch"
+    },
+    {
+      "Version": "1.3.0",
+      "Source": "le-bucket",
+      "Updated": "2025-10-14T22:04:13.5269404+08:00",
+      "Info": "",
+      "Name": "patchy"
+    },
+    {
       "Version": "1.1.5",
-      "Info": ""
-    },
-    {
-      "Name": "pnpm",
-      "Source": "main",
-      "Updated": "2025-09-23T22:34:00.4081299+08:00",
-      "Version": "10.17.1",
-      "Info": ""
-    },
-    {
-      "Name": "powertoys",
       "Source": "extras",
-      "Updated": "2025-09-24T21:46:08.5720093+08:00",
+      "Updated": "2025-10-14T22:04:21.4899168+08:00",
+      "Info": "",
+      "Name": "pixelorama"
+    },
+    {
+      "Version": "10.18.3",
+      "Source": "main",
+      "Updated": "2025-10-14T22:04:32.3582081+08:00",
+      "Info": "",
+      "Name": "pnpm"
+    },
+    {
       "Version": "0.94.2",
-      "Info": ""
+      "Source": "extras",
+      "Updated": "2025-10-14T22:06:15.8079039+08:00",
+      "Info": "",
+      "Name": "powertoys"
     },
     {
-      "Name": "pwsh",
-      "Source": "main",
-      "Updated": "2025-09-13T20:44:55.0236106+08:00",
+      "Version": "0.2.8",
+      "Source": "le-bucket",
+      "Updated": "2025-10-15T02:19:40.3966314+08:00",
+      "Info": "",
+      "Name": "prek"
+    },
+    {
       "Version": "7.5.3",
-      "Info": ""
+      "Source": "main",
+      "Updated": "2025-10-14T21:39:38.2436053+08:00",
+      "Info": "",
+      "Name": "pwsh"
     },
     {
-      "Name": "repgrep",
-      "Source": "le-bucket",
-      "Updated": "2025-09-14T19:58:29.4751301+08:00",
       "Version": "0.16.1",
-      "Info": ""
+      "Source": "le-bucket",
+      "Updated": "2025-10-14T22:06:18.4002289+08:00",
+      "Info": "",
+      "Name": "repgrep"
     },
     {
-      "Name": "resvg",
-      "Source": "main",
-      "Updated": "2025-09-14T19:48:14.946584+08:00",
       "Version": "0.45.1",
-      "Info": ""
-    },
-    {
-      "Name": "rio-nightly",
-      "Source": "le-bucket",
-      "Updated": "2025-09-27T21:12:49.083526+08:00",
-      "Version": "2025-09-26",
-      "Info": ""
-    },
-    {
-      "Name": "ripgrep",
       "Source": "main",
-      "Updated": "2025-03-19T17:35:19.3762035+08:00",
+      "Updated": "2025-10-14T22:06:20.7355417+08:00",
+      "Info": "",
+      "Name": "resvg"
+    },
+    {
+      "Version": "2.6.0",
+      "Source": "extras",
+      "Updated": "2025-10-14T23:31:16.0883656+08:00",
+      "Info": "",
+      "Name": "revouninstaller"
+    },
+    {
+      "Version": "2025-10-13",
+      "Source": "le-bucket",
+      "Updated": "2025-10-14T22:06:25.9900251+08:00",
+      "Info": "",
+      "Name": "rio-nightly"
+    },
+    {
       "Version": "14.1.1",
-      "Info": ""
+      "Source": "main",
+      "Updated": "2025-10-14T22:06:28.5641949+08:00",
+      "Info": "",
+      "Name": "ripgrep"
     },
     {
-      "Name": "rustup",
-      "Source": "main",
-      "Updated": "2025-09-14T13:05:54.8448752+08:00",
       "Version": "1.28.2",
-      "Info": ""
+      "Source": "main",
+      "Updated": "2025-10-14T21:36:49.849598+08:00",
+      "Info": "",
+      "Name": "rustup"
     },
     {
-      "Name": "steam",
+      "Version": "nightly-20251014",
       "Source": "games",
-      "Updated": "2025-09-17T17:34:03.1199504+08:00",
-      "Version": "nightly-20250917",
-      "Info": ""
+      "Updated": "2025-10-14T22:06:31.0131915+08:00",
+      "Info": "",
+      "Name": "steam"
     },
     {
-      "Name": "stretchly",
-      "Source": "extras",
-      "Updated": "2025-09-27T21:13:28.9502796+08:00",
       "Version": "1.18.1",
-      "Info": ""
+      "Source": "extras",
+      "Updated": "2025-10-14T22:07:20.1591724+08:00",
+      "Info": "",
+      "Name": "stretchly"
     },
     {
-      "Name": "superfile",
+      "Version": "1.4.0",
       "Source": "main",
-      "Updated": "2025-09-14T19:33:09.4558298+08:00",
-      "Version": "1.3.3",
-      "Info": ""
+      "Updated": "2025-10-14T22:07:23.7148687+08:00",
+      "Info": "",
+      "Name": "superfile"
     },
     {
-      "Name": "superhtml",
-      "Source": "<auto-generated>",
-      "Updated": "2025-09-23T22:36:25.0926203+08:00",
-      "Version": "0.5.3",
-      "Info": ""
+      "Version": "0.6.2",
+      "Source": "main",
+      "Updated": "2025-10-14T22:11:55.0002432+08:00",
+      "Info": "",
+      "Name": "superhtml"
     },
     {
-      "Name": "tacky-borders",
-      "Source": "le-bucket",
-      "Updated": "2025-09-14T19:50:03.5729884+08:00",
       "Version": "1.3.1",
-      "Info": ""
-    },
-    {
-      "Name": "tinymist",
-      "Source": "main",
-      "Updated": "2025-09-14T19:53:07.587901+08:00",
-      "Version": "0.13.26",
-      "Info": ""
-    },
-    {
-      "Name": "tombi",
       "Source": "le-bucket",
-      "Updated": "2025-09-27T21:13:41.933163+08:00",
-      "Version": "0.6.17",
-      "Info": ""
+      "Updated": "2025-10-14T22:07:29.4841458+08:00",
+      "Info": "",
+      "Name": "tacky-borders"
     },
     {
-      "Name": "touch",
+      "Version": "0.13.28",
       "Source": "main",
-      "Updated": "2025-09-14T19:33:12.7779666+08:00",
+      "Updated": "2025-10-14T22:07:36.5523314+08:00",
+      "Info": "",
+      "Name": "tinymist"
+    },
+    {
+      "Version": "0.6.31",
+      "Source": "le-bucket",
+      "Updated": "2025-10-14T22:07:39.5133021+08:00",
+      "Info": "",
+      "Name": "tombi"
+    },
+    {
       "Version": "0.2018.07.25",
-      "Info": ""
-    },
-    {
-      "Name": "uv",
       "Source": "main",
-      "Updated": "2025-09-24T21:46:43.2679975+08:00",
-      "Version": "0.8.22",
-      "Info": ""
+      "Updated": "2025-10-14T22:07:40.0698362+08:00",
+      "Info": "",
+      "Name": "touch"
     },
     {
-      "Name": "vscode",
+      "Version": "0.9.2",
+      "Source": "main",
+      "Updated": "2025-10-14T21:59:03.9270282+08:00",
+      "Info": "",
+      "Name": "uv"
+    },
+    {
+      "Version": "0.2025.10.08.08.12.stable_05",
       "Source": "extras",
-      "Updated": "2025-09-27T21:14:15.3554994+08:00",
-      "Version": "1.104.2",
-      "Info": ""
+      "Updated": "2025-10-14T22:02:58.0061382+08:00",
+      "Info": "",
+      "Name": "warp-terminal"
     },
     {
-      "Name": "warp-terminal",
-      "Source": "extras",
-      "Updated": "2025-09-27T21:14:46.0307604+08:00",
-      "Version": "0.2025.09.24.08.11.stable_00",
-      "Info": ""
-    },
-    {
-      "Name": "wezterm-nightly",
+      "Version": "nightly-20251014",
       "Source": "versions",
-      "Updated": "2025-09-14T19:33:23.3903581+08:00",
-      "Version": "nightly-20250914",
-      "Info": ""
+      "Updated": "2025-10-14T22:08:37.1171155+08:00",
+      "Info": "",
+      "Name": "wezterm-nightly"
     },
     {
-      "Name": "whkd",
-      "Source": "extras",
-      "Updated": "2025-09-13T20:44:35.1532881+08:00",
       "Version": "0.2.10",
-      "Info": ""
+      "Source": "extras",
+      "Updated": "2025-10-14T22:08:39.5692485+08:00",
+      "Info": "",
+      "Name": "whkd"
     },
     {
-      "Name": "windhawk",
-      "Source": "extras",
-      "Updated": "2025-09-14T19:34:48.5082621+08:00",
       "Version": "1.6.1",
-      "Info": ""
+      "Source": "extras",
+      "Updated": "2025-10-14T22:09:53.4147916+08:00",
+      "Info": "",
+      "Name": "windhawk"
     },
     {
-      "Name": "windows-terminal",
+      "Version": "1.23.12811.0",
       "Source": "extras",
-      "Updated": "2025-09-27T21:14:58.9947+08:00",
-      "Version": "1.23.12681.0",
-      "Info": ""
+      "Updated": "2025-10-14T22:09:58.9473185+08:00",
+      "Info": "",
+      "Name": "windows-terminal"
     },
     {
-      "Name": "xmousebuttoncontrol",
-      "Source": "extras",
-      "Updated": "2025-09-14T19:35:13.3066919+08:00",
       "Version": "2.20.5",
-      "Info": ""
-    },
-    {
-      "Name": "xxmi",
-      "Source": "games",
-      "Updated": "2025-09-14T19:35:31.1791697+08:00",
-      "Version": "1.9.2",
-      "Info": ""
-    },
-    {
-      "Name": "yasb-dev",
-      "Source": "le-bucket",
-      "Updated": "2025-09-28T08:19:53.9770814+08:00",
-      "Version": "2025-09-27",
-      "Info": ""
-    },
-    {
-      "Name": "youtube-music",
       "Source": "extras",
-      "Updated": "2025-09-14T19:37:00.2387487+08:00",
+      "Updated": "2025-10-14T22:10:07.4538646+08:00",
+      "Info": "",
+      "Name": "xmousebuttoncontrol"
+    },
+    {
+      "Version": "1.9.2",
+      "Source": "games",
+      "Updated": "2025-10-14T22:10:24.978737+08:00",
+      "Info": "",
+      "Name": "xxmi"
+    },
+    {
+      "Version": "2025-09-27",
+      "Source": "le-bucket",
+      "Updated": "2025-10-14T22:11:47.0832587+08:00",
+      "Info": "",
+      "Name": "yasb-dev"
+    },
+    {
       "Version": "3.11.0",
-      "Info": ""
+      "Source": "extras",
+      "Updated": "2025-10-14T22:15:34.05605+08:00",
+      "Info": "",
+      "Name": "youtube-music"
     },
     {
-      "Name": "zen-browser",
-      "Source": "<auto-generated>",
-      "Updated": "2025-09-14T19:49:54.4018646+08:00",
-      "Version": "1.14.6b",
-      "Info": ""
+      "Version": "1.16.4b",
+      "Source": "extras",
+      "Updated": "2025-10-15T12:05:25.0587841+08:00",
+      "Info": "",
+      "Name": "zen-browser"
     },
     {
-      "Name": "zoxide",
-      "Source": "main",
-      "Updated": "2025-09-27T21:25:41.4658324+08:00",
       "Version": "0.9.8",
-      "Info": ""
+      "Source": "main",
+      "Updated": "2025-10-14T22:16:57.4679208+08:00",
+      "Info": "",
+      "Name": "zoxide"
     }
   ]
 }
