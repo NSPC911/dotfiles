@@ -5,37 +5,30 @@ preview_full = false
 cd_on_quit = true
 
 [interface]
-nerd_font = true
 truncate_progress_file_path = true
+nerd_font = true
 show_line_numbers = true
 
 [theme]
 transparent = true
 
 [metadata]
-filesize_suffix = "binary"
+filesize_suffix   = "decimal"
 filesize_decimals = 2
-h
 
 [keybinds]
 new = ["ctrl+n", "n"]
-
 up = ["up", "i"]
 down = ["down", "k"]
 up_tree = ["left", "j"]
 down_tree = ["right", "l", "enter"]
-
 select_up = ["shift+up", "I"]
 select_down = ["shift+down", "K"]
-
 toggle_preview_sidebar = ["O"]
 focus_toggle_preview_sidebar = ["o"]
-
 tab_next = ["right_curly_bracket"]
 tab_previous = ["left_curly_bracket"]
 tab_new = ["t"]
-
-
 preview_scroll_left = ["left", "j"]
 preview_scroll_right = ["right", "l"]
 preview_select_left = ["shift+left", "J"]
@@ -53,4 +46,3 @@ executable = "bat"
 enabled = true
 file_executable = "hx"
 folder_executable = "hx"
-
