@@ -1,9 +1,4 @@
-; (require "scooter/scooter.scm")
-; (require "focus/focus.scm")
-; (require "mattwparas-helix-package/cogs/recentf.scm")
-(require "smooth-scroll/smooth-scroll.scm")
-(require "showkeys/showkeys.scm")
-
-; (recentf-snapshot)
-
-; :recentf-open-files
+(require "./smooth-scroll.scm")
+(require "scooter/scooter.scm")
+(require "./showkeys.scm")
+(showkeys-toggle)

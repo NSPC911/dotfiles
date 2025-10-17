@@ -11,9 +11,6 @@ disableLanguageServices = true
 command = "ty"
 args = ["server"]
 
-[language-server.ty.config]
-disableLanguageServices = true
-
 # requires: https://github.com/DetachHead/basedpyright
 [language-server.pyright]
 command = "pyright-langserver"
@@ -72,14 +69,31 @@ args = ["lsp"]
 [language-server.discord-rpc]
 command = "discord-rpc-lsp"
 
+[language-server.codebook]
+command = "codebook"
+args = ["serve"]
+
 [[language]]
 name = "python"
 language-servers = [
   "discord-rpc",
-  "harper-ls",
-  "pyright",
+  "codebook",
+  { name = "pyright", except-features = [
+    "goto-declaration",
+    "goto-type-definition",
+    "goto-reference",
+    "goto-implementation",
+  ] },
   "ruff",
-  "ty"
+  { name = "ty", only-features = [
+    "goto-declaration",
+    "goto-type-definition",
+    "goto-reference",
+    "goto-implementation",
+    "completion",
+    "diagnostics",
+    "inlay-hints"
+  ] }
 ]
 auto-format = true
 
@@ -163,7 +177,4 @@ language-servers = [
 
 [[language]]
 name = "toml"
-language-servers = [
-  "tombi",
-  "discord-rpc"
-]
+language-servers = ["tombi", "discord-rpc"]

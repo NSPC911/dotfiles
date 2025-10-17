@@ -58,7 +58,6 @@ b = "no_op"
 B = "no_op"
 C-d = "no_op"
 C-u = "no_op"
-Z = "no_op"
 "&" = "no_op"
 N = "no_op"
 n = "no_op"
@@ -164,6 +163,18 @@ left = "no_op"
 right = "no_op"
 up = "no_op"
 down = "no_op"
+
+[keys.normal."C-w"."]"]
+i = ["hsplit", ":buffer-next", "swap_view_up"]
+j = ["vsplit", ":buffer-next", "swap_view_left"]
+k = ["hsplit", ":buffer-next"]
+l = ["vsplit", ":buffer-next"]
+
+[keys.normal."C-w"."["]
+i = ["hsplit", ":buffer-previous", "swap_view_up"]
+j = ["vsplit", ":buffer-previous", "swap_view_left"]
+k = ["hsplit", ":buffer-previous"]
+l = ["vsplit", ":buffer-previous"]
 
 [keys.select."C-w"]
 r = "rotate_view"
@@ -330,6 +341,29 @@ t = "no_op"
 "C-f" = "no_op"
 "/" = "no_op"
 "?" = "no_op"
+"Z" = "@<esc>Z"
+
+[keys.normal.Z]
+c = "no_op"
+t = "no_op"
+b = "no_op"
+m = "no_op"
+n = "no_op"
+N = "no_op"
+"up" = "no_op"
+"down" = "no_op"
+"pageup" = "no_op"
+"pagedown" = "no_op"
+"backspace" = "no_op"
+"space" = "no_op"
+"/" = "no_op"
+"?" = "no_op"
+i = ["move_visual_line_up", "align_view_center"]
+j = ["search_prev", "align_view_center"]
+k = ["move_visual_line_down", "align_view_center"]
+l = ["search_next", "align_view_center"]
+z = "@<esc>"
+Z = "@<esc>"
 
 [keys.select.z]
 k = "align_view_top"
@@ -352,6 +386,29 @@ t = "no_op"
 "C-f" = "no_op"
 "/" = "no_op"
 "?" = "no_op"
+"Z" = "@<esc>Z"
+
+[keys.select.Z]
+c = "no_op"
+t = "no_op"
+b = "no_op"
+m = "no_op"
+n = "no_op"
+N = "no_op"
+"up" = "no_op"
+"down" = "no_op"
+"pageup" = "no_op"
+"pagedown" = "no_op"
+"backspace" = "no_op"
+"space" = "no_op"
+"/" = "no_op"
+"?" = "no_op"
+i = ["extend_visual_line_up", "align_view_center"]
+j = ["extend_search_prev", "align_view_center"]
+k = ["extend_visual_line_down", "align_view_center"]
+l = ["extend_search_next", "align_view_center"]
+z = "@<esc>"
+Z = "@<esc>"
 
 [keys.select]
 i = "extend_visual_line_up"
@@ -385,7 +442,6 @@ b = "no_op"
 B = "no_op"
 C-d = "no_op"
 C-u = "no_op"
-Z = "no_op"
 "&" = "no_op"
 N = "no_op"
 n = "no_op"

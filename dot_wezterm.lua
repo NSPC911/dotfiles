@@ -3,31 +3,32 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 -- Plugins
-local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
-bar.apply_to_config(config,
-	{
-		position = "bottom",
-		padding = {
-			left = 1,
-			right = 1,
-			tabs = { left = 1, right = 1 }
-		},
-		modules = {
-			-- literally only use it because it looks nicer
-			spotify = { enabled = false },
-			separator = { space = 1 },
-			leader = { enabled = false },
-			username = { enabled = false },
-			hostname = { enabled = false },
-			clock = { enabled = true },
-			cwd = { enabled = false },
-			workspace = { color = 7 }
-		}
-	}
-)
+-- local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+-- bar.apply_to_config(config,
+-- 	{
+-- 		position = "bottom",
+-- 		padding = {
+-- 			left = 1,
+-- 			right = 1,
+-- 			tabs = { left = 1, right = 1 }
+-- 		},
+-- 		modules = {
+-- 			-- literally only use it because it looks nicer
+-- 			spotify = { enabled = false },
+-- 			separator = { space = 1 },
+-- 			leader = { enabled = false },
+-- 			username = { enabled = false },
+-- 			hostname = { enabled = false },
+-- 			clock = { enabled = true },
+-- 			cwd = { enabled = false },
+-- 			workspace = { color = 7 }
+-- 		}
+-- 	}
+-- )
+
 
 -- main config
-config.front_end = "WebGpu" -- surface pro issue
+config.front_end = "WebGpu"
 config.webgpu_power_preference = "LowPower"
 config.automatically_reload_config = true
 
@@ -36,6 +37,8 @@ config.default_cursor_style = "BlinkingBlock"
 config.animation_fps = 1
 config.cursor_blink_rate = 0
 
+
+config.hide_mouse_cursor_when_typing = false
 config.term = "xterm-256color"
 config.enable_kitty_keyboard = false
 config.font = wezterm.font("CaskaydiaCove NFM")
@@ -159,6 +162,8 @@ config.keys = {
 	{ key = "}",        mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) },
 	{ key = "PageUp",   mods = "CTRL",       action = act.SendKey { key = "PageUp", mods = "CTRL" } },
 	{ key = "PageDown", mods = "CTRL",       action = act.SendKey { key = "PageDown", mods = "CTRL" } },
+	{ key = ".", mods = "CTRL", action = act.MoveTabRelative (1) },
+	{ key = ",", mods = "CTRL", action = act.MoveTabRelative (-1) }
 }
 
 -- colors

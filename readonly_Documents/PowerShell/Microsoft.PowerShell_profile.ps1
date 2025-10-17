@@ -2,7 +2,7 @@ cd $HOME
 ##### Cache Completions #####
 $shouldGenerate = $false
 $cacheCompletionLocation = "$PROFILE/../completion-cache.ps1"
-if (-not (Test-Path $cacheCompletionLocation) -or (Get-Item $cacheCompletionLocation).LastWriteTime -lt (Get-Date).AddDays(-3)) {
+if (-not (Test-Path $cacheCompletionLocation) -or (Get-Item $cacheCompletionLocation).LastWriteTime -lt (Get-Date).AddDays(-1)) {
     $shouldGenerate = $true
 }
 
@@ -86,10 +86,12 @@ Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
 Set-Alias -Option AllScope -Name "cdi" -Value "__zoxide_zi"
 Set-Alias -Option AllScope -Name "cdb" -Value "__zoxide_bin"
 # temporary fix for zoxide
+$prevloc = "$PROFILE/../prevloc"
 function global:__zoxide_cd($dir, $literal) {
     $dir = if ($literal) {
         Set-Location -LiteralPath $dir -Passthru -ErrorAction Stop
         zoxide add .
+        pwd | select -Expand Path | Out-File $prevloc
     } else {
         if ($dir -eq '-' -and ($PSVersionTable.PSVersion -lt 6.1)) {
             Write-Error "cd - is not supported below PowerShell 6.1. Please upgrade your version of PowerShell."
@@ -110,7 +112,7 @@ function spf {
     $spf_location = "C:\Users\notso\scoop\shims\spf.exe"
     $SPF_LAST_DIR_PATH = [Environment]::GetFolderPath("LocalApplicationData") + "\superfile\lastdir"
 
-    & $spf_location $args
+    & spf.exe $args
     if (Test-Path $SPF_LAST_DIR_PATH) {
         $SPF_LAST_DIR = Get-Content -Path $SPF_LAST_DIR_PATH
         Invoke-Expression $SPF_LAST_DIR
@@ -219,11 +221,11 @@ function sha256 { Get-FileHash -Algorithm SHA256 $args | Select-Object -ExpandPr
 ##### figlet #####
 function figlet {
     param([Parameter(Position = 0)][string]$name)
-    $figlets = pyfiglet.exe --list_fonts | Out-String -Stream
+    $figlets = uvx pyfiglet --list_fonts | Out-String -Stream
     Write-Host "Obtained " -NoNewLine
     Write-Host $figlets.count -ForegroundColor Cyan -NoNewLine
     Write-Host " figlet styles!"
-    $figlets | ForEach-Object { Write-Output $_; pyfiglet -f $_ $name -w $Host.UI.RawUI.WindowSize.Width }
+    $figlets | ForEach-Object { Write-Output $_; uvx pyfiglet -f $_ $name -w $Host.UI.RawUI.WindowSize.Width }
 }
 
 #### LazyGit #####
@@ -250,13 +252,11 @@ function scoop-find {
     }
 }
 
-##### stupid other aliases #####
-Set-Alias -Name "wo" -Value "Write-Output"
-
 ##### chezmoi #####
-function chez-cd {
-    __zoxide_cd (chezmoi source-path)
-}
+function chezcd { __zoxide_cd (chezmoi source-path) }
+function chezedit { chezmoi edit --apply $args }
+function chezadd { chezmoi add $args }
+function chezgit { chezmoi git $args }
 
 ##### Other stuff #####
 Clear-Host
