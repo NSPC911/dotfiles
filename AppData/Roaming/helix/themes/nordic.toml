@@ -9,37 +9,29 @@
 "tag" = { fg = "blue1" }
 "namespace" = { fg = "yellow_dim" }
 "special" = { fg = "orange_base" }
-
 # types
 "type" = { fg = "yellow_bright" }
-
 # constants
 "constant" = { fg = "magenta_bright" }
 "constant.character" = { fg = "green_base" }
 "constant.character.escape" = { fg = "magenta_bright" }
-
 # string
 "string" = { fg = "green_base" }
 "string.regex" = { fg = "magenta_bright" }
-
 # variables
 "variable" = { fg = "white0" }
 "variable.builtin" = { fg = "blue0" }
 "variable.parameter" = { fg = "whiteblue0" }
 "variable.other.member" = { fg = "cyan_bright" }
-
 # functions
 "function" = { fg = "blue2" }
 "function.macro" = { fg = "red_base" }
-
 # punctuations
 "punctuation.delimiter" = { fg = "gray5", modifiers = ["italic"] }
 "punctuation.special" = { fg = "orange_base" }
 "punctuation.bracket" = { fg = "cyan_bright" }
-
 # comments
-"comment" = { fg = "gray8", modifiers = ["italic"] } # gray4 is unreadable
-
+"comment" = { fg = "gray8", modifiers = ["italic"] }  # gray4 is unreadable
 # keywords
 "keyword" = { fg = "orange_base" }
 "keyword.control.conditional" = { fg = "orange_bright", modifiers = ["bold"] }
@@ -49,7 +41,6 @@
 "keyword.control.exception" = { fg = "red_dim" }
 "keyword.operator" = { fg = "yellow_dim" }
 "keyword.function" = { fg = "orange_dim" }
-
 # Markup Formatting
 "markup.heading.1" = { fg = "yellow_bright", modifiers = ["bold", "underlined"] }
 "markup.heading.2" = { fg = "orange_bright", modifiers = ["bold"] }
@@ -70,35 +61,38 @@
 "markup.raw" = { bg = "black0", fg = "white2" }
 "markup.raw.block" = { bg = "black0", fg = "white2" }
 "markup.raw.inline" = { bg = "black0", fg = "white2" }
-
 # Diffs
 "diff.plus" = { fg = "green_base" }
 "diff.minus" = { fg = "red_base" }
 "diff.delta" = { fg = "blue0" }
-"diff.delta.moved" = { bg = "blue2" }
-
+"git.delta.moved" = { bg = "blue2" }
 # UI
-"ui.cursor" = { fg = "black0", bg = "gray4" }
+"ui.cursor" = { fg = "black0", bg = "gray5" }
 "ui.cursor.primary" = { fg = "black1", bg = "white0" }
-"ui.background" = {}
-"ui.bufferline" = {}
+"ui.background" = {  }
+"ui.bufferline" = {  }
 "ui.bufferline.active" = { modifiers = ["bold", "underlined"] }
-"ui.cursor.match" = { modifiers = ["bold"] }
+"ui.cursor.match" = { bg = "gray4" }
 "ui.linenr" = { fg = "gray6" }
 "ui.linenr.selected" = { fg = "white3" }
 "ui.gutter.selected" = { bg = "black0" }
-"ui.popup" = {}
-"ui.popup.info" = {}
-"ui.window" = {}
-"ui.help" = {}
+"ui.popup" = {  }
+"ui.popup.info" = {  }
+"ui.window" = {  }
+"ui.help" = {  }
 "ui.text.focus" = { bg = "gray2" }
-"ui.virtual.ruler" = { bg = "gray1" }
-"ui.menu" = {}
+"ui.menu" = {  }
 "ui.menu.selected" = { modifiers = ["underlined"] }
 "ui.menu.scroll" = { fg = "white1", bg = "gray0" }
 "ui.selection" = { bg = "gray4" }
 "ui.cursorline.primary" = { bg = "black2" }
-
+# virtual stuff
+"ui.virtual.ruler" = { bg = "gray1" }
+"ui.virtual.indent-guide" = { fg = "gray8" }
+"ui.virtual.inlay-hint" = { fg = "gray8", modifiers = ["dim"] }
+"ui.virtual.jump-label" = { fg = "cyan_base", modifiers = ["reversed"] }
+"ui.virtual.whitespace" = { fg = "gray4" }
+"ui.virtual.wrap" = { fg = "gray4" }
 # Diagnostic Messages
 "error" = { fg = "red_bright" }
 "warning" = { fg = "yellow_base" }
@@ -108,20 +102,22 @@
 "diagnostic.warning" = { underline = { color = "yellow_base", style = "curl" } }
 "diagnostic.info" = { underline = { color = "blue1", style = "curl" } }
 "diagnostic.hint" = { underline = { color = "green_base", style = "curl" } }
-
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
 # statusline
 "ui.statusline" = { bg = "black2" }
 "ui.statusline.inactive" = { bg = "black0" }
-"ui.statusline.normal" = { fg = "blue2" }
-"ui.statusline.insert" = { fg = "cyan_bright" }
-"ui.statusline.select" = { fg = "yellow_bright" }
-
+"ui.statusline.normal" = { fg = "blue2", modifiers = ["reversed"] }
+"ui.statusline.insert" = { fg = "cyan_bright", modifiers = ["reversed"] }
+"ui.statusline.select" = { fg = "yellow_bright", modifiers = ["reversed"] }
 # Requires PR:13666
 ## left
 "ui.statusline.version-control" = { fg = "green_bright" }
 "ui.statusline.file-type" = { fg = "white2" }
 "ui.statusline.file-name" = { fg = "white2" }
-"ui.statusline.file-modification-indicator" = { fg = "red_bright", modifiers = [ "bold" ] }
+"ui.statusline.file-modification-indicator" = { fg = "red_bright", modifiers = [
+  "bold"
+] }
 "ui.statusline.file-encoding" = { fg = "black0" }
 "ui.statusline.register" = { fg = "magenta_bright" }
 ## right
@@ -130,12 +126,13 @@
 "ui.statusline.position" = { fg = "yellow_bright" }
 "ui.statusline.primary-selection-length" = { fg = "green_bright" }
 "ui.statusline.total-line-numbers" = { fg = "blue2" }
-
 ## inactive left
 "ui.statusline.inactive.version-control" = { fg = "green_dim" }
 "ui.statusline.inactive.file-name" = { fg = "white0" }
 "ui.statusline.inactive.file-type" = { fg = "white0" }
-"ui.statusline.inactive.file-modification-indicator" = { fg = "red_dim", modifiers = [ "bold" ] }
+"ui.statusline.inactive.file-modification-indicator" = { fg = "red_dim", modifiers = [
+  "bold"
+] }
 "ui.statusline.inactive.file-encoding" = { bg = "white0", fg = "black0" }
 ## inactive right
 "ui.statusline.inactive.register" = { fg = "magenta_bright" }
@@ -151,7 +148,6 @@
 black0 = "#191D24"
 black1 = "#1E222A"
 black2 = "#222630"
-
 # Gray
 gray0 = "#242933"
 # Polar night
@@ -166,7 +162,6 @@ gray5 = "#60728A"
 gray6 = "#727F9A"
 gray7 = "#848DAA"
 gray8 = "#969BBA"
-
 # White
 # reduce_blue variant
 white0 = "#C0C8D8"
@@ -174,41 +169,33 @@ white0 = "#C0C8D8"
 white1 = "#D8DEE9"
 white2 = "#E5E9F0"
 white3 = "#ECEFF4"
-
 whiteblue0 = "#C1D0D1"
-
 # Blue
 # Frost
 blue0 = "#5E81AC"
 blue1 = "#81A1C1"
 blue2 = "#88C0D0"
-
 # Cyan:
 cyan_base = "#8FBCBB"
 cyan_bright = "#9FC6C5"
 cyan_dim = "#80B3B2"
-
 # Aurora (from Nord theme)
 # Red
 red_base = "#BF616A"
 red_bright = "#E5727A"
 red_dim = "#A04049"
-
 # Orange
 orange_base = "#D08770"
 orange_bright = "#D79784"
 orange_dim = "#AB573D"
-
 # Yellow
 yellow_base = "#EBCB8B"
 yellow_bright = "#EFD49F"
 yellow_dim = "#E7C173"
-
 # Green
 green_base = "#A3BE8C"
 green_bright = "#B1C89D"
 green_dim = "#97B67C"
-
 # Magenta
 magenta_base = "#B48EAD"
 magenta_bright = "#BE9DB8"

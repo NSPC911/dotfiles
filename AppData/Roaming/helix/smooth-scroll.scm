@@ -4,7 +4,13 @@
 (require "helix/static.scm")
 (require-builtin helix/core/text)
 
-(require "src/utils.scm")
+(provide repeat-n-times)
+
+(define (repeat-n-times f n)
+  (let loop ([i n])
+    (when (> i 0)
+      (f)
+      (loop (- i 1)))))
 
 (provide half-page-up-smooth
          half-page-down-smooth
@@ -37,7 +43,7 @@
 
 (define (move_down_single)
   (begin
-    (when (>= (get-current-line-number) (/ (area-height (editor-focused-buffer-area)) 2))
+    (when (>= (get-current-line-number) (- (/ (area-height (editor-focused-buffer-area)) 2) 2))
       (scroll_down))
     (move_visual_line_down)))
 
