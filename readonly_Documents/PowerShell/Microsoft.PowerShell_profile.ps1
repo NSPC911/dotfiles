@@ -1,4 +1,4 @@
-cd $HOME
+Set-Location $HOME
 ##### Cache Completions #####
 $shouldGenerate = $false
 $cacheCompletionLocation = "$PROFILE/../completion-cache.ps1"
@@ -228,6 +228,11 @@ function figlet {
     $figlets | ForEach-Object { Write-Output $_; uvx pyfiglet -f $_ $name -w $Host.UI.RawUI.WindowSize.Width }
 }
 
+##### pwd ish #####
+function cwd {
+    Get-Location | Select -Expand Path
+}
+
 #### LazyGit #####
 Set-Alias -Name "lz" -Value "lazygit"
 
@@ -261,3 +266,14 @@ function chezgit { chezmoi git $args }
 ##### Other stuff #####
 Clear-Host
 fastfetch
+
+if (Test-Path $prevloc) {
+    $newloc = Get-Content $prevloc
+    if ($newloc -ne $HOME) {
+        Set-Location $newloc
+        Write-Host -ForegroundColor DarkGray "`e[1AChanged directory to " -NoNewLine
+        Write-Host -ForegroundColor DarkBlue (Get-Location | Select -Expand Path)
+        Write-Host
+    }
+}
+

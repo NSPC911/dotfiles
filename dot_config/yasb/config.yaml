@@ -19,7 +19,7 @@ bars:
     blur_effect:
       enabled: false
       acrylic: false
-      dark_mode: false
+      dark_mode: true
       round_corners: false
       round_corners_type: "small"
       border_color: "System"
@@ -29,20 +29,18 @@ bars:
       hide_on_fullscreen: false
     dimensions:
       width: "100%"
-      height: 41
+      height: 40
     padding:
       top: 0
       left: 0
       bottom: 0
       right: 0
     widgets:
-      left: ["power_menu", "launchpad", "active_window", "media"]
+      left: ["power_menu", "launchpad", "media-controls", "active_window"]
       center: ["clock", "cpu"]
       right: [
           "glazewm_tiling_direction",
-          # "komorebi_active_layout",
           "glazewm_workspaces",
-          # "komorebi_workspaces",
           "bluetooth",
           "wifi",
           "brightness",
@@ -50,10 +48,10 @@ bars:
           "volume",
           "notifications",
         ]
-  task-cava-bar:
+  task-bar:
     enabled: true
     screens: ["*"]
-    class_name: "task-cava-bar"
+    class_name: "task-bar"
     alignment:
       position: "bottom"
       center: true
@@ -73,7 +71,7 @@ bars:
       hide_on_fullscreen: true
     dimensions:
       width: "100%"
-      height: 40
+      height: 44
     padding:
       top: 0
       left: 0
@@ -81,8 +79,8 @@ bars:
       right: 0
     widgets:
       left: []
-      center: ["cava"]
-      right: []
+      center: ["media-info"]
+      right: ["cava"]
 widgets:
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
@@ -169,17 +167,17 @@ widgets:
   cava:
     type: "yasb.cava.CavaWidget"
     options:
-      bar_height: 40
+      bar_height: 36
       min_bar_height: 0
       gradient: 1
       reverse: 0
       foreground: "#88C0D0"
-      bars_number: 100
+      bars_number: 12
       gradient_color_1: "#8FBCBB"
       gradient_color_2: "#81A1C1"
       gradient_color_3: "#5E81AC"
-      bar_spacing: 6
-      bar_width: 14
+      bar_spacing: 7
+      bar_width: 12
       sleep_timer: 1
       hide_empty: true
       container_padding:
@@ -228,6 +226,7 @@ widgets:
       histogram_num_columns: 8
       callbacks:
         on_right: "do_nothing"
+        on_middle: "reload_cava"
       label_shadow:
         enabled: false
         color: "black"
@@ -376,7 +375,7 @@ widgets:
         color: "#00000090"
         offset: [0, 2]
         radius: 8
-  media:
+  media-controls:
     type: "yasb.media.MediaWidget"
     options:
       label: " {title} "
@@ -390,9 +389,63 @@ widgets:
         label: 35
         label_alt: 35
       show_thumbnail: false
-      controls_only: false
+      controls_only: true
       controls_left: false
       controls_hide: false
+      thumbnail_alpha: 127
+      thumbnail_padding: 0
+      thumbnail_corner_radius: 0
+      icons:
+        prev_track: "\ue892"
+        next_track: "\ue893"
+        play: "\ue768"
+        pause: "\ue769"
+      media_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "center"
+        direction: "down"
+        offset_top: 5
+        offset_left: 0
+        thumbnail_corner_radius: 8
+        thumbnail_size: 120
+        max_title_size: 80
+        max_artist_size: 20
+        show_source: false
+      media_menu_icons:
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+  media-info:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: " {title} "
+      label_alt: " {artist} "
+      hide_empty: true
+      callbacks:
+        on_left: "toggle_media_menu"
+        on_right: "toggle_label"
+        on_middle: "do_nothing"
+      max_field_size:
+        label: 35
+        label_alt: 35
+      show_thumbnail: true
+      controls_only: false
+      controls_left: false
+      controls_hide: true
       thumbnail_alpha: 127
       thumbnail_padding: 0
       thumbnail_corner_radius: 0

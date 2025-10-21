@@ -32,10 +32,10 @@ I = "extend_line_up"
 J = "extend_char_left"
 K = "extend_line_down"
 L = "extend_char_right"
-u = "move_prev_word_end"
-o = "move_next_word_start"
-U = "move_prev_word_start"
-O = "move_next_word_end"
+U = "move_prev_word_end"
+O = "move_next_word_start"
+u = "move_prev_word_start"
+o = "move_next_word_end"
 C-a = "select_all"
 A-j = { j = "save_selection", i = "jump_backward", k = "jump_forward", p = "jumplist_picker" }
 A-c = "toggle_line_comments"
@@ -85,6 +85,7 @@ L = "goto_line_end_newline"
 l = "goto_line_end"
 ret = "goto_file_start"
 D = "goto_reference"
+d = "goto_definition"
 e = "no_op"
 f = "no_op"
 r = "no_op"
@@ -162,18 +163,6 @@ right = "no_op"
 up = "no_op"
 down = "no_op"
 
-[keys.normal."C-w"."]"]
-i = ["hsplit", ":buffer-next", "swap_view_up"]
-j = ["vsplit", ":buffer-next", "swap_view_left"]
-k = ["hsplit", ":buffer-next"]
-l = ["vsplit", ":buffer-next"]
-
-[keys.normal."C-w"."["]
-i = ["hsplit", ":buffer-previous", "swap_view_up"]
-j = ["vsplit", ":buffer-previous", "swap_view_left"]
-k = ["hsplit", ":buffer-previous"]
-l = ["vsplit", ":buffer-previous"]
-
 [keys.select."C-w"]
 r = "rotate_view"
 i = "jump_view_up"
@@ -210,37 +199,63 @@ right = "no_op"
 up = "no_op"
 down = "no_op"
 
+# opencode
+[keys.normal."C-w".a]
+n = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode"
+a = ":sh wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode"
+
+[keys.select."C-w".a]
+n = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode"
+a = ":sh wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode"
+
+# new buffer or terminal tab
 [keys.normal."C-w".n]
 s = "no_op"
 C-s = "no_op"
 v = "no_op"
 C-v = "no_op"
+t = ":sh wezterm cli spawn"
 i = ["hsplit_new", "swap_view_up"]
 j = ["vsplit_new", "swap_view_left"]
 k = "hsplit_new"
 l = "vsplit_new"
-
-[keys.normal."C-w".m]
-i = "swap_view_up"
-j = "swap_view_left"
-k = "swap_view_down"
-l = "swap_view_right"
 
 [keys.select."C-w".n]
 s = "no_op"
 C-s = "no_op"
 v = "no_op"
 C-v = "no_op"
+t = ":sh wezterm cli spawn"
 i = ["hsplit_new", "swap_view_up"]
 j = ["vsplit_new", "swap_view_left"]
 k = "hsplit_new"
 l = "vsplit_new"
+
+# move panes
+[keys.normal."C-w".m]
+i = "swap_view_up"
+j = "swap_view_left"
+k = "swap_view_down"
+l = "swap_view_right"
 
 [keys.select."C-w".m]
 i = "swap_view_up"
 j = "swap_view_left"
 k = "swap_view_down"
 l = "swap_view_right"
+
+# new pane relative to buffer
+[keys.normal."C-w"."]"]
+i = ["hsplit", ":buffer-next", "swap_view_up"]
+j = ["vsplit", ":buffer-next", "swap_view_left"]
+k = ["hsplit", ":buffer-next"]
+l = ["vsplit", ":buffer-next"]
+
+[keys.normal."C-w"."["]
+i = ["hsplit", ":buffer-previous", "swap_view_up"]
+j = ["vsplit", ":buffer-previous", "swap_view_left"]
+k = ["hsplit", ":buffer-previous"]
+l = ["vsplit", ":buffer-previous"]
 
 # space mode, my favourite
 [keys.normal."space"]
@@ -255,7 +270,7 @@ b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
-l = { z = [":sh wezterm cli spawn lazygit --path %{current_working_directory}"], p = "last_picker", k = [
+l = { z = [":sh wezterm cli spawn --cwd %{current_working_directory} lazygit"], p = "last_picker", k = [
   ":new",
   ":insert-output taskkill /f /im python.exe",
   ":buffer-close!",
@@ -293,7 +308,7 @@ b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
-l = { z = ":sh wezterm cli spawn lazygit --path %{current_working_directory}", p = "last_picker", k = [
+l = { z = ":sh wezterm cli spawn --cwd %{current_working_directory} lazygit", p = "last_picker", k = [
   ":new",
   ":insert-output taskkill /f /im python.exe",
   ":buffer-close!",
@@ -341,7 +356,7 @@ t = "no_op"
 "?" = "no_op"
 "Z" = "@<esc>Z"
 
-[keys.normal.Z]
+[keys.select.z]
 c = "no_op"
 t = "no_op"
 b = "no_op"
@@ -369,7 +384,7 @@ l = ["search_next", "align_view_center"]
 z = "@<esc>"
 Z = "@<esc>"
 
-[keys.select.z]
+[keys.normal.Z]
 c = "no_op"
 t = "no_op"
 b = "no_op"
@@ -388,8 +403,6 @@ C-b = "no_op"
 C-f = "no_op"
 C-u = "no_op"
 C-d = "no_op"
-x = ["extend_line_below", "align_view_center"]
-X = ["extend_line_above", "align_view_center"]
 i = ["move_visual_line_up", "align_view_center"]
 j = ["search_prev", "align_view_center"]
 k = ["move_visual_line_down", "align_view_center"]

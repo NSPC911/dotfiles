@@ -3,6 +3,7 @@
 [settings]
 preview_full = false
 cd_on_quit = true
+show_hidden_files = true
 
 [interface]
 truncate_progress_file_path = true

@@ -70,7 +70,7 @@ args = ["lsp"]
 command = "discord-rpc-lsp"
 
 [language-server.codebook]
-command = "codebook"
+command = "codebook-lsp"
 args = ["serve"]
 
 [[language]]
@@ -90,7 +90,6 @@ language-servers = [
     "goto-type-definition",
     "goto-reference",
     "goto-implementation",
-    "completion",
     "diagnostics",
     "inlay-hints"
   ] }

@@ -652,3 +652,12 @@ QPushButton {
   border-radius: 8px;
   margin: 6px 7px 10px 11px;
 }
+.task-bar .media-widget {
+  background-color: var(--main);
+  border: 1px solid var(--nord-cyan-base);
+  border-radius: 8px;
+  margin: 0px 7px 4px 11px;
+}
+.task-bar .container-right {
+  margin-bottom: 2px
+}
