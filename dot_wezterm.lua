@@ -3,29 +3,50 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 -- Plugins
--- local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
--- bar.apply_to_config(config,
--- 	{
--- 		position = "bottom",
--- 		padding = {
--- 			left = 1,
--- 			right = 1,
--- 			tabs = { left = 1, right = 1 }
--- 		},
--- 		modules = {
--- 			-- literally only use it because it looks nicer
--- 			spotify = { enabled = false },
--- 			separator = { space = 1 },
--- 			leader = { enabled = false },
--- 			username = { enabled = false },
--- 			hostname = { enabled = false },
--- 			clock = { enabled = true },
--- 			cwd = { enabled = false },
--- 			workspace = { color = 7 }
--- 		}
--- 	}
--- )
-
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+tabline.setup({
+	options = {
+		icons_enabled = true,
+		theme = 'nord',
+		tabs_enabled = true,
+		theme_overrides = {}
+	},
+	sections = {
+		tabline_a = { 'workspace' },
+		tabline_b = { 'datetime', 'battery' },
+		tabline_c = {},
+		section_separators = {
+			left = wezterm.nerdfonts.pl_left_hard_divider,
+			right = wezterm.nerdfonts.pl_right_hard_divider,
+		},
+		component_separators = {
+			left = wezterm.nerdfonts.pl_left_soft_divider,
+			right = wezterm.nerdfonts.pl_right_soft_divider,
+		},
+		tab_separators = {
+			left = wezterm.nerdfonts.pl_left_hard_divider,
+			right = wezterm.nerdfonts.pl_right_hard_divider,
+		},
+		tab_active = {
+			"index",
+			"|",
+			{
+				'process',
+				process_to_icon = {
+					['hx'] = { wezterm.nerdfonts.fa_dna, color = { fg = "cyan" } },
+					['pwsh'] = { wezterm.nerdfonts.dev_powershell, color = { fg = "darkblue" } }
+				}
+			}
+		},
+		tab_inactive = {
+			"index", "|", "tab"
+		},
+		tabline_x = {},
+		tabline_y = {},
+		tabline_z = {},
+	},
+	extensions = {},
+})
 
 -- main config
 config.front_end = "WebGpu"
@@ -44,7 +65,7 @@ config.enable_kitty_keyboard = false
 config.font = wezterm.font("CaskaydiaCove NFM")
 config.custom_block_glyphs = false
 config.cell_width = 1
--- config.window_background_opacity = 0.75 -- dont feel like using transparency rn
+config.window_background_opacity = 1 -- dont feel like using transparency rn
 config.prefer_egl = true
 config.font_size = 12.5
 
@@ -162,8 +183,8 @@ config.keys = {
 	{ key = "}",        mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) },
 	{ key = "PageUp",   mods = "CTRL",       action = act.SendKey { key = "PageUp", mods = "CTRL" } },
 	{ key = "PageDown", mods = "CTRL",       action = act.SendKey { key = "PageDown", mods = "CTRL" } },
-	{ key = ".", mods = "CTRL", action = act.MoveTabRelative (1) },
-	{ key = ",", mods = "CTRL", action = act.MoveTabRelative (-1) }
+	{ key = ".",        mods = "CTRL",       action = act.MoveTabRelative(1) },
+	{ key = ",",        mods = "CTRL",       action = act.MoveTabRelative(-1) }
 }
 
 -- colors
