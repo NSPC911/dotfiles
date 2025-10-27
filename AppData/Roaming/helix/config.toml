@@ -201,11 +201,11 @@ down = "no_op"
 
 # opencode
 [keys.normal."C-w".a]
-n = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode --continue"
+c = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode --continue"
 i = ":sh wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode"
 
 [keys.select."C-w".a]
-n = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode --continue"
+c = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode --continue"
 i = ":sh wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode"
 
 # new buffer or terminal tab

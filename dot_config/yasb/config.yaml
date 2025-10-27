@@ -1,10 +1,6 @@
 watch_stylesheet: true
 watch_config: true
 debug: true
-komorebi:
-  start_command: "komorebic start --whkd --masir"
-  stop_command: "komorebic stop --whkd --masir"
-  reload_command: "komorebic stop --whkd --masir && komorebic start --whkd --masir"
 bars:
   primary-bar:
     enabled: true
@@ -26,7 +22,7 @@ bars:
     window_flags:
       always_on_top: true
       windows_app_bar: true
-      hide_on_fullscreen: false
+      hide_on_fullscreen: true
     dimensions:
       width: "100%"
       height: 40
@@ -235,8 +231,8 @@ widgets:
   glazewm_tiling_direction:
     type: "glazewm.tiling_direction.GlazewmTilingDirectionWidget"
     options:
-      horizontal_label: "\udb81\udce1 Horizontal"
-      vertical_label: "\udb81\udce2 Vertical"
+      horizontal_label: "\udb81\udce1"
+      vertical_label: "\udb81\udce2"
       btn_shadow:
         enabled: false
         color: "black"

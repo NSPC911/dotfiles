@@ -11,6 +11,9 @@ disableLanguageServices = true
 command = "ty"
 args = ["server"]
 
+[language-server.ty.config]
+disableLanguageServices = false
+
 # requires: https://github.com/DetachHead/basedpyright
 [language-server.pyright]
 command = "pyright-langserver"
@@ -85,14 +88,19 @@ language-servers = [
     "goto-implementation",
   ] },
   "ruff",
-  { name = "ty", only-features = [
-    "goto-declaration",
-    "goto-type-definition",
-    "goto-reference",
-    "goto-implementation",
-    "diagnostics",
-  ] },
-  { name = "pyrefly", only-features = ["inlay-hints"] }
+  { name = "ty", except-features = [
+    "format",
+    "goto-definition",
+    "signature-help",
+    "hover",
+    "document-highlight",
+    "completion",
+    "code-action",
+    "workspace-command",
+    "document-symbols",
+    "workspace-symbols",
+    "rename-symbol",
+  ] }
 ]
 auto-format = true
 

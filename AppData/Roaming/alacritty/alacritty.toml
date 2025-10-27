@@ -2,7 +2,7 @@
 [window]
 padding = { x = 12, y = 12 }
 decorations = "none"
-opacity = 0.75
+opacity = 1
 [font]
 normal = { family = "CaskaydiaCove NFM" }
 [terminal]

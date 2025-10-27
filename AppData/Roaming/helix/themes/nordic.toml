@@ -102,7 +102,7 @@
 "diagnostic.warning" = { underline = { color = "yellow_base", style = "curl" } }
 "diagnostic.info" = { underline = { color = "blue1", style = "curl" } }
 "diagnostic.hint" = { underline = { color = "green_base", style = "curl" } }
-"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.unnecessary" = { modifiers = ["dim", "slow_blink"] }
 "diagnostic.deprecated" = { modifiers = ["crossed_out"] }
 # statusline
 "ui.statusline" = { bg = "black2" }

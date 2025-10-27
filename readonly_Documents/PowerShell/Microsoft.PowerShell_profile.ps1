@@ -26,6 +26,9 @@ if ($shouldGenerate) {
     $completions += gh completion -s powershell
     $completions += gh copilot alias -- pwsh
 
+    Write-Output "`e[HSetting up tuios completions"
+    $completions += tuios completion powershell
+
     Write-Output "`e[HSetting up batcat completions"
     $completions += bat --completion ps1
 
@@ -149,7 +152,7 @@ function symlink {
         [Parameter(Position = 1)]
         [string]$ItemToSymlinkTo
     )
-    New-Item -ItemType SymbolicLink -Path "$ItemToSymlinkTo" -Target "$ItemToSymlinkFrom"
+    New-Item -ItemType SymbolicLink -Path $ItemToSymlinkTo -Target (Resolve-Path $ItemToSymlinkFrom | Select -Expand Path)
 }
 
 function Get-Folder-Size {
@@ -159,6 +162,8 @@ function Get-Folder-Size {
 function touch {
     New-Item -ItemType File -Force -Path $args
 }
+
+Set-Alias -Name extract -Value Expand-Archive
 
 ##### better fzf #####
 function fzf {
@@ -262,6 +267,30 @@ function chezcd { __zoxide_cd (chezmoi source-path) }
 function chezedit { chezmoi edit --apply $args }
 function chezadd { chezmoi add $args }
 function chezgit { chezmoi git $args }
+
+##### fzf plugin (needs that one powershell plugin) #####
+function fuzzy {
+    param(
+        [ValidateSet("edit", "git", "status", "kill", "nuke", "scoop", "install")]
+        [string]$type,
+        [Parameter(ValueFromRemainingArguments=$true)]
+        [object[]]$extra
+    )
+    if ($type -eq "edit") {
+        hx (fzf)
+    } elseif ($type -eq "status") {
+        Invoke-FuzzyGitStatus
+    } elseif (($type -eq "history") -or ($type -eq "git")) {
+        Invoke-FuzzyHistory
+    } elseif (($type -eq "kill") -or ($type -eq "nuke")) {
+        Invoke-FuzzyKillProcess
+    } elseif (($type -eq "scoop") -or ($type -eq "install")) {
+        Invoke-FuzzyScoop
+    } else {
+        Write-Error "Unknown operation $type. Allowed: edit, status, history, kill/nuke or scoop/install"
+    }
+}
+
 
 ##### Other stuff #####
 Clear-Host

@@ -16,7 +16,7 @@ args = []
 # width = 600
 # height = 400
 mode = "windowed"
-opacity = 0.75
+opacity = 1
 # opacity = 1
 blur = false
 decorations = "Disabled"
@@ -34,7 +34,7 @@ use-kitty-keyboard-protocol = true
 family = "CaskaydiaCove NFM"
 features = ["cv12", "cv18", "calt"]
 use-drawable-characters = false
-size = 18
+size = 16
 [fonts.regular]
 family = "CaskaydiaCove NFM"
 [fonts.bold]

@@ -9,7 +9,6 @@ tabline.setup({
 		icons_enabled = true,
 		theme = 'nord',
 		tabs_enabled = true,
-		theme_overrides = {}
 	},
 	sections = {
 		tabline_a = { 'workspace' },
@@ -39,7 +38,7 @@ tabline.setup({
 			}
 		},
 		tab_inactive = {
-			"index", "|", "tab"
+			"(","index", "|", "tab",")"
 		},
 		tabline_x = {},
 		tabline_y = {},

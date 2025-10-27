@@ -11,10 +11,14 @@
   .tab-close-button {
     position: absolute !important;
   }
+  .urlbar-background {
+    background: var(--funny-accent-background-colour) !important;
+  }
   #urlbar-results * {
     color: white !important;
   }
-  #downloadsPanel > * {
+  #downloadsPanel {
+    --panel-background: var(--funny-accent-background-colour) !important;
     background-color: var(--funny-accent-background-colour) !important;
     backdrop-filter: blur(10px) !important;
   }
@@ -87,9 +91,9 @@
   }
   #navigator-toolbox#navigator-toolbox#navigator-toolbox {
     transition-duration: 0s !important;
-    margin-top: calc(74.5px) !important;
-    height: calc(100% - 79.25px) !important;
-    margin-left: calc(5px);
+    height: calc(100% - 80.5px) !important;
+    margin-left: 5px;
+    margin-bottom: 5px;
     background: transparent !important;
     border: none !important;
     > #titlebar {
@@ -118,7 +122,6 @@
 
 /* url bar zoom animation */
 #browser:has(#urlbar[open][zen-floating-urlbar="true"]) {
-  pointer-events: none;
   filter: blur(5px) brightness(70%) !important;
 }
 
@@ -155,7 +158,7 @@
       background-color: hsl(130, 50%, 40%) !important;
     }
     &.titlebar-max,
-    .titlebar-restore {
+    &.titlebar-restore {
       background-color: hsl(60, 50%, 50%) !important;
     }
     &.titlebar-close {
