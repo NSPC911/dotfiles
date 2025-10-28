@@ -174,29 +174,43 @@ function fzf {
 ##### Python Venv #####
 function pyvenv() {
     if (Test-Path venv\Scripts) {
-        Write-Output "Using venv"
-        Write-Output "Activating virtual environment"
+        Write-Host "Using venv"
+        Write-Host "Activating virtual environment"
+        Write-Host " " -NoNewLine
+        Write-Host ".\venv\Scripts\Activate.ps1" -ForegroundColor Yellow
         .\venv\Scripts\Activate.ps1
     } elseif (-not (Test-Path .venv)) {
-        Write-Output "Creating new virtual environment"
+        Write-Host "Creating new virtual environment"
+        Write-Host " " -NoNewLine
+        Write-Host "uv venv" -ForegroundColor Yellow
         uv venv
     }
     if (Test-Path .venv\Scripts) {
-        Write-Output "Activating virtual environment"
+        Write-Host "Activating virtual environment"
+        Write-Host " " -NoNewLine
+        Write-Host ".\.venv\Scripts\Activate.ps1" -ForegroundColor Yellow
         .\.venv\Scripts\Activate.ps1
     }
-    Write-Output "Virtual Environment is active!"
+    Write-Host "Virtual Environment is active!"
     if (Test-Path pyproject.toml) {
-        Write-Output "Installing packages with 'pyproject.toml'"
+        Write-Host "Installing packages with 'pyproject.toml'"
+        Write-Host " " -NoNewLine
+        Write-Host "uv sync --active" -ForegroundColor Yellow
         uv sync --active
     } elseif (Test-Path requirements.txt) {
-        Write-Output "Installing packages with 'requirements.txt'"
+        Write-Host "Installing packages with 'requirements.txt'"
+        Write-Host " " -NoNewLine
+        Write-Host "uv pip install -r requirements.txt" -ForegroundColor Yellow
         uv pip install -r requirements.txt
     } else {
-        Write-Output "Creating a new requirements.txt"
-        touch requirements.txt
+        Write-Host "There are no packages available to be synced"
+        Write-Host "Make sure to either " -NoNewLine
+        Write-Host "uv init --bare" -ForegroundColor Cyan -NoNewLine
+        Write-Host " or " -NoNewLine
+        Write-Host "touch requirements.txt" -ForegroundColor Cyan -NoNewLine
+        Write-Host "!"
     }
-    Write-Output "Virtual Environment has been synced!"
+    Write-Host "Virtual Environment has been synced!"
 }
 
 ##### Pretty Print 'Invoke-Webrequest's #####
@@ -210,15 +224,6 @@ function curlout {
     )
     Invoke-Expression "Invoke-WebRequest $Url | Select-Object -ExpandProperty Content | bat -l $Lang"
 }
-
-##### Convert SVG to other image files #####
-function svg2 {
-    param([string]$InputFile, [string]$OutputFile)
-    resvg --monospace-family "CaskaydiaCove NFM" --font-family "CaskaydiaCove NFM" --shape-rendering crispEdges --serif-family "CaskaydiaCove NFM" --dpi 4000 $InputFile $OutputFile
-}
-
-##### better than to search for nothing in the tasklist.exe #####
-function taskfind { Invoke-Expression "tasklist.exe | Out-String | rg $args --ignore-case" }
 
 ##### id like a sha256 please ######
 function sha256 { Get-FileHash -Algorithm SHA256 $args | Select-Object -ExpandProperty Hash }
@@ -243,24 +248,13 @@ Set-Alias -Name "lz" -Value "lazygit"
 
 ##### Give me my full history man #####
 function Get-FullHistory {
-    Get-Content (Get-PSReadlineOption).HistorySavePath | ? {$_ -like "*$find*"} | Get-Unique
+    Get-Content (Get-PSReadlineOption).HistorySavePath | ? {$_ -like "*$find*"} | Get-Unique | fzf.exe
 }
 
 ##### PS Plugins #####
 Write-Output "`e[HAdding Plugins...                        "
 Import-Module -Name Terminal-Icons
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-
-##### Scoop #####
-function scoop-find {
-    param (
-        [string]$query
-    )
-    cd ~/scoop/buckets/
-    fd --type f | rg $query | rg ".json" | ForEach-Object {
-        scoop info $_
-    }
-}
 
 ##### chezmoi #####
 function chezcd { __zoxide_cd (chezmoi source-path) }
@@ -309,4 +303,7 @@ if (Test-Path $prevloc) {
         Write-Host
     }
 }
-
+# check for venv and deactivate
+if (Get-Command -Name "deactivate" -CommandType Function -ErrorAction SilentlyContinue) {
+    deactivate
+}

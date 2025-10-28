@@ -6,6 +6,11 @@ My Windows 11 config files, Nord ~~+ Translucency~~
 
 ## Screenshots
 
+| ![fetch](https://github.com/NSPC911/dotfiles/blob/main/img/fetch.png?raw=true) <br> gitfetch + fastfetch |                  ![helix](https://github.com/NSPC911/dotfiles/blob/main/img/helixonly.png?raw=true) <br> helix                   |
+| :------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------: |
+|   ![zen browser](https://github.com/NSPC911/dotfiles/blob/main/img/zen.png?raw=true) <br> zen browser    | ![youtube music](https://github.com/NSPC911/dotfiles/blob/main/img/youtubemusic.png?raw=true) <br> youtube music (a bit scuffed) |
+| ![rovr](https://github.com/NSPC911/dotfiles/blob/main/img/rovr.png?raw=true) <br> rovr, my file explorer |                                                                                                                                  |
+
 ## Apps
 
 #### Categories
@@ -34,8 +39,8 @@ My Windows 11 config files, Nord ~~+ Translucency~~
 
 Generally I switch between 3 options (screenshots from steam!)
 
-| ![Lost Cat.](https://images.steamusercontent.com/ugc/2459620193690498958/1CF63A48848CDB76FFEFC3A4B2B54D37FB142BA3/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3352465485)     | ![Lost Cat 3](https://images.steamusercontent.com/ugc/2404452368859591676/D8CBBE411A86066BA5B3D9554BB1F8EEDB7DE61F/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3360569178) |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   ![Lost Cat.](https://images.steamusercontent.com/ugc/2459620193690498958/1CF63A48848CDB76FFEFC3A4B2B54D37FB142BA3/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3352465485)   | ![Lost Cat 3](https://images.steamusercontent.com/ugc/2404452368859591676/D8CBBE411A86066BA5B3D9554BB1F8EEDB7DE61F/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3360569178) |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | ![Sunset Cat [4k]](https://images.steamusercontent.com/ugc/43443618358467438/204AE1F0F54142B3670712E3546E6E2EE76D07BE/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3373818743) |                                                                                                                                                                                                                                                                                 |
 
 #### No config
@@ -50,6 +55,7 @@ Generally I switch between 3 options (screenshots from steam!)
 | File Indexer    | [everything](https://voidtools.com)                                                                |
 | Music           | [youtube-music](https://github.com/th-ch/youtube-music)                                            |
 | Roblox Mod      | [BloxStrap](https://github.com/bloxstraplabs/bloxstrap)                                            |
+| Cursor          | https://www.deviantart.com/jepricreations/art/Windows-11-Cursors-Concept-886489356                 |
 
 #### Browser extensions (zen)
 
@@ -57,7 +63,7 @@ Generally I switch between 3 options (screenshots from steam!)
 | ------------------------------------------------------------------ | ------------------------------------ |
 | [Refined GitHub](https://github.com/refined-github/refined-github) | `zen/extensions/refined_github.json` |
 | [tabliss](https://tabliss.io/)                                     | `zen/extensions/tabliss.json`        |
-| [vimium](https://github.com/philc/vimium)                          | `zen/extensions/vimium.vim`          |
+| [vimium](https://github.com/philc/vimium)                          | `zen/extensions/vimium-options.json` |
 
 #### Previously used, but no longer using
 

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "nord",
+  "autoupdate": false,
+  "formatter": {
+    "prettier": {
+      "disabled": false
+    },
+    "ruff": {
+      "command": ["ruff", "format", "$FILE"],
+      "extensions": [".py"]
+    }
+  },
+  "lsp": {
+    "ruff": {
+      "command": ["ruff", "server"],
+      "extensions": [".py"]
+    },
+    "ty": {
+      "command": ["ty", "server"],
+      "extensions": [".py"]
+    },
+    "vscode-json": {
+      "command": ["vscode-json-language-server"],
+      "extensions": [".json", ".jsonc", ".json5"]
+    },
+    "ansible": {
+      "command": ["ansible-language-server"],
+      "extensions": [".yaml", ".yml"]
+    },
+    "vscode-css": {
+      "command": ["vscode-css-language-server"],
+      "extensions": [".css", ".sass", ".scss", ".tcss"]
+    },
+    "vscode-html": {
+      "command": ["vscode-html-language-server"],
+      "extensions": [".html", "html5"]
+    },
+    "superhtml": {
+      "command": ["superhtml", "lsp"],
+      "extensions": [".html", "html5"]
+    },
+    "tombi": {
+      "command": ["tombi", "lsp"],
+      "extensions": [".toml"]
+    }
+  },
+  "mcp": {
+    "wezterm-mcp": {
+      "command": ["wezterm-mcp"],
+      "type": "local"
+    }
+  }
+}
