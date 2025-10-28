@@ -1,7 +1,6 @@
-#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/heads/master/src/rovr/config/schema.json
+#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.4.3.post2/src/rovr/config/schema.json
 
 [settings]
-cd_on_quit = true
 show_hidden_files = true
 
 [interface]

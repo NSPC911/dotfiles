@@ -125,11 +125,11 @@ function spf {
 
 ##### rovr Go To Last Dir #####
 function rovr {
-    & rovr.exe $args
-    $cd_path_file = "$env:LOCALAPPDATA/rovr/rovr_quit_cd_path"
-    if (Test-Path $cd_path_file) {
-        Set-Location -Path (Get-Content $cd_path_file)
-        Remove-Item $cd_path_file
+    $cwd_file = [System.IO.Path]::GetTempFileName()
+    & rovr.exe --cwd-file $cwd_file $args
+    if (Test-Path $cwd_file) {
+        Set-Location -Path (Get-Content $cwd_file)
+        Remove-Item $cwd_file
     }
 }
 
@@ -294,8 +294,12 @@ function fuzzy {
 
 ##### Other stuff #####
 Clear-Host
-fastfetch
-
+function fetch {
+    gitfetch --graph-only
+    Write-Host "`e[1A"
+    fastfetch
+}
+fetch
 if (Test-Path $prevloc) {
     $newloc = Get-Content $prevloc
     if ($newloc -ne $HOME) {
