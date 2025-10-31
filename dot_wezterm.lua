@@ -183,7 +183,8 @@ config.keys = {
 	{ key = "PageUp",   mods = "CTRL",       action = act.SendKey { key = "PageUp", mods = "CTRL" } },
 	{ key = "PageDown", mods = "CTRL",       action = act.SendKey { key = "PageDown", mods = "CTRL" } },
 	{ key = ".",        mods = "CTRL",       action = act.MoveTabRelative(1) },
-	{ key = ",",        mods = "CTRL",       action = act.MoveTabRelative(-1) }
+	{ key = ",",        mods = "CTRL",       action = act.MoveTabRelative(-1) },
+	{ key = "T",        mods = "CTRL|SHIFT", action = act.DisableDefaultAssignment }
 }
 
 -- colors

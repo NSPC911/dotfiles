@@ -253,8 +253,12 @@ function Get-FullHistory {
 
 ##### PS Plugins #####
 Write-Output "`e[HAdding Plugins...                        "
+# https://github.com/devblackops/Terminal-Icons
 Import-Module -Name Terminal-Icons
+# https://github.com/PowerShell/PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+# should be available if you installed scoop
+Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
 
 ##### chezmoi #####
 function chezcd { __zoxide_cd (chezmoi source-path) }
@@ -295,9 +299,9 @@ function fetch {
 }
 fetch
 if (Test-Path $prevloc) {
-    $newloc = Get-Content $prevloc
+    $newloc = Get-Content "$prevloc"
     if ($newloc -ne $HOME) {
-        Set-Location $newloc
+        Set-Location "$newloc"
         Write-Host -ForegroundColor DarkGray "`e[1AChanged directory to " -NoNewLine
         Write-Host -ForegroundColor DarkBlue (Get-Location | Select -Expand Path)
         Write-Host
