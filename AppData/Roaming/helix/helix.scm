@@ -1,0 +1,5 @@
+(require (prefix-in helix.static. "helix/static.scm"))
+(define (reload-init-scm)
+  (load (helix.static.get-init-scm-path)))
+(define (reload-helix-scm)
+  (eval `(require ,(helix.static.get-helix-scm-path))))

@@ -44,11 +44,5 @@
       "command": ["tombi", "lsp"],
       "extensions": [".toml"]
     }
-  },
-  "mcp": {
-    "wezterm-mcp": {
-      "command": ["wezterm-mcp"],
-      "type": "local"
-    }
   }
 }

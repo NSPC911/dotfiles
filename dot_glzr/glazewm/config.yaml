@@ -10,7 +10,7 @@ general:
   config_reload_commands: []
 
   # Whether to automatically focus windows underneath the cursor.
-  focus_follows_cursor: true
+  focus_follows_cursor: false
 
   # Whether to switch back and forth between the previously focused
   # workspace when focusing the current workspace.
@@ -74,10 +74,10 @@ window_effects:
 
     # Change the transparency of the window.
     transparency:
-      enabled: false
+      enabled: true
       # Can be something like '95%' or '0.95' for slightly transparent windows.
       # '0' or '0%' is fully transparent (and, by consequence, unfocusable).
-      opacity: "100%"
+      opacity: 0.95
 
   # Visual effects to apply to non-focused windows.
   other_windows:
@@ -90,8 +90,8 @@ window_effects:
       enabled: false
       style: "rounded"
     transparency:
-      enabled: false
-      opacity: "0%"
+      enabled: true
+      opacity: 0.95
 
 window_behavior:
   # New windows are created in this state whenever possible.
@@ -107,7 +107,7 @@ window_behavior:
       centered: true
 
       # Whether to show floating windows as always on top.
-      shown_on_top: false
+      shown_on_top: true
 
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
@@ -132,6 +132,9 @@ window_rules:
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
+
+      - window_title: { equals: "Environment Variables" }
+        window_process: { equals: "SystemPropertiesAdvanced" }
 
       # Ignore rules for various 3rd-party apps.
       - window_process: { equals: "PowerToys" }

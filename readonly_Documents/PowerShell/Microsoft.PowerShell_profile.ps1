@@ -173,47 +173,72 @@ function fzf {
 
 ##### Python Venv #####
 function pyvenv() {
-    if (Test-Path venv\Scripts) {
-        Write-Host "Using venv"
-        Write-Host "Activating virtual environment"
-        Write-Host " " -NoNewLine
-        Write-Host ".\venv\Scripts\Activate.ps1" -ForegroundColor Yellow
-        .\venv\Scripts\Activate.ps1
-    } elseif (-not (Test-Path .venv)) {
-        Write-Host "Creating new virtual environment"
-        Write-Host " " -NoNewLine
-        Write-Host "uv venv" -ForegroundColor Yellow
-        uv venv
-    }
-    if (Test-Path .venv\Scripts) {
-        Write-Host "Activating virtual environment"
-        Write-Host " " -NoNewLine
-        Write-Host ".\.venv\Scripts\Activate.ps1" -ForegroundColor Yellow
-        .\.venv\Scripts\Activate.ps1
-    }
-    Write-Host "Virtual Environment is active!"
-    if (Test-Path pyproject.toml) {
-        Write-Host "Installing packages with 'pyproject.toml'"
-        Write-Host " " -NoNewLine
-        Write-Host "uv sync --active" -ForegroundColor Yellow
-        uv sync --active
-    } elseif (Test-Path requirements.txt) {
-        Write-Host "Installing packages with 'requirements.txt'"
-        Write-Host " " -NoNewLine
-        Write-Host "uv pip install -r requirements.txt" -ForegroundColor Yellow
-        uv pip install -r requirements.txt
+    param(
+        [Parameter()]
+        [switch]$Poetry
+    )
+    if ($Poetry) {
+        if (Get-Command -Name "deactivate" -CommandType Function -ErrorAction SilentlyContinue) {
+            Write-Host "┌❯ Deactivating virtual environment"
+            Write-Host "└─ " -NoNewLine
+            Write-Host "deactivate" -ForegroundColor Yellow
+            deactivate
+        }
+        Write-Host "┌❯ Activating virtual environment"
+        Write-Host "└─ " -NoNewLine
+        Write-Host "poetry env activate | Invoke-Expression" -ForegroundColor Yellow
+        poetry env activate | Invoke-Expression
+        Write-Host "Virtual Environment is active!" -ForegroundColor Green
+        Write-Host "┌❯ Installing packages with 'pyproject.toml'"
+        Write-Host "└─ " -NoNewLine
+        Write-Host "poetry self sync" -ForegroundColor Yellow
+        poetry install
     } else {
-        Write-Host "There are no packages available to be synced"
-        Write-Host "Make sure to either " -NoNewLine
-        Write-Host "uv init --bare" -ForegroundColor Cyan -NoNewLine
-        Write-Host " or " -NoNewLine
-        Write-Host "touch requirements.txt" -ForegroundColor Cyan -NoNewLine
-        Write-Host "!"
+        if (Test-Path venv\Scripts) {
+            Write-Host "┌❯ Using " -NoNewLine
+            Write-Host "venv" -ForegroundColor Cyan
+            Write-Host "├❯ Activating virtual environment"
+            Write-Host "└─ " -NoNewLine
+            Write-Host ".\venv\Scripts\Activate.ps1" -ForegroundColor Yellow
+            .\venv\Scripts\Activate.ps1
+        } elseif (-not (Test-Path .venv)) {
+            Write-Host "┌❯ Creating new virtual environment"
+            Write-Host "└─ " -NoNewLine
+            Write-Host "uv venv" -ForegroundColor Yellow
+            uv venv
+        }
+        if (Test-Path .venv\Scripts) {
+            Write-Host "┌❯ Using " -NoNewLine
+            Write-Host ".venv" -ForegroundColor Cyan
+            Write-Host "├❯ Activating virtual environment"
+            Write-Host "└─ " -NoNewLine
+            Write-Host ".\.venv\Scripts\Activate.ps1" -ForegroundColor Yellow
+            .\.venv\Scripts\Activate.ps1
+        }
+        Write-Host "Virtual Environment is active!" -ForegroundColor Green
+        if (Test-Path pyproject.toml) {
+            Write-Host "┌❯ Installing packages with 'pyproject.toml'"
+            Write-Host "└─ " -NoNewLine
+            Write-Host "uv sync --active" -ForegroundColor Yellow
+            uv sync --active
+        } elseif (Test-Path requirements.txt) {
+            Write-Host "┌❯ Installing packages with 'requirements.txt'"
+            Write-Host "└─ " -NoNewLine
+            Write-Host "uv pip install -r requirements.txt" -ForegroundColor Yellow
+            uv pip install -r requirements.txt
+        } else {
+            Write-Host "┌❯ There are no packages available to be synced"
+            Write-Host "└❯ Make sure to either " -NoNewLine
+            Write-Host "uv init --bare" -ForegroundColor Cyan -NoNewLine
+            Write-Host " or " -NoNewLine
+            Write-Host "touch requirements.txt" -ForegroundColor Cyan -NoNewLine
+            Write-Host "!"
+        }
+        Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
     }
-    Write-Host "Virtual Environment has been synced!"
 }
 
-##### Pretty Print 'Invoke-Webrequest's #####
+##### Pretty Print 'CURL's #####
 function curlout {
     param(
         [Parameter(Position = 0)]
@@ -222,7 +247,7 @@ function curlout {
         [Parameter(Position = 1)]
         [string]$Lang
     )
-    Invoke-Expression "Invoke-WebRequest $Url | Select-Object -ExpandProperty Content | bat -l $Lang"
+    Invoke-RestMethod "Invoke-WebRequest $Url | bat -l $Lang"
 }
 
 ##### id like a sha256 please ######
@@ -243,6 +268,11 @@ function cwd {
     Get-Location | Select -Expand Path
 }
 
+##### nicer tree #####
+function tree {
+    eza -T --icons always --git-ignore
+}
+
 #### LazyGit #####
 Set-Alias -Name "lz" -Value "lazygit"
 
@@ -251,12 +281,18 @@ function Get-FullHistory {
     Get-Content (Get-PSReadlineOption).HistorySavePath | ? {$_ -like "*$find*"} | Get-Unique | fzf.exe
 }
 
+##### run something foreva!! #####
+function forever {
+    while ($true) { Invoke-Expression "$args" }
+}
+
 ##### PS Plugins #####
 Write-Output "`e[HAdding Plugins...                        "
 # https://github.com/devblackops/Terminal-Icons
 Import-Module -Name Terminal-Icons
 # https://github.com/PowerShell/PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
 # should be available if you installed scoop
 Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
 
@@ -269,7 +305,7 @@ function chezgit { chezmoi git $args }
 ##### fzf plugin (needs that one powershell plugin) #####
 function fuzzy {
     param(
-        [ValidateSet("edit", "git", "status", "kill", "nuke", "scoop", "install")]
+        [ValidateSet("edit", "git", "status", "kill", "nuke", "scoop", "install", "cd")]
         [string]$type,
         [Parameter(ValueFromRemainingArguments=$true)]
         [object[]]$extra
@@ -284,6 +320,8 @@ function fuzzy {
         Invoke-FuzzyKillProcess
     } elseif (($type -eq "scoop") -or ($type -eq "install")) {
         Invoke-FuzzyScoop
+    } elseif (($type -eq "cd")) {
+        Get-ChildItem . -Recurse | ? { $_.PSIsContainer } | Invoke-Fzf | Set-Location
     } else {
         Write-Error "Unknown operation $type. Allowed: edit, status, history, kill/nuke or scoop/install"
     }

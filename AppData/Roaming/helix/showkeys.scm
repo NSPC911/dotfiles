@@ -43,6 +43,12 @@
                      [(key-event-up? event) "<up>"]
                      [(key-event-down? event) "<down>"]
                      [(and char (equal? char #\space)) "<space>"]
+                     [(key-event-F? event 1) "F1"]
+                     [(key-event-F? event 2) "F2"]
+                     [(key-event-F? event 3) "F3"]
+                     [(key-event-F? event 4) "F4"]
+                     [(key-event-F? event 5) "F5"]
+                     [(key-event-F? event 6) "F6"]
                      [char (string char)]
                      [else #f])])
               (when key-name
