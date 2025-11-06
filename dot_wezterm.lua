@@ -46,7 +46,6 @@ tabline.setup({
 	},
 	extensions = {},
 })
-
 -- main config
 config.front_end = "WebGpu"
 config.webgpu_power_preference = "LowPower"

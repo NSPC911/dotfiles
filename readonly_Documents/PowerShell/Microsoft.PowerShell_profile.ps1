@@ -26,6 +26,9 @@ if ($shouldGenerate) {
     $completions += gh completion -s powershell
     $completions += gh copilot alias -- pwsh
 
+    Write-Output "`e[HSetting up pixi completions"
+    $completions += pixi completion --shell powershell
+
     Write-Output "`e[HSetting up tuios completions"
     $completions += tuios completion powershell
 
@@ -175,7 +178,9 @@ function fzf {
 function pyvenv() {
     param(
         [Parameter()]
-        [switch]$Poetry
+        [switch]$Poetry,
+        [Parameter()]
+        [switch]$AllGroups
     )
     if ($Poetry) {
         if (Get-Command -Name "deactivate" -CommandType Function -ErrorAction SilentlyContinue) {
@@ -192,7 +197,7 @@ function pyvenv() {
         Write-Host "┌❯ Installing packages with 'pyproject.toml'"
         Write-Host "└─ " -NoNewLine
         Write-Host "poetry self sync" -ForegroundColor Yellow
-        poetry install
+        poetry install --quiet
     } else {
         if (Test-Path venv\Scripts) {
             Write-Host "┌❯ Using " -NoNewLine
@@ -205,7 +210,7 @@ function pyvenv() {
             Write-Host "┌❯ Creating new virtual environment"
             Write-Host "└─ " -NoNewLine
             Write-Host "uv venv" -ForegroundColor Yellow
-            uv venv
+            uv venv --quiet
         }
         if (Test-Path .venv\Scripts) {
             Write-Host "┌❯ Using " -NoNewLine
@@ -219,13 +224,18 @@ function pyvenv() {
         if (Test-Path pyproject.toml) {
             Write-Host "┌❯ Installing packages with 'pyproject.toml'"
             Write-Host "└─ " -NoNewLine
-            Write-Host "uv sync --active" -ForegroundColor Yellow
-            uv sync --active
+            if ($AllGroups) {
+                Write-Host "uv sync --active --all-groups" -ForegroundColor Yellow
+                uv sync --active --all-groups --quiet
+            } else {
+                Write-Host "uv sync --active" -ForegroundColor Yellow
+                uv sync --active --quiet
+            }
         } elseif (Test-Path requirements.txt) {
             Write-Host "┌❯ Installing packages with 'requirements.txt'"
             Write-Host "└─ " -NoNewLine
             Write-Host "uv pip install -r requirements.txt" -ForegroundColor Yellow
-            uv pip install -r requirements.txt
+            uv pip install -r requirements.txt --quiet
         } else {
             Write-Host "┌❯ There are no packages available to be synced"
             Write-Host "└❯ Make sure to either " -NoNewLine
@@ -247,7 +257,7 @@ function curlout {
         [Parameter(Position = 1)]
         [string]$Lang
     )
-    Invoke-RestMethod "Invoke-WebRequest $Url | bat -l $Lang"
+    Invoke-RestMethod $Url | bat -l $Lang
 }
 
 ##### id like a sha256 please ######
