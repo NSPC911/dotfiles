@@ -1,4 +1,4 @@
-#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.4.3.post2/src/rovr/config/schema.json
+#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.5.0rc1/src/rovr/config/schema.json
 
 [settings]
 show_hidden_files = true
@@ -16,7 +16,7 @@ filesize_suffix   = "decimal"
 filesize_decimals = 2
 
 [keybinds]
-new = ["ctrl+n", "n"]
+new = ["n"]
 up = ["up", "i"]
 down = ["down", "k"]
 up_tree = ["left", "j"]

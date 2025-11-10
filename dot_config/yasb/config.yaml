@@ -62,7 +62,7 @@ bars:
       round_corners_type: "small"
       border_color: "System"
     window_flags:
-      always_on_top: true
+      always_on_top: false
       windows_app_bar: false
       hide_on_fullscreen: true
     dimensions:
@@ -168,11 +168,11 @@ widgets:
       gradient: 1
       reverse: 0
       foreground: "#88C0D0"
-      bars_number: 12
+      bars_number: 10
       gradient_color_1: "#8FBCBB"
       gradient_color_2: "#81A1C1"
       gradient_color_3: "#5E81AC"
-      bar_spacing: 7
+      bar_spacing: 5
       bar_width: 12
       sleep_timer: 1
       hide_empty: true

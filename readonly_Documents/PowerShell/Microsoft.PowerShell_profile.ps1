@@ -1,12 +1,7 @@
 Set-Location $HOME
 ##### Cache Completions #####
-$shouldGenerate = $false
 $cacheCompletionLocation = "$PROFILE/../completion-cache.ps1"
-if (-not (Test-Path $cacheCompletionLocation) -or (Get-Item $cacheCompletionLocation).LastWriteTime -lt (Get-Date).AddDays(-1)) {
-    $shouldGenerate = $true
-}
-
-if ($shouldGenerate) {
+function regenCache {
     Remove-Item $cacheCompletionLocation -ErrorAction Ignore
     New-Item -Path $cacheCompletionLocation -Force
     Clear-Host
@@ -81,6 +76,13 @@ if ($shouldGenerate) {
     $finalContent += $cleanedCompletions
 
     $finalContent -join "`n" | Out-File $cacheCompletionLocation -Encoding UTF8
+}
+if (-not (Test-Path $cacheCompletionLocation)) {
+    Write-Output "Creating cache..."
+    regenCache
+} elseif ((Get-Item $cacheCompletionLocation).LastWriteTime -lt (Get-Date).AddDays(-1)) {
+    Write-Output "Regenerating cache..."
+    Start-Process pwsh -Verb RunAs -ArgumentList "-Command regenCache" -WindowStyle Hidden
 } else {
     Write-Output "Using script cache..."
 }
@@ -180,7 +182,11 @@ function pyvenv() {
         [Parameter()]
         [switch]$Poetry,
         [Parameter()]
-        [switch]$AllGroups
+        [switch]$AllGroups,
+        [Parameter()]
+        [switch]$Upgrade,
+        [Parameter()]
+        [switch]$Update
     )
     if ($Poetry) {
         if (Get-Command -Name "deactivate" -CommandType Function -ErrorAction SilentlyContinue) {
@@ -197,7 +203,8 @@ function pyvenv() {
         Write-Host "┌❯ Installing packages with 'pyproject.toml'"
         Write-Host "└─ " -NoNewLine
         Write-Host "poetry self sync" -ForegroundColor Yellow
-        poetry install --quiet
+        poetry self sync --quiet
+        Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
     } else {
         if (Test-Path venv\Scripts) {
             Write-Host "┌❯ Using " -NoNewLine
@@ -224,12 +231,20 @@ function pyvenv() {
         if (Test-Path pyproject.toml) {
             Write-Host "┌❯ Installing packages with 'pyproject.toml'"
             Write-Host "└─ " -NoNewLine
+            $flags = ""
             if ($AllGroups) {
-                Write-Host "uv sync --active --all-groups" -ForegroundColor Yellow
-                uv sync --active --all-groups --quiet
-            } else {
-                Write-Host "uv sync --active" -ForegroundColor Yellow
+                $flags += "--all-groups "
+            }
+            if ($Update -or $Upgrade) {
+                $flags += "--upgrade "
+            }
+            $flags = $flags.Trim()
+            if ($flags -eq "") {
+                Write-Host "uv sync --active $flags" -ForegroundColor Yellow
                 uv sync --active --quiet
+            } else {
+                Write-Host "uv sync --active $flags" -ForegroundColor Yellow
+                uv sync --active $flags.Split() --quiet
             }
         } elseif (Test-Path requirements.txt) {
             Write-Host "┌❯ Installing packages with 'requirements.txt'"
@@ -322,9 +337,9 @@ function fuzzy {
     )
     if ($type -eq "edit") {
         hx (fzf)
-    } elseif ($type -eq "status") {
+    } elseif (($type -eq "status") -or ($type -eq "git")) {
         Invoke-FuzzyGitStatus
-    } elseif (($type -eq "history") -or ($type -eq "git")) {
+    } elseif (($type -eq "history")) {
         Invoke-FuzzyHistory
     } elseif (($type -eq "kill") -or ($type -eq "nuke")) {
         Invoke-FuzzyKillProcess
@@ -333,7 +348,7 @@ function fuzzy {
     } elseif (($type -eq "cd")) {
         Get-ChildItem . -Recurse | ? { $_.PSIsContainer } | Invoke-Fzf | Set-Location
     } else {
-        Write-Error "Unknown operation $type. Allowed: edit, status, history, kill/nuke or scoop/install"
+        Write-Error "Unknown operation $type. Allowed: edit, status/git, history, kill/nuke or scoop/install"
     }
 }
 
@@ -341,6 +356,13 @@ function fuzzy {
 ##### Other stuff #####
 Clear-Host
 function fetch {
+    param (
+        [Parameter()]
+        [Switch]$Clear
+    )
+    if ($Clear) {
+        Clear-Host
+    }
     gitfetch --graph-only
     Write-Host "`e[1A"
     fastfetch

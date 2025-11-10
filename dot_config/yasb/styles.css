@@ -659,5 +659,6 @@ QPushButton {
   margin: 0px 7px 4px 11px;
 }
 .task-bar .container-right {
-  margin-bottom: 2px
+  margin-bottom: 2px;
+  margin-right: -3px;
 }

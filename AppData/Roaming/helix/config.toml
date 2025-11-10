@@ -203,10 +203,12 @@ down = "no_op"
 [keys.normal."C-w".a]
 c = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode --continue"
 i = ":sh wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode"
+n = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode"
 
 [keys.select."C-w".a]
 c = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode --continue"
 i = ":sh wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode"
+n = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode"
 
 # new buffer or terminal tab
 [keys.normal."C-w".n]
@@ -383,9 +385,17 @@ i = "align_view_bottom"
 j = "extend_search_prev"
 k = "align_view_top"
 l = "extend_search_next"
-Z = "@<esc>"
+Z = "@<esc>Z"
 
 [keys.normal.Z]
+i = "scroll_up"
+j = ["search_prev", "align_view_center"]
+k = "scroll_down"
+l = ["search_next", "align_view_center"]
+I = ["scroll_up", "move_visual_line_up"]
+K = ["scroll_down", "move_visual_line_down"]
+z = "@<esc>"
+Z = "@<esc>"
 c = "no_op"
 t = "no_op"
 b = "no_op"
@@ -404,14 +414,16 @@ C-b = "no_op"
 C-f = "no_op"
 C-u = "no_op"
 C-d = "no_op"
-i = "scroll_up"
-j = ["search_prev", "align_view_center"]
-k = "scroll_down"
-l = ["search_next", "align_view_center"]
-z = "@<esc>"
-Z = "@<esc>"
 
 [keys.select.Z]
+i = "scroll_up"
+j = ["extend_search_prev", "align_view_center"]
+k = "scroll_down"
+l = ["extend_search_next", "align_view_center"]
+I = ["scroll_up", "move_visual_line_up"]
+K = ["scroll_down", "move_visual_line_down"]
+z = "@<esc>"
+Z = "@<esc>"
 c = "no_op"
 t = "no_op"
 b = "no_op"
@@ -426,12 +438,6 @@ N = "no_op"
 "space" = "no_op"
 "/" = "no_op"
 "?" = "no_op"
-i = "scroll_up"
-j = ["extend_search_prev", "align_view_center"]
-k = "scroll_down"
-l = ["extend_search_next", "align_view_center"]
-z = "@<esc>"
-Z = "@<esc>"
 
 [keys.select]
 i = "extend_visual_line_up"
