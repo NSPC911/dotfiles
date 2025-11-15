@@ -428,16 +428,16 @@ widgets:
   media-info:
     type: "yasb.media.MediaWidget"
     options:
-      label: " {title} "
-      label_alt: " {artist} "
+      label: " {title} - {artist} "
+      label_alt: " {title} - {artist} "
       hide_empty: true
       callbacks:
         on_left: "toggle_media_menu"
         on_right: "toggle_label"
         on_middle: "do_nothing"
       max_field_size:
-        label: 35
-        label_alt: 35
+        label: 100
+        label_alt: 100
       show_thumbnail: true
       controls_only: false
       controls_left: false

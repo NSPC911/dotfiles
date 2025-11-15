@@ -53,8 +53,8 @@
   "TimeFormat": "hh:mm tt",
   "DateFormat": "MM\u0027/\u0027dd ddd",
   "FirstLaunch": false,
-  "SettingWindowWidth": 1260,
-  "SettingWindowHeight": 704,
+  "SettingWindowWidth": 1900,
+  "SettingWindowHeight": 984,
   "SettingWindowTop": 40,
   "SettingWindowLeft": 12,
   "SettingWindowState": 0,
@@ -147,7 +147,7 @@
   "QuerySearchPrecision": "Regular",
   "AutoUpdates": false,
   "WindowLeft": 960,
-  "WindowTop": 277.5,
+  "WindowTop": 207.5,
   "PreviousScreenWidth": 0,
   "PreviousScreenHeight": 0,
   "PreviousDpiX": 0,
@@ -156,7 +156,7 @@
   "CustomWindowTop": 0,
   "KeepMaxResults": false,
   "MaxResultsToShow": 5,
-  "ActivateTimes": 211,
+  "ActivateTimes": 285,
   "CustomPluginHotkeys": [],
   "CustomShortcuts": [],
   "DontPromptUpdateMsg": false,
@@ -205,7 +205,7 @@
         "Name": "Calculator",
         "Version": "2.0.2",
         "ActionKeywords": [
-          "*"
+          "="
         ],
         "Priority": 0,
         "SearchDelayTime": null,

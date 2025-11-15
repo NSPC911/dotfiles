@@ -303,7 +303,7 @@ Set-Alias -Name "lz" -Value "lazygit"
 
 ##### Give me my full history man #####
 function Get-FullHistory {
-    Get-Content (Get-PSReadlineOption).HistorySavePath | ? {$_ -like "*$find*"} | Get-Unique | fzf.exe
+    Get-Content (Get-PSReadlineOption).HistorySavePath | ? {$_ -like "*$find*"} | Get-Unique
 }
 
 ##### run something foreva!! #####
@@ -371,10 +371,17 @@ fetch
 if (Test-Path $prevloc) {
     $newloc = Get-Content "$prevloc"
     if ($newloc -ne $HOME) {
-        Set-Location "$newloc"
-        Write-Host -ForegroundColor DarkGray "`e[1AChanged directory to " -NoNewLine
-        Write-Host -ForegroundColor DarkBlue (Get-Location | Select -Expand Path)
-        Write-Host
+        if (Test-Path $newloc) {
+            Set-Location "$newloc"
+            Write-Host -ForegroundColor DarkGray "`e[1AChanged directory to " -NoNewLine
+            Write-Host -ForegroundColor DarkBlue (Get-Location | Select -Expand Path)
+            Write-Host
+        } else {
+            Write-Host -ForegroundColor Red "`e[1AAttempted to navigate to " -NoNewLine
+            Write-Host -ForegroundColor Blue $newloc -NoNewLine
+            Write-Host -ForegroundColor Red " but it no longer exists now."
+            Write-Host
+        }
     }
 }
 # check for venv and deactivate

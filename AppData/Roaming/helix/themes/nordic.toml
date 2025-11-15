@@ -88,7 +88,7 @@
 "ui.cursorline.primary" = { bg = "black2" }
 # virtual stuff
 "ui.virtual.ruler" = { bg = "gray1" }
-"ui.virtual.indent-guide" = { fg = "gray8" }
+"ui.virtual.indent-guide" = { fg = "gray5" }
 "ui.virtual.inlay-hint" = { fg = "gray8", modifiers = ["dim"] }
 "ui.virtual.jump-label" = { fg = "cyan_base", modifiers = ["reversed"] }
 "ui.virtual.whitespace" = { fg = "gray4" }

@@ -68,6 +68,11 @@ args = ["lsp"]
 command = "tombi"
 args = ["lsp"]
 
+# requires: https://github.com/tamasfe/taplo
+[language-server.taplo]
+command = "taplo"
+args = ["lsp", "stdio"]
+
 # requires: https://github.com/zerootoad/discord-rpc-lsp
 [language-server.discord-rpc]
 command = "discord-rpc-lsp"
@@ -184,4 +189,4 @@ language-servers = [
 
 [[language]]
 name = "toml"
-language-servers = ["tombi", "discord-rpc"]
+language-servers = ["taplo", "discord-rpc"]

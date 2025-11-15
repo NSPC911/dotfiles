@@ -1,9 +1,10 @@
 hide-cursor-when-typing = false
-padding-x = 10
-padding-y = [5, -5]
+padding-x = 5
+padding-y = [10, 13]
 # env-vars = []
 confirm-before-quit = false
 working-dir = "C:/Users/notso"
+blur = true
 
 # [title]
 # placeholder = ""
@@ -16,8 +17,8 @@ args = []
 # width = 600
 # height = 400
 mode = "windowed"
+# opacity = 0.75
 opacity = 1
-# opacity = 1
 blur = false
 decorations = "Disabled"
 
@@ -31,19 +32,23 @@ filters = []
 [keyboard]
 use-kitty-keyboard-protocol = true
 [fonts]
-family = "CaskaydiaCove NFM"
+family = "0xProto Nerd Font Mono"
 features = ["cv12", "cv18", "calt"]
 use-drawable-characters = false
 size = 16
 [fonts.regular]
-family = "CaskaydiaCove NFM"
+family = "0xProto Nerd Font Mono"
+weight = 400
 [fonts.bold]
-family = "CaskaydiaCove NFM"
+family = "0xProto Nerd Font Mono"
+weight = 700
 [fonts.italic]
-family = "CaskaydiaCove NFM"
+family = "0xProto Nerd Font Mono"
 style = "Italic"
+weight = 400
 [fonts.bold-italic]
-family = "CaskaydiaCove NFM"
+family = "0xProto Nerd Font Mono"
+weight = 700
 
 [scroll]
 multiplier = 3.0
