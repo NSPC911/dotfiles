@@ -19,7 +19,6 @@ function regenCache {
 
     Write-Output "`e[HSetting up gh completions"
     $completions += gh completion -s powershell
-    $completions += gh copilot alias -- pwsh
 
     Write-Output "`e[HSetting up pixi completions"
     $completions += pixi completion --shell powershell
@@ -171,7 +170,7 @@ function touch {
 Set-Alias -Name extract -Value Expand-Archive
 
 ##### better fzf #####
-function fzf {
+function fz {
     & fzf.exe --border rounded --multi --separator "-" --input-border "rounded" --preview "bat --color always --number --theme Nord {}" --color "dark" --preview-border "rounded" $args
 }
 
@@ -350,6 +349,92 @@ function fuzzy {
     } else {
         Write-Error "Unknown operation $type. Allowed: edit, status/git, history, kill/nuke or scoop/install"
     }
+}
+
+##### posh print #####
+function posh-print {
+    (oh-my-posh print --config ~\.config\kushal.omp.json primary).Split("`n") | ForEach { Write-Host ; Write-Host $_ -NoNewLine }
+    Write-Host -ForegroundColor Yellow $args
+    Write-Host
+}
+
+##### gh copilot cli but qwen and local #####
+$model = "qwen2.5-coder:7b"
+function qs {
+    param(
+        [Parameter(Position = 0, ValueFromRemainingArguments = $true)]
+        [string]$Description
+    )
+
+    if (-not $Description) {
+        Write-Host "Usage: qs <description of what you want to do>" -ForegroundColor Red
+        return
+    }
+
+    $prompt = "You are a CLI assistant in a Windows environemnt with pwsh as the active shell. The user wants to: '$Description'. Respond with ONLY the raw pwsh command. Do not use markdown, code blocks or any formatting. Just output the plain command text."
+
+    $rawOutput = ollama run $model $prompt
+    $command = ($rawOutput | out-string).Trim()
+    Write-Host "╭❯ Suggested command:"
+    Write-Host "╰─ " -NoNewLine
+    $command.Split("`n") | ForEach { Write-Host "$_" -ForegroundColor Yellow }
+    do {
+        $choice = Read-Host "[R]un, [C]opy, [I]mprove, or [E]xit? (r/c/i/e)"
+        $choice = $choice.ToLower()
+
+        switch ($choice) {
+            {$_ -in "r", "run"} {
+                Write-Host "╭❯ Running command..."
+                Write-Host "╰─ " -NoNewLine
+                Write-Host "Invoke-Expression " -ForegroundColor Yellow -NoNewLine
+                Write-Host "$command"
+                Invoke-Expression "$command"
+                return
+            }
+            {$_ -in "c", "copy", "cp"} {
+                Write-Host " " -NoNewLine
+                Write-Host "Set-Clipboard " -ForegroundColor Yellow -NoNewLine
+                Write-Host "`"$command`"" -ForegroundColor Cyan
+                Set-Clipboard $command
+                Write-Host "Command copied to clipboard!" -ForegroundColor Green
+                return
+            }
+            {$_ -in "i", "improve"} {
+                Write-Host "╭❯ How should the command be improved?"
+                Write-Host "╰─ " -NoNewLine
+                $improvement = Microsoft.PowerShell.Utility\Read-Host
+                $improvePrompt = "Improve this PowerShell command: '$command'. User wants: '$improvement'. Respond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
+                $rawImproved = ollama run $model $improvePrompt
+                $command = ($rawImproved | Out-String).Trim()
+                Write-Host "╭❯ Improved command:"
+                Write-Host "╰─ " -NoNewLine
+                $command.Split("`n") | ForEach { Write-Host "$_" -ForegroundColor Yellow }
+            }
+            {$_ -in "e", "exit", "q", "quit"} {
+                Write-Host "Exited." -ForegroundColor Magenta
+                return
+            }
+            default {
+                Write-Host "Invalid choice. Please enter r, run, c, copy, cp, i, improve, e, exit, q, or quit." -ForegroundColor Red
+            }
+        }
+    } while ($choice -ne 'e')
+}
+
+function qe {
+    param(
+        [Parameter(Position = 0, ValueFromRemainingArguments = $true)]
+        [string]$Command
+    )
+    if (-not $Command) {
+        Write-Host "Usage: qe <command to explain>" -ForegroundColor Red
+        return
+    }
+    $prompt = "Explain this PowerShell command: '$Command'. Include what it does, any parameters, and provide examples if helpful. Be concise. Format your response using Markdown."
+    Write-Host "Explanation for: " -NoNewline -ForegroundColor Yellow
+    Write-Host $Command -ForegroundColor Cyan
+
+    ollama run $model $prompt | Out-String | rich --markdown -
 }
 
 

@@ -61,7 +61,7 @@ config.enable_kitty_keyboard = false
 config.font = wezterm.font("CaskaydiaCove NFM")
 config.custom_block_glyphs = false
 config.cell_width = 1
-config.window_background_opacity = 1 -- dont feel like using transparency rn
+config.window_background_opacity = 0.75
 config.prefer_egl = true
 config.font_size = 12.5
 
@@ -128,6 +128,10 @@ config.keys = {
 				overrides.window_background_opacity = 0.75
 			elseif overrides.window_background_opacity == 0.75 then
 				overrides.window_background_opacity = 0.5
+			elseif overrides.window_background_opacity == 0.5 then
+				overrides.window_background_opacity = 0.25
+			elseif overrides.window_background_opacity == 0.25 then
+				overrides.window_background_opacity = 0
 			else
 				overrides.window_background_opacity = 1.0
 			end
