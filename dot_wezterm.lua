@@ -2,50 +2,6 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
 
--- Plugins
-local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
-tabline.setup({
-	options = {
-		icons_enabled = true,
-		theme = 'nord',
-		tabs_enabled = true,
-	},
-	sections = {
-		tabline_a = { 'workspace' },
-		tabline_b = { 'datetime', 'battery' },
-		tabline_c = {},
-		section_separators = {
-			left = wezterm.nerdfonts.pl_left_hard_divider,
-			right = wezterm.nerdfonts.pl_right_hard_divider,
-		},
-		component_separators = {
-			left = wezterm.nerdfonts.pl_left_soft_divider,
-			right = wezterm.nerdfonts.pl_right_soft_divider,
-		},
-		tab_separators = {
-			left = wezterm.nerdfonts.pl_left_hard_divider,
-			right = wezterm.nerdfonts.pl_right_hard_divider,
-		},
-		tab_active = {
-			"index",
-			"|",
-			{
-				'process',
-				process_to_icon = {
-					['hx'] = { wezterm.nerdfonts.fa_dna, color = { fg = "cyan" } },
-					['pwsh'] = { wezterm.nerdfonts.dev_powershell, color = { fg = "darkblue" } }
-				}
-			}
-		},
-		tab_inactive = {
-			"(","index", "|", "tab",")"
-		},
-		tabline_x = {},
-		tabline_y = {},
-		tabline_z = {},
-	},
-	extensions = {},
-})
 -- main config
 config.automatically_reload_config = true
 
@@ -64,6 +20,11 @@ config.cell_width = 1
 config.window_background_opacity = 0.75
 config.prefer_egl = true
 config.font_size = 12.5
+
+config.window_decorations = "NONE | RESIZE"
+config.default_prog = { "pwsh.exe", "-NoLogo" }
+config.initial_cols = 80
+
 
 config.window_padding = {
 	left = 10,
@@ -217,8 +178,58 @@ config.colors = {
 	},
 }
 
-config.window_decorations = "NONE | RESIZE"
-config.default_prog = { "pwsh.exe", "-NoLogo" }
-config.initial_cols = 80
+-- Plugins
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+tabline.setup({
+	options = {
+		icons_enabled = true,
+		theme = 'nord',
+		tabs_enabled = true,
+		theme_overrides = {
+			normal_mode = { c = { bg = "rgba(46, 52, 64, 0)" } },
+			tab = {
+				active = { fg = '#2e3440', bg = '#81a1c1' },
+				inactive = { fg = '#eceff4', bg = 'rgba(46, 52, 64, 0)' },
+				inactive_hover = { fg = '#b48ead', bg = '#3b4252' },
+			}
+		},
+	},
+	sections = {
+		tabline_a = { 'workspace' },
+		tabline_b = {
+			'datetime',
+				'battery'
+		},
+		tabline_c = {},
+		tab_active = {
+			" [",
+			{
+				"index",
+				padding = 0
+			},
+			"]",
+			{
+				'process',
+				icons_enabled = false
+			}
+		},
+		tab_inactive = {
+			{ Background = { Color = '#2e3440' } },
+			" [",
+			{
+				"index",
+				padding = 0
+			},
+			"]",
+			{
+				'process',
+				icons_enabled = false
+			},
+		},
+		tabline_x = {},
+		tabline_y = {},
+		tabline_z = {},
+	},
+})
 
 return config

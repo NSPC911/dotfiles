@@ -659,6 +659,13 @@ QPushButton {
   margin: 0px 7px 4px 11px;
 }
 .task-bar .container-right {
-  margin-bottom: 2px;
-  margin-right: -3px;
+  margin-bottom: 5px;
+  margin-top: 1px;
+  overflow: hidden;
+  margin-right: 6px;
+}
+.cava-widget {
+  background-color: var(--main);
+  border-radius: 12px;
+  padding: 0
 }

@@ -292,10 +292,6 @@ function cwd {
     Get-Location | Select -Expand Path
 }
 
-##### nicer tree #####
-function tree {
-    eza -T --icons always --git-ignore
-}
 
 #### LazyGit #####
 Set-Alias -Name "lz" -Value "lazygit"
@@ -358,67 +354,118 @@ function posh-print {
     Write-Host
 }
 
-##### gh copilot cli but qwen and local #####
-$model = "qwen2.5-coder:7b"
+##### gh copilot cli but local #####
+$suggesterModel = "qwen2.5-coder:7b"
+$explainerModel = "qwen2.5-coder:3b"
 function qs {
     param(
         [Parameter(Position = 0, ValueFromRemainingArguments = $true)]
         [string]$Description
     )
 
+    Write-Host ""
+
     if (-not $Description) {
         Write-Host "Usage: qs <description of what you want to do>" -ForegroundColor Red
+        Write-Host ""
         return
     }
 
     $prompt = "You are a CLI assistant in a Windows environemnt with pwsh as the active shell. The user wants to: '$Description'. Respond with ONLY the raw pwsh command. Do not use markdown, code blocks or any formatting. Just output the plain command text."
 
-    $rawOutput = ollama run $model $prompt
+    $rawOutput = ollama run $suggesterModel $prompt
     $command = ($rawOutput | out-string).Trim()
-    Write-Host "╭❯ Suggested command:"
-    Write-Host "╰─ " -NoNewLine
-    $command.Split("`n") | ForEach { Write-Host "$_" -ForegroundColor Yellow }
-    do {
-        $choice = Read-Host "[R]un, [C]opy, [I]mprove, or [E]xit? (r/c/i/e)"
-        $choice = $choice.ToLower()
+    Write-Host "╭─ Suggested command:"
+    Write-Host "│"
+    Write-Host "·  " -NoNewLine
+    $command | bat --language Powershell --plain
+    Write-Host "│"
+    $options = @("Run", "Copy", "Improve", "Quit")
+    $selectedIndex = 0
 
-        switch ($choice) {
-            {$_ -in "r", "run"} {
-                Write-Host "╭❯ Running command..."
-                Write-Host "╰─ " -NoNewLine
-                Write-Host "Invoke-Expression " -ForegroundColor Yellow -NoNewLine
-                Write-Host "$command"
-                Invoke-Expression "$command"
-                return
+    do {
+        # claude sonnet helped do this part, pretty cool imo
+        Write-Host "╰❯ " -NoNewLine
+        for ($i = 0; $i -lt $options.Count; $i++) {
+            if ($i -eq $selectedIndex) { Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -ForegroundColor DarkGray -BackgroundColor Cyan -NoNewLine }
+            else { Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -NoNewLine }
+        }
+        Write-Host "`e[?25l`n"
+        $key = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+        Write-Host "`e[?25h`e[2F`e[2K" -NoNewLine
+        $shouldExecute = $false
+        switch ($key.VirtualKeyCode) {
+            # Left arrow
+            37 { $selectedIndex = ($selectedIndex - 1 + $options.Count) % $options.Count }
+            # Right arrow
+            39 { $selectedIndex = ($selectedIndex + 1) % $options.Count }
+            # Enter key
+            13 { $shouldExecute = $true }
+            # R key
+            82 { $selectedIndex = 0; $shouldExecute = $true }
+            # C key
+            67 { $selectedIndex = 1; $shouldExecute = $true }
+            # I key
+            73 { $selectedIndex = 2; $shouldExecute = $true }
+            # Q key
+            81 { $selectedIndex = 3; $shouldExecute = $true }
+        }
+
+        if ($shouldExecute) {
+            Write-Host "├─ " -NoNewLine
+            for ($i = 0; $i -lt $options.Count; $i++) {
+                if ($i -eq $selectedIndex) {
+                    Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -ForegroundColor DarkGray -BackgroundColor Cyan -NoNewLine
+                } else {
+                    Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -NoNewLine
+                }
             }
-            {$_ -in "c", "copy", "cp"} {
-                Write-Host " " -NoNewLine
-                Write-Host "Set-Clipboard " -ForegroundColor Yellow -NoNewLine
-                Write-Host "`"$command`"" -ForegroundColor Cyan
-                Set-Clipboard $command
-                Write-Host "Command copied to clipboard!" -ForegroundColor Green
-                return
-            }
-            {$_ -in "i", "improve"} {
-                Write-Host "╭❯ How should the command be improved?"
-                Write-Host "╰─ " -NoNewLine
-                $improvement = Microsoft.PowerShell.Utility\Read-Host
-                $improvePrompt = "Improve this PowerShell command: '$command'. User wants: '$improvement'. Respond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
-                $rawImproved = ollama run $model $improvePrompt
-                $command = ($rawImproved | Out-String).Trim()
-                Write-Host "╭❯ Improved command:"
-                Write-Host "╰─ " -NoNewLine
-                $command.Split("`n") | ForEach { Write-Host "$_" -ForegroundColor Yellow }
-            }
-            {$_ -in "e", "exit", "q", "quit"} {
-                Write-Host "Exited." -ForegroundColor Magenta
-                return
-            }
-            default {
-                Write-Host "Invalid choice. Please enter r, run, c, copy, cp, i, improve, e, exit, q, or quit." -ForegroundColor Red
+            Write-Host ""
+            Write-Host "│"
+            # after this part is just me
+
+            switch ($selectedIndex) {
+                0 {
+                    Write-Host "├─ Running command..."
+                    Write-Host "│"
+                    Write-Host "╰── " -NoNewLine
+                    "Invoke-Expression `'$command`'" | bat --language Powershell --plain
+                    Invoke-Expression "$command"
+                    return
+                }
+                1 {
+                    Write-Host "·  " -NoNewLine
+                    "Set-Clipboard `'$command`'" | bat --language Powershell --plain
+                    Set-Clipboard "$command"
+                    Write-Host "│"
+                    Write-Host "╰─ Command copied to clipboard!" -ForegroundColor Green
+                    Write-Host ""
+                    return
+                }
+                2 {
+                    Write-Host "├─ How should the command be improved?"
+                    Write-Host "╰─❯ " -NoNewLine
+                    $improvement = Microsoft.PowerShell.Utility\Read-Host
+                    Write-Host "`e[2F├─ How should the command be improved?" -ForegroundColor Green
+                    Write-Host "╰── $improvement  " -ForegroundColor Green
+                    $improvePrompt = "Improve this PowerShell command: '$command'. User wants: '$improvement'. Respond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
+                    $rawImproved = ollama run $suggesterModel $improvePrompt
+                    $command = ($rawImproved | Out-String).Trim()
+                    Write-Host "╭─ Improved command:"
+                    Write-Host "│"
+                    Write-Host "·  " -NoNewLine
+                    $command | bat --language Powershell --plain
+                    Write-Host "│"
+                    $selectedIndex = 0
+                }
+                3 {
+                    Write-Host "╰─ Exited." -ForegroundColor Magenta
+                    Write-Host ""
+                    return
+                }
             }
         }
-    } while ($choice -ne 'e')
+    } while ($true)
 }
 
 function qe {
@@ -431,10 +478,12 @@ function qe {
         return
     }
     $prompt = "Explain this PowerShell command: '$Command'. Include what it does, any parameters, and provide examples if helpful. Be concise. Format your response using Markdown."
-    Write-Host "Explanation for: " -NoNewline -ForegroundColor Yellow
-    Write-Host $Command -ForegroundColor Cyan
 
-    ollama run $model $prompt | Out-String | rich --markdown -
+    Write-Host " Querying...`e[1A"
+    $output = ollama run $explainerModel $prompt | Out-String
+    Write-Host "Rendering...`e[1A" -ForegroundColor Yellow
+    $maxWidth = [int]($Host.UI.RawUI.WindowSize.Width - 8)
+    $output | rich --markdown --panel rounded --expand --guides --hyperlinks --caption "Using [cyan]$explainerModel[/]" --width $maxWidth --center -
 }
 
 

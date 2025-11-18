@@ -36,6 +36,9 @@ global:
       - type: Spiral
         duration: 3750
         easing: Linear
+      # - type: Fade
+      #   duration: 2500
+      #   easing: Linear
 
     inactive:
       # - type: Spiral
