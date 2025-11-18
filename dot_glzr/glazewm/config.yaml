@@ -153,132 +153,118 @@ window_rules:
       - window_process: { equals: "keyviz" }
 
 binding_modes:
-  # When enabled, the focused window can be resized via arrow keys or HJKL.
-  - name: "resize"
-    keybindings:
-      - commands: ["resize --width -2%"]
-        bindings: ["left"]
-      - commands: ["resize --width +2%"]
-        bindings: ["right"]
-      - commands: ["resize --height +2%"]
-        bindings: ["up"]
-      - commands: ["resize --height -2%"]
-        bindings: ["down"]
-      # Press enter/escape to return to default keybindings.
-      - commands: ["wm-disable-binding-mode --name resize"]
-        bindings: ["alt+r"]
 
 keybindings:
   # Shift focus in a given direction.
   - commands: ["focus --direction left"]
-    bindings: ["alt+left"]
+    bindings: ["lwin+left", "ralt+left"]
   - commands: ["focus --direction right"]
-    bindings: ["alt+right"]
+    bindings: ["lwin+right", "ralt+right"]
   - commands: ["focus --direction up"]
-    bindings: ["alt+up"]
+    bindings: ["lwin+up", "ralt+up"]
   - commands: ["focus --direction down"]
-    bindings: ["alt+down"]
+    bindings: ["lwin+down", "ralt+down"]
 
   # Move focused window in a given direction.
   - commands: ["move --direction left", "wm-redraw"]
-    bindings: ["alt+shift+left"]
+    bindings: ["lwin+shift+left", "ralt+shift+left"]
   - commands: ["move --direction right", "wm-redraw"]
-    bindings: ["alt+shift+right"]
+    bindings: ["lwin+shift+right", "ralt+shift+right"]
   - commands: ["move --direction up", "wm-redraw"]
-    bindings: ["alt+shift+up"]
+    bindings: ["lwin+shift+up", "ralt+shift+up"]
   - commands: ["move --direction down", "wm-redraw"]
-    bindings: ["alt+shift+down"]
+    bindings: ["lwin+shift+down", "ralt+shift+down"]
 
   # Resize focused window by a percentage or pixel amount.
   - commands: ["resize --width -5%", "wm-redraw"]
-    bindings: ["alt+oem_minus"]
+    bindings: ["lwin+oem_minus", "ralt+oem_minus"]
   - commands: ["resize --width +5%", "wm-redraw"]
-    bindings: ["alt+oem_plus"]
+    bindings: ["lwin+oem_plus", "ralt+oem_plus"]
   - commands: ["resize --height -5%", "wm-redraw"]
-    bindings: ["alt+shift+oem_minus"]
+    bindings: ["lwin+shift+oem_minus", "ralt+shift+oem_minus"]
   - commands: ["resize --height +5%", "wm-redraw"]
-    bindings: ["alt+shift+oem_plus"]
+    bindings: ["lwin+shift+oem_plus", "ralt+shift+oem_plus"]
 
-  # As an alternative to the resize keybindings above, resize mode enables
-  # resizing via arrow keys or HJKL. The binding mode is defined above with
-  # the name 'resize'.
-  - commands: ["wm-enable-binding-mode --name resize"]
-    bindings: ["alt+r"]
-
-  # Disables window management and all other keybindings until alt+shift+p
-  # is pressed again.
+  # Disables window management and all other keybindings until lwin+shift+, ralt# is pressed again.
   # - commands: ['wm-toggle-pause']
-  #   bindings: ['alt+shift+p']
+  #   bindings: ['lwin+shift+p', 'ralt+shift+p']
 
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
   - commands: ["toggle-tiling-direction"]
-    bindings: ["alt+v"]
+    bindings: ["lwin+shift+v", "ralt+v"]
 
   # Change focus from tiling windows -> floating -> fullscreen.
   - commands: ["wm-cycle-focus", "wm-redraw"]
-    bindings: ["alt+oem_close_brackets", "alt+oem_open_brackets"]
+    bindings: ["lwin+oem_close_brackets", "lwin+oem_open_brackets", "ralt+oem_close_brackets", "lwin+oem_open_brackets"]
 
   # Change the focused window to be floating.
   - commands: ["toggle-floating", "wm-redraw"]
-    bindings: ["alt+t"]
+    bindings: ["lwin+t", "ralt+t"]
 
   # Change the focused window to be fullscreen.
   - commands: ["toggle-fullscreen", "wm-redraw"]
-    bindings: ["alt+f"]
+    bindings: ["lwin+f", "ralt+f"]
 
   # Minimize focused window.
   - commands: ["toggle-minimized", "wm-redraw"]
-    bindings: ["alt+m"]
+    bindings: ["lwin+m", "ralt+m"]
 
   # Close focused window.
   - commands: ["close", "wm-redraw"]
-    bindings: ["alt+w"]
+    bindings: ["lwin+w", "ralt+w"]
 
   # Re-evaluate configuration file.
   - commands: ["wm-reload-config", "wm-redraw"]
-    bindings: ["ctrl+alt+shift+r"]
+    bindings: ["ctrl+lwin+shift+r", "ralt+lwin+shift+r"]
 
   # Redraw all windows and force the active window to tile.
   - commands: ["set-tiling", "wm-redraw"]
-    bindings: ["alt+shift+r"]
+    bindings: ["lwin+shift+r", "ralt+shift+r"]
 
   # Focus the next/previous active defined in `workspaces` config.
   - commands: ["focus --next-workspace", "wm-redraw"]
-    bindings: ["alt+oem_period"]
+    bindings: ["lwin+oem_period", "ralt+oem_period"]
   - commands: ["focus --prev-workspace", "wm-redraw"]
-    bindings: ["alt+oem_comma"]
+    bindings: ["lwin+oem_comma", "ralt+oem_comma"]
 
   # Move window into next/previous workspace
   - commands: ["move --next-workspace", "focus --next-workspace", "wm-redraw"]
-    bindings: ["alt+shift+oem_period"]
+    bindings: ["lwin+shift+oem_period", "ralt+shift+oem_period"]
   - commands: ["move --prev-workspace", "focus --prev-workspace", "wm-redraw"]
-    bindings: ["alt+shift+oem_comma"]
+    bindings: ["lwin+shift+oem_comma", "ralt+shift+oem_comma"]
 
   # Focus the workspace that last had focus.
   - commands: ["focus --recent-workspace"]
-    bindings: ["alt+d"]
+    bindings: ["lwin+d", "ralt+d"]
 
   # Change focus to a workspace defined in `workspaces` config.
   - commands: ["focus --workspace 1", "wm-redraw"]
-    bindings: ["alt+1"]
+    bindings: ["lwin+1", "ralt+1"]
   - commands: ["focus --workspace 2", "wm-redraw"]
-    bindings: ["alt+2"]
+    bindings: ["lwin+2", "ralt+2"]
   - commands: ["focus --workspace 3", "wm-redraw"]
-    bindings: ["alt+3"]
+    bindings: ["lwin+3", "ralt+3"]
   - commands: ["focus --workspace 4", "wm-redraw"]
-    bindings: ["alt+4"]
+    bindings: ["lwin+4", "ralt+4"]
   - commands: ["focus --workspace 5", "wm-redraw"]
-    bindings: ["alt+5"]
+    bindings: ["lwin+5", "ralt+5"]
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ["move --workspace 1", "focus --workspace 1", "wm-redraw"]
-    bindings: ["alt+shift+1"]
+    bindings: ["lwin+shift+1", "ralt+shift+1"]
   - commands: ["move --workspace 2", "focus --workspace 2", "wm-redraw"]
-    bindings: ["alt+shift+2"]
+    bindings: ["lwin+shift+2", "ralt+shift+2"]
   - commands: ["move --workspace 3", "focus --workspace 3", "wm-redraw"]
-    bindings: ["alt+shift+3"]
+    bindings: ["lwin+shift+3", "ralt+shift+3"]
   - commands: ["move --workspace 4", "focus --workspace 4", "wm-redraw"]
-    bindings: ["alt+shift+4"]
+    bindings: ["lwin+shift+4", "ralt+shift+4"]
   - commands: ["move --workspace 5", "focus --workspace 5", "wm-redraw"]
-    bindings: ["alt+shift+5"]
+    bindings: ["lwin+shift+5", "ralt+shift+5"]
+
+  # shell commands
+  - commands: ["shell-exec flow"]
+    bindings: ["lwin+space"]
+
+  - commands: ["shell-exec --hide-window yasbc_dev toggle-widget launchpad --follow-mouse"]
+    bindings: ["lwin+s"]

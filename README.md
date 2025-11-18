@@ -75,3 +75,34 @@ Generally I switch between 3 options (screenshots from steam!)
 | File Explorer (TUI) | [superfile](https://github.com/yorukot/superfile)   | `AppData/Local/superfile/`                                         |
 | File Explorer (GUI) | [OneCommanger](https://www.onecommander.com)        | `readonly_scoop/persist/onecommander/Settings/OneCommanderV3.json` |
 | Hotkey Daemon       | [whkd](https://github.com/LGUG2Z/whkd)              | `dot_config/whkdrc`                                                |
+
+### Stats
+<!--tokei --sort lines-->
+```shell
+===============================================================================
+ Language            Files        Lines         Code     Comments       Blanks
+===============================================================================
+ JSON                   41         5296         5295            0            1
+ TOML                    9         1548         1305          145           98
+ YAML                    4          971          821           75           75
+ CSS                     2          872          737           26          109
+ INI                     1          687          170          414          103
+ PowerShell              1          547          450           37           60
+ Lua                     1          235          216            6           13
+ Scheme                  4          213          184            1           28
+-------------------------------------------------------------------------------
+ Markdown                2          101            0           79           22
+ |- Shell                1           18           18            0            0
+ (Total)                            119           18           79           22
+===============================================================================
+ Total                  65        10470         9178          783          509
+===============================================================================
+```
+
+<p align="center">
+  <picture>
+    <source srcset="https://raw.githubusercontent.com/nordtheme/assets/main/static/images/elements/separators/iceberg/footer/dark/spaced.svg?sanitize=true" width="100%" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
+    <source srcset="https://raw.githubusercontent.com/nordtheme/assets/main/static/images/elements/separators/iceberg/footer/light/spaced.svg?sanitize=true" width="100%" media="(prefers-color-scheme: dark)" />
+    <img src="https://raw.githubusercontent.com/nordtheme/assets/main/static/images/elements/separators/iceberg/footer/dark/spaced.svg?sanitize=true" width="100%" />
+  </picture>
+</p>

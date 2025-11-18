@@ -331,7 +331,7 @@ function fuzzy {
         [object[]]$extra
     )
     if ($type -eq "edit") {
-        hx (fzf)
+        hx (fz)
     } elseif (($type -eq "status") -or ($type -eq "git")) {
         Invoke-FuzzyGitStatus
     } elseif (($type -eq "history")) {
@@ -375,12 +375,12 @@ function qs {
 
     $rawOutput = ollama run $suggesterModel $prompt
     $command = ($rawOutput | out-string).Trim()
-    Write-Host "╭─ Suggested command:"
+    Write-Host "`e[1G╭─ Suggested command:"
     Write-Host "│"
     Write-Host "·  " -NoNewLine
     $command | bat --language Powershell --plain
     Write-Host "│"
-    $options = @("Run", "Copy", "Improve", "Quit")
+    $options = @("Run", "Copy", "Edit", "Improve", "Quit")
     $selectedIndex = 0
 
     do {
@@ -401,14 +401,16 @@ function qs {
             39 { $selectedIndex = ($selectedIndex + 1) % $options.Count }
             # Enter key
             13 { $shouldExecute = $true }
-            # R key
-            82 { $selectedIndex = 0; $shouldExecute = $true }
             # C key
             67 { $selectedIndex = 1; $shouldExecute = $true }
+            # E key
+            69 { $selectedIndex = 2; $shouldExecute = $true }
             # I key
-            73 { $selectedIndex = 2; $shouldExecute = $true }
+            73 { $selectedIndex = 3; $shouldExecute = $true }
             # Q key
-            81 { $selectedIndex = 3; $shouldExecute = $true }
+            81 { $selectedIndex = 4; $shouldExecute = $true }
+            # R key
+            82 { $selectedIndex = 0; $shouldExecute = $true }
         }
 
         if ($shouldExecute) {
@@ -429,13 +431,13 @@ function qs {
                     Write-Host "├─ Running command..."
                     Write-Host "│"
                     Write-Host "╰── " -NoNewLine
-                    "Invoke-Expression `'$command`'" | bat --language Powershell --plain
+                    'Invoke-Expression "$command"' | bat --language Powershell --plain
                     Invoke-Expression "$command"
+                    Write-Host ""
                     return
                 }
                 1 {
-                    Write-Host "·  " -NoNewLine
-                    "Set-Clipboard `'$command`'" | bat --language Powershell --plain
+                    Write-Host "·  $('Set-Clipboard `"$command`"' | bat --language Powershell --plain)"
                     Set-Clipboard "$command"
                     Write-Host "│"
                     Write-Host "╰─ Command copied to clipboard!" -ForegroundColor Green
@@ -443,6 +445,25 @@ function qs {
                     return
                 }
                 2 {
+                    Write-Host "·  $('$editThis = New-TemporaryFile' | bat --language Powershell --plain --force-colorization)"
+                    $editThis = New-TemporaryFile
+                    Write-Host "·  $('$editThis = Rename-Item -Path $editThis.FullName -NewName ($editThis.BaseName + ".ps1") -PassThru' | bat --language Powershell --plain --force-colorization)"
+                    $editThis = Rename-Item -Path $editThis.FullName -NewName ($editThis.BaseName + ".ps1") -PassThru
+                    Write-Host "·  $('$command | Out-File $editThis' | bat --language Powershell --plain --force-colorization)"
+                    "$command" | Out-File $editThis
+                    Write-Host "·  $('& $env:EDITOR $editThis' | bat --language Powershell --plain --force-colorization)"
+                    & $env:EDITOR $editThis
+                    Write-Host "·  $('$command = (Get-Content $editThis)' | bat --language Powershell --plain --force-colorization)"
+                    $command = (Get-Content $editThis)
+                    Write-Host "·  $('Remove-Item $editThis -ErrorAction SilentlyContinue -Force' | bat --language Powershell --plain --force-colorization)"
+                    Remove-Item $editThis -ErrorAction SilentlyContinue -Force
+                    Write-Host "│"
+                    Write-Host "├─ Modified command:"
+                    Write-Host "│"
+                    Write-Host "·  $($command | bat --language Powershell --plain --force-colorization)"
+                    Write-Host "│"
+                }
+                3 {
                     Write-Host "├─ How should the command be improved?"
                     Write-Host "╰─❯ " -NoNewLine
                     $improvement = Microsoft.PowerShell.Utility\Read-Host
@@ -451,14 +472,14 @@ function qs {
                     $improvePrompt = "Improve this PowerShell command: '$command'. User wants: '$improvement'. Respond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
                     $rawImproved = ollama run $suggesterModel $improvePrompt
                     $command = ($rawImproved | Out-String).Trim()
-                    Write-Host "╭─ Improved command:"
+                    Write-Host "`e[1G╭─ Improved command:"
                     Write-Host "│"
                     Write-Host "·  " -NoNewLine
                     $command | bat --language Powershell --plain
                     Write-Host "│"
                     $selectedIndex = 0
                 }
-                3 {
+                4 {
                     Write-Host "╰─ Exited." -ForegroundColor Magenta
                     Write-Host ""
                     return
@@ -473,6 +494,7 @@ function qe {
         [Parameter(Position = 0, ValueFromRemainingArguments = $true)]
         [string]$Command
     )
+    Write-Host ""
     if (-not $Command) {
         Write-Host "Usage: qe <command to explain>" -ForegroundColor Red
         return
@@ -484,6 +506,7 @@ function qe {
     Write-Host "Rendering...`e[1A" -ForegroundColor Yellow
     $maxWidth = [int]($Host.UI.RawUI.WindowSize.Width - 8)
     $output | rich --markdown --panel rounded --expand --guides --hyperlinks --caption "Using [cyan]$explainerModel[/]" --width $maxWidth --center -
+    Write-Host ""
 }
 
 

@@ -81,9 +81,13 @@ command = "discord-rpc-lsp"
 command = "codebook-lsp"
 args = ["serve"]
 
+[language-server.helix-gpt]
+command = "helix-gpt"
+
 [[language]]
 name = "python"
 language-servers = [
+  "helix-gpt"
   "discord-rpc",
   "codebook",
   { name = "pyright", except-features = [
@@ -92,7 +96,6 @@ language-servers = [
     "goto-reference",
     "goto-implementation",
   ] },
-  "ruff",
   { name = "ty", except-features = [
     "format",
     "goto-definition",
@@ -105,7 +108,8 @@ language-servers = [
     "document-symbols",
     "workspace-symbols",
     "rename-symbol",
-  ] }
+  ] },
+  "ruff",
 ]
 auto-format = true
 
@@ -114,6 +118,7 @@ name = "scss"
 file-types = ["scss", "tcss"]
 injection-regex = "(t|s)?css"
 language-servers = [
+  "helix-gpt"
   "discord-rpc",
   "vscode-css-language-server",
 ]
@@ -121,6 +126,7 @@ language-servers = [
 [[language]]
 name = "scheme"
 language-servers = [
+  "helix-gpt"
   "discord-rpc",
   "steel",
 ]
@@ -129,6 +135,7 @@ language-servers = [
 name = "json"
 formatter = { command = "prettierd", args = [".json"] }
 language-servers = [
+  "helix-gpt"
   "discord-rpc",
   "vscode-json-language-server",
 ]
@@ -138,6 +145,7 @@ auto-format = true
 name = "javascript"
 formatter = { command = "pretterd", args = [".js"] }
 language-servers = [
+  "helix-gpt"
   "discord-rpc",
   "typescript-language-server",
 ]
@@ -147,6 +155,7 @@ auto-format = true
 name = "jsonc"
 formatter = { command = "prettierd", args = [".jsonc"] }
 language-servers = [
+  "helix-gpt"
   "discord-rpc",
   "vscode-json-language-server",
 ]
@@ -156,8 +165,9 @@ auto-format = true
 name = "yaml"
 formatter = { command = "prettierd", args = [".yaml"] }
 language-servers = [
-  "ansible-language-server",
+  "helix-gpt"
   "discord-rpc",
+  "ansible-language-server",
   "yaml-language-server",
 ]
 
@@ -165,6 +175,7 @@ language-servers = [
 name = "css"
 formatter = { command = "prettierd", args = [".css"] }
 language-servers = [
+  "helix-gpt"
   "discord-rpc",
   "vscode-css-language-server",
 ]
@@ -172,16 +183,18 @@ language-servers = [
 [[language]]
 name = "markdown"
 language-servers = [
+  "helix-gpt"
   "discord-rpc",
   "codebook",
-  "markdown-oxide",
   "marksman",
+  "markdown-oxide",
 ]
 formatter = { command = "prettierd", args = [".md"] }
 
 [[language]]
 name = "typst"
 language-servers = [
+  "helix-gpt"
   "discord-rpc",
   "codebook",
   "tinymist",
@@ -189,4 +202,8 @@ language-servers = [
 
 [[language]]
 name = "toml"
-language-servers = ["taplo", "discord-rpc"]
+language-servers = [
+  "helix-gpt",
+  "discord-rpc",
+  "tombi",
+]

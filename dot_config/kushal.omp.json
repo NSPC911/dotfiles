@@ -190,6 +190,10 @@
     }
   ],
   "osc99": true,
+  "async": false,
+  "shell_integration": true,
+  "patch_pwsh_bleed": true,
+  "final_space": false,
   "transient_prompt": {
     "background": "transparent",
     "foreground": "#FEF5ED",
