@@ -600,7 +600,10 @@ QPushButton {
   color: var(--nord-cyan-base);
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 72px;
+  padding: 10px;
+  background-color: var(--nord-gray0);
+  margin: 0 425px 100px 425px;
+  border-radius: 17px;
 }
 
 .volume-widget {

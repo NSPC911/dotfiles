@@ -357,8 +357,8 @@ widgets:
         round_corners_type: "normal"
         border_color: "system"
       window_animation:
-        fade_in_duration: 0
-        fade_out_duration: 0
+        fade_in_duration: 125
+        fade_out_duration: 125
       callbacks:
         on_left: "toggle_launchpad"
       app_title_shadow:
@@ -500,9 +500,9 @@ widgets:
     options:
       label: "\u23fb"
       uptime: True
-      blur: False
+      blur: True
       blur_background: True
-      animation_duration: 0
+      animation_duration: 125
       button_row: 5
       buttons:
         shutdown: ["\u23fb", "Shut Down"]

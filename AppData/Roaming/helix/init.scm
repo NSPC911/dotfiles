@@ -2,4 +2,5 @@
 (require "scooter/scooter.scm")
 (require "./showkeys.scm")
 (require "./flash.scm")
+; (require "steel-pty/term.scm")
 (showkeys-toggle)

@@ -124,6 +124,10 @@ workspaces:
   - name: "5"
 
 window_rules:
+  - commands: ["toggle-floating"]
+    match:
+      - window_process: { equals: "SnippingTool" }
+
   - commands: ["ignore"]
     match:
       # Ignores any Zebar windows.
@@ -268,3 +272,5 @@ keybindings:
 
   - commands: ["shell-exec --hide-window yasbc_dev toggle-widget launchpad --follow-mouse"]
     bindings: ["lwin+s"]
+  - commands: ["shell-exec --hide-window yasbc_dev toggle-widget powermenu --follow-mouse"]
+    bindings: ["lwin+shift+l"]
