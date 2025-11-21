@@ -29,7 +29,6 @@ My Windows 11 config files, Nord ~~+ Translucency~~
 | Editor                | [helix](https://github.com/helix-editor/helix) [(custom built)](https://github.com/NSPC911-forks/helix/tree/patchy) | `AppData/Roaming/helix/`                                                  |
 | File Explorer (TUI)   | [rovr](https://github.com/NSPC911/rovr)                                                                             | `AppData/Local/rovr/`                                                     |
 | Browser               | [Zen](https://github.com/zen-browser/desktop)                                                                       | `zen/userChrome.css`                                                      |
-| Transparency          | [MicaForEveryone](https://github.com/MicaForEveryone/MicaForEveryone)                                               | `AppData/Local/Mica For Everyone/MicaForEveryone.conf`                    |
 | Discord Mod           | [Vencord](https://github.com/Vendicated/Vencord)                                                                    | [NSPC911/themes:vencord](https://github.com/NSPC911/themes/tree/vencord)  |
 | Git UI                | [lazygit](https://github.com/jesseduffield/lazygit)                                                                 | `AppData/Local/lazygit/config.yml`                                        |
 | File Output           | [bat](https://github.com/sharkdp/bat)                                                                               | `readonly_scoop/persist/bat/`                                             |
@@ -57,6 +56,45 @@ Generally I switch between 3 options (screenshots from steam!)
 | Roblox Mod      | [BloxStrap](https://github.com/bloxstraplabs/bloxstrap)                                            |
 | Cursor          | https://www.deviantart.com/jepricreations/art/Windows-11-Cursors-Concept-886489356                 |
 
+#### cargo installations
+
+```
+tokei
+> cargo install --git https://github.com/XAMPPRocky/tokei.git tokei
+helix
+> cargo xtask steel
+```
+
+#### uv tools
+
+```
+frogmouth v0.9.2
+gitfetch v1.3.2
+nuitka v2.8.6
+poethepoet v0.37.0
+poetry v2.2.1
+pyright v1.1.407
+rich-cli v1.8.1
+rovr v0.5.0
+ruff v0.14.6
+ty v0.0.1a27
+```
+
+#### pnpm global installs
+
+```
+@ansible/ansible-language-server 1.2.3
+@astrojs/language-server 2.16.0
+@fsouza/prettierd 0.26.2
+@github/copilot 0.0.352
+@google/gemini-cli 0.13.0
+cli-markdown 3.5.1
+prettier 3.6.2
+typescript 5.9.3
+typescript-language-server 5.1.3
+vscode-langservers-extracted 4.10.0
+```
+
 #### Browser extensions (zen)
 
 | Name                                                               | Location                             |
@@ -67,36 +105,39 @@ Generally I switch between 3 options (screenshots from steam!)
 
 #### Previously used, but no longer using
 
-| Type                | App                                                 | Location                                                           |
-| ------------------- | --------------------------------------------------- | ------------------------------------------------------------------ |
-| Terminal emulator   | [rio](https://github.com/raphamorim/rio)            | `AppData/Local/rio/`                                               |
-| Terminal emulator   | [alacritty](https://github.com/alacritty/alacritty) | `AppData/Roaming/alacritty/`                                       |
-| Tiling Manager      | [komorebi](https://github.com/LGUG2Z/komorebi)      | `komorebi.json`                                                    |
-| File Explorer (TUI) | [superfile](https://github.com/yorukot/superfile)   | `AppData/Local/superfile/`                                         |
-| File Explorer (GUI) | [OneCommanger](https://www.onecommander.com)        | `readonly_scoop/persist/onecommander/Settings/OneCommanderV3.json` |
-| Hotkey Daemon       | [whkd](https://github.com/LGUG2Z/whkd)              | `dot_config/whkdrc`                                                |
+| Type                | App                                                                   | Location                                                           |
+| ------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Terminal emulator   | [rio](https://github.com/raphamorim/rio)                              | `AppData/Local/rio/`                                               |
+| Terminal emulator   | [alacritty](https://github.com/alacritty/alacritty)                   | `AppData/Roaming/alacritty/`                                       |
+| Tiling Manager      | [komorebi](https://github.com/LGUG2Z/komorebi)                        | `komorebi.json`                                                    |
+| File Explorer (TUI) | [superfile](https://github.com/yorukot/superfile)                     | `AppData/Local/superfile/`                                         |
+| File Explorer (GUI) | [OneCommanger](https://www.onecommander.com)                          | `readonly_scoop/persist/onecommander/Settings/OneCommanderV3.json` |
+| Hotkey Daemon       | [whkd](https://github.com/LGUG2Z/whkd)                                | `dot_config/whkdrc`                                                |
+| Transparency        | [MicaForEveryone](https://github.com/MicaForEveryone/MicaForEveryone) | `AppData/Local/Mica For Everyone/MicaForEveryone.conf`             |
 
 ### Stats
+
 <!--tokei --sort lines-->
+
 ```shell
-===============================================================================
- Language            Files        Lines         Code     Comments       Blanks
-===============================================================================
- JSON                   41         5296         5295            0            1
- TOML                    9         1548         1305          145           98
- YAML                    4          971          821           75           75
- CSS                     2          872          737           26          109
- INI                     1          687          170          414          103
- PowerShell              1          547          450           37           60
- Lua                     1          235          216            6           13
- Scheme                  4          213          184            1           28
--------------------------------------------------------------------------------
- Markdown                2          101            0           79           22
- |- Shell                1           18           18            0            0
- (Total)                            119           18           79           22
-===============================================================================
- Total                  65        10470         9178          783          509
-===============================================================================
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Language              Files        Lines         Code     Comments       Blanks
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ JSON                     41         5247         5246            0            1
+ TOML                      9         1561         1318          145           98
+ YAML                      4          977          826           75           76
+ CSS                       2          875          740           26          109
+ INI                       1          687          170          414          103
+ PowerShell                1          674          559           39           76
+ Lua                       1          235          216            6           13
+ Scheme                    4          214          184            2           28
+─────────────────────────────────────────────────────────────────────────────────
+ Markdown                  2          142            0          112           30
+ |- Shell                  1           18           18            0            0
+ (Total)                              160           18          112           30
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Total                    65        10630         9277          819          534
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 <p align="center">

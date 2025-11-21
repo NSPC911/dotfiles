@@ -510,6 +510,133 @@ function qe {
 }
 
 
+##### ghet from gh #####
+function ghet {
+    param(
+        [Parameter(Mandatory=$true, Position=0)]
+        [string]$RepoSlug  # Format: user/repo
+    )
+    Set-StrictMode -Version Latest
+    $ErrorActionPreference = 'Stop'
+
+    Write-Host ""
+
+    if ($RepoSlug -notmatch '^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$') {
+        Write-Host "Repo must be in 'user/repo' form. Provided: $RepoSlug" -ForegroundColor Red
+        Write-Host ""
+        return
+    }
+
+    $owner, $repo = $RepoSlug.Split('/')
+    $api = "https://api.github.com/repos/$owner/$repo/releases/latest"
+    $headers = @{ 'User-Agent' = 'ghet-script'; 'Accept' = 'application/vnd.github+json' }
+    if ($env:GITHUB_TOKEN) { $headers['Authorization'] = "Bearer $env:GITHUB_TOKEN" }
+
+    Write-Host "╭─ grabbing from $RepoSlug"
+
+    try {
+        $release = Invoke-RestMethod -Uri $api -Headers $headers -Method Get
+    } catch {
+        Write-Host "╰─ failed to fetch release: $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host ""
+        return
+    }
+
+    if (-not $release.assets -or $release.assets.Count -eq 0) {
+        Write-Host "╰─ no assets found in latest release '$(($release.name) -or $release.tag_name)'" -ForegroundColor Yellow
+        Write-Host ""
+        return
+    }
+
+    # Filter executables (basic heuristics)
+    $assets = @($release.assets) | Where-Object {
+        $_.name -match '\.(exe|msi|bat|cmd)$' -or $_.name -match '\.(zip|tar\.gz|tgz)$'
+    }
+    if ($assets.Count -eq 0) {
+        Write-Host "╰─ no matching executable-type assets (.exe/.msi/.zip/etc.)" -ForegroundColor Yellow
+        Write-Host ""
+        return
+    }
+
+    if ($release.name) {
+        $releaser = $release.name
+    } elseif ($release.tag_name) {
+        $releaser = $release.tag_name
+    } else {
+        Write-Host "╰─ no tags found!" -ForegroundColor Red
+        Write-Host ""
+        return
+    }
+    Write-Host "│ " -NoNewLine
+    Write-Host "release: $releaser" -ForegroundColor Green
+
+    $rawUI = $Host.UI.RawUI
+    $origFg = $rawUI.ForegroundColor
+    $origBg = $rawUI.BackgroundColor
+    $selected = 0
+
+    function RenderList([int]$current) {
+        $rawUI.CursorPosition = @{ X = 0; Y = ($rawUI.CursorPosition.Y) }
+        foreach ($i in 0..($assets.Count-1)) { Write-Host (" " * ($rawUI.WindowSize.Width - 1)) -NoNewline; Write-Host '' }
+        $rawUI.CursorPosition = @{ X = 0; Y = ($rawUI.CursorPosition.Y - $assets.Count) }
+        for ($i=0; $i -lt $assets.Count; $i++) {
+            $asset = $assets[$i]
+            if ($i -eq $current) {
+                Write-Host ("·  " + $asset.name + " (" + [Math]::Round($asset.size/1KB,2) + " KB)" + " ") -ForegroundColor Black -BackgroundColor Yellow
+            } else {
+                Write-Host ("·  " + $asset.name + " (" + [Math]::Round($asset.size/1KB,2) + " KB)" + " ") -ForegroundColor $origFg -BackgroundColor $origBg
+            }
+        }
+        $reverseheight = $assets.Count
+        Write-Host "`e[?25l`e[$reverseheight`F" -NoNewLine
+    }
+
+    RenderList -current $selected
+    $docontinue = $true
+
+    while ($docontinue) {
+        $keyInfo = $rawUI.ReadKey('NoEcho,IncludeKeyDown')
+        switch ($keyInfo.VirtualKeyCode) {
+            38 { # UpArrow
+                if ($selected -gt 0) { $selected-- }; RenderList -current $selected
+            }
+            40 { # DownArrow
+                if ($selected -lt ($assets.Count - 1)) { $selected++ }; RenderList -current $selected
+            }
+            13 { # Enter
+                $docontinue = $false
+            }
+            27 { # Escape
+                $reverseheight = $assets.Count
+                Write-Host "`e[$reverseheight`E" -NoNewLine
+                Write-Host "╰─ Cancelled." -ForegroundColor Magenta
+                Write-Host ""
+                return
+            }
+            default { }
+        }
+    }
+
+    $reverseheight = $assets.Count
+    Write-Host "`e[$reverseheight`E" -NoNewLine
+
+    $chosen = $assets[$selected]
+    Write-Host "│ " -NoNewLine
+    Write-Host "`e[?25h`downloading '$($chosen.name)' ..." -ForegroundColor Cyan
+    $outFile = Join-Path -Path (Get-Location) -ChildPath $chosen.name
+    try {
+        Invoke-WebRequest -Uri $chosen.browser_download_url -Headers $headers -OutFile $outFile -UseBasicParsing
+    } catch {
+        Write-Host "╰─ Download failed: $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host ""
+        return
+    }
+    Write-Host "╰─ " -NoNewLine
+    Write-Host "Saved to $outFile" -ForegroundColor Green
+    Write-Host ""
+}
+
+
 ##### Other stuff #####
 Clear-Host
 function fetch {
