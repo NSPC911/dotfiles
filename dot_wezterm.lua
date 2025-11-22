@@ -100,21 +100,21 @@ config.keys = {
 		end),
 	},
 	{
-		key = 't',
-		mods = 'CTRL',
-		action = act.SpawnTab 'CurrentPaneDomain',
+		key = "t",
+		mods = "CTRL",
+		action = act.SpawnTab "CurrentPaneDomain",
 	},
 	{
-		key = 'w',
-		mods = 'CTRL',
+		key = "w",
+		mods = "CTRL",
 		action = wezterm.action.CloseCurrentPane { confirm = true },
 	},
 	{
-		key = 'e',
-		mods = 'ALT',
+		key = "e",
+		mods = "ALT",
 		action = act.PromptInputLine {
-			description = 'Enter name for tab',
-			initial_value = '',
+			description = "Enter name for tab",
+			initial_value = "",
 			action = wezterm.action_callback(function(window, _, line)
 				if line then
 					window:active_tab():set_title(line)
@@ -123,10 +123,10 @@ config.keys = {
 		},
 	},
 	{
-		key = 'E',
-		mods = 'ALT|SHIFT',
+		key = "E",
+		mods = "ALT|SHIFT",
 		action = act.PromptInputLine {
-			description = 'Enter name for new workspace',
+			description = "Enter name for new workspace",
 			action = wezterm.action_callback(function(window, pane, line)
 				if line then
 					window:perform_action(
@@ -183,22 +183,22 @@ local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabl
 tabline.setup({
 	options = {
 		icons_enabled = true,
-		theme = 'nord',
+		theme = "nord",
 		tabs_enabled = true,
 		theme_overrides = {
 			normal_mode = { c = { bg = "rgba(46, 52, 64, 0)" } },
 			tab = {
-				active = { fg = '#2e3440', bg = '#81a1c1' },
-				inactive = { fg = '#eceff4', bg = 'rgba(46, 52, 64, 0)' },
-				inactive_hover = { fg = '#b48ead', bg = '#3b4252' },
+				active = { fg = "#2e3440", bg = "#81a1c1" },
+				inactive = { fg = "#eceff4", bg = "rgba(46, 52, 64, 0)" },
+				inactive_hover = { fg = "#b48ead", bg = "rgba(46, 52, 64, 0)" },
 			}
 		},
 	},
 	sections = {
-		tabline_a = { 'workspace' },
+		tabline_a = { "workspace" },
 		tabline_b = {
-			'datetime',
-				'battery'
+			"datetime",
+				"battery"
 		},
 		tabline_c = {},
 		tab_active = {
@@ -209,12 +209,12 @@ tabline.setup({
 			},
 			"]",
 			{
-				'process',
+				"process",
 				icons_enabled = false
 			}
 		},
 		tab_inactive = {
-			{ Background = { Color = '#2e3440' } },
+			{ Background = { Color = "#2e3440" } },
 			" [",
 			{
 				"index",
@@ -222,7 +222,7 @@ tabline.setup({
 			},
 			"]",
 			{
-				'process',
+				"process",
 				icons_enabled = false
 			},
 		},

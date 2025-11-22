@@ -43,5 +43,10 @@ executable = "bat"
 
 [plugins.editor]
 enabled = true
-file_executable = "hx"
-folder_executable = "hx"
+
+[plugins.poppler]
+threads = 5
+
+[mode.helix]
+"plugins.editor.file_executable" = "pwsh -noni -nop -nol -c rovr-helix"
+"plugins.editor.file_suspend" = false

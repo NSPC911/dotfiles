@@ -1,0 +1,25 @@
+$border-style: round;
+
+App.helix,
+Application.helix {
+  #footer, #menuwrapper, #headerArea {
+    display: none
+  }
+  #file_list_container,
+  #pinned_sidebar_container,
+  #preview_sidebar {
+    border: none;
+    border-top: solid $border-blurred;
+    &:focus,
+    &:focus-within {
+      border-top: solid $border
+    }
+  }
+  #file_list_container {
+    border-left: round $accent;
+    border-right: round $accent;
+  }
+  #main {
+    margin: 0;
+  }
+}

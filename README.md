@@ -67,6 +67,8 @@ helix
 
 #### uv tools
 
+<!--uv tool list, remove `- `-->
+
 ```
 frogmouth v0.9.2
 gitfetch v1.3.2
@@ -82,6 +84,7 @@ ty v0.0.1a27
 
 #### pnpm global installs
 
+<!--pnpm list -g, remove header-->
 ```
 @ansible/ansible-language-server 1.2.3
 @astrojs/language-server 2.16.0
@@ -124,7 +127,7 @@ vscode-langservers-extracted 4.10.0
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  JSON                     41         5247         5246            0            1
- TOML                      9         1561         1318          145           98
+ TOML                      9         1566         1321          145          100
  YAML                      4          977          826           75           76
  CSS                       2          875          740           26          109
  INI                       1          687          170          414          103
@@ -132,11 +135,11 @@ vscode-langservers-extracted 4.10.0
  Lua                       1          235          216            6           13
  Scheme                    4          214          184            2           28
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                  2          142            0          112           30
+ Markdown                  2          145            0          114           31
  |- Shell                  1           18           18            0            0
- (Total)                              160           18          112           30
+ (Total)                              163           18          114           31
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    65        10630         9277          819          534
+ Total                    65        10638         9280          821          537
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
