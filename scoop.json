@@ -95,8 +95,8 @@
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Updated": "2025-11-03T20:47:46.7791248+08:00",
-      "Version": "1.8.8"
+      "Updated": "2025-11-24T09:57:13.1088926+08:00",
+      "Version": "1.9.1"
     },
     {
       "Info": "",
@@ -118,6 +118,13 @@
       "Source": "main",
       "Updated": "2025-10-28T16:27:04.2389606+08:00",
       "Version": "3.14.1"
+    },
+    {
+      "Info": "",
+      "Name": "dotnet8-sdk",
+      "Source": "versions",
+      "Updated": "2025-11-23T18:26:46.0896631+08:00",
+      "Version": "8.0.416"
     },
     {
       "Info": "",
@@ -305,8 +312,8 @@
       "Info": "",
       "Name": "moor",
       "Source": "extras",
-      "Updated": "2025-11-17T16:11:43.5206906+08:00",
-      "Version": "2.9.1"
+      "Updated": "2025-11-24T09:57:18.1133401+08:00",
+      "Version": "2.9.2"
     },
     {
       "Info": "",
@@ -333,8 +340,8 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2025-11-14T14:35:32.7332174+08:00",
-      "Version": "27.6.0"
+      "Updated": "2025-11-24T09:57:24.1373261+08:00",
+      "Version": "28.0.0"
     },
     {
       "Info": "",
@@ -354,8 +361,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "extras",
-      "Updated": "2025-11-22T23:55:37.6770974+08:00",
-      "Version": "1.0.98"
+      "Updated": "2025-11-24T09:57:43.7972618+08:00",
+      "Version": "1.0.106"
     },
     {
       "Info": "",
@@ -501,8 +508,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "le-bucket",
-      "Updated": "2025-11-20T10:43:55.837312+08:00",
-      "Version": "0.6.52"
+      "Updated": "2025-11-24T09:57:48.9655946+08:00",
+      "Version": "0.6.53"
     },
     {
       "Info": "",
@@ -601,31 +608,31 @@
       "Manifests": 1413,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-11-22T20:31:19+08:00"
+      "Updated": "2025-11-24T08:44:11+08:00"
     },
     {
       "Manifests": 2215,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-11-22T20:30:38+08:00"
+      "Updated": "2025-11-24T08:44:18+08:00"
     },
     {
       "Manifests": 538,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-11-22T20:55:53+08:00"
+      "Updated": "2025-11-24T06:25:53+08:00"
     },
     {
       "Manifests": 369,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-11-22T20:31:02+08:00"
+      "Updated": "2025-11-24T08:42:43+08:00"
     },
     {
       "Manifests": 23,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-11-22T20:55:10+08:00"
+      "Updated": "2025-11-23T12:47:04+08:00"
     }
   ],
   "config": {

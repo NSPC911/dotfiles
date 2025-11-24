@@ -68,8 +68,8 @@
     (when key-str
       (let* ([current-keys (unbox (showkeys-state-keys *showkeys-state*))]
              [new-keys (cons key-str current-keys)]
-             [trimmed-keys (if (> (length new-keys) 5)
-                               (take-n new-keys 5)
+             [trimmed-keys (if (> (length new-keys) 1)
+                               (take-n new-keys 1)
                                new-keys)])
         (set-box! (showkeys-state-keys *showkeys-state*) trimmed-keys)
 

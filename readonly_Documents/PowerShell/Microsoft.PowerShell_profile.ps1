@@ -355,9 +355,9 @@ function posh-print {
 }
 
 ##### gh copilot cli but local #####
-$suggesterModel = "qwen2.5-coder:7b"
-$explainerModel = "qwen2.5-coder:3b"
-function qs {
+$suggesterModel = "codegemma:7b"
+$explainerModel = "codegemma:2b"
+function ols {
     param(
         [Parameter(Position = 0, ValueFromRemainingArguments = $true)]
         [string]$Description
@@ -366,7 +366,7 @@ function qs {
     Write-Host ""
 
     if (-not $Description) {
-        Write-Host "Usage: qs <description of what you want to do>" -ForegroundColor Red
+        Write-Host "Usage: ols <description of what you want to do>" -ForegroundColor Red
         Write-Host ""
         return
     }
@@ -469,7 +469,7 @@ function qs {
                     $improvement = Microsoft.PowerShell.Utility\Read-Host
                     Write-Host "`e[2F├─ How should the command be improved?" -ForegroundColor Green
                     Write-Host "╰── $improvement  " -ForegroundColor Green
-                    $improvePrompt = "Improve this PowerShell command: '$command'. User wants: '$improvement'. Respond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
+                    $improvePrompt = "Improve this PowerShell command ``$command``. User wants: '$improvement'. Respond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
                     $rawImproved = ollama run $suggesterModel $improvePrompt
                     $command = ($rawImproved | Out-String).Trim()
                     Write-Host "`e[1G╭─ Improved command:"
@@ -489,14 +489,14 @@ function qs {
     } while ($true)
 }
 
-function qe {
+function ole {
     param(
         [Parameter(Position = 0, ValueFromRemainingArguments = $true)]
         [string]$Command
     )
     Write-Host ""
     if (-not $Command) {
-        Write-Host "Usage: qe <command to explain>" -ForegroundColor Red
+        Write-Host "Usage: ole <command to explain>" -ForegroundColor Red
         return
     }
     $prompt = "Explain this PowerShell command: '$Command'. Include what it does, any parameters, and provide examples if helpful. Be concise. Format your response using Markdown."

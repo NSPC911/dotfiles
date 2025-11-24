@@ -267,7 +267,7 @@ l = ["vsplit", ":buffer-previous"]
 [keys.normal."space"]
 c = "changed_file_picker"
 r = ":config-reload"
-o = ":config-open"
+o = ":streal-open"
 f = "file_explorer_in_current_directory"
 e = "file_picker_in_current_directory"
 b = "file_explorer_in_current_buffer_directory"
@@ -496,7 +496,10 @@ C-a = "select_all"
 C-v = ":clipboard-paste-before"
 C-c = ":clipboard-yank"
 # python f strings autocomplete in the wonkiest way possible
-'f' = { '"' = "@f<esc>\"\"<esc>jd<A-i>" }
+[keys.insert.f]
+'"' = "@f<esc>\"\"<esc>jd<A-i>"
+j = { k = "@f<esc><esc>" }
+
 
 # editor config
 [editor]

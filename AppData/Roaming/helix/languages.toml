@@ -84,6 +84,9 @@ args = ["serve"]
 [language-server.helix-gpt]
 command = "helix-gpt"
 
+[language-server.powershell-lsp]
+command = "~/Git/PowerShellEditorServices/Start-EditorServices.ps1"
+
 [[language]]
 name = "python"
 language-servers = [
@@ -206,4 +209,10 @@ language-servers = [
   "helix-gpt",
   "discord-rpc",
   "tombi",
+]
+
+[[language]]
+name = "powershell"
+language-servers = [
+  "helix-gpt"
 ]
