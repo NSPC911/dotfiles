@@ -1,25 +1,26 @@
 $border-style: round;
+$helix_mode_footer_unfocus_height: 3;
+$helix_mode_footer_focus_height: 9;
 
-App.helix,
-Application.helix {
-  #footer, #menuwrapper, #headerArea {
-    display: none
-  }
-  #file_list_container,
-  #pinned_sidebar_container,
-  #preview_sidebar {
-    border: none;
-    border-top: solid $border-blurred;
-    &:focus,
-    &:focus-within {
-      border-top: solid $border
-    }
-  }
-  #file_list_container {
-    border-left: round $accent;
-    border-right: round $accent;
-  }
-  #main {
+App.helix Screen.-filelistonly {
+  #headerArea { height: 1 }
+  #menuwrapper,
+  #footer { margin: 0 }
+  #main { margin: 0 }
+  #footer {
+    layout: vertical;
     margin: 0;
+    height: $helix_mode_footer_unfocus_height;
+    &:focus-within {
+      height: $helix_mode_footer_focus_height;
+      max-height: 40vh;
+    }
+    & > * {
+      border-bottom: none;
+      height: 1fr
+    }
+    &:focus-within > * { height: 1 }
+    &:focus-within > *:focus-within,
+    &:focus-within > *:focus { height: 1fr }
   }
 }

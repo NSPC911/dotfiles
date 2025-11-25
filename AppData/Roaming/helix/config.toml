@@ -9,8 +9,7 @@ C-S-q = ":qa"
 C-A-q = "wonly"
 C-z = "undo"
 C-y = "redo"
-C-f = "search"
-C-S-f = "rsearch"
+C-f = ":sh wezterm cli split-pane --left --cells 26 --cwd %{current_working_directory} rovr --mode helix"
 tab = "rotate_view"
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
@@ -520,6 +519,7 @@ end-of-line-diagnostics = "hint"
 completion-replace = false
 rainbow-brackets = true
 atomic-save = false
+kitty-keyboard-protocol = "enabled"
 
 [editor.file-picker]
 hidden = true

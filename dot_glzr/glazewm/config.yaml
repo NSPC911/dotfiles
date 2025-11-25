@@ -1,50 +1,20 @@
 general:
-  # Commands to run when the WM has started. This is useful for running a
-  # script or launching another application.
   startup_commands: []
-
-  # Commands to run just before the WM is shutdown.
   shutdown_commands: []
-
-  # Commands to run after the WM config is reloaded.
   config_reload_commands: []
-
-  # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: true
-
-  # Whether to switch back and forth between the previously focused
-  # workspace when focusing the current workspace.
   toggle_workspace_on_refocus: false
 
   cursor_jump:
-    # Whether to automatically move the cursor on the specified trigger.
     enabled: true
-
-    # Trigger for cursor jump:
-    # - 'monitor_focus': Jump when focus changes between monitors.
-    # - 'window_focus': Jump when focus changes between windows.
     trigger: "window_focus"
 
-  # How windows should be hidden when switching workspaces.
-  # - 'cloak': Recommended. Hides windows with no animation.
-  # - 'hide': Legacy method (v3.5 and earlier) that has a brief animation,
-  # but has stability issues with some apps.
   hide_method: "cloak"
-
-  # Affects which windows get shown in the native Windows taskbar. Has no
-  # effect if `hide_method: 'hide'`.
-  # - 'true': Show all windows (regardless of workspace).
-  # - 'false': Only show windows from the currently shown workspaces.
   show_all_in_taskbar: false
 
 gaps:
-  # Whether to scale the gaps with the DPI of the monitor.
   scale_with_dpi: true
-
-  # Gap between adjacent windows.
   inner_gap: "10px"
-
-  # Gap between windows and the screen edge.
   outer_gap:
     top: "0px"
     right: "8px"
@@ -54,29 +24,16 @@ gaps:
 window_effects:
   # Visual effects to apply to the focused window.
   focused_window:
-    # Highlight the window with a colored border.
-    # ** Exclusive to Windows 11 due to API limitations.
     border:
       enabled: false
       color: "#88c0d0"
-
-    # Remove the title bar from the window's frame. Note that this can
-    # cause rendering issues for some applications.
     hide_title_bar:
       enabled: false
-
-    # Change the corner style of the window's frame.
-    # ** Exclusive to Windows 11 due to API limitations.
     corner_style:
       enabled: false
-      # Allowed values: 'square', 'rounded', 'small_rounded'.
       style: "rounded"
-
-    # Change the transparency of the window.
     transparency:
       enabled: false
-      # Can be something like '95%' or '0.95' for slightly transparent windows.
-      # '0' or '0%' is fully transparent (and, by consequence, unfocusable).
       opacity: 0.95
 
   # Visual effects to apply to non-focused windows.
@@ -94,26 +51,14 @@ window_effects:
       opacity: 0.95
 
 window_behavior:
-  # New windows are created in this state whenever possible.
-  # Allowed values: 'tiling', 'floating'.
   initial_state: "tiling"
-
-  # Sets the default options for when a new window is created. This also
-  # changes the defaults for when the state change commands, like
-  # `set-floating`, are used without any flags.
   state_defaults:
     floating:
-      # Whether to center floating windows by default.
       centered: true
-
-      # Whether to show floating windows as always on top.
       shown_on_top: true
 
     fullscreen:
-      # Maximize the window if possible. If the window doesn't have a
-      # maximize button, then it'll be fullscreen'ed normally instead.
       maximized: true
-      # Whether to show fullscreen windows as always on top.
       shown_on_top: false
 
 workspaces:
@@ -127,20 +72,15 @@ window_rules:
   - commands: ["toggle-floating"]
     match:
       - window_process: { equals: "SnippingTool" }
+      - window_title: { equals: "Vencord QuickCSS Editor" }
 
   - commands: ["ignore"]
     match:
-      # Ignores any Zebar windows.
-      - window_process: { equals: "zebar" }
-
-      # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
-
       - window_title: { equals: "Environment Variables" }
         window_process: { equals: "SystemPropertiesAdvanced" }
 
-      # Ignore rules for various 3rd-party apps.
       - window_process: { equals: "PowerToys" }
         window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
       - window_process: { equals: "PowerToys" }
@@ -153,13 +93,26 @@ window_rules:
         window_class: { not_regex: "OpusApp" }
       - window_process: { equals: "POWERPNT" }
         window_class: { not_regex: "PPTFrameClass" }
+
+      - window_process: { equals: "zebar" }
       - window_process: { equals: "overkeys" }
       - window_process: { equals: "keyviz" }
+
+  - commands: ["move --workspace 5", "focus --workspace 5"]
+    match:
+      - window_process: { equals: "Discord" }
+
+  - commands: ["move --workspace 4", "focus --workspace 4"]
+    match:
+      - window_process: { equals: "Beeper" }
+
+  - commands: ["move --workspace 3", "focus --workspace 3"]
+    match:
+      - window_process: { equals: "ONENOTE" }
 
 binding_modes:
 
 keybindings:
-  # Shift focus in a given direction.
   - commands: ["focus --direction left"]
     bindings: ["lwin+left", "ralt+left"]
   - commands: ["focus --direction right"]
@@ -169,7 +122,6 @@ keybindings:
   - commands: ["focus --direction down"]
     bindings: ["lwin+down", "ralt+down"]
 
-  # Move focused window in a given direction.
   - commands: ["move --direction left", "wm-redraw"]
     bindings: ["lwin+shift+left", "ralt+shift+left"]
   - commands: ["move --direction right", "wm-redraw"]
@@ -179,7 +131,6 @@ keybindings:
   - commands: ["move --direction down", "wm-redraw"]
     bindings: ["lwin+shift+down", "ralt+shift+down"]
 
-  # Resize focused window by a percentage or pixel amount.
   - commands: ["resize --width -5%", "wm-redraw"]
     bindings: ["lwin+oem_minus", "ralt+oem_minus"]
   - commands: ["resize --width +5%", "wm-redraw"]
@@ -192,57 +143,35 @@ keybindings:
   # Disables window management and all other keybindings until lwin+shift+, ralt# is pressed again.
   # - commands: ['wm-toggle-pause']
   #   bindings: ['lwin+shift+p', 'ralt+shift+p']
-
-  # Change tiling direction. This determines where new tiling windows will
-  # be inserted.
   - commands: ["toggle-tiling-direction"]
     bindings: ["lwin+shift+v", "ralt+v"]
-
-  # Change focus from tiling windows -> floating -> fullscreen.
   - commands: ["wm-cycle-focus", "wm-redraw"]
     bindings: ["lwin+oem_close_brackets", "lwin+oem_open_brackets", "ralt+oem_close_brackets", "lwin+oem_open_brackets"]
 
-  # Change the focused window to be floating.
   - commands: ["toggle-floating", "wm-redraw"]
     bindings: ["lwin+t", "ralt+t"]
-
-  # Change the focused window to be fullscreen.
   - commands: ["toggle-fullscreen", "wm-redraw"]
     bindings: ["lwin+f", "ralt+f"]
-
-  # Minimize focused window.
   - commands: ["toggle-minimized", "wm-redraw"]
     bindings: ["lwin+m", "ralt+m"]
 
-  # Close focused window.
   - commands: ["close", "wm-redraw"]
     bindings: ["lwin+w", "ralt+w"]
 
-  # Re-evaluate configuration file.
-  - commands: ["wm-reload-config", "wm-redraw"]
-    bindings: ["ctrl+lwin+shift+r", "ralt+lwin+shift+r"]
-
-  # Redraw all windows and force the active window to tile.
   - commands: ["set-tiling", "wm-redraw"]
     bindings: ["lwin+shift+r", "ralt+shift+r"]
 
-  # Focus the next/previous active defined in `workspaces` config.
   - commands: ["focus --next-workspace", "wm-redraw"]
     bindings: ["lwin+oem_period", "ralt+oem_period"]
   - commands: ["focus --prev-workspace", "wm-redraw"]
     bindings: ["lwin+oem_comma", "ralt+oem_comma"]
-
-  # Move window into next/previous workspace
   - commands: ["move --next-workspace", "focus --next-workspace", "wm-redraw"]
     bindings: ["lwin+shift+oem_period", "ralt+shift+oem_period"]
   - commands: ["move --prev-workspace", "focus --prev-workspace", "wm-redraw"]
     bindings: ["lwin+shift+oem_comma", "ralt+shift+oem_comma"]
 
-  # Focus the workspace that last had focus.
   - commands: ["focus --recent-workspace"]
     bindings: ["lwin+d", "ralt+d"]
-
-  # Change focus to a workspace defined in `workspaces` config.
   - commands: ["focus --workspace 1", "wm-redraw"]
     bindings: ["lwin+1", "ralt+1"]
   - commands: ["focus --workspace 2", "wm-redraw"]
@@ -254,7 +183,6 @@ keybindings:
   - commands: ["focus --workspace 5", "wm-redraw"]
     bindings: ["lwin+5", "ralt+5"]
 
-  # Move focused window to a workspace defined in `workspaces` config.
   - commands: ["move --workspace 1", "focus --workspace 1", "wm-redraw"]
     bindings: ["lwin+shift+1", "ralt+shift+1"]
   - commands: ["move --workspace 2", "focus --workspace 2", "wm-redraw"]
@@ -266,10 +194,8 @@ keybindings:
   - commands: ["move --workspace 5", "focus --workspace 5", "wm-redraw"]
     bindings: ["lwin+shift+5", "ralt+shift+5"]
 
-  # shell commands
   - commands: ["shell-exec flow"]
     bindings: ["lwin+space"]
-
   - commands: ["shell-exec --hide-window yasbc_dev toggle-widget launchpad --follow-mouse"]
     bindings: ["lwin+s"]
   - commands: ["shell-exec --hide-window yasbc_dev toggle-widget powermenu --follow-mouse"]

@@ -13,7 +13,7 @@ config.cursor_blink_rate = 0
 
 config.hide_mouse_cursor_when_typing = false
 config.term = "xterm-256color"
-config.enable_kitty_keyboard = false
+config.enable_kitty_keyboard = true
 config.font = wezterm.font("CaskaydiaCove NFM")
 config.custom_block_glyphs = false
 config.cell_width = 1
@@ -146,7 +146,8 @@ config.keys = {
 	{ key = "PageDown", mods = "CTRL",       action = act.SendKey { key = "PageDown", mods = "CTRL" } },
 	{ key = ".",        mods = "CTRL",       action = act.MoveTabRelative(1) },
 	{ key = ",",        mods = "CTRL",       action = act.MoveTabRelative(-1) },
-	{ key = "T",        mods = "CTRL|SHIFT", action = act.DisableDefaultAssignment }
+	{ key = "T",        mods = "CTRL|SHIFT", action = act.DisableDefaultAssignment },
+	{ key = "F",        mods = "CTRL|SHIFT", action = act.DisableDefaultAssignment }
 }
 
 -- colors

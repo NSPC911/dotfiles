@@ -20,8 +20,8 @@ function regenCache {
     Write-Output "`e[HSetting up gh completions"
     $completions += gh completion -s powershell
 
-    Write-Output "`e[HSetting up pixi completions"
-    $completions += pixi completion --shell powershell
+    # Write-Output "`e[HSetting up pixi completions"
+    # $completions += pixi completion --shell powershell
 
     Write-Output "`e[HSetting up tuios completions"
     $completions += tuios completion powershell
@@ -41,8 +41,8 @@ function regenCache {
     Write-Output "`e[HSetting up wezterm completions"
     $completions += wezterm shell-completion --shell power-shell
 
-    Write-Output "`e[HSetting up regolith completions"
-    $completions += regolith completion powershell
+    # Write-Output "`e[HSetting up regolith completions"
+    # $completions += regolith completion powershell
 
     Write-Output "`e[HSetting up onefetch completions"
     $completions += onefetch --generate powershell
@@ -129,10 +129,13 @@ function spf {
 
 ##### rovr Go To Last Dir #####
 function rovr {
-    $cwd_file = [System.IO.Path]::GetTempFileName()
+    $cwd_file = New-TemporaryFile
     & rovr.exe --cwd-file $cwd_file $args
     if (Test-Path $cwd_file) {
-        Set-Location -Path (Get-Content $cwd_file)
+        $new_loc = Get-Content $cwd_file
+        if (-not [String]::IsNullOrEmpty($new_loc) -and $new_loc -ne (Get-Location).Path) {
+            Set-Location $new_loc -ErrorAction SilentlyContinue
+        }
         Remove-Item $cwd_file
     }
 }
@@ -156,7 +159,7 @@ function symlink {
         [Parameter(Position = 1)]
         [string]$ItemToSymlinkTo
     )
-    New-Item -ItemType SymbolicLink -Path $ItemToSymlinkTo -Target (Resolve-Path $ItemToSymlinkFrom | Select -Expand Path)
+    New-Item -ItemType SymbolicLink -Path $ItemToSymlinkTo -Target (Resolve-Path $ItemToSymlinkFrom).Path
 }
 
 function Get-Folder-Size {
@@ -287,12 +290,6 @@ function figlet {
     $figlets | ForEach-Object { Write-Output $_; uvx pyfiglet -f $_ $name -w $Host.UI.RawUI.WindowSize.Width }
 }
 
-##### pwd ish #####
-function cwd {
-    Get-Location | Select -Expand Path
-}
-
-
 #### LazyGit #####
 Set-Alias -Name "lz" -Value "lazygit"
 
@@ -310,11 +307,11 @@ function forever {
 Write-Output "`e[HAdding Plugins...                        "
 # https://github.com/devblackops/Terminal-Icons
 Import-Module -Name Terminal-Icons
+# should be available if you installed scoop
+Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
 # https://github.com/PowerShell/PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
-# should be available if you installed scoop
-Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
 
 ##### chezmoi #####
 function chezcd { __zoxide_cd (chezmoi source-path) }
@@ -392,7 +389,7 @@ function ols {
         }
         Write-Host "`e[?25l`n"
         $key = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-        Write-Host "`e[?25h`e[2F`e[2K" -NoNewLine
+        Write-Host "`e[2F`e[2K" -NoNewLine
         $shouldExecute = $false
         switch ($key.VirtualKeyCode) {
             # Left arrow
@@ -414,7 +411,7 @@ function ols {
         }
 
         if ($shouldExecute) {
-            Write-Host "├─ " -NoNewLine
+            Write-Host "`e[?25h├─ " -NoNewLine
             for ($i = 0; $i -lt $options.Count; $i++) {
                 if ($i -eq $selectedIndex) {
                     Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -ForegroundColor DarkGray -BackgroundColor Cyan -NoNewLine
@@ -521,8 +518,10 @@ function ghet {
 
     Write-Host ""
 
-    if ($RepoSlug -notmatch '^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$') {
-        Write-Host "Repo must be in 'user/repo' form. Provided: $RepoSlug" -ForegroundColor Red
+    if ($RepoSlug -match '^https://github\.com/([A-Za-z0-9_.-]+)/([A-Za-z0-9_.-]+)$') {
+        $RepoSlug = "$($Matches[1])/$($Matches[2])"
+    } elseif ($RepoSlug -notmatch '^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$') {
+        Write-Host "Repo must be in 'user/repo' or 'https://github.com/user/repo' form. Provided: $RepoSlug" -ForegroundColor Red
         Write-Host ""
         return
     }
@@ -658,7 +657,7 @@ if (Test-Path $prevloc) {
         if (Test-Path $newloc) {
             Set-Location "$newloc"
             Write-Host -ForegroundColor DarkGray "`e[1AChanged directory to " -NoNewLine
-            Write-Host -ForegroundColor DarkBlue (Get-Location | Select -Expand Path)
+            Write-Host -ForegroundColor DarkBlue (Get-Location).Path
             Write-Host
         } else {
             Write-Host -ForegroundColor Red "`e[1AAttempted to navigate to " -NoNewLine

@@ -17,8 +17,8 @@ args = []
 # width = 600
 # height = 400
 mode = "windowed"
-# opacity = 0.75
-opacity = 1
+opacity = 0.75
+# opacity = 1
 blur = false
 decorations = "Disabled"
 
