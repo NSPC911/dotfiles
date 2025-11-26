@@ -76,6 +76,10 @@ window_rules:
 
   - commands: ["ignore"]
     match:
+      - window_process: { equals: "zebar" }
+      - window_process: { equals: "overkeys" }
+      - window_process: { equals: "keyviz" }
+
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
       - window_title: { equals: "Environment Variables" }
@@ -93,10 +97,6 @@ window_rules:
         window_class: { not_regex: "OpusApp" }
       - window_process: { equals: "POWERPNT" }
         window_class: { not_regex: "PPTFrameClass" }
-
-      - window_process: { equals: "zebar" }
-      - window_process: { equals: "overkeys" }
-      - window_process: { equals: "keyviz" }
 
   - commands: ["move --workspace 5", "focus --workspace 5"]
     match:

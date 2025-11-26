@@ -1,6 +1,6 @@
 $border-style: round;
-$helix_mode_footer_unfocus_height: 3;
-$helix_mode_footer_focus_height: 9;
+$helix_footer_unfocus_height: 3;
+$helix_footer_focus_height: 9;
 
 App.helix Screen.-filelistonly {
   #headerArea { height: 1 }
@@ -10,9 +10,9 @@ App.helix Screen.-filelistonly {
   #footer {
     layout: vertical;
     margin: 0;
-    height: $helix_mode_footer_unfocus_height;
+    height: $helix_footer_unfocus_height;
     &:focus-within {
-      height: $helix_mode_footer_focus_height;
+      height: $helix_footer_focus_height;
       max-height: 40vh;
     }
     & > * {

@@ -9,13 +9,6 @@
     },
     {
       "Info": "",
-      "Name": "act",
-      "Source": "main",
-      "Updated": "2025-11-17T17:49:07.5041038+08:00",
-      "Version": "0.2.82"
-    },
-    {
-      "Info": "",
       "Name": "adb",
       "Source": "main",
       "Updated": "2025-10-28T16:25:00.3414644+08:00",
@@ -95,8 +88,8 @@
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Updated": "2025-11-24T09:57:13.1088926+08:00",
-      "Version": "1.9.1"
+      "Updated": "2025-11-25T11:58:14.6001647+08:00",
+      "Version": "1.9.2"
     },
     {
       "Info": "",
@@ -107,17 +100,17 @@
     },
     {
       "Info": "",
-      "Name": "collapse-launcher",
-      "Source": "games",
-      "Updated": "2025-10-28T16:27:01.9704292+08:00",
-      "Version": "1.82.36"
-    },
-    {
-      "Info": "",
       "Name": "dark",
       "Source": "main",
       "Updated": "2025-10-28T16:27:04.2389606+08:00",
       "Version": "3.14.1"
+    },
+    {
+      "Info": "",
+      "Name": "dotnet6-sdk",
+      "Source": "versions",
+      "Updated": "2025-11-24T17:35:53.0973827+08:00",
+      "Version": "6.0.428"
     },
     {
       "Info": "",
@@ -298,8 +291,8 @@
       "Info": "",
       "Name": "marksman",
       "Source": "main",
-      "Updated": "2025-10-28T16:32:23.2501462+08:00",
-      "Version": "2024-12-18"
+      "Updated": "2025-11-26T11:48:37.3735028+08:00",
+      "Version": "2025-11-25"
     },
     {
       "Info": "",
@@ -328,6 +321,13 @@
       "Source": "extras",
       "Updated": "2025-11-19T12:00:52.8950872+08:00",
       "Version": "8.8.8"
+    },
+    {
+      "Info": "",
+      "Name": "nu",
+      "Source": "main",
+      "Updated": "2025-11-24T22:11:10.8558368+08:00",
+      "Version": "0.108.0"
     },
     {
       "Info": "",
@@ -361,8 +361,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "extras",
-      "Updated": "2025-11-24T09:57:43.7972618+08:00",
-      "Version": "1.0.106"
+      "Updated": "2025-11-26T11:48:50.3019222+08:00",
+      "Version": "1.0.114"
     },
     {
       "Info": "",
@@ -424,8 +424,8 @@
       "Info": "",
       "Name": "rio-nightly",
       "Source": "le-bucket",
-      "Updated": "2025-11-19T12:15:06.1061142+08:00",
-      "Version": "2025-11-18"
+      "Updated": "2025-11-26T11:49:02.1613332+08:00",
+      "Version": "2025-11-25"
     },
     {
       "Info": "",
@@ -508,8 +508,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "le-bucket",
-      "Updated": "2025-11-24T09:57:48.9655946+08:00",
-      "Version": "0.6.53"
+      "Updated": "2025-11-26T11:49:09.971169+08:00",
+      "Version": "0.6.55"
     },
     {
       "Info": "",
@@ -522,8 +522,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2025-11-21T23:40:02.3717776+08:00",
-      "Version": "0.9.11"
+      "Updated": "2025-11-26T11:49:18.3153235+08:00",
+      "Version": "0.9.12"
     },
     {
       "Info": "",
@@ -571,8 +571,8 @@
       "Info": "",
       "Name": "yasb-dev",
       "Source": "le-bucket",
-      "Updated": "2025-11-22T23:57:05.2004739+08:00",
-      "Version": "20251120-034919"
+      "Updated": "2025-11-25T11:58:46.2734088+08:00",
+      "Version": "20251124-125034"
     },
     {
       "Info": "",
@@ -591,15 +591,15 @@
     {
       "Info": "",
       "Name": "zen-browser",
-      "Source": "extras",
-      "Updated": "2025-11-22T23:57:25.057218+08:00",
+      "Source": null,
+      "Updated": "2025-11-25T11:57:32.0216438+08:00",
       "Version": "1.17.8b"
     },
     {
       "Info": "",
       "Name": "zoxide",
       "Source": "main",
-      "Updated": "2025-10-28T16:41:33.4446804+08:00",
+      "Updated": "2025-11-24T11:12:13.4731828+08:00",
       "Version": "0.9.8"
     }
   ],
@@ -608,31 +608,31 @@
       "Manifests": 1413,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-11-24T08:44:11+08:00"
+      "Updated": "2025-11-26T08:40:52+08:00"
     },
     {
-      "Manifests": 2215,
+      "Manifests": 2216,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-11-24T08:44:18+08:00"
+      "Updated": "2025-11-26T08:50:31+08:00"
     },
     {
       "Manifests": 538,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-11-24T06:25:53+08:00"
+      "Updated": "2025-11-26T10:19:47+08:00"
     },
     {
       "Manifests": 369,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-11-24T08:42:43+08:00"
+      "Updated": "2025-11-26T08:47:59+08:00"
     },
     {
       "Manifests": 23,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-11-23T12:47:04+08:00"
+      "Updated": "2025-11-26T10:18:53+08:00"
     }
   ],
   "config": {

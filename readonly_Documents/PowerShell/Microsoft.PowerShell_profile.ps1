@@ -26,6 +26,9 @@ function regenCache {
     Write-Output "`e[HSetting up tuios completions"
     $completions += tuios completion powershell
 
+    Write-Output "`e[HSetting up tombi completions"
+    $completions += tombi completion powershell
+
     Write-Output "`e[HSetting up batcat completions"
     $completions += bat --completion ps1
 
@@ -312,6 +315,12 @@ Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.Full
 # https://github.com/PowerShell/PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
+Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function SwitchPredictionView
+Remove-PSReadLineKeyHandler -Key "F2"
+Set-PSReadLineOption -Colors @{
+  ListPredictionSelected = "`e[7m"
+}
+Set-PSReadLineOption -BellStyle None
 
 ##### chezmoi #####
 function chezcd { __zoxide_cd (chezmoi source-path) }
@@ -322,7 +331,7 @@ function chezgit { chezmoi git $args }
 ##### fzf plugin (needs that one powershell plugin) #####
 function fuzzy {
     param(
-        [ValidateSet("edit", "git", "status", "kill", "nuke", "scoop", "install", "cd")]
+        [ValidateSet("edit", "git", "status", "kill", "nuke", "scoop", "install", "cd", "history")]
         [string]$type,
         [Parameter(ValueFromRemainingArguments=$true)]
         [object[]]$extra
@@ -388,28 +397,29 @@ function ols {
             else { Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -NoNewLine }
         }
         Write-Host "`e[?25l`n"
-        $key = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+        $key = [System.Console]::ReadKey($true)
         Write-Host "`e[2F`e[2K" -NoNewLine
         $shouldExecute = $false
-        switch ($key.VirtualKeyCode) {
-            # Left arrow
-            37 { $selectedIndex = ($selectedIndex - 1 + $options.Count) % $options.Count }
-            # Right arrow
-            39 { $selectedIndex = ($selectedIndex + 1) % $options.Count }
-            # Enter key
-            13 { $shouldExecute = $true }
-            # C key
-            67 { $selectedIndex = 1; $shouldExecute = $true }
-            # E key
-            69 { $selectedIndex = 2; $shouldExecute = $true }
-            # I key
-            73 { $selectedIndex = 3; $shouldExecute = $true }
-            # Q key
-            81 { $selectedIndex = 4; $shouldExecute = $true }
-            # R key
-            82 { $selectedIndex = 0; $shouldExecute = $true }
+        if ($key.modifiers -ne $null) {
+            switch ($key.key) {
+                # Left arrow
+                "LeftArrow" { $selectedIndex = ($selectedIndex - 1 + $options.Count) % $options.Count }
+                # Right arrow
+                "RightArrow" { $selectedIndex = ($selectedIndex + 1) % $options.Count }
+                # Enter key
+                "Enter" { $shouldExecute = $true }
+                # C key
+                "C" { $selectedIndex = 1; $shouldExecute = $true }
+                # E key
+                "E" { $selectedIndex = 2; $shouldExecute = $true }
+                # I key
+                "I" { $selectedIndex = 3; $shouldExecute = $true }
+                # Q key
+                "Q" { $selectedIndex = 4; $shouldExecute = $true }
+                # R key
+                "R" { $selectedIndex = 0; $shouldExecute = $true }
+            }
         }
-
         if ($shouldExecute) {
             Write-Host "`e[?25h├─ " -NoNewLine
             for ($i = 0; $i -lt $options.Count; $i++) {
@@ -511,7 +521,7 @@ function ole {
 function ghet {
     param(
         [Parameter(Mandatory=$true, Position=0)]
-        [string]$RepoSlug  # Format: user/repo
+        [string]$RepoSlug
     )
     Set-StrictMode -Version Latest
     $ErrorActionPreference = 'Stop'
@@ -570,49 +580,45 @@ function ghet {
     Write-Host "release: $releaser" -ForegroundColor Green
 
     $rawUI = $Host.UI.RawUI
-    $origFg = $rawUI.ForegroundColor
-    $origBg = $rawUI.BackgroundColor
     $selected = 0
 
-    function RenderList([int]$current) {
+    $docontinue = $true
+
+    while ($docontinue) {
         $rawUI.CursorPosition = @{ X = 0; Y = ($rawUI.CursorPosition.Y) }
         foreach ($i in 0..($assets.Count-1)) { Write-Host (" " * ($rawUI.WindowSize.Width - 1)) -NoNewline; Write-Host '' }
         $rawUI.CursorPosition = @{ X = 0; Y = ($rawUI.CursorPosition.Y - $assets.Count) }
         for ($i=0; $i -lt $assets.Count; $i++) {
             $asset = $assets[$i]
-            if ($i -eq $current) {
+            if ($i -eq $selected) {
                 Write-Host ("·  " + $asset.name + " (" + [Math]::Round($asset.size/1KB,2) + " KB)" + " ") -ForegroundColor Black -BackgroundColor Yellow
             } else {
-                Write-Host ("·  " + $asset.name + " (" + [Math]::Round($asset.size/1KB,2) + " KB)" + " ") -ForegroundColor $origFg -BackgroundColor $origBg
+                Write-Host ("·  " + $asset.name + " (" + [Math]::Round($asset.size/1KB,2) + " KB)" + " ")
             }
         }
         $reverseheight = $assets.Count
         Write-Host "`e[?25l`e[$reverseheight`F" -NoNewLine
-    }
-
-    RenderList -current $selected
-    $docontinue = $true
-
-    while ($docontinue) {
-        $keyInfo = $rawUI.ReadKey('NoEcho,IncludeKeyDown')
-        switch ($keyInfo.VirtualKeyCode) {
-            38 { # UpArrow
-                if ($selected -gt 0) { $selected-- }; RenderList -current $selected
+        $key = [System.Console]::ReadKey($true)
+        if ($key.modifiers -ne $null) {
+            switch ($key.key) {
+                "UpArrow" { # UpArrow
+                    if ($selected -gt 0) { $selected-- }
+                }
+                "DownArrow" { # DownArrow
+                    if ($selected -lt ($assets.Count - 1)) { $selected++ }
+                }
+                "Enter" { # Enter
+                    $docontinue = $false
+                }
+                "Escape" { # Escape
+                    $reverseheight = $assets.Count
+                    Write-Host "`e[$reverseheight`E" -NoNewLine
+                    Write-Host "╰─ Cancelled." -ForegroundColor Magenta
+                    Write-Host ""
+                    return
+                }
+                default { }
             }
-            40 { # DownArrow
-                if ($selected -lt ($assets.Count - 1)) { $selected++ }; RenderList -current $selected
-            }
-            13 { # Enter
-                $docontinue = $false
-            }
-            27 { # Escape
-                $reverseheight = $assets.Count
-                Write-Host "`e[$reverseheight`E" -NoNewLine
-                Write-Host "╰─ Cancelled." -ForegroundColor Magenta
-                Write-Host ""
-                return
-            }
-            default { }
         }
     }
 
