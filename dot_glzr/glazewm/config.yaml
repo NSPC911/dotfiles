@@ -72,7 +72,9 @@ window_rules:
   - commands: ["toggle-floating"]
     match:
       - window_process: { equals: "SnippingTool" }
+
       - window_title: { equals: "Vencord QuickCSS Editor" }
+      - window_title: { equals: "Colors" }
 
   - commands: ["ignore"]
     match:

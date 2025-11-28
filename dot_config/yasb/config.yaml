@@ -168,12 +168,12 @@ widgets:
       gradient: 1
       reverse: 0
       foreground: "#88C0D0"
-      bars_number: 10
+      bars_number: 8
       gradient_color_1: "#8FBCBB"
       gradient_color_2: "#81A1C1"
       gradient_color_3: "#5E81AC"
-      bar_spacing: 5
-      bar_width: 12
+      bar_spacing: 6
+      bar_width: 14
       sleep_timer: 1
       hide_empty: true
       container_padding:

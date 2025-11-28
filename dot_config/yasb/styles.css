@@ -665,10 +665,5 @@ QPushButton {
   margin-bottom: 5px;
   margin-top: 1px;
   overflow: hidden;
-  margin-right: 6px;
-}
-.cava-widget {
-  background-color: var(--main);
-  border-radius: 12px;
-  padding: 0
+  margin-right: 3px;
 }

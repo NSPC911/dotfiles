@@ -71,7 +71,7 @@ helix
 ```
 frogmouth v0.9.2
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
-nuitka v2.8.6
+nuitka v2.8.8
 poethepoet v0.38.0
 poetry v2.2.1
 pyright v1.1.407
@@ -86,12 +86,12 @@ ty v0.0.1a28
 <!--pnpm list -g, remove header-->
 ```
 @ansible/ansible-language-server 1.2.3
-@astrojs/language-server 2.16.0
+@astrojs/language-server 2.16.1
 @fsouza/prettierd 0.26.2
 @github/copilot 0.0.352
 @google/gemini-cli 0.13.0
 cli-markdown 3.5.1
-prettier 3.6.2
+prettier 3.7.1
 typescript 5.9.3
 typescript-language-server 5.1.3
 vscode-langservers-extracted 4.10.0
@@ -127,20 +127,19 @@ vscode-langservers-extracted 4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  JSON                     41         5254         5253            0            1
  TOML                      9         1581         1333          145          103
- YAML                      4          903          834           12           57
- CSS                       2          875          740           26          109
+ YAML                      4          905          835           12           58
+ CSS                       2          870          735           26          109
  INI                       1          687          170          414          103
- PowerShell                1          673          557           42           74
- Scheme                    5          476          416            9           51
+ PowerShell                1          679          564           42           73
+ Scheme                    5          475          415            9           51
  Lua                       1          236          217            6           13
 ─────────────────────────────────────────────────────────────────────────────────
  Markdown                  2          144            0          114           30
  |- Shell                  1           18           18            0            0
  (Total)                              162           18          114           30
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    66        10847         9538          768          541
+ Total                    66        10849         9540          768          541
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 ```
 
 <p align="center">

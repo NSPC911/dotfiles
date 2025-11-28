@@ -81,8 +81,8 @@
       "Info": "",
       "Name": "chezmoi",
       "Source": "main",
-      "Updated": "2025-11-03T20:47:42.6326746+08:00",
-      "Version": "2.67.0"
+      "Updated": "2025-11-27T11:40:15.1360731+08:00",
+      "Version": "2.67.1"
     },
     {
       "Info": "",
@@ -233,6 +233,13 @@
     },
     {
       "Info": "",
+      "Name": "imagemagick",
+      "Source": "main",
+      "Updated": "2025-11-27T22:59:00.4767986+08:00",
+      "Version": "7.1.2-8"
+    },
+    {
+      "Info": "",
       "Name": "innounp",
       "Source": "main",
       "Updated": "2025-11-07T01:17:55.9244383+08:00",
@@ -361,8 +368,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "extras",
-      "Updated": "2025-11-26T11:48:50.3019222+08:00",
-      "Version": "1.0.114"
+      "Updated": "2025-11-28T10:37:03.3962434+08:00",
+      "Version": "1.0.119"
     },
     {
       "Info": "",
@@ -382,8 +389,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2025-11-21T23:39:45.7322871+08:00",
-      "Version": "10.23.0"
+      "Updated": "2025-11-28T10:37:09.7853501+08:00",
+      "Version": "10.24.0"
     },
     {
       "Info": "",
@@ -396,15 +403,15 @@
       "Info": "",
       "Name": "powertoys",
       "Source": "extras",
-      "Updated": "2025-11-20T10:50:50.8927422+08:00",
-      "Version": "0.96.0"
+      "Updated": "2025-11-26T23:21:02.2106705+08:00",
+      "Version": "0.96.1"
     },
     {
       "Info": "",
       "Name": "prek",
       "Source": "le-bucket",
-      "Updated": "2025-11-21T23:39:52.9462051+08:00",
-      "Version": "0.2.18"
+      "Updated": "2025-11-26T23:18:39.5619248+08:00",
+      "Version": "0.2.19"
     },
     {
       "Info": "",
@@ -478,13 +485,6 @@
     },
     {
       "Info": "",
-      "Name": "tabby",
-      "Source": "extras",
-      "Updated": "2025-11-19T15:03:24.1824132+08:00",
-      "Version": "1.0.229"
-    },
-    {
-      "Info": "",
       "Name": "tacky-borders",
       "Source": "le-bucket",
       "Updated": "2025-10-28T16:38:38.2673644+08:00",
@@ -501,15 +501,15 @@
       "Info": "",
       "Name": "tinymist",
       "Source": "main",
-      "Updated": "2025-11-22T23:56:12.2670017+08:00",
-      "Version": "0.14.2"
+      "Updated": "2025-11-26T23:18:50.5537813+08:00",
+      "Version": "0.14.4"
     },
     {
       "Info": "",
       "Name": "tombi",
       "Source": "le-bucket",
-      "Updated": "2025-11-26T11:49:09.971169+08:00",
-      "Version": "0.6.55"
+      "Updated": "2025-11-27T11:40:40.6504791+08:00",
+      "Version": "0.7.0"
     },
     {
       "Info": "",
@@ -522,8 +522,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2025-11-26T11:49:18.3153235+08:00",
-      "Version": "0.9.12"
+      "Updated": "2025-11-27T11:40:51.8898782+08:00",
+      "Version": "0.9.13"
     },
     {
       "Info": "",
@@ -536,8 +536,8 @@
       "Info": "",
       "Name": "warp-terminal",
       "Source": "extras",
-      "Updated": "2025-11-22T23:56:37.4756903+08:00",
-      "Version": "0.2025.11.19.08.12.stable_03"
+      "Updated": "2025-11-27T11:41:24.301382+08:00",
+      "Version": "0.2025.11.19.08.12.stable_06"
     },
     {
       "Info": "",
@@ -592,7 +592,7 @@
       "Info": "",
       "Name": "zen-browser",
       "Source": null,
-      "Updated": "2025-11-25T11:57:32.0216438+08:00",
+      "Updated": "2025-11-27T11:58:08.1473809+08:00",
       "Version": "1.17.8b"
     },
     {
@@ -608,31 +608,31 @@
       "Manifests": 1413,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-11-26T08:40:52+08:00"
+      "Updated": "2025-11-28T08:39:28+08:00"
     },
     {
       "Manifests": 2216,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-11-26T08:50:31+08:00"
+      "Updated": "2025-11-28T09:18:08+08:00"
     },
     {
       "Manifests": 538,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-11-26T10:19:47+08:00"
+      "Updated": "2025-11-28T10:16:19+08:00"
     },
     {
       "Manifests": 369,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-11-26T08:47:59+08:00"
+      "Updated": "2025-11-28T08:39:05+08:00"
     },
     {
       "Manifests": 23,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-11-26T10:18:53+08:00"
+      "Updated": "2025-11-27T00:45:53+08:00"
     }
   ],
   "config": {
