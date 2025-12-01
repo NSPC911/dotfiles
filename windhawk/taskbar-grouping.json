@@ -1,1 +1,8 @@
-{"pinnedItemsMode":"replace","placeUngroupedItemsTogether":"0","useWindowIcons":"1","excludedPrograms[0]":"","groupingMode":"regular","oldTaskbarOnWin11":"0"}
+{
+  "pinnedItemsMode": "replace",
+  "placeUngroupedItemsTogether": "0",
+  "useWindowIcons": "1",
+  "excludedPrograms[0]": "",
+  "groupingMode": "regular",
+  "oldTaskbarOnWin11": "0"
+}

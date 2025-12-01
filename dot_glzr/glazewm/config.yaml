@@ -148,7 +148,13 @@ keybindings:
   - commands: ["toggle-tiling-direction"]
     bindings: ["lwin+shift+v", "ralt+v"]
   - commands: ["wm-cycle-focus", "wm-redraw"]
-    bindings: ["lwin+oem_close_brackets", "lwin+oem_open_brackets", "ralt+oem_close_brackets", "lwin+oem_open_brackets"]
+    bindings:
+      [
+        "lwin+oem_close_brackets",
+        "lwin+oem_open_brackets",
+        "ralt+oem_close_brackets",
+        "lwin+oem_open_brackets",
+      ]
 
   - commands: ["toggle-floating", "wm-redraw"]
     bindings: ["lwin+t", "ralt+t"]
@@ -198,7 +204,13 @@ keybindings:
 
   - commands: ["shell-exec flow"]
     bindings: ["lwin+space"]
-  - commands: ["shell-exec --hide-window yasbc_dev toggle-widget launchpad --follow-mouse"]
+  - commands:
+      [
+        "shell-exec --hide-window yasbc_dev toggle-widget launchpad --follow-mouse",
+      ]
     bindings: ["lwin+s"]
-  - commands: ["shell-exec --hide-window yasbc_dev toggle-widget powermenu --follow-mouse"]
+  - commands:
+      [
+        "shell-exec --hide-window yasbc_dev toggle-widget powermenu --follow-mouse",
+      ]
     bindings: ["lwin+shift+l"]

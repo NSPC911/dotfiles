@@ -68,22 +68,24 @@ helix
 #### uv tools
 
 <!--uv tool list --show-version-specifiers, remove `- `-->
+
 ```
 frogmouth v0.9.2
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
-nuitka v2.8.8
+nuitka v2.8.9
 poethepoet v0.38.0
 poetry v2.2.1
 pyright v1.1.407
 rich-cli v1.8.1
-rovr v0.6.0.dev1 [required:  git+https://github.com/nspc911/rovr@dev]
-ruff v0.14.6
-ty v0.0.1a28
+rovr v0.6.0.dev2 [required:  git+https://github.com/nspc911/rovr@dev]
+ruff v0.14.7
+ty v0.0.1a29
 ```
 
 #### pnpm global installs
 
 <!--pnpm list -g, remove header-->
+
 ```
 @ansible/ansible-language-server 1.2.3
 @astrojs/language-server 2.16.1
@@ -91,7 +93,7 @@ ty v0.0.1a28
 @github/copilot 0.0.352
 @google/gemini-cli 0.13.0
 cli-markdown 3.5.1
-prettier 3.7.1
+prettier 3.7.3
 typescript 5.9.3
 typescript-language-server 5.1.3
 vscode-langservers-extracted 4.10.0
@@ -125,12 +127,12 @@ vscode-langservers-extracted 4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     41         5254         5253            0            1
- TOML                      9         1581         1333          145          103
+ JSON                     41         5247         5246            0            1
+ TOML                      9         1585         1336          145          104
  YAML                      4          905          835           12           58
  CSS                       2          870          735           26          109
+ PowerShell                1          722          594           46           82
  INI                       1          687          170          414          103
- PowerShell                1          679          564           42           73
  Scheme                    5          475          415            9           51
  Lua                       1          236          217            6           13
 ─────────────────────────────────────────────────────────────────────────────────
@@ -138,7 +140,7 @@ vscode-langservers-extracted 4.10.0
  |- Shell                  1           18           18            0            0
  (Total)                              162           18          114           30
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    66        10849         9540          768          541
+ Total                    66        10889         9566          772          551
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

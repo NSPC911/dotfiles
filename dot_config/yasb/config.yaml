@@ -34,7 +34,8 @@ bars:
     widgets:
       left: ["power_menu", "launchpad", "media-controls", "active_window"]
       center: ["clock", "cpu"]
-      right: [
+      right:
+        [
           "glazewm_tiling_direction",
           "glazewm_workspaces",
           "bluetooth",

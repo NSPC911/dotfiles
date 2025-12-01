@@ -517,6 +517,25 @@ function ole {
 }
 
 
+##### bytes to size #####
+function Convert-IntToSize {
+    param (
+        [long]$Bytes
+    )
+
+    $units = "Bytes", "KB", "MB", "GB", "TB", "PB", "EB"
+    $index = 0
+    $size = [double]$Bytes
+
+    while ($size -ge 1024 -and $index -lt ($units.Length - 1)) {
+        $size /= 1024
+        $index++
+    }
+
+    "{0:N2} {1}" -f $size, $units[$index]
+}
+
+
 ##### ghet from gh #####
 function ghet {
     param(
@@ -557,7 +576,7 @@ function ghet {
         return
     }
 
-    # Filter executables (basic heuristics)
+    # Filter useful stuff
     $assets = @($release.assets) | Where-Object {
         $_.name -match '\.(exe|msi|bat|cmd)$' -or $_.name -match '\.(zip|tar\.gz|tgz)$'
     }
@@ -581,38 +600,63 @@ function ghet {
 
     $rawUI = $Host.UI.RawUI
     $selected = 0
+    $visibleCount = [Math]::Min(5, $assets.Count)
 
     $docontinue = $true
 
     while ($docontinue) {
+        # centered selection (edge-sticking)
+        if ($assets.Count -le 5) {
+            $windowStart = 0
+        } else {
+            # Try to center the selected item
+            $windowStart = $selected - 2
+            # Stick to edges
+            if ($windowStart -lt 0) { $windowStart = 0 }
+            if ($windowStart -gt ($assets.Count - 5)) { $windowStart = $assets.Count - 5 }
+        }
+        $windowEnd = [Math]::Min($windowStart + $visibleCount - 1, $assets.Count - 1)
+
         $rawUI.CursorPosition = @{ X = 0; Y = ($rawUI.CursorPosition.Y) }
-        foreach ($i in 0..($assets.Count-1)) { Write-Host (" " * ($rawUI.WindowSize.Width - 1)) -NoNewline; Write-Host '' }
-        $rawUI.CursorPosition = @{ X = 0; Y = ($rawUI.CursorPosition.Y - $assets.Count) }
-        for ($i=0; $i -lt $assets.Count; $i++) {
+        foreach ($i in 0..($visibleCount-1)) { Write-Host (" " * ($rawUI.WindowSize.Width - 1)) -NoNewline; Write-Host '' }
+        $rawUI.CursorPosition = @{ X = 0; Y = ($rawUI.CursorPosition.Y - $visibleCount) }
+
+        for ($i = $windowStart; $i -le $windowEnd; $i++) {
             $asset = $assets[$i]
-            if ($i -eq $selected) {
-                Write-Host ("·  " + $asset.name + " (" + [Math]::Round($asset.size/1KB,2) + " KB)" + " ") -ForegroundColor Black -BackgroundColor Yellow
+            $posInWindow = $i - $windowStart
+            $assetsize = " ($(Convert-IntToSize $asset.size)) "
+            if ($visibleCount -eq 5) {
+                if ((($posInWindow -eq 0) -and ($i -ne 0)) -or ($posInWindow -eq ($visibleCount - 1) -and ($i -ne $assets.Count - 1))) {
+                    $line = "·`e[2m  " + $asset.name + $assetsize
+                } else {
+                    $line = "·  " + $asset.name + $assetsize
+                }
             } else {
-                Write-Host ("·  " + $asset.name + " (" + [Math]::Round($asset.size/1KB,2) + " KB)" + " ")
+                $line = "·  " + $asset.name + $assetsize
+            }
+
+            if ($i -eq $selected) {
+                Write-Host $line -ForegroundColor Black -BackgroundColor Yellow
+            } else {
+                Write-Host $line
             }
         }
-        $reverseheight = $assets.Count
-        Write-Host "`e[?25l`e[$reverseheight`F" -NoNewLine
+
+        Write-Host "`e[?25l`e[$visibleCount`F" -NoNewLine
         $key = [System.Console]::ReadKey($true)
         if ($key.modifiers -ne $null) {
             switch ($key.key) {
-                "UpArrow" { # UpArrow
+                "UpArrow" {
                     if ($selected -gt 0) { $selected-- }
                 }
-                "DownArrow" { # DownArrow
+                "DownArrow" {
                     if ($selected -lt ($assets.Count - 1)) { $selected++ }
                 }
-                "Enter" { # Enter
+                "Enter" {
                     $docontinue = $false
                 }
-                "Escape" { # Escape
-                    $reverseheight = $assets.Count
-                    Write-Host "`e[$reverseheight`E" -NoNewLine
+                "Escape" {
+                    Write-Host "`e[$visibleCount`E" -NoNewLine
                     Write-Host "╰─ Cancelled." -ForegroundColor Magenta
                     Write-Host ""
                     return
@@ -622,8 +666,7 @@ function ghet {
         }
     }
 
-    $reverseheight = $assets.Count
-    Write-Host "`e[$reverseheight`E" -NoNewLine
+    Write-Host "`e[$visibleCount`E" -NoNewLine
 
     $chosen = $assets[$selected]
     Write-Host "│ " -NoNewLine

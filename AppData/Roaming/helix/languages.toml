@@ -66,7 +66,7 @@ args = ["lsp"]
 # requires: https://github.com/tombi-toml/tombi
 [language-server.tombi]
 command = "tombi"
-args = ["lsp"]
+args = ["lsp", "--no-cache"]
 
 # requires: https://github.com/tamasfe/taplo
 [language-server.taplo]
@@ -82,7 +82,12 @@ command = "codebook-lsp"
 args = ["serve"]
 
 [language-server.helix-gpt]
-command = "helix-gpt"
+command = "copilot-language-server"
+args = ["--stdio"]
+
+[language-server.helix-gpt.config]
+editorInfo = { name = "Helix", version = "25.01" }
+editorPluginInfo = { name = "helix-copilot", version = "0.1.0" }
 
 [language-server.powershell-lsp]
 command = "~/Git/PowerShellEditorServices/Start-EditorServices.ps1"

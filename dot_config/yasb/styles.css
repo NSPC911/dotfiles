@@ -75,10 +75,6 @@ QPushButton {
   border: 3.25px solid var(--nord-cyan-base);
 }
 
-.button.shutdown:hover {
-  border-color: var(--nord-red-base);
-}
-
 .calendar .calendar-table {
   background-color: transparent;
   border-radius: 8px;
@@ -547,7 +543,7 @@ QPushButton {
   padding: 0;
 }
 
-.power-menu-popup .button.cancel:hover {
+.power-menu-popup .button.cancel.hover {
   border-color: var(--nord-gray6);
 }
 
@@ -556,7 +552,7 @@ QPushButton {
   color: var(--nord-green-base);
 }
 
-.power-menu-popup .button.hibernate:hover {
+.power-menu-popup .button.hibernate.hover {
   border-color: var(--nord-green-base);
 }
 
@@ -569,7 +565,7 @@ QPushButton {
   color: var(--nord-yellow-base);
 }
 
-.power-menu-popup .button.restart:hover {
+.power-menu-popup .button.restart.hover {
   border-color: var(--nord-yellow-base);
 }
 
@@ -578,12 +574,16 @@ QPushButton {
   color: var(--nord-red-base);
 }
 
+.power-menu-popup .button.shutdown.hover {
+  border-color: var(--nord-red-base);
+}
+
 .power-menu-popup .button.signout .icon,
 .power-menu-popup .button.signout .label {
   color: var(--nord-magenta-base);
 }
 
-.power-menu-popup .button.signout:hover {
+.power-menu-popup .button.signout.hover {
   border-color: var(--nord-magenta-base);
 }
 
@@ -592,7 +592,7 @@ QPushButton {
   color: var(--nord-cyan-base);
 }
 
-.power-menu-popup .button.sleep:hover {
+.power-menu-popup .button.sleep.hover {
   border-color: var(--nord-cyan-base);
 }
 
