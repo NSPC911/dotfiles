@@ -9,7 +9,7 @@ C-S-q = ":qa"
 C-A-q = "wonly"
 C-z = "undo"
 C-y = "redo"
-C-f = ":sh wezterm cli split-pane --left --cells 26 --cwd %{current_working_directory} rovr --mode helix"
+C-f = [":new", ":insert-output wezterm cli split-pane --left --cells 26 --cwd %{current_working_directory} rovr --mode helix", ":buffer-close!"]
 tab = "rotate_view"
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
@@ -202,14 +202,14 @@ down = "no_op"
 
 # opencode
 [keys.normal."C-w".a]
-c = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode --continue"
-i = ":sh wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode"
-n = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode"
+c = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode --continue", ":buffer-close!"]
+i = [":new", ":insert-output wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode", ":buffer-close!"]
+n = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode", ":buffer-close!"]
 
 [keys.select."C-w".a]
-c = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode --continue"
-i = ":sh wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode"
-n = ":sh wezterm cli spawn --cwd %{current_working_directory} opencode"
+c = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode --continue", ":buffer-close!"]
+i = [":new", ":insert-output wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode", ":buffer-close!"]
+n = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode", ":buffer-close!"]
 
 # new buffer or terminal tab
 [keys.normal."C-w".n]
@@ -217,7 +217,7 @@ s = "no_op"
 C-s = "no_op"
 v = "no_op"
 C-v = "no_op"
-t = ":sh wezterm cli spawn"
+t = [":new", ":insert-output wezterm cli spawn", ":buffer-close!"]
 i = ["hsplit_new", "swap_view_up"]
 j = ["vsplit_new", "swap_view_left"]
 k = "hsplit_new"
@@ -229,7 +229,7 @@ s = "no_op"
 C-s = "no_op"
 v = "no_op"
 C-v = "no_op"
-t = ":sh wezterm cli spawn"
+t = [":new", ":insert-output wezterm cli spawn", ":buffer-close!"]
 i = ["hsplit_new", "swap_view_up"]
 j = ["vsplit_new", "swap_view_left"]
 k = "hsplit_new"
@@ -273,7 +273,7 @@ b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
-l = { z = [":sh wezterm cli spawn --cwd %{current_working_directory} lazygit"], p = "last_picker", k = [
+l = { z = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} lazygit", ":buffer-close!"], p = "last_picker", k = [
   ":new",
   ":insert-output taskkill /f /im python.exe",
   ":buffer-close!",
@@ -309,7 +309,7 @@ b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
-l = { z = ":sh wezterm cli spawn --cwd %{current_working_directory} lazygit", p = "last_picker", k = [
+l = { z = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} lazygit", ":buffer-close!"], p = "last_picker", k = [
   ":new",
   ":insert-output taskkill /f /im python.exe",
   ":buffer-close!",
@@ -483,7 +483,7 @@ C-S-s = ":wa"
 A-i = "move_visual_line_up"
 A-j = "move_char_left"
 A-k = "move_visual_line_down"
-A-l = "move_char_right"
+A-l = ["inline_completion_accept", "move_char_right"]
 C-z = "undo"
 C-y = "redo"
 C-f = "search"
@@ -493,7 +493,11 @@ A-J = "save_selection"
 j = { k = "@<esc>" }
 C-a = "select_all"
 C-v = ":clipboard-paste-before"
-C-c = ":clipboard-yank"
+C-c = ["inline_completion_dismiss"]
+C-r = "no_op"
+C-p = "insert_register"
+C-u = "no_op"
+C-k = "no_op"
 # python f strings autocomplete in the wonkiest way possible
 [keys.insert.f]
 '"' = "@f<esc>\"\"<esc>jd<A-i>"

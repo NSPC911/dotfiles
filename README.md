@@ -78,8 +78,8 @@ poetry v2.2.1
 pyright v1.1.407
 rich-cli v1.8.1
 rovr v0.6.0.dev2 [required:  git+https://github.com/nspc911/rovr@dev]
-ruff v0.14.7
-ty v0.0.1a29
+ruff v0.14.8
+ty v0.0.1a32
 ```
 
 #### pnpm global installs
@@ -88,12 +88,13 @@ ty v0.0.1a29
 
 ```
 @ansible/ansible-language-server 1.2.3
-@astrojs/language-server 2.16.1
+@astrojs/language-server 2.16.2
 @fsouza/prettierd 0.26.2
 @github/copilot 0.0.352
+@github/copilot-language-server 1.400.0
 @google/gemini-cli 0.13.0
 cli-markdown 3.5.1
-prettier 3.7.3
+prettier 3.7.4
 typescript 5.9.3
 typescript-language-server 5.1.3
 vscode-langservers-extracted 4.10.0

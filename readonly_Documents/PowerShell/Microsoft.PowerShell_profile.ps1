@@ -175,23 +175,15 @@ function touch {
 
 Set-Alias -Name extract -Value Expand-Archive
 
-##### better fzf #####
-function fz {
-    & fzf.exe --border rounded --multi --separator "-" --input-border "rounded" --preview "bat --color always --number --theme Nord {}" --color "dark" --preview-border "rounded" $args
-}
-
-
 ##### Python Venv #####
 function pyvenv() {
     param(
-        [Parameter()]
-        [switch]$Poetry,
-        [Parameter()]
-        [switch]$AllGroups,
-        [Parameter()]
-        [switch]$Upgrade,
-        [Parameter()]
-        [switch]$Update
+        [Parameter()][switch]$Poetry,
+        [Parameter()][switch]$AllGroups,
+        [Parameter()][switch]$Upgrade,
+        [Parameter()][switch]$Update,
+        [Parameter()][switch]$NoSync,
+        [Parameter()][switch]$Offline
     )
     if ($Poetry) {
         if (Get-Command -Name "deactivate" -CommandType Function -ErrorAction SilentlyContinue) {
@@ -207,8 +199,10 @@ function pyvenv() {
         Write-Host "Virtual Environment is active!" -ForegroundColor Green
         Write-Host "┌❯ Installing packages with 'pyproject.toml'"
         Write-Host "└─ " -NoNewLine
-        Write-Host "poetry self sync" -ForegroundColor Yellow
-        poetry self sync --quiet
+        if (-not $NoSync) {
+            Write-Host "poetry self sync" -ForegroundColor Yellow
+            poetry self sync --quiet
+        }
         Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
     } else {
         if (Test-Path venv\Scripts) {
@@ -233,38 +227,49 @@ function pyvenv() {
             .\.venv\Scripts\Activate.ps1
         }
         Write-Host "Virtual Environment is active!" -ForegroundColor Green
-        if (Test-Path pyproject.toml) {
-            Write-Host "┌❯ Installing packages with 'pyproject.toml'"
-            Write-Host "└─ " -NoNewLine
-            $flags = ""
-            if ($AllGroups) {
-                $flags += "--all-groups "
-            }
-            if ($Update -or $Upgrade) {
-                $flags += "--upgrade "
-            }
-            $flags = $flags.Trim()
-            if ($flags -eq "") {
-                Write-Host "uv sync --active $flags" -ForegroundColor Yellow
-                uv sync --active --quiet
+        if ((-not $NoSync)) {
+            if (Test-Path pyproject.toml) {
+                # get current diff
+                $current = New-TemporaryFile
+                uv pip freeze | Out-File -Path $current
+                Write-Host "┌❯ Syncing packages with 'pyproject.toml'"
+                Write-Host "└─ " -NoNewLine
+                $flags = ""
+                if ($AllGroups) {
+                    $flags += "--all-groups "
+                }
+                if ($Update -or $Upgrade) {
+                    $flags += "--upgrade "
+                }
+                if ($Offline) {
+                    $flags += "--offline"
+                }
+                $flags = $flags.Trim()
+                if ($flags -eq "") {
+                    Write-Host "uv sync --active $flags" -ForegroundColor Yellow
+                    uv sync --active --quiet
+                } else {
+                    Write-Host "uv sync --active $flags" -ForegroundColor Yellow
+                    uv sync --active $flags.Split() --quiet
+                }
+                $synced = New-TemporaryFile
+                uv pip freeze | Out-File -Path $synced
+                git diff --no-index $current $synced -U0 --no-prefix
+            } elseif (Test-Path requirements.txt) {
+                Write-Host "┌❯ Syncing packages with 'requirements.txt'"
+                Write-Host "└─ " -NoNewLine
+                Write-Host "uv pip sync -r requirements.txt" -ForegroundColor Yellow
+                uv pip install -r requirements.txt --quiet
             } else {
-                Write-Host "uv sync --active $flags" -ForegroundColor Yellow
-                uv sync --active $flags.Split() --quiet
+                Write-Host "┌❯ There are no packages available to be synced"
+                Write-Host "└❯ Make sure to either " -NoNewLine
+                Write-Host "uv init --bare" -ForegroundColor Cyan -NoNewLine
+                Write-Host " or " -NoNewLine
+                Write-Host "touch requirements.txt" -ForegroundColor Cyan -NoNewLine
+                Write-Host "!"
             }
-        } elseif (Test-Path requirements.txt) {
-            Write-Host "┌❯ Installing packages with 'requirements.txt'"
-            Write-Host "└─ " -NoNewLine
-            Write-Host "uv pip install -r requirements.txt" -ForegroundColor Yellow
-            uv pip install -r requirements.txt --quiet
-        } else {
-            Write-Host "┌❯ There are no packages available to be synced"
-            Write-Host "└❯ Make sure to either " -NoNewLine
-            Write-Host "uv init --bare" -ForegroundColor Cyan -NoNewLine
-            Write-Host " or " -NoNewLine
-            Write-Host "touch requirements.txt" -ForegroundColor Cyan -NoNewLine
-            Write-Host "!"
+            Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
         }
-        Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
     }
 }
 

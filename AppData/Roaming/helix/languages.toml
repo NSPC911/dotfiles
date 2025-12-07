@@ -90,7 +90,7 @@ editorInfo = { name = "Helix", version = "25.01" }
 editorPluginInfo = { name = "helix-copilot", version = "0.1.0" }
 
 [language-server.powershell-lsp]
-command = "~/Git/PowerShellEditorServices/Start-EditorServices.ps1"
+command = "pwsh -noni -nop -nol -c C:/Users/notso/Git/PowerShellEditorServices/src/PowerShellEditorServices.Hosting/Commands/StartEditorServicesCommand.cs"
 
 [[language]]
 name = "python"
@@ -219,5 +219,6 @@ language-servers = [
 [[language]]
 name = "powershell"
 language-servers = [
-  "helix-gpt"
+  "helix-gpt",
+  "powershell-lsp"
 ]
