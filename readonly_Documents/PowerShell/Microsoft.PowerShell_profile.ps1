@@ -725,3 +725,4 @@ if (Test-Path $prevloc) {
 if (Get-Command -Name "deactivate" -CommandType Function -ErrorAction SilentlyContinue) {
     deactivate
 }
+Write-Host "`e[1A"

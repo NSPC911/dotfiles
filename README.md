@@ -91,7 +91,7 @@ ty v0.0.1a32
 @astrojs/language-server 2.16.2
 @fsouza/prettierd 0.26.2
 @github/copilot 0.0.352
-@github/copilot-language-server 1.400.0
+@github/copilot-language-server 1.401.0
 @google/gemini-cli 0.13.0
 cli-markdown 3.5.1
 prettier 3.7.4
