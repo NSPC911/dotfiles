@@ -91,7 +91,16 @@ editorPluginInfo = { name = "helix-copilot", version = "0.1.0" }
 
 [language-server.powershell-lsp]
 command = "pwsh"
-args = ["-noni","-nop","-nol","-c","C:/Users/notso/Git/PowerShellEditorServices/PowerShellEditorServices/Start-EditorServices.ps1", "-HostName","Helix","-HostProfileId","Helix","-LogLevel","Normal"]
+args = [
+  "-nop",
+  "-nol",
+  "-c", "~/Git/PowerShellEditorServices/PowerShellEditorServices/Start-EditorServices.ps1",
+  "-HostName", "Helix",
+  "-HostProfileId", "Helix",
+  "-LogLevel", "Normal",
+  "-SessionDetailsPath", "./session.json",
+  "-Stdio"
+]
 
 [[language]]
 name = "python"
@@ -219,7 +228,4 @@ language-servers = [
 
 [[language]]
 name = "powershell"
-language-servers = [
-  "helix-gpt",
-  "powershell-lsp"
-]
+language-servers = ["helix-gpt", "powershell-lsp"]

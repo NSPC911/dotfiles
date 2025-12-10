@@ -49,6 +49,12 @@
                      [(key-event-F? event 4) "F4"]
                      [(key-event-F? event 5) "F5"]
                      [(key-event-F? event 6) "F6"]
+                     [(key-event-F? event 7) "F7"]
+                     [(key-event-F? event 8) "F8"]
+                     [(key-event-F? event 9) "F9"]
+                     [(key-event-F? event 10) "F10"]
+                     [(key-event-F? event 11) "F11"]
+                     [(key-event-F? event 12) "F12"]
                      [char (string char)]
                      [else #f])])
               (when key-name

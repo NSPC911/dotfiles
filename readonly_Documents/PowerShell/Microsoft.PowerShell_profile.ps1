@@ -91,6 +91,7 @@ if (-not (Test-Path $cacheCompletionLocation)) {
 
 . $cacheCompletionLocation
 
+Write-Output "`e[HDealing with functions and aliases..."
 ## zoxide cant add them for some reason /shrug
 Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
 Set-Alias -Option AllScope -Name "cdi" -Value "__zoxide_zi"
@@ -101,7 +102,7 @@ function global:__zoxide_cd($dir, $literal) {
     $dir = if ($literal) {
         Set-Location -LiteralPath $dir -Passthru -ErrorAction Stop
         zoxide add .
-        pwd | select -Expand Path | Out-File $prevloc
+        Get-Location | Select-Object -Expand Path | Out-File $prevloc
     } else {
         if ($dir -eq '-' -and ($PSVersionTable.PSVersion -lt 6.1)) {
             Write-Error "cd - is not supported below PowerShell 6.1. Please upgrade your version of PowerShell."
@@ -115,11 +116,15 @@ function global:__zoxide_cd($dir, $literal) {
         }
     }
 }
+function global:__zoxide_zi {
+    $result = __zoxide_bin query --list | Invoke-Fzf -Preview 'dir /B {}'
+    if ($null -ne $result) {
+        __zoxide_cd $result $true
+    }
+}
 
 ##### Superfile Go To Last Dir #####
-Write-Output "`e[HDealing with functions and aliases..."
 function spf {
-    $spf_location = "C:\Users\notso\scoop\shims\spf.exe"
     $SPF_LAST_DIR_PATH = [Environment]::GetFolderPath("LocalApplicationData") + "\superfile\lastdir"
 
     & spf.exe $args
@@ -175,6 +180,18 @@ function touch {
 
 Set-Alias -Name extract -Value Expand-Archive
 
+##### bat print #####
+function Write-PoshHighlighted {
+    Write-Output $args | bat --force-colorization --style plain --language Powershell
+}
+
+##### prompt print #####
+function Write-Prompt {
+    (oh-my-posh print --config ~\.config\kushal.omp.json primary).Split("`n") | ForEach-Object { Write-Host ; Write-Host $_ -NoNewLine }
+    Write-PoshHighlighted $args
+    Write-Host
+}
+
 ##### Python Venv #####
 function pyvenv() {
     param(
@@ -197,10 +214,10 @@ function pyvenv() {
         Write-Host "poetry env activate | Invoke-Expression" -ForegroundColor Yellow
         poetry env activate | Invoke-Expression
         Write-Host "Virtual Environment is active!" -ForegroundColor Green
-        Write-Host "┌❯ Installing packages with 'pyproject.toml'"
-        Write-Host "└─ " -NoNewLine
         if (-not $NoSync) {
             Write-Host "poetry self sync" -ForegroundColor Yellow
+            Write-Host "┌❯ Installing packages with 'pyproject.toml'"
+            Write-Host "└─ " -NoNewLine
             poetry self sync --quiet
         }
         Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
@@ -273,18 +290,6 @@ function pyvenv() {
     }
 }
 
-##### Pretty Print 'CURL's #####
-function curlout {
-    param(
-        [Parameter(Position = 0)]
-        [string]$Url,
-
-        [Parameter(Position = 1)]
-        [string]$Lang
-    )
-    Invoke-RestMethod $Url | bat -l $Lang
-}
-
 ##### id like a sha256 please ######
 function sha256 { Get-FileHash -Algorithm SHA256 $args | Select-Object -ExpandProperty Hash }
 
@@ -303,7 +308,7 @@ Set-Alias -Name "lz" -Value "lazygit"
 
 ##### Give me my full history man #####
 function Get-FullHistory {
-    Get-Content (Get-PSReadlineOption).HistorySavePath | ? {$_ -like "*$find*"} | Get-Unique
+    Get-Content (Get-PSReadlineOption).HistorySavePath | Where-Object {$_ -like "*$find*"} | Get-Unique
 }
 
 ##### run something foreva!! #####
@@ -334,35 +339,44 @@ function chezadd { chezmoi add $args }
 function chezgit { chezmoi git $args }
 
 ##### fzf plugin (needs that one powershell plugin) #####
-function fuzzy {
+function fz {
     param(
-        [ValidateSet("edit", "git", "status", "kill", "nuke", "scoop", "install", "cd", "history")]
+        [ValidateSet(
+            "edit",
+            "status",
+            "history", "his", "h",
+            "kill", "nuke",
+            "checkout", "switch",
+            "scoop", "install",
+            "cd"
+        )]
         [string]$type,
         [Parameter(ValueFromRemainingArguments=$true)]
         [object[]]$extra
     )
     if ($type -eq "edit") {
-        hx (fz)
-    } elseif (($type -eq "status") -or ($type -eq "git")) {
+        $file = Invoke-Fzf
+        if ($null -ne $file) {
+            hx $file
+        }
+    } elseif ($type -eq "status") {
         Invoke-FuzzyGitStatus
-    } elseif (($type -eq "history")) {
+    } elseif (($type -eq "history") -or ($type -eq "his") -or ($type -eq "h")) {
         Invoke-FuzzyHistory
     } elseif (($type -eq "kill") -or ($type -eq "nuke")) {
         Invoke-FuzzyKillProcess
     } elseif (($type -eq "scoop") -or ($type -eq "install")) {
         Invoke-FuzzyScoop
-    } elseif (($type -eq "cd")) {
-        Get-ChildItem . -Recurse | ? { $_.PSIsContainer } | Invoke-Fzf | Set-Location
+    } elseif ($type -eq "cd") {
+        Get-ChildItem . -Recurse | Where-Object { $_.PSIsContainer } | Invoke-Fzf | Set-Location
+    } elseif (($type -eq "switch") -or ($type -eq "checkout")) {
+        $branch = (git branch --list --format "%(refname:short)" | Invoke-Fzf -PreviewWindow hidden)
+        if ($null -ne $branch) {
+            git checkout $branch
+        }
     } else {
-        Write-Error "Unknown operation $type. Allowed: edit, status/git, history, kill/nuke or scoop/install"
+        Write-Error "Unknown operation $type. Allowed: edit, status, history/his/h, kill/nuke, checkout/switch, scoop/install, cd"
     }
-}
-
-##### posh print #####
-function posh-print {
-    (oh-my-posh print --config ~\.config\kushal.omp.json primary).Split("`n") | ForEach { Write-Host ; Write-Host $_ -NoNewLine }
-    Write-Host -ForegroundColor Yellow $args
-    Write-Host
 }
 
 ##### gh copilot cli but local #####
@@ -389,7 +403,7 @@ function ols {
     Write-Host "`e[1G╭─ Suggested command:"
     Write-Host "│"
     Write-Host "·  " -NoNewLine
-    $command | bat --language Powershell --plain
+    Write-PoshHighlighted $command
     Write-Host "│"
     $options = @("Run", "Copy", "Edit", "Improve", "Quit")
     $selectedIndex = 0
@@ -398,14 +412,14 @@ function ols {
         # claude sonnet helped do this part, pretty cool imo
         Write-Host "╰❯ " -NoNewLine
         for ($i = 0; $i -lt $options.Count; $i++) {
-            if ($i -eq $selectedIndex) { Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -ForegroundColor DarkGray -BackgroundColor Cyan -NoNewLine }
+            if ($i -eq $selectedIndex) { Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -ForegroundColor Black -BackgroundColor Cyan -NoNewLine }
             else { Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -NoNewLine }
         }
         Write-Host "`e[?25l`n"
         $key = [System.Console]::ReadKey($true)
         Write-Host "`e[2F`e[2K" -NoNewLine
         $shouldExecute = $false
-        if ($key.modifiers -ne $null) {
+        if ($null -ne $key.modifiers) {
             switch ($key.key) {
                 # Left arrow
                 "LeftArrow" { $selectedIndex = ($selectedIndex - 1 + $options.Count) % $options.Count }
@@ -429,7 +443,7 @@ function ols {
             Write-Host "`e[?25h├─ " -NoNewLine
             for ($i = 0; $i -lt $options.Count; $i++) {
                 if ($i -eq $selectedIndex) {
-                    Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -ForegroundColor DarkGray -BackgroundColor Cyan -NoNewLine
+                    Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -ForegroundColor Black -BackgroundColor Cyan -NoNewLine
                 } else {
                     Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -NoNewLine
                 }
@@ -443,13 +457,13 @@ function ols {
                     Write-Host "├─ Running command..."
                     Write-Host "│"
                     Write-Host "╰── " -NoNewLine
-                    'Invoke-Expression "$command"' | bat --language Powershell --plain
+                    Write-PoshHighlighted "$command`n"
                     Invoke-Expression "$command"
                     Write-Host ""
                     return
                 }
                 1 {
-                    Write-Host "·  $('Set-Clipboard `"$command`"' | bat --language Powershell --plain)"
+                    Write-Host "·  $(Write-PoshHighlighted 'Set-Clipboard `"$command`"')"
                     Set-Clipboard "$command"
                     Write-Host "│"
                     Write-Host "╰─ Command copied to clipboard!" -ForegroundColor Green
@@ -457,22 +471,22 @@ function ols {
                     return
                 }
                 2 {
-                    Write-Host "·  $('$editThis = New-TemporaryFile' | bat --language Powershell --plain --force-colorization)"
+                    Write-Host "·  $(Write-PoshHighlighted '$editThis = New-TemporaryFile')"
                     $editThis = New-TemporaryFile
-                    Write-Host "·  $('$editThis = Rename-Item -Path $editThis.FullName -NewName ($editThis.BaseName + ".ps1") -PassThru' | bat --language Powershell --plain --force-colorization)"
+                    Write-Host "·  $(Write-PoshHighlighted '$editThis = Rename-Item -Path $editThis.FullName -NewName ($editThis.BaseName + ".ps1") -PassThru')"
                     $editThis = Rename-Item -Path $editThis.FullName -NewName ($editThis.BaseName + ".ps1") -PassThru
-                    Write-Host "·  $('$command | Out-File $editThis' | bat --language Powershell --plain --force-colorization)"
+                    Write-Host "·  $(Write-PoshHighlighted '$command | Out-File $editThis')"
                     "$command" | Out-File $editThis
-                    Write-Host "·  $('& $env:EDITOR $editThis' | bat --language Powershell --plain --force-colorization)"
+                    Write-Host "·  $(Write-PoshHighlighted '& $env:EDITOR $editThis')"
                     & $env:EDITOR $editThis
-                    Write-Host "·  $('$command = (Get-Content $editThis)' | bat --language Powershell --plain --force-colorization)"
+                    Write-Host "·  $(Write-PoshHighlighted '$command = (Get-Content $editThis)')"
                     $command = (Get-Content $editThis)
-                    Write-Host "·  $('Remove-Item $editThis -ErrorAction SilentlyContinue -Force' | bat --language Powershell --plain --force-colorization)"
+                    Write-Host "·  $(Write-PoshHighlighted 'Remove-Item $editThis -ErrorAction SilentlyContinue -Force')"
                     Remove-Item $editThis -ErrorAction SilentlyContinue -Force
                     Write-Host "│"
                     Write-Host "├─ Modified command:"
                     Write-Host "│"
-                    Write-Host "·  $($command | bat --language Powershell --plain --force-colorization)"
+                    Write-Host "·  $(Write-PoshHighlighted $command)"
                     Write-Host "│"
                 }
                 3 {
@@ -481,13 +495,13 @@ function ols {
                     $improvement = Microsoft.PowerShell.Utility\Read-Host
                     Write-Host "`e[2F├─ How should the command be improved?" -ForegroundColor Green
                     Write-Host "╰── $improvement  " -ForegroundColor Green
-                    $improvePrompt = "Improve this PowerShell command ``$command``. User wants: '$improvement'. Respond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
+                    $improvePrompt = "Improve this PowerShell command`n$command`nUser wants:`n'$improvement'`nRespond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
                     $rawImproved = ollama run $suggesterModel $improvePrompt
                     $command = ($rawImproved | Out-String).Trim()
                     Write-Host "`e[1G╭─ Improved command:"
                     Write-Host "│"
                     Write-Host "·  " -NoNewLine
-                    $command | bat --language Powershell --plain
+                    Write-PoshHighlighted $command
                     Write-Host "│"
                     $selectedIndex = 0
                 }
@@ -649,7 +663,7 @@ function ghet {
 
         Write-Host "`e[?25l`e[$visibleCount`F" -NoNewLine
         $key = [System.Console]::ReadKey($true)
-        if ($key.modifiers -ne $null) {
+        if ($null -ne $key.modifiers) {
             switch ($key.key) {
                 "UpArrow" {
                     if ($selected -gt 0) { $selected-- }
@@ -712,12 +726,10 @@ if (Test-Path $prevloc) {
             Set-Location "$newloc"
             Write-Host -ForegroundColor DarkGray "`e[1AChanged directory to " -NoNewLine
             Write-Host -ForegroundColor DarkBlue (Get-Location).Path
-            Write-Host
         } else {
             Write-Host -ForegroundColor Red "`e[1AAttempted to navigate to " -NoNewLine
             Write-Host -ForegroundColor Blue $newloc -NoNewLine
             Write-Host -ForegroundColor Red " but it no longer exists now."
-            Write-Host
         }
     }
 }
@@ -725,4 +737,3 @@ if (Test-Path $prevloc) {
 if (Get-Command -Name "deactivate" -CommandType Function -ErrorAction SilentlyContinue) {
     deactivate
 }
-Write-Host "`e[1A"

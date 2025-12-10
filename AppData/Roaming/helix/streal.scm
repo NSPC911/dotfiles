@@ -5,15 +5,15 @@
 
 (struct StrealState (paths mode) #:mutable)
 
-(define keymap-help '("s"      "Add / remove current file"
-                      "1..9"   "Open file"
-                      "Esc, q" "Close popup"
-                      "C"      "Clear list"
-                      "h"      "Open in horizontal split"
-                      "v"      "Open in vertical split"
-                      "d"      "Delete mode"
-                      "e"      "Edit current Streal file"
-                      "?"      "Show keymap"))
+(define keymap-help '("<space>" "Add / remove current file"
+                      "1..9"    "Open file"
+                      "<esc>, q"  "Close popup"
+                      "c"       "Clear list"
+                      "k"       "Open in horizontal split"
+                      "l"       "Open in vertical split"
+                      "d"       "Delete mode"
+                      "e"       "Edit current Streal file"
+                      "?"       "Show keymap"))
 
 (define chars-to-encode (list #\% #\space #\\ #\/ #\: #\* #\? #\" #\< #\> #\|))
 
@@ -42,6 +42,7 @@
        (apply string)))
 
 (define (construct-path)
+  ; keep it common
   (string-append (canonicalize-path "~")
                  (path-separator)
                  "AppData"
@@ -205,7 +206,7 @@
             (begin
               (switch-or-open selected-path mode)
               event-result/close)))]
-      [(eqv? char #\s)
+      [(eqv? char #\space)
         (if current-path
             (begin
               (if (member current-path paths)
@@ -219,16 +220,16 @@
       [(eqv? char #\e)
         (switch-or-open (construct-path) mode)
         event-result/close]
-      [(eqv? char #\C)
+      [(eqv? char #\c)
         (write-paths (list))
         event-result/close]
       [(eqv? char #\d)
         (toggle-mode state 'delete)
         event-result/consume]
-      [(eqv? char #\h)
+      [(eqv? char #\k)
         (toggle-mode state 'horizontal)
         event-result/consume]
-      [(eqv? char #\v)
+      [(eqv? char #\l)
         (toggle-mode state 'vertical)
         event-result/consume]
       [(eqv? char #\?)

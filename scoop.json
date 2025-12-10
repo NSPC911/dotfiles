@@ -74,8 +74,8 @@
       "Info": "",
       "Name": "chezmoi",
       "Source": "main",
-      "Updated": "2025-12-04T12:51:53.7616083+05:30",
-      "Version": "2.68.0"
+      "Updated": "2025-12-10T11:11:18.776356+05:30",
+      "Version": "2.68.1"
     },
     {
       "Info": "",
@@ -95,8 +95,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2025-12-09T21:42:39.2540585+05:30",
-      "Version": "1.401.0"
+      "Updated": "2025-12-10T21:51:43.7163005+05:30",
+      "Version": "1.403.0"
     },
     {
       "Info": "",
@@ -319,8 +319,8 @@
       "Info": "",
       "Name": "notepadplusplus",
       "Source": "extras",
-      "Updated": "2025-11-19T09:30:52.8950872+05:30",
-      "Version": "8.8.8"
+      "Updated": "2025-12-10T11:11:58.4918848+05:30",
+      "Version": "8.8.9"
     },
     {
       "Info": "",
@@ -361,8 +361,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "extras",
-      "Updated": "2025-12-09T21:45:36.6167193+05:30",
-      "Version": "1.0.137"
+      "Updated": "2025-12-10T11:12:35.0599468+05:30",
+      "Version": "1.0.141"
     },
     {
       "Info": "",
@@ -412,6 +412,13 @@
       "Source": "main",
       "Updated": "2025-10-28T14:00:13.1461656+05:30",
       "Version": "7.5.4"
+    },
+    {
+      "Info": "",
+      "Name": "repgrep",
+      "Source": "le-bucket",
+      "Updated": "2025-12-10T21:03:42.6879145+05:30",
+      "Version": "0.16.1"
     },
     {
       "Info": "",
@@ -515,8 +522,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2025-12-07T22:09:35.8229056+05:30",
-      "Version": "0.9.16"
+      "Updated": "2025-12-10T11:12:57.1060445+05:30",
+      "Version": "0.9.17"
     },
     {
       "Info": "",
@@ -543,8 +550,8 @@
       "Info": "",
       "Name": "windhawk",
       "Source": "extras",
-      "Updated": "2025-12-07T22:11:53.6049701+05:30",
-      "Version": "1.7.1"
+      "Updated": "2025-12-10T21:54:22.5557436+05:30",
+      "Version": "1.7.3"
     },
     {
       "Info": "",
@@ -608,31 +615,31 @@
       "Manifests": 1413,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-12-09T18:03:15+05:30"
+      "Updated": "2025-12-10T10:01:16+05:30"
     },
     {
-      "Manifests": 2227,
+      "Manifests": 2228,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-12-09T18:01:31+05:30"
+      "Updated": "2025-12-10T21:03:46+05:30"
     },
     {
       "Manifests": 538,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-12-09T18:38:13+05:30"
+      "Updated": "2025-12-10T18:38:35+05:30"
     },
     {
       "Manifests": 369,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-12-09T18:01:36+05:30"
+      "Updated": "2025-12-10T18:01:45+05:30"
     },
     {
       "Manifests": 25,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-12-09T14:17:19+05:30"
+      "Updated": "2025-12-10T07:53:39+05:30"
     }
   ],
   "config": {

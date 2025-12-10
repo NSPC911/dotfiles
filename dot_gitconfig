@@ -1,0 +1,30 @@
+[pull]
+    rebase = true
+    autostash = true
+[alias]
+    tui = !lazygit
+	nuke = !git reset HEAD --hard && git clean -fd
+	fixup = commit --fixup
+	sync = !C:/Users/notso/scoop/apps/legit/current/legit.exe sync
+	publish = !C:/Users/notso/scoop/apps/legit/current/legit.exe publish
+	unpublish = !C:/Users/notso/scoop/apps/legit/current/legit.exe unpublish
+	undo = !C:/Users/notso/scoop/apps/legit/current/legit.exe undo
+	branches = !C:/Users/notso/scoop/apps/legit/current/legit.exe branches
+	amend = commit --amend --no-edit
+	new = checkout -b
+[user]
+    name = NSPC911
+    email = 87571998+NSPC911@users.noreply.github.com
+[credential "helperselector"]
+    selected = manager
+[credential "https://github.com"]
+    helper = !'gh.exe' auth git-credential
+[credential "https://gist.github.com"]
+    helper = !'gh.exe' auth git-credential
+[credential]
+	helper = manager
+[credential "https://myhost.com"]
+	provider = generic
+[diff]
+	colorMoved = default
+	colorMovedWS = ignore-all-space

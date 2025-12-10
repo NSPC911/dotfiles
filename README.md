@@ -1,8 +1,6 @@
 # dotfiles
 
-My Windows 11 config files, Nord ~~+ Translucency~~
-
-<sub>i lost interest in transparency</sub>
+My Windows 11 config files, Nord + Translucency
 
 ## Screenshots
 
@@ -72,6 +70,7 @@ helix
 ```
 frogmouth v0.9.2
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
+mistral-vibe v1.0.6
 nuitka v2.8.9
 poethepoet v0.38.0
 poetry v2.2.1
@@ -79,11 +78,10 @@ pyright v1.1.407
 rich-cli v1.8.1
 rovr v0.6.0.dev2 [required:  git+https://github.com/nspc911/rovr@dev]
 ruff v0.14.8
-ty v0.0.1a32
+ty v0.0.1a33
 ```
 
 #### pnpm global installs
-
 <!--pnpm list -g, remove header-->
 
 ```
@@ -91,7 +89,6 @@ ty v0.0.1a32
 @astrojs/language-server 2.16.2
 @fsouza/prettierd 0.26.2
 @github/copilot 0.0.352
-@github/copilot-language-server 1.401.0
 @google/gemini-cli 0.13.0
 cli-markdown 3.5.1
 prettier 3.7.4
@@ -128,20 +125,20 @@ vscode-langservers-extracted 4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     41         5247         5246            0            1
- TOML                      9         1585         1336          145          104
- YAML                      4          905          835           12           58
+ JSON                     41         5399         5398            0            1
+ TOML                      9         1598         1349          145          104
+ Scheme                    6          962          846           21           95
+ YAML                      4          918          848           12           58
  CSS                       2          870          735           26          109
- PowerShell                1          722          594           46           82
+ PowerShell                1          739          614           46           79
  INI                       1          687          170          414          103
- Scheme                    5          475          415            9           51
  Lua                       1          236          217            6           13
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                  2          144            0          114           30
+ Markdown                  2          144            0          113           31
  |- Shell                  1           18           18            0            0
- (Total)                              162           18          114           30
+ (Total)                              162           18          113           31
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    66        10889         9566          772          551
+ Total                    67        11571        10195          783          593
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
