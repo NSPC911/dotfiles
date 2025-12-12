@@ -53,8 +53,8 @@
   "TimeFormat": "hh:mm tt",
   "DateFormat": "MM\u0027/\u0027dd ddd",
   "FirstLaunch": false,
-  "SettingWindowWidth": 1900,
-  "SettingWindowHeight": 984,
+  "SettingWindowWidth": 1260,
+  "SettingWindowHeight": 704,
   "SettingWindowTop": 40,
   "SettingWindowLeft": 12,
   "SettingWindowState": 0,
@@ -156,7 +156,7 @@
   "CustomWindowTop": 0,
   "KeepMaxResults": false,
   "MaxResultsToShow": 5,
-  "ActivateTimes": 484,
+  "ActivateTimes": 518,
   "CustomPluginHotkeys": [],
   "CustomShortcuts": [],
   "DontPromptUpdateMsg": false,
@@ -285,7 +285,7 @@
         ],
         "Priority": 0,
         "SearchDelayTime": null,
-        "Disabled": true,
+        "Disabled": false,
         "HomeDisabled": false
       },
       "CEA08895D2544B019B2E9C5009600DF4": {
@@ -362,6 +362,18 @@
         "Version": "3.1.0",
         "ActionKeywords": [
           "*"
+        ],
+        "Priority": 0,
+        "SearchDelayTime": null,
+        "Disabled": false,
+        "HomeDisabled": false
+      },
+      "0F43C966617C4817B1BEC29DCC8E5A69": {
+        "ID": "0F43C966617C4817B1BEC29DCC8E5A69",
+        "Name": "Env",
+        "Version": "1.3.0",
+        "ActionKeywords": [
+          "env"
         ],
         "Priority": 0,
         "SearchDelayTime": null,

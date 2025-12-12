@@ -70,14 +70,14 @@ helix
 ```
 frogmouth v0.9.2
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
-mistral-vibe v1.0.6
+mistral-vibe v1.1.2
 nuitka v2.8.9
 poethepoet v0.38.0
 poetry v2.2.1
 pyright v1.1.407
 rich-cli v1.8.1
-rovr v0.6.0.dev2 [required:  git+https://github.com/nspc911/rovr@dev]
-ruff v0.14.8
+rovr v0.6.0rc1 [required:  git+https://github.com/nspc911/rovr@dev]
+ruff v0.14.9
 ty v0.0.1a33
 ```
 
@@ -125,8 +125,8 @@ vscode-langservers-extracted 4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     41         5399         5398            0            1
- TOML                      9         1598         1349          145          104
+ JSON                     41         5421         5420            0            1
+ TOML                      9         1597         1348          145          104
  Scheme                    6          962          846           21           95
  YAML                      4          918          848           12           58
  CSS                       2          870          735           26          109
@@ -134,11 +134,11 @@ vscode-langservers-extracted 4.10.0
  INI                       1          687          170          414          103
  Lua                       1          236          217            6           13
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                  2          144            0          113           31
+ Markdown                  2          144            0          114           30
  |- Shell                  1           18           18            0            0
- (Total)                              162           18          113           31
+ (Total)                              162           18          114           30
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    67        11571        10195          783          593
+ Total                    67        11592        10216          784          592
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

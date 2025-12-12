@@ -7,5 +7,12 @@
   "UseWindowsTerminal": false,
   "ShowOnlyMostUsedCMDs": false,
   "ShowOnlyMostUsedCMDsNumber": 5,
-  "CommandHistory": {}
+  "CommandHistory": {
+    "wezterm spawn hx": 2,
+    "wezterm start hx": 2,
+    "start \u0022\u0022 wezterm start hx": 1,
+    "start wezterm start hx": 1,
+    "wezterm": 1,
+    "wezterm cli spawn --new-window hx": 1
+  }
 }

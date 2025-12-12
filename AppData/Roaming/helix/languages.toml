@@ -98,7 +98,6 @@ args = [
   "-HostName", "Helix",
   "-HostProfileId", "Helix",
   "-LogLevel", "Normal",
-  "-SessionDetailsPath", "./session.json",
   "-Stdio"
 ]
 

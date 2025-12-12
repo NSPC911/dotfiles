@@ -29,13 +29,13 @@
   "ShowFileAgeInPreviewPanel": false,
   "PreviewPanelDateFormat": "yyyy-MM-dd",
   "PreviewPanelTimeFormat": "HH:mm",
-  "IndexSearchEngine": 0,
-  "PathEnumerationEngine": 0,
-  "ContentSearchEngine": 0,
+  "IndexSearchEngine": 1,
+  "PathEnumerationEngine": 1,
+  "ContentSearchEngine": 1,
   "EverythingInstalledPath": null,
   "SortOption": 1,
   "EnableEverythingContentSearch": false,
-  "EverythingEnabled": false,
+  "EverythingEnabled": true,
   "EverythingSearchFullPath": false,
   "EverythingEnableRunCount": true
 }
