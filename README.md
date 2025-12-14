@@ -70,18 +70,18 @@ helix
 ```
 frogmouth v0.9.2
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
-mistral-vibe v1.1.2
-nuitka v2.8.9
+mistral-vibe v1.1.3
 poethepoet v0.38.0
 poetry v2.2.1
 pyright v1.1.407
 rich-cli v1.8.1
 rovr v0.6.0rc1 [required:  git+https://github.com/nspc911/rovr@dev]
 ruff v0.14.9
-ty v0.0.1a33
+ty v0.0.1a28 [required: ==0.0.1a28]
 ```
 
 #### pnpm global installs
+
 <!--pnpm list -g, remove header-->
 
 ```
@@ -105,6 +105,18 @@ vscode-langservers-extracted 4.10.0
 | [tabliss](https://tabliss.io/)                                     | `zen/extensions/tabliss.json`        |
 | [vimium](https://github.com/philc/vimium)                          | `zen/extensions/vimium-options.json` |
 
+#### powershell modules
+
+| Name                                 | Description                            | Installer                                             |
+| ------------------------------------ | -------------------------------------- | ----------------------------------------------------- |
+| PSReadLine                           | Read keybinds + autocomplete           | `Install-Module PSReadline`                           |
+| scoop-completions                    | scoop completions                      | `scoop install scoop-completion`                      |
+| PoshGit                              | git autocompletions                    | `Install-Module posh-git`                             |
+| PS-Fzf                               | fzf in powershell                      | `Install-Module PSFzf`                                |
+| Microsoft.PowerShell.ConsoleGuiTools | gui tools in the shell                 | `Install-Module Microsoft.PowerShell.ConsoleGuiTools` |
+| Terminal-Icons                       | nerdfont icons in Get-ChildItem + more | `Install-Module Terminal-Icons`                       |
+| PSEverything                         | everything integration into powershell | `Install-Module PSEverything`                         |
+
 #### Previously used, but no longer using
 
 | Type                | App                                                                   | Location                                                           |
@@ -125,20 +137,20 @@ vscode-langservers-extracted 4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     41         5421         5420            0            1
- TOML                      9         1597         1348          145          104
+ JSON                     41         5402         5401            0            1
+ TOML                      9         1602         1353          145          104
  Scheme                    6          962          846           21           95
  YAML                      4          918          848           12           58
  CSS                       2          870          735           26          109
- PowerShell                1          739          614           46           79
+ PowerShell                1          737          606           49           82
  INI                       1          687          170          414          103
  Lua                       1          236          217            6           13
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                  2          144            0          114           30
+ Markdown                  2          157            0          123           34
  |- Shell                  1           18           18            0            0
- (Total)                              162           18          114           30
+ (Total)                              175           18          123           34
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    67        11592        10216          784          592
+ Total                    67        11589        10194          796          599
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

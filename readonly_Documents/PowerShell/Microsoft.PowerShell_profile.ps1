@@ -23,8 +23,8 @@ function regenCache {
     # Write-Output "`e[HSetting up pixi completions"
     # $completions += pixi completion --shell powershell
 
-    Write-Output "`e[HSetting up tuios completions"
-    $completions += tuios completion powershell
+    # Write-Output "`e[HSetting up tuios completions"
+    # $completions += tuios completion powershell
 
     Write-Output "`e[HSetting up tombi completions"
     $completions += tombi completion powershell
@@ -215,9 +215,9 @@ function pyvenv() {
         poetry env activate | Invoke-Expression
         Write-Host "Virtual Environment is active!" -ForegroundColor Green
         if (-not $NoSync) {
-            Write-Host "poetry self sync" -ForegroundColor Yellow
             Write-Host "┌❯ Installing packages with 'pyproject.toml'"
             Write-Host "└─ " -NoNewLine
+            Write-Host "poetry self sync" -ForegroundColor Yellow
             poetry self sync --quiet
         }
         Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
@@ -246,9 +246,6 @@ function pyvenv() {
         Write-Host "Virtual Environment is active!" -ForegroundColor Green
         if ((-not $NoSync)) {
             if (Test-Path pyproject.toml) {
-                # get current diff
-                $current = New-TemporaryFile
-                uv pip freeze | Out-File -Path $current
                 Write-Host "┌❯ Syncing packages with 'pyproject.toml'"
                 Write-Host "└─ " -NoNewLine
                 $flags = ""
@@ -269,9 +266,6 @@ function pyvenv() {
                     Write-Host "uv sync --active $flags" -ForegroundColor Yellow
                     uv sync --active $flags.Split() --quiet
                 }
-                $synced = New-TemporaryFile
-                uv pip freeze | Out-File -Path $synced
-                git diff --no-index $current $synced -U0 --no-prefix
             } elseif (Test-Path requirements.txt) {
                 Write-Host "┌❯ Syncing packages with 'requirements.txt'"
                 Write-Host "└─ " -NoNewLine
@@ -318,19 +312,23 @@ function forever {
 
 ##### PS Plugins #####
 Write-Output "`e[HAdding Plugins...                        "
+
 # https://github.com/devblackops/Terminal-Icons
 Import-Module -Name Terminal-Icons
+
 # should be available if you installed scoop
 Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
+
 # https://github.com/PowerShell/PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
 Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function SwitchPredictionView
 Remove-PSReadLineKeyHandler -Key "F2"
-Set-PSReadLineOption -Colors @{
-  ListPredictionSelected = "`e[7m"
-}
 Set-PSReadLineOption -BellStyle None
+# carapace stuff idk
+Set-PSReadLineOption -Colors @{ ListPredictionSelected = "`e[7m" }
+# fuzzy
+Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
+Set-PsFzfOption -EnableAliasFuzzySetEverything
 
 ##### chezmoi #####
 function chezcd { __zoxide_cd (chezmoi source-path) }

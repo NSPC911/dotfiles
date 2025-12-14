@@ -555,6 +555,7 @@ right = [
   "workspace-diagnostics",
   "position",
   "primary-selection-length",
+  "selections",
   "total-line-numbers",
 ]
 
@@ -566,6 +567,7 @@ select = "block"
 [editor.indent-guides]
 render = true
 character = "\u2502"
+rainbow = true
 
 [editor.lsp]
 display-inlay-hints = true

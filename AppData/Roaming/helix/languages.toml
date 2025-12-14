@@ -98,7 +98,8 @@ args = [
   "-HostName", "Helix",
   "-HostProfileId", "Helix",
   "-LogLevel", "Normal",
-  "-Stdio"
+  "-Stdio",
+  "-SessionDetailsPath", "$HOME/Git/PowerShellEditorServices/PowerShellEditorServices.json",
 ]
 
 [[language]]

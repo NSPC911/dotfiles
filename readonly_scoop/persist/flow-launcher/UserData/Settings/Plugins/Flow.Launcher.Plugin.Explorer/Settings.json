@@ -4,7 +4,7 @@
   "IndexSearchExcludedSubdirectoryPaths": [],
   "EditorPath": "",
   "FolderEditorPath": "",
-  "ShellPath": "cmd",
+  "ShellPath": "wezterm",
   "ExcludedFileTypes": "",
   "UseLocationAsWorkingDir": false,
   "ShowInlinedWindowsContextMenu": false,

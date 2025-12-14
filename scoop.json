@@ -128,13 +128,6 @@
     },
     {
       "Info": "",
-      "Name": "edit",
-      "Source": "main",
-      "Updated": "2025-10-28T16:27:06.5155841+08:00",
-      "Version": "1.2.1"
-    },
-    {
-      "Info": "",
       "Name": "everything",
       "Source": "extras",
       "Updated": "2025-11-06T12:16:35.1277824+08:00",
@@ -205,13 +198,6 @@
     },
     {
       "Info": "",
-      "Name": "glow",
-      "Source": "main",
-      "Updated": "2025-11-17T23:34:18.3784427+08:00",
-      "Version": "2.1.1"
-    },
-    {
-      "Info": "",
       "Name": "go",
       "Source": "main",
       "Updated": "2025-12-04T23:22:53.1566824+08:00",
@@ -221,8 +207,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2025-12-12T10:31:12.0552613+08:00",
-      "Version": "0.7.1.1"
+      "Updated": "2025-12-14T23:42:09.5979298+08:00",
+      "Version": "0.7.4.1"
     },
     {
       "Info": "",
@@ -291,8 +277,8 @@
       "Info": "",
       "Name": "marksman",
       "Source": "main",
-      "Updated": "2025-12-01T19:53:10.6608111+08:00",
-      "Version": "2025-11-30"
+      "Updated": "2025-12-14T23:43:06.2553969+08:00",
+      "Version": "2025-12-13"
     },
     {
       "Info": "",
@@ -333,15 +319,15 @@
       "Info": "",
       "Name": "obs-studio",
       "Source": "extras",
-      "Updated": "2025-12-12T10:31:17.2878752+08:00",
-      "Version": "32.0.3"
+      "Updated": "2025-12-14T23:42:53.0441279+08:00",
+      "Version": "32.0.4"
     },
     {
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2025-12-12T10:32:45.6992564+08:00",
-      "Version": "28.2.0"
+      "Updated": "2025-12-13T12:13:00.1189213+08:00",
+      "Version": "28.2.2"
     },
     {
       "Info": "",
@@ -361,8 +347,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "extras",
-      "Updated": "2025-12-12T10:38:21.1274028+08:00",
-      "Version": "1.0.150"
+      "Updated": "2025-12-13T12:13:13.5153399+08:00",
+      "Version": "1.0.152"
     },
     {
       "Info": "",
@@ -403,8 +389,8 @@
       "Info": "",
       "Name": "prek",
       "Source": "le-bucket",
-      "Updated": "2025-12-10T00:16:46.4689097+08:00",
-      "Version": "0.2.21"
+      "Updated": "2025-12-14T23:43:09.199337+08:00",
+      "Version": "0.2.22"
     },
     {
       "Info": "",
@@ -508,15 +494,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "le-bucket",
-      "Updated": "2025-12-12T10:38:42.4842846+08:00",
-      "Version": "0.7.5"
-    },
-    {
-      "Info": "",
-      "Name": "tuios",
-      "Source": "le-bucket",
-      "Updated": "2025-12-04T23:31:54.1075325+08:00",
-      "Version": "0.4.3"
+      "Updated": "2025-12-13T00:44:42.1006577+08:00",
+      "Version": "0.7.7"
     },
     {
       "Info": "",
@@ -597,10 +576,17 @@
     },
     {
       "Info": "",
+      "Name": "yt-dlp",
+      "Source": "main",
+      "Updated": "2025-12-15T00:37:30.7148811+08:00",
+      "Version": "2025.12.08"
+    },
+    {
+      "Info": "",
       "Name": "zen-browser",
       "Source": "extras",
-      "Updated": "2025-12-08T00:30:29.7508959+08:00",
-      "Version": "1.17.12b"
+      "Updated": "2025-12-14T23:43:33.4002327+08:00",
+      "Version": "1.17.14b"
     },
     {
       "Info": "",
@@ -612,34 +598,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1413,
+      "Manifests": 1412,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-12-12T12:31:43+08:00"
+      "Updated": "2025-12-14T20:31:37+08:00"
     },
     {
-      "Manifests": 2228,
+      "Manifests": 2229,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-12-12T12:30:56+08:00"
+      "Updated": "2025-12-14T20:31:19+08:00"
     },
     {
-      "Manifests": 539,
+      "Manifests": 542,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-12-12T10:25:44+08:00"
+      "Updated": "2025-12-14T21:00:20+08:00"
     },
     {
       "Manifests": 369,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-12-12T08:48:07+08:00"
+      "Updated": "2025-12-14T20:31:13+08:00"
     },
     {
       "Manifests": 25,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-12-12T10:25:25+08:00"
+      "Updated": "2025-12-13T21:00:05+08:00"
     }
   ],
   "config": {

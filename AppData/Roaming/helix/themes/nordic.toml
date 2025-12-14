@@ -125,7 +125,8 @@
 "ui.statusline.workspace-diagnostics" = { fg = "orange_bright" }
 "ui.statusline.position" = { fg = "yellow_bright" }
 "ui.statusline.primary-selection-length" = { fg = "green_bright" }
-"ui.statusline.total-line-numbers" = { fg = "blue2" }
+"ui.statusline.selections" = { fg = "blue2" }
+"ui.statusline.total-line-numbers" = { fg = "magenta_bright" }
 ## inactive left
 "ui.statusline.inactive.version-control" = { fg = "green_dim" }
 "ui.statusline.inactive.file-name" = { fg = "white0" }
@@ -140,7 +141,8 @@
 "ui.statusline.inactive.workspace-diagnostics" = { fg = "orange_dim" }
 "ui.statusline.inactive.position" = { fg = "yellow_dim" }
 "ui.statusline.inactive.primary-selection-length" = { fg = "green_dim" }
-"ui.statusline.inactive.total-line-numbers" = { fg = "blue0" }
+"ui.statusline.inactive.selections" = { fg = "blue0" }
+"ui.statusline.inactive.total-line-numbers" = { fg = "magenta_dim" }
 
 # Color Palette
 [palette]

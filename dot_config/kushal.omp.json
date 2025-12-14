@@ -8,6 +8,7 @@
   "console_title_template": "@ {{ .Folder }}",
   "blocks": [
     {
+      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
@@ -76,7 +77,7 @@
           "style": "powerline"
         },
         {
-          "template": " \u202d\ue626 {{ .Major }}.{{ .Minor }} ",
+          "template": " \u202d\ue626 {{ if .Error }}{{ else }}{{ .Major }}.{{ .Minor }} {{ end }}",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
           "background": "#7FD5EA",
@@ -84,7 +85,7 @@
           "style": "powerline"
         },
         {
-          "template": " \ue7a8 {{ .Major }}.{{ .Minor }} ",
+          "template": " \ue7a8 {{ if .Error }}{{ else }}{{ .Major }}.{{ .Minor }} {{ end }}",
           "foreground": "#193549",
           "powerline_symbol": "\ue0b0",
           "background": "#99908A",
@@ -92,7 +93,7 @@
           "style": "powerline"
         },
         {
-          "template": " \ue865 {{ .Major }}.{{ .Minor }} ",
+          "template": " \ue865 {{ if .Error }}{{ else }}{{ .Major }}.{{ .Minor }} {{ end }}",
           "foreground": "#000000",
           "powerline_symbol": "\ue0b0",
           "background": "#F9AD00",
@@ -100,7 +101,7 @@
           "style": "powerline"
         },
         {
-          "template": " \ue76f {{ .Major }}.{{ .Minor }} ",
+          "template": " \ue76f {{ if .Error }}{{ else }}{{ .Major }}.{{ .Minor }} {{ end }}",
           "foreground": "#000000",
           "powerline_symbol": "\ue0b0",
           "background": "#3C82F6",
@@ -108,9 +109,16 @@
           "style": "powerline"
         },
         {
+          "type": "lua",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#000000",
+          "background": "blue",
+          "template": "  {{ if .Error }}{{ else }}{{ .Major }}.{{ .Minor }} {{ end }}"
+        },
+        {
           "options": {
             "branch_icon": "\ue725 ",
-            "fetch_stash_count": true,
             "fetch_status": true,
             "fetch_upstream_icon": true,
             "fetch_worktree_count": true
@@ -146,7 +154,13 @@
             "folder_separator_icon": " \uf061 ",
             "home_icon": "\uf015",
             "max_depth": 5,
-            "style": "unique"
+            "style": "unique",
+            "mapped_locations": {
+              "~/Git": "\uf015 \uf061 \ue5fb",
+              "~/.local/share/chezmoi": "\uebd3",
+              "~/AppData": "\uf015 \uf061 \udb81\ude75",
+              "~/scoop": "\uf015 \uf061 \uef88"
+            }
           },
           "template": " {{ .Path }} ",
           "foreground": "#B6D6F2",
@@ -154,16 +168,10 @@
           "style": "plain"
         },
         {
-          "template": "<#B6D6F2>|</>",
-          "foreground": "#D6DEEB",
-          "type": "text",
-          "style": "plain"
-        },
-        {
           "options": {
             "always_enabled": true
           },
-          "template": " {{ if gt .Code 0 }}\uf00d {{ .Code }}{{ else }}\uf42e{{ end }} ",
+          "template": "<#B6D6F2>|</> {{ if gt .Code 0 }}\uf00d {{ .Code }}{{ else }}\uf42e{{ end }} ",
           "foreground": "#03DED3",
           "type": "status",
           "style": "plain",
@@ -180,19 +188,6 @@
           "template": "in {{ .FormattedMs }} ",
           "foreground": "#B6D6F2",
           "type": "executiontime",
-          "style": "plain"
-        },
-        {
-          "options": {
-            "http_timeout": 200
-          },
-          "cache": {
-            "duration": "5m",
-            "strategy": "session"
-          },
-          "template": "<#B6D6F2>|</> \uec1e {{ .Premium.Remaining.String }}% / 100%",
-          "foreground": "#B6D6F2",
-          "type": "copilot",
           "style": "plain"
         }
       ],
