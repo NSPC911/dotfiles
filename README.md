@@ -66,7 +66,6 @@ helix
 #### uv tools
 
 <!--uv tool list --show-version-specifiers, remove `- `-->
-
 ```
 frogmouth v0.9.2
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
@@ -83,7 +82,6 @@ ty v0.0.1a28 [required: ==0.0.1a28]
 #### pnpm global installs
 
 <!--pnpm list -g, remove header-->
-
 ```
 @ansible/ansible-language-server 1.2.3
 @astrojs/language-server 2.16.2
@@ -137,20 +135,20 @@ vscode-langservers-extracted 4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     41         5402         5401            0            1
- TOML                      9         1602         1353          145          104
- Scheme                    6          962          846           21           95
+ JSON                     41         5416         5415            0            1
+ TOML                      9         1602         1351          147          104
+ Scheme                    6          958          841           22           95
  YAML                      4          918          848           12           58
  CSS                       2          870          735           26          109
- PowerShell                1          737          606           49           82
+ PowerShell                1          747          616           49           82
  INI                       1          687          170          414          103
  Lua                       1          236          217            6           13
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                  2          157            0          123           34
+ Markdown                  2          155            0          123           32
  |- Shell                  1           18           18            0            0
- (Total)                              175           18          123           34
+ (Total)                              173           18          123           32
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    67        11589        10194          796          599
+ Total                    67        11607        10211          799          597
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

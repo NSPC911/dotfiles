@@ -8,7 +8,6 @@
 (define keymap-help '("<space>" "Add / remove current file"
                       "1..9"    "Open file"
                       "<esc>, q"  "Close popup"
-                      "c"       "Clear list"
                       "k"       "Open in horizontal split"
                       "l"       "Open in vertical split"
                       "d"       "Delete mode"
@@ -219,9 +218,6 @@
               event-result/consume))]
       [(eqv? char #\e)
         (switch-or-open (construct-path) mode)
-        event-result/close]
-      [(eqv? char #\c)
-        (write-paths (list))
         event-result/close]
       [(eqv? char #\d)
         (toggle-mode state 'delete)

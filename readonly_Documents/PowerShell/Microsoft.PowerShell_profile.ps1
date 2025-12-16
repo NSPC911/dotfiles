@@ -366,7 +366,17 @@ function fz {
     } elseif (($type -eq "scoop") -or ($type -eq "install")) {
         Invoke-FuzzyScoop
     } elseif ($type -eq "cd") {
-        Get-ChildItem . -Recurse | Where-Object { $_.PSIsContainer } | Invoke-Fzf | Set-Location
+        function script:setter {
+            return (Get-ChildItem -Directory | Select-Object -ExpandProperty Name | Join-String -Separator "`n" -OutputPrefix "../`n" | Invoke-Fzf -Preview 'dir /B {}')
+        }
+        while ($true) {
+            $fzout = setter
+            if ($fzout) {
+                Set-Location ($fzout)
+            } else {
+                return
+            }
+        }
     } elseif (($type -eq "switch") -or ($type -eq "checkout")) {
         $branch = (git branch --list --format "%(refname:short)" | Invoke-Fzf -PreviewWindow hidden)
         if ($null -ne $branch) {

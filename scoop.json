@@ -30,6 +30,13 @@
     },
     {
       "Info": "",
+      "Name": "autoclicker",
+      "Source": "extras",
+      "Updated": "2025-12-15T11:38:14.7092325+08:00",
+      "Version": "4.1"
+    },
+    {
+      "Info": "",
       "Name": "bat",
       "Source": "main",
       "Updated": "2025-12-04T15:21:24.6321031+08:00",
@@ -207,8 +214,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2025-12-14T23:42:09.5979298+08:00",
-      "Version": "0.7.4.1"
+      "Updated": "2025-12-16T22:11:12.5709844+08:00",
+      "Version": "0.7.5.1"
     },
     {
       "Info": "",
@@ -326,15 +333,15 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2025-12-13T12:13:00.1189213+08:00",
-      "Version": "28.2.2"
+      "Updated": "2025-12-16T15:10:02.5591583+08:00",
+      "Version": "28.3.0"
     },
     {
       "Info": "",
       "Name": "ollama-full",
       "Source": "extras",
-      "Updated": "2025-12-12T12:44:56.5791177+08:00",
-      "Version": "0.13.3"
+      "Updated": "2025-12-16T22:17:41.5900988+08:00",
+      "Version": "0.13.4"
     },
     {
       "Info": "",
@@ -347,8 +354,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "extras",
-      "Updated": "2025-12-13T12:13:13.5153399+08:00",
-      "Version": "1.0.152"
+      "Updated": "2025-12-16T15:09:51.9914524+08:00",
+      "Version": "1.0.162"
     },
     {
       "Info": "",
@@ -368,8 +375,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2025-12-10T00:16:27.419687+08:00",
-      "Version": "10.25.0"
+      "Updated": "2025-12-16T15:10:19.3450459+08:00",
+      "Version": "10.26.0"
     },
     {
       "Info": "",
@@ -417,8 +424,8 @@
       "Info": "",
       "Name": "rio-nightly",
       "Source": "le-bucket",
-      "Updated": "2025-12-12T10:38:32.3178232+08:00",
-      "Version": "2025-12-11"
+      "Updated": "2025-12-15T13:03:28.863263+08:00",
+      "Version": "2025-12-14"
     },
     {
       "Info": "",
@@ -513,6 +520,13 @@
     },
     {
       "Info": "",
+      "Name": "wakatime-cli",
+      "Source": "main",
+      "Updated": "2025-12-16T15:46:47.0718632+08:00",
+      "Version": "1.132.1"
+    },
+    {
+      "Info": "",
       "Name": "warp-terminal",
       "Source": "extras",
       "Updated": "2025-12-12T12:45:19.2878876+08:00",
@@ -601,31 +615,31 @@
       "Manifests": 1412,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-12-14T20:31:37+08:00"
+      "Updated": "2025-12-16T20:32:24+08:00"
     },
     {
       "Manifests": 2229,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-12-14T20:31:19+08:00"
+      "Updated": "2025-12-16T20:31:33+08:00"
     },
     {
       "Manifests": 542,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-12-14T21:00:20+08:00"
+      "Updated": "2025-12-16T21:11:50+08:00"
     },
     {
       "Manifests": 369,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-12-14T20:31:13+08:00"
+      "Updated": "2025-12-16T20:31:41+08:00"
     },
     {
       "Manifests": 25,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-12-13T21:00:05+08:00"
+      "Updated": "2025-12-16T16:48:53+08:00"
     }
   ],
   "config": {

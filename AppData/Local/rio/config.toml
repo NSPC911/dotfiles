@@ -32,7 +32,7 @@ filters = []
 [keyboard]
 use-kitty-keyboard-protocol = true
 [fonts]
-family = "0xProto Nerd Font Mono"
+family = "0xProto Nerd Font Propo"
 features = ["cv12", "cv18", "calt"]
 use-drawable-characters = false
 size = 16
