@@ -75,6 +75,8 @@ window_rules:
 
       - window_title: { equals: "Vencord QuickCSS Editor" }
       - window_title: { equals: "Colors" }
+      - window_process: { equals: "obs64" }
+        window_title: { equals: "Settings" }
 
   - commands: ["ignore"]
     match:
@@ -153,7 +155,7 @@ keybindings:
         "lwin+oem_close_brackets",
         "lwin+oem_open_brackets",
         "ralt+oem_close_brackets",
-        "lwin+oem_open_brackets",
+        "ralt+oem_open_brackets",
       ]
 
   - commands: ["toggle-floating", "wm-redraw"]

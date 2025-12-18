@@ -205,11 +205,15 @@ down = "no_op"
 c = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode --continue", ":buffer-close!"]
 i = [":new", ":insert-output wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode", ":buffer-close!"]
 n = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode", ":buffer-close!"]
+# mistral
+v = [":new", ":insert-output wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 vibe", ":buffer-close!"]
 
 [keys.select."C-w".a]
 c = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode --continue", ":buffer-close!"]
 i = [":new", ":insert-output wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode", ":buffer-close!"]
 n = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode", ":buffer-close!"]
+# mistral
+v = [":new", ":insert-output wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 vibe", ":buffer-close!"]
 
 # new buffer or terminal tab
 [keys.normal."C-w".n]

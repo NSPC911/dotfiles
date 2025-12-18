@@ -147,7 +147,8 @@ config.keys = {
 	{ key = ".",        mods = "CTRL",       action = act.MoveTabRelative(1) },
 	{ key = ",",        mods = "CTRL",       action = act.MoveTabRelative(-1) },
 	{ key = "T",        mods = "CTRL|SHIFT", action = act.DisableDefaultAssignment },
-	{ key = "F",        mods = "CTRL|SHIFT", action = act.DisableDefaultAssignment }
+	{ key = "F",        mods = "CTRL|SHIFT", action = act.DisableDefaultAssignment },
+	{ key = "Enter",    mods = "ALT",        action = act.DisableDefaultAssignment }
 }
 
 -- colors

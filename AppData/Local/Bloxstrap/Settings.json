@@ -10,7 +10,7 @@
   "UseFastFlagManager": true,
   "WPFSoftwareRender": false,
   "EnableAnalytics": true,
-  "BackgroundUpdatesEnabled": false,
+  "BackgroundUpdatesEnabled": true,
   "DebugDisableVersionPackageCleanup": false,
   "SelectedCustomTheme": null,
   "WebEnvironment": "Production",

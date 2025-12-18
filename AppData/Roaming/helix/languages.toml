@@ -14,7 +14,7 @@ args = ["server"]
 [language-server.ty.config]
 disableLanguageServices = false
 
-# requires: https://github.com/DetachHead/basedpyright
+# requires: https://github.com/microsoft/pyright
 [language-server.pyright]
 command = "pyright-langserver"
 args = ["--stdio"]
@@ -77,23 +77,28 @@ args = ["lsp", "stdio"]
 [language-server.discord-rpc]
 command = "discord-rpc-lsp"
 
+# requires: https://github.com/blopker/codebook
 [language-server.codebook]
 command = "codebook-lsp"
 args = ["serve"]
 
+# requires: https://github.com/leona/helix-gpt
 [language-server.helix-gpt]
+command = "helix-gpt"
+
+# requires: https://github.com/github/copilot-language-server-release
+[language-server.copilot]
 command = "copilot-language-server"
 args = ["--stdio"]
 
-[language-server.helix-gpt.config]
+[language-server.copilot.config]
 editorInfo = { name = "Helix", version = "25.01" }
 editorPluginInfo = { name = "helix-copilot", version = "0.1.0" }
 
 [language-server.powershell-lsp]
 command = "pwsh"
 args = [
-  "-nop",
-  "-nol",
+  "-nop", "-nol",
   "-c", "~/Git/PowerShellEditorServices/PowerShellEditorServices/Start-EditorServices.ps1",
   "-HostName", "Helix",
   "-HostProfileId", "Helix",
@@ -105,7 +110,7 @@ args = [
 [[language]]
 name = "python"
 language-servers = [
-  "helix-gpt",
+  "copilot",
   "discord-rpc",
   "codebook",
   { name = "pyright", except-features = [
@@ -128,34 +133,40 @@ language-servers = [
     "rename-symbol",
   ] },
   "ruff",
+  { name = "helix-gpt", only-features = ["code-action"] }
 ]
 auto-format = true
+roots = ["pyproject.toml", "requirements.txt", "poetry.lock", "uv.lock"]
+persistent-diagnostic-sources = ["ty"]
 
 [[language]]
 name = "scss"
 file-types = ["scss", "tcss"]
 injection-regex = "(t|s)?css"
 language-servers = [
-  "helix-gpt",
+  "copilot",
   "discord-rpc",
   "vscode-css-language-server",
+  { name = "helix-gpt", only-features = ["code-action"] }
 ]
 
 [[language]]
 name = "scheme"
 language-servers = [
-  "helix-gpt",
+  "copilot",
   "discord-rpc",
   "steel",
+  { name = "helix-gpt", only-features = ["code-action"] }
 ]
 
 [[language]]
 name = "json"
 formatter = { command = "prettierd", args = [".json"] }
 language-servers = [
-  "helix-gpt",
+  "copilot",
   "discord-rpc",
   "vscode-json-language-server",
+  { name = "helix-gpt", only-features = ["code-action"] }
 ]
 auto-format = true
 
@@ -163,9 +174,10 @@ auto-format = true
 name = "javascript"
 formatter = { command = "pretterd", args = [".js"] }
 language-servers = [
-  "helix-gpt",
+  "copilot",
   "discord-rpc",
   "typescript-language-server",
+  { name = "helix-gpt", only-features = ["code-action"] }
 ]
 auto-format = true
 
@@ -173,9 +185,10 @@ auto-format = true
 name = "jsonc"
 formatter = { command = "prettierd", args = [".jsonc"] }
 language-servers = [
-  "helix-gpt",
+  "copilot",
   "discord-rpc",
   "vscode-json-language-server",
+  { name = "helix-gpt", only-features = ["code-action"] }
 ]
 auto-format = true
 
@@ -183,49 +196,68 @@ auto-format = true
 name = "yaml"
 formatter = { command = "prettierd", args = [".yaml"] }
 language-servers = [
-  "helix-gpt",
+  "copilot",
   "discord-rpc",
   "ansible-language-server",
   "yaml-language-server",
+  { name = "helix-gpt", only-features = ["code-action"] }
 ]
 
 [[language]]
 name = "css"
 formatter = { command = "prettierd", args = [".css"] }
 language-servers = [
-  "helix-gpt",
+  "copilot",
   "discord-rpc",
   "vscode-css-language-server",
+  { name = "helix-gpt", only-features = ["code-action"] }
 ]
 
 [[language]]
 name = "markdown"
 language-servers = [
-  "helix-gpt",
+  "copilot",
   "discord-rpc",
   "codebook",
   "marksman",
   "markdown-oxide",
+  { name = "helix-gpt", only-features = ["code-action"] }
 ]
 formatter = { command = "prettierd", args = [".md"] }
 
 [[language]]
 name = "typst"
 language-servers = [
-  "helix-gpt",
+  "copilot",
   "discord-rpc",
   "codebook",
   "tinymist",
+  { name = "helix-gpt", only-features = ["code-action"] }
 ]
 
 [[language]]
 name = "toml"
 language-servers = [
-  "helix-gpt",
+  "copilot",
   "discord-rpc",
   "tombi",
+  { name = "helix-gpt", only-features = ["code-action"] }
 ]
 
 [[language]]
 name = "powershell"
-language-servers = ["helix-gpt", "powershell-lsp"]
+language-servers = [
+  "copilot",
+  "powershell-lsp",
+  { name = "helix-gpt", only-features = ["code-action"] }
+]
+
+[[language]]
+name = "astro"
+scope = "source.astro"
+indent = { tab-width = 2, unit = "  " }
+language-servers = [
+  "copilot",
+  "astro-ls",
+  { name = "helix-gpt", only-features = ["code-action"] }
+]

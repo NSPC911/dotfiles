@@ -1,6 +1,10 @@
 Set-Location $HOME
+$CACHE = "$PROFILE/../cache"
+if (-not (Test-Path $CACHE)) {
+    New-Item -ItemType Directory -Path $CACHE | Out-Null
+}
 ##### Cache Completions #####
-$cacheCompletionLocation = "$PROFILE/../completion-cache.ps1"
+$cacheCompletionLocation = "$cache/completion-cache.ps1"
 function regenCache {
     Remove-Item $cacheCompletionLocation -ErrorAction Ignore
     New-Item -Path $cacheCompletionLocation -Force
@@ -49,6 +53,9 @@ function regenCache {
 
     Write-Output "`e[HSetting up onefetch completions"
     $completions += onefetch --generate powershell
+
+    Write-Output "`e[HSetting up carapace"
+    $completions += carapace _carapace powershell
 
     # Extract all 'using' statements and remove duplicates
     $usingStatements = @()
@@ -325,10 +332,15 @@ Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function SwitchPredictionView
 Remove-PSReadLineKeyHandler -Key "F2"
 Set-PSReadLineOption -BellStyle None
 # carapace stuff idk
-Set-PSReadLineOption -Colors @{ ListPredictionSelected = "`e[7m" }
+Set-PSReadLineOption -Colors @{
+    ListPredictionSelected = "`e[7m"
+    Selection = "`e[7m"
+    InlinePrediction = "`e[2m"
+}
 # fuzzy
 Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
 Set-PsFzfOption -EnableAliasFuzzySetEverything
+
 
 ##### chezmoi #####
 function chezcd { __zoxide_cd (chezmoi source-path) }
@@ -367,11 +379,11 @@ function fz {
         Invoke-FuzzyScoop
     } elseif ($type -eq "cd") {
         function script:setter {
-            return (Get-ChildItem -Directory | Select-Object -ExpandProperty Name | Join-String -Separator "`n" -OutputPrefix "../`n" | Invoke-Fzf -Preview 'dir /B {}')
+            return (Get-ChildItem | Select-Object -ExpandProperty Name | Join-String -Separator "`n" -OutputPrefix "../`n" | Invoke-Fzf -Preview 'dir /B {}')
         }
         while ($true) {
             $fzout = setter
-            if ($fzout) {
+            if (Test-Path $fzout -PathType Container) {
                 Set-Location ($fzout)
             } else {
                 return
