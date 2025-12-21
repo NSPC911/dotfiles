@@ -1,12 +1,10 @@
 #:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.6.0/src/rovr/config/schema.json
 
-[settings]
-show_hidden_files = true
-
 [interface]
 truncate_progress_file_path = true
 nerd_font = true
 show_line_numbers = true
+show_hidden_files = true
 
 [theme]
 transparent = true
@@ -46,6 +44,11 @@ enabled = true
 
 [plugins.poppler]
 threads = 5
+
+[plugins.file_one]
+enabled = true
+[plugins.file_one.mime_rules]
+"application/pdf" = "pdf"
 
 [mode.helix]
 "plugins.editor.file_executable" = "pwsh -noni -nop -nol -c rovr-helix"

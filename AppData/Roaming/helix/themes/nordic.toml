@@ -67,7 +67,7 @@
 "diff.delta" = { fg = "blue0" }
 "git.delta.moved" = { bg = "blue2" }
 # UI
-"ui.cursor" = { fg = "black0", bg = "gray5" }
+"ui.cursor" = { fg = "black0", bg = "white0" }
 "ui.cursor.primary" = { fg = "black1", bg = "white0" }
 "ui.background" = {  }
 "ui.bufferline" = {  }

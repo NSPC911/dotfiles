@@ -12,7 +12,15 @@ function regenCache {
 
     $completions = @()
 
-    Write-Output "`e[HSetting up zoxide"
+    $dontwant = @("bat", "gh", "git", "rg", "rustup", "wezterm")
+    $scooplist = scoop list
+    Write-Output "`e[HSetting up carapace"
+    # set up things that I want, and not just everything
+    $completions += $scooplist | Select-Object -ExpandProperty name | ForEach-Object { if ($dontwant -notcontains $_) { carapace $_ powershell } }
+    $include = @("file")
+    $completions += $include | ForEach-Object { carapace $_ powershell }
+
+    Write-Output "`e[HSetting up zoxide  "
     $completions += zoxide init powershell
 
     Write-Output "`e[HSetting up oh-my-posh"
@@ -53,9 +61,6 @@ function regenCache {
 
     Write-Output "`e[HSetting up onefetch completions"
     $completions += onefetch --generate powershell
-
-    Write-Output "`e[HSetting up carapace"
-    $completions += carapace _carapace powershell
 
     # Extract all 'using' statements and remove duplicates
     $usingStatements = @()
@@ -335,11 +340,12 @@ Set-PSReadLineOption -BellStyle None
 Set-PSReadLineOption -Colors @{
     ListPredictionSelected = "`e[7m"
     Selection = "`e[7m"
-    InlinePrediction = "`e[2m"
 }
 # fuzzy
 Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
 Set-PsFzfOption -EnableAliasFuzzySetEverything
+# git completions
+Import-Module -Name git-completion
 
 
 ##### chezmoi #####
@@ -358,7 +364,8 @@ function fz {
             "kill", "nuke",
             "checkout", "switch",
             "scoop", "install",
-            "cd"
+            "cd",
+            "rg", "fd"
         )]
         [string]$type,
         [Parameter(ValueFromRemainingArguments=$true)]
@@ -383,7 +390,9 @@ function fz {
         }
         while ($true) {
             $fzout = setter
-            if (Test-Path $fzout -PathType Container) {
+            if ($null -eq $fzout) {
+                return
+            } elseif (Test-Path $fzout -PathType Container) {
                 Set-Location ($fzout)
             } else {
                 return
@@ -394,8 +403,10 @@ function fz {
         if ($null -ne $branch) {
             git checkout $branch
         }
+    } elseif (($type -eq "rg") -or ($type -eq "fd")) {
+        Invoke-PsFzfRipgrep $extra
     } else {
-        Write-Error "Unknown operation $type. Allowed: edit, status, history/his/h, kill/nuke, checkout/switch, scoop/install, cd"
+        Write-Error "Unknown operation $type. Allowed: edit, status, history/his/h, kill/nuke, checkout/switch, scoop/install, cd, rg, fd"
     }
 }
 

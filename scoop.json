@@ -53,8 +53,8 @@
       "Info": "",
       "Name": "blockbench",
       "Source": "games",
-      "Updated": "2025-12-12T10:32:08.6150252+08:00",
-      "Version": "5.0.5"
+      "Updated": "2025-12-19T10:50:20.4391302+08:00",
+      "Version": "5.0.6"
     },
     {
       "Info": "",
@@ -95,8 +95,8 @@
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Updated": "2025-12-10T00:12:21.0231657+08:00",
-      "Version": "1.9.5"
+      "Updated": "2025-12-20T10:43:42.854955+08:00",
+      "Version": "1.9.6"
     },
     {
       "Info": "",
@@ -109,15 +109,15 @@
       "Info": "",
       "Name": "collapse-launcher",
       "Source": "games",
-      "Updated": "2025-12-12T09:04:42.9439851+08:00",
-      "Version": "1.82.36"
+      "Updated": "2025-12-20T10:44:02.6300867+08:00",
+      "Version": "1.83.13"
     },
     {
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2025-12-12T10:32:21.5807579+08:00",
-      "Version": "1.405.0"
+      "Updated": "2025-12-19T10:50:27.0414526+08:00",
+      "Version": "1.406.0"
     },
     {
       "Info": "",
@@ -221,8 +221,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2025-12-16T22:11:12.5709844+08:00",
-      "Version": "0.7.5.1"
+      "Updated": "2025-12-20T10:44:35.3724354+08:00",
+      "Version": "0.7.6.1"
     },
     {
       "Info": "",
@@ -333,15 +333,15 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2025-12-18T20:22:15.4897199+08:00",
-      "Version": "28.3.1"
+      "Updated": "2025-12-22T00:28:26.3754651+08:00",
+      "Version": "28.4.0"
     },
     {
       "Info": "",
       "Name": "ollama-full",
       "Source": "extras",
-      "Updated": "2025-12-16T22:17:41.5900988+08:00",
-      "Version": "0.13.4"
+      "Updated": "2025-12-19T10:54:04.930356+08:00",
+      "Version": "0.13.5"
     },
     {
       "Info": "",
@@ -352,10 +352,10 @@
     },
     {
       "Info": "",
-      "Name": "opencode",
-      "Source": "extras",
-      "Updated": "2025-12-18T20:23:48.8349442+08:00",
-      "Version": "1.0.166"
+      "Name": "opencode-desktop",
+      "Source": "le-bucket",
+      "Updated": "2025-12-22T00:28:55.2338677+08:00",
+      "Version": "1.0.184"
     },
     {
       "Info": "",
@@ -375,8 +375,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2025-12-16T15:10:19.3450459+08:00",
-      "Version": "10.26.0"
+      "Updated": "2025-12-20T10:45:01.5934246+08:00",
+      "Version": "10.26.1"
     },
     {
       "Info": "",
@@ -403,8 +403,8 @@
       "Info": "",
       "Name": "prek",
       "Source": "le-bucket",
-      "Updated": "2025-12-14T23:43:09.199337+08:00",
-      "Version": "0.2.22"
+      "Updated": "2025-12-22T00:29:20.8918642+08:00",
+      "Version": "0.2.23"
     },
     {
       "Info": "",
@@ -431,8 +431,8 @@
       "Info": "",
       "Name": "rio-nightly",
       "Source": "le-bucket",
-      "Updated": "2025-12-17T16:33:56.2682453+08:00",
-      "Version": "2025-12-16"
+      "Updated": "2025-12-19T10:54:26.660421+08:00",
+      "Version": "2025-12-18"
     },
     {
       "Info": "",
@@ -508,8 +508,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "le-bucket",
-      "Updated": "2025-12-13T00:44:42.1006577+08:00",
-      "Version": "0.7.7"
+      "Updated": "2025-12-19T10:58:23.5013463+08:00",
+      "Version": "0.7.8"
     },
     {
       "Info": "",
@@ -536,8 +536,8 @@
       "Info": "",
       "Name": "warp-terminal",
       "Source": "extras",
-      "Updated": "2025-12-12T12:45:19.2878876+08:00",
-      "Version": "0.2025.12.10.08.12.stable_03"
+      "Updated": "2025-12-19T10:54:53.9089255+08:00",
+      "Version": "0.2025.12.17.17.17.stable_02"
     },
     {
       "Info": "",
@@ -622,31 +622,31 @@
       "Manifests": 1412,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-12-18T16:31:00+08:00"
+      "Updated": "2025-12-21T16:31:10+08:00"
     },
     {
-      "Manifests": 2229,
+      "Manifests": 2236,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-12-18T19:23:34+08:00"
+      "Updated": "2025-12-21T20:31:11+08:00"
     },
     {
       "Manifests": 544,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-12-18T16:49:46+08:00"
+      "Updated": "2025-12-21T23:07:17+08:00"
     },
     {
       "Manifests": 369,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-12-18T16:30:30+08:00"
+      "Updated": "2025-12-21T20:31:23+08:00"
     },
     {
-      "Manifests": 25,
+      "Manifests": 26,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-12-18T12:48:19+08:00"
+      "Updated": "2025-12-21T21:00:18+08:00"
     }
   ],
   "config": {

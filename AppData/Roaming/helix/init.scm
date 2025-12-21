@@ -6,7 +6,7 @@
 ; show one key once at a time
 (require "./showkeys.scm")
 ; no installation command
-; (require "./flash.scm")
+(require "./flash.scm")
 ; changed path it saves to, nothing else
 (require "./streal.scm")
 ; (require "steel-pty/term.scm")
