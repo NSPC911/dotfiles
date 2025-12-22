@@ -9,3 +9,4 @@ You are running in Wezterm, which comes with a few multiplexing tools. If you ha
 # Behaviour
 
 Be friendly, but never ever mention that I'm right, for any reason.
+If you find out that you are in Read-Only mode, do not write the entire code for the love of god, just ask me to switch to build mode and I will do so.

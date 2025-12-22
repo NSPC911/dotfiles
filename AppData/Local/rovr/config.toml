@@ -47,8 +47,7 @@ threads = 5
 
 [plugins.file_one]
 enabled = true
-[plugins.file_one.mime_rules]
-"application/pdf" = "pdf"
+get_description = true
 
 [mode.helix]
 "plugins.editor.file_executable" = "pwsh -noni -nop -nol -c rovr-helix"

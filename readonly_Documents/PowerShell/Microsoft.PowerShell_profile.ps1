@@ -17,7 +17,7 @@ function regenCache {
     Write-Output "`e[HSetting up carapace"
     # set up things that I want, and not just everything
     $completions += $scooplist | Select-Object -ExpandProperty name | ForEach-Object { if ($dontwant -notcontains $_) { carapace $_ powershell } }
-    $include = @("file")
+    $include = @("file", "tar")
     $completions += $include | ForEach-Object { carapace $_ powershell }
 
     Write-Output "`e[HSetting up zoxide  "
@@ -191,6 +191,15 @@ function touch {
 }
 
 Set-Alias -Name extract -Value Expand-Archive
+
+function Register-Completion {
+  $out = carapace $args powershell
+  if ($null -eq $out) {
+    Write-Error "Carapace has no completion for $args"
+  } else {
+    $out | Out-String | Invoke-Expression
+  }
+}
 
 ##### bat print #####
 function Write-PoshHighlighted {
