@@ -53,8 +53,8 @@
       "Info": "",
       "Name": "blockbench",
       "Source": "games",
-      "Updated": "2025-12-19T10:50:20.4391302+08:00",
-      "Version": "5.0.6"
+      "Updated": "2025-12-24T15:06:34.3482277+08:00",
+      "Version": "5.0.7"
     },
     {
       "Info": "",
@@ -102,8 +102,8 @@
       "Info": "",
       "Name": "codebook",
       "Source": "le-bucket",
-      "Updated": "2025-11-19T11:59:52.6580727+08:00",
-      "Version": "0.3.20"
+      "Updated": "2025-12-24T15:06:38.949936+08:00",
+      "Version": "0.3.22"
     },
     {
       "Info": "",
@@ -270,8 +270,8 @@
       "Info": "",
       "Name": "lua-language-server",
       "Source": "main",
-      "Updated": "2025-12-18T20:22:01.6385834+08:00",
-      "Version": "3.16.2"
+      "Updated": "2025-12-23T22:59:31.6940671+08:00",
+      "Version": "3.16.3"
     },
     {
       "Info": "",
@@ -293,13 +293,6 @@
       "Source": "extras",
       "Updated": "2025-10-28T16:32:25.9962203+08:00",
       "Version": "3.5.2"
-    },
-    {
-      "Info": "",
-      "Name": "moor",
-      "Source": "extras",
-      "Updated": "2025-12-17T16:32:42.5329592+08:00",
-      "Version": "2.9.6"
     },
     {
       "Info": "",
@@ -333,8 +326,8 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2025-12-22T00:28:26.3754651+08:00",
-      "Version": "28.4.0"
+      "Updated": "2025-12-23T22:59:54.8065366+08:00",
+      "Version": "28.5.1"
     },
     {
       "Info": "",
@@ -354,8 +347,15 @@
       "Info": "",
       "Name": "opencode-desktop",
       "Source": "le-bucket",
-      "Updated": "2025-12-22T22:57:58.1613836+08:00",
-      "Version": "1.0.186"
+      "Updated": "2025-12-24T15:08:30.2628956+08:00",
+      "Version": "1.0.193"
+    },
+    {
+      "Info": "",
+      "Name": "ov",
+      "Source": "main",
+      "Updated": "2025-12-23T23:25:12.715133+08:00",
+      "Version": "0.50.2"
     },
     {
       "Info": "",
@@ -375,8 +375,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2025-12-20T10:45:01.5934246+08:00",
-      "Version": "10.26.1"
+      "Updated": "2025-12-24T15:06:46.5486553+08:00",
+      "Version": "10.26.2"
     },
     {
       "Info": "",
@@ -403,8 +403,8 @@
       "Info": "",
       "Name": "prek",
       "Source": "le-bucket",
-      "Updated": "2025-12-22T00:29:20.8918642+08:00",
-      "Version": "0.2.23"
+      "Updated": "2025-12-23T23:00:56.4776022+08:00",
+      "Version": "0.2.24"
     },
     {
       "Info": "",
@@ -508,8 +508,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "le-bucket",
-      "Updated": "2025-12-22T22:58:24.5074057+08:00",
-      "Version": "0.7.9"
+      "Updated": "2025-12-23T23:02:11.5949584+08:00",
+      "Version": "0.7.10"
     },
     {
       "Info": "",
@@ -622,31 +622,31 @@
       "Manifests": 1412,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-12-22T20:31:53+08:00"
+      "Updated": "2025-12-24T12:32:19+08:00"
     },
     {
-      "Manifests": 2236,
+      "Manifests": 2235,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-12-22T20:31:24+08:00"
+      "Updated": "2025-12-24T12:31:41+08:00"
     },
     {
       "Manifests": 544,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-12-22T21:07:12+08:00"
+      "Updated": "2025-12-24T12:52:22+08:00"
     },
     {
       "Manifests": 370,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-12-22T20:31:39+08:00"
+      "Updated": "2025-12-24T12:31:54+08:00"
     },
     {
       "Manifests": 26,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-12-22T21:05:45+08:00"
+      "Updated": "2025-12-24T10:24:23+08:00"
     }
   ],
   "config": {

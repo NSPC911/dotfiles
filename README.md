@@ -31,6 +31,7 @@ My Windows 11 config files, Nord + Translucency
 | Git UI                | [lazygit](https://github.com/jesseduffield/lazygit)                                                                 | `AppData/Local/lazygit/config.yml`                                        |
 | File Output           | [bat](https://github.com/sharkdp/bat)                                                                               | `readonly_scoop/persist/bat/`                                             |
 | Launcher              | [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher)                                                     | `readonly_scoop/persist/flow-launcher/UserData/Settings/`                 |
+| Pager                 | [ov](https://github.com/noborus/ov) | `dot_config/ov/config.yaml`
 
 #### Wallpaper
 
@@ -69,13 +70,13 @@ helix
 ```
 frogmouth v0.9.2
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
-mistral-vibe v1.2.1
+mistral-vibe v1.3.0
 poethepoet v0.38.0
 poetry v2.2.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.407
 rich-cli v1.8.1
-rovr v0.6.0 [required:  git+https://github.com/nspc911/rovr@file_one_fixes]
+rovr v0.6.0 [required:  git+https://github.com/nspc911/rovr@dev]
 ruff v0.14.10
 ty v0.0.2 [required: ==0.0.2]
 ```
@@ -89,7 +90,7 @@ ty v0.0.2 [required: ==0.0.2]
 @fsouza/prettierd 0.26.2
 @github/copilot 0.0.352
 @google/gemini-cli 0.13.0
-@withgraphite/graphite-cli 1.7.13
+@withgraphite/graphite-cli 1.7.14
 cli-markdown 3.5.1
 prettier 3.7.4
 typescript 5.9.3
@@ -137,19 +138,19 @@ vscode-langservers-extracted 4.10.0
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  JSON                     41         5427         5426            0            1
- TOML                      9         1641         1385          150          106
+ TOML                      9         1640         1384          150          106
+ YAML                      5         1200         1113           28           59
  Scheme                    6          958          842           21           95
- YAML                      4          920          850           12           58
  CSS                       2          870          735           26          109
- PowerShell                1          770          635           51           84
+ PowerShell                1          792          656           51           85
  INI                       1          687          170          414          103
  Lua                       1          237          218            6           13
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                  2          156            0          125           31
+ Markdown                  2          158            0          127           31
  |- Shell                  1           18           18            0            0
- (Total)                              174           18          125           31
+ (Total)                              176           18          127           31
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    67        11684        10279          805          600
+ Total                    68        11987        10562          823          602
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

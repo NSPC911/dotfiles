@@ -1,0 +1,292 @@
+General:
+    TabWidth: 8
+    Header: 0
+    AlternateRows: false
+    ColumnMode: false
+    LineNumMode: true
+    WrapMode: false
+    ColumnDelimiter: ","
+    MarkStyleWidth: 1
+    # HScrollWidth: 10%
+    # VScrollLines: 2
+    Prompt:
+        Normal:
+        #      ShowFilename: true # Show the filename.
+        #      InvertColor: true # Invert the color of the prompt.
+        #      ProcessOfCount: true # Show the process of count.
+        #      CursorType: 0 # Cursor type for the normal prompt.
+        Input:
+    #      CursorType: 1 # Cursor type for the input prompt.
+
+    #  SectionDelimiter: "^#"
+    # Style
+    # String of the color name: Foreground, Background, UnderlineColor
+    # Boolean: Bold, Blink, Dim, Italic, Underline
+    # Number: UnderlineStyle
+    Style:
+        Alternate:
+            Background: "gray"
+        Header:
+            Bold: true
+        Body:
+            # Add appropriate styles here
+        LineNumber:
+            Bold: true
+        SearchHighlight:
+            Reverse: true
+        ColumnHighlight:
+            Reverse: true
+        MarkLine:
+            Background: "darkgoldenrod"
+        SectionLine:
+            Background: "slateblue"
+        VerticalHeader:
+            # Add appropriate styles here
+        Ruler:
+            Background: "#333333"
+            Foreground: "#CCCCCC"
+            Bold: true
+        HeaderBorder:
+            # Add appropriate styles here
+        SectionHeaderBorder:
+            # Add appropriate styles here
+        VerticalHeaderBorder:
+            Background: "#c0c0c0"
+        MultiColorHighlight:
+            - Foreground: "red"
+            - Foreground: "aqua"
+            - Foreground: "yellow"
+            - Foreground: "fuchsia"
+            - Foreground: "lime"
+            - Foreground: "blue"
+            - Foreground: "grey"
+        ColumnRainbow:
+            - Foreground: "white"
+            - Foreground: "crimson"
+            - Foreground: "aqua"
+            - Foreground: "lightsalmon"
+            - Foreground: "lime"
+            - Foreground: "blue"
+            - Foreground: "yellowgreen"
+        JumpTargetLine:
+            Underline: true
+
+StyleOverStrike:
+    Bold: true
+StyleOverLine:
+    Underline: true
+
+KeyBind:
+    exit:
+        - "Escape"
+        - "q"
+    cancel:
+        - "ctrl+c"
+    write_exit:
+        - "Q"
+    set_write_exit:
+        - "ctrl+q"
+    write_original:
+        - "alt+shift+F8"
+    suspend:
+        - "ctrl+z"
+    edit:
+        - "alt+v"
+    status_line:
+        - "ctrl+F10"
+    sync:
+        - "ctrl+l"
+    reload:
+        - "ctrl+alt+l"
+        - "F5"
+    watch:
+        - "ctrl+alt+w"
+        - "F4"
+    watch_interval:
+        - "ctrl+w"
+    follow_mode:
+        - "ctrl+f"
+    follow_all:
+        - "ctrl+a"
+    follow_section:
+        - "F2"
+    help:
+        - "h"
+        - "ctrl+alt+c"
+        - "ctrl+f1"
+    logdoc:
+        - "ctrl+f2"
+        - "ctrl+alt+e"
+    down:
+        - "Enter"
+        - "Down"
+        - "k"
+    up:
+        - "Up"
+        - "i"
+    top:
+        - "Home"
+    bottom:
+        - "End"
+    left:
+        - "left"
+    right:
+        - "right"
+    half_left:
+        - "ctrl+left"
+    half_right:
+        - "ctrl+right"
+    page_up:
+        - "I"
+    page_down:
+        - "K"
+    page_half_up:
+        - "ctrl+i"
+    page_half_down:
+        - "ctrl+k"
+    section_delimiter:
+        - "alt+d"
+    section_start:
+        - "ctrl+F3"
+        - "alt+s"
+    section_header_num:
+        - "F7"
+    hide_other:
+        - "alt+-"
+    next_section:
+        - "space"
+    last_section:
+        - "9"
+    previous_section:
+        - "^"
+    mark:
+        - "m"
+    remove_mark:
+        - "M"
+    remove_all_mark:
+        - "ctrl+delete"
+    next_mark:
+        - ">"
+    previous_mark:
+        - "<"
+    set_view_mode:
+        - "p"
+        - "P"
+    alter_rows_mode:
+        - "C"
+    line_number_mode:
+        - "G"
+    search:
+        - "/"
+    wrap_mode:
+        - "w"
+        - "W"
+    column_mode:
+        - "c"
+    backsearch:
+        - "?"
+    delimiter:
+        - "d"
+    header:
+        - "H"
+    skip_lines:
+        - "ctrl+s"
+    tabwidth:
+        - "t"
+    goto:
+        - "g"
+    next_search:
+        - "n"
+    next_backsearch:
+        - "N"
+    next_doc:
+        - "]"
+    previous_doc:
+        - "["
+    toggle_mouse:
+        - "ctrl+F8"
+        - "ctrl+alt+r"
+    multi_color:
+        - "."
+    jump_target:
+    plain_mode:
+        - "ctrl+e"
+    rainbow_mode:
+        - "ctrl+r"
+    close_file:
+        - "ctrl+F9"
+        - "ctrl+alt+s"
+    width_left:
+        - "alt+left"
+    width_right:
+        - "alt+right"
+    begin_left:
+        - "shift+Home"
+    end_right:
+        - "shift+End"
+    column_width:
+        - "alt+o"
+    filter:
+        - "&"
+    close_doc:
+        - "ctrl+k"
+    close_all_filter:
+        - "K"
+    convert_type:
+        - "alt+t"
+    align_format:
+        - "alt+f"
+    raw_format:
+        - "alt+r"
+    vertical_header:
+        - "y"
+    header_column:
+        - "Y"
+    fixed_column:
+        - "F"
+    shrink_column:
+        - "s"
+    right_align:
+        - "alt+a"
+    toggle_ruler:
+        - "alt+shift+F9"
+    input_casesensitive:
+        - "alt+c"
+    input_smart_casesensitive:
+        - "alt+s"
+    input_incsearch:
+        - "alt+i"
+    input_regexp_search:
+        - "alt+r"
+    input_non_match:
+        - "!"
+    input_previous:
+        - "Up"
+    input_next:
+        - "Down"
+    input_copy:
+        - "ctrl+c"
+    input_paste:
+        - "ctrl+v"
+
+Mode:
+    markdown:
+        SectionDelimiter: "^#"
+        WrapMode: false
+        Style:
+            SectionLine:
+                Background: "blue"
+    psql:
+        Header: 2
+        AlternateRows: true
+        ColumnMode: true
+        LineNumMode: true
+        WrapMode: false
+        ColumnDelimiter: "|"
+    mysql:
+        Header: 3
+        AlternateRows: true
+        ColumnMode: true
+        LineNumMode: true
+        WrapMode: false
+        ColumnDelimiter: "|"

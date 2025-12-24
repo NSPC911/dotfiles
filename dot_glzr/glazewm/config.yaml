@@ -102,18 +102,6 @@ window_rules:
       - window_process: { equals: "POWERPNT" }
         window_class: { not_regex: "PPTFrameClass" }
 
-  - commands: ["move --workspace 5", "focus --workspace 5"]
-    match:
-      - window_process: { equals: "Discord" }
-
-  - commands: ["move --workspace 4", "focus --workspace 4"]
-    match:
-      - window_process: { equals: "Beeper" }
-
-  - commands: ["move --workspace 3", "focus --workspace 3"]
-    match:
-      - window_process: { equals: "ONENOTE" }
-
 binding_modes:
 
 keybindings:

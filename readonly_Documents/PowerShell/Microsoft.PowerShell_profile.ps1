@@ -438,8 +438,12 @@ function ols {
 
     $prompt = "You are a CLI assistant in a Windows environemnt with pwsh as the active shell. The user wants to: '$Description'. Respond with ONLY the raw pwsh command. Do not use markdown, code blocks or any formatting. Just output the plain command text."
 
-    $rawOutput = ollama run $suggesterModel $prompt
-    $command = ($rawOutput | out-string).Trim()
+    if ((Test-Connection google.com -count 1 | Select-Object -Expand Status) -eq "Success") {
+        $output = opencode run --model github-copilot/grok-code-fast-1 "$prompt"
+    } else {
+        $output = ollama run $suggesterModel $prompt
+    }
+    $command = ($output | Out-String).Trim()
     Write-Host "`e[1G╭─ Suggested command:"
     Write-Host "│"
     Write-Host "·  " -NoNewLine
@@ -536,7 +540,11 @@ function ols {
                     Write-Host "`e[2F├─ How should the command be improved?" -ForegroundColor Green
                     Write-Host "╰── $improvement  " -ForegroundColor Green
                     $improvePrompt = "Improve this PowerShell command`n$command`nUser wants:`n'$improvement'`nRespond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
-                    $rawImproved = ollama run $suggesterModel $improvePrompt
+                    if ((Test-Connection google.com -count 1 | Select-Object -Expand Status) -eq "Success") {
+                        $output = opencode run --model github-copilot/grok-code-fast-1 "$improvePrompt"
+                    } else {
+                        $output = ollama run $suggesterModel $improvePrompt
+                    }
                     $command = ($rawImproved | Out-String).Trim()
                     Write-Host "`e[1G╭─ Improved command:"
                     Write-Host "│"
@@ -568,7 +576,12 @@ function ole {
     $prompt = "Explain this PowerShell command: '$Command'. Include what it does, any parameters, and provide examples if helpful. Be concise. Format your response using Markdown."
 
     Write-Host " Querying...`e[1A"
-    $output = ollama run $explainerModel $prompt | Out-String
+    if ((Test-Connection google.com -count 1 | Select-Object -Expand Status) -eq "Success") {
+        $output = opencode run --model github-copilot/grok-code-fast-1 "$prompt"
+    } else {
+        $output = ollama run $suggesterModel $prompt
+    }
+    $output = ($output | Out-String).Trim()
     Write-Host "Rendering...`e[1A" -ForegroundColor Yellow
     $maxWidth = [int]($Host.UI.RawUI.WindowSize.Width - 8)
     $output | rich --markdown --panel rounded --expand --guides --hyperlinks --caption "Using [cyan]$explainerModel[/]" --width $maxWidth --center -
