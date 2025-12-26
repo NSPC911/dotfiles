@@ -270,8 +270,8 @@
       "Info": "",
       "Name": "lua-language-server",
       "Source": "main",
-      "Updated": "2025-12-23T22:59:31.6940671+08:00",
-      "Version": "3.16.3"
+      "Updated": "2025-12-26T00:58:12.0148393+08:00",
+      "Version": "3.16.4"
     },
     {
       "Info": "",
@@ -347,8 +347,8 @@
       "Info": "",
       "Name": "opencode-desktop",
       "Source": "le-bucket",
-      "Updated": "2025-12-24T15:08:30.2628956+08:00",
-      "Version": "1.0.193"
+      "Updated": "2025-12-26T21:03:33.6391665+08:00",
+      "Version": "1.0.202"
     },
     {
       "Info": "",
@@ -382,7 +382,7 @@
       "Info": "",
       "Name": "poppler",
       "Source": "main",
-      "Updated": "2025-12-08T00:38:20.3464511+08:00",
+      "Updated": "2025-12-26T00:56:07.4908647+08:00",
       "Version": "25.12.0-0"
     },
     {
@@ -466,8 +466,8 @@
       "Info": "",
       "Name": "stretchly",
       "Source": "extras",
-      "Updated": "2025-11-14T14:36:27.4420835+08:00",
-      "Version": "1.19.0"
+      "Updated": "2025-12-24T23:10:22.7292425+08:00",
+      "Version": "1.20.0"
     },
     {
       "Info": "",
@@ -508,8 +508,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "le-bucket",
-      "Updated": "2025-12-23T23:02:11.5949584+08:00",
-      "Version": "0.7.10"
+      "Updated": "2025-12-26T00:58:28.3765997+08:00",
+      "Version": "0.7.11"
     },
     {
       "Info": "",
@@ -622,31 +622,31 @@
       "Manifests": 1412,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-12-24T12:32:19+08:00"
+      "Updated": "2025-12-26T16:31:30+08:00"
     },
     {
-      "Manifests": 2235,
+      "Manifests": 2236,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-12-24T12:31:41+08:00"
+      "Updated": "2025-12-26T20:31:21+08:00"
     },
     {
       "Manifests": 544,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-12-24T12:52:22+08:00"
+      "Updated": "2025-12-26T16:45:45+08:00"
     },
     {
       "Manifests": 370,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-12-24T12:31:54+08:00"
+      "Updated": "2025-12-26T16:30:17+08:00"
     },
     {
       "Manifests": 26,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-12-24T10:24:23+08:00"
+      "Updated": "2025-12-26T12:49:18+08:00"
     }
   ],
   "config": {

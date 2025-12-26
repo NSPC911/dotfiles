@@ -193,13 +193,18 @@ function touch {
 Set-Alias -Name extract -Value Expand-Archive
 
 function Register-Completion {
-  $out = carapace $args powershell
-  if ($null -eq $out) {
-    Write-Error "Carapace has no completion for $args"
-  } else {
-    $out | Out-String | Invoke-Expression
-  }
+    $out = carapace $args powershell
+    if ($null -eq $out) {
+        Write-Error "Carapace has no completion for $args"
+    } else {
+        $out | Out-String | Invoke-Expression
+    }
 }
+
+function imgcat {
+    wezterm imgcat --resample-filter nearest --resample-format png $args
+}
+
 
 ##### bat print #####
 function Write-PoshHighlighted {

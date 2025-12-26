@@ -240,7 +240,7 @@ name = "toml"
 language-servers = [
   "copilot",
   "discord-rpc",
-  "tombi",
+  "taplo",
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
 
