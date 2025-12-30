@@ -1,3 +1,4 @@
 --theme="Nord"
 --italic-text=always
---paging=never
+--paging=auto
+--wrap=never

@@ -66,19 +66,19 @@ helix
 
 #### uv tools
 
-<!--uv tool list --show-version-specifiers, remove `- `-->
+<!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
 ```
 frogmouth v0.9.2
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
-mistral-vibe v1.3.2
+mistral-vibe v1.3.3
 poethepoet v0.39.0
 poetry v2.2.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.407
 rich-cli v1.8.1
-rovr v0.6.0 [required:  git+https://github.com/nspc911/rovr@dev]
+rovr v0.7.0.dev1 [required:  git+https://github.com/nspc911/rovr@dev] [with: textual-speedups]
 ruff v0.14.10
-ty v0.0.2 [required: ==0.0.2]
+ty v0.0.8 [required: ==0.0.8]
 ```
 
 #### pnpm global installs
@@ -92,6 +92,8 @@ ty v0.0.2 [required: ==0.0.2]
 @google/gemini-cli 0.13.0
 @withgraphite/graphite-cli 1.7.14
 cli-markdown 3.5.1
+corepack 0.34.5
+live-server 1.2.2
 prettier 3.7.4
 typescript 5.9.3
 typescript-language-server 5.1.3
@@ -137,20 +139,20 @@ vscode-langservers-extracted 4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     41         5434         5433            0            1
- TOML                      9         1640         1384          150          106
- YAML                      5         1200         1113           28           59
+ JSON                     41         5437         5436            0            1
+ TOML                      9         1642         1384          152          106
+ YAML                      5         1201         1114           28           59
  Scheme                    6          958          842           21           95
  CSS                       2          870          735           26          109
- PowerShell                1          797          659           51           87
+ PowerShell                1          817          680           50           87
  INI                       1          687          170          414          103
  Lua                       1          237          218            6           13
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                  2          158            0          127           31
+ Markdown                  2          160            0          129           31
  |- Shell                  1           18           18            0            0
- (Total)                              176           18          127           31
+ (Total)                              178           18          129           31
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    68        11999        10572          823          604
+ Total                    68        12027        10597          826          604
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

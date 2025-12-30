@@ -95,8 +95,8 @@
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Updated": "2025-12-20T10:43:42.854955+08:00",
-      "Version": "1.9.6"
+      "Updated": "2025-12-28T21:02:34.3495895+08:00",
+      "Version": "1.9.7"
     },
     {
       "Info": "",
@@ -305,8 +305,8 @@
       "Info": "",
       "Name": "notepadplusplus",
       "Source": "extras",
-      "Updated": "2025-12-10T13:41:58.4918848+08:00",
-      "Version": "8.8.9"
+      "Updated": "2025-12-28T15:37:15.5429109+08:00",
+      "Version": "8.9"
     },
     {
       "Info": "",
@@ -326,8 +326,8 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2025-12-23T22:59:54.8065366+08:00",
-      "Version": "28.5.1"
+      "Updated": "2025-12-30T19:05:28.3457043+08:00",
+      "Version": "28.8.0"
     },
     {
       "Info": "",
@@ -347,8 +347,8 @@
       "Info": "",
       "Name": "opencode-desktop",
       "Source": "le-bucket",
-      "Updated": "2025-12-26T21:03:33.6391665+08:00",
-      "Version": "1.0.202"
+      "Updated": "2025-12-30T22:37:15.9559923+08:00",
+      "Version": "1.0.210"
     },
     {
       "Info": "",
@@ -403,8 +403,8 @@
       "Info": "",
       "Name": "prek",
       "Source": "le-bucket",
-      "Updated": "2025-12-23T23:00:56.4776022+08:00",
-      "Version": "0.2.24"
+      "Updated": "2025-12-27T23:11:49.9159886+08:00",
+      "Version": "0.2.25"
     },
     {
       "Info": "",
@@ -412,6 +412,13 @@
       "Source": "main",
       "Updated": "2025-10-28T16:30:13.1461656+08:00",
       "Version": "7.5.4"
+    },
+    {
+      "Info": "",
+      "Name": "regolith",
+      "Source": "le-bucket",
+      "Updated": "2025-12-28T21:02:34.9079607+08:00",
+      "Version": "1.6.2"
     },
     {
       "Info": "",
@@ -508,15 +515,15 @@
       "Info": "",
       "Name": "tombi",
       "Source": "le-bucket",
-      "Updated": "2025-12-26T00:58:28.3765997+08:00",
-      "Version": "0.7.11"
+      "Updated": "2025-12-30T19:04:10.0038091+08:00",
+      "Version": "0.7.14"
     },
     {
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2025-12-17T16:34:32.3347477+08:00",
-      "Version": "0.9.18"
+      "Updated": "2025-12-30T09:38:40.5061986+08:00",
+      "Version": "0.9.20"
     },
     {
       "Info": "",
@@ -531,13 +538,6 @@
       "Source": "main",
       "Updated": "2025-12-16T15:46:47.0718632+08:00",
       "Version": "1.132.1"
-    },
-    {
-      "Info": "",
-      "Name": "warp-terminal",
-      "Source": "extras",
-      "Updated": "2025-12-19T10:54:53.9089255+08:00",
-      "Version": "0.2025.12.17.17.17.stable_02"
     },
     {
       "Info": "",
@@ -571,8 +571,8 @@
       "Info": "",
       "Name": "xxmi",
       "Source": "games",
-      "Updated": "2025-10-28T16:40:14.1532507+08:00",
-      "Version": "1.9.2"
+      "Updated": "2025-12-29T23:37:01.5718689+08:00",
+      "Version": "1.9.5"
     },
     {
       "Info": "",
@@ -585,8 +585,8 @@
       "Info": "",
       "Name": "yazi",
       "Source": "main",
-      "Updated": "2025-11-04T00:10:04.4911109+08:00",
-      "Version": "25.5.31"
+      "Updated": "2025-12-29T14:16:55.8128969+08:00",
+      "Version": "25.12.29"
     },
     {
       "Info": "",
@@ -622,31 +622,31 @@
       "Manifests": 1412,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-12-26T16:31:30+08:00"
+      "Updated": "2025-12-30T20:31:48+08:00"
     },
     {
-      "Manifests": 2236,
+      "Manifests": 2241,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-12-26T20:31:21+08:00"
+      "Updated": "2025-12-30T20:31:30+08:00"
     },
     {
-      "Manifests": 544,
+      "Manifests": 547,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-12-26T16:45:45+08:00"
+      "Updated": "2025-12-30T21:09:31+08:00"
     },
     {
       "Manifests": 370,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-12-26T16:30:17+08:00"
+      "Updated": "2025-12-30T20:31:36+08:00"
     },
     {
-      "Manifests": 26,
+      "Manifests": 27,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-12-26T12:49:18+08:00"
+      "Updated": "2025-12-30T21:07:23+08:00"
     }
   ],
   "config": {

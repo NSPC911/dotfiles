@@ -130,8 +130,10 @@ KeyBind:
         - "End"
     left:
         - "left"
+        - "j"
     right:
         - "right"
+        - "l"
     half_left:
         - "ctrl+left"
     half_right:
@@ -179,8 +181,6 @@ KeyBind:
     search:
         - "/"
     wrap_mode:
-        - "w"
-        - "W"
     column_mode:
         - "c"
     backsearch:
@@ -209,6 +209,7 @@ KeyBind:
     multi_color:
         - "."
     jump_target:
+        - "J"
     plain_mode:
         - "ctrl+e"
     rainbow_mode:
@@ -228,10 +229,6 @@ KeyBind:
         - "alt+o"
     filter:
         - "&"
-    close_doc:
-        - "ctrl+k"
-    close_all_filter:
-        - "K"
     convert_type:
         - "alt+t"
     align_format:
@@ -268,6 +265,10 @@ KeyBind:
         - "ctrl+c"
     input_paste:
         - "ctrl+v"
+    close_all_filter:
+        - "W"
+    close_doc:
+        - "w"
 
 Mode:
     markdown:

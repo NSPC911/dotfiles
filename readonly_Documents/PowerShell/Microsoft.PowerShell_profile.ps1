@@ -17,7 +17,7 @@ function regenCache {
     Write-Output "`e[HSetting up carapace"
     # set up things that I want, and not just everything
     $completions += $scooplist | Select-Object -ExpandProperty name | ForEach-Object { if ($dontwant -notcontains $_) { carapace $_ powershell } }
-    $include = @("file", "tar")
+    $include = @("file", "tar", "curl")
     $completions += $include | ForEach-Object { carapace $_ powershell }
 
     Write-Output "`e[HSetting up zoxide  "
@@ -56,8 +56,8 @@ function regenCache {
     Write-Output "`e[HSetting up wezterm completions"
     $completions += wezterm shell-completion --shell power-shell
 
-    # Write-Output "`e[HSetting up regolith completions"
-    # $completions += regolith completion powershell
+    Write-Output "`e[HSetting up regolith completions"
+    $completions += regolith completion powershell
 
     Write-Output "`e[HSetting up onefetch completions"
     $completions += onefetch --generate powershell
@@ -208,14 +208,30 @@ function imgcat {
 
 ##### bat print #####
 function Write-PoshHighlighted {
-    Write-Output $args | bat --force-colorization --style plain --language Powershell
+    Write-Output $args | bat --force-colorization --style plain --language Powershell --paging=never
 }
 
-##### prompt print #####
-function Write-Prompt {
-    (oh-my-posh print --config ~\.config\kushal.omp.json primary).Split("`n") | ForEach-Object { Write-Host ; Write-Host $_ -NoNewLine }
-    Write-PoshHighlighted $args
-    Write-Host
+function Watch-OMPrompt {
+    param(
+        [Parameter()][string]$ConfigPath = "~/.config/kushal.omp.json"
+    )
+    $newTab = wezterm cli spawn -- hx $ConfigPath
+    Start-Sleep -Seconds 1
+    # keep in mind that omp-test folder isn't added to the dotfiles
+    # you need to `uv init`, `cargo init`, `go mod init`, `pnpm init`, `bun init`, `touch test.lua`
+    $previewsplit = wezterm cli split-pane --bottom --cells 3 --pane-id $newTab --cwd "C:\Users\notso\Git\omp-test" -- pwsh -noni -nop -nol -c @"
+oh-my-posh print primary --config $ConfigPath
+`$lastMod = `(Get-Item $ConfigPath`).LastWriteTime
+while `(`$true`) `{
+    Start-Sleep -Seconds 1
+    `$newLastMod = `(Get-Item $ConfigPath`).LastWriteTime
+    if `(`$lastMod -ne `$newLastMod`) `{
+        Clear-Host
+        oh-my-posh print primary --config $ConfigPath
+        `$lastMod = `$newLastMod
+    `}
+`}
+"@
 }
 
 ##### Python Venv #####
@@ -250,7 +266,7 @@ function pyvenv() {
     } else {
         if (Test-Path venv\Scripts) {
             Write-Host "┌❯ Using " -NoNewLine
-            Write-Host "venv" -ForegroundColor Cyan
+            Write-Host "venv " -ForegroundColor Cyan
             Write-Host "├❯ Activating virtual environment"
             Write-Host "└─ " -NoNewLine
             Write-Host ".\venv\Scripts\Activate.ps1" -ForegroundColor Yellow
@@ -269,7 +285,9 @@ function pyvenv() {
             Write-Host ".\.venv\Scripts\Activate.ps1" -ForegroundColor Yellow
             .\.venv\Scripts\Activate.ps1
         }
-        Write-Host "Virtual Environment is active!" -ForegroundColor Green
+        Write-Host "Virtual Environment is active!" -ForegroundColor Green -NoNewLine
+        $pyVersion = uv run --no-sync python --version
+        Write-Host " ($pyVersion)" -ForegroundColor Cyan
         if ((-not $NoSync)) {
             if (Test-Path pyproject.toml) {
                 Write-Host "┌❯ Syncing packages with 'pyproject.toml'"
@@ -295,8 +313,8 @@ function pyvenv() {
             } elseif (Test-Path requirements.txt) {
                 Write-Host "┌❯ Syncing packages with 'requirements.txt'"
                 Write-Host "└─ " -NoNewLine
-                Write-Host "uv pip sync -r requirements.txt" -ForegroundColor Yellow
-                uv pip install -r requirements.txt --quiet
+                Write-Host "uv pip sync requirements.txt" -ForegroundColor Yellow
+                uv pip sync requirements.txt --quiet
             } else {
                 Write-Host "┌❯ There are no packages available to be synced"
                 Write-Host "└❯ Make sure to either " -NoNewLine
@@ -305,7 +323,9 @@ function pyvenv() {
                 Write-Host "touch requirements.txt" -ForegroundColor Cyan -NoNewLine
                 Write-Host "!"
             }
-            Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
+            Write-Host "Virtual Environment has been synced!" -ForegroundColor Green -NoNewLine
+            $packages = (uv pip list --format json | jq .[].name).Split("`n").Length
+            Write-Host " ($packages packages installed)" -ForegroundColor Cyan
         }
     }
 }
