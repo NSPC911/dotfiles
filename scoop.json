@@ -326,8 +326,8 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2025-12-30T19:05:28.3457043+08:00",
-      "Version": "28.8.0"
+      "Updated": "2025-12-31T14:55:35.6745074+08:00",
+      "Version": "28.9.0"
     },
     {
       "Info": "",
@@ -347,8 +347,8 @@
       "Info": "",
       "Name": "opencode-desktop",
       "Source": "le-bucket",
-      "Updated": "2025-12-30T22:37:15.9559923+08:00",
-      "Version": "1.0.210"
+      "Updated": "2025-12-31T14:55:45.9113106+08:00",
+      "Version": "1.0.218"
     },
     {
       "Info": "",
@@ -375,8 +375,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2025-12-24T15:06:46.5486553+08:00",
-      "Version": "10.26.2"
+      "Updated": "2025-12-31T14:55:53.7420754+08:00",
+      "Version": "10.27.0"
     },
     {
       "Info": "",
@@ -522,8 +522,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2025-12-30T09:38:40.5061986+08:00",
-      "Version": "0.9.20"
+      "Updated": "2025-12-31T14:57:21.1849029+08:00",
+      "Version": "0.9.21"
     },
     {
       "Info": "",
@@ -622,31 +622,31 @@
       "Manifests": 1412,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-12-30T20:31:48+08:00"
+      "Updated": "2025-12-31T20:32:17+08:00"
     },
     {
       "Manifests": 2241,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-12-30T20:31:30+08:00"
+      "Updated": "2025-12-31T20:31:19+08:00"
     },
     {
       "Manifests": 547,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-12-30T21:09:31+08:00"
+      "Updated": "2025-12-31T21:06:49+08:00"
     },
     {
-      "Manifests": 370,
+      "Manifests": 372,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-12-30T20:31:36+08:00"
+      "Updated": "2025-12-31T20:31:51+08:00"
     },
     {
       "Manifests": 27,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-12-30T21:07:23+08:00"
+      "Updated": "2025-12-31T16:46:42+08:00"
     }
   ],
   "config": {

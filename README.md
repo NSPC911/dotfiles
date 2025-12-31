@@ -4,10 +4,10 @@ My Windows 11 config files, Nord + Translucency
 
 ## Screenshots
 
-| ![fetch](https://github.com/NSPC911/dotfiles/blob/main/img/fetch.png?raw=true) <br> gitfetch + fastfetch |                  ![helix](https://github.com/NSPC911/dotfiles/blob/main/img/helixonly.png?raw=true) <br> helix                   |
-| :------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------: |
-|   ![zen browser](https://github.com/NSPC911/dotfiles/blob/main/img/zen.png?raw=true) <br> zen browser    | ![youtube music](https://github.com/NSPC911/dotfiles/blob/main/img/youtubemusic.png?raw=true) <br> youtube music (a bit scuffed) |
-| ![rovr](https://github.com/NSPC911/dotfiles/blob/main/img/rovr.png?raw=true) <br> rovr, my file explorer |                                                                                                                                  |
+| ![fetch](img/fetch.png) <br> gitfetch + fastfetch |                  ![helix](img/helixonly.png) <br> helix                   |
+| :-----------------------------------------------: | :-----------------------------------------------------------------------: |
+|   ![zen browser](img/zen.png) <br> zen browser    | ![youtube music](img/youtubemusic.png) <br> youtube music (a bit scuffed) |
+| ![rovr](img/rovr.png) <br> rovr, my file explorer |                           ![prompt](kushal.png)                           |
 
 ## Apps
 
@@ -31,7 +31,7 @@ My Windows 11 config files, Nord + Translucency
 | Git UI                | [lazygit](https://github.com/jesseduffield/lazygit)                                                                 | `AppData/Local/lazygit/config.yml`                                        |
 | File Output           | [bat](https://github.com/sharkdp/bat)                                                                               | `readonly_scoop/persist/bat/`                                             |
 | Launcher              | [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher)                                                     | `readonly_scoop/persist/flow-launcher/UserData/Settings/`                 |
-| Pager                 | [ov](https://github.com/noborus/ov) | `dot_config/ov/config.yaml`
+| Pager                 | [ov](https://github.com/noborus/ov)                                                                                 | `dot_config/ov/config.yaml`                                               |
 
 #### Wallpaper
 
@@ -67,6 +67,7 @@ helix
 #### uv tools
 
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
+
 ```
 frogmouth v0.9.2
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
@@ -84,6 +85,7 @@ ty v0.0.8 [required: ==0.0.8]
 #### pnpm global installs
 
 <!--pnpm list -g, remove header-->
+
 ```
 @ansible/ansible-language-server 1.2.3
 @astrojs/language-server 2.16.2
@@ -135,16 +137,17 @@ vscode-langservers-extracted 4.10.0
 ### Stats
 
 <!--tokei --sort lines-->
+
 ```shell
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     41         5437         5436            0            1
- TOML                      9         1642         1384          152          106
+ JSON                     42         5453         5452            0            1
+ TOML                      9         1643         1385          152          106
  YAML                      5         1201         1114           28           59
  Scheme                    6          958          842           21           95
  CSS                       2          870          735           26          109
- PowerShell                1          817          680           50           87
+ PowerShell                1          855          716           51           88
  INI                       1          687          170          414          103
  Lua                       1          237          218            6           13
 ─────────────────────────────────────────────────────────────────────────────────
@@ -152,7 +155,7 @@ vscode-langservers-extracted 4.10.0
  |- Shell                  1           18           18            0            0
  (Total)                              178           18          129           31
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    68        12027        10597          826          604
+ Total                    69        12082        10650          827          605
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

@@ -44,6 +44,7 @@ C-r = [":lsp-restart", ":reload-all"]
 "/" = "search"
 X = "extend_line_above"
 Y = ":primary-clipboard-yank"
+"," = "repeat_last_motion"
 "A-." = "no_op"
 "%" = "no_op"
 W = "no_op"

@@ -14,22 +14,37 @@ function regenCache {
 
     $dontwant = @("bat", "gh", "git", "rg", "rustup", "wezterm")
     $scooplist = scoop list
-    Write-Output "`e[HSetting up carapace"
+    Write-Host "`e[HSetting up carapace `e[s" -NoNewLine
     # set up things that I want, and not just everything
-    $completions += $scooplist | Select-Object -ExpandProperty name | ForEach-Object { if ($dontwant -notcontains $_) { carapace $_ powershell } }
-    $include = @("file", "tar", "curl")
-    $completions += $include | ForEach-Object { carapace $_ powershell }
+    $completions += $scooplist | Select-Object -ExpandProperty name | ForEach-Object {
+        if ($dontwant -notcontains $_) {
+            $caracomplete = carapace $_ powershell
+            if ($null -ne $caracomplete) {
+                $compeltions += $caracomplete
+                Write-Host "`e[u`e[0K$_"
+            }
+        }
+    }
+    $include = @("file", "tar", "curl", "carapace", "cargo")
+    $completions += $include | ForEach-Object {
+        $caracomplete = carapace $_ powershell
+        if ($null -ne $caracomplete) {
+            $compeltions += $caracomplete
+            Write-Host "`e[u`e[0K$_"
+        }
+    }
 
-    Write-Output "`e[HSetting up zoxide  "
+    # `e[2K to clear line
+    Write-Output "`e[H`e[2KSetting up zoxide"
     $completions += zoxide init powershell
 
-    Write-Output "`e[HSetting up oh-my-posh"
+    Write-Output "`e[0J`e[HSetting up oh-my-posh"
     $completions += oh-my-posh init powershell --config $HOME\.config\kushal.omp.json
 
-    Write-Output "`e[HSetting up uv completions"
+    Write-Output "`e[0J`e[HSetting up uv completions"
     $completions += uv generate-shell-completion powershell
 
-    Write-Output "`e[HSetting up gh completions"
+    Write-Output "`e[0J`e[HSetting up gh completions"
     $completions += gh completion -s powershell
 
     # Write-Output "`e[HSetting up pixi completions"
@@ -38,28 +53,28 @@ function regenCache {
     # Write-Output "`e[HSetting up tuios completions"
     # $completions += tuios completion powershell
 
-    Write-Output "`e[HSetting up tombi completions"
+    Write-Output "`e[0J`e[HSetting up tombi completions"
     $completions += tombi completion powershell
 
-    Write-Output "`e[HSetting up batcat completions"
+    Write-Output "`e[0J`e[HSetting up batcat completions"
     $completions += bat --completion ps1
 
-    Write-Output "`e[HSetting up rustup completions"
+    Write-Output "`e[0J`e[HSetting up rustup completions"
     $completions += rustup completions powershell
 
-    Write-Output "`e[HSetting up chezmoi completions"
+    Write-Output "`e[0J`e[HSetting up chezmoi completions"
     $completions += chezmoi completion powershell
 
-    Write-Output "`e[HSetting up ripgrep completions"
+    Write-Output "`e[0J`e[HSetting up ripgrep completions"
     $completions += rg --generate complete-powershell
 
-    Write-Output "`e[HSetting up wezterm completions"
+    Write-Output "`e[0J`e[HSetting up wezterm completions"
     $completions += wezterm shell-completion --shell power-shell
 
-    Write-Output "`e[HSetting up regolith completions"
+    Write-Output "`e[0J`e[HSetting up regolith completions"
     $completions += regolith completion powershell
 
-    Write-Output "`e[HSetting up onefetch completions"
+    Write-Output "`e[0J`e[HSetting up onefetch completions"
     $completions += onefetch --generate powershell
 
     # Extract all 'using' statements and remove duplicates
@@ -103,7 +118,7 @@ if (-not (Test-Path $cacheCompletionLocation)) {
 
 . $cacheCompletionLocation
 
-Write-Output "`e[HDealing with functions and aliases..."
+Write-Output "`e[0J`e[HDealing with functions and aliases..."
 ## zoxide cant add them for some reason /shrug
 Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
 Set-Alias -Option AllScope -Name "cdi" -Value "__zoxide_zi"
@@ -168,6 +183,8 @@ function nuke {
 }
 Set-Alias -Name "whereis" -Value "where.exe"
 
+Set-Alias -Name "omp" -Value "oh-my-posh"
+
 function Remove-Location { Remove-Item -Recurse -Force $args }
 Set-Alias -Name rmloc -Value Remove-Location
 
@@ -215,11 +232,11 @@ function Watch-OMPrompt {
     param(
         [Parameter()][string]$ConfigPath = "~/.config/kushal.omp.json"
     )
-    $newTab = wezterm cli spawn -- hx $ConfigPath
-    Start-Sleep -Seconds 1
+    $newTab = wezterm cli spawn -- $env:EDITOR $ConfigPath
+    Start-Sleep -Milliseconds 500
     # keep in mind that omp-test folder isn't added to the dotfiles
     # you need to `uv init`, `cargo init`, `go mod init`, `pnpm init`, `bun init`, `touch test.lua`
-    $previewsplit = wezterm cli split-pane --bottom --cells 3 --pane-id $newTab --cwd "C:\Users\notso\Git\omp-test" -- pwsh -noni -nop -nol -c @"
+    wezterm cli split-pane --bottom --cells 3 --pane-id $newTab --cwd "C:\Users\notso\Git\omp-test" -- pwsh -noni -nop -nol -c @"
 oh-my-posh print primary --config $ConfigPath
 `$lastMod = `(Get-Item $ConfigPath`).LastWriteTime
 while `(`$true`) `{
@@ -227,11 +244,25 @@ while `(`$true`) `{
     `$newLastMod = `(Get-Item $ConfigPath`).LastWriteTime
     if `(`$lastMod -ne `$newLastMod`) `{
         Clear-Host
-        oh-my-posh print primary --config $ConfigPath
+        oh-my-posh print primary --config `"$ConfigPath`"
         `$lastMod = `$newLastMod
     `}
+    # check if editor is open in other pane
+    wezterm cli get-text --pane-id $newTab `*`>`$null
+    if `(`$LASTEXITCODE -ne 0`) `{
+        break
+    `}
+    # resize always to 3
+    if `(`$Host.UI.RawUI.WindowSize.Height -ne 3`) `{
+        wezterm cli adjust-pane-size Down --amount 100
+        wezterm cli adjust-pane-size Up --amount 2
+        # force redraw
+        `$lastMod = `$null
+    `}
 `}
-"@
+"@ | Out-Null
+    Start-Sleep -Milliseconds 500
+    wezterm cli activate-pane --pane-id $newTab
 }
 
 ##### Python Venv #####
@@ -357,12 +388,14 @@ function forever {
 }
 
 ##### PS Plugins #####
-Write-Output "`e[HAdding Plugins...                        "
+Write-Host "`e[0J`e[0J`e[HAdding Plugins `e[s" -NoNewLine
 
 # https://github.com/devblackops/Terminal-Icons
+Write-Output "`e[u`e[0KTerminal-Icons"
 Import-Module -Name Terminal-Icons
 
 # should be available if you installed scoop
+Write-Output "`e[u`e[0KScoop Completions"
 Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
 
 # https://github.com/PowerShell/PSReadLine
@@ -376,14 +409,19 @@ Set-PSReadLineOption -Colors @{
     Selection = "`e[7m"
 }
 # fuzzy
+Write-Output "`e[u`e[0KPsFzf"
 Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
 Set-PsFzfOption -EnableAliasFuzzySetEverything
 # git completions
+Write-Output "`e[u`e[0KGit Completions"
 Import-Module -Name git-completion
 
 
 ##### chezmoi #####
-function chezcd { __zoxide_cd (chezmoi source-path) }
+function chezcd {
+    __zoxide_cd (chezmoi source-path)
+    chezmoi status
+}
 function chezedit { chezmoi edit --apply $args }
 function chezadd { chezmoi add $args }
 function chezgit { chezmoi git $args }
