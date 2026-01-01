@@ -177,6 +177,13 @@
     },
     {
       "Info": "",
+      "Name": "freeze",
+      "Source": "https://raw.githubusercontent.com/charmbracelet/scoop-bucket/refs/heads/main/freeze.json",
+      "Updated": "2026-01-01T02:24:08.8848448+08:00",
+      "Version": "0.2.2"
+    },
+    {
+      "Info": "",
       "Name": "fzf",
       "Source": "main",
       "Updated": "2025-11-17T16:11:18.1653479+08:00",
@@ -230,6 +237,13 @@
       "Source": "le-bucket",
       "Updated": "2025-10-28T16:30:54.997542+08:00",
       "Version": "1.0.1"
+    },
+    {
+      "Info": "",
+      "Name": "imagemagick",
+      "Source": "main",
+      "Updated": "2026-01-01T02:29:25.9988576+08:00",
+      "Version": "7.1.2-12"
     },
     {
       "Info": "",
@@ -347,8 +361,8 @@
       "Info": "",
       "Name": "opencode-desktop",
       "Source": "le-bucket",
-      "Updated": "2025-12-31T14:55:45.9113106+08:00",
-      "Version": "1.0.218"
+      "Updated": "2026-01-01T17:11:22.5522651+08:00",
+      "Version": "1.0.222"
     },
     {
       "Info": "",
@@ -368,8 +382,8 @@
       "Info": "",
       "Name": "pixelorama",
       "Source": "extras",
-      "Updated": "2025-11-30T16:06:54.0623176+08:00",
-      "Version": "1.1.7"
+      "Updated": "2026-01-01T17:11:35.8387479+08:00",
+      "Version": "1.1.8"
     },
     {
       "Info": "",
@@ -426,6 +440,13 @@
       "Source": "le-bucket",
       "Updated": "2025-12-10T23:33:42.6879145+08:00",
       "Version": "0.16.1"
+    },
+    {
+      "Info": "",
+      "Name": "resvg",
+      "Source": "main",
+      "Updated": "2026-01-01T02:29:40.0329164+08:00",
+      "Version": "0.45.1"
     },
     {
       "Info": "",
@@ -622,31 +643,31 @@
       "Manifests": 1412,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2025-12-31T20:32:17+08:00"
+      "Updated": "2026-01-01T16:33:10+08:00"
     },
     {
       "Manifests": 2241,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2025-12-31T20:31:19+08:00"
+      "Updated": "2026-01-01T16:35:01+08:00"
     },
     {
-      "Manifests": 547,
+      "Manifests": 551,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2025-12-31T21:06:49+08:00"
+      "Updated": "2026-01-01T17:10:19+08:00"
     },
     {
       "Manifests": 372,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2025-12-31T20:31:51+08:00"
+      "Updated": "2026-01-01T16:30:34+08:00"
     },
     {
       "Manifests": 27,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2025-12-31T16:46:42+08:00"
+      "Updated": "2026-01-01T10:39:56+08:00"
     }
   ],
   "config": {

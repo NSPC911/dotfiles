@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "secondary_prompt": {
     "template": "\u2570\u2500❯ ",
-    "foreground": "#B6D6F2",
+    "foreground": "#D6DEEB",
     "background": "transparent"
   },
   "console_title_template": "@ {{ .Folder }}",
@@ -144,7 +144,7 @@
       "segments": [
         {
           "template": "\u256d\u2500",
-          "foreground": "#B6D6F2",
+          "foreground": "#D6DEEB",
           "type": "text",
           "style": "plain"
         },
@@ -163,7 +163,7 @@
             }
           },
           "template": " {{ .Path }} ",
-          "foreground": "#B6D6F2",
+          "foreground": "#D6DEEB",
           "type": "path",
           "style": "plain"
         },
@@ -171,7 +171,7 @@
           "options": {
             "always_enabled": true
           },
-          "template": "<#B6D6F2>|</> {{ if gt .Code 0 }}\uf00d {{ .Code }}{{ else }}\uf42e{{ end }} ",
+          "template": "<#D6DEEB>|</> {{ if gt .Code 0 }}\uf00d {{ .Code }}{{ else }}\uf42e{{ end }} ",
           "foreground": "#03DED3",
           "type": "status",
           "style": "plain",
@@ -186,25 +186,26 @@
             "threshold": 0
           },
           "template": "in {{ .FormattedMs }}",
-          "foreground": "#B6D6F2",
+          "foreground": "#D6DEEB",
           "type": "executiontime",
           "style": "plain"
         },
         {
           "type": "text",
           "style": "plain",
-          "foreground": "#B6D6F2",
+          "foreground": "#D6DEEB",
           "template": "{{ if .Env.WEZTERM_PANE }} |  {{ .Env.WEZTERM_PANE }} {{ end }}"
         },
         {
           "type": "peard",
           "style": "plain",
-          "foreground": "#ffffff",
+          "foreground": "#D6DEEB",
           "options": {
             "port": 26538,
             "playing_icon": " ",
             "paused_icon": " "
-          }
+          },
+          "template": "| {{ .Icon }}{{ if ne .Status \"paused\" }}{{ .Artist }} - {{ .Track }}{{ end }}"
         }
       ],
       "newline": true
@@ -215,13 +216,13 @@
       "segments": [
         {
           "template": "\u2570\u2500",
-          "foreground": "#B6D6F2",
+          "foreground": "#D6DEEB",
           "type": "text",
           "style": "plain"
         },
         {
           "template": "❯ ",
-          "foreground": "#B6D6F2",
+          "foreground": "#D6DEEB",
           "type": "text",
           "style": "plain"
         }

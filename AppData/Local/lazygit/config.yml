@@ -24,3 +24,34 @@ gui:
   showBranchCommitHash: true
   wrapLinesInStagingView: false
   showNumstatInFilesView: true
+  commitLength:
+    show: true
+  theme:
+    activeBorderColor:
+      - "#88c0d0"
+      - bold
+    inactiveBorderColor:
+      - "#60728A"
+    searchingActiveBorderColor:
+      - cyan
+      - bold
+    optionsTextColor:
+      - "#88c0d0"
+    selectedLineBgColor:
+      - "#60728A"
+    inactiveViewSelectedLineBgColor:
+      - "#4c566a"
+    cherryPickedCommitFgColor:
+      - blue
+    cherryPickedCommitBgColor:
+      - "#81a1c1"
+    markedBaseCommitFgColor:
+      - blue
+    markedBaseCommitBgColor:
+      - "#ebcb8b"
+    unstagedChangesColor:
+      - "#bf616a"
+    defaultFgColor:
+      - "#D8DEE9"
+authorColors:
+  '*': '#b4befe'
