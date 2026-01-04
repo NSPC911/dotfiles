@@ -275,6 +275,9 @@ function pyvenv() {
         [Parameter()][switch]$NoSync,
         [Parameter()][switch]$Offline
     )
+    if ($null -ne (bat "./pyproject.toml" | ConvertFrom-Toml).tool.poetry) {
+        $Poetry = $true
+    }
     if ($Poetry) {
         if (Get-Command -Name "deactivate" -CommandType Function -ErrorAction SilentlyContinue) {
             Write-Host "┌❯ Deactivating virtual environment"
@@ -408,14 +411,16 @@ Set-PSReadLineOption -Colors @{
     ListPredictionSelected = "`e[7m"
     Selection = "`e[7m"
 }
-# fuzzy
+# fuzzy: https://github.com/kelleyma49/PSFzf
 Write-Output "`e[u`e[0KPsFzf"
 Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
 Set-PsFzfOption -EnableAliasFuzzySetEverything
-# git completions
+# git completions https://github.com/kzrnm/git-completion-pwsh
 Write-Output "`e[u`e[0KGit Completions"
 Import-Module -Name git-completion
-
+# spectre.console https://github.com/ShaunLawrie/PwshSpectreConsole
+Write-Output "`e[u`e[0KPwshSpectreConsole"
+$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
 ##### chezmoi #####
 function chezcd {
@@ -425,6 +430,30 @@ function chezcd {
 function chezedit { chezmoi edit --apply $args }
 function chezadd { chezmoi add $args }
 function chezgit { chezmoi git $args }
+function chezsync {
+    param(
+        [Parameter()][switch]$ask
+    )
+    # I know `chezmoi re-add` is a thing, but this
+    # looks nicer + I know what was changed
+    chezmoi status | ForEach-Object {
+        $path = "~/$(($_.Split(" ")[-1]))"
+        Write-Output "  $path"
+        if ($ask) {
+            if (-not (Read-SpectreConfirm "Add $path to chezmoi?")) {
+                Write-Host "`e[1F`e[2K`e[1F- $path" -ForegroundColor Yellow
+                return
+            } else {
+                # cleanup
+                Write-Host "`e[1F`e[2K`e[1F"
+            }
+        }
+        chezmoi add "$path" *>$null
+        if ($LASTEXITCODE -eq 0) { Write-Host "`e[1F+ $path" -ForegroundColor Green }
+        else { Write-Host "`e[1F! $path" -ForegroundColor Red }
+    }
+    Write-Host "`e[2K`e[1F"
+}
 
 ##### fzf plugin (needs that one powershell plugin) #####
 function fz {
@@ -733,77 +762,9 @@ function ghet {
     Write-Host "│ " -NoNewLine
     Write-Host "release: $releaser" -ForegroundColor Green
 
-    $rawUI = $Host.UI.RawUI
-    $selected = 0
-    $visibleCount = [Math]::Min(5, $assets.Count)
-
     $docontinue = $true
-
-    while ($docontinue) {
-        # centered selection (edge-sticking)
-        if ($assets.Count -le 5) {
-            $windowStart = 0
-        } else {
-            # Try to center the selected item
-            $windowStart = $selected - 2
-            # Stick to edges
-            if ($windowStart -lt 0) { $windowStart = 0 }
-            if ($windowStart -gt ($assets.Count - 5)) { $windowStart = $assets.Count - 5 }
-        }
-        $windowEnd = [Math]::Min($windowStart + $visibleCount - 1, $assets.Count - 1)
-
-        $rawUI.CursorPosition = @{ X = 0; Y = ($rawUI.CursorPosition.Y) }
-        foreach ($i in 0..($visibleCount-1)) { Write-Host (" " * ($rawUI.WindowSize.Width - 1)) -NoNewline; Write-Host '' }
-        $rawUI.CursorPosition = @{ X = 0; Y = ($rawUI.CursorPosition.Y - $visibleCount) }
-
-        for ($i = $windowStart; $i -le $windowEnd; $i++) {
-            $asset = $assets[$i]
-            $posInWindow = $i - $windowStart
-            $assetsize = " ($(Convert-IntToSize $asset.size)) "
-            if ($visibleCount -eq 5) {
-                if ((($posInWindow -eq 0) -and ($i -ne 0)) -or ($posInWindow -eq ($visibleCount - 1) -and ($i -ne $assets.Count - 1))) {
-                    $line = "·`e[2m  " + $asset.name + $assetsize
-                } else {
-                    $line = "·  " + $asset.name + $assetsize
-                }
-            } else {
-                $line = "·  " + $asset.name + $assetsize
-            }
-
-            if ($i -eq $selected) {
-                Write-Host $line -ForegroundColor Black -BackgroundColor Yellow
-            } else {
-                Write-Host $line
-            }
-        }
-
-        Write-Host "`e[?25l`e[$visibleCount`F" -NoNewLine
-        $key = [System.Console]::ReadKey($true)
-        if ($null -ne $key.modifiers) {
-            switch ($key.key) {
-                "UpArrow" {
-                    if ($selected -gt 0) { $selected-- }
-                }
-                "DownArrow" {
-                    if ($selected -lt ($assets.Count - 1)) { $selected++ }
-                }
-                "Enter" {
-                    $docontinue = $false
-                }
-                "Escape" {
-                    Write-Host "`e[$visibleCount`E" -NoNewLine
-                    Write-Host "╰─ Cancelled." -ForegroundColor Magenta
-                    Write-Host ""
-                    return
-                }
-                default { }
-            }
-        }
-    }
-
-    Write-Host "`e[$visibleCount`E" -NoNewLine
-
-    $chosen = $assets[$selected]
+    Write-Host "│ Select an asset to download:"
+    $chosen = Read-SpectreSelection -Message "" -Choices $assets -ChoiceLabelProperty "name" -EnableSearch -SearchHighlightColor cyan3
     Write-Host "│ " -NoNewLine
     Write-Host "`e[?25h`downloading '$($chosen.name)' ..." -ForegroundColor Cyan
     $outFile = Join-Path -Path (Get-Location) -ChildPath $chosen.name

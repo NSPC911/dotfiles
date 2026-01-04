@@ -1,5 +1,6 @@
 :root {
-  --main: #00000066;
+  --main: #2e3440CC;
+  --main-50p: #2e34407f;
   --nord-black0: #191d24;
   --nord-black1: #1e222a;
   --nord-black2-75p: #222630af;
@@ -67,7 +68,6 @@ QPushButton {
 .audio-menu,
 .brightness-menu,
 .calendar,
-.komorebi-layout-menu,
 .launchpad-container,
 .media-menu {
   background-color: var(--main);
@@ -105,40 +105,10 @@ QPushButton {
   background-color: transparent;
 }
 
-.komorebi-active-layout,
 .glazewm-tiling-direction {
   margin-right: -1px;
 }
 
-.komorebi-layout-menu {
-  background: var(--nord-black2);
-}
-
-.komorebi-layout-menu .menu-item {
-  margin: 2.5px 5px;
-  padding: 2.5px 5px;
-}
-
-.komorebi-layout-menu .menu-item-icon {
-  color: var(--nord-whiteblue0);
-  font-size: 16px;
-}
-
-.komorebi-layout-menu .menu-item-text {
-  font-size: 12px;
-  padding-left: 4px;
-}
-
-.komorebi-layout-menu .menu-item:hover {
-  background-color: var(--nord-gray3);
-  color: #fff;
-}
-
-.komorebi-layout-menu .separator {
-  max-height: 0;
-}
-
-.komorebi-workspaces .ws-btn,
 .glazewm-workspaces .ws-btn {
   background: var(--nord-gray2);
   border-radius: 6px;
@@ -149,30 +119,26 @@ QPushButton {
   width: 12px;
 }
 
-.komorebi-workspaces .ws-btn.active,
 .glazewm-workspaces .ws-btn.active_empty,
 .glazewm-workspaces .ws-btn.active_populated {
   background: var(--nord-cyan-base);
   width: 40px;
 }
 
-.komorebi-workspaces .ws-btn.active:hover,
 .glazewm-workspaces .ws-btn.active_empty:hover,
 .glazewm-workspaces .ws-btn.active_populated:hover {
   background: var(--nord-whiteblue0);
 }
 
-.komorebi-workspaces .ws-btn.populated,
 .glazewm-workspaces .ws-btn.populated {
   background: var(--nord-blue0);
 }
 
-.komorebi-workspaces .ws-btn.populated:hover,
 .glazewm-workspaces .ws-btn.populated:hover {
   background: var(--nord-blue2);
 }
 
-.komorebi-workspaces .ws-btn:hover .glazewm-workspaces .ws-btn.empty:hover {
+.glazewm-workspaces .ws-btn.empty:hover {
   background: var(--nord-gray4);
 }
 
@@ -503,7 +469,7 @@ QPushButton {
 }
 
 .power-menu-popup {
-  background-color: var(--main);
+  background-color: var(--main-50p);
   border-radius: 16px;
 }
 
@@ -517,6 +483,7 @@ QPushButton {
   height: 200px;
   padding: 0;
   width: 180px;
+  border-color: var(--nord-gray0);
 }
 
 .power-menu-popup .button .icon {
@@ -528,6 +495,10 @@ QPushButton {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 8px;
+}
+
+.power-menu-popup .button.hover {
+  background-color: var(--nord-gray1);
 }
 
 .power-menu-popup .button.cancel {
@@ -550,14 +521,11 @@ QPushButton {
 .power-menu-popup .button.hibernate .icon,
 .power-menu-popup .button.hibernate .label {
   color: var(--nord-green-base);
+  border-color: var(--nord-green-dim);
 }
 
 .power-menu-popup .button.hibernate.hover {
   border-color: var(--nord-green-base);
-}
-
-.power-menu-popup .button.hover {
-  background-color: var(--nord-gray1);
 }
 
 .power-menu-popup .button.restart .icon,
@@ -637,7 +605,6 @@ QPushButton {
 /* } */
 
 /* .yasb-bar .clock-widget, */
-/* .yasb-bar .komorebi-active-layout, */
 /* .yasb-bar .glazewm-tiling-direction, */
 /* .yasb-bar .power-menu-widget { */
 /* border-bottom-left-radius: 8px; */
@@ -660,8 +627,10 @@ QPushButton {
   border: 1px solid var(--nord-cyan-base);
   border-radius: 8px;
   margin: 0px 7px 4px 11px;
+  padding: 1.5px
 }
 .task-bar .container-right {
+  /* cava */
   margin-bottom: 5px;
   margin-top: 1px;
   overflow: hidden;

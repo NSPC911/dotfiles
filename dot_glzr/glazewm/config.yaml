@@ -77,6 +77,7 @@ window_rules:
       - window_title: { equals: "Colors" }
       - window_process: { equals: "obs64" }
         window_title: { equals: "Settings" }
+      - window_process: { equals: "LiveCaptions" }
 
   - commands: ["ignore"]
     match:

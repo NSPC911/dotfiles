@@ -147,7 +147,7 @@
   "QuerySearchPrecision": "Regular",
   "AutoUpdates": false,
   "WindowLeft": 640,
-  "WindowTop": 247.5,
+  "WindowTop": 207.5,
   "PreviousScreenWidth": 0,
   "PreviousScreenHeight": 0,
   "PreviousDpiX": 0,
@@ -156,7 +156,7 @@
   "CustomWindowTop": 0,
   "KeepMaxResults": false,
   "MaxResultsToShow": 5,
-  "ActivateTimes": 696,
+  "ActivateTimes": 740,
   "CustomPluginHotkeys": [],
   "CustomShortcuts": [],
   "DontPromptUpdateMsg": false,
@@ -374,6 +374,18 @@
         "Version": "1.3.0",
         "ActionKeywords": [
           "env"
+        ],
+        "Priority": 0,
+        "SearchDelayTime": null,
+        "Disabled": false,
+        "HomeDisabled": false
+      },
+      "D8A705AD7AB849ACB581FF46D3B59816": {
+        "ID": "D8A705AD7AB849ACB581FF46D3B59816",
+        "Name": "Scoop",
+        "Version": "1.0.1",
+        "ActionKeywords": [
+          "scoop"
         ],
         "Priority": 0,
         "SearchDelayTime": null,

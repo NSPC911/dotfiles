@@ -67,7 +67,6 @@ helix
 #### uv tools
 
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
-
 ```
 frogmouth v0.9.2
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
@@ -85,7 +84,6 @@ ty v0.0.8 [required: ==0.0.8]
 #### pnpm global installs
 
 <!--pnpm list -g, remove header-->
-
 ```
 @ansible/ansible-language-server 1.2.3
 @astrojs/language-server 2.16.2
@@ -121,6 +119,7 @@ vscode-langservers-extracted 4.10.0
 | Microsoft.PowerShell.ConsoleGuiTools | gui tools in the shell                 | `Install-Module Microsoft.PowerShell.ConsoleGuiTools` |
 | Terminal-Icons                       | nerdfont icons in Get-ChildItem + more | `Install-Module Terminal-Icons`                       |
 | PSEverything                         | everything integration into powershell | `Install-Module PSEverything`                         |
+| PwshSpectreConsole                   | advanced console features              | `Install-Module PwshSpectreConsole`                   |
 
 #### Previously used, but no longer using
 
@@ -137,25 +136,24 @@ vscode-langservers-extracted 4.10.0
 ### Stats
 
 <!--tokei --sort lines-->
-
 ```shell
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     42         5453         5452            0            1
- TOML                      9         1643         1385          152          106
- YAML                      5         1201         1114           28           59
- Scheme                    6          958          842           21           95
- CSS                       2          870          735           26          109
- PowerShell                1          855          716           51           88
+ JSON                     42         5466         5465            0            1
+ TOML                      9         1650         1393          150          107
+ YAML                      5         1237         1149           28           60
+ Scheme                    6          955          840           21           94
+ CSS                       2          839          710           26          103
+ PowerShell                1          816          685           52           79
  INI                       1          687          170          414          103
  Lua                       1          237          218            6           13
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                  2          160            0          129           31
+ Markdown                  2          161            0          130           31
  |- Shell                  1           18           18            0            0
- (Total)                              178           18          129           31
+ (Total)                              179           18          130           31
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    69        12082        10650          827          605
+ Total                    69        12066        10648          827          591
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

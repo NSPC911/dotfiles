@@ -100,13 +100,6 @@
     },
     {
       "Info": "",
-      "Name": "codebook",
-      "Source": "le-bucket",
-      "Updated": "2025-12-24T15:06:38.949936+08:00",
-      "Version": "0.3.22"
-    },
-    {
-      "Info": "",
       "Name": "collapse-launcher",
       "Source": "games",
       "Updated": "2025-12-20T10:44:02.6300867+08:00",
@@ -177,13 +170,6 @@
     },
     {
       "Info": "",
-      "Name": "freeze",
-      "Source": "https://raw.githubusercontent.com/charmbracelet/scoop-bucket/refs/heads/main/freeze.json",
-      "Updated": "2026-01-01T02:24:08.8848448+08:00",
-      "Version": "0.2.2"
-    },
-    {
-      "Info": "",
       "Name": "fzf",
       "Source": "main",
       "Updated": "2025-11-17T16:11:18.1653479+08:00",
@@ -228,8 +214,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2025-12-22T22:54:02.6141648+08:00",
-      "Version": "0.7.7.1"
+      "Updated": "2026-01-04T18:36:35.5272029+08:00",
+      "Version": "0.7.9.1"
     },
     {
       "Info": "",
@@ -249,8 +235,8 @@
       "Info": "",
       "Name": "innounp",
       "Source": "main",
-      "Updated": "2025-12-17T21:31:09.894272+08:00",
-      "Version": "2.66.1"
+      "Updated": "2026-01-04T23:26:12.3622463+08:00",
+      "Version": "2.66.2"
     },
     {
       "Info": "",
@@ -270,8 +256,8 @@
       "Info": "",
       "Name": "lazygit",
       "Source": "extras",
-      "Updated": "2025-12-08T00:34:02.964698+08:00",
-      "Version": "0.57.0"
+      "Updated": "2026-01-04T09:45:15.2318763+08:00",
+      "Version": "0.58.0"
     },
     {
       "Info": "",
@@ -340,8 +326,8 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2025-12-31T14:55:35.6745074+08:00",
-      "Version": "28.9.0"
+      "Updated": "2026-01-04T09:45:31.0821829+08:00",
+      "Version": "28.10.0"
     },
     {
       "Info": "",
@@ -361,8 +347,8 @@
       "Info": "",
       "Name": "opencode-desktop",
       "Source": "le-bucket",
-      "Updated": "2026-01-01T17:11:22.5522651+08:00",
-      "Version": "1.0.222"
+      "Updated": "2026-01-02T00:24:19.1024409+08:00",
+      "Version": "1.0.223"
     },
     {
       "Info": "",
@@ -377,6 +363,13 @@
       "Source": "le-bucket",
       "Updated": "2025-10-28T16:34:57.0138067+08:00",
       "Version": "1.3.0"
+    },
+    {
+      "Info": "",
+      "Name": "pipx",
+      "Source": "main",
+      "Updated": "2026-01-04T21:57:19.3789892+08:00",
+      "Version": "1.8.0"
     },
     {
       "Info": "",
@@ -398,13 +391,6 @@
       "Source": "main",
       "Updated": "2025-12-26T00:56:07.4908647+08:00",
       "Version": "25.12.0-0"
-    },
-    {
-      "Info": "",
-      "Name": "powersession-rs",
-      "Source": "main",
-      "Updated": "2025-12-17T17:46:13.440217+08:00",
-      "Version": "0.1.12"
     },
     {
       "Info": "",
@@ -501,7 +487,7 @@
       "Info": "",
       "Name": "superfile",
       "Source": "main",
-      "Updated": "2025-10-28T16:38:34.9101932+08:00",
+      "Updated": "2026-01-03T23:02:37.5555146+08:00",
       "Version": "1.4.0"
     },
     {
@@ -529,8 +515,8 @@
       "Info": "",
       "Name": "tinymist",
       "Source": "main",
-      "Updated": "2025-11-26T23:18:50.5537813+08:00",
-      "Version": "0.14.4"
+      "Updated": "2026-01-03T22:59:33.9508509+08:00",
+      "Version": "0.14.6"
     },
     {
       "Info": "",
@@ -552,13 +538,6 @@
       "Source": "le-bucket",
       "Updated": "2025-10-31T16:53:46.5862379+08:00",
       "Version": "1.4.2"
-    },
-    {
-      "Info": "",
-      "Name": "wakatime-cli",
-      "Source": "main",
-      "Updated": "2025-12-16T15:46:47.0718632+08:00",
-      "Version": "1.132.1"
     },
     {
       "Info": "",
@@ -599,15 +578,15 @@
       "Info": "",
       "Name": "yasb-dev",
       "Source": "le-bucket",
-      "Updated": "2025-11-25T11:58:46.2734088+08:00",
-      "Version": "20251124-125034"
+      "Updated": "2026-01-04T12:42:56.395666+08:00",
+      "Version": "20260104-002718"
     },
     {
       "Info": "",
       "Name": "yazi",
       "Source": "main",
-      "Updated": "2025-12-29T14:16:55.8128969+08:00",
-      "Version": "25.12.29"
+      "Updated": "2026-01-04T18:36:55.3991659+08:00",
+      "Version": "26.1.4"
     },
     {
       "Info": "",
@@ -643,31 +622,31 @@
       "Manifests": 1412,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-01-01T16:33:10+08:00"
+      "Updated": "2026-01-04T20:32:37+08:00"
     },
     {
-      "Manifests": 2241,
+      "Manifests": 2239,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-01-01T16:35:01+08:00"
+      "Updated": "2026-01-04T22:54:43+08:00"
     },
     {
-      "Manifests": 551,
+      "Manifests": 550,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-01-01T17:10:19+08:00"
+      "Updated": "2026-01-04T21:02:53+08:00"
     },
     {
       "Manifests": 372,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-01-01T16:30:34+08:00"
+      "Updated": "2026-01-04T20:31:33+08:00"
     },
     {
       "Manifests": 27,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-01-01T10:39:56+08:00"
+      "Updated": "2026-01-04T10:41:00+08:00"
     }
   ],
   "config": {

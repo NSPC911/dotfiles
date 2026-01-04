@@ -19,7 +19,7 @@ config.custom_block_glyphs = false
 config.cell_width = 1
 config.window_background_opacity = 0.75
 config.prefer_egl = true
-config.font_size = 12.5
+config.font_size = 11.5
 
 config.window_decorations = "NONE | RESIZE"
 config.default_prog = { "pwsh.exe", "-NoLogo" }

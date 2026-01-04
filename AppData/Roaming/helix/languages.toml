@@ -241,6 +241,7 @@ language-servers = [
   "copilot",
   "discord-rpc",
   "taplo",
+  "tombi",
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
 
@@ -261,3 +262,7 @@ language-servers = [
   "astro-ls",
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
+
+[[language]]
+name = "rust"
+language-servers = [ "rust-analyzer", "copilot" ]

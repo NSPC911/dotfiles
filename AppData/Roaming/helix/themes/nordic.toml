@@ -71,7 +71,7 @@
 "ui.cursor.primary" = { fg = "black1", bg = "white0" }
 "ui.background" = {  }
 "ui.bufferline" = {  }
-"ui.bufferline.active" = { modifiers = ["bold", "underlined"] }
+"ui.bufferline.active" = { modifiers = ["bold", "reversed"] }
 "ui.cursor.match" = { bg = "gray4" }
 "ui.linenr" = { fg = "gray6" }
 "ui.linenr.selected" = { fg = "white3" }
@@ -85,14 +85,14 @@
 "ui.menu.selected" = { modifiers = ["underlined"] }
 "ui.menu.scroll" = { fg = "white1", bg = "gray0" }
 "ui.selection" = { bg = "gray4" }
-"ui.cursorline.primary" = { bg = "black2" }
+"ui.cursorline.primary" = { bg = "gray0" }
 # virtual stuff
 "ui.virtual.ruler" = { bg = "gray1" }
 "ui.virtual.indent-guide" = { fg = "gray5" }
 "ui.virtual.inlay-hint" = { fg = "gray8", modifiers = ["dim"] }
 "ui.virtual.jump-label" = { fg = "cyan_base", modifiers = ["reversed"] }
-"ui.virtual.whitespace" = { fg = "gray4" }
 "ui.virtual.wrap" = { fg = "gray4" }
+"ui.virtual.whitespace" = {  }
 # Diagnostic Messages
 "error" = { fg = "red_bright" }
 "warning" = { fg = "yellow_base" }
@@ -112,7 +112,7 @@
 "ui.statusline.select" = { fg = "yellow_bright", modifiers = ["reversed"] }
 # Requires PR:13666
 ## left
-"ui.statusline.version-control" = { fg = "green_bright" }
+"ui.statusline.version-control" = { bg = "green_bright", fg = "black1" }
 "ui.statusline.file-type" = { fg = "white2" }
 "ui.statusline.file-name" = { fg = "white2" }
 "ui.statusline.file-modification-indicator" = { fg = "red_bright", modifiers = [

@@ -4,12 +4,10 @@
 (require "helix/static.scm")
 (require-builtin helix/core/text)
 
-(provide repeat-n-times)
-
-(define (repeat-n-times f n)
-  (let loop ([i n])
+(define (repeat-n-times func step)
+  (let loop ([i step])
     (when (> i 0)
-      (f)
+      (func)
       (loop (- i 1)))))
 
 (provide half-page-up-smooth
@@ -54,15 +52,14 @@
                      ['up move_up_single]
                      ['down move_down_single]
                      [_ (error "Invalid scroll direction" direction)])]
-        [step (calculate-step size)]
         [delay-ms (calculate-delay size)])
     (let loop ([remaining size])
       (when (and (> remaining 0) (not (and (eq? direction 'down) (at-end-of-document?))))
-        (repeat-n-times scroll-fn step)
+        (repeat-n-times scroll-fn (calculate-step size))
         (enqueue-thread-local-callback-with-delay delay-ms
                                                   (lambda ()
                                                     (when (= my-scroll-id *active-scroll-id*)
-                                                      (loop (- remaining step)))))))))
+                                                      (loop (- remaining (calculate-step size))))))))))
 
 (define (view-height)
   (let ([area (editor-focused-buffer-area)])
