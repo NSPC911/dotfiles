@@ -23,6 +23,7 @@ config.font_size = 11.5
 
 config.window_decorations = "NONE | RESIZE"
 config.default_prog = { "pwsh.exe", "-NoLogo" }
+-- config.default_prog = { "nu.exe" }
 config.initial_cols = 80
 
 

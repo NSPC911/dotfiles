@@ -11,8 +11,8 @@
       "Info": "",
       "Name": "adb",
       "Source": "main",
-      "Updated": "2025-10-28T16:25:00.3414644+08:00",
-      "Version": "36.0.0"
+      "Updated": "2026-01-09T11:43:21.7313094+08:00",
+      "Version": "36.0.2"
     },
     {
       "Info": "",
@@ -88,8 +88,8 @@
       "Info": "",
       "Name": "chezmoi",
       "Source": "main",
-      "Updated": "2025-12-10T13:41:18.776356+08:00",
-      "Version": "2.68.1"
+      "Updated": "2026-01-05T11:15:18.9372754+08:00",
+      "Version": "2.69.0"
     },
     {
       "Info": "",
@@ -109,8 +109,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2025-12-19T10:50:27.0414526+08:00",
-      "Version": "1.406.0"
+      "Updated": "2026-01-09T11:45:09.9076546+08:00",
+      "Version": "1.408.0"
     },
     {
       "Info": "",
@@ -118,6 +118,13 @@
       "Source": "main",
       "Updated": "2025-10-28T16:27:04.2389606+08:00",
       "Version": "3.14.1"
+    },
+    {
+      "Info": "",
+      "Name": "delta",
+      "Source": "main",
+      "Updated": "2026-01-06T09:50:52.9935311+08:00",
+      "Version": "0.18.2"
     },
     {
       "Info": "",
@@ -235,8 +242,8 @@
       "Info": "",
       "Name": "innounp",
       "Source": "main",
-      "Updated": "2026-01-04T23:26:12.3622463+08:00",
-      "Version": "2.66.2"
+      "Updated": "2026-01-07T09:57:47.0921513+08:00",
+      "Version": "2.66.3"
     },
     {
       "Info": "",
@@ -326,8 +333,8 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2026-01-04T09:45:31.0821829+08:00",
-      "Version": "28.10.0"
+      "Updated": "2026-01-09T11:44:42.8908876+08:00",
+      "Version": "29.0.1"
     },
     {
       "Info": "",
@@ -347,8 +354,8 @@
       "Info": "",
       "Name": "opencode-desktop",
       "Source": "le-bucket",
-      "Updated": "2026-01-02T00:24:19.1024409+08:00",
-      "Version": "1.0.223"
+      "Updated": "2026-01-09T11:45:29.9229763+08:00",
+      "Version": "1.1.8"
     },
     {
       "Info": "",
@@ -363,13 +370,6 @@
       "Source": "le-bucket",
       "Updated": "2025-10-28T16:34:57.0138067+08:00",
       "Version": "1.3.0"
-    },
-    {
-      "Info": "",
-      "Name": "pipx",
-      "Source": "main",
-      "Updated": "2026-01-04T21:57:19.3789892+08:00",
-      "Version": "1.8.0"
     },
     {
       "Info": "",
@@ -403,8 +403,8 @@
       "Info": "",
       "Name": "prek",
       "Source": "le-bucket",
-      "Updated": "2025-12-27T23:11:49.9159886+08:00",
-      "Version": "0.2.25"
+      "Updated": "2026-01-09T11:46:13.3455755+08:00",
+      "Version": "0.2.27"
     },
     {
       "Info": "",
@@ -515,22 +515,22 @@
       "Info": "",
       "Name": "tinymist",
       "Source": "main",
-      "Updated": "2026-01-03T22:59:33.9508509+08:00",
-      "Version": "0.14.6"
+      "Updated": "2026-01-09T11:48:03.7703468+08:00",
+      "Version": "0.14.8"
     },
     {
       "Info": "",
       "Name": "tombi",
       "Source": "le-bucket",
-      "Updated": "2025-12-30T19:04:10.0038091+08:00",
-      "Version": "0.7.14"
+      "Updated": "2026-01-09T11:48:47.0951126+08:00",
+      "Version": "0.7.16"
     },
     {
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2025-12-31T14:57:21.1849029+08:00",
-      "Version": "0.9.21"
+      "Updated": "2026-01-07T09:58:15.4669206+08:00",
+      "Version": "0.9.22"
     },
     {
       "Info": "",
@@ -578,8 +578,8 @@
       "Info": "",
       "Name": "yasb-dev",
       "Source": "le-bucket",
-      "Updated": "2026-01-04T12:42:56.395666+08:00",
-      "Version": "20260104-002718"
+      "Updated": "2026-01-05T11:15:40.8260298+08:00",
+      "Version": "20260104-231744"
     },
     {
       "Info": "",
@@ -619,34 +619,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1412,
+      "Manifests": 1413,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-01-04T20:32:37+08:00"
+      "Updated": "2026-01-09T08:44:34+08:00"
     },
     {
-      "Manifests": 2239,
+      "Manifests": 2242,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-01-04T22:54:43+08:00"
+      "Updated": "2026-01-09T08:44:10+08:00"
     },
     {
       "Manifests": 550,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-01-04T21:02:53+08:00"
+      "Updated": "2026-01-09T10:34:15+08:00"
     },
     {
-      "Manifests": 372,
+      "Manifests": 377,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-01-04T20:31:33+08:00"
+      "Updated": "2026-01-09T08:43:43+08:00"
     },
     {
       "Manifests": 27,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-01-04T10:41:00+08:00"
+      "Updated": "2026-01-09T10:29:56+08:00"
     }
   ],
   "config": {

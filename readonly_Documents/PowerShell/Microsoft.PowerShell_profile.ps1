@@ -12,21 +12,21 @@ function regenCache {
 
     $completions = @()
 
-    $dontwant = @("bat", "gh", "git", "rg", "rustup", "wezterm")
+    $dontwant = @("bat", "gh", "git", "rg", "rustup", "taplo", "wezterm")
     $scooplist = scoop list
     Write-Host "`e[HSetting up carapace `e[s" -NoNewLine
     # set up things that I want, and not just everything
-    $completions += $scooplist | Select-Object -ExpandProperty name | ForEach-Object {
+    $scooplist | Select-Object -ExpandProperty name | ForEach-Object {
         if ($dontwant -notcontains $_) {
             $caracomplete = carapace $_ powershell
             if ($null -ne $caracomplete) {
-                $compeltions += $caracomplete
+                $completions += $caracomplete
                 Write-Host "`e[u`e[0K$_"
             }
         }
     }
     $include = @("file", "tar", "curl", "carapace", "cargo")
-    $completions += $include | ForEach-Object {
+    $include | ForEach-Object {
         $caracomplete = carapace $_ powershell
         if ($null -ne $caracomplete) {
             $compeltions += $caracomplete
@@ -52,6 +52,12 @@ function regenCache {
 
     # Write-Output "`e[HSetting up tuios completions"
     # $completions += tuios completion powershell
+
+    Write-Output "`e[0J`e[HSetting up delta completions"
+    $completions += delta --generate-completion powershell
+
+    Write-Output "`e[0J`e[HSetting up taplo completions"
+    $completions += taplo completions powershell
 
     Write-Output "`e[0J`e[HSetting up tombi completions"
     $completions += tombi completion powershell
@@ -294,7 +300,7 @@ function pyvenv() {
             Write-Host "┌❯ Installing packages with 'pyproject.toml'"
             Write-Host "└─ " -NoNewLine
             Write-Host "poetry self sync" -ForegroundColor Yellow
-            poetry self sync --quiet
+            poetry self sync *>$null
         }
         Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
     } else {
@@ -339,16 +345,16 @@ function pyvenv() {
                 $flags = $flags.Trim()
                 if ($flags -eq "") {
                     Write-Host "uv sync --active $flags" -ForegroundColor Yellow
-                    uv sync --active --quiet
+                    uv sync --active *>$null
                 } else {
                     Write-Host "uv sync --active $flags" -ForegroundColor Yellow
-                    uv sync --active $flags.Split() --quiet
+                    uv sync --active $flags.Split() *>$null
                 }
             } elseif (Test-Path requirements.txt) {
                 Write-Host "┌❯ Syncing packages with 'requirements.txt'"
                 Write-Host "└─ " -NoNewLine
                 Write-Host "uv pip sync requirements.txt" -ForegroundColor Yellow
-                uv pip sync requirements.txt --quiet
+                uv pip sync requirements.txt *>$null
             } else {
                 Write-Host "┌❯ There are no packages available to be synced"
                 Write-Host "└❯ Make sure to either " -NoNewLine
@@ -440,12 +446,13 @@ function chezsync {
         $path = "~/$(($_.Split(" ")[-1]))"
         Write-Output "  $path"
         if ($ask) {
-            if (-not (Read-SpectreConfirm "Add $path to chezmoi?")) {
-                Write-Host "`e[1F`e[2K`e[1F- $path" -ForegroundColor Yellow
+            Write-Host "   Add to chezmoi? (Y/N)" -NoNewLine -ForegroundColor Yellow
+            if ([System.Console]::ReadKey($true).Key -ne "Y") {
+                Write-Host "`e[2K`e[1F- $path" -ForegroundColor Yellow
                 return
             } else {
                 # cleanup
-                Write-Host "`e[1F`e[2K`e[1F"
+                Write-Host "`e[2K`e[1F"
             }
         }
         chezmoi add "$path" *>$null
@@ -463,7 +470,8 @@ function fz {
             "status",
             "history", "his", "h",
             "kill", "nuke",
-            "checkout", "switch",
+            "checkout", "switch", "branch",
+            "stash",
             "scoop", "install",
             "cd",
             "rg", "fd"
@@ -479,6 +487,8 @@ function fz {
         }
     } elseif ($type -eq "status") {
         Invoke-FuzzyGitStatus
+    } elseif ($type -eq "stash") {
+        Invoke-PSFzfGitStashes
     } elseif (($type -eq "history") -or ($type -eq "his") -or ($type -eq "h")) {
         Invoke-FuzzyHistory
     } elseif (($type -eq "kill") -or ($type -eq "nuke")) {
@@ -499,21 +509,26 @@ function fz {
                 return
             }
         }
-    } elseif (($type -eq "switch") -or ($type -eq "checkout")) {
-        $branch = (git branch --list --format "%(refname:short)" | Invoke-Fzf -PreviewWindow hidden)
+    } elseif (($type -eq "switch") -or ($type -eq "checkout") -or ($type -eq "branch")) {
+        $branch = Invoke-PsFzfGitBranches
         if ($null -ne $branch) {
             git checkout $branch
         }
     } elseif (($type -eq "rg") -or ($type -eq "fd")) {
+        if ($extra -eq $null) {
+            $extra = ""
+        }
         Invoke-PsFzfRipgrep $extra
     } else {
-        Write-Error "Unknown operation $type. Allowed: edit, status, history/his/h, kill/nuke, checkout/switch, scoop/install, cd, rg, fd"
+        Write-Error "Unknown operation $type. Allowed: edit, status, history/his/h, kill/nuke, checkout/switch/branch, scoop/install, cd, rg, fd"
     }
 }
 
 ##### gh copilot cli but local #####
-$suggesterModel = "codegemma:7b"
-$explainerModel = "codegemma:2b"
+$ollamaSuggesterModel = "codegemma:7b"
+$opencodeSuggesterModel = "mistral/codestral-latest"
+$ollamaExplainerModel = "codegemma:2b"
+$opencodeExplainerModel = "github-copilot/claude-opus-4.5"
 function ols {
     param(
         [Parameter(Position = 0, ValueFromRemainingArguments = $true)]
@@ -531,9 +546,9 @@ function ols {
     $prompt = "You are a CLI assistant in a Windows environemnt with pwsh as the active shell. The user wants to: '$Description'. Respond with ONLY the raw pwsh command. Do not use markdown, code blocks or any formatting. Just output the plain command text."
 
     if ((Test-Connection google.com -count 1 | Select-Object -Expand Status) -eq "Success") {
-        $output = opencode run --model github-copilot/grok-code-fast-1 "$prompt"
+        $output = opencode run --model $opencodeSuggesterModel "$prompt"
     } else {
-        $output = ollama run $suggesterModel $prompt
+        $output = ollama run $ollamaSuggesterModel $prompt
     }
     $command = ($output | Out-String).Trim()
     Write-Host "`e[1G╭─ Suggested command:"
@@ -633,9 +648,9 @@ function ols {
                     Write-Host "╰── $improvement  " -ForegroundColor Green
                     $improvePrompt = "Improve this PowerShell command`n$command`nUser wants:`n'$improvement'`nRespond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
                     if ((Test-Connection google.com -count 1 | Select-Object -Expand Status) -eq "Success") {
-                        $output = opencode run --model github-copilot/grok-code-fast-1 "$improvePrompt"
+                        $output = opencode run --model $opencodeSuggesterModel "$improvePrompt"
                     } else {
-                        $output = ollama run $suggesterModel $improvePrompt
+                        $output = ollama run $ollamaSuggesterModel $improvePrompt
                     }
                     $command = ($rawImproved | Out-String).Trim()
                     Write-Host "`e[1G╭─ Improved command:"
@@ -669,14 +684,14 @@ function ole {
 
     Write-Host " Querying...`e[1A"
     if ((Test-Connection google.com -count 1 | Select-Object -Expand Status) -eq "Success") {
-        $output = opencode run --model github-copilot/grok-code-fast-1 "$prompt"
+        $output = opencode run --model $opencodeSuggesterModel "$prompt"
     } else {
-        $output = ollama run $suggesterModel $prompt
+        $output = ollama run $ollamaSuggesterModel $prompt
     }
     $output = ($output | Out-String).Trim()
     Write-Host "Rendering...`e[1A" -ForegroundColor Yellow
     $maxWidth = [int]($Host.UI.RawUI.WindowSize.Width - 8)
-    $output | rich --markdown --panel rounded --expand --guides --hyperlinks --caption "Using [cyan]$explainerModel[/]" --width $maxWidth --center -
+    $output | rich --markdown --panel rounded --expand --guides --hyperlinks --caption "Using [cyan]$ollamaExplainerModel[/]" --width $maxWidth --center -
     Write-Host ""
 }
 

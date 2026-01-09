@@ -215,13 +215,7 @@
       "alignment": "left",
       "segments": [
         {
-          "template": "\u2570\u2500",
-          "foreground": "#D6DEEB",
-          "type": "text",
-          "style": "plain"
-        },
-        {
-          "template": "❯ ",
+          "template": "\u2570\u2500❯ ",
           "foreground": "#D6DEEB",
           "type": "text",
           "style": "plain"
@@ -232,5 +226,15 @@
   ],
   "version": 4,
   "shell_integration": true,
-  "patch_pwsh_bleed": true
+  "patch_pwsh_bleed": true,
+  "valid_line": {
+    "background": "transparent",
+    "foreground": "#ffffff",
+    "template": "❯ "
+  },
+  "error_line": {
+    "background": "transparent",
+    "foreground": "#ffffff",
+    "template": "<#BF616A>❯</> "
+  }
 }

@@ -4,8 +4,6 @@ theme = "nordic"
 ins = "insert_mode"
 C-s = ":w"
 C-S-s = ":wa"
-C-q = "wclose"
-C-S-q = ":qa"
 C-A-q = "wonly"
 C-z = "undo"
 C-y = "redo"
@@ -69,10 +67,20 @@ C-i = "no_op"
 C-o = "no_op"
 
 [keys.normal."["]
-"[" = "goto_previous_buffer"
+# "[" = "goto_previous_buffer"
+# j = "move_buffer_left"
 
 [keys.normal."]"]
-"]" = "goto_next_buffer"
+# "]" = "goto_next_buffer"
+# l = "move_buffer_right"
+
+[keys.select."["]
+# "[" = "goto_previous_buffer"
+# j = "move_buffer_left"
+
+[keys.select."]"]
+# "]" = "goto_next_buffer"
+# l = "move_buffer_right"
 
 # goto mode (why is there two versions)
 [keys.normal.g]
@@ -466,6 +474,8 @@ C-c = ":clipboard-yank"
 C-x = [":clipboard-yank", "delete_selection"]
 C-a = "select_all"
 A-i = "insert_mode"
+"{" = ":buffer-previous"
+"}" = ":buffer-next"
 "%" = "no_op"
 C-s = "no_op"
 W = "no_op"

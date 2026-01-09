@@ -68,16 +68,16 @@ helix
 
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
 ```
-frogmouth v0.9.2
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
-mistral-vibe v1.3.3
-poethepoet v0.39.0
+hike v1.2.1
+mistral-vibe v1.3.4
+poethepoet v0.40.0
 poetry v2.2.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
-pyright v1.1.407
+pyright v1.1.408
 rich-cli v1.8.1
 rovr v0.7.0.dev1 [required:  git+https://github.com/nspc911/rovr@dev] [with: textual-speedups]
-ruff v0.14.10
+ruff v0.14.11
 ty v0.0.8 [required: ==0.0.8]
 ```
 
@@ -112,14 +112,14 @@ vscode-langservers-extracted 4.10.0
 
 | Name                                 | Description                            | Installer                                             |
 | ------------------------------------ | -------------------------------------- | ----------------------------------------------------- |
-| PSReadLine                           | Read keybinds + autocomplete           | `Install-Module PSReadline`                           |
-| scoop-completions                    | scoop completions                      | `scoop install scoop-completion`                      |
+| PSReadLine                           | read keybinds + autocomplete           | `Install-Module PSReadline`                           |
 | PoshGit                              | git autocompletions                    | `Install-Module posh-git`                             |
 | PS-Fzf                               | fzf in powershell                      | `Install-Module PSFzf`                                |
 | Microsoft.PowerShell.ConsoleGuiTools | gui tools in the shell                 | `Install-Module Microsoft.PowerShell.ConsoleGuiTools` |
 | Terminal-Icons                       | nerdfont icons in Get-ChildItem + more | `Install-Module Terminal-Icons`                       |
-| PSEverything                         | everything integration into powershell | `Install-Module PSEverything`                         |
 | PwshSpectreConsole                   | advanced console features              | `Install-Module PwshSpectreConsole`                   |
+| scoop-completions                    | scoop completions                      | `scoop install scoop-completion`                      |
+| PSEverything                         | everything integration into powershell | `Install-Module PSEverything`                         |
 
 #### Previously used, but no longer using
 
@@ -140,20 +140,20 @@ vscode-langservers-extracted 4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     42         5466         5465            0            1
- TOML                      9         1650         1393          150          107
- YAML                      5         1237         1149           28           60
+ JSON                     42         5470         5469            0            1
+ TOML                      9         1658         1391          158          109
+ YAML                      5         1155         1067           28           60
  Scheme                    6          955          840           21           94
  CSS                       2          839          710           26          103
- PowerShell                1          816          685           52           79
+ PowerShell                1          831          698           52           81
  INI                       1          687          170          414          103
- Lua                       1          237          218            6           13
+ Lua                       1          238          218            7           13
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                  2          161            0          130           31
+ Markdown                  2          160            0          130           30
  |- Shell                  1           18           18            0            0
- (Total)                              179           18          130           31
+ (Total)                              178           18          130           30
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    69        12066        10648          827          591
+ Total                    69        12011        10581          836          594
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
