@@ -88,8 +88,8 @@
       "Info": "",
       "Name": "chezmoi",
       "Source": "main",
-      "Updated": "2026-01-05T11:15:18.9372754+08:00",
-      "Version": "2.69.0"
+      "Updated": "2026-01-10T11:12:17.3928968+08:00",
+      "Version": "2.69.1"
     },
     {
       "Info": "",
@@ -102,8 +102,8 @@
       "Info": "",
       "Name": "collapse-launcher",
       "Source": "games",
-      "Updated": "2025-12-20T10:44:02.6300867+08:00",
-      "Version": "1.83.13"
+      "Updated": "2026-01-10T16:49:43.506267+08:00",
+      "Version": "1.83.14"
     },
     {
       "Info": "",
@@ -221,8 +221,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2026-01-04T18:36:35.5272029+08:00",
-      "Version": "0.7.9.1"
+      "Updated": "2026-01-10T11:13:27.1659106+08:00",
+      "Version": "0.7.10.1"
     },
     {
       "Info": "",
@@ -333,8 +333,8 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2026-01-09T11:44:42.8908876+08:00",
-      "Version": "29.0.1"
+      "Updated": "2026-01-10T11:12:37.8474941+08:00",
+      "Version": "29.0.2"
     },
     {
       "Info": "",
@@ -354,8 +354,8 @@
       "Info": "",
       "Name": "opencode-desktop",
       "Source": "le-bucket",
-      "Updated": "2026-01-09T11:45:29.9229763+08:00",
-      "Version": "1.1.8"
+      "Updated": "2026-01-10T11:12:59.2343035+08:00",
+      "Version": "1.1.11"
     },
     {
       "Info": "",
@@ -382,8 +382,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2025-12-31T14:55:53.7420754+08:00",
-      "Version": "10.27.0"
+      "Updated": "2026-01-10T11:12:34.7209917+08:00",
+      "Version": "10.28.0"
     },
     {
       "Info": "",
@@ -527,10 +527,24 @@
     },
     {
       "Info": "",
+      "Name": "typst",
+      "Source": "main",
+      "Updated": "2026-01-10T11:16:19.4521428+08:00",
+      "Version": "0.14.2"
+    },
+    {
+      "Info": "",
+      "Name": "ut",
+      "Source": "le-bucket",
+      "Updated": "2026-01-10T16:48:41.7024911+08:00",
+      "Version": "0.6.0"
+    },
+    {
+      "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-01-07T09:58:15.4669206+08:00",
-      "Version": "0.9.22"
+      "Updated": "2026-01-10T11:13:19.393305+08:00",
+      "Version": "0.9.24"
     },
     {
       "Info": "",
@@ -619,34 +633,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1413,
+      "Manifests": 1414,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-01-09T08:44:34+08:00"
+      "Updated": "2026-01-10T13:18:04+08:00"
     },
     {
-      "Manifests": 2242,
+      "Manifests": 2245,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-01-09T08:44:10+08:00"
+      "Updated": "2026-01-10T16:29:50+08:00"
     },
     {
       "Manifests": 550,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-01-09T10:34:15+08:00"
+      "Updated": "2026-01-10T16:44:42+08:00"
     },
     {
-      "Manifests": 377,
+      "Manifests": 378,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-01-09T08:43:43+08:00"
+      "Updated": "2026-01-10T16:31:19+08:00"
     },
     {
-      "Manifests": 27,
+      "Manifests": 28,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-01-09T10:29:56+08:00"
+      "Updated": "2026-01-10T16:47:27+08:00"
     }
   ],
   "config": {

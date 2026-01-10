@@ -17,6 +17,7 @@
     "rio --help": 1,
     "rio_nightly --command hx": 1,
     "rio-nightly --command hx": 3,
-    "start \u0022\u0022 rio-nightly --start hx": 1
+    "start \u0022\u0022 rio-nightly --start hx": 1,
+    "yasbc_dev reload": 1
   }
 }

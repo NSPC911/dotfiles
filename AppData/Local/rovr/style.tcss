@@ -1,4 +1,6 @@
 $border-style: round;
+
+/* deprecated...
 $helix_footer_unfocus_height: 3;
 $helix_footer_focus_height: 9;
 
@@ -23,4 +25,4 @@ App.helix Screen.-filelistonly {
     &:focus-within > *:focus-within,
     &:focus-within > *:focus { height: 1fr }
   }
-}
+} */

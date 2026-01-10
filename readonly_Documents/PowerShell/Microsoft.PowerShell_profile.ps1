@@ -62,6 +62,9 @@ function regenCache {
     Write-Output "`e[0J`e[HSetting up tombi completions"
     $completions += tombi completion powershell
 
+    Write-Output "`e[0J`e[HSetting up typst completions"
+    $completions += typst completions powershell
+
     Write-Output "`e[0J`e[HSetting up batcat completions"
     $completions += bat --completion ps1
 
