@@ -242,8 +242,8 @@
       "Info": "",
       "Name": "innounp",
       "Source": "main",
-      "Updated": "2026-01-07T09:57:47.0921513+08:00",
-      "Version": "2.66.3"
+      "Updated": "2026-01-11T21:17:39.2106762+08:00",
+      "Version": "2.67.0"
     },
     {
       "Info": "",
@@ -354,8 +354,8 @@
       "Info": "",
       "Name": "opencode-desktop",
       "Source": "le-bucket",
-      "Updated": "2026-01-10T11:12:59.2343035+08:00",
-      "Version": "1.1.11"
+      "Updated": "2026-01-11T21:17:49.3556277+08:00",
+      "Version": "1.1.13"
     },
     {
       "Info": "",
@@ -522,8 +522,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "le-bucket",
-      "Updated": "2026-01-09T11:48:47.0951126+08:00",
-      "Version": "0.7.16"
+      "Updated": "2026-01-11T21:17:48.3429768+08:00",
+      "Version": "0.7.18"
     },
     {
       "Info": "",
@@ -633,34 +633,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1414,
+      "Manifests": 1416,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-01-10T13:18:04+08:00"
+      "Updated": "2026-01-11T20:39:17+08:00"
     },
     {
-      "Manifests": 2245,
+      "Manifests": 2253,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-01-10T16:29:50+08:00"
+      "Updated": "2026-01-11T20:48:22+08:00"
     },
     {
       "Manifests": 550,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-01-10T16:44:42+08:00"
+      "Updated": "2026-01-11T21:07:11+08:00"
     },
     {
       "Manifests": 378,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-01-10T16:31:19+08:00"
+      "Updated": "2026-01-11T20:31:31+08:00"
     },
     {
-      "Manifests": 28,
+      "Manifests": 29,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-01-10T16:47:27+08:00"
+      "Updated": "2026-01-11T16:43:48+08:00"
     }
   ],
   "config": {

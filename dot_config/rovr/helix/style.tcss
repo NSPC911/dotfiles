@@ -1,0 +1,27 @@
+$border-style: round;
+$footer_unfocus_height: 3;
+$footer_focus_height: 9;
+
+Screen.-filelistonly {
+  #headerArea { height: 1 }
+  #menuwrapper,
+  #footer { margin: 0 }
+  #main { margin: 0 }
+  #footer {
+    layout: vertical;
+    margin: 0;
+    height: $footer_unfocus_height;
+    &:focus-within {
+      height: $footer_focus_height;
+      max-height: 40vh;
+    }
+    & > * {
+      border-bottom: none;
+      height: 1fr
+    }
+    &:focus-within > * { height: 1 }
+    &:focus-within > *:focus-within,
+    &:focus-within > *:focus { height: 1fr }
+  }
+}
+

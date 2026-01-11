@@ -1,10 +1,15 @@
-#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.7.0.dev2/src/rovr/config/schema.json
+#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.7.0.dev1/src/rovr/config/schema.json
 
 [interface]
 truncate_progress_file_path = true
 nerd_font = true
 show_line_numbers = true
 show_hidden_files = true
+
+[interface.clock]
+enabled = false
+[interface.compact_mode]
+buttons = true
 
 [theme]
 transparent = true
@@ -41,6 +46,9 @@ executable = "bat"
 
 [plugins.editor]
 enabled = true
+file_executable = "powershell -noni -nop -nol -c rovr-helix"
+file_suspend = false
+open_all_in_editor = true
 
 [plugins.poppler]
 threads = 5
@@ -49,9 +57,3 @@ threads = 5
 enabled = true
 get_description = true
 
-# [mode.helix]
-# "plugins.editor.file_executable" = "pwsh -noni -nop -nol -c rovr-helix"
-# "plugins.editor.file_suspend" = false
-# "plugins.editor.open_all_in_editor" = true
-# "interface.clock.enabled" = false
-# "interface.compact_mode.buttons" = true

@@ -76,7 +76,7 @@ poetry v2.2.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
 rich-cli v1.8.1
-rovr v0.7.0.dev1 [required:  git+https://github.com/nspc911/rovr@dev] [with: textual-speedups]
+rovr v0.7.0.dev2 [required:  git+https://github.com/NSPC911/rovr@dev] [with: textual-speedups]
 ruff v0.14.11
 ty v0.0.8 [required: ==0.0.8]
 ```
@@ -140,12 +140,12 @@ vscode-langservers-extracted 4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     42         5485         5484            0            1
- TOML                      9         1658         1385          164          109
+ JSON                     42         5470         5469            0            1
+ TOML                      9         1658         1391          158          109
  YAML                      5         1155         1067           28           60
  Scheme                    6          955          840           21           94
  CSS                       2          839          710           26          103
- PowerShell                1          834          700           52           82
+ PowerShell                1          831          698           52           81
  INI                       1          687          170          414          103
  Lua                       1          238          218            7           13
 ─────────────────────────────────────────────────────────────────────────────────
@@ -153,9 +153,8 @@ vscode-langservers-extracted 4.10.0
  |- Shell                  1           18           18            0            0
  (Total)                              178           18          130           30
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    69        12029        10592          842          595
+ Total                    69        12011        10581          836          594
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 ```
 
 <p align="center">

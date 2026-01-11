@@ -12,26 +12,32 @@ function regenCache {
 
     $completions = @()
 
-    $dontwant = @("bat", "gh", "git", "rg", "rustup", "taplo", "wezterm")
-    $scooplist = scoop list
     Write-Host "`e[HSetting up carapace `e[s" -NoNewLine
-    # set up things that I want, and not just everything
-    $scooplist | Select-Object -ExpandProperty name | ForEach-Object {
-        if ($dontwant -notcontains $_) {
+    # check existence of scoop (because im going to start using linux)
+    if (Get-Command scoop -ErrorAction SilentlyContinue) {
+        # setup only specific completions
+        $dontwant = @("bat", "gh", "git", "rg", "rustup", "taplo", "wezterm")
+        $scooplist = scoop list
+        # set up things that I want, and not just everything
+        $scooplist | Select-Object -ExpandProperty name | ForEach-Object {
+            if ($dontwant -notcontains $_) {
+                $caracomplete = carapace $_ powershell
+                if ($null -ne $caracomplete) {
+                    $completions += $caracomplete
+                    Write-Host "`e[u`e[0K$_"
+                }
+            }
+        }
+        $include = @("file", "tar", "curl", "carapace", "cargo")
+        $include | ForEach-Object {
             $caracomplete = carapace $_ powershell
             if ($null -ne $caracomplete) {
-                $completions += $caracomplete
+                $compeltions += $caracomplete
                 Write-Host "`e[u`e[0K$_"
             }
         }
-    }
-    $include = @("file", "tar", "curl", "carapace", "cargo")
-    $include | ForEach-Object {
-        $caracomplete = carapace $_ powershell
-        if ($null -ne $caracomplete) {
-            $compeltions += $caracomplete
-            Write-Host "`e[u`e[0K$_"
-        }
+    } else {
+        $completions += carapace _carapace powershell
     }
 
     # `e[2K to clear line
@@ -163,7 +169,7 @@ function global:__zoxide_zi {
 function spf {
     $SPF_LAST_DIR_PATH = [Environment]::GetFolderPath("LocalApplicationData") + "\superfile\lastdir"
 
-    & spf.exe $args
+    & spf $args
     if (Test-Path $SPF_LAST_DIR_PATH) {
         $SPF_LAST_DIR = Get-Content -Path $SPF_LAST_DIR_PATH
         Invoke-Expression $SPF_LAST_DIR
@@ -174,7 +180,7 @@ function spf {
 ##### rovr Go To Last Dir #####
 function rovr {
     $cwd_file = New-TemporaryFile
-    & rovr.exe --cwd-file $cwd_file $args
+    & rovr --cwd-file $cwd_file $args
     if (Test-Path $cwd_file) {
         $new_loc = Get-Content $cwd_file
         if (-not [String]::IsNullOrEmpty($new_loc) -and $new_loc -ne (Get-Location).Path) {
@@ -407,8 +413,10 @@ Write-Output "`e[u`e[0KTerminal-Icons"
 Import-Module -Name Terminal-Icons
 
 # should be available if you installed scoop
-Write-Output "`e[u`e[0KScoop Completions"
-Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
+if (Get-Command scoop -ErrorAction SilentlyContinue) {
+    Write-Output "`e[u`e[0KScoop Completions"
+    Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
+}
 
 # https://github.com/PowerShell/PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
@@ -497,7 +505,11 @@ function fz {
     } elseif (($type -eq "kill") -or ($type -eq "nuke")) {
         Invoke-FuzzyKillProcess
     } elseif (($type -eq "scoop") -or ($type -eq "install")) {
-        Invoke-FuzzyScoop
+        if (Get-Command scoop -ErrorAction SilentlyContinue) {
+            Invoke-FuzzyScoop
+        } else {
+            Write-Error "Scoop is not installed on this system."
+        }
     } elseif ($type -eq "cd") {
         function script:setter {
             return (Get-ChildItem | Select-Object -ExpandProperty Name | Join-String -Separator "`n" -OutputPrefix "../`n" | Invoke-Fzf -Preview 'dir /B {}')
