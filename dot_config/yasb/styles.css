@@ -636,3 +636,168 @@ QPushButton {
   overflow: hidden;
   margin-right: 3px;
 }
+
+/* Bar widget */
+.copilot-widget .icon {
+  font-size: 14px;
+  padding-right: 1px;
+}
+.copilot-widget .label.warning,
+.copilot-widget .icon.warning {
+  color: #EBCB8B;
+}
+.copilot-widget .label.critical,
+.copilot-widget .icon.critical {
+  color: #BF616A;
+}
+/* Menu container */
+.copilot-menu {
+  background: var(--main-50p);
+  min-width: 400px;
+}
+
+/* Header */
+.copilot-menu .header {
+  font-size: 18px;
+  padding: 12px 0 0 12px;
+  color: white;
+}
+
+/* Section containers */
+.copilot-menu .section {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #5e81ac;
+  border-radius: 14px;
+  margin: 6px 12px;
+}
+.copilot-menu .section-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  margin-left: -3px;
+  color: #fff;
+}
+.copilot-menu .section.progress-section .section-title {
+  margin-bottom: 0;
+  margin-left: 0;
+}
+/* Progress bar - track (background) */
+.copilot-menu .progress-bar {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Progress bar - fill (foreground) */
+.copilot-menu .progress-bar .fill {
+  background-color: #88c0d0;
+  border-radius: 4px;
+}
+
+/* Progress bar states */
+.copilot-menu .progress-bar.warning .fill {
+  background-color: #EBCB8B;
+}
+
+.copilot-menu .progress-bar.critical .fill {
+  background-color: #BF616A;
+}
+
+/* Progress section text */
+.copilot-menu .usage-count {
+  font-size: 12px;
+  color: #b1b1b1;
+  font-weight: 600;
+}
+
+.copilot-menu .usage-percent {
+  font-size: 12px;
+  color: #b1b1b1;
+}
+
+.copilot-menu .reset-date {
+  font-size: 11px;
+  color: #b1b1b1;
+}
+
+/* Spending section */
+.copilot-menu .stat-label {
+  color: #b1b1b1;
+  font-size: 12px;
+}
+
+.copilot-menu .stat-value {
+  color: #b1b1b1;
+  font-size: 12px;
+}
+
+.copilot-menu .stat-row.total .stat-value {
+  color: #10b981;
+}
+/* Model section - different colors for each model */
+.copilot-menu .model-name {
+  color: #b1b1b1;
+  font-size: 12px;
+}
+
+.copilot-menu .model-count {
+  color: #b1b1b1;
+  font-size: 12px;
+}
+
+.copilot-menu .progress-bar.model-0 .fill {
+  background-color: #88c0d0;
+}
+
+.copilot-menu .progress-bar.model-1 .fill {
+  background-color: #97B67C;
+}
+
+.copilot-menu .progress-bar.model-2 .fill {
+  background-color: #EBCB8B;
+}
+
+.copilot-menu .progress-bar.model-3 .fill {
+  background-color: #D08770;
+}
+
+.copilot-menu .progress-bar.model-4 .fill {
+  background-color: #BF616A;
+}
+
+/* Chart - line and fill color controlled by 'color' property */
+.copilot-menu .usage-chart {
+  color: #88c0d0;
+}
+.copilot-menu .chart-section {
+  margin-bottom: 12px;
+}
+
+/* Error section */
+.copilot-menu .error-section {
+  background:transparent;
+  border: none;
+  padding: 32px 0;
+}
+
+.copilot-menu .error-icon {
+  color: #d8dee9;
+  font-size: 88px;
+}
+
+.copilot-menu .error-message {
+  color: #c0c0c0;
+  font-size: 14px;
+}
+
+/* Empty/loading state */
+.copilot-menu .empty-icon {
+  padding-top: 32px;
+  color: #d8dee9;
+  font-size: 88px;
+}
+
+.copilot-menu .empty-message {
+  color: #d8dee9;
+  font-size: 14px;
+  padding-bottom: 32px;
+}

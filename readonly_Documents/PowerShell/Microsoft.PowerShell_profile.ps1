@@ -168,8 +168,8 @@ function global:__zoxide_zi {
 ##### Superfile Go To Last Dir #####
 function spf {
     $SPF_LAST_DIR_PATH = [Environment]::GetFolderPath("LocalApplicationData") + "\superfile\lastdir"
-
-    & spf $args
+    $spfPath = (Get-Command spf -CommandType Application | Select-Object -ExpandProperty Source)
+    & $spfPath $args
     if (Test-Path $SPF_LAST_DIR_PATH) {
         $SPF_LAST_DIR = Get-Content -Path $SPF_LAST_DIR_PATH
         Invoke-Expression $SPF_LAST_DIR
@@ -180,7 +180,8 @@ function spf {
 ##### rovr Go To Last Dir #####
 function rovr {
     $cwd_file = New-TemporaryFile
-    & rovr --cwd-file $cwd_file $args
+    $rovrPath = Get-Command rovr -CommandType Application -TotalCount 1 | Select-Object -ExpandProperty Source
+    & $rovrPath --cwd-file $cwd_file $args
     if (Test-Path $cwd_file) {
         $new_loc = Get-Content $cwd_file
         if (-not [String]::IsNullOrEmpty($new_loc) -and $new_loc -ne (Get-Location).Path) {
@@ -543,7 +544,7 @@ function fz {
 $ollamaSuggesterModel = "codegemma:7b"
 $opencodeSuggesterModel = "mistral/codestral-latest"
 $ollamaExplainerModel = "codegemma:2b"
-$opencodeExplainerModel = "github-copilot/claude-opus-4.5"
+$opencodeExplainerModel = "github-copilot/gpt-5.1-codex-mini"
 function ols {
     param(
         [Parameter(Position = 0, ValueFromRemainingArguments = $true)]
@@ -560,10 +561,12 @@ function ols {
 
     $prompt = "You are a CLI assistant in a Windows environemnt with pwsh as the active shell. The user wants to: '$Description'. Respond with ONLY the raw pwsh command. Do not use markdown, code blocks or any formatting. Just output the plain command text."
 
-    if ((Test-Connection google.com -count 1 | Select-Object -Expand Status) -eq "Success") {
-        $output = opencode run --model $opencodeSuggesterModel "$prompt"
-    } else {
-        $output = ollama run $ollamaSuggesterModel $prompt
+    $output = Invoke-SpectreCommandWithStatus -Spinner "Arrow3" -Title "[cyan]Thinking...[/]" -ScriptBlock {
+        $result = opencode run --model $opencodeSuggesterModel "$prompt" 2>$null
+        if ($LASTEXITCODE -ne 0) {
+            $result = ollama run $ollamaSuggesterModel $prompt
+        }
+        return $result
     }
     $command = ($output | Out-String).Trim()
     Write-Host "`e[1G╭─ Suggested command:"
@@ -588,9 +591,9 @@ function ols {
         if ($null -ne $key.modifiers) {
             switch ($key.key) {
                 # Left arrow
-                "LeftArrow" { $selectedIndex = ($selectedIndex - 1 + $options.Count) % $options.Count }
+                "LeftArrow3" { $selectedIndex = ($selectedIndex - 1 + $options.Count) % $options.Count }
                 # Right arrow
-                "RightArrow" { $selectedIndex = ($selectedIndex + 1) % $options.Count }
+                "RightArrow3" { $selectedIndex = ($selectedIndex + 1) % $options.Count }
                 # Enter key
                 "Enter" { $shouldExecute = $true }
                 # C key
@@ -662,12 +665,14 @@ function ols {
                     Write-Host "`e[2F├─ How should the command be improved?" -ForegroundColor Green
                     Write-Host "╰── $improvement  " -ForegroundColor Green
                     $improvePrompt = "Improve this PowerShell command`n$command`nUser wants:`n'$improvement'`nRespond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
-                    if ((Test-Connection google.com -count 1 | Select-Object -Expand Status) -eq "Success") {
-                        $output = opencode run --model $opencodeSuggesterModel "$improvePrompt"
-                    } else {
-                        $output = ollama run $ollamaSuggesterModel $improvePrompt
+                    $output = Invoke-SpectreCommandWithStatus -Spinner "Arrow3" -Title "[cyan]Improving...[/]" -ScriptBlock {
+                        $result = opencode run --model $opencodeSuggesterModel "$improvePrompt" 2>$null
+                        if ($LASTEXITCODE -ne 0) {
+                            $result = ollama run $ollamaSuggesterModel $improvePrompt
+                        }
+                        return $result
                     }
-                    $command = ($rawImproved | Out-String).Trim()
+                    $command = ($output | Out-String).Trim()
                     Write-Host "`e[1G╭─ Improved command:"
                     Write-Host "│"
                     Write-Host "·  " -NoNewLine
@@ -695,18 +700,21 @@ function ole {
         Write-Host "Usage: ole <command to explain>" -ForegroundColor Red
         return
     }
-    $prompt = "Explain this PowerShell command: '$Command'. Include what it does, any parameters, and provide examples if helpful. Be concise. Format your response using Markdown."
+    $prompt = "Explain this PowerShell command: '$Command'. Include what it does, any parameters, and provide examples if helpful. Be concise. Format your response using Markdown (but do not wrap it in the markdown codeblock)"
 
-    Write-Host " Querying...`e[1A"
-    if ((Test-Connection google.com -count 1 | Select-Object -Expand Status) -eq "Success") {
-        $output = opencode run --model $opencodeSuggesterModel "$prompt"
-    } else {
-        $output = ollama run $ollamaSuggesterModel $prompt
+    $result = Invoke-SpectreCommandWithStatus -Spinner "Arrow3" -Title "[cyan]Thinking...[/]" -ScriptBlock {
+        $out = opencode run --model $opencodeExplainerModel "$prompt" 2>$null
+        if ($LASTEXITCODE -eq 0) {
+            return @{ output = $out; model = $opencodeExplainerModel }
+        } else {
+            $out = ollama run $ollamaExplainerModel $prompt
+            return @{ output = $out; model = $ollamaExplainerModel }
+        }
     }
-    $output = ($output | Out-String).Trim()
-    Write-Host "Rendering...`e[1A" -ForegroundColor Yellow
+    $output = ($result.output | Out-String).Trim()
+    $model = $result.model
     $maxWidth = [int]($Host.UI.RawUI.WindowSize.Width - 8)
-    $output | rich --markdown --panel rounded --expand --guides --hyperlinks --caption "Using [cyan]$ollamaExplainerModel[/]" --width $maxWidth --center -
+    $output | rich --markdown --panel rounded --expand --guides --hyperlinks --caption "Using [cyan]$model[/]" --width $maxWidth --center -
     Write-Host ""
 }
 
@@ -727,6 +735,14 @@ function Convert-IntToSize {
     }
 
     "{0:N2} {1}" -f $size, $units[$index]
+}
+
+
+##### something is wrong with my wifi #####
+function Reset-WiFi {
+    cmd /c "" "netsh interface set interface `"Wi-Fi`" admin=disable"
+    Start-Sleep -Seconds 5
+    cmd /c "" "netsh interface set interface `"Wi-Fi`" admin=enable"
 }
 
 

@@ -75,6 +75,8 @@ border_middle_right = '┤'
 
 # Stop warning about missing fields
 ignore_missing_fields = false
+
+enable_file_preview_border = true
 #
 # ==========PLUGINS========== #
 #

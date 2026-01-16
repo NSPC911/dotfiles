@@ -7,42 +7,95 @@
       "disabled": false
     },
     "ruff": {
-      "command": ["ruff", "format", "$FILE"],
-      "extensions": [".py"]
+      "command": [
+        "ruff",
+        "format",
+        "$FILE"
+      ],
+      "extensions": [
+        ".py"
+      ]
     }
   },
   "lsp": {
     "ruff": {
-      "command": ["ruff", "server"],
-      "extensions": [".py"]
+      "command": [
+        "ruff",
+        "server"
+      ],
+      "extensions": [
+        ".py"
+      ]
     },
     "ty": {
-      "command": ["ty", "server"],
-      "extensions": [".py"]
+      "command": [
+        "ty",
+        "server"
+      ],
+      "extensions": [
+        ".py"
+      ]
     },
     "vscode-json": {
-      "command": ["vscode-json-language-server"],
-      "extensions": [".json", ".jsonc", ".json5"]
+      "command": [
+        "vscode-json-language-server"
+      ],
+      "extensions": [
+        ".json",
+        ".jsonc",
+        ".json5"
+      ]
     },
     "ansible": {
-      "command": ["ansible-language-server"],
-      "extensions": [".yaml", ".yml"]
+      "command": [
+        "ansible-language-server"
+      ],
+      "extensions": [
+        ".yaml",
+        ".yml"
+      ]
     },
     "vscode-css": {
-      "command": ["vscode-css-language-server"],
-      "extensions": [".css", ".sass", ".scss", ".tcss"]
+      "command": [
+        "vscode-css-language-server"
+      ],
+      "extensions": [
+        ".css",
+        ".sass",
+        ".scss",
+        ".tcss"
+      ]
     },
     "vscode-html": {
-      "command": ["vscode-html-language-server"],
-      "extensions": [".html", "html5"]
+      "command": [
+        "vscode-html-language-server"
+      ],
+      "extensions": [
+        ".html",
+        "html5"
+      ]
     },
     "superhtml": {
-      "command": ["superhtml", "lsp"],
-      "extensions": [".html", "html5"]
+      "command": [
+        "superhtml",
+        "lsp"
+      ],
+      "extensions": [
+        ".html",
+        "html5"
+      ]
     },
     "tombi": {
-      "command": ["tombi", "lsp"],
-      "extensions": [".toml"]
+      "command": [
+        "tombi",
+        "lsp"
+      ],
+      "extensions": [
+        ".toml"
+      ]
     }
-  }
+  },
+  "plugin": [
+    "oh-my-opencode"
+  ]
 }
