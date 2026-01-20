@@ -28,11 +28,11 @@ function regenCache {
                 }
             }
         }
-        $include = @("file", "tar", "curl", "carapace", "cargo")
+        $include = @("file", "tar", "curl", "carapace", "cargo", "aria2c")
         $include | ForEach-Object {
             $caracomplete = carapace $_ powershell
             if ($null -ne $caracomplete) {
-                $compeltions += $caracomplete
+                $completions += $caracomplete
                 Write-Host "`e[u`e[0K$_"
             }
         }
@@ -45,7 +45,7 @@ function regenCache {
     $completions += zoxide init powershell
 
     Write-Output "`e[0J`e[HSetting up oh-my-posh"
-    $completions += oh-my-posh init powershell --config $HOME\.config\kushal.omp.json
+    $completions += oh-my-posh init powershell --config $HOME/.config/kushal.omp.json
 
     Write-Output "`e[0J`e[HSetting up uv completions"
     $completions += uv generate-shell-completion powershell
@@ -167,7 +167,7 @@ function global:__zoxide_zi {
 
 ##### Superfile Go To Last Dir #####
 function spf {
-    $SPF_LAST_DIR_PATH = [Environment]::GetFolderPath("LocalApplicationData") + "\superfile\lastdir"
+    $SPF_LAST_DIR_PATH = [Environment]::GetFolderPath("LocalApplicationData") + "/superfile/lastdir"
     $spfPath = (Get-Command spf -CommandType Application | Select-Object -ExpandProperty Source)
     & $spfPath $args
     if (Test-Path $SPF_LAST_DIR_PATH) {
@@ -252,7 +252,7 @@ function Watch-OMPrompt {
     Start-Sleep -Milliseconds 500
     # keep in mind that omp-test folder isn't added to the dotfiles
     # you need to `uv init`, `cargo init`, `go mod init`, `pnpm init`, `bun init`, `touch test.lua`
-    wezterm cli split-pane --bottom --cells 3 --pane-id $newTab --cwd "C:\Users\notso\Git\omp-test" -- pwsh -noni -nop -nol -c @"
+    wezterm cli split-pane --bottom --cells 3 --pane-id $newTab --cwd "C:/Users/notso/Git/omp-test" -- pwsh -noni -nop -nol -c @"
 oh-my-posh print primary --config $ConfigPath
 `$lastMod = `(Get-Item $ConfigPath`).LastWriteTime
 while `(`$true`) `{
@@ -286,6 +286,7 @@ function pyvenv() {
     param(
         [Parameter()][switch]$Poetry,
         [Parameter()][switch]$AllGroups,
+        [Parameter()][switch]$AllExtras,
         [Parameter()][switch]$Upgrade,
         [Parameter()][switch]$Update,
         [Parameter()][switch]$NoSync,
@@ -314,26 +315,36 @@ function pyvenv() {
         }
         Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
     } else {
-        if (Test-Path venv\Scripts) {
+        if (Test-Path "venv/") {
             Write-Host "┌❯ Using " -NoNewLine
             Write-Host "venv " -ForegroundColor Cyan
             Write-Host "├❯ Activating virtual environment"
             Write-Host "└─ " -NoNewLine
-            Write-Host ".\venv\Scripts\Activate.ps1" -ForegroundColor Yellow
-            .\venv\Scripts\Activate.ps1
+            if (Test-Path "venv/Scripts") {
+                Write-Host "./venv/Scripts/Activate.ps1" -ForegroundColor Yellow
+                ./venv/Scripts/Activate.ps1
+            } elseif (Test-Path "venv/bin") {
+                Write-Host "./venv/bin/Activate.ps1" -ForegroundColor Yellow
+                ./venv/bin/Activate.ps1
+            }
         } elseif (-not (Test-Path .venv)) {
             Write-Host "┌❯ Creating new virtual environment"
             Write-Host "└─ " -NoNewLine
             Write-Host "uv venv" -ForegroundColor Yellow
             uv venv --quiet
         }
-        if (Test-Path .venv\Scripts) {
+        if (Test-Path ".venv") {
             Write-Host "┌❯ Using " -NoNewLine
             Write-Host ".venv" -ForegroundColor Cyan
             Write-Host "├❯ Activating virtual environment"
             Write-Host "└─ " -NoNewLine
-            Write-Host ".\.venv\Scripts\Activate.ps1" -ForegroundColor Yellow
-            .\.venv\Scripts\Activate.ps1
+            if (Test-Path ".venv/Scripts") {
+                Write-Host "./.venv/Scripts/Activate.ps1" -ForegroundColor Yellow
+                ./.venv/Scripts/Activate.ps1
+            } elseif (Test-Path ".venv/bin") {
+                Write-Host "./.venv/bin/Activate.ps1" -ForegroundColor Yellow
+                ./.venv/bin/Activate.ps1
+            }
         }
         Write-Host "Virtual Environment is active!" -ForegroundColor Green -NoNewLine
         $pyVersion = uv run --no-sync python --version
@@ -345,6 +356,9 @@ function pyvenv() {
                 $flags = ""
                 if ($AllGroups) {
                     $flags += "--all-groups "
+                }
+                if ($AllExtras) {
+                    $flags += "--all-extras "
                 }
                 if ($Update -or $Upgrade) {
                     $flags += "--upgrade "
@@ -416,7 +430,7 @@ Import-Module -Name Terminal-Icons
 # should be available if you installed scoop
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
     Write-Output "`e[u`e[0KScoop Completions"
-    Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
+    Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)/modules/scoop-completion"
 }
 
 # https://github.com/PowerShell/PSReadLine
@@ -661,7 +675,7 @@ function ols {
                 3 {
                     Write-Host "├─ How should the command be improved?"
                     Write-Host "╰─❯ " -NoNewLine
-                    $improvement = Microsoft.PowerShell.Utility\Read-Host
+                    $improvement = Read-Host
                     Write-Host "`e[2F├─ How should the command be improved?" -ForegroundColor Green
                     Write-Host "╰── $improvement  " -ForegroundColor Green
                     $improvePrompt = "Improve this PowerShell command`n$command`nUser wants:`n'$improvement'`nRespond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."

@@ -12,6 +12,21 @@ general:
   hide_method: "cloak"
   show_all_in_taskbar: false
 
+# 1199
+# animations:
+#   window_move:
+#     enabled: true
+#     duration_ms: 100
+#     easing: "ease_in_out"
+#     threshold_px: 10
+
+#   window_open:
+#     enabled: true
+#     duration_ms: 100
+#     easing: "ease_out"
+#     animation_type: "fade_slide_scale"
+#   max_frame_rate: 30
+
 gaps:
   scale_with_dpi: true
   inner_gap: "10px"

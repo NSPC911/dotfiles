@@ -8,8 +8,17 @@ show_hidden_files = true
 
 [interface.clock]
 enabled = false
+
 [interface.compact_mode]
 buttons = true
+
+[settings.editor]
+open_all_in_editor = true
+
+[settings.editor.file]
+run = "powershell -noni -nop -nol -c rovr-helix"
+block = true
+suspend = false
 
 [theme]
 transparent = true
@@ -43,12 +52,6 @@ show_scores = true
 [plugins.bat]
 enabled = true
 executable = "bat"
-
-[plugins.editor]
-enabled = true
-file_executable = "powershell -noni -nop -nol -c rovr-helix"
-file_suspend = false
-open_all_in_editor = true
 
 [plugins.poppler]
 threads = 5

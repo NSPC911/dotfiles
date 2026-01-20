@@ -9,6 +9,7 @@ C-z = "undo"
 C-y = "redo"
 C-f = [":new", ":insert-output wezterm cli split-pane --left --cells 26 --cwd %{current_working_directory} rovr --config-folder ~/.config/rovr/helix", ":buffer-close!"]
 tab = "rotate_view"
+S-tab = "rotate_view_reverse"
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
 C-c = ":clipboard-yank"

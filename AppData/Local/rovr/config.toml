@@ -39,9 +39,6 @@ show_scores = true
 enabled = true
 executable = "bat"
 
-[plugins.editor]
-enabled = true
-
 [plugins.poppler]
 threads = 5
 
