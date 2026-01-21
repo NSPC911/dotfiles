@@ -225,6 +225,22 @@ function touch {
 
 Set-Alias -Name extract -Value Expand-Archive
 
+function imgcat {
+    wezterm imgcat --resample-filter nearest --resample-format png $args
+}
+
+if (-not ($IsWindows)) {
+    Set-Alias -Name "ls" -Value "Get-ChildItem"
+    Set-Alias -Name "rm" -Value "Remove-Item"
+    Set-Alias -Name "mv" -Value "Move-Item"
+    Set-Alias -Name "cp" -Value "Copy-Item"
+    Set-Alias -Name "ps" -Value "Get-Process"
+    Set-Alias -Name "kill" -Value "Kill-Process"
+    Set-Alias -Name "sleep" -Value "Start-Sleep"
+}
+
+Set-Alias -Name "cat" -Value "bat"
+
 function Register-Completion {
     $out = carapace $args powershell
     if ($null -eq $out) {
@@ -233,11 +249,6 @@ function Register-Completion {
         $out | Out-String | Invoke-Expression
     }
 }
-
-function imgcat {
-    wezterm imgcat --resample-filter nearest --resample-format png $args
-}
-
 
 ##### bat print #####
 function Write-PoshHighlighted {
@@ -457,7 +468,9 @@ $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Obj
 ##### chezmoi #####
 function chezcd {
     __zoxide_cd (chezmoi source-path)
-    chezmoi status
+    if ($IsWindows) {
+        chezmoi status
+    }
 }
 function chezedit { chezmoi edit --apply $args }
 function chezadd { chezmoi add $args }

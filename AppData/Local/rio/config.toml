@@ -61,7 +61,7 @@ hide-if-single = true
 use-current-path = false
 unfocused-split-opacity = 0.99
 color-automation = [
-  { program = "hx.exe", color = "#FF0000" }
+  { program = "hx", color = "#FF0000" }
 ]
 open-config-with-split = true
 

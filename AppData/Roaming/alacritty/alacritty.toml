@@ -6,7 +6,7 @@ opacity = 1
 [font]
 normal = { family = "CaskaydiaCove NFM" }
 [terminal]
-shell = { program = "pwsh.exe", args = [ "-NoLogo" ] }
+shell = { program = "pwsh", args = [ "-NoLogo" ] }
 [mouse]
 hide_when_typing = false
 [keyboard]

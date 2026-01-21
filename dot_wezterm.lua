@@ -24,10 +24,10 @@ config.font_size = 11.5
 -- config.font_size = 12.5
 
 config.window_decorations = "NONE | RESIZE"
-config.default_prog = { "pwsh.exe", "-NoLogo" }
--- config.default_prog = { "nu.exe" }
+config.default_prog = { "pwsh", "-NoLogo" }
+-- config.default_prog = { "nu" }
 config.initial_cols = 80
-
+config.enable_wayland = false
 
 config.window_padding = {
 	left = 10,
