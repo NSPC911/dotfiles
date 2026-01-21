@@ -1,0 +1,128 @@
+{
+  "options": { "showOptionsButton": true },
+  "user": { "name": "NSPG911" },
+  "title": {
+    "defaultTitle": "mtab",
+    "dynamic": { "enabled": true },
+    "effect": "none",
+    "typewriter": { "speed": 500, "remainCount": 1 },
+    "faviconType": "default"
+  },
+  "message": {
+    "enabled": true,
+    "font": {
+      "type": "custom",
+      "custom": "https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap"
+    },
+    "textColor": "#ffffff",
+    "textSize": 3.75,
+    "type": "afternoon-morning",
+    "customText": "your custom text",
+    "weather": { "unitsType": "f" }
+  },
+  "wallpaper": {
+    "type": "url",
+    "enabled": true,
+    "url": "./wallpapers/default.png",
+    "filters": { "brightness": "1", "blur": "5px" }
+  },
+  "ui": {
+    "style": "glass",
+    "glassColor": "#ffffff20",
+    "blurStrength": "32px",
+    "foregroundColor": "#262626",
+    "backgroundColor": "#171717",
+    "highlightColor": "#ffffff20",
+    "cornerStyle": "round",
+    "customCSS": "/* input custom css... */"
+  },
+  "animations": {
+    "enabled": true,
+    "bookmarkTiming": "uniform",
+    "initialType": "animate-down-bouncy",
+    "searchType": "animate-page-down",
+    "bookmarkType": "animate-page-up"
+  },
+  "search": {
+    "enabled": false,
+    "font": { "type": "default", "custom": "" },
+    "textColor": "#ffffff",
+    "placeholderText": "search...",
+    "bookmarkPlaceholderText": "find bookmark...",
+    "placeholderTextColor": "#a1a1aa",
+    "searchIconColor": "#14b8a6",
+    "bookmarkIconColor": "#3b82f6",
+    "selectIconColor": "#f59e0b",
+    "recognizeLinks": true,
+    "linkTextColor": "#0ea5e9",
+    "engine": "duckduckgo",
+    "useCustomEngine": false,
+    "customEngineURL": "",
+    "focusedBorderColor": "#0ea5e9",
+    "suggestions": true,
+    "assist": {
+      "date": true,
+      "math": true,
+      "definitions": true,
+      "conversions": true
+    }
+  },
+  "hotkeys": {
+    "enabled": true,
+    "activationKey": " ",
+    "closePageKey": "x",
+    "searchBookmarksKey": "b"
+  },
+  "bookmarks": {
+    "type": "user-defined",
+    "showBookmarkNames": false,
+    "numberKeys": false,
+    "lineOrientation": "top",
+    "defaultFolderIconType": "ri-folder-fill",
+    "userDefinedCols": 4,
+    "userDefined": [
+      {
+        "type": "bookmark",
+        "name": "github",
+        "url": "https://github.com",
+        "color": "#000000",
+        "iconType": "ri-github-fill",
+        "iconColor": "#88c0d0",
+        "fill": "#2e3440"
+      },
+      {
+        "type": "bookmark",
+        "name": "youtube",
+        "url": "https://youtube.com",
+        "color": "#f43f5e",
+        "iconType": "ri-youtube-fill",
+        "iconColor": "#88c0d0",
+        "fill": "#2e3440"
+      },
+      {
+        "type": "bookmark",
+        "name": "reddit",
+        "url": "https://www.reddit.com",
+        "color": "#f97316",
+        "iconType": "ri-reddit-fill",
+        "iconColor": "#88c0d0",
+        "fill": "#2e3440"
+      },
+      {
+        "type": "bookmark",
+        "name": "qwen",
+        "url": "https://chat.qwen.ai",
+        "color": "#6c61ed",
+        "iconType": "ri-openai-fill",
+        "iconColor": "#88c0d0",
+        "fill": "#2e3440"
+      }
+    ],
+    "defaultBlockyCols": 4,
+    "defaultBlockyColorType": "custom",
+    "defaultBlockyColor": "#ffffff",
+    "bookmarksLocationFirefox": "toolbar",
+    "defaultFaviconSource": "duckduckgo"
+  },
+  "extras": { "snow": { "enabled": "off" } }
+}

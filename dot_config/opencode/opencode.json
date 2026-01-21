@@ -2,6 +2,15 @@
   "$schema": "https://opencode.ai/config.json",
   "theme": "nord",
   "autoupdate": false,
+  "mcp": {
+    "wezterm-mcp": {
+      "command": [
+        "wezterm-mcp"
+      ],
+      "type": "local",
+      "enabled": true
+    }
+  },
   "formatter": {
     "prettier": {
       "disabled": false

@@ -53,8 +53,8 @@ function regenCache {
     Write-Output "`e[0J`e[HSetting up gh completions"
     $completions += gh completion -s powershell
 
-    # Write-Output "`e[HSetting up pixi completions"
-    # $completions += pixi completion --shell powershell
+    Write-Output "`e[HSetting up pixi completions"
+    $completions += pixi completion --shell powershell
 
     # Write-Output "`e[HSetting up tuios completions"
     # $completions += tuios completion powershell

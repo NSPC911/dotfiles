@@ -118,6 +118,9 @@
   findbar {
     background: var(--funny-accent-background-colour) !important;
   }
+  .zen-toast label {
+    color: white;
+  }
 }
 
 /* url bar zoom animation */
@@ -194,8 +197,4 @@
   55% {
     transform: scale(0.95) translateY(2.5%);
   }
-}
-#statuspanel-label {
-  background: transparent !important;
-  backdrop-filter: blur(10px);
 }
