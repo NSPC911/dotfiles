@@ -151,8 +151,8 @@
       "Info": "",
       "Name": "fastfetch",
       "Source": "main",
-      "Updated": "2026-01-15T09:36:44.6264039+08:00",
-      "Version": "2.57.1"
+      "Updated": "2026-01-21T21:50:34.6857026+08:00",
+      "Version": "2.58.0"
     },
     {
       "Info": "",
@@ -186,8 +186,8 @@
       "Info": "",
       "Name": "gh",
       "Source": "main",
-      "Updated": "2026-01-15T09:36:46.4936037+08:00",
-      "Version": "2.85.0"
+      "Updated": "2026-01-22T08:21:27.073685+08:00",
+      "Version": "2.86.0"
     },
     {
       "Info": "",
@@ -354,8 +354,8 @@
       "Info": "",
       "Name": "opencode-desktop",
       "Source": "le-bucket",
-      "Updated": "2026-01-21T15:43:42.7598005+08:00",
-      "Version": "1.1.28"
+      "Updated": "2026-01-22T08:21:36.7800893+08:00",
+      "Version": "1.1.29"
     },
     {
       "Info": "",
@@ -515,8 +515,8 @@
       "Info": "",
       "Name": "surge-downloader",
       "Source": "le-bucket",
-      "Updated": "2026-01-21T15:46:18.0761145+08:00",
-      "Version": "0.1.9"
+      "Updated": "2026-01-21T21:50:43.073874+08:00",
+      "Version": "0.2.0"
     },
     {
       "Info": "",
@@ -543,8 +543,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "main",
-      "Updated": "2026-01-20T18:21:00.023085+08:00",
-      "Version": "0.7.20"
+      "Updated": "2026-01-22T08:21:40.3032821+08:00",
+      "Version": "0.7.22"
     },
     {
       "Info": "",
@@ -671,31 +671,31 @@
       "Manifests": 1420,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-01-21T12:35:28+08:00"
+      "Updated": "2026-01-22T04:32:14+08:00"
     },
     {
       "Manifests": 2257,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-01-21T15:32:41+08:00"
+      "Updated": "2026-01-22T07:07:42+08:00"
     },
     {
       "Manifests": 550,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-01-21T14:19:47+08:00"
+      "Updated": "2026-01-22T04:57:56+08:00"
     },
     {
       "Manifests": 380,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-01-21T12:34:58+08:00"
+      "Updated": "2026-01-22T04:30:52+08:00"
     },
     {
       "Manifests": 31,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-01-21T10:33:25+08:00"
+      "Updated": "2026-01-22T04:50:38+08:00"
     }
   ],
   "config": {
