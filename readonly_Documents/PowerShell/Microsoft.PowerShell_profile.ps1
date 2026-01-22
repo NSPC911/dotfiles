@@ -237,6 +237,10 @@ if (-not ($IsWindows)) {
     Set-Alias -Name "ps" -Value "Get-Process"
     Set-Alias -Name "kill" -Value "Kill-Process"
     Set-Alias -Name "sleep" -Value "Start-Sleep"
+    Set-PSReadLineKeyHandler -Chord Ctrl+LeftArrow -Function BackwardWord
+    Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
+    Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function DeleteWord
+    Set-PSReadLineKeyHandler -Chord Ctrl+Backspace -Function BackwardDeleteWord
 }
 
 Set-Alias -Name "cat" -Value "bat"
@@ -335,8 +339,8 @@ function pyvenv() {
                 Write-Host "./venv/Scripts/Activate.ps1" -ForegroundColor Yellow
                 ./venv/Scripts/Activate.ps1
             } elseif (Test-Path "venv/bin") {
-                Write-Host "./venv/bin/Activate.ps1" -ForegroundColor Yellow
-                ./venv/bin/Activate.ps1
+                Write-Host "./venv/bin/activate.ps1" -ForegroundColor Yellow
+                ./venv/bin/activate.ps1
             }
         } elseif (-not (Test-Path .venv)) {
             Write-Host "┌❯ Creating new virtual environment"
@@ -353,8 +357,8 @@ function pyvenv() {
                 Write-Host "./.venv/Scripts/Activate.ps1" -ForegroundColor Yellow
                 ./.venv/Scripts/Activate.ps1
             } elseif (Test-Path ".venv/bin") {
-                Write-Host "./.venv/bin/Activate.ps1" -ForegroundColor Yellow
-                ./.venv/bin/Activate.ps1
+                Write-Host "./.venv/bin/activate.ps1" -ForegroundColor Yellow
+                ./.venv/bin/activate.ps1
             }
         }
         Write-Host "Virtual Environment is active!" -ForegroundColor Green -NoNewLine
@@ -447,7 +451,9 @@ if (Get-Command scoop -ErrorAction SilentlyContinue) {
 # https://github.com/PowerShell/PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function SwitchPredictionView
-Remove-PSReadLineKeyHandler -Key "F2"
+if ($IsWindows) {
+    Remove-PSReadLineKeyHandler -Key "F2"
+}
 Set-PSReadLineOption -BellStyle None
 # carapace stuff idk
 Set-PSReadLineOption -Colors @{
