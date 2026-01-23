@@ -126,7 +126,11 @@ if (-not (Test-Path $cacheCompletionLocation)) {
     regenCache
 } elseif ((Get-Item $cacheCompletionLocation).LastWriteTime -lt (Get-Date).AddDays(-1)) {
     Write-Output "Regenerating cache..."
-    Start-Process pwsh -Verb RunAs -ArgumentList "-Command regenCache" -WindowStyle Hidden
+    if ($IsWindows) {
+        Start-Process pwsh -Verb RunAs -ArgumentList "-Command regenCache" -WindowStyle Hidden
+    } else {
+        regenCache
+    }
 } else {
     Write-Output "Using script cache..."
 }
