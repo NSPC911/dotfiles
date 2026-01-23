@@ -624,9 +624,9 @@ function ols {
         if ($null -ne $key.modifiers) {
             switch ($key.key) {
                 # Left arrow
-                "LeftArrow3" { $selectedIndex = ($selectedIndex - 1 + $options.Count) % $options.Count }
+                "LeftArrow" { $selectedIndex = ($selectedIndex - 1 + $options.Count) % $options.Count }
                 # Right arrow
-                "RightArrow3" { $selectedIndex = ($selectedIndex + 1) % $options.Count }
+                "RightArrow" { $selectedIndex = ($selectedIndex + 1) % $options.Count }
                 # Enter key
                 "Enter" { $shouldExecute = $true }
                 # C key

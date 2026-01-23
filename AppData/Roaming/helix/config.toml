@@ -542,6 +542,7 @@ completion-replace = false
 rainbow-brackets = true
 atomic-save = false
 kitty-keyboard-protocol = "enabled"
+rounded-corners = true
 
 [editor.file-picker]
 hidden = true

@@ -78,7 +78,7 @@ ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
 rich-cli v1.8.1
 rovr v0.7.0.dev2 [required:  git+https://github.com/nspc911/rovr@dev] [with: textual-speedups]
-ruff v0.14.13
+ruff v0.14.14
 ty v0.0.8 [required: ==0.0.8]
 ```
 
@@ -93,7 +93,7 @@ ty v0.0.8 [required: ==0.0.8]
 @google/gemini-cli 0.13.0
 corepack 0.34.5
 live-server 1.2.2
-prettier 3.8.0
+prettier 3.8.1
 typescript 5.9.3
 typescript-language-server 5.1.3
 vscode-langservers-extracted 4.10.0
@@ -141,20 +141,20 @@ wezterm-mcp 1.0.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     52         4216         4215            0            1
+ JSON                     52         4167         4166            0            1
  CSS                      11         3939         3167          282          490
- TOML                     11         1721         1434          165          122
+ TOML                     11         1722         1435          165          122
  YAML                      5         1199         1096           41           62
  Scheme                    6          955          840           21           94
- PowerShell                1          889          752           53           84
+ PowerShell                1          895          758           53           84
  INI                       1          687          170          414          103
  Lua                       1          240          219            9           12
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                 10          206            0          157           49
+ Markdown                 10          207            0          158           49
  |- Shell                  1           18           18            0            0
- (Total)                              224           18          157           49
+ (Total)                              225           18          158           49
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    98        14070        11911         1142         1017
+ Total                    98        14029        11869         1143         1017
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
