@@ -1,0 +1,48 @@
+* {
+    font-family: "CaskaydiaCove NFP";
+    border-radius: 5px;
+}
+
+window {
+    background-color: #3B4252;
+}
+
+#input {
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3B4252;
+    color: white;
+}
+
+#outer-box {
+    margin: 2px;
+    padding: 10px;
+    background-color: #383C4A;
+    border: 1px solid #88c0d0;
+    border-radius: 5px;
+}
+
+#scroll {
+    margin: 5px;
+}
+
+#text {
+    padding: 4px;
+    color: white;
+}
+
+#entry {
+    border-bottom: 1px solid #4C566A;
+    border-radius: 0;
+}
+
+#entry:selected {
+    background-color: #4C566A;
+    border-top: 1px solid #4C566A;
+    border-radius: 5;
+}
+
+#text:selected {
+    background: transparent;
+}
