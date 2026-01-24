@@ -1,0 +1,362 @@
+// Niri configuration for CachyOS
+// For documentation and full reference, see: https://github.com/YaLTeR/niri/wiki
+
+// ────────────── Input Configuration ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+
+input {
+    keyboard {
+        xkb {
+            layout "us" // Use the German keyboard layout
+        }
+        numlock // Enable numlock on startup
+        repeat-delay 200
+        repeat-rate 25
+    }
+
+    touchpad {
+        tap // Enable tap-to-click
+        // natural-scroll // Enable natural (macOS-style) scrolling
+        middle-emulation
+        scroll-factor vertical=0.5 horizontal=2.0
+        accel-speed 0.3
+    }
+
+    focus-follows-mouse // Automatically focus windows under the mouse pointer
+    workspace-auto-back-and-forth // Enable workspace back & forth switching
+}
+
+// ────────────── Output Configuration ──────────────
+// You can run `niri msg outputs` to get the correct name for your displays.
+// You will have to remove "/-" and edit it before it takes effect.
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+
+output "eDP-1" {
+    mode "1920x1200@59.999"
+    scale 1.375
+    position x=0 y=0
+}
+
+output "DP-3" {
+    mode "1920x1080@74.973"
+    scale 1
+    position x=0 y=-1080
+}
+
+// ────────────── Keybindings ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
+
+binds {
+    MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
+
+    // ─── Applications ───
+    MOD+RETURN                          hotkey-overlay-title="Open Terminal: wezterm" { spawn-sh "wezterm"; }
+    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "wofi"; }
+    MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen"; }
+    MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
+
+    // Please choose your own file manager
+    MOD+E                             hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
+
+    // ─── Audio Controls ───
+    // Example volume keys mappings for PipeWire & WirePlumber.
+    // The allow-when-locked=true property makes them work even when the session is locked.
+    XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute                       allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute                    allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioNext                       allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPause                      allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPlay                       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPrev                       allow-when-locked=true { spawn-sh "playerctl previous"; }
+
+    // ─── Window Movement and Focus ───
+    MOD+Q                               { close-window; }
+
+    MOD+LEFT                            { focus-column-left; }
+    MOD+RIGHT                           { focus-column-right; }
+    MOD+UP                              { focus-window-up; }
+    MOD+DOWN                            { focus-window-down; }
+
+    MOD+SHIFT+LEFT                      { move-column-left; }
+    MOD+SHIFT+RIGHT                     { move-column-right; }
+    MOD+SHIFT+UP                        { move-window-up; }
+    MOD+SHIFT+DOWN                      { move-window-down; }
+
+    MOD+HOME                            { focus-column-first; }
+    MOD+END                             { focus-column-last; }
+    MOD+CTRL+HOME                       { move-column-to-first; }
+    MOD+CTRL+END                        { move-column-to-last; }
+
+    MOD+CTRL+UP                         { focus-monitor-up; }
+    MOD+CTRL+DOWN                       { focus-monitor-down; }
+
+    MOD+SHIFT+CTRL+UP                   { move-column-to-monitor-up; }
+    MOD+SHIFT+CTRL+DOWN                 { move-column-to-monitor-down; }
+
+    // ─── Workspace Switching ───
+    MOD+WHEELSCROLLDOWN                 { focus-workspace-down; }
+    MOD+WHEELSCROLLUP                   { focus-workspace-up; }
+    MOD+CTRL+WHEELSCROLLDOWN            { move-column-to-workspace-down; }
+    MOD+CTRL+WHEELSCROLLUP              { move-column-to-workspace-up; }
+
+    MOD+PERIOD                          { focus-workspace-down; }
+    MOD+COMMA                           { focus-workspace-up; }
+    MOD+SHIFT+PERIOD                    { move-column-to-workspace-down; }
+    MOD+SHIFT+COMMA                     { move-column-to-workspace-up; }
+
+    MOD+WHEELSCROLLRIGHT                { focus-column-right; }
+    MOD+WHEELSCROLLLEFT                 { focus-column-left; }
+    MOD+SHIFT+WHEELSCROLLRIGHT          { move-column-right; }
+    MOD+SHIFT+WHEELSCROLLLEFT           { move-column-left; }
+
+    MOD+SHIFT+WHEELSCROLLDOWN           { focus-column-right; }
+    MOD+SHIFT+WHEELSCROLLUP             { focus-column-left; }
+    MOD+CTRL+SHIFT+WHEELSCROLLDOWN      { move-column-right; }
+    MOD+CTRL+SHIFT+WHEELSCROLLUP        { move-column-left; }
+
+    MOD+1                               { focus-workspace 1; }
+    MOD+2                               { focus-workspace 2; }
+    MOD+3                               { focus-workspace 3; }
+    MOD+4                               { focus-workspace 4; }
+    MOD+5                               { focus-workspace 5; }
+
+    MOD+SHIFT+1                         { move-column-to-workspace 1; }
+    MOD+SHIFT+2                         { move-column-to-workspace 2; }
+    MOD+SHIFT+3                         { move-column-to-workspace 3; }
+    MOD+SHIFT+4                         { move-column-to-workspace 4; }
+    MOD+SHIFT+5                         { move-column-to-workspace 5; }
+
+    MOD+D                               { focus-workspace-previous; }
+
+    // ─── Layout Controls ───
+    MOD+CTRL+F                          { expand-column-to-available-width; }
+    MOD+C                               { center-column; }
+    MOD+CTRL+C                          { center-visible-columns; }
+    MOD+MINUS                           { set-column-width "-10%"; }
+    MOD+EQUAL                           { set-column-width "+10%"; }
+    MOD+SHIFT+MINUS                     { set-window-height "-10%"; }
+    MOD+SHIFT+EQUAL                     { set-window-height "+10%"; }
+
+    // ─── Modes ───
+    MOD+T                               { toggle-window-floating; }
+    MOD+F                               { set-window-width "100%"; }
+    MOD+SHIFT+F                         { fullscreen-window; }
+    MOD+W                               { toggle-column-tabbed-display; }
+
+    // ─── Screenshots ───
+    MOD+SHIFT+S                        { screenshot; }
+    MOD+SHIFT+P                        { spawn-sh "dms screenshot"; }
+    // CTRL+SHIFT+2                        { screenshot-screen; }
+    // CTRL+SHIFT+3                        { screenshot-window; }
+
+    // ─── Emergency Escape Key ───
+    // Use this when a fullscreen app blocks your keybinds.
+    // It disables any active keyboard shortcut inhibitor, restoring control.
+    MOD+ESCAPE                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // ─── Exit / Power ───
+    CTRL+ALT+DELETE                     { quit; } // Also quits Niri
+    MOD+O                               repeat=false { toggle-overview; }
+    // brightness fixer
+    XF86MonBrightnessDown               { spawn-sh "bright down"; }
+    XF86MonBrightnessUp                 { spawn-sh "bright up"; }
+
+    MOD+CTRL+LEFT { consume-or-expel-window-left; }
+    MOD+CTRL+RIGHT { consume-or-expel-window-right; }
+}
+
+// ────────────── Startup Applications ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
+
+spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
+// spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
+// spawn-sh-at-startup "swww img /usr/share/wallpapers/cachyos-wallpapers/Skyscraper.png" // Set wallpaper
+
+prefer-no-csd // Disable program decorations
+
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 25
+}
+
+// ────────────── Layout Settings ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+
+layer-rule {
+    match namespace="dms:blurwallpaper"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^quickshell$"
+    place-within-backdrop true
+}
+
+layout {
+    gaps 8 // Gap between windows
+    center-focused-column "always" // Don’t auto-center focused column
+    background-color "transparent"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+    default-column-width { proportion 0.8; }
+    border {
+        width 4
+        active-color "#88c0d0"
+        inactive-color "#2e3440"
+        urgent-color "#bf616a"
+    }
+    focus-ring {
+        off
+        width 3
+        active-color "#88c0d0"
+        inactive-color "#000000"
+    }
+
+    shadow {
+        off
+        softness 30
+        spread 0
+        offset x=0 y=5
+        color "#0007"
+    }
+
+    struts {}
+}
+
+// ────────────── Animation Settings ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+animations {
+    workspace-switch {
+        duration-ms 200
+        curve "cubic-bezier" 1 0 0 1
+        // spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+    window-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+    window-close {
+        duration-ms 200
+        curve "ease-out-cubic"
+    }
+    horizontal-view-movement {
+        duration-ms 200
+        curve "cubic-bezier" 1 0 0 1
+        // spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+    }
+    window-movement {
+        duration-ms 200
+        curve "cubic-bezier" 1 0 0 1
+        // spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+    window-resize {
+        duration-ms 200
+        curve "cubic-bezier" 1 0 0 1
+        // spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+    config-notification-open-close {
+        duration-ms 200
+        curve "cubic-bezier" 1 0 0 1
+        // spring damping-ratio=0.6 stiffness=1200 epsilon=0.001
+    }
+    screenshot-ui-open {
+        duration-ms 300
+        curve "ease-out-quad"
+    }
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+    }
+}
+
+// ────────────── Window Rules ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+window-rule {
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    open-floating true // Always float zen PiP windows
+}
+
+window-rule {
+    geometry-corner-radius 5
+    clip-to-geometry true
+    open-maximized-to-edges false
+}
+
+// ────────────── Environment Variables ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
+
+environment {
+    DISPLAY ":1"
+    EDITOR "hx"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    PAGER "ov"
+    PATH "/usr/lib/powershell-7:/home/nspc911/.local/bin:/home/nspc911/.local/share/pnpm:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/nspc911/.cargo/bin:/home/nspc911/go/bin"
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    UV_COMPILE_BYTECODE "1"
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+    PNPM_HOME "/home/nspc911/.local/share/pnpm"
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+// workspaces
+workspace "terminal"
+
+workspace "browser"
+
+workspace "messages"
+
+workspace "misc"
+
+recent-windows {
+    debounce-ms 750
+
+    open-delay-ms 150
+
+    highlight {
+        active-color "#88C0D0FF"
+        urgent-color "#EBCB8BFF"
+        padding 30
+        corner-radius 0
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+        Alt+Tab         { next-window; }
+        Alt+Shift+Tab   { previous-window; }
+        Alt+grave       { next-window     filter="app-id"; }
+        Alt+Shift+grave { previous-window filter="app-id"; }
+
+        Mod+Tab         { next-window; }
+        Mod+Shift+Tab   { previous-window; }
+        Mod+grave       { next-window     filter="app-id"; }
+        Mod+Shift+grave { previous-window filter="app-id"; }
+    }
+}
+
+// spawn-at-startup "waybar"
+// spawn-at-startup "qs" "-c" "noctalia-shell"
+// include "./noctalia.kdl"
+include "dms/colors.kdl"
+include "dms/layout.kdl"
+include "dms/alttab.kdl"
+include "dms/binds.kdl"
+
+include "dms/cursor.kdl"
+spawn-at-startup "steam"
+spawn-at-startup "pkill" "kgpg"
