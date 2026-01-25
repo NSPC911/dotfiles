@@ -27,8 +27,8 @@
   "animationSpeed": 4,
   "customAnimationDuration": 131,
   "wallpaperFillMode": "Fill",
-  "blurredWallpaperLayer": true,
-  "blurWallpaperOnOverview": false,
+  "blurredWallpaperLayer": false,
+  "blurWallpaperOnOverview": true,
   "showLauncherButton": true,
   "showWorkspaceSwitcher": true,
   "showFocusedWindow": true,
@@ -131,7 +131,7 @@
   "workspaceUrgentColorMode": "default",
   "workspaceFocusedBorderEnabled": true,
   "workspaceFocusedBorderColor": "primary",
-  "workspaceFocusedBorderThickness": 3,
+  "workspaceFocusedBorderThickness": 2,
   "workspaceNameIcons": {},
   "waveProgressEnabled": true,
   "scrollTitleEnabled": true,
@@ -158,7 +158,7 @@
   "weatherEnabled": false,
   "networkPreference": "wifi",
   "vpnLastConnected": "",
-  "iconTheme": "System Default",
+  "iconTheme": "Bibata-Modern-Classic",
   "cursorSettings": {
     "theme": "Bibata-Modern-Classic",
     "size": 24,
@@ -235,9 +235,9 @@
   "matugenTemplateMangowc": false,
   "matugenTemplateQt5ct": true,
   "matugenTemplateQt6ct": false,
-  "matugenTemplateFirefox": true,
+  "matugenTemplateFirefox": false,
   "matugenTemplatePywalfox": false,
-  "matugenTemplateZenBrowser": true,
+  "matugenTemplateZenBrowser": false,
   "matugenTemplateVesktop": false,
   "matugenTemplateEquibop": false,
   "matugenTemplateGhostty": false,
@@ -290,7 +290,7 @@
   "notificationHistorySaveNormal": true,
   "notificationHistorySaveCritical": true,
   "osdAlwaysShowValue": false,
-  "osdPosition": 5,
+  "osdPosition": 0,
   "osdVolumeEnabled": true,
   "osdMediaVolumeEnabled": true,
   "osdBrightnessEnabled": true,
@@ -339,7 +339,7 @@
       "screenPreferences": [
         "all"
       ],
-      "showOnLastDisplay": true,
+      "showOnLastDisplay": false,
       "leftWidgets": [
         {
           "id": "powerMenuButton",
@@ -347,14 +347,25 @@
         },
         {
           "id": "focusedWindow",
-          "enabled": true
+          "enabled": true,
+          "focusedWindowCompactMode": true
         }
       ],
       "centerWidgets": [
         {
+          "id": "memUsage",
+          "enabled": true,
+          "minimumWidth": true
+        },
+        {
           "id": "clock",
           "enabled": true,
           "clockCompactMode": false
+        },
+        {
+          "id": "cpuUsage",
+          "enabled": true,
+          "minimumWidth": true
         }
       ],
       "rightWidgets": [
@@ -388,17 +399,17 @@
         }
       ],
       "spacing": 0,
-      "innerPadding": 5,
+      "innerPadding": 0,
       "bottomGap": 0,
-      "transparency": 1,
+      "transparency": 0,
       "widgetTransparency": 1,
       "squareCorners": true,
       "noBackground": false,
-      "gothCornersEnabled": true,
-      "gothCornerRadiusOverride": false,
+      "gothCornersEnabled": false,
+      "gothCornerRadiusOverride": true,
       "gothCornerRadiusValue": 12,
       "borderEnabled": false,
-      "borderColor": "primary",
+      "borderColor": "secondary",
       "borderOpacity": 1,
       "borderThickness": 1,
       "widgetOutlineEnabled": false,
@@ -412,7 +423,7 @@
       "openOnOverview": true,
       "visible": true,
       "popupGapsAuto": true,
-      "popupGapsManual": 4,
+      "popupGapsManual": 44,
       "maximizeDetection": false,
       "scrollEnabled": true,
       "scrollXBehavior": "column",
@@ -451,7 +462,7 @@
       "spacing": 0,
       "innerPadding": 5,
       "bottomGap": 0,
-      "transparency": 1,
+      "transparency": 0,
       "widgetTransparency": 1,
       "squareCorners": true,
       "noBackground": false,
@@ -479,9 +490,9 @@
       "scrollXBehavior": "column",
       "scrollYBehavior": "workspace",
       "shadowIntensity": 0,
-      "shadowOpacity": 60,
-      "shadowColorMode": "text",
-      "shadowCustomColor": "#000000"
+      "shadowOpacity": 84,
+      "shadowColorMode": "custom",
+      "shadowCustomColor": "#0000007f"
     }
   ],
   "desktopClockEnabled": false,
@@ -553,7 +564,38 @@
   "systemMonitorVariants": [],
   "desktopWidgetPositions": {},
   "desktopWidgetGridSettings": {},
-  "desktopWidgetInstances": [],
+  "desktopWidgetInstances": [
+    {
+      "id": "dw_1769356021183_6kzb61odo",
+      "widgetType": "desktopClock",
+      "name": "Desktop Clock",
+      "enabled": false,
+      "config": {
+        "style": "analog",
+        "transparency": 0.8,
+        "colorMode": "primary",
+        "customColor": "#ffffff",
+        "showDate": true,
+        "showAnalogNumbers": false,
+        "showAnalogSeconds": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "showOnOverlay": false,
+        "showOnOverview": false,
+        "showOnOverviewOnly": false,
+        "clickThrough": false
+      },
+      "positions": {
+        "eDP-1": {
+          "width": 200,
+          "height": 200,
+          "x": 114.59375,
+          "y": 161.90234375
+        }
+      }
+    }
+  ],
   "desktopWidgetGroups": [],
   "builtInPluginSettings": {
     "dms_settings_search": {

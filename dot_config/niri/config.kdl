@@ -15,10 +15,9 @@ input {
     }
 
     touchpad {
-        tap // Enable tap-to-click
-        // natural-scroll // Enable natural (macOS-style) scrolling
+        tap
         middle-emulation
-        scroll-factor vertical=0.5 horizontal=2.0
+        scroll-factor vertical=0.5 horizontal=0.5
         accel-speed 0.3
     }
 
