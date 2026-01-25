@@ -11,7 +11,7 @@
     "type": "none"
   },
   "display": {
-    "color": "cyan",
+    "color": "#88c0d0",
     "bar": {
       "border": {
         "Left": "[ ",
@@ -83,7 +83,6 @@
     },
     {
       "type": "wm",
-      "format": "GlazeWM",
       "key": "├─ WM\t   "
     },
     {
