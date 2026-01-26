@@ -88,16 +88,12 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = wezterm.action_callback(function(window, _)
 			local overrides = window:get_config_overrides() or {}
-			if overrides.window_background_opacity == 1.0 then
-				overrides.window_background_opacity = 0.75
-			elseif overrides.window_background_opacity == 0.75 then
-				overrides.window_background_opacity = 0.5
-			elseif overrides.window_background_opacity == 0.5 then
-				overrides.window_background_opacity = 0.25
-			elseif overrides.window_background_opacity == 0.25 then
-				overrides.window_background_opacity = 0
-			else
-				overrides.window_background_opacity = 1.0
+			if overrides.window_background_opacity == nil then
+				overrides.window_background_opacity = 0.8
+			end
+			overrides.window_background_opacity = overrides.window_background_opacity - 0.125
+			if overrides.window_background_opacity <= 0 then
+				overrides.window_background_opacity = 1
 			end
 			window:set_config_overrides(overrides)
 		end),

@@ -170,7 +170,7 @@ keybindings:
     bindings: ["lwin+m", "ralt+m"]
 
   - commands: ["close", "wm-redraw"]
-    bindings: ["lwin+w", "ralt+w"]
+    bindings: ["lwin+q", "ralt+q"]
 
   - commands: ["set-tiling", "wm-redraw"]
     bindings: ["lwin+shift+r", "ralt+shift+r"]
