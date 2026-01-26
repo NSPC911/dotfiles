@@ -163,6 +163,8 @@ binds {
 
     MOD+CTRL+LEFT { consume-or-expel-window-left; }
     MOD+CTRL+RIGHT { consume-or-expel-window-right; }
+    Mod+Shift+Alt+R { spawn "ignis" "run-command" "recorder-record-screen"; }
+    Mod+Alt+R { spawn "ignis" "run-command" "recorder-record-portal"; }
 }
 
 // ────────────── Startup Applications ──────────────
@@ -176,7 +178,7 @@ prefer-no-csd // Disable program decorations
 
 cursor {
     xcursor-theme "Bibata-Modern-Classic"
-    xcursor-size 25
+    xcursor-size 24
 }
 
 // ────────────── Layout Settings ──────────────
@@ -188,13 +190,29 @@ layer-rule {
 }
 
 layer-rule {
+    match namespace="^noctalia-overview"
+    place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
+}
+
+layer-rule {
     match namespace="^quickshell$"
     place-within-backdrop true
 }
 
+overview {
+  workspace-shadow {
+    off
+  }
+}
+
 layout {
     gaps 8 // Gap between windows
-    center-focused-column "always" // Don’t auto-center focused column
+    // center-focused-column "always" // Don’t auto-center focused column
     background-color "transparent"
 
     preset-column-widths {
@@ -303,6 +321,7 @@ environment {
     XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
     PNPM_HOME "/home/nspc911/.local/share/pnpm"
+    FZF_DEFAULT_OPTS "--multi --separator \"-\" --preview \"bat --color always --number --theme Nord {}\" --color \"dark\" --style full:rounded --border none --margin \"0,1,0,1\" --color=spinner:#88c0d0,hl:#88c0d0 --color=fg:#d8dee9,header:#88c0d0,info:#88c0d0,pointer:#88c0d0 --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#88c0d0,hl+:#8fbcbb --color=selected-bg:#4c566a,bg+:#4c566a --color=border:#4c566a,label:#88c0d0"
 }
 
 hotkey-overlay {
@@ -349,13 +368,18 @@ recent-windows {
 }
 
 // spawn-at-startup "waybar"
+
 // spawn-at-startup "qs" "-c" "noctalia-shell"
+
 // include "./noctalia.kdl"
 include "dms/colors.kdl"
 include "dms/layout.kdl"
 include "dms/alttab.kdl"
 include "dms/binds.kdl"
+// include "dms/cursor.kdl"
+// spawn-at-startup "linux-wallpaperengine" "--screen-root" "eDP-1" "--bg" "3589511017" "--scaling" "stretch"
 
-include "dms/cursor.kdl"
 spawn-at-startup "steam"
 spawn-at-startup "pkill" "kgpg"
+// spawn-at-startup "ignis" "init"
+// spawn-at-startup "swww-daemon"
