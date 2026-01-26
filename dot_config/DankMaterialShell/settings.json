@@ -142,7 +142,7 @@
   "runningAppsCompactMode": true,
   "keyboardLayoutNameCompactMode": false,
   "runningAppsCurrentWorkspace": true,
-  "runningAppsGroupByApp": false,
+  "runningAppsGroupByApp": true,
   "appIdSubstitutions": [],
   "centeringMode": "index",
   "clockDateFormat": "dd/MM/yy",
@@ -445,7 +445,8 @@
       "leftWidgets": [
         {
           "id": "runningApps",
-          "enabled": true
+          "enabled": true,
+          "runningAppsCompactMode": false
         }
       ],
       "centerWidgets": [
