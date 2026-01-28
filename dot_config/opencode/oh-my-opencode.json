@@ -5,7 +5,7 @@
       "model": "github-copilot/claude-opus-4.5"
     },
     "librarian": {
-      "model": "mistral/codestral-latest"
+      "model": "github-copilot/gpt-5.1-codex-mini"
     },
     "explore": {
       "model": "github-copilot/gemini-3-flash-preview"
@@ -17,10 +17,22 @@
       "model": "github-copilot/gemini-3-pro-preview"
     },
     "document-writer": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "github-copilot/grok-code-fast-1"
     },
     "multimodal-looker": {
       "model": "github-copilot/gemini-3-flash-preview"
+    },
+    "prometheus": {
+      "model": "github-copilot/gemini-3-flash-preview"
+    },
+    "OpenCode-Builder": {
+      "model": "github-copilot/grok-code-fast-1"
+    },
+    "atlas": {
+      "model": "github-copilot/claude-sonnet-4.5"
+    },
+    "metis": {
+      "model": "github-copilot/gpt-5-codex-mini"
     }
   }
 }

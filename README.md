@@ -68,16 +68,15 @@ helix
 
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
 ```
-cased-kit v3.5.1
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.2.1
-mistral-vibe v1.3.5
+mistral-vibe v2.0.0
 poethepoet v0.40.0
 poetry v2.3.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
 rich-cli v1.8.1
-rovr v0.7.0.dev2 [required:  git+https://github.com/nspc911/rovr@dev] [with: textual-speedups]
+rovr v0.7.0.dev3 [required:  git+https://github.com/nspc911/rovr@dev] [with: textual-speedups]
 ruff v0.14.14
 ty v0.0.8 [required: ==0.0.8]
 ```
@@ -91,7 +90,7 @@ ty v0.0.8 [required: ==0.0.8]
 @fsouza/prettierd 0.26.2
 @github/copilot 0.0.383
 @google/gemini-cli 0.13.0
-corepack 0.34.5
+corepack 0.34.6
 live-server 1.2.2
 prettier 3.8.1
 typescript 5.9.3
@@ -141,20 +140,20 @@ wezterm-mcp 1.0.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     52         4167         4166            0            1
+ JSON                     52         4094         4093            0            1
  CSS                      11         3939         3167          282          490
  TOML                     11         1722         1435          165          122
  YAML                      5         1199         1096           41           62
  Scheme                    6          955          840           21           94
- PowerShell                1          895          758           53           84
+ PowerShell                2          927          788           53           86
  INI                       1          687          170          414          103
- Lua                       1          240          219            9           12
+ Lua                       1          236          215            9           12
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                 10          207            0          158           49
+ Markdown                 10          206            0          157           49
  |- Shell                  1           18           18            0            0
- (Total)                              225           18          158           49
+ (Total)                              224           18          157           49
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    98        14029        11869         1143         1017
+ Total                    99        13983        11822         1142         1019
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

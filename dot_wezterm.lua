@@ -13,7 +13,7 @@ config.cursor_blink_rate = 0
 
 config.hide_mouse_cursor_when_typing = false
 config.term = "xterm-256color"
-config.enable_kitty_keyboard = false
+config.enable_kitty_keyboard = false -- kinda forced because escape keys dont send anything while kitty is enabled
 config.font = wezterm.font("CaskaydiaCove NFM")
 config.custom_block_glyphs = false
 config.cell_width = 1
