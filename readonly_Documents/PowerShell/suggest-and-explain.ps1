@@ -1,8 +1,3 @@
-if (Get-Command bat -ErrorAction SilentlyContinue -WarningAction SilentlyContinue) {}
-else { throw "Please install 'bat' to use this script. Either via winget, scoop, or choco." }
-function Write-PoshHighlighted {
-    Write-Output $args | bat --force-colorization --style plain --language Powershell --paging=never
-}
 if ($env:EDITOR -eq $null -or $env:EDITOR -eq "") {
     if (Get-Command edit -ErrorAction SilentlyContinue) {
         $env:EDITOR = "edit"
@@ -15,13 +10,37 @@ if ($env:EDITOR -eq $null -or $env:EDITOR -eq "") {
     }
 }
 
-##### gh copilot cli but local #####
-$ollamaSuggesterModel = "codegemma:7b"
-$opencodeSuggesterModel = "mistral/codestral-latest"
-$ollamaExplainerModel = "codegemma:2b"
-$opencodeExplainerModel = "github-copilot/gemini-3-flash-preview"
+# needed for live stuff
+if ($null -eq (Get-Module -Name PwshSpectreConsole -ListAvailable)) { Install-Module -Name PwshSpectreConsole }
 
 $opencodeAvailable = (Get-Command opencode -ErrorAction SilentlyContinue) -ne $null
+$opencodeSuggesterModel = "mistral/codestral-latest"
+$ollamaExplainerModel = "codegemma:2b"
+
+$vibeAvailable = (Get-Command vibe -ErrorAction SilentlyContinue) -ne $null
+
+$ollamaAvailable = (Get-Command ollama -ErrorAction SilentlyContinue) -ne $null
+$ollamaSuggesterModel = "codegemma:7b"
+$opencodeExplainerModel = "mistral/codestral-latest"
+
+$copilotAvailable = (Get-Command copilot -ErrorAction SilentlyContinue) -ne $null
+$copilotSuggesterModel = "gpt-4.1" # slightly faster in my testing
+$copilotExplainerModel = "claude-haiku-4.5" # good balance of speed and quality
+
+
+$batAvailable = (Get-Command bat -ErrorAction SilentlyContinue) -ne $null
+
+function Write-PoshHighlighted {
+    if ($batAvailable) {
+        Write-Output $args | bat --force-colorization --style plain --language Powershell --paging=never
+    } else {
+        Write-Output $args
+    }
+}
+
+if (-not ($vibeAvailable -or $opencodeAvailable -or $ollamaAvailable -or $copilotAvailable)) {
+    throw "No LLM backend available. Please install and set up at least one of the following: Vibe, OpenCode CLI, Ollama, or Copilot."
+}
 
 function suggest {
     param(
@@ -40,13 +59,23 @@ function suggest {
     $prompt = "You are a CLI assistant in a Windows environemnt with pwsh as the active shell. The user wants to: '$Description'. Respond with ONLY the raw pwsh command. Do not use markdown, code blocks or any formatting. Just output the plain command text."
 
     $output = Invoke-SpectreCommandWithStatus -Spinner "Point" -Title "[cyan]Thinking...[/]" -ScriptBlock {
+        if ($vibeAvailable) {
+            $result = vibe --prompt "$prompt" --output text 2>$null
+            if ($LASTEXITCODE -eq 0) { return $result }
+        }
+        if ($copilotAvailable) {
+            $result = copilot --model $copilotSuggesterModel --prompt "$prompt" --silent 2>$null
+            if ($LASTEXITCODE -eq 0) { return $result }
+        }
         if ($opencodeAvailable) {
             $result = opencode run --model $opencodeSuggesterModel "$prompt" 2>$null
+            if ($LASTEXITCODE -eq 0) { return $result }
         }
-        if ($LASTEXITCODE -ne 0 -or -not ($opencodeAvailable)) {
+        if ($ollamaAvailable) {
             $result = ollama run $ollamaSuggesterModel $prompt
+            if ($LASTEXITCODE -eq 0) { return $result }
         }
-        return $result
+        throw "No LLM backend available."
     }
     $command = ($output | Out-String).Trim()
     Write-Host "`e[1G╭─ Suggested command:"
@@ -144,13 +173,23 @@ function suggest {
                     Write-Host "╰── $improvement  " -ForegroundColor Green
                     $improvePrompt = "Improve this PowerShell command`n$command`nUser wants:`n'$improvement'`nRespond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
                     $output = Invoke-SpectreCommandWithStatus -Spinner "Point" -Title "[cyan]Improving...[/]" -ScriptBlock {
+                        if ($vibeAvailable) {
+                            $result = vibe --prompt "$improvePrompt" --output text 2>$null
+                            if ($LASTEXITCODE -eq 0) { return $result }
+                        }
+                        if ($copilotAvailable) {
+                            $result = copilot --model $copilotSuggesterModel --prompt "$improvePropmt" --silent 2>$null
+                            if ($LASTEXITCODE -eq 0) { return $result }
+                        }
                         if ($opencodeAvailable) {
                             $result = opencode run --model $opencodeSuggesterModel "$improvePrompt" 2>$null
+                            if ($LASTEXITCODE -eq 0) { return $result }
                         }
-                        if ($LASTEXITCODE -ne 0 -or -not ($opencodeAvailable)) {
+                        if ($ollamaAvailable) {
                             $result = ollama run $ollamaSuggesterModel $improvePrompt
+                            if ($LASTEXITCODE -eq 0) { return $result }
                         }
-                        return $result
+                        throw "No LLM backend available."
                     }
                     $command = ($output | Out-String).Trim()
                     Write-Host "`e[1G╭─ Improved command:"
@@ -181,15 +220,23 @@ function explain {
     $prompt = "Explain this PowerShell command: '$Command'. Include what it does, any parameters, and provide examples if helpful. Be concise. Format your response using Markdown (but do not wrap it in the markdown codeblock)"
 
     $result = Invoke-SpectreCommandWithStatus -Spinner "Point" -Title "[cyan]Thinking...[/]" -ScriptBlock {
+        if ($vibeAvailable) {
+            $output = vibe --prompt "$prompt" --output text 2>$null
+            return @{ output = $output; model = "Vibe" }
+        }
+        if ($copilotAvailable) {
+            $output = copilot --model $copilotExplainerModel --prompt "$prompt" --markdown --silent 2>$null
+            return @{ output = $output; model = "Copilot $copilotExplainerModel" }
+        }
         if ($opencodeAvailable) {
-            $out = opencode run --model $opencodeExplainerModel "$prompt" 2>$null
+            $output = opencode run --model $opencodeExplainerModel "$prompt" 2>$null
+            return @{ output = $output; model = "OpenCode $opencodeExplainerModel" }
         }
-        if ($LASTEXITCODE -eq 0 -or -not ($opencodeAvailable)) {
-            return @{ output = $out; model = $opencodeExplainerModel }
-        } else {
-            $out = ollama run $ollamaExplainerModel $prompt
-            return @{ output = $out; model = $ollamaExplainerModel }
+        if ($ollamaAvailable) {
+            $output = ollama run $ollamaExplainerModel $prompt
+            return @{ output = $output; model = "Ollama $ollamaExplainerModel" }
         }
+        else { throw "No LLM backend available." }
     }
     $output = ($result.output | Out-String).Trim()
     $model = $result.model

@@ -70,7 +70,7 @@ helix
 ```
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.2.1
-mistral-vibe v2.0.0
+mistral-vibe v2.0.1
 poethepoet v0.40.0
 poetry v2.3.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
@@ -106,6 +106,7 @@ wezterm-mcp 1.0.0
 | [Refined GitHub](https://github.com/refined-github/refined-github) | `zen/extensions/refined_github.json` |
 | [tabliss](https://tabliss.io/)                                     | `zen/extensions/tabliss.json`        |
 | [vimium](https://github.com/philc/vimium)                          | `zen/extensions/vimium-options.json` |
+| [mtab](https://github.com/maxhu08/mtab)                            | `zen/extensions/mtab.json`           |
 
 #### powershell modules
 
@@ -140,20 +141,20 @@ wezterm-mcp 1.0.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     52         4094         4093            0            1
+ JSON                     55         4121         4120            0            1
  CSS                      11         3939         3167          282          490
  TOML                     11         1722         1435          165          122
  YAML                      5         1199         1096           41           62
+ PowerShell                3          982          835           53           94
  Scheme                    6          955          840           21           94
- PowerShell                2          927          788           53           86
  INI                       1          687          170          414          103
  Lua                       1          236          215            9           12
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                 10          206            0          157           49
+ Markdown                 10          207            0          158           49
  |- Shell                  1           18           18            0            0
- (Total)                              224           18          157           49
+ (Total)                              225           18          158           49
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    99        13983        11822         1142         1019
+ Total                   103        14066        11896         1143         1027
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

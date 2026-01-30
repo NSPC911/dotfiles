@@ -23,6 +23,13 @@
     },
     {
       "Info": "",
+      "Name": "arduino",
+      "Source": "extras",
+      "Updated": "2026-01-30T14:29:52.2350637+08:00",
+      "Version": "2.3.7"
+    },
+    {
+      "Info": "",
       "Name": "aria2",
       "Source": "main",
       "Updated": "2026-01-14T12:04:52.6563692+08:00",
@@ -67,8 +74,8 @@
       "Info": "",
       "Name": "bun",
       "Source": "main",
-      "Updated": "2026-01-27T20:18:56.1589489+08:00",
-      "Version": "1.3.7"
+      "Updated": "2026-01-29T22:55:49.4875745+08:00",
+      "Version": "1.3.8"
     },
     {
       "Info": "",
@@ -109,8 +116,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-01-27T21:41:35.4434898+08:00",
-      "Version": "1.417.0"
+      "Updated": "2026-01-29T22:56:08.9782919+08:00",
+      "Version": "1.418.0"
     },
     {
       "Info": "",
@@ -291,8 +298,8 @@
       "Info": "",
       "Name": "marksman",
       "Source": "main",
-      "Updated": "2026-01-14T12:09:15.468669+08:00",
-      "Version": "2025-12-13"
+      "Updated": "2026-01-29T10:59:04.5127915+08:00",
+      "Version": "2026-01-28"
     },
     {
       "Info": "",
@@ -347,8 +354,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-01-26T19:43:10.2577267+08:00",
-      "Version": "1.1.36"
+      "Updated": "2026-01-30T15:02:00.2215967+08:00",
+      "Version": "1.1.44"
     },
     {
       "Info": "",
@@ -396,8 +403,8 @@
       "Info": "",
       "Name": "powertoys",
       "Source": "extras",
-      "Updated": "2026-01-21T15:52:20.0322945+08:00",
-      "Version": "0.97.0"
+      "Updated": "2026-01-28T23:28:29.7063772+08:00",
+      "Version": "0.97.1"
     },
     {
       "Info": "",
@@ -508,8 +515,8 @@
       "Info": "",
       "Name": "surge-downloader",
       "Source": "le-bucket",
-      "Updated": "2026-01-28T09:46:07.7128543+08:00",
-      "Version": "0.3.0"
+      "Updated": "2026-01-30T15:02:22.1045281+08:00",
+      "Version": "0.4"
     },
     {
       "Info": "",
@@ -564,8 +571,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-01-27T09:27:28.7158149+08:00",
-      "Version": "0.9.27"
+      "Updated": "2026-01-30T15:02:37.3186685+08:00",
+      "Version": "0.9.28"
     },
     {
       "Info": "",
@@ -641,15 +648,15 @@
       "Info": "",
       "Name": "yt-dlp",
       "Source": "main",
-      "Updated": "2026-01-14T12:12:19.6730174+08:00",
-      "Version": "2025.12.08"
+      "Updated": "2026-01-30T15:02:53.7418317+08:00",
+      "Version": "2026.01.29"
     },
     {
       "Info": "",
       "Name": "zen-browser",
       "Source": "extras",
-      "Updated": "2026-01-26T14:02:36.2689685+08:00",
-      "Version": "1.18.1b"
+      "Updated": "2026-01-30T15:03:18.4686836+08:00",
+      "Version": "1.18.3b"
     },
     {
       "Info": "",
@@ -661,34 +668,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1422,
+      "Manifests": 1425,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-01-28T08:44:32+08:00"
+      "Updated": "2026-01-30T12:52:30+08:00"
     },
     {
       "Manifests": 2257,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-01-28T08:47:21+08:00"
+      "Updated": "2026-01-30T14:31:46+08:00"
     },
     {
       "Manifests": 550,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-01-28T08:36:46+08:00"
+      "Updated": "2026-01-30T14:49:03+08:00"
     },
     {
-      "Manifests": 381,
+      "Manifests": 384,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-01-28T08:44:07+08:00"
+      "Updated": "2026-01-30T12:54:02+08:00"
     },
     {
       "Manifests": 31,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-01-28T00:53:09+08:00"
+      "Updated": "2026-01-30T11:08:24+08:00"
     }
   ],
   "config": {

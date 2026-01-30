@@ -22,7 +22,7 @@
   "controlStyles[3].styles[3]": "Margin =-10,-6,-10,-8",
   "controlStyles[3].styles[4]": "Height = 45",
   "controlStyles[3].target": "Border#CalendarHeaderMinimizedOverlay",
-  "controlStyles[4].styles[0]": "Background:=$overlay",
+  "controlStyles[4].styles[0]": "Background:=$base",
   "controlStyles[4].styles[1]": "CornerRadius=$r2",
   "controlStyles[4].styles[2]": "Margin=6,7,6,6",
   "controlStyles[4].styles[3]": "Shadow :=",
