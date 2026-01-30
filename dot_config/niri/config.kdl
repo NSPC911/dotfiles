@@ -129,19 +129,19 @@ binds {
     MOD+D                               { focus-workspace-previous; }
 
     // ─── Layout Controls ───
-    MOD+CTRL+F                          { expand-column-to-available-width; }
     MOD+C                               { center-column; }
     MOD+CTRL+C                          { center-visible-columns; }
-    MOD+MINUS                           { set-column-width "-10%"; }
-    MOD+EQUAL                           { set-column-width "+10%"; }
-    MOD+SHIFT+MINUS                     { set-window-height "-10%"; }
-    MOD+SHIFT+EQUAL                     { set-window-height "+10%"; }
+    MOD+MINUS         cooldown-ms=125   { set-column-width "-10%"; }
+    MOD+EQUAL         cooldown-ms=125   { set-column-width "+10%"; }
+    MOD+SHIFT+MINUS   cooldown-ms=125   { set-window-height "-10%"; }
+    MOD+SHIFT+EQUAL   cooldown-ms=125   { set-window-height "+10%"; }
 
     // ─── Modes ───
     MOD+T                               { toggle-window-floating; }
-    MOD+F                               { set-window-width "100%"; }
-    MOD+SHIFT+F                         { fullscreen-window; }
     MOD+W                               { toggle-column-tabbed-display; }
+    MOD+F                               { maximize-column; }
+    MOD+SHIFT+F                         { fullscreen-window; }
+    MOD+CTRL+F                          { expand-column-to-available-width; }
 
     // ─── Screenshots ───
     MOD+SHIFT+S                        { screenshot; }

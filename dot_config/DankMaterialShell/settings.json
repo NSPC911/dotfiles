@@ -27,7 +27,7 @@
   "animationSpeed": 4,
   "customAnimationDuration": 131,
   "wallpaperFillMode": "Fill",
-  "blurredWallpaperLayer": false,
+  "blurredWallpaperLayer": true,
   "blurWallpaperOnOverview": true,
   "showLauncherButton": true,
   "showWorkspaceSwitcher": true,
