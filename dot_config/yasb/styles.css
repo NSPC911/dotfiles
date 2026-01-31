@@ -624,10 +624,10 @@ QPushButton {
 }
 .task-bar .media-widget {
   background-color: var(--main);
-  border: 1px solid var(--nord-cyan-base);
+  border: 2px solid var(--nord-gray4);
   border-radius: 8px;
-  margin: 0px 7px 4px 11px;
-  padding: 1.5px
+  margin: 0px 7px 4px 56px;
+  padding: 0px
 }
 .task-bar .container-right {
   /* cava */

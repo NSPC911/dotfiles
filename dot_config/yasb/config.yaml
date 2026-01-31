@@ -75,8 +75,8 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: []
-      center: ["media-info"]
+      left: ["media-info"]
+      center: []
       right: ["cava"]
 widgets:
   active_window:

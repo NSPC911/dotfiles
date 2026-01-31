@@ -81,15 +81,15 @@
       "Info": "",
       "Name": "carapace-bin",
       "Source": "extras",
-      "Updated": "2026-01-23T08:36:03.6873826+08:00",
-      "Version": "1.6.0"
+      "Updated": "2026-01-31T11:10:44.1757007+08:00",
+      "Version": "1.6.1"
     },
     {
       "Info": "",
       "Name": "cava",
       "Source": "le-bucket",
-      "Updated": "2025-10-28T16:26:39.8691506+08:00",
-      "Version": "0.10.4"
+      "Updated": "2026-01-31T21:28:32.0880517+08:00",
+      "Version": "0.10.7"
     },
     {
       "Info": "",
@@ -354,8 +354,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-01-30T15:02:00.2215967+08:00",
-      "Version": "1.1.44"
+      "Updated": "2026-01-31T11:11:46.7576391+08:00",
+      "Version": "1.1.47"
     },
     {
       "Info": "",
@@ -466,8 +466,8 @@
       "Info": "",
       "Name": "rufus",
       "Source": "extras",
-      "Updated": "2026-01-14T12:10:31.9300798+08:00",
-      "Version": "4.11"
+      "Updated": "2026-01-31T11:12:05.0553073+08:00",
+      "Version": "4.12"
     },
     {
       "Info": "",
@@ -662,8 +662,8 @@
       "Info": "",
       "Name": "zoxide",
       "Source": "main",
-      "Updated": "2026-01-14T12:12:24.7269959+08:00",
-      "Version": "0.9.8"
+      "Updated": "2026-01-31T21:29:02.4470733+08:00",
+      "Version": "0.9.9"
     }
   ],
   "buckets": [
@@ -671,31 +671,31 @@
       "Manifests": 1425,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-01-30T12:52:30+08:00"
+      "Updated": "2026-01-31T20:32:56+08:00"
     },
     {
       "Manifests": 2257,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-01-30T14:31:46+08:00"
+      "Updated": "2026-01-31T20:57:12+08:00"
     },
     {
       "Manifests": 550,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-01-30T14:49:03+08:00"
+      "Updated": "2026-01-31T21:18:00+08:00"
     },
     {
       "Manifests": 384,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-01-30T12:54:02+08:00"
+      "Updated": "2026-01-31T20:32:13+08:00"
     },
     {
       "Manifests": 31,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-01-30T11:08:24+08:00"
+      "Updated": "2026-01-31T21:17:19+08:00"
     }
   ],
   "config": {

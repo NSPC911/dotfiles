@@ -68,9 +68,9 @@ helix
 
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
 ```
-gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
+gitfetch v1.3.2 [required:  git+https://github.com/Matars/gitfetch]
 hike v1.2.1
-mistral-vibe v2.0.1
+mistral-vibe v2.0.2
 poethepoet v0.40.0
 poetry v2.3.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
@@ -141,8 +141,8 @@ wezterm-mcp 1.0.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     55         4121         4120            0            1
- CSS                      11         3939         3167          282          490
+ JSON                     55         4126         4125            0            1
+ CSS                      11         3966         3194          282          490
  TOML                     11         1722         1435          165          122
  YAML                      5         1199         1096           41           62
  PowerShell                3          982          835           53           94
@@ -154,7 +154,7 @@ wezterm-mcp 1.0.0
  |- Shell                  1           18           18            0            0
  (Total)                              225           18          158           49
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   103        14066        11896         1143         1027
+ Total                   103        14098        11928         1143         1027
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

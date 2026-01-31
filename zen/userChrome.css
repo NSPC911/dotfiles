@@ -2,7 +2,7 @@
   --funny-accent-background-colour: #2e34407f;
   --zen-main-browser-background-toolbar: transparent !important;
   --sidebar-border-color: transparent;
-  --border-border: 1px solid #88c0d0;
+  --border-border: 1.75px solid #88c0d0;
   --toolbarbutton-hover-background: color-mix(
     in oklab,
     transparent 12.5%,
@@ -61,16 +61,25 @@
   }
 
   .zen-toast {
-    background: #2e34407f !important;
-    border: var(--border-border) !important;
+    background: #2e3440 !important;
+    border: none !important;
     backdrop-filter: blur(5px);
     transition-duration: 0s !important;
     animation-duration: 0s !important;
     transform: none !important;
     opacity: 1 !important;
+    &:hover {
+      background: #2e3440 !important;
+      transition-duration: 0s !important;
+      border: none !important
+    }
     button {
-      background: #2e34407f !important;
-      border: var(--border-border) !important;
+      background: #2e3440ff !important;
+      border: none !important;
+      box-shadow: 0px 0px 5px black !important;
+      &:hover {
+        box-shadow: inset 0px 0px 5px black !important;
+      }
     }
   }
 
@@ -120,6 +129,24 @@
   }
   .zen-toast label {
     color: white;
+  }
+  #tabbrowser-arrowscrollbox-periphery:hover .toolbarbutton-text:before {
+    content: "What now?"
+  }
+  #tabbrowser-arrowscrollbox-periphery:hover .toolbarbutton-icon {
+    rotate: 135deg;
+  }
+  #tabbrowser-arrowscrollbox-periphery .toolbarbutton-icon {
+    transition: rotate 0.125s ease-out
+  }
+  #navigator-toolbox ~ #zen-appcontent-wrapper #zen-tabbox-wrapper {
+    transition: filter 0.25s ease
+  }
+  #navigator-toolbox:hover ~ #zen-appcontent-wrapper #zen-tabbox-wrapper {
+    filter: blur(10px)
+  }
+  #zenCreateNewPopup {
+    background: transparent !important;
   }
 }
 
