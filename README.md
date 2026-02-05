@@ -68,16 +68,16 @@ helix
 
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
 ```
-gitfetch v1.3.2 [required:  git+https://github.com/Matars/gitfetch]
+gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.2.1
 mistral-vibe v2.0.2
 poethepoet v0.40.0
-poetry v2.3.1
+poetry v2.3.2
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
 rich-cli v1.8.1
-rovr v0.7.0.dev3 [required:  git+https://github.com/nspc911/rovr@dev] [with: textual-speedups]
-ruff v0.14.14
+rovr v0.7.0 [required:  git+https://github.com/NSPC911/rovr]
+ruff v0.15.0
 ty v0.0.8 [required: ==0.0.8]
 ```
 
@@ -137,15 +137,15 @@ wezterm-mcp 1.0.0
 ### Stats
 
 <!--tokei --sort lines-->
-```shell
+```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     55         4126         4125            0            1
+ JSON                     55         4133         4132            0            1
  CSS                      11         3966         3194          282          490
- TOML                     11         1722         1435          165          122
- YAML                      5         1199         1096           41           62
- PowerShell                3          982          835           53           94
+ TOML                     11         1726         1439          165          122
+ YAML                      5         1207         1092           53           62
+ PowerShell                3          987          840           53           94
  Scheme                    6          955          840           21           94
  INI                       1          687          170          414          103
  Lua                       1          236          215            9           12
@@ -154,7 +154,7 @@ wezterm-mcp 1.0.0
  |- Shell                  1           18           18            0            0
  (Total)                              225           18          158           49
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   103        14098        11928         1143         1027
+ Total                   103        14122        11940         1155         1027
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

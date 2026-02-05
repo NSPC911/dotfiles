@@ -210,13 +210,14 @@ keybindings:
 
   - commands: ["shell-exec flow"]
     bindings: ["lwin+space"]
-  - commands:
-      [
-        "shell-exec --hide-window yasbc_dev toggle-widget launchpad --follow-mouse",
-      ]
-    bindings: ["lwin+s"]
-  - commands:
-      [
-        "shell-exec --hide-window yasbc_dev toggle-widget powermenu --follow-mouse",
-      ]
-    bindings: ["lwin+shift+l"]
+  # became unecessary in the latest yasb release
+  # - commands:
+  #     [
+  #       "shell-exec --hide-window yasbc_dev toggle-widget launchpad --follow-mouse",
+  #     ]
+  #   bindings: ["lwin+s"]
+  # - commands:
+  #     [
+  #       "shell-exec --hide-window yasbc_dev toggle-widget powermenu --follow-mouse",
+  #     ]
+  #   bindings: ["lwin+shift+l"]

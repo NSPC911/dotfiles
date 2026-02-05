@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/amnweb/yasb/main/schema.json
 watch_stylesheet: true
 watch_config: true
 debug: true
@@ -280,6 +281,9 @@ widgets:
         fade_out_duration: 125
       callbacks:
         on_left: "toggle_launchpad"
+      keybindings:
+        - keys: "win+s"
+          action: "toggle_launchpad"
       app_title_shadow:
         enabled: false
         color: "#00000090"
@@ -430,6 +434,9 @@ widgets:
         sleep: ["\u23fe", "Sleep"]
         signout: ["\udb80\udf43", "Sign out"]
         cancel: ["", "Cancel"]
+      keybindings:
+        - keys: "win+shift+l"
+          action: "toggle_power_menu"
       container_padding:
         top: 0
         left: 0

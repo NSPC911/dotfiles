@@ -410,8 +410,13 @@ function pyvenv() {
                 Write-Host "!"
             }
             Write-Host "Virtual Environment has been synced!" -ForegroundColor Green -NoNewLine
-            $packages = (uv pip list --format json | jq .[].name).Split("`n").Length
-            Write-Host " ($packages packages installed)" -ForegroundColor Cyan
+            $packagesJson = (uv pip list --format json)
+            if ($packagesJson -eq "[]") {
+                Write-Host " (0 packages installed)" -ForegroundColor Cyan
+            } else {
+                $packages = ($packagesJson | jq .[].name).Split("`n").Length
+                Write-Host " ($packages packages installed)" -ForegroundColor Cyan
+            }
         }
     }
 }
@@ -574,7 +579,7 @@ function fz {
             git checkout $branch
         }
     } elseif (($type -eq "rg") -or ($type -eq "fd")) {
-        if ($extra -eq $null) {
+        if ($null -eq $extra) {
             $extra = ""
         }
         Invoke-PsFzfRipgrep $extra
@@ -625,7 +630,7 @@ function fetch {
     if ($Clear) {
         Clear-Host
     }
-    gitfetch --graph-only
+    gitfetch --graph-only --custom-box 
     Write-Host "`e[1A"
     fastfetch
 }
