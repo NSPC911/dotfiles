@@ -116,8 +116,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-02-04T12:47:57.0280619+05:30",
-      "Version": "1.420.0"
+      "Updated": "2026-02-07T10:59:45.6195361+05:30",
+      "Version": "1.425.0"
     },
     {
       "Info": "",
@@ -340,8 +340,8 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2026-01-24T20:18:39.1817623+05:30",
-      "Version": "29.1.0"
+      "Updated": "2026-02-07T10:59:52.8633563+05:30",
+      "Version": "29.2.0"
     },
     {
       "Info": "",
@@ -354,8 +354,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-02-05T09:46:38.2767974+05:30",
-      "Version": "1.1.51"
+      "Updated": "2026-02-07T10:59:55.0068048+05:30",
+      "Version": "1.1.53"
     },
     {
       "Info": "",
@@ -417,8 +417,8 @@
       "Info": "",
       "Name": "prek",
       "Source": "le-bucket",
-      "Updated": "2026-02-01T16:35:49.3314993+05:30",
-      "Version": "0.3.1"
+      "Updated": "2026-02-07T10:59:30.7946868+05:30",
+      "Version": "0.3.2"
     },
     {
       "Info": "",
@@ -529,8 +529,8 @@
       "Info": "",
       "Name": "surge-downloader",
       "Source": "le-bucket",
-      "Updated": "2026-02-05T09:46:37.0863063+05:30",
-      "Version": "0.5.0"
+      "Updated": "2026-02-07T10:59:13.0446858+05:30",
+      "Version": "0.5.3"
     },
     {
       "Info": "",
@@ -557,8 +557,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "main",
-      "Updated": "2026-01-26T11:32:23.2801859+05:30",
-      "Version": "0.7.25"
+      "Updated": "2026-02-07T10:59:49.3938138+05:30",
+      "Version": "0.7.27"
     },
     {
       "Info": "",
@@ -578,15 +578,15 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-02-05T09:46:37.46738+05:30",
-      "Version": "0.9.30"
+      "Updated": "2026-02-07T11:00:18.4532279+05:30",
+      "Version": "0.10.0"
     },
     {
       "Info": "",
       "Name": "uwpspy",
       "Source": "le-bucket",
-      "Updated": "2026-02-05T09:46:27.086153+05:30",
-      "Version": "1.5"
+      "Updated": "2026-02-07T11:00:00.5378706+05:30",
+      "Version": "1.5.1"
     },
     {
       "Info": "",
@@ -625,9 +625,16 @@
     },
     {
       "Info": "",
+      "Name": "yasb",
+      "Source": "extras",
+      "Updated": "2026-02-07T14:38:13.7190277+05:30",
+      "Version": "1.8.8"
+    },
+    {
+      "Info": "",
       "Name": "yasb-dev",
       "Source": "le-bucket",
-      "Updated": "2026-02-05T09:47:24.6921522+05:30",
+      "Updated": "2026-02-07T14:34:46.6382204+05:30",
       "Version": "20260204-201546"
     },
     {
@@ -662,8 +669,8 @@
       "Info": "",
       "Name": "zen-browser",
       "Source": "extras",
-      "Updated": "2026-01-30T12:33:18.4686836+05:30",
-      "Version": "1.18.3b"
+      "Updated": "2026-02-07T11:02:37.4478772+05:30",
+      "Version": "1.18.5b"
     },
     {
       "Info": "",
@@ -675,34 +682,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1431,
+      "Manifests": 1433,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-02-05T06:23:07+05:30"
+      "Updated": "2026-02-07T14:01:21+05:30"
     },
     {
-      "Manifests": 2256,
+      "Manifests": 2257,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-02-05T06:24:05+05:30"
+      "Updated": "2026-02-07T14:02:52+05:30"
     },
     {
       "Manifests": 550,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-02-05T08:45:23+05:30"
+      "Updated": "2026-02-07T14:21:57+05:30"
     },
     {
       "Manifests": 384,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-02-05T09:22:03+05:30"
+      "Updated": "2026-02-07T14:02:11+05:30"
     },
     {
       "Manifests": 32,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-02-05T02:24:44+05:30"
+      "Updated": "2026-02-06T22:36:54+05:30"
     }
   ],
   "config": {

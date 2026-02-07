@@ -91,11 +91,6 @@ widgets:
       max_length: 35
       max_length_ellipsis: "-"
       monitor_exclusive: false
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
       callbacks:
         on_left: "toggle_label"
   battery:
@@ -109,11 +104,6 @@ widgets:
         on_left: "toggle_label"
       charging_options:
         icon_format: "{charging_icon}"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   bluetooth:
     type: "yasb.bluetooth.BluetoothWidget"
     options:
@@ -125,11 +115,6 @@ widgets:
         bluetooth_connected: "\udb80\udcb1"
       callbacks:
         on_right: "exec cmd.exe /c start ms-settings:bluetooth"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   brightness:
     type: "yasb.brightness.BrightnessWidget"
     options:
@@ -157,11 +142,6 @@ widgets:
         on_left: "toggle_brightness_menu"
         on_middle: "toggle_level_next"
         on_right: "exec cmd.exe /c start ms-settings:display"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   cava:
     type: "yasb.cava.CavaWidget"
     options:
@@ -178,11 +158,6 @@ widgets:
       bar_width: 14
       sleep_timer: 1
       hide_empty: true
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   clock:
     type: "yasb.clock.ClockWidget"
     options:
@@ -200,11 +175,6 @@ widgets:
         on_left: "toggle_calendar"
         on_middle: "next_timezone"
         on_right: "toggle_label"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   cpu:
     type: "yasb.cpu.CpuWidget"
     options:
@@ -255,11 +225,6 @@ widgets:
         color: "black"
         radius: 3
         offset: [1, 1]
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   launchpad:
     type: "yasb.launchpad.LaunchpadWidget"
     options:
@@ -343,11 +308,6 @@ widgets:
         color: "black"
         radius: 3
         offset: [1, 1]
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   media-info:
     type: "yasb.media.MediaWidget"
     options:
@@ -397,11 +357,6 @@ widgets:
         color: "black"
         radius: 3
         offset: [1, 1]
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   notifications:
     type: "yasb.notifications.NotificationsWidget"
     options:
@@ -413,11 +368,6 @@ widgets:
         on_left: "toggle_notification"
         on_right: "toggle_label"
         on_middle: "do_nothing"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   power_menu:
     type: "yasb.power_menu.PowerMenuWidget"
     options:
@@ -437,11 +387,6 @@ widgets:
       keybindings:
         - keys: "win+shift+l"
           action: "toggle_power_menu"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   volume:
     type: "yasb.volume.VolumeWidget"
     options:
@@ -458,11 +403,6 @@ widgets:
         on_left: "toggle_volume_menu"
         on_right: "toggle_mute"
         on_middle: "exec cmd.exe /c start ms-settings:sound"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   wifi:
     type: "yasb.wifi.WifiWidget"
     options:
@@ -482,11 +422,6 @@ widgets:
           "\udb82\udd25",
           "\udb82\udd28",
         ]
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
   copilot:
     type: "yasb.copilot.CopilotWidget"
     options:

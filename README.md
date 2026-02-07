@@ -6,8 +6,8 @@ My Windows 11 config files, Nord + Translucency
 
 | ![fetch](img/fetch.png) <br> gitfetch + fastfetch |                  ![helix](img/helixonly.png) <br> helix                   |
 | :-----------------------------------------------: | :-----------------------------------------------------------------------: |
-|   ![zen browser](img/zen.png) <br> zen browser    | ![youtube music](img/youtubemusic.png) <br> youtube music (a bit scuffed) |
-| ![rovr](img/rovr.png) <br> rovr, my file explorer |                           ![prompt](kushal.png)                           |
+|   ![zen browser](img/zen.png) <br> zen browser    | ![rovr](img/rovr.png) <br> rovr, my file explorer                         |
+|                                                   |                           ![prompt](kushal.png)                           |
 
 ## Apps
 
@@ -35,11 +35,9 @@ My Windows 11 config files, Nord + Translucency
 
 #### Wallpaper
 
-Generally I switch between 3 options (screenshots from steam!)
+[Just Mazes](https://steamcommunity.com/sharedfiles/filedetails/?id=1550989740) with the [Nord Theme maze generator](https://steamcommunity.com/sharedfiles/filedetails/?id=3172644398) preset.
 
-|   ![Lost Cat.](https://images.steamusercontent.com/ugc/2459620193690498958/1CF63A48848CDB76FFEFC3A4B2B54D37FB142BA3/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3352465485)   | ![Lost Cat 3](https://images.steamusercontent.com/ugc/2404452368859591676/D8CBBE411A86066BA5B3D9554BB1F8EEDB7DE61F/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3360569178) |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| ![Sunset Cat [4k]](https://images.steamusercontent.com/ugc/43443618358467438/204AE1F0F54142B3670712E3546E6E2EE76D07BE/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3373818743) |                                                                                                                                                                                                                                                                                 |
+![image](https://images.steamusercontent.com/ugc/2433703573706062403/5D9FF116B2571DD62197D76A9CC26BFD6F9AF0A2/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true)
 
 #### No config
 
@@ -141,20 +139,17 @@ wezterm-mcp 1.0.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     55         4133         4132            0            1
+ JSON                     55         4140         4139            0            1
  CSS                      11         3966         3194          282          490
  TOML                     11         1726         1439          165          122
- YAML                      5         1207         1092           53           62
+ YAML                      5         1142         1027           53           62
  PowerShell                3          987          840           53           94
  Scheme                    6          955          840           21           94
  INI                       1          687          170          414          103
  Lua                       1          236          215            9           12
-─────────────────────────────────────────────────────────────────────────────────
- Markdown                 10          207            0          158           49
- |- Shell                  1           18           18            0            0
- (Total)                              225           18          158           49
+ Markdown                 10          222            0          174           48
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   103        14122        11940         1155         1027
+ Total                   103        14061        11864         1171         1026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
