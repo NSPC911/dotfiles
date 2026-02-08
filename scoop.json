@@ -228,8 +228,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2026-02-01T16:35:32.9389274+05:30",
-      "Version": "0.8.4.1"
+      "Updated": "2026-02-08T16:36:05.5360951+05:30",
+      "Version": "0.8.5.1"
     },
     {
       "Info": "",
@@ -270,8 +270,8 @@
       "Info": "",
       "Name": "lazygit",
       "Source": "extras",
-      "Updated": "2026-01-14T09:38:33.611095+05:30",
-      "Version": "0.58.1"
+      "Updated": "2026-02-08T16:35:43.1442349+05:30",
+      "Version": "0.59.0"
     },
     {
       "Info": "",
@@ -396,8 +396,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2026-01-27T06:57:21.6750159+05:30",
-      "Version": "10.28.2"
+      "Updated": "2026-02-08T16:35:16.9935881+05:30",
+      "Version": "10.29.1"
     },
     {
       "Info": "",
@@ -620,22 +620,15 @@
       "Info": "",
       "Name": "xxmi",
       "Source": "games",
-      "Updated": "2026-01-14T09:42:05.6734505+05:30",
-      "Version": "1.9.5"
-    },
-    {
-      "Info": "",
-      "Name": "yasb",
-      "Source": "extras",
-      "Updated": "2026-02-07T14:38:13.7190277+05:30",
-      "Version": "1.8.8"
+      "Updated": "2026-02-08T16:35:17.5729404+05:30",
+      "Version": "2.0.4"
     },
     {
       "Info": "",
       "Name": "yasb-dev",
       "Source": "le-bucket",
-      "Updated": "2026-02-07T14:34:46.6382204+05:30",
-      "Version": "20260204-201546"
+      "Updated": "2026-02-08T16:35:29.1899536+05:30",
+      "Version": "20260208-001158"
     },
     {
       "Info": "",
@@ -685,31 +678,31 @@
       "Manifests": 1433,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-02-07T14:01:21+05:30"
+      "Updated": "2026-02-08T14:01:14+05:30"
     },
     {
-      "Manifests": 2257,
+      "Manifests": 2258,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-02-07T14:02:52+05:30"
+      "Updated": "2026-02-08T14:00:52+05:30"
     },
     {
       "Manifests": 550,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-02-07T14:21:57+05:30"
+      "Updated": "2026-02-08T14:22:40+05:30"
     },
     {
       "Manifests": 384,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-02-07T14:02:11+05:30"
+      "Updated": "2026-02-08T14:01:02+05:30"
     },
     {
       "Manifests": 32,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-02-06T22:36:54+05:30"
+      "Updated": "2026-02-08T14:22:09+05:30"
     }
   ],
   "config": {

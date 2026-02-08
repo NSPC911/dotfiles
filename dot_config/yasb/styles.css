@@ -1,5 +1,5 @@
 :root {
-  --main: #2e3440CC;
+  --main: #2e3440cc;
   --main-50p: #2e34407f;
   --nord-black0: #191d24;
   --nord-black1: #1e222a;
@@ -466,25 +466,22 @@ QPushButton {
 
 .power-menu-popup {
   background-color: var(--main-50p);
-  border-radius: 16px;
-}
-
-.power-menu-popup .button {
-  border: 2px solid transparent;
-}
-
-.power-menu-popup .button {
-  background-color: var(--nord-gray0);
   border-radius: 12px;
+  padding: 5px;
+}
+
+.power-menu-popup .button {
+  border: 2px solid var(--nord-gray0);
+  margin: 2px;
+  background-color: var(--nord-gray0);
+  border-radius: 10px;
   height: 200px;
   padding: 0;
   width: 180px;
-  border-color: var(--nord-gray0);
 }
 
 .power-menu-popup .button .icon {
   font-size: 64px;
-  padding-top: 32px;
 }
 
 .power-menu-popup .button .label {
@@ -501,6 +498,8 @@ QPushButton {
   border-radius: 12px;
   height: 32px;
   padding: 0;
+  width: 560px;
+  margin-top: 4px;
 }
 
 .power-menu-popup .button.cancel .icon,
@@ -521,7 +520,7 @@ QPushButton {
 }
 
 .power-menu-popup .button.hibernate.hover {
-  border-color: var(--nord-green-base);
+  border-color: var(--nord-green-bright);
 }
 
 .power-menu-popup .button.restart .icon,
@@ -623,7 +622,7 @@ QPushButton {
   border: 2px solid var(--nord-gray4);
   border-radius: 8px;
   margin: 0px 7px 4px 56px;
-  padding: 1px
+  padding: 1px;
 }
 .task-bar .container-right {
   /* cava */
@@ -640,11 +639,11 @@ QPushButton {
 }
 .copilot-widget .label.warning,
 .copilot-widget .icon.warning {
-  color: #EBCB8B;
+  color: #ebcb8b;
 }
 .copilot-widget .label.critical,
 .copilot-widget .icon.critical {
-  color: #BF616A;
+  color: #bf616a;
 }
 /* Menu container */
 .copilot-menu {
@@ -691,11 +690,11 @@ QPushButton {
 
 /* Progress bar states */
 .copilot-menu .progress-bar.warning .fill {
-  background-color: #EBCB8B;
+  background-color: #ebcb8b;
 }
 
 .copilot-menu .progress-bar.critical .fill {
-  background-color: #BF616A;
+  background-color: #bf616a;
 }
 
 /* Progress section text */
@@ -733,6 +732,7 @@ QPushButton {
 .copilot-menu .model-name {
   color: #b1b1b1;
   font-size: 12px;
+  font-family: "Segoe UI";
 }
 
 .copilot-menu .model-count {
@@ -741,23 +741,23 @@ QPushButton {
 }
 
 .copilot-menu .progress-bar.model-0 .fill {
-  background-color: #88c0d0;
+  background-color: #bf616a;
 }
 
 .copilot-menu .progress-bar.model-1 .fill {
-  background-color: #97B67C;
+  background-color: #d08770;
 }
 
 .copilot-menu .progress-bar.model-2 .fill {
-  background-color: #EBCB8B;
+  background-color: #ebcb8b;
 }
 
 .copilot-menu .progress-bar.model-3 .fill {
-  background-color: #D08770;
+  background-color: #97b67c;
 }
 
 .copilot-menu .progress-bar.model-4 .fill {
-  background-color: #BF616A;
+  background-color: #88c0d0;
 }
 
 /* Chart - line and fill color controlled by 'color' property */
@@ -770,7 +770,7 @@ QPushButton {
 
 /* Error section */
 .copilot-menu .error-section {
-  background:transparent;
+  background: transparent;
   border: none;
   padding: 32px 0;
 }
