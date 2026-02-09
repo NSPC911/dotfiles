@@ -373,7 +373,7 @@ widgets:
     options:
       label: "\u23fb"
       uptime: True
-      blur: True
+      blur: False
       blur_background: True
       animation_duration: 125
       button_row: 5

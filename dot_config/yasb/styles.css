@@ -465,14 +465,14 @@ QPushButton {
 }
 
 .power-menu-popup {
-  background-color: var(--main-50p);
+  background-color: transparent;
   border-radius: 12px;
   padding: 5px;
 }
 
 .power-menu-popup .button {
   border: 2px solid var(--nord-gray0);
-  margin: 2px;
+  margin: 4px;
   background-color: var(--nord-gray0);
   border-radius: 10px;
   height: 200px;
@@ -495,11 +495,10 @@ QPushButton {
 }
 
 .power-menu-popup .button.cancel {
-  border-radius: 12px;
+  border-radius: 10px;
   height: 32px;
   padding: 0;
-  width: 560px;
-  margin-top: 4px;
+  width: 950px;
 }
 
 .power-menu-popup .button.cancel .icon,

@@ -93,6 +93,7 @@ window_rules:
       - window_process: { equals: "obs64" }
         window_title: { equals: "Settings" }
       - window_process: { equals: "LiveCaptions" }
+      - window_process: { equals: "Photos" }
 
   - commands: ["ignore"]
     match:
