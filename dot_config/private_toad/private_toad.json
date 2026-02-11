@@ -1,6 +1,23 @@
 {
     "anon_id": "4bfb7c0e-ff78-4c66-a4da-228782148950", 
     "launcher": {
-        "agents": "opencode.ai"
+        "agents": "vibe.mistral.ai\nopencode.ai"
+    }, 
+    "ui": {
+        "theme": "nord", 
+        "scrollbar": "thin", 
+        "column": false
+    }, 
+    "notifications": {
+        "hide_low_severity": false
+    }, 
+    "sidebar": {
+        "hide": true
+    }, 
+    "tools": {
+        "expand": "always"
+    }, 
+    "statistics": {
+        "allow_collect": false
     }
 }

@@ -4,15 +4,15 @@
   "customThemeFile": "/home/nspc911/.config/DankMaterialShell/themes/nord/theme.json",
   "registryThemeVariants": {},
   "matugenScheme": "scheme-tonal-spot",
-  "runUserMatugenTemplates": true,
+  "runUserMatugenTemplates": false,
   "matugenTargetMonitor": "",
   "popupTransparency": 0.97,
   "dockTransparency": 1,
   "widgetBackgroundColor": "sch",
   "widgetColorMode": "default",
-  "cornerRadius": 15,
+  "cornerRadius": 11,
   "niriLayoutGapsOverride": -1,
-  "niriLayoutRadiusOverride": 5,
+  "niriLayoutRadiusOverride": -1,
   "niriLayoutBorderSize": -1,
   "hyprlandLayoutGapsOverride": -1,
   "hyprlandLayoutRadiusOverride": -1,
@@ -142,9 +142,9 @@
   "runningAppsCompactMode": true,
   "keyboardLayoutNameCompactMode": false,
   "runningAppsCurrentWorkspace": true,
-  "runningAppsGroupByApp": true,
+  "runningAppsGroupByApp": false,
   "appIdSubstitutions": [],
-  "centeringMode": "index",
+  "centeringMode": "geometric",
   "clockDateFormat": "dd/MM/yy",
   "lockDateFormat": "",
   "mediaSize": 1,
@@ -398,20 +398,20 @@
           "enabled": true
         }
       ],
-      "spacing": 0,
-      "innerPadding": 0,
+      "spacing": 4,
+      "innerPadding": -5,
       "bottomGap": 0,
-      "transparency": 0,
-      "widgetTransparency": 1,
-      "squareCorners": true,
+      "transparency": 1,
+      "widgetTransparency": 0,
+      "squareCorners": false,
       "noBackground": false,
       "gothCornersEnabled": false,
       "gothCornerRadiusOverride": true,
       "gothCornerRadiusValue": 12,
-      "borderEnabled": false,
-      "borderColor": "secondary",
+      "borderEnabled": true,
+      "borderColor": "primary",
       "borderOpacity": 1,
-      "borderThickness": 1,
+      "borderThickness": 2,
       "widgetOutlineEnabled": false,
       "widgetOutlineColor": "primary",
       "widgetOutlineOpacity": 1,
@@ -444,16 +444,15 @@
       "showOnLastDisplay": false,
       "leftWidgets": [
         {
-          "id": "runningApps",
-          "enabled": true,
-          "runningAppsCompactMode": false
+          "id": "music",
+          "enabled": true
         }
       ],
       "centerWidgets": [
         {
-          "id": "music",
+          "id": "runningApps",
           "enabled": true,
-          "mediaSize": 3
+          "runningAppsCompactMode": true
         }
       ],
       "rightWidgets": [
@@ -593,6 +592,12 @@
           "height": 200,
           "x": 114.59375,
           "y": 161.90234375
+        },
+        "DP-3": {
+          "width": 200,
+          "height": 200,
+          "x": 860,
+          "y": 440
         }
       }
     }
