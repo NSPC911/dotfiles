@@ -314,7 +314,7 @@ function pyvenv() {
         [Parameter()][switch]$NoSync,
         [Parameter()][switch]$Offline
     )
-    if ($null -ne (bat "./pyproject.toml" | ConvertFrom-Toml).tool.poetry) {
+    if ((Test-Path ".\pyproject.toml") -and ($null -ne (bat "./pyproject.toml" | ConvertFrom-Toml).tool.poetry)) {
         $Poetry = $true
     }
     if ($Poetry) {
@@ -332,8 +332,22 @@ function pyvenv() {
         if (-not $NoSync) {
             Write-Host "┌❯ Installing packages with 'pyproject.toml'"
             Write-Host "└─ " -NoNewLine
-            Write-Host "poetry self sync" -ForegroundColor Yellow
-            poetry self sync *>$null
+            $flags = ""
+            if ($AllGroups) {
+                $flags += "--all-groups "
+            }
+            if ($AllExtras) {
+                $flags += "--all-extras "
+            }
+            $flags = $flags.Trim()
+            if ($flags -eq "") {
+                Write-Host "poetry install --sync" -ForegroundColor Yellow
+                poetry install --sync *>$null
+            } else {
+                Write-Host "poetry install --sync $flags" -ForegroundColor Yellow
+                poetry install --sync $flags.Split() *>$null
+            }
+            return
         }
         Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
     } else {
@@ -390,7 +404,7 @@ function pyvenv() {
                 }
                 $flags = $flags.Trim()
                 if ($flags -eq "") {
-                    Write-Host "uv sync --active $flags" -ForegroundColor Yellow
+                    Write-Host "uv sync --active" -ForegroundColor Yellow
                     uv sync --active *>$null
                 } else {
                     Write-Host "uv sync --active $flags" -ForegroundColor Yellow
@@ -471,6 +485,8 @@ Set-PSReadLineOption -BellStyle None
 Set-PSReadLineOption -Colors @{
     ListPredictionSelected = "`e[7m"
     Selection = "`e[7m"
+    Parameter = "`e[38;5;245m"
+    Operator = "`e[38;5;245m"
 }
 # fuzzy: https://github.com/kelleyma49/PSFzf
 Write-Output "`e[u`e[0KPsFzf"

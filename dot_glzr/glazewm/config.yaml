@@ -118,6 +118,8 @@ window_rules:
         window_class: { not_regex: "OpusApp" }
       - window_process: { equals: "POWERPNT" }
         window_class: { not_regex: "PPTFrameClass" }
+      - window_process: { equals: "explorer" }
+        window_title: { regex: ".*? - Print" }
 
 binding_modes:
 

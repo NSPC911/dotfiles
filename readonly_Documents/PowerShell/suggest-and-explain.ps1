@@ -61,24 +61,28 @@ function suggest {
     $output = Invoke-SpectreCommandWithStatus -Spinner "Point" -Title "[cyan]Thinking...[/]" -ScriptBlock {
         if ($vibeAvailable) {
             $result = vibe --prompt "$prompt" --output text 2>$null
+            $model = "vibe"
             if ($LASTEXITCODE -eq 0) { return $result }
         }
         if ($copilotAvailable) {
             $result = copilot --model $copilotSuggesterModel --prompt "$prompt" --silent 2>$null
+            $model = "copilot $copilotSuggesterModel"
             if ($LASTEXITCODE -eq 0) { return $result }
         }
         if ($opencodeAvailable) {
             $result = opencode run --model $opencodeSuggesterModel "$prompt" 2>$null
+            $model = "opencode $opencodeSuggesterModel"
             if ($LASTEXITCODE -eq 0) { return $result }
         }
         if ($ollamaAvailable) {
             $result = ollama run $ollamaSuggesterModel $prompt
+            $model = "ollama $ollamaSuggesterModel"
             if ($LASTEXITCODE -eq 0) { return $result }
         }
         throw "No LLM backend available."
     }
     $command = ($output | Out-String).Trim()
-    Write-Host "`e[1G╭─ Suggested command:"
+    Write-Host "`e[1G╭─ Suggested command ($model):"
     Write-Host "│"
     Write-PoshHighlighted $command | ForEach-Object { Write-Host "·  $_" }
     Write-Host "│"
