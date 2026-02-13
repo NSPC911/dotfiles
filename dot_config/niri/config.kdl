@@ -10,7 +10,7 @@ input {
             layout "us" // Use the German keyboard layout
         }
         numlock // Enable numlock on startup
-        repeat-delay 200
+        repeat-delay 300
         repeat-rate 25
     }
 
@@ -52,7 +52,8 @@ binds {
     MOD+RETURN                          hotkey-overlay-title="Open Terminal: wezterm" { spawn-sh "wezterm"; }
     MOD+SPACE                           hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "wofi"; }
     MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen"; }
-    MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
+    // MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
+    MOD+L                               hotkey-overlay-title="Show DMS Power Menu" { spawn-sh "dms ipc call powermenu toggle"; }
 
     // Please choose your own file manager
     MOD+E                             hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
@@ -243,6 +244,13 @@ layout {
     }
 
     struts {}
+
+    tab-indicator {
+        position "right"
+        gap 0
+        width 4
+        length total-proportion=0.95
+    }
 }
 
 // ────────────── Animation Settings ──────────────
@@ -296,6 +304,18 @@ animations {
 window-rule {
     match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true // Always float zen PiP windows
+}
+
+window-rule {
+    match app-id="vesktop"
+    open-on-workspace "messages"
+    open-focused false
+}
+
+window-rule {
+    match app-id="steam"
+    open-on-workspace "messages"
+    open-focused false
 }
 
 window-rule {

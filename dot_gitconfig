@@ -1,31 +1,14 @@
-[pull]
-    rebase = true
-    autostash = true
-[alias]
-    tui = !lazygit
-	nuke = !git reset HEAD --hard && git clean -fd
-	fixup = commit --fixup
-	amend = commit --amend --no-edit
-	new = checkout -b
-	back = reset --soft HEAD~1
-	head-reset = reset --hard HEAD
-	branches = branch --list --all --color=always
-	ball = push --force --no-verify
-[user]
-    name = NSPC911
-    email = 87571998+NSPC911@users.noreply.github.com
-[credential "helperselector"]
-    selected = manager
 [credential "https://github.com"]
 	helper = 
-	helper = !'C:\\Users\\notso\\scoop\\apps\\gh\\current\\bin\\gh.exe' auth git-credential
+	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !'C:\\Users\\notso\\scoop\\apps\\gh\\current\\bin\\gh.exe' auth git-credential
-[credential]
-	helper = manager
-[credential "https://myhost.com"]
-	provider = generic
-[diff]
-	colorMoved = default
-	colorMovedWS = ignore-all-space
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = 87571998+NSPC911@users.noreply.github.com
+	name = NSPC911
+[pull]
+	rebase = true
+	autostash = true
+[alias]
+	tui = !lazygit
