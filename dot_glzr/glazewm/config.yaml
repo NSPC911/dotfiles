@@ -94,6 +94,7 @@ window_rules:
         window_title: { equals: "Settings" }
       - window_process: { equals: "LiveCaptions" }
       - window_process: { equals: "Photos" }
+      - window_title: { regex: "^[Ss]ign in" }
 
   - commands: ["ignore"]
     match:
@@ -120,6 +121,8 @@ window_rules:
         window_class: { not_regex: "PPTFrameClass" }
       - window_process: { equals: "explorer" }
         window_title: { regex: ".*? - Print" }
+      - window_title: { equals: "Cap Target Select" }
+      - window_title: { equals: "Cap Recording Controls" }
 
 binding_modes:
 

@@ -465,7 +465,7 @@ QPushButton {
 }
 
 .power-menu-popup {
-  background-color: transparent;
+  background-color: var(--main-50p);
   border-radius: 12px;
   padding: 5px;
 }

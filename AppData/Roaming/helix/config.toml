@@ -44,6 +44,7 @@ C-r = [":lsp-restart", ":reload-all"]
 X = "extend_line_above"
 Y = ":primary-clipboard-yank"
 "," = "repeat_last_motion"
+A-k = "keep_selections"
 "A-." = "no_op"
 "%" = "no_op"
 W = "no_op"

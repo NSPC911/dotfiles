@@ -114,3 +114,11 @@ window_rules:
   - match: Process
     name: osk
     enabled: True
+
+  - match: Title
+    name: "Cap Target Select"
+    enabled: False
+
+  - match: Title
+    name: "Cap Recording Controls"
+    enabled: False

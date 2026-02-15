@@ -142,9 +142,6 @@
   #navigator-toolbox ~ #zen-appcontent-wrapper #zen-tabbox-wrapper {
     transition: filter 0.25s ease
   }
-  #navigator-toolbox:hover ~ #zen-appcontent-wrapper #zen-tabbox-wrapper {
-    filter: blur(10px)
-  }
   #zenCreateNewPopup {
     background: transparent !important;
   }

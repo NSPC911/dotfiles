@@ -33,7 +33,14 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: ["power_menu", "launchpad", "media-controls", "copilot", "active_window"]
+      left:
+        [
+          "power_menu",
+          "launchpad",
+          "media-controls",
+          "copilot",
+          "active_window",
+        ]
       center: ["clock", "cpu"]
       right:
         [
@@ -247,7 +254,7 @@ widgets:
       callbacks:
         on_left: "toggle_launchpad"
       keybindings:
-        - keys: "win+s"
+        - keys: "ctrl+alt+shift+f24"
           action: "toggle_launchpad"
       app_title_shadow:
         enabled: false
@@ -425,11 +432,11 @@ widgets:
   copilot:
     type: "yasb.copilot.CopilotWidget"
     options:
-      label: "{icon}"
+      label: "{icon} {percentage}%"
       label_alt: "{icon} {used}/{allowance}"
       token: "env"
       plan: "pro"
-      tooltip: true
+      tooltip: false
       update_interval: 120
       icons:
         copilot: "\uf113"
@@ -447,7 +454,11 @@ widgets:
         offset_top: 0
         offset_left: 3
         chart: true
+      callbacks:
+        on_left: "toggle_popup"
+        on_middle: "refresh"
+        on_right: "toggle_label"
       animation:
-        enabled: false
+        enabled: true
         type: "fadeInOut"
         duration: 200

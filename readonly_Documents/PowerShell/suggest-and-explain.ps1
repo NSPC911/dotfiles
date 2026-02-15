@@ -58,31 +58,27 @@ function suggest {
 
     $prompt = "You are a CLI assistant in a Windows environemnt with pwsh as the active shell. The user wants to: '$Description'. Respond with ONLY the raw pwsh command. Do not use markdown, code blocks or any formatting. Just output the plain command text."
 
-    $output = Invoke-SpectreCommandWithStatus -Spinner "Point" -Title "[cyan]Thinking...[/]" -ScriptBlock {
+    $result = Invoke-SpectreCommandWithStatus -Spinner "Point" -Title "[cyan]Thinking...[/]" -ScriptBlock {
         if ($vibeAvailable) {
             $result = vibe --prompt "$prompt" --output text 2>$null
-            $model = "vibe"
-            if ($LASTEXITCODE -eq 0) { return $result }
+            if ($LASTEXITCODE -eq 0) { return @{ output = $result; model = "vibe" } }
         }
         if ($copilotAvailable) {
             $result = copilot --model $copilotSuggesterModel --prompt "$prompt" --silent 2>$null
-            $model = "copilot $copilotSuggesterModel"
-            if ($LASTEXITCODE -eq 0) { return $result }
+            if ($LASTEXITCODE -eq 0) { return @{ output = $result; model = "copilot $copilotSuggesterModel" } }
         }
         if ($opencodeAvailable) {
             $result = opencode run --model $opencodeSuggesterModel "$prompt" 2>$null
-            $model = "opencode $opencodeSuggesterModel"
-            if ($LASTEXITCODE -eq 0) { return $result }
+            if ($LASTEXITCODE -eq 0) { return @{ output = $result; model = "opencode $opencodeSuggesterModel" } }
         }
         if ($ollamaAvailable) {
             $result = ollama run $ollamaSuggesterModel $prompt
-            $model = "ollama $ollamaSuggesterModel"
-            if ($LASTEXITCODE -eq 0) { return $result }
+            if ($LASTEXITCODE -eq 0) { return @{ output = $result; model = "ollama $ollamaSuggesterModel" } }
         }
         throw "No LLM backend available."
     }
-    $command = ($output | Out-String).Trim()
-    Write-Host "`e[1G╭─ Suggested command ($model):"
+    $command = ($result.output | Out-String).Trim()
+    Write-Host "`e[1G╭─ Suggested command ($($result.model)):"
     Write-Host "│"
     Write-PoshHighlighted $command | ForEach-Object { Write-Host "·  $_" }
     Write-Host "│"
@@ -146,8 +142,8 @@ function suggest {
                 1 {
                     Write-Host "·  $(Write-PoshHighlighted 'Set-Clipboard `"$command`"')"
                     Set-Clipboard "$command"
-                    Write-Host "│"
-                    Write-Host "╰─ Command copied to clipboard!`n" -ForegroundColor Green
+                    Write-Host "│`n╰─ " -NoNewLine
+                    Write-Host "Command copied to clipboard!`n" -ForegroundColor Green
                     return
                 }
                 2 {
@@ -173,37 +169,39 @@ function suggest {
                     Write-Host "├─ How should the command be improved?"
                     Write-Host "╰─❯ " -NoNewLine
                     $improvement = Read-Host
-                    Write-Host "`e[2F├─ How should the command be improved?" -ForegroundColor Green
-                    Write-Host "╰── $improvement  " -ForegroundColor Green
+                    Write-Host "`e[2F`e[3CHow should the command be improved?" -ForegroundColor Green
+                    Write-Host "╰──" -NoNewLine
+                    Write-Host " $improvement" -ForegroundColor Green
                     $improvePrompt = "Improve this PowerShell command`n$command`nUser wants:`n'$improvement'`nRespond with ONLY the improved command as plain text, no formatting or code blocks. This is a Windows environment with pwsh as the active shell."
-                    $output = Invoke-SpectreCommandWithStatus -Spinner "Point" -Title "[cyan]Improving...[/]" -ScriptBlock {
+                    $result = Invoke-SpectreCommandWithStatus -Spinner "Point" -Title "[cyan]Improving...[/]" -ScriptBlock {
                         if ($vibeAvailable) {
                             $result = vibe --prompt "$improvePrompt" --output text 2>$null
-                            if ($LASTEXITCODE -eq 0) { return $result }
+                            if ($LASTEXITCODE -eq 0) { return @{ output = $result; model = "vibe" } }
                         }
                         if ($copilotAvailable) {
-                            $result = copilot --model $copilotSuggesterModel --prompt "$improvePropmt" --silent 2>$null
-                            if ($LASTEXITCODE -eq 0) { return $result }
+                            $result = copilot --model $copilotSuggesterModel --prompt "$improvePrompt" --silent 2>$null
+                            if ($LASTEXITCODE -eq 0) { return @{ output = $result; model = "copilot $copilotSuggesterModel" } }
                         }
                         if ($opencodeAvailable) {
                             $result = opencode run --model $opencodeSuggesterModel "$improvePrompt" 2>$null
-                            if ($LASTEXITCODE -eq 0) { return $result }
+                            if ($LASTEXITCODE -eq 0) { return @{ output = $result; model = "opencode $opencodeSuggesterModel" } }
                         }
                         if ($ollamaAvailable) {
                             $result = ollama run $ollamaSuggesterModel $improvePrompt
-                            if ($LASTEXITCODE -eq 0) { return $result }
+                            if ($LASTEXITCODE -eq 0) { return @{ output = $result; model = "ollama $ollamaSuggesterModel" } }
                         }
                         throw "No LLM backend available."
                     }
-                    $command = ($output | Out-String).Trim()
-                    Write-Host "`e[1G╭─ Improved command:"
+                    $command = ($result.output | Out-String).Trim()
+                    Write-Host "`e[1G╭─ Improved command ($($result.model)):"
                     Write-Host "│"
                     Write-PoshHighlighted $command | ForEach-Object { Write-Host "·  $_" }
                     Write-Host "│"
                     $selectedIndex = 0
                 }
                 4 {
-                    Write-Host "╰─ Exited.`n" -ForegroundColor Magenta
+                    Write-Host "╰─" -NoNewLine
+                    Write-Host " Exited.`n" -ForegroundColor Red
                     return
                 }
             }
@@ -243,10 +241,10 @@ function explain {
         else { throw "No LLM backend available." }
     }
     $output = ($result.output | Out-String).Trim()
-    $model = $result.model
+    $script:model = $result.model
     $maxWidth = [int]($Host.UI.RawUI.WindowSize.Width - 8)
     if (Get-Command rich -ErrorAction SilentlyContinue) {
-        $output | rich --markdown --panel rounded --expand --guides --hyperlinks --caption "Using [cyan]$model[/]" --width $maxWidth --center -
+        $output | rich --markdown --panel rounded --expand --guides --hyperlinks --caption "Using [cyan]$script:model[/]" --width $maxWidth --center -
     } elseif (Get-Command uv -ErrorAction SilentlyContinue) {
         $output | uvx --from rich-cli rich --markdown --panel rounded --expand --guides --hyperlinks --caption "Using [cyan]$model[/]" --width $maxWidth --center -
     } else {

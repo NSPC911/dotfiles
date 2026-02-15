@@ -68,14 +68,14 @@ helix
 ```
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.2.1
-mistral-vibe v2.0.2
+mistral-vibe v2.1.0
 poethepoet v0.41.0
 poetry v2.3.2
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
 rich-cli v1.8.1
-rovr v0.7.0 [required:  git+https://github.com/NSPC911/rovr]
-ruff v0.15.0
+rovr v0.7.0 [required: file:///C:/Users/notso/Git/NSPC911/rovr/dist/rovr-0.7.0-py3-none-any.whl]
+ruff v0.15.1
 ty v0.0.8 [required: ==0.0.8]
 ```
 
@@ -139,17 +139,17 @@ wezterm-mcp 1.0.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     55         4133         4132            0            1
- CSS                      11         3961         3190          282          489
- TOML                     11         1726         1439          165          122
- YAML                      5         1145         1030           53           62
- PowerShell                3         1007          860           53           94
+ JSON                     55         4115         4114            0            1
+ CSS                      11         3958         3187          282          489
+ TOML                     11         1727         1440          165          122
+ YAML                      5         1167         1050           53           64
+ PowerShell                3         1023          873           55           95
  Scheme                    6          955          840           21           94
  INI                       1          687          170          414          103
  Lua                       1          236          215            9           12
  Markdown                 10          219            0          171           48
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   103        14069        11876         1168         1025
+ Total                   103        14087        11889         1170         1028
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
