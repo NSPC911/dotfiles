@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "ascii-wireframe": {
+      "type": "stdio",
+      "command": "pnpx",
+      "tools": [
+        "*"
+      ],
+      "args": [
+        "@wiretext/mcp"
+      ]
+    }
+  }
+}

@@ -46,7 +46,7 @@
       "Info": "",
       "Name": "bloxstrap",
       "Source": "games",
-      "Updated": "2026-01-14T12:05:14.7158727+08:00",
+      "Updated": "2026-02-18T09:45:13.228823+08:00",
       "Version": "2.10.0"
     },
     {
@@ -67,8 +67,8 @@
       "Info": "",
       "Name": "cap",
       "Source": "le-bucket",
-      "Updated": "2026-02-13T23:04:32.589991+08:00",
-      "Version": "v0.4.6"
+      "Updated": "2026-02-19T14:14:35.542836+08:00",
+      "Version": "v0.4.7"
     },
     {
       "Info": "",
@@ -97,6 +97,13 @@
       "Source": "main",
       "Updated": "2026-02-15T01:31:12.8229534+08:00",
       "Version": "1.9.14"
+    },
+    {
+      "Info": "",
+      "Name": "codebook",
+      "Source": "le-bucket",
+      "Updated": "2026-02-16T15:18:12.5830651+08:00",
+      "Version": "0.3.30"
     },
     {
       "Info": "",
@@ -186,8 +193,8 @@
       "Info": "",
       "Name": "gh",
       "Source": "main",
-      "Updated": "2026-01-22T08:21:27.073685+08:00",
-      "Version": "2.86.0"
+      "Updated": "2026-02-19T14:14:43.4942167+08:00",
+      "Version": "2.87.0"
     },
     {
       "Info": "",
@@ -228,8 +235,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2026-02-08T19:06:05.5360951+08:00",
-      "Version": "0.8.5.1"
+      "Updated": "2026-02-18T09:46:29.2523357+08:00",
+      "Version": "0.9.2.1"
     },
     {
       "Info": "",
@@ -319,8 +326,8 @@
       "Info": "",
       "Name": "notepadplusplus",
       "Source": "extras",
-      "Updated": "2026-01-27T09:27:13.564061+08:00",
-      "Version": "8.9.1"
+      "Updated": "2026-02-17T11:34:39.6155769+08:00",
+      "Version": "8.9.2"
     },
     {
       "Info": "",
@@ -340,8 +347,15 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2026-02-12T08:52:27.2891594+08:00",
-      "Version": "29.3.0"
+      "Updated": "2026-02-17T11:35:05.3024148+08:00",
+      "Version": "29.4.1"
+    },
+    {
+      "Info": "",
+      "Name": "ollama-full",
+      "Source": "extras",
+      "Updated": "2026-02-17T16:00:20.713617+08:00",
+      "Version": "0.16.2"
     },
     {
       "Info": "",
@@ -354,8 +368,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-02-15T09:17:43.7037251+08:00",
-      "Version": "1.2.3"
+      "Updated": "2026-02-17T11:35:30.5307472+08:00",
+      "Version": "1.2.6"
     },
     {
       "Info": "",
@@ -389,8 +403,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2026-02-12T08:52:37.7221444+08:00",
-      "Version": "10.29.3"
+      "Updated": "2026-02-18T09:46:52.2538724+08:00",
+      "Version": "10.30.0"
     },
     {
       "Info": "",
@@ -410,8 +424,8 @@
       "Info": "",
       "Name": "prek",
       "Source": "le-bucket",
-      "Updated": "2026-02-07T13:29:30.7946868+08:00",
-      "Version": "0.3.2"
+      "Updated": "2026-02-16T13:28:32.5461965+08:00",
+      "Version": "0.3.3"
     },
     {
       "Info": "",
@@ -480,8 +494,8 @@
       "Info": "",
       "Name": "rufus",
       "Source": "extras",
-      "Updated": "2026-01-31T11:12:05.0553073+08:00",
-      "Version": "4.12"
+      "Updated": "2026-02-18T09:47:13.559284+08:00",
+      "Version": "4.13"
     },
     {
       "Info": "",
@@ -520,6 +534,13 @@
     },
     {
       "Info": "",
+      "Name": "surge-downloader",
+      "Source": "le-bucket",
+      "Updated": "2026-02-19T18:06:42.2941852+08:00",
+      "Version": "0.6.8"
+    },
+    {
+      "Info": "",
       "Name": "tacky-borders",
       "Source": "le-bucket",
       "Updated": "2026-02-13T23:05:22.4280203+08:00",
@@ -543,8 +564,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "main",
-      "Updated": "2026-02-09T23:13:17.4810108+08:00",
-      "Version": "0.7.28"
+      "Updated": "2026-02-18T09:47:36.3241822+08:00",
+      "Version": "0.7.31"
     },
     {
       "Info": "",
@@ -552,6 +573,13 @@
       "Source": "main",
       "Updated": "2026-01-14T12:11:39.6102588+08:00",
       "Version": "0.14.2"
+    },
+    {
+      "Info": "",
+      "Name": "unison",
+      "Source": "main",
+      "Updated": "2026-02-18T11:18:24.237458+08:00",
+      "Version": "2.53.8"
     },
     {
       "Info": "",
@@ -564,8 +592,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-02-11T08:16:39.4579659+08:00",
-      "Version": "0.10.2"
+      "Updated": "2026-02-18T09:47:59.1813997+08:00",
+      "Version": "0.10.4"
     },
     {
       "Info": "",
@@ -641,8 +669,8 @@
       "Info": "",
       "Name": "zen-browser",
       "Source": "extras",
-      "Updated": "2026-02-15T01:31:57.1031415+08:00",
-      "Version": "1.18.7b"
+      "Updated": "2026-02-17T11:37:21.7677246+08:00",
+      "Version": "1.18.8b"
     },
     {
       "Info": "",
@@ -657,31 +685,31 @@
       "Manifests": 1438,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-02-15T20:32:09+08:00"
+      "Updated": "2026-02-20T12:56:53+08:00"
     },
     {
-      "Manifests": 2263,
+      "Manifests": 2265,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-02-15T20:31:52+08:00"
+      "Updated": "2026-02-20T12:56:53+08:00"
     },
     {
-      "Manifests": 550,
+      "Manifests": 552,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-02-15T21:18:06+08:00"
+      "Updated": "2026-02-20T13:34:05+08:00"
     },
     {
-      "Manifests": 384,
+      "Manifests": 386,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-02-15T20:32:02+08:00"
+      "Updated": "2026-02-20T12:56:34+08:00"
     },
     {
       "Manifests": 33,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-02-15T16:52:12+08:00"
+      "Updated": "2026-02-20T11:13:31+08:00"
     }
   ],
   "config": {

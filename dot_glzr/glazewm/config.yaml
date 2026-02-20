@@ -124,6 +124,11 @@ window_rules:
       - window_title: { equals: "Cap Target Select" }
       - window_title: { equals: "Cap Recording Controls" }
 
+  - commands: ["set-tiling", "wm-redraw"]
+    match:
+      - window_process: { equals: "cap.exe" }
+        window_title: { equals: "Cap Settings" }
+
 binding_modes:
 
 keybindings:

@@ -59,6 +59,9 @@ function regenCache {
     Write-Output "`e[0J`e[HSetting up uvx completions"
     $completions += uvx --generate-shell-completion powershell
 
+    Write-Output "`e[0J`e[HSetting up gix completions"
+    $completions += gix completions -s powershell
+
     Write-Output "`e[HSetting up pixi completions"
     $completions += pixi completion --shell powershell
 
@@ -386,9 +389,9 @@ function pyvenv() {
             }
         }
         Write-Host "Virtual Environment is active!" -ForegroundColor Green -NoNewLine
-        $pyVersion = uv run --no-sync python --version
+        $pyVersion = uv run --no-sync python --version 2>$null
         Write-Host " ($pyVersion)" -ForegroundColor Cyan
-        if ((-not $NoSync)) {
+        if (-not $NoSync) {
             if (Test-Path pyproject.toml) {
                 Write-Host "┌❯ Syncing packages with 'pyproject.toml'"
                 Write-Host "└─ " -NoNewLine
@@ -461,7 +464,7 @@ function Get-FullHistory {
 
 ##### run something foreva!! #####
 function forever {
-    while ($true) { Invoke-Expression "$args" }
+    while ($true) { $args | Invoke-Expression }
 }
 
 ##### PS Plugins #####

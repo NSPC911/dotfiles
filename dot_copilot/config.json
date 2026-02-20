@@ -1,0 +1,62 @@
+{
+  "banner": "always",
+  "model": "gemini-3-pro-preview",
+  "render_markdown": true,
+  "screen_reader": false,
+  "theme": "auto",
+  "trusted_folders": [
+    "*",
+    "C:\\Users\\notso\\Git\\NSPC911\\forks\\helix",
+    "C:\\Users\\notso\\Git\\we-ascii-clouds",
+    "C:\\Users\\notso\\Git\\NSPC911\\rovr",
+    "C:\\Users\\notso\\Git\\NSPC911\\zcoop"
+  ],
+  "allowed_urls": [
+    "https://caidan.dev",
+    "https://github.com"
+  ],
+  "alt_screen": true,
+  "experimental": true,
+  "installed_plugins": [
+    {
+      "name": "awesome-copilot",
+      "marketplace": "awesome-copilot",
+      "version": "1.0.0",
+      "installed_at": "2026-02-18T15:00:03.586Z",
+      "enabled": true,
+      "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\awesome-copilot"
+    },
+    {
+      "name": "context-engineering",
+      "marketplace": "awesome-copilot",
+      "version": "1.0.0",
+      "installed_at": "2026-02-18T15:00:21.103Z",
+      "enabled": true,
+      "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\context-engineering"
+    },
+    {
+      "name": "frontend-web-dev",
+      "marketplace": "awesome-copilot",
+      "version": "1.0.0",
+      "installed_at": "2026-02-18T15:00:52.127Z",
+      "enabled": true,
+      "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\frontend-web-dev"
+    },
+    {
+      "name": "security-best-practices",
+      "marketplace": "awesome-copilot",
+      "version": "1.0.0",
+      "installed_at": "2026-02-18T15:01:43.567Z",
+      "enabled": true,
+      "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\security-best-practices"
+    },
+    {
+      "name": "python-mcp-development",
+      "marketplace": "awesome-copilot",
+      "version": "1.0.0",
+      "installed_at": "2026-02-18T15:01:49.894Z",
+      "enabled": true,
+      "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\python-mcp-development"
+    }
+  ]
+}

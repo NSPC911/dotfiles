@@ -29,3 +29,5 @@
 [diff]
 	colorMoved = default
 	colorMovedWS = ignore-all-space
+[init]
+	defaultBranch = main

@@ -1,0 +1,83 @@
+{
+  "lspServers": {
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"],
+      "fileExtensions": {
+        ".ts": "typescript",
+        ".tsx": "typescript"
+      }
+    },
+    "ruff": {
+      "command": "ruff",
+      "args": ["server"],
+      "fileExtensions": {
+        ".py": "python"
+      }
+    },
+    "ty": {
+      "command": "ty",
+      "args": ["server"],
+      "fileExtensions": {
+        ".py": "python"
+      }
+    },
+    "vscode-json": {
+      "command": "vscode-json-language-server",
+      "args": [],
+      "fileExtensions": {
+        ".json": "json",
+        ".jsonc": "jsonc",
+        ".json5": "json5"
+      }
+    },
+    "ansible": {
+      "command": "ansible-language-server",
+      "args": [],
+      "fileExtensions": {
+        ".yaml": "yaml",
+        ".yml": "yaml"
+      }
+    },
+    "vscode-css": {
+      "command": "vscode-css-language-server",
+      "args": [],
+      "fileExtensions": {
+        ".css": "css",
+        ".sass": "sass",
+        ".scss": "scss",
+        ".tcss": "tcss"
+      }
+    },
+    "vscode-html": {
+      "command": "vscode-html-language-server",
+      "args": [],
+      "fileExtensions": {
+        ".html": "html",
+        ".html5": "html"
+      }
+    },
+    "superhtml": {
+      "command": "superhtml",
+      "args": ["lsp"],
+      "fileExtensions": {
+        ".html": "html",
+        ".html5": "html"
+      }
+    },
+    "tombi": {
+      "command": "tombi",
+      "args": ["lsp"],
+      "fileExtensions": {
+        ".toml": "toml"
+      }
+    },
+    "taplo": {
+      "command": "taplo",
+      "args": ["lsp", "stdio"],
+      "fileExtensions": {
+        ".toml": "toml"
+      }
+    }
+  }
+}
