@@ -95,8 +95,8 @@
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Updated": "2026-02-15T01:31:12.8229534+08:00",
-      "Version": "1.9.14"
+      "Updated": "2026-02-21T10:10:06.8008041+08:00",
+      "Version": "1.9.15"
     },
     {
       "Info": "",
@@ -186,15 +186,15 @@
       "Info": "",
       "Name": "fzf",
       "Source": "main",
-      "Updated": "2026-01-14T12:06:52.0435227+08:00",
-      "Version": "0.67.0"
+      "Updated": "2026-02-21T10:10:04.9349973+08:00",
+      "Version": "0.68.0"
     },
     {
       "Info": "",
       "Name": "gh",
       "Source": "main",
-      "Updated": "2026-02-19T14:14:43.4942167+08:00",
-      "Version": "2.87.0"
+      "Updated": "2026-02-21T10:10:05.6383173+08:00",
+      "Version": "2.87.2"
     },
     {
       "Info": "",
@@ -235,8 +235,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2026-02-18T09:46:29.2523357+08:00",
-      "Version": "0.9.2.1"
+      "Updated": "2026-02-22T16:55:42.2023965+08:00",
+      "Version": "0.9.3.1"
     },
     {
       "Info": "",
@@ -256,8 +256,8 @@
       "Info": "",
       "Name": "innounp",
       "Source": "main",
-      "Updated": "2026-02-02T09:08:11.4296396+08:00",
-      "Version": "2.67.3"
+      "Updated": "2026-02-21T10:10:05.2784155+08:00",
+      "Version": "2.67.4"
     },
     {
       "Info": "",
@@ -347,15 +347,15 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2026-02-17T11:35:05.3024148+08:00",
-      "Version": "29.4.1"
+      "Updated": "2026-02-22T16:55:37.5223424+08:00",
+      "Version": "29.5.0"
     },
     {
       "Info": "",
       "Name": "ollama-full",
       "Source": "extras",
-      "Updated": "2026-02-17T16:00:20.713617+08:00",
-      "Version": "0.16.2"
+      "Updated": "2026-02-21T10:14:13.2177734+08:00",
+      "Version": "0.16.3"
     },
     {
       "Info": "",
@@ -368,15 +368,15 @@
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-02-17T11:35:30.5307472+08:00",
-      "Version": "1.2.6"
+      "Updated": "2026-02-21T10:10:22.4680281+08:00",
+      "Version": "1.2.10"
     },
     {
       "Info": "",
       "Name": "ov",
       "Source": "main",
-      "Updated": "2026-01-14T12:09:55.7612854+08:00",
-      "Version": "0.50.2"
+      "Updated": "2026-02-21T10:10:15.7262264+08:00",
+      "Version": "0.51.1"
     },
     {
       "Info": "",
@@ -403,8 +403,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2026-02-18T09:46:52.2538724+08:00",
-      "Version": "10.30.0"
+      "Updated": "2026-02-21T10:10:19.1815862+08:00",
+      "Version": "10.30.1"
     },
     {
       "Info": "",
@@ -634,8 +634,8 @@
       "Info": "",
       "Name": "xxmi",
       "Source": "games",
-      "Updated": "2026-02-08T19:05:17.5729404+08:00",
-      "Version": "2.0.4"
+      "Updated": "2026-02-21T10:10:23.0919575+08:00",
+      "Version": "2.1.5"
     },
     {
       "Info": "",
@@ -653,10 +653,10 @@
     },
     {
       "Info": "",
-      "Name": "yazi",
-      "Source": "main",
-      "Updated": "2026-01-23T08:36:21.8906682+08:00",
-      "Version": "26.1.22"
+      "Name": "yazi-nightly",
+      "Source": "versions",
+      "Updated": "2026-02-22T16:55:04.2696112+08:00",
+      "Version": "d84f0b1"
     },
     {
       "Info": "",
@@ -669,8 +669,8 @@
       "Info": "",
       "Name": "zen-browser",
       "Source": "extras",
-      "Updated": "2026-02-17T11:37:21.7677246+08:00",
-      "Version": "1.18.8b"
+      "Updated": "2026-02-21T10:10:34.269578+08:00",
+      "Version": "1.18.9b"
     },
     {
       "Info": "",
@@ -682,34 +682,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1438,
+      "Manifests": 1439,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-02-20T12:56:53+08:00"
+      "Updated": "2026-02-22T16:31:03+08:00"
     },
     {
       "Manifests": 2265,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-02-20T12:56:53+08:00"
+      "Updated": "2026-02-22T16:30:12+08:00"
     },
     {
       "Manifests": 552,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-02-20T13:34:05+08:00"
+      "Updated": "2026-02-22T16:52:08+08:00"
     },
     {
       "Manifests": 386,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-02-20T12:56:34+08:00"
+      "Updated": "2026-02-22T16:30:41+08:00"
     },
     {
       "Manifests": 33,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-02-20T11:13:31+08:00"
+      "Updated": "2026-02-22T13:31:49+08:00"
     }
   ],
   "config": {

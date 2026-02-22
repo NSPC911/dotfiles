@@ -109,8 +109,21 @@ widgets:
         on_right: "exec cmd.exe /c start ms-settings:batterysaver-usagedetails"
         on_middle: "do_nothing"
         on_left: "toggle_label"
+      status_thresholds:
+        critical: 6
+        low: 30
+        medium: 60
+        high: 80
+        full: 100
+      status_icons:
+        icon_charging: "\uf0e7"
+        icon_critical: "\uf244"
+        icon_low: "\uf243"
+        icon_medium: "\uf242"
+        icon_high: "\uf241"
+        icon_full: "\uf240"
       charging_options:
-        icon_format: "{charging_icon}"
+       icon_format: "{charging_icon}"
   bluetooth:
     type: "yasb.bluetooth.BluetoothWidget"
     options:

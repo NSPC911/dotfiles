@@ -68,33 +68,33 @@ helix
 ```
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.2.1
-mistral-vibe v2.1.0
+mistral-vibe v2.2.1
 poethepoet v0.41.0
 poetry v2.3.2
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
 rich-cli v1.8.1
-rovr v0.7.0 [required: file:///C:/Users/notso/Git/NSPC911/rovr/dist/rovr-0.7.0-py3-none-any.whl]
-ruff v0.15.1
+rovr v0.8.0.dev1 [required: file:///C:/Users/notso/Git/NSPC911/rovr/dist/rovr-0.8.0.dev1-py3-none-any.whl]
+ruff v0.15.2
 ty v0.0.8 [required: ==0.0.8]
 ```
 
 #### pnpm global installs
 
-<!--pnpm list -g, remove header-->
+<!--pnpm list -g, remove header and other extra trees-->
 ```
-@ansible/ansible-language-server 1.2.3
-@astrojs/language-server 2.16.3
-@fsouza/prettierd 0.26.2
-@github/copilot 0.0.383
-@google/gemini-cli 0.13.0
-corepack 0.34.6
-live-server 1.2.2
-prettier 3.8.1
-typescript 5.9.3
-typescript-language-server 5.1.3
-vscode-langservers-extracted 4.10.0
-wezterm-mcp 1.0.0
+@ansible/ansible-language-server@1.2.3
+@astrojs/language-server@2.16.3
+@fsouza/prettierd@0.26.2
+@github/copilot@0.0.383
+@google/gemini-cli@0.13.0
+corepack@0.34.6
+live-server@1.2.2
+prettier@3.8.1
+typescript@5.9.3
+typescript-language-server@5.1.3
+vscode-langservers-extracted@4.10.0
+wezterm-mcp@1.0.0
 ```
 
 #### Browser extensions (zen)

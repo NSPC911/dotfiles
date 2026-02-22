@@ -1,3 +1,7 @@
+if ([Console]::IsOutputRedirected) {
+    # If output is redirected, skip the rest of the profile to avoid issues with non-interactive shells
+    return
+}
 Set-Location $HOME
 $CACHE = "$PROFILE/../cache"
 if (-not (Test-Path $CACHE)) {
@@ -357,7 +361,7 @@ function pyvenv() {
         }
         Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
     } else {
-        if (Test-Path "venv/") {
+        if (Test-Path "venv/" -and (-not (Test-Path ".venv/"))) {
             Write-Host "┌❯ Using " -NoNewLine
             Write-Host "venv " -ForegroundColor Cyan
             Write-Host "├❯ Activating virtual environment"

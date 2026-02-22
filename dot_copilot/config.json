@@ -1,6 +1,5 @@
 {
   "banner": "always",
-  "model": "gemini-3-pro-preview",
   "render_markdown": true,
   "screen_reader": false,
   "theme": "auto",
@@ -58,5 +57,7 @@
       "enabled": true,
       "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\python-mcp-development"
     }
-  ]
+  ],
+  "model": "gpt-5-mini",
+  "reasoning_effort": "low"
 }

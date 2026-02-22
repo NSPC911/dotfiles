@@ -31,7 +31,7 @@ config.enable_wayland = false
 
 config.window_padding = {
 	left = 10,
-	right = 1,
+	right = 10,
 	top = 10,
 	bottom = 6,
 }

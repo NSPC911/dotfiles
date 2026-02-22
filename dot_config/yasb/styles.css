@@ -103,6 +103,7 @@ QPushButton {
 
 .glazewm-tiling-direction .btn {
   background-color: transparent;
+  border: none;
 }
 
 .glazewm-tiling-direction {
