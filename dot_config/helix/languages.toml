@@ -112,7 +112,7 @@ name = "python"
 language-servers = [
   "copilot",
   "discord-rpc",
-  "codebook",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   { name = "pyright", except-features = [
     "goto-declaration",
     "goto-type-definition",
@@ -155,6 +155,7 @@ name = "scheme"
 language-servers = [
   "copilot",
   "discord-rpc",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "steel",
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
@@ -165,6 +166,7 @@ formatter = { command = "prettierd", args = [".json"] }
 language-servers = [
   "copilot",
   "discord-rpc",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "vscode-json-language-server",
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
@@ -176,6 +178,7 @@ formatter = { command = "pretterd", args = [".js"] }
 language-servers = [
   "copilot",
   "discord-rpc",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "typescript-language-server",
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
@@ -187,6 +190,7 @@ formatter = { command = "prettierd", args = [".jsonc"] }
 language-servers = [
   "copilot",
   "discord-rpc",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "vscode-json-language-server",
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
@@ -198,6 +202,7 @@ formatter = { command = "prettierd", args = [".yaml"] }
 language-servers = [
   "copilot",
   "discord-rpc",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "ansible-language-server",
   "yaml-language-server",
   { name = "helix-gpt", only-features = ["code-action"] }
@@ -209,6 +214,7 @@ formatter = { command = "prettierd", args = [".css"] }
 language-servers = [
   "copilot",
   "discord-rpc",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "vscode-css-language-server",
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
@@ -218,7 +224,7 @@ name = "markdown"
 language-servers = [
   "copilot",
   "discord-rpc",
-  "codebook",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "marksman",
   "markdown-oxide",
   { name = "helix-gpt", only-features = ["code-action"] }
@@ -230,7 +236,7 @@ name = "typst"
 language-servers = [
   "copilot",
   "discord-rpc",
-  "codebook",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "tinymist",
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
@@ -240,6 +246,7 @@ name = "toml"
 language-servers = [
   "copilot",
   "discord-rpc",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "taplo",
   "tombi",
   { name = "helix-gpt", only-features = ["code-action"] }
@@ -249,6 +256,8 @@ language-servers = [
 name = "powershell"
 language-servers = [
   "copilot",
+  "discord-rpc",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "powershell-lsp",
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
@@ -259,10 +268,18 @@ scope = "source.astro"
 indent = { tab-width = 2, unit = "  " }
 language-servers = [
   "copilot",
+  "discord-rpc",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "astro-ls",
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
 
 [[language]]
 name = "rust"
-language-servers = [ "rust-analyzer", "copilot" ]
+language-servers = [
+  "copilot",
+  "discord-rpc",
+  { name = "codebook", only-features = ["code-action", "diagnostics"] },
+  "rust-analyzer",
+  { name = "helix-gpt", only-features = ["code-action"] }
+]

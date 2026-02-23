@@ -44,6 +44,7 @@ C-r = [":lsp-restart", ":reload-all"]
 X = "extend_line_above"
 Y = ":primary-clipboard-yank"
 "," = "repeat_last_motion"
+A-k = "keep_selections"
 "A-." = "no_op"
 "%" = "no_op"
 W = "no_op"
@@ -212,20 +213,17 @@ right = "no_op"
 up = "no_op"
 down = "no_op"
 
-# opencode
+# have some issues with getting copilot to work, so temporary
+# workaround is to pass to pwsh and run the copilot cli, which works fine, but is a bit janky ngl
 [keys.normal."C-w".a]
-c = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode --continue", ":buffer-close!"]
-i = [":new", ":insert-output wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode", ":buffer-close!"]
-n = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode", ":buffer-close!"]
-# mistral
-v = [":new", ":insert-output wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 vibe", ":buffer-close!"]
+c = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} pwsh -NoProfile -Command copilot", ":buffer-close!"]
+i = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode", ":buffer-close!"]
+v = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} vibe", ":buffer-close!"]
 
 [keys.select."C-w".a]
-c = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode --continue", ":buffer-close!"]
-i = [":new", ":insert-output wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 opencode", ":buffer-close!"]
-n = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode", ":buffer-close!"]
-# mistral
-v = [":new", ":insert-output wezterm cli split-pane --right --cwd %{current_working_directory} --percent 40 vibe", ":buffer-close!"]
+c = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} pwsh -NoProfile -Command copilot", ":buffer-close!"]
+i = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode", ":buffer-close!"]
+v = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} vibe", ":buffer-close!"]
 
 # new buffer or terminal tab
 [keys.normal."C-w".n]
@@ -289,12 +287,6 @@ b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
-l = { z = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} lazygit", ":buffer-close!"], p = "last_picker", k = [
-  ":new",
-  ":insert-output taskkill /f /im python.exe",
-  ":buffer-close!",
-  ":lsp-restart",
-] }
 S = [
   "split_selection_on_newline",
   "extend_to_line_bounds",
@@ -315,6 +307,16 @@ P = "no_op"
 k = "no_op"
 R = "no_op"
 
+[keys.normal."space".l]
+z = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} lazygit", ":buffer-close!"]
+p = "last_picker"
+k = [
+  ":new",
+  ":insert-output taskkill /f /im python.exe",
+  ":buffer-close!",
+  ":lsp-restart",
+]
+
 [keys.select."space"]
 c = "changed_file_picker"
 r = ":config-reload"
@@ -325,12 +327,6 @@ b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
-l = { z = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} lazygit", ":buffer-close!"], p = "last_picker", k = [
-  ":new",
-  ":insert-output taskkill /f /im python.exe",
-  ":buffer-close!",
-  ":lsp-restart",
-] }
 S = [
   "split_selection_on_newline",
   "extend_to_line_bounds",
@@ -350,6 +346,16 @@ P = "no_op"
 "/" = "no_op"
 k = "no_op"
 R = "no_op"
+
+[keys.select."space".l]
+z = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} lazygit", ":buffer-close!"]
+p = "last_picker"
+k = [
+  ":new",
+  ":insert-output taskkill /f /im python.exe",
+  ":buffer-close!",
+  ":lsp-restart",
+]
 
 [keys.normal.z]
 i = "align_view_bottom"
@@ -543,15 +549,18 @@ rainbow-brackets = true
 atomic-save = false
 kitty-keyboard-protocol = "enabled"
 rounded-corners = true
+word-completion.trigger-length = 1
+gutters.line-numbers.min-width = 4  # enough for 9999 lines
+smart-tab.enable = true
 
 [editor.file-picker]
-hidden = true
-parents = true
+hidden = false
+parents = false
+ignore = false
 
-[editor.inline-diagnostics]
-cursor-line = "hint"
-other-lines = "warning"
-max-wrap = 2
+[editor.file-explorer]
+follow-symlinks = true
+flatten-dirs = false
 
 [editor.statusline]
 left = [
@@ -596,14 +605,10 @@ display-progress-messages = true
 enable = false
 wrap-indicator = "󱞶 "
 
-[icons.fs]
-enabled = true
-
-[icons.ui.virtual]
-wrap = " 󱞶 "
-
-[icons.kind]
-enabled = true
+[icons]
+fs.enabled = true
+ui.virtual.wrap = " 󱞶 "
+kind.enabled = true
 
 [icons.diagnostic]
 warning = "\uf071"

@@ -227,6 +227,7 @@
   "version": 4,
   "shell_integration": true,
   "patch_pwsh_bleed": true,
+  "streaming": 100,
   "valid_line": {
     "background": "transparent",
     "foreground": "#ffffff",

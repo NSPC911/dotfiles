@@ -6,8 +6,8 @@ My Windows 11 config files, Nord + Translucency
 
 | ![fetch](img/fetch.png) <br> gitfetch + fastfetch |                  ![helix](img/helixonly.png) <br> helix                   |
 | :-----------------------------------------------: | :-----------------------------------------------------------------------: |
-|   ![zen browser](img/zen.png) <br> zen browser    | ![rovr](img/rovr.png) <br> rovr, my file explorer                         |
-|                                                   |                           ![prompt](kushal.png)                           |
+|   ![zen browser](img/zen.png) <br> zen browser    | ![youtube music](img/youtubemusic.png) <br> youtube music (a bit scuffed) |
+| ![rovr](img/rovr.png) <br> rovr, my file explorer |                           ![prompt](kushal.png)                           |
 
 ## Apps
 
@@ -35,9 +35,11 @@ My Windows 11 config files, Nord + Translucency
 
 #### Wallpaper
 
-[Just Mazes](https://steamcommunity.com/sharedfiles/filedetails/?id=1550989740) with the [Nord Theme maze generator](https://steamcommunity.com/sharedfiles/filedetails/?id=3172644398) preset.
+Generally I switch between 3 options (screenshots from steam!)
 
-![image](https://images.steamusercontent.com/ugc/2433703573706062403/5D9FF116B2571DD62197D76A9CC26BFD6F9AF0A2/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true)
+|   ![Lost Cat.](https://images.steamusercontent.com/ugc/2459620193690498958/1CF63A48848CDB76FFEFC3A4B2B54D37FB142BA3/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3352465485)   | ![Lost Cat 3](https://images.steamusercontent.com/ugc/2404452368859591676/D8CBBE411A86066BA5B3D9554BB1F8EEDB7DE61F/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3360569178) |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| ![Sunset Cat [4k]](https://images.steamusercontent.com/ugc/43443618358467438/204AE1F0F54142B3670712E3546E6E2EE76D07BE/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3373818743) |                                                                                                                                                                                                                                                                                 |
 
 #### No config
 
@@ -66,16 +68,17 @@ helix
 
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
 ```
+cased-kit v3.5.1
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.2.1
-mistral-vibe v2.0.2
-poethepoet v0.41.0
-poetry v2.3.2
+mistral-vibe v1.3.5
+poethepoet v0.40.0
+poetry v2.3.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
 rich-cli v1.8.1
-rovr v0.7.0 [required:  git+https://github.com/NSPC911/rovr]
-ruff v0.15.0
+rovr v0.7.0.dev2 [required:  git+https://github.com/nspc911/rovr@dev] [with: textual-speedups]
+ruff v0.14.14
 ty v0.0.8 [required: ==0.0.8]
 ```
 
@@ -88,7 +91,7 @@ ty v0.0.8 [required: ==0.0.8]
 @fsouza/prettierd 0.26.2
 @github/copilot 0.0.383
 @google/gemini-cli 0.13.0
-corepack 0.34.6
+corepack 0.34.5
 live-server 1.2.2
 prettier 3.8.1
 typescript 5.9.3
@@ -104,7 +107,6 @@ wezterm-mcp 1.0.0
 | [Refined GitHub](https://github.com/refined-github/refined-github) | `zen/extensions/refined_github.json` |
 | [tabliss](https://tabliss.io/)                                     | `zen/extensions/tabliss.json`        |
 | [vimium](https://github.com/philc/vimium)                          | `zen/extensions/vimium-options.json` |
-| [mtab](https://github.com/maxhu08/mtab)                            | `zen/extensions/mtab.json`           |
 
 #### powershell modules
 
@@ -135,21 +137,24 @@ wezterm-mcp 1.0.0
 ### Stats
 
 <!--tokei --sort lines-->
-```
+```shell
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     55         4133         4132            0            1
- CSS                      11         3961         3190          282          489
- TOML                     11         1726         1439          165          122
- YAML                      5         1145         1030           53           62
- PowerShell                3         1007          860           53           94
+ JSON                     52         4167         4166            0            1
+ CSS                      11         3939         3167          282          490
+ TOML                     11         1722         1435          165          122
+ YAML                      5         1199         1096           41           62
  Scheme                    6          955          840           21           94
+ PowerShell                1          895          758           53           84
  INI                       1          687          170          414          103
- Lua                       1          236          215            9           12
- Markdown                 10          219            0          171           48
+ Lua                       1          240          219            9           12
+─────────────────────────────────────────────────────────────────────────────────
+ Markdown                 10          207            0          158           49
+ |- Shell                  1           18           18            0            0
+ (Total)                              225           18          158           49
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   103        14069        11876         1168         1025
+ Total                    98        14029        11869         1143         1017
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

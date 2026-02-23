@@ -31,7 +31,7 @@ config.enable_wayland = false
 
 config.window_padding = {
 	left = 10,
-	right = 1,
+	right = 10,
 	top = 10,
 	bottom = 6,
 }
@@ -188,6 +188,7 @@ tabline.setup({
 		tabs_enabled = true,
 		theme_overrides = {
 			normal_mode = { c = { bg = "rgba(46, 52, 64, 0)" } },
+			copy_mode = {  c = { bg = "rgba(46, 52, 64, 0)" }  },
 			tab = {
 				active = { fg = "#2e3440", bg = "#81a1c1" },
 				inactive = { fg = "#eceff4", bg = "rgba(46, 52, 64, 0)" },

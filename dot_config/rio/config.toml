@@ -4,7 +4,7 @@ padding-y = [10, 13]
 # env-vars = []
 confirm-before-quit = false
 working-dir = "C:/Users/notso"
-blur = true
+blur = false
 
 # [title]
 # placeholder = ""
@@ -17,9 +17,9 @@ args = []
 # width = 600
 # height = 400
 mode = "windowed"
-opacity = 0.75
+opacity = 0.875
 # opacity = 1
-blur = false
+blur = true
 decorations = "Disabled"
 
 [renderer]

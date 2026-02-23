@@ -22,6 +22,7 @@ input {
     }
 
     focus-follows-mouse // Automatically focus windows under the mouse pointer
+    warp-mouse-to-focus
     workspace-auto-back-and-forth // Enable workspace back & forth switching
 }
 
@@ -50,10 +51,11 @@ binds {
 
     // ─── Applications ───
     MOD+RETURN                          hotkey-overlay-title="Open Terminal: wezterm" { spawn-sh "wezterm"; }
-    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "wofi"; }
+    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: dms launcher" { spawn-sh "dms ipc launcher toggle"; }
     MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen"; }
     // MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
-    MOD+L                               hotkey-overlay-title="Show DMS Power Menu" { spawn-sh "dms ipc call powermenu toggle"; }
+    MOD+SHIFT+L                         hotkey-overlay-title="Show DMS Power Menu" { spawn-sh "dms ipc call powermenu toggle"; }
+    MOD+L                               hotkey-overlay-title="Show DMS Power Menu" { spawn-sh "dms ipc call lock lock"; }
 
     // Please choose your own file manager
     MOD+E                             hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
@@ -88,11 +90,11 @@ binds {
     MOD+CTRL+HOME                       { move-column-to-first; }
     MOD+CTRL+END                        { move-column-to-last; }
 
-    MOD+CTRL+UP                         { focus-monitor-up; }
-    MOD+CTRL+DOWN                       { focus-monitor-down; }
+    MOD+CTRL+COMMA                      { focus-monitor-up; }
+    MOD+CTRL+PERIOD                     { focus-monitor-down; }
 
-    MOD+SHIFT+CTRL+UP                   { move-column-to-monitor-up; }
-    MOD+SHIFT+CTRL+DOWN                 { move-column-to-monitor-down; }
+    MOD+SHIFT+CTRL+COMMA                { move-column-to-monitor-up; }
+    MOD+SHIFT+CTRL+PERIOD               { move-column-to-monitor-down; }
 
     // ─── Workspace Switching ───
     MOD+WHEELSCROLLDOWN                 { focus-workspace-down; }
@@ -105,15 +107,15 @@ binds {
     MOD+SHIFT+PERIOD                    { move-column-to-workspace-down; }
     MOD+SHIFT+COMMA                     { move-column-to-workspace-up; }
 
-    MOD+WHEELSCROLLRIGHT                { focus-column-right; }
-    MOD+WHEELSCROLLLEFT                 { focus-column-left; }
-    MOD+SHIFT+WHEELSCROLLRIGHT          { move-column-right; }
-    MOD+SHIFT+WHEELSCROLLLEFT           { move-column-left; }
-
     MOD+SHIFT+WHEELSCROLLDOWN           { focus-column-right; }
     MOD+SHIFT+WHEELSCROLLUP             { focus-column-left; }
     MOD+CTRL+SHIFT+WHEELSCROLLDOWN      { move-column-right; }
     MOD+CTRL+SHIFT+WHEELSCROLLUP        { move-column-left; }
+
+    MOD+WHEELSCROLLRIGHT                { focus-column-right; }
+    MOD+WHEELSCROLLLEFT                 { focus-column-left; }
+    MOD+SHIFT+WHEELSCROLLRIGHT          { move-column-right; }
+    MOD+SHIFT+WHEELSCROLLLEFT           { move-column-left; }
 
     MOD+1                               { focus-workspace 1; }
     MOD+2                               { focus-workspace 2; }
@@ -206,15 +208,18 @@ layer-rule {
 }
 
 overview {
-  workspace-shadow {
-    off
-  }
+    zoom 0.5
+    workspace-shadow {
+        off
+    }
 }
 
 layout {
     gaps 8 // Gap between windows
     // center-focused-column "always" // Don’t auto-center focused column
     background-color "transparent"
+    empty-workspace-above-first
+    center-focused-column "on-overflow"
 
     preset-column-widths {
         proportion 0.33333
@@ -223,16 +228,17 @@ layout {
     }
     default-column-width { proportion 0.8; }
     border {
-        width 4
-        active-color "#88c0d0"
-        inactive-color "#2e3440"
+        off
+        width 3
+        active-gradient from="#5e81ac" to="#88c0d0" angle=45 relative-to="workspace-view"
+        inactive-color "#4c566a"
         urgent-color "#bf616a"
     }
     focus-ring {
-        off
+        on
         width 3
         active-color "#88c0d0"
-        inactive-color "#000000"
+        // inactive-color "#000000"
     }
 
     shadow {
@@ -294,7 +300,8 @@ animations {
         curve "ease-out-quad"
     }
     overview-open-close {
-        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+        duration-ms 225
+        curve "cubic-bezier" 1 0 0 1
     }
 }
 
@@ -322,6 +329,10 @@ window-rule {
     geometry-corner-radius 5
     clip-to-geometry true
     open-maximized-to-edges false
+    // background-effect {
+    //     blur true
+    // }
+    // soon:tm:
 }
 
 // ────────────── Environment Variables ──────────────
@@ -387,13 +398,17 @@ recent-windows {
     }
 }
 
+config-notification {
+    disable-failed
+}
+
 // spawn-at-startup "waybar"
 
 // spawn-at-startup "qs" "-c" "noctalia-shell"
 
 // include "./noctalia.kdl"
-include "dms/colors.kdl"
-include "dms/layout.kdl"
+// include "dms/colors.kdl"
+// include "dms/layout.kdl"
 include "dms/alttab.kdl"
 include "dms/binds.kdl"
 // include "dms/cursor.kdl"

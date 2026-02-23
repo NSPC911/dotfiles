@@ -106,5 +106,8 @@
   },
   "plugin": [
     "oh-my-opencode"
-  ]
+  ],
+  "keybinds": {
+    "terminal_suspend": "none"
+  }
 }

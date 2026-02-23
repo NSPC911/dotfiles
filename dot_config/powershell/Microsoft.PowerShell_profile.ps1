@@ -1,3 +1,7 @@
+if ([Console]::IsOutputRedirected) {
+    # If output is redirected, skip the rest of the profile to avoid issues with non-interactive shells
+    return
+}
 Set-Location $HOME
 $CACHE = "$PROFILE/../cache"
 if (-not (Test-Path $CACHE)) {
@@ -50,11 +54,17 @@ function regenCache {
     Write-Output "`e[0J`e[HSetting up gh completions"
     $completions += gh completion -s powershell
 
+    Write-Output "`e[0J`e[HSetting up ty completions"
+    $completions += ty generate-shell-completion powershell
+
     Write-Output "`e[0J`e[HSetting up uv completions"
     $completions += uv generate-shell-completion powershell
 
     Write-Output "`e[0J`e[HSetting up uvx completions"
     $completions += uvx --generate-shell-completion powershell
+
+    Write-Output "`e[0J`e[HSetting up gix completions"
+    $completions += gix completions -s powershell
 
     Write-Output "`e[HSetting up pixi completions"
     $completions += pixi completion --shell powershell
@@ -351,7 +361,7 @@ function pyvenv() {
         }
         Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
     } else {
-        if (Test-Path "venv/") {
+        if (Test-Path "venv/" -and (-not (Test-Path ".venv/"))) {
             Write-Host "┌❯ Using " -NoNewLine
             Write-Host "venv " -ForegroundColor Cyan
             Write-Host "├❯ Activating virtual environment"
@@ -383,9 +393,9 @@ function pyvenv() {
             }
         }
         Write-Host "Virtual Environment is active!" -ForegroundColor Green -NoNewLine
-        $pyVersion = uv run --no-sync python --version
+        $pyVersion = uv run --no-sync python --version 2>$null
         Write-Host " ($pyVersion)" -ForegroundColor Cyan
-        if ((-not $NoSync)) {
+        if (-not $NoSync) {
             if (Test-Path pyproject.toml) {
                 Write-Host "┌❯ Syncing packages with 'pyproject.toml'"
                 Write-Host "└─ " -NoNewLine
@@ -458,7 +468,7 @@ function Get-FullHistory {
 
 ##### run something foreva!! #####
 function forever {
-    while ($true) { Invoke-Expression "$args" }
+    while ($true) { $args | Invoke-Expression }
 }
 
 ##### PS Plugins #####
@@ -512,21 +522,36 @@ function chezadd { chezmoi add $args }
 function chezgit { chezmoi git $args }
 function chezsync {
     param(
-        [Parameter()][switch]$ask
+        [Parameter()][switch]$noAsk
     )
     # I know `chezmoi re-add` is a thing, but this
     # looks nicer + I know what was changed
     chezmoi status | ForEach-Object {
         $path = "~/$(($_.Split(" ")[-1]))"
         Write-Output "  $path"
-        if ($ask) {
-            Write-Host "   Add to chezmoi? (Y/N)" -NoNewLine -ForegroundColor Yellow
-            if ([System.Console]::ReadKey($true).Key -ne "Y") {
-                Write-Host "`e[2K`e[1F- $path" -ForegroundColor Yellow
-                return
-            } else {
-                # cleanup
-                Write-Host "`e[2K`e[1F"
+        # refactor this to continue asking if nothing reasonable is pressed, or d is pressed
+        if ($false -eq $noAsk) {
+            $hasPrompted = $false
+            while ($true) {
+                if (-not $hasPrompted) {
+                    Write-Host "  Add to chezmoi? (Y/N/D) " -NoNewLine -ForegroundColor Yellow
+                    $hasPrompted = $true
+                }
+                $key = [System.Console]::ReadKey($true).Key
+                if (($key -eq "n") -or ($key -eq "q")) {
+                    Write-Host "`e[2K`e[1F- $path" -ForegroundColor Yellow
+                    return
+                } elseif ($key -eq "y") {
+                    # cleanup
+                    Write-Host "`e[2K`e[1F"
+                    break
+                } elseif ($key -eq "d") {
+                    chezmoi diff "$path"
+                    continue
+                } else {
+                    # Invalid input, prompt again
+                    continue
+                }
             }
         }
         chezmoi add "$path" *>$null
@@ -575,7 +600,7 @@ function fz {
         }
     } elseif ($type -eq "cd") {
         function script:setter {
-            return (Get-ChildItem | Select-Object -ExpandProperty Name | Join-String -Separator "`n" -OutputPrefix "../`n" | Invoke-Fzf -Preview 'pwsh -NoProfile -NonInteractive -Command "(Get-ChildItem).Name"' -Header $PWD.Path -Cycle)
+            return (Get-ChildItem | Select-Object -ExpandProperty Name | Join-String -Separator "`n" -OutputPrefix "../`n" | Invoke-Fzf -Preview 'ls {} | select -expand name' -Header $PWD.Path -Cycle)
         }
         while ($true) {
             $fzout = setter
