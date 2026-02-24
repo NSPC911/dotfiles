@@ -17,21 +17,21 @@ bars:
       enabled: false
       acrylic: false
       dark_mode: true
-      round_corners: false
-      round_corners_type: "small"
-      border_color: "System"
+      round_corners: true
+      round_corners_type: "normal"
+      border_color: "none"
     window_flags:
       always_on_top: true
       windows_app_bar: true
       hide_on_fullscreen: true
     dimensions:
       width: "100%"
-      height: 40
+      height: 24
     padding:
-      top: 0
-      left: 0
-      bottom: 0
-      right: 0
+      top: 6
+      right: 6
+      bottom: 8
+      left: 10
     widgets:
       left:
         [
@@ -69,7 +69,7 @@ bars:
       dark_mode: false
       round_corners: false
       round_corners_type: "small"
-      border_color: "System"
+      border_color: "none"
     window_flags:
       always_on_top: false
       windows_app_bar: false
@@ -235,9 +235,10 @@ widgets:
     options:
       offline_label: " "
       hide_empty_workspaces: false
-      hide_if_offline: true
+      monitor_exclusive: false
+      hide_if_offline: false
       populated_label: " "
-      empty_label: "e"
+      empty_label: " "
       active_populated_label: " "
       active_empty_label: " "
       btn_shadow:
@@ -245,6 +246,7 @@ widgets:
         color: "black"
         radius: 3
         offset: [1, 1]
+      animation: true
   launchpad:
     type: "yasb.launchpad.LaunchpadWidget"
     options:

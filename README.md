@@ -69,7 +69,7 @@ helix
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.2.1
 mistral-vibe v2.2.1
-poethepoet v0.41.0
+poethepoet v0.42.0
 poetry v2.3.2
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
@@ -81,7 +81,7 @@ ty v0.0.8 [required: ==0.0.8]
 
 #### pnpm global installs
 
-<!--pnpm list -g, remove header and other extra trees-->
+<!--pnpm list -g, remove unnecessary parts-->
 ```
 @ansible/ansible-language-server@1.2.3
 @astrojs/language-server@2.16.3
@@ -139,17 +139,17 @@ wezterm-mcp@1.0.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     55         4115         4114            0            1
- CSS                      11         3958         3187          282          489
- TOML                     11         1727         1440          165          122
- YAML                      5         1167         1050           53           64
- PowerShell                3         1023          873           55           95
+ JSON                     59         4317         4316            0            1
+ CSS                      11         3959         3188          282          489
+ TOML                     11         1748         1462          164          122
+ YAML                      5         1187         1069           53           65
+ PowerShell                3         1025          871           57           97
  Scheme                    6          955          840           21           94
  INI                       1          687          170          414          103
- Lua                       1          236          215            9           12
+ Lua                       1          237          216            9           12
  Markdown                 10          219            0          171           48
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   103        14087        11889         1170         1028
+ Total                   107        14334        12132         1171         1031
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
