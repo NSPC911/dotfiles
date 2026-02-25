@@ -1,3 +1,7 @@
+# enable this if you want to save the generated commands to a history file in your command history
+$saveRunToHistory = $true
+$historyFilePath = (Get-PSReadLineOption).HistorySavePath
+
 if ($env:EDITOR -eq $null -or $env:EDITOR -eq "") {
     if (Get-Command edit -ErrorAction SilentlyContinue) {
         $env:EDITOR = "edit"
@@ -132,6 +136,10 @@ function suggest {
             switch ($selectedIndex) {
                 0 {
                     Write-Host "├─ Running command..."
+                     if ($saveRunToHistory) {
+                        Write-Host '· $command | Add-Content -Path $historyFilePath'
+                        $command | Add-Content -Path $historyFilePath
+                    }
                     Write-Host "│"
                     Write-Host "╰── " -NoNewLine
                     Write-PoshHighlighted "$command`n"

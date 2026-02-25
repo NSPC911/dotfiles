@@ -129,6 +129,11 @@ window_rules:
       - window_process: { equals: "cap.exe" }
         window_title: { equals: "Cap Settings" }
 
+  - commands: ["close"]
+    match:
+      - window_title: { equals: "Mem Reduct" }
+
+
 binding_modes:
 
 keybindings:

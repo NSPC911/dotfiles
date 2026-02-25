@@ -84,5 +84,6 @@
       "Key": "Set Flow Launcher Theme",
       "Keyword": "Set Flow Launcher Theme"
     }
-  ]
+  ],
+  "SkipPowerActionConfirmation": false
 }

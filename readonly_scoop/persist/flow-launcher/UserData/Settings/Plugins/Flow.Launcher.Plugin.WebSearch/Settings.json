@@ -191,5 +191,6 @@
     }
   ],
   "EnableSuggestion": false,
+  "MaxSuggestions": 1,
   "Suggestion": "Google"
 }

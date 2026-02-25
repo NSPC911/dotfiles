@@ -83,18 +83,19 @@ ty v0.0.8 [required: ==0.0.8]
 
 <!--pnpm list -g, remove unnecessary parts-->
 ```
-@ansible/ansible-language-server@1.2.3
-@astrojs/language-server@2.16.3
-@fsouza/prettierd@0.26.2
-@github/copilot@0.0.383
-@google/gemini-cli@0.13.0
-corepack@0.34.6
-live-server@1.2.2
-prettier@3.8.1
-typescript@5.9.3
-typescript-language-server@5.1.3
-vscode-langservers-extracted@4.10.0
-wezterm-mcp@1.0.0
+│   dependencies:
+├── @ansible/ansible-language-server@1.2.3
+├── @astrojs/language-server@2.16.3
+├── @fsouza/prettierd@0.26.2
+├── @github/copilot@0.0.383
+├── @google/gemini-cli@0.13.0
+├── corepack@0.34.6
+├── live-server@1.2.2
+├── prettier@3.8.1
+├── typescript@5.9.3
+├── typescript-language-server@5.1.3
+├── vscode-langservers-extracted@4.10.0
+└── wezterm-mcp@1.0.0
 ```
 
 #### Browser extensions (zen)
@@ -139,17 +140,17 @@ wezterm-mcp@1.0.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     59         4317         4316            0            1
+ JSON                     59         4334         4333            0            1
  CSS                      11         3959         3188          282          489
  TOML                     11         1748         1462          164          122
- YAML                      5         1187         1069           53           65
- PowerShell                3         1025          871           57           97
+ YAML                      5         1192         1072           53           67
+ PowerShell                3         1033          877           58           98
  Scheme                    6          955          840           21           94
  INI                       1          687          170          414          103
  Lua                       1          237          216            9           12
- Markdown                 10          219            0          171           48
+ Markdown                 10          220            0          172           48
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   107        14334        12132         1171         1031
+ Total                   107        14365        12158         1173         1034
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

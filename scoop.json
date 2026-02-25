@@ -74,8 +74,8 @@
       "Info": "",
       "Name": "carapace-bin",
       "Source": "extras",
-      "Updated": "2026-02-11T08:12:51.9204345+08:00",
-      "Version": "1.6.2"
+      "Updated": "2026-02-25T08:52:04.2706412+08:00",
+      "Version": "1.6.3"
     },
     {
       "Info": "",
@@ -95,8 +95,8 @@
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Updated": "2026-02-21T10:10:06.8008041+08:00",
-      "Version": "1.9.15"
+      "Updated": "2026-02-25T19:45:52.5483105+08:00",
+      "Version": "1.9.17"
     },
     {
       "Info": "",
@@ -116,8 +116,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-02-13T23:05:04.171715+08:00",
-      "Version": "1.430.0"
+      "Updated": "2026-02-25T19:45:41.6835059+08:00",
+      "Version": "1.431.0"
     },
     {
       "Info": "",
@@ -172,8 +172,8 @@
       "Info": "",
       "Name": "filelight",
       "Source": "extras",
-      "Updated": "2026-02-12T22:23:55.8079786+08:00",
-      "Version": "25.12-2017"
+      "Updated": "2026-02-24T21:54:45.0317712+08:00",
+      "Version": "25.12-2026"
     },
     {
       "Info": "",
@@ -235,8 +235,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2026-02-22T16:55:42.2023965+08:00",
-      "Version": "0.9.3.1"
+      "Updated": "2026-02-25T19:46:19.8021881+08:00",
+      "Version": "0.9.4.1"
     },
     {
       "Info": "",
@@ -319,8 +319,8 @@
       "Info": "",
       "Name": "nodejs",
       "Source": "main",
-      "Updated": "2026-02-11T08:15:13.8582985+08:00",
-      "Version": "25.6.1"
+      "Updated": "2026-02-25T19:49:06.8050161+08:00",
+      "Version": "25.7.0"
     },
     {
       "Info": "",
@@ -368,8 +368,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-02-21T10:10:22.4680281+08:00",
-      "Version": "1.2.10"
+      "Updated": "2026-02-25T19:45:41.6659638+08:00",
+      "Version": "1.2.13"
     },
     {
       "Info": "",
@@ -396,8 +396,8 @@
       "Info": "",
       "Name": "pixi",
       "Source": "main",
-      "Updated": "2026-01-21T10:27:02.545079+08:00",
-      "Version": "0.63.2"
+      "Updated": "2026-02-24T21:55:55.4134681+08:00",
+      "Version": "0.64.0"
     },
     {
       "Info": "",
@@ -410,7 +410,7 @@
       "Info": "",
       "Name": "poppler",
       "Source": "main",
-      "Updated": "2026-01-14T12:10:07.9144629+08:00",
+      "Updated": "2026-02-24T21:07:29.7091013+08:00",
       "Version": "25.12.0-0"
     },
     {
@@ -536,8 +536,8 @@
       "Info": "",
       "Name": "surge-downloader",
       "Source": "le-bucket",
-      "Updated": "2026-02-19T18:06:42.2941852+08:00",
-      "Version": "0.6.8"
+      "Updated": "2026-02-25T08:46:58.2825132+08:00",
+      "Version": "0.6.9"
     },
     {
       "Info": "",
@@ -578,8 +578,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-02-18T09:47:59.1813997+08:00",
-      "Version": "0.10.4"
+      "Updated": "2026-02-25T19:48:12.149143+08:00",
+      "Version": "0.10.6"
     },
     {
       "Info": "",
@@ -668,34 +668,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1442,
+      "Manifests": 1445,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-02-24T08:50:23+08:00"
+      "Updated": "2026-02-25T19:02:56+08:00"
     },
     {
-      "Manifests": 2265,
+      "Manifests": 2267,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-02-24T09:04:07+08:00"
+      "Updated": "2026-02-25T18:47:00+08:00"
     },
     {
       "Manifests": 552,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-02-24T05:06:38+08:00"
+      "Updated": "2026-02-25T17:10:40+08:00"
     },
     {
       "Manifests": 386,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-02-24T08:50:20+08:00"
+      "Updated": "2026-02-25T16:32:54+08:00"
     },
     {
       "Manifests": 33,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-02-24T05:04:46+08:00"
+      "Updated": "2026-02-25T17:10:30+08:00"
     }
   ],
   "config": {

@@ -58,7 +58,5 @@
       "enabled": true,
       "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\python-mcp-development"
     }
-  ],
-  "model": "claude-sonnet-4.6",
-  "reasoning_effort": "low"
+  ]
 }

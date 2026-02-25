@@ -1,4 +1,8 @@
 {
+  "UseCustomBrowser": false,
   "BrowserPath": null,
-  "OpenInNewBrowserWindow": true
+  "OpenInNewBrowserWindow": true,
+  "OpenInPrivateMode": false,
+  "PrivateModeArgument": "",
+  "AlwaysOpenWithHttps": false
 }
