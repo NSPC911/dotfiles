@@ -68,14 +68,14 @@ helix
 ```
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.2.1
-mistral-vibe v2.2.1
-poethepoet v0.42.0
+mistral-vibe v2.3.0
+poethepoet v0.42.1
 poetry v2.3.2
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
 rich-cli v1.8.1
 rovr v0.8.0.dev1 [required: file:///C:/Users/notso/Git/NSPC911/rovr/dist/rovr-0.8.0.dev1-py3-none-any.whl]
-ruff v0.15.2
+ruff v0.15.4
 ty v0.0.8 [required: ==0.0.8]
 ```
 
@@ -86,9 +86,9 @@ ty v0.0.8 [required: ==0.0.8]
 │   dependencies:
 ├── @ansible/ansible-language-server@1.2.3
 ├── @astrojs/language-server@2.16.3
-├── @fsouza/prettierd@0.26.2
+├── @fsouza/prettierd@0.27.0
 ├── @github/copilot@0.0.383
-├── @google/gemini-cli@0.13.0
+├── @google/gemini-cli@0.30.1
 ├── corepack@0.34.6
 ├── live-server@1.2.2
 ├── prettier@3.8.1
@@ -140,7 +140,7 @@ ty v0.0.8 [required: ==0.0.8]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     59         4334         4333            0            1
+ JSON                     59         4368         4367            0            1
  CSS                      11         3959         3188          282          489
  TOML                     11         1748         1462          164          122
  YAML                      5         1192         1072           53           67
@@ -150,7 +150,7 @@ ty v0.0.8 [required: ==0.0.8]
  Lua                       1          237          216            9           12
  Markdown                 10          220            0          172           48
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   107        14365        12158         1173         1034
+ Total                   107        14399        12192         1173         1034
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

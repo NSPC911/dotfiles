@@ -53,10 +53,10 @@
   "TimeFormat": "hh:mm tt",
   "DateFormat": "MM\u0027/\u0027dd ddd",
   "FirstLaunch": false,
-  "SettingWindowWidth": 945,
-  "SettingWindowHeight": 984,
-  "SettingWindowTop": 40,
-  "SettingWindowLeft": 967,
+  "SettingWindowWidth": 964,
+  "SettingWindowHeight": 600,
+  "SettingWindowTop": 425,
+  "SettingWindowLeft": 948,
   "SettingWindowState": 0,
   "ShowPlaceholder": false,
   "PlaceholderText": "",
@@ -156,7 +156,7 @@
   "CustomWindowTop": 0,
   "KeepMaxResults": false,
   "MaxResultsToShow": 5,
-  "ActivateTimes": 1121,
+  "ActivateTimes": 1124,
   "CustomPluginHotkeys": [],
   "CustomShortcuts": [],
   "DontPromptUpdateMsg": false,
@@ -378,7 +378,7 @@
         ],
         "Priority": 0,
         "SearchDelayTime": null,
-        "Disabled": false,
+        "Disabled": true,
         "HomeDisabled": false
       },
       "D8A705AD7AB849ACB581FF46D3B59816": {
@@ -387,6 +387,18 @@
         "Version": "1.0.1",
         "ActionKeywords": [
           "scoop"
+        ],
+        "Priority": 0,
+        "SearchDelayTime": null,
+        "Disabled": false,
+        "HomeDisabled": false
+      },
+      "506B2EE8-4117-4BDF-8F00-DF58498DF922": {
+        "ID": "506B2EE8-4117-4BDF-8F00-DF58498DF922",
+        "Name": "OneNote",
+        "Version": "2.1.2",
+        "ActionKeywords": [
+          "on"
         ],
         "Priority": 0,
         "SearchDelayTime": null,
