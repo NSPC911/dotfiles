@@ -39,7 +39,13 @@ output "eDP-1" {
 
 output "DP-3" {
     mode "1920x1080@74.973"
-    scale 1
+    scale 1.00
+    position x=0 y=-1080
+}
+
+output "DP-1" {
+    mode "1920x1080@74.973"
+    scale 1.00
     position x=0 y=-1080
 }
 
@@ -147,27 +153,28 @@ binds {
     MOD+CTRL+F                          { expand-column-to-available-width; }
 
     // ─── Screenshots ───
-    MOD+SHIFT+S                        { screenshot; }
-    MOD+SHIFT+P                        { spawn-sh "dms screenshot"; }
-    // CTRL+SHIFT+2                        { screenshot-screen; }
-    // CTRL+SHIFT+3                        { screenshot-window; }
+    MOD+SHIFT+S                         { screenshot; }
+    MOD+SHIFT+P                         { spawn-sh "dms screenshot"; }
 
     // ─── Emergency Escape Key ───
     // Use this when a fullscreen app blocks your keybinds.
     // It disables any active keyboard shortcut inhibitor, restoring control.
-    MOD+ESCAPE                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    MOD+ESCAPE allow-inhibiting=false   { toggle-keyboard-shortcuts-inhibit; }
 
     // ─── Exit / Power ───
     CTRL+ALT+DELETE                     { quit; } // Also quits Niri
-    MOD+O                               repeat=false { toggle-overview; }
+    MOD+O      repeat=false             { toggle-overview; }
     // brightness fixer
     XF86MonBrightnessDown               { spawn-sh "bright down"; }
     XF86MonBrightnessUp                 { spawn-sh "bright up"; }
+    // change display
+    MOD+P                               { spawn-sh "output-toggle"; }
 
     MOD+CTRL+LEFT { consume-or-expel-window-left; }
     MOD+CTRL+RIGHT { consume-or-expel-window-right; }
-    Mod+Shift+Alt+R { spawn "ignis" "run-command" "recorder-record-screen"; }
-    Mod+Alt+R { spawn "ignis" "run-command" "recorder-record-portal"; }
+    // Mod+Shift+Alt+R { spawn "ignis" "run-command" "recorder-record-screen"; }
+    // Mod+Alt+R { spawn "ignis" "run-command" "recorder-record-portal"; }
+    Mod+V { spawn "dms" "ipc" "clipboard" "toggle"; }
 }
 
 // ────────────── Startup Applications ──────────────

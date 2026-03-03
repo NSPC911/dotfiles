@@ -1,0 +1,84 @@
+#!/bin/bash
+# Exponential brightness control for better perceived steps
+# Usage: brightness-exp up|down [steps]  OR  brightness-exp set <level>
+
+MAX_BRIGHT=$(cat /sys/class/backlight/*/max_brightness 2>/dev/null | head -n1)
+if [ -z "$MAX_BRIGHT" ]; then
+    echo "Error: No backlight found." >&2
+    exit 1
+fi
+
+# Base for exponential curve (tune this: 1.05–1.2 works well)
+BASE=1.12
+
+# Total perceptual levels (feel free to change)
+LEVELS=100
+
+# Calculate actual brightness value from perceptual level
+level_to_value() {
+    local level=$1
+    # Clamp level between 1 and LEVELS
+    ((level = level < 1 ? 1 : (level > LEVELS ? LEVELS : level)))
+    # Exponential mapping: value = (base^level - 1) / (base^LEVELS - 1) * MAX
+    awk -v l="$level" -v b="$BASE" -v m="$MAX_BRIGHT" -v L="$LEVELS" \
+        'BEGIN { printf "%.0f\n", ( (b^l - 1) / (b^L - 1) ) * m }'
+}
+
+# Get current actual brightness
+CURRENT_VAL=$(brightnessctl get)
+if [ -z "$CURRENT_VAL" ]; then
+    echo "Error: Could not read current brightness." >&2
+    exit 1
+fi
+
+# Convert current value back to perceptual level (approximate)
+value_to_level() {
+    local val=$1
+    awk -v v="$val" -v b="$BASE" -v m="$MAX_BRIGHT" -v L="$LEVELS" '
+    BEGIN {
+        if (v <= 0) { print 0; exit }
+        # Solve: v = ((b^l - 1)/(b^L - 1)) * m  →  l = log(1 + v*(b^L - 1)/m) / log(b)
+        num = 1 + v * (b^L - 1) / m
+        if (num <= 1) { print 0; exit }
+        l = log(num) / log(b)
+        printf "%.0f\n", l
+    }'
+}
+
+CURRENT_LEVEL=$(value_to_level "$CURRENT_VAL")
+
+# Parse command
+case "${1:-}" in
+    up)
+        STEPS=${2:-5}
+        NEW_LEVEL=$((CURRENT_LEVEL + STEPS))
+        ;;
+    down)
+        STEPS=${2:-5}
+        NEW_LEVEL=$((CURRENT_LEVEL - STEPS))
+        ;;
+    set)
+        NEW_LEVEL=${2:-50}
+        ;;
+    get)
+        echo "Perceptual level: $CURRENT_LEVEL"
+        echo "Actual value: $CURRENT_VAL / $MAX_BRIGHT"
+        exit 0
+        ;;
+    *)
+        echo "Usage: bright {up|down|set|get} [value]"
+        echo "  up/down [steps=5]   Increase/decrease by perceptual steps"
+        echo "  set <level>         Set to perceptual level (1-$LEVELS)"
+        echo "  get                 Show current level"
+        exit 1
+        ;;
+esac
+
+# Clamp new level
+((NEW_LEVEL = NEW_LEVEL < 1 ? 1 : (NEW_LEVEL > LEVELS ? LEVELS : NEW_LEVEL)))
+
+# Convert to actual value and apply
+NEW_VALUE=$(level_to_value "$NEW_LEVEL")
+echo "Setting brightness to level $NEW_LEVEL (~$(awk "BEGIN {printf \"%.1f\", $NEW_VALUE*100/$MAX_BRIGHT}")%)"
+
+brightnessctl set $NEW_VALUE

@@ -21,18 +21,17 @@ function regenCache {
     if (Get-Command scoop -ErrorAction SilentlyContinue) {
         # setup only specific completions
         $dontwant = @("bat", "gh", "git", "rg", "rustup", "taplo", "wezterm")
-        $scooplist = scoop list
-        # set up things that I want, and not just everything
-        $scooplist | Select-Object -ExpandProperty name | ForEach-Object {
-            if ($dontwant -notcontains $_) {
-                $caracomplete = carapace $_ powershell
+        Get-ChildItem -File "$HOME/scoop/shims" | Where-Object { $_.Name -like '*.exe' } | ForEach-Object {
+            $thing = $_.BaseName
+            if ($dontwant -notcontains $thing) {
+                $caracomplete = carapace $thing powershell
                 if ($null -ne $caracomplete) {
                     $completions += $caracomplete
-                    Write-Host "`e[u`e[0K$_"
+                    Write-Host "`e[u`e[0K$thing"
                 }
             }
         }
-        $include = @("file", "tar", "curl", "carapace", "cargo", "aria2c")
+        $include = @("file", "tar", "curl", "cargo", "aria2c")
         $include | ForEach-Object {
             $caracomplete = carapace $_ powershell
             if ($null -ne $caracomplete) {
@@ -60,11 +59,11 @@ function regenCache {
     Write-Output "`e[0J`e[HSetting up uv completions"
     $completions += uv generate-shell-completion powershell
 
-    Write-Output "`e[0J`e[HSetting up uvx completions"
-    $completions += uvx --generate-shell-completion powershell
-
     Write-Output "`e[0J`e[HSetting up gix completions"
     $completions += gix completions -s powershell
+
+    Write-Output "`e[0J`e[HSetting up uvx completions"
+    $completions += uvx --generate-shell-completion powershell
 
     Write-Output "`e[HSetting up pixi completions"
     $completions += pixi completion --shell powershell
@@ -72,8 +71,8 @@ function regenCache {
     # Write-Output "`e[HSetting up tuios completions"
     # $completions += tuios completion powershell
 
-    Write-Output "`e[0J`e[HSetting up delta completions"
-    $completions += delta --generate-completion powershell
+    # Write-Output "`e[0J`e[HSetting up delta completions"
+    # $completions += delta --generate-completion powershell
 
     Write-Output "`e[0J`e[HSetting up taplo completions"
     $completions += taplo completions powershell
@@ -104,6 +103,9 @@ function regenCache {
 
     Write-Output "`e[0J`e[HSetting up onefetch completions"
     $completions += onefetch --generate powershell
+
+    Write-Output "`e[0J`e[HSetting up poethepoet completions"
+    $completions += poe _powershell_completion
 
     # Extract all 'using' statements and remove duplicates
     $usingStatements = @()
@@ -324,19 +326,20 @@ function pyvenv() {
         [Parameter()][switch]$NoSync,
         [Parameter()][switch]$Offline
     )
+    $yellow = $PSStyle.Foreground.Yellow
+    $cyan = $PSStyle.Foreground.Cyan
+    $reset = $PSStyle.Reset
     if ((Test-Path ".\pyproject.toml") -and ($null -ne (bat "./pyproject.toml" | ConvertFrom-Toml).tool.poetry)) {
         $Poetry = $true
     }
     if ($Poetry) {
         if (Get-Command -Name "deactivate" -CommandType Function -ErrorAction SilentlyContinue) {
             Write-Host "┌❯ Deactivating virtual environment"
-            Write-Host "└─ " -NoNewLine
-            Write-Host "deactivate" -ForegroundColor Yellow
+            Write-Host "└─$yellow deactivate"
             deactivate
         }
         Write-Host "┌❯ Activating virtual environment"
-        Write-Host "└─ " -NoNewLine
-        Write-Host "poetry env activate | Invoke-Expression" -ForegroundColor Yellow
+        Write-Host "└─$yellow poetry env activate | Invoke-Expression"
         poetry env activate | Invoke-Expression
         Write-Host "Virtual Environment is active!" -ForegroundColor Green
         if (-not $NoSync) {
@@ -361,9 +364,8 @@ function pyvenv() {
         }
         Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
     } else {
-        if (Test-Path "venv/" -and (-not (Test-Path ".venv/"))) {
-            Write-Host "┌❯ Using " -NoNewLine
-            Write-Host "venv " -ForegroundColor Cyan
+        if ((Test-Path "venv/") -and (-not (Test-Path ".venv/"))) {
+            Write-Host "┌❯ Using$cyan venv$reset"
             Write-Host "├❯ Activating virtual environment"
             Write-Host "└─ " -NoNewLine
             if (Test-Path "venv/Scripts") {
@@ -375,13 +377,11 @@ function pyvenv() {
             }
         } elseif (-not (Test-Path .venv)) {
             Write-Host "┌❯ Creating new virtual environment"
-            Write-Host "└─ " -NoNewLine
-            Write-Host "uv venv" -ForegroundColor Yellow
-            uv venv --quiet
+            Write-Host "└─$yellow uv venv$reset"
+            uv venv *>$null
         }
         if (Test-Path ".venv") {
-            Write-Host "┌❯ Using " -NoNewLine
-            Write-Host ".venv" -ForegroundColor Cyan
+            Write-Host "┌❯ Using$cyan .venv$reset"
             Write-Host "├❯ Activating virtual environment"
             Write-Host "└─ " -NoNewLine
             if (Test-Path ".venv/Scripts") {
@@ -422,16 +422,11 @@ function pyvenv() {
                 }
             } elseif (Test-Path requirements.txt) {
                 Write-Host "┌❯ Syncing packages with 'requirements.txt'"
-                Write-Host "└─ " -NoNewLine
-                Write-Host "uv pip sync requirements.txt" -ForegroundColor Yellow
+                Write-Host "└─$yellow uv pip sync requirements.txt$reset"
                 uv pip sync requirements.txt *>$null
             } else {
                 Write-Host "┌❯ There are no packages available to be synced"
-                Write-Host "└❯ Make sure to either " -NoNewLine
-                Write-Host "uv init --bare" -ForegroundColor Cyan -NoNewLine
-                Write-Host " or " -NoNewLine
-                Write-Host "touch requirements.txt" -ForegroundColor Cyan -NoNewLine
-                Write-Host "!"
+                Write-Host "└❯ Make sure to either$cyan uv init --bare$reset or$cyan touch requirements.txt$reset!"
             }
             Write-Host "Virtual Environment has been synced!" -ForegroundColor Green -NoNewLine
             $packagesJson = (uv pip list --format json)
