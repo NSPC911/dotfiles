@@ -156,7 +156,6 @@ Write-Output "`e[0J`e[HDealing with functions and aliases..."
 ## zoxide cant add them for some reason /shrug
 Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
 Set-Alias -Option AllScope -Name "cdi" -Value "__zoxide_zi"
-Set-Alias -Option AllScope -Name "cdb" -Value "__zoxide_bin"
 # temporary fix for zoxide
 $prevloc = "$PROFILE/../prevloc"
 function global:__zoxide_cd($dir, $literal) {
@@ -595,17 +594,21 @@ function fz {
         }
     } elseif ($type -eq "cd") {
         function script:setter {
-            return (Get-ChildItem | Select-Object -ExpandProperty Name | Join-String -Separator "`n" -OutputPrefix "../`n" | Invoke-Fzf -Preview 'ls {} | select -expand name' -Header $PWD.Path -Cycle)
+            if ($IsWindows) { $preview = 'ls {} | select -expand name' }
+            else { $preview = 'ls -1a {}' }
+            return (Get-ChildItem | Select-Object -ExpandProperty Name | Join-String -Separator "`n" -OutputPrefix "../`n" | Invoke-Fzf -Preview "$preview" -Header $PWD.Path -Cycle)
         }
         while ($true) {
             $fzout = setter
             if ($null -eq $fzout) {
+                __zoxide_z ($PWD.Path)
                 return
             } elseif (Test-Path $fzout -PathType Container) {
                 Set-Location ($fzout)
             } elseif (Test-Path $fzout -PathType Leaf) {
                 hx $fzout
             } else {
+                __zoxide_z ($PWD.Path)
                 return
             }
         }

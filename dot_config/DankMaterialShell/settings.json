@@ -509,7 +509,8 @@
       "leftWidgets": [
         {
           "id": "music",
-          "enabled": true
+          "enabled": true,
+          "mediaSize": 3
         }
       ],
       "centerWidgets": [
@@ -520,8 +521,7 @@
         }
       ],
       "rightWidgets": [
-        "systemTray",
-        "clipboard"
+        "systemTray"
       ],
       "spacing": 0,
       "innerPadding": 5,
