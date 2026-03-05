@@ -141,7 +141,9 @@ helium-browser-bin
 hplip
 hwdetect
 hwinfo
+iamb-git
 inetutils
+input-remapper-bin
 intel-media-driver
 intel-ucode
 iptables-nft
@@ -241,6 +243,7 @@ mdadm
 meld
 mesa-utils
 micro
+mise
 mkinitcpio
 modemmanager
 mousetweaks
@@ -352,7 +355,6 @@ vpl-gpu-rt
 vulkan-intel
 waybar
 wayland-protocols
-wev
 wezterm-git
 wget
 which
@@ -391,6 +393,8 @@ beeper-v4-bin 4.2.564-1
 bibata-cursor-theme-bin 2.0.7-1
 carapace-bin 1.6.3-1
 dms-shell-bin 1.4.3-1
+iamb-git r266.93fc47d-1
+input-remapper-bin 2.2.0-5
 lazygit-git 0.57.0.r35.9e455f427-1
 linux-wallpaperengine-git r593.7067d6f-1
 localsend-bin 1.17.0-1

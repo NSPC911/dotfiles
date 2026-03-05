@@ -27,7 +27,10 @@ config.window_decorations = "NONE | RESIZE"
 config.default_prog = { "pwsh", "-NoLogo" }
 -- config.default_prog = { "nu" }
 config.initial_cols = 80
-config.enable_wayland = false
+if wezterm.target_triple:find("linux") then
+    config.window_decorations = "NONE"
+    config.front_end = "OpenGL"
+end
 
 config.window_padding = {
 	left = 10,

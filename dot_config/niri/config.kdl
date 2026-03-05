@@ -226,7 +226,8 @@ layout {
     // center-focused-column "always" // Don’t auto-center focused column
     background-color "transparent"
     empty-workspace-above-first
-    center-focused-column "on-overflow"
+    // center-focused-column "on-overflow"
+    always-center-single-column
 
     preset-column-widths {
         proportion 0.33333
