@@ -116,8 +116,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-03-02T20:02:53.3525339+08:00",
-      "Version": "1.438.0"
+      "Updated": "2026-03-04T10:15:50.3672028+08:00",
+      "Version": "1.440.0"
     },
     {
       "Info": "",
@@ -247,6 +247,13 @@
     },
     {
       "Info": "",
+      "Name": "iamb",
+      "Source": "le-bucket",
+      "Updated": "2026-03-05T20:46:40.9580752+08:00",
+      "Version": "0.0.11"
+    },
+    {
+      "Info": "",
       "Name": "imagemagick",
       "Source": "main",
       "Updated": "2026-02-23T14:31:47.7091867+08:00",
@@ -326,8 +333,8 @@
       "Info": "",
       "Name": "nodejs",
       "Source": "main",
-      "Updated": "2026-02-25T19:49:06.8050161+08:00",
-      "Version": "25.7.0"
+      "Updated": "2026-03-04T10:19:41.7793298+08:00",
+      "Version": "25.8.0"
     },
     {
       "Info": "",
@@ -361,8 +368,8 @@
       "Info": "",
       "Name": "ollama-full",
       "Source": "extras",
-      "Updated": "2026-02-27T22:53:30.3573015+08:00",
-      "Version": "0.17.4"
+      "Updated": "2026-03-04T22:53:34.7440586+08:00",
+      "Version": "0.17.6"
     },
     {
       "Info": "",
@@ -375,8 +382,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-02-27T22:53:57.3737845+08:00",
-      "Version": "1.2.15"
+      "Updated": "2026-03-05T11:34:39.4317506+08:00",
+      "Version": "1.2.17"
     },
     {
       "Info": "",
@@ -480,8 +487,8 @@
       "Info": "",
       "Name": "rio-nightly",
       "Source": "le-bucket",
-      "Updated": "2026-02-27T22:55:16.1101158+08:00",
-      "Version": "2026-02-26"
+      "Updated": "2026-03-04T22:54:17.8462521+08:00",
+      "Version": "2026-03-03"
     },
     {
       "Info": "",
@@ -571,8 +578,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "main",
-      "Updated": "2026-03-01T08:31:30.2547588+08:00",
-      "Version": "0.8.0"
+      "Updated": "2026-03-04T10:17:10.6052764+08:00",
+      "Version": "0.9.0"
     },
     {
       "Info": "",
@@ -585,8 +592,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-03-01T08:31:30.7128803+08:00",
-      "Version": "0.10.7"
+      "Updated": "2026-03-04T10:17:17.4798232+08:00",
+      "Version": "0.10.8"
     },
     {
       "Info": "",
@@ -594,13 +601,6 @@
       "Source": "le-bucket",
       "Updated": "2026-03-02T12:09:45.920135+08:00",
       "Version": "1.5.2"
-    },
-    {
-      "Info": "",
-      "Name": "vscode",
-      "Source": "extras",
-      "Updated": "2026-03-02T11:48:22.3831378+08:00",
-      "Version": "1.109.5"
     },
     {
       "Info": "",
@@ -641,15 +641,8 @@
       "Info": "",
       "Name": "yasb-dev",
       "Source": "le-bucket",
-      "Updated": "2026-02-23T14:32:58.2603798+08:00",
-      "Version": "20260222-023005"
-    },
-    {
-      "Info": "",
-      "Name": "yasb-gui",
-      "Source": "le-bucket",
-      "Updated": "2026-02-24T09:24:34.6482499+08:00",
-      "Version": "0.0.5"
+      "Updated": "2026-03-05T11:39:58.5506392+08:00",
+      "Version": "20260304-184455"
     },
     {
       "Info": "",
@@ -669,15 +662,15 @@
       "Info": "",
       "Name": "zed",
       "Source": "extras",
-      "Updated": "2026-03-02T11:41:08.5679045+08:00",
-      "Version": "0.225.10"
+      "Updated": "2026-03-05T11:40:22.0144118+08:00",
+      "Version": "0.226.4"
     },
     {
       "Info": "",
       "Name": "zen-browser",
       "Source": "extras",
-      "Updated": "2026-03-02T00:14:38.645899+08:00",
-      "Version": "1.19b"
+      "Updated": "2026-03-05T11:35:38.2670655+08:00",
+      "Version": "1.19.1b"
     },
     {
       "Info": "",
@@ -689,34 +682,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1449,
+      "Manifests": 1455,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-03-02T16:33:41+08:00"
+      "Updated": "2026-03-05T20:33:30+08:00"
     },
     {
-      "Manifests": 2273,
+      "Manifests": 2277,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-03-02T19:32:29+08:00"
+      "Updated": "2026-03-05T20:32:05+08:00"
     },
     {
       "Manifests": 552,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-03-02T17:03:47+08:00"
+      "Updated": "2026-03-05T17:02:50+08:00"
     },
     {
       "Manifests": 388,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-03-02T16:32:27+08:00"
+      "Updated": "2026-03-05T20:32:47+08:00"
     },
     {
-      "Manifests": 33,
+      "Manifests": 34,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-03-02T17:03:18+08:00"
+      "Updated": "2026-03-05T20:46:12+08:00"
     }
   ],
   "config": {
