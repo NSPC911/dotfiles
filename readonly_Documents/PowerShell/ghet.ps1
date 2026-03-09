@@ -40,9 +40,7 @@ function ghet {
     }
 
     # Filter useful stuff
-    $assets = @($release.assets) | Where-Object {
-        $_.name -match '\.(exe|msi|bat|cmd)$' -or $_.name -match '\.(zip|tar\.gz|tgz)$'
-    }
+    $assets = $release.assets
     if ($assets.Count -eq 0) {
         Write-Host "╰─ no matching executable-type assets (.exe/.msi/.zip/etc.)" -ForegroundColor Yellow
         Write-Host ""

@@ -1,5 +1,5 @@
 {
-  "use_mouse": false,
+  "use_mouse": true,
   "use_keyboard": true,
   "pawcurate": true,
   "delay": 0.1,

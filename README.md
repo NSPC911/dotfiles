@@ -67,15 +67,14 @@ helix
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
 ```
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
-hike v1.2.1
+hike v1.3.0
 mistral-vibe v2.3.0
 poethepoet v0.42.1
 poetry v2.3.2
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
 rich-cli v1.8.1
-rovr v0.8.0.dev1 [required: file:///C:/Users/notso/Git/NSPC911/rovr/dist/rovr-0.8.0.dev1-py3-none-any.whl]
-ruff v0.15.4
+ruff v0.15.5
 ty v0.0.8 [required: ==0.0.8]
 ```
 
@@ -140,17 +139,17 @@ ty v0.0.8 [required: ==0.0.8]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     59         4368         4367            0            1
+ JSON                     59         4378         4377            0            1
  CSS                      11         3959         3188          282          489
  TOML                     11         1748         1462          164          122
  YAML                      5         1192         1072           53           67
- PowerShell                3         1033          877           58           98
+ PowerShell                3         1037          881           58           98
  Scheme                    6          955          840           21           94
  INI                       1          687          170          414          103
- Lua                       1          237          216            9           12
- Markdown                 10          220            0          172           48
+ Lua                       1          241          220            9           12
+ Markdown                 10          219            0          171           48
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   107        14399        12192         1173         1034
+ Total                   107        14416        12210         1172         1034
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

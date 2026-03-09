@@ -29,7 +29,8 @@ config.default_prog = { "pwsh", "-NoLogo" }
 config.initial_cols = 80
 if wezterm.target_triple:find("linux") then
     config.window_decorations = "NONE"
-    config.front_end = "OpenGL"
+else
+	config.window_decorations = "NONE | RESIZE"
 end
 
 config.window_padding = {

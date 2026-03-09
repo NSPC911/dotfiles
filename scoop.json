@@ -102,22 +102,22 @@
       "Info": "",
       "Name": "codebook",
       "Source": "le-bucket",
-      "Updated": "2026-03-01T08:33:03.3960531+08:00",
-      "Version": "0.3.31"
+      "Updated": "2026-03-08T17:03:24.9604933+08:00",
+      "Version": "0.3.32"
     },
     {
       "Info": "",
       "Name": "collapse-launcher",
       "Source": "games",
-      "Updated": "2026-01-14T12:05:38.9618479+08:00",
-      "Version": "1.83.14"
+      "Updated": "2026-03-05T22:36:15.536804+08:00",
+      "Version": "1.83.15"
     },
     {
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-03-04T10:15:50.3672028+08:00",
-      "Version": "1.440.0"
+      "Updated": "2026-03-07T23:01:54.2299901+08:00",
+      "Version": "1.448.0"
     },
     {
       "Info": "",
@@ -151,15 +151,15 @@
       "Info": "",
       "Name": "fastfetch",
       "Source": "main",
-      "Updated": "2026-02-15T01:31:33.4785282+08:00",
-      "Version": "2.59.0"
+      "Updated": "2026-03-07T22:52:02.4587467+08:00",
+      "Version": "2.60.0"
     },
     {
       "Info": "",
       "Name": "fd",
       "Source": "main",
-      "Updated": "2026-01-14T12:06:34.0269999+08:00",
-      "Version": "10.3.0"
+      "Updated": "2026-03-09T21:40:42.274128+08:00",
+      "Version": "10.4.1"
     },
     {
       "Info": "",
@@ -179,8 +179,8 @@
       "Info": "",
       "Name": "flow-launcher",
       "Source": "extras",
-      "Updated": "2026-02-25T20:54:29.1845278+08:00",
-      "Version": "2.1.0"
+      "Updated": "2026-03-09T21:44:46.3487981+08:00",
+      "Version": "2.1.1"
     },
     {
       "Info": "",
@@ -228,8 +228,8 @@
       "Info": "",
       "Name": "go",
       "Source": "main",
-      "Updated": "2026-02-11T08:14:12.1533471+08:00",
-      "Version": "1.26.0"
+      "Updated": "2026-03-06T10:35:03.4178923+08:00",
+      "Version": "1.26.1"
     },
     {
       "Info": "",
@@ -256,8 +256,8 @@
       "Info": "",
       "Name": "imagemagick",
       "Source": "main",
-      "Updated": "2026-02-23T14:31:47.7091867+08:00",
-      "Version": "7.1.2-15"
+      "Updated": "2026-03-09T21:41:07.8882646+08:00",
+      "Version": "7.1.2-16"
     },
     {
       "Info": "",
@@ -361,15 +361,15 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2026-02-27T22:49:13.3206243+08:00",
-      "Version": "29.7.0"
+      "Updated": "2026-03-05T22:37:06.516096+08:00",
+      "Version": "29.7.1"
     },
     {
       "Info": "",
       "Name": "ollama-full",
       "Source": "extras",
-      "Updated": "2026-03-04T22:53:34.7440586+08:00",
-      "Version": "0.17.6"
+      "Updated": "2026-03-07T22:54:55.234655+08:00",
+      "Version": "0.17.7"
     },
     {
       "Info": "",
@@ -382,8 +382,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-03-05T11:34:39.4317506+08:00",
-      "Version": "1.2.17"
+      "Updated": "2026-03-09T21:44:38.8904718+08:00",
+      "Version": "1.2.22"
     },
     {
       "Info": "",
@@ -417,8 +417,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2026-02-27T22:54:47.8557844+08:00",
-      "Version": "10.30.3"
+      "Updated": "2026-03-08T17:03:38.6399286+08:00",
+      "Version": "10.31.0"
     },
     {
       "Info": "",
@@ -487,8 +487,8 @@
       "Info": "",
       "Name": "rio-nightly",
       "Source": "le-bucket",
-      "Updated": "2026-03-04T22:54:17.8462521+08:00",
-      "Version": "2026-03-03"
+      "Updated": "2026-03-09T21:44:37.2324836+08:00",
+      "Version": "2026-03-08"
     },
     {
       "Info": "",
@@ -578,8 +578,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "main",
-      "Updated": "2026-03-04T10:17:10.6052764+08:00",
-      "Version": "0.9.0"
+      "Updated": "2026-03-09T21:41:33.5195722+08:00",
+      "Version": "0.9.4"
     },
     {
       "Info": "",
@@ -592,8 +592,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-03-04T10:17:17.4798232+08:00",
-      "Version": "0.10.8"
+      "Updated": "2026-03-07T23:00:25.7953354+08:00",
+      "Version": "0.10.9"
     },
     {
       "Info": "",
@@ -606,8 +606,8 @@
       "Info": "",
       "Name": "wezterm-nightly",
       "Source": "versions",
-      "Updated": "2026-02-11T08:12:15.4345824+08:00",
-      "Version": "nightly-20260211"
+      "Updated": "2026-03-05T22:53:33.7757636+08:00",
+      "Version": "nightly-20260305"
     },
     {
       "Info": "",
@@ -641,8 +641,8 @@
       "Info": "",
       "Name": "yasb-dev",
       "Source": "le-bucket",
-      "Updated": "2026-03-05T11:39:58.5506392+08:00",
-      "Version": "20260304-184455"
+      "Updated": "2026-03-07T22:59:43.6130707+08:00",
+      "Version": "20260305-203833"
     },
     {
       "Info": "",
@@ -662,8 +662,8 @@
       "Info": "",
       "Name": "zed",
       "Source": "extras",
-      "Updated": "2026-03-05T11:40:22.0144118+08:00",
-      "Version": "0.226.4"
+      "Updated": "2026-03-07T22:58:34.9823739+08:00",
+      "Version": "0.226.5"
     },
     {
       "Info": "",
@@ -682,34 +682,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1455,
+      "Manifests": 1457,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-03-05T20:33:30+08:00"
+      "Updated": "2026-03-09T20:33:52+08:00"
     },
     {
-      "Manifests": 2277,
+      "Manifests": 2279,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-03-05T20:32:05+08:00"
+      "Updated": "2026-03-09T20:32:40+08:00"
     },
     {
       "Manifests": 552,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-03-05T17:02:50+08:00"
+      "Updated": "2026-03-09T17:19:45+08:00"
     },
     {
       "Manifests": 388,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-03-05T20:32:47+08:00"
+      "Updated": "2026-03-09T20:34:07+08:00"
     },
     {
       "Manifests": 34,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-03-05T20:46:12+08:00"
+      "Updated": "2026-03-09T11:16:58+08:00"
     }
   ],
   "config": {
