@@ -39,14 +39,6 @@ function ghet {
         return
     }
 
-    # Filter useful stuff
-    $assets = $release.assets
-    if ($assets.Count -eq 0) {
-        Write-Host "╰─ no matching executable-type assets (.exe/.msi/.zip/etc.)" -ForegroundColor Yellow
-        Write-Host ""
-        return
-    }
-
     if ($release.name) {
         $releaser = $release.name
     } elseif ($release.tag_name) {

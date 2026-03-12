@@ -111,13 +111,17 @@
       &::before,
       &::after,
       & > * {
-        background: none !important;
         backdrop-filter: unset !important;
         outline: none !important;
       }
       & > .zen-toolbar-background {
-        background: var(--funny-accent-background-colour) !important;
+        background: #2e3440 !important;
         border-radius: 4px 0 0 4px;
+        backdrop-filter: blur(10px);
+        &::before,
+        &::after {
+          display: none
+        }
       }
     }
   }
