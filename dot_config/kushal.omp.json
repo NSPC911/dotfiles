@@ -82,7 +82,12 @@
           "powerline_symbol": "\ue0b0",
           "background": "#D08770",
           "type": "pnpm",
-          "style": "powerline"
+          "style": "powerline",
+          "display_mode": "files",
+          "extensions": [
+            "pnpm-lock.yaml"
+          ],
+          "cache_duration": "1h"
         },
         {
           "template": " \ue627 {{ if .Error }}{{ else }}{{ .Major }}.{{ .Minor }} {{ end }}",
@@ -90,7 +95,8 @@
           "powerline_symbol": "\ue0b0",
           "background": "#88C0D0",
           "type": "go",
-          "style": "powerline"
+          "style": "powerline",
+          "cache_duration": "1h"
         },
         {
           "type": "lua",
@@ -98,7 +104,8 @@
           "powerline_symbol": "\ue0b0",
           "foreground": "#2e3440",
           "background": "#4CA1D0",
-          "template": "  {{ if .Error }}{{ else }}{{ .Major }}.{{ .Minor }} {{ end }}"
+          "template": "  {{ if .Error }}{{ else }}{{ .Major }}.{{ .Minor }} {{ end }}",
+          "cache_duration": "1h"
         },
         {
           "template": " \ue76f {{ if .Error }}{{ else }}{{ .Major }}.{{ .Minor }} {{ end }}",
@@ -106,7 +113,8 @@
           "powerline_symbol": "\ue0b0",
           "background": "#5e81ac",
           "type": "bun",
-          "style": "powerline"
+          "style": "powerline",
+          "cache_duration": "1h"
         },
         {
           "template": " \ue7a8 {{ if .Error }}{{ else }}{{ .Major }}.{{ .Minor }} {{ end }}",
@@ -121,7 +129,7 @@
             "branch_icon": "\ue725 ",
             "fetch_status": true,
             "fetch_upstream_icon": true,
-            "fetch_worktree_count": true
+            "fetch_push_status": true
           },
           "template": " {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} \ue0b1{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
           "foreground": "#2e3440",
@@ -197,15 +205,24 @@
           "template": "{{ if .Env.WEZTERM_PANE }} |  {{ .Env.WEZTERM_PANE }} {{ end }}"
         },
         {
-          "type": "peard",
+          "type": "http",
           "style": "plain",
           "foreground": "#D6DEEB",
+          "template": "| {{ if eq .Body.mode \"ALL\" }}\udb81\udc56{{ else if eq .Body.mode \"ONE\" }}\udb81\udc58{{ else }}\udb81\udc57{{ end }}",
           "options": {
-            "port": 26538,
-            "playing_icon": " ",
-            "paused_icon": " "
-          },
-          "template": "| {{ .Icon }}{{ if ne .Status \"paused\" }}{{ .Artist }} - {{ .Track }}{{ end }}"
+            "url": "http://127.0.0.1:26538/api/v1/repeat-mode",
+            "method": "GET"
+          }
+        },
+        {
+          "type": "http",
+          "style": "plain",
+          "foreground": "#D6DEEB",
+          "template": " {{ if .Body.isPaused }}\uf04c{{ else }}\uf04b{{ end }} {{ .Body.title }} - {{ .Body.artist }}",
+          "options": {
+            "url": "http://127.0.0.1:26538/api/v1/song-info",
+            "method": "GET"
+          }
         }
       ],
       "newline": true

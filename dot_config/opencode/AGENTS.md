@@ -1,8 +1,8 @@
 # Environment
 
 You are running in a Windows environment.
-Most POSIX commands and paths do not work. If you do want to use POSIX tools, append `uutils` before the command, e.g., `uutils ls`.
-Use appropriate `cmd.exe` commands.
+Most POSIX commands may or may not work.
+Use appropriate `powershell.exe` commands. This means that chaining commands must be done with a semicolon `;`, NOT with `&&` or `||`.
 
 You are running in Wezterm, which comes with a few multiplexing tools. If you have access to wezterm's MCP, make use of it. Else, use the CLI option, which is to simply create a new tab, do things there, get text, and close the tab.
 

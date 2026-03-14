@@ -1,8 +1,8 @@
 {
   "fonts": {
-    "regular": "C:/Users/notso/Downloads/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf",
-    "bold": "C:/Users/notso/Downloads/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf",
-    "italic": "C:/Users/notso/Downloads/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf"
+    "regular": "C:/Users/notso/Downloads/fonts/CaskaydiaCoveNFM/CaskaydiaCoveNFM-Regular.ttf",
+    "bold": "C:/Users/notso/Downloads/fonts/CaskaydiaCoveNFM/CaskaydiaCoveNFM-Bold.ttf",
+    "italic": "C:/Users/notso/Downloads/fonts/CaskaydiaCoveNFM/CaskaydiaCoveNFM-Italic.ttf"
   },
   "author": "NSPC911",
   "background_color": "#2e3440",

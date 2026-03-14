@@ -388,25 +388,26 @@ yay
 yazi
 zen-browser-bin
 zoxide
-amdgpu-pro-oglp 25.10_2202160-1
-beeper-v4-bin 4.2.564-1
-bibata-cursor-theme-bin 2.0.7-1
-carapace-bin 1.6.3-1
-dms-shell-bin 1.4.3-1
-iamb-git r266.93fc47d-1
-input-remapper-bin 2.2.0-5
-lazygit-git 0.57.0.r35.9e455f427-1
-linux-wallpaperengine-git r593.7067d6f-1
-localsend-bin 1.17.0-1
-matugen-bin 4.0.0-1
-oh-my-posh 29.7.0-1
-ollama-bin 0.17.5-1
-ov-bin 0.51.1-1
-pacseek 1.8.6-1
-powershell-bin 7.5.4-1
-python-ignis-git 0.5.r151.g5fd1402-1
-scooter 0.9.0-1
-sddm-silent-theme-git r20260131.ga44caf7-1
-superhtml-bin 0.6.2-1
-ttf-material-symbols-variable-git 4.0.0.r142.gbb04090f-1
-wezterm-git 20240203.110809.r790.gd3b0fda-1
+amdgpu-pro-oglp
+beeper-v4-bin
+bibata-cursor-theme-bin
+carapace-bin
+dms-shell-bin
+iamb-git
+input-remapper-bin
+lazygit-git
+linux-wallpaperengine-git
+localsend-bin
+matugen-bin
+oh-my-posh
+ollama-bin
+ov-bin
+pacseek
+powershell-bin
+python-ignis-git
+redhat-fonts
+scooter
+sddm-silent-theme-git
+superhtml-bin
+ttf-material-symbols-variable-git
+wezterm-git

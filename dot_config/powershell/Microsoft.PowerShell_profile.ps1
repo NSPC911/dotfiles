@@ -142,7 +142,9 @@ if (-not (Test-Path $cacheCompletionLocation)) {
 } elseif ((Get-Item $cacheCompletionLocation).LastWriteTime -lt (Get-Date).AddDays(-1)) {
     Write-Output "Regenerating cache..."
     if ($IsWindows) {
-        Start-Process pwsh -Verb RunAs -ArgumentList "-Command regenCache" -WindowStyle Hidden
+        . $cacheCompletionLocation
+        Remove-Item $cacheCompletionLocation -ErrorAction Ignore
+        Start-Process pwsh -Verb RunAs -ArgumentList "-Command exit" -WindowStyle Hidden
     } else {
         regenCache
     }
@@ -462,7 +464,7 @@ function Get-FullHistory {
 
 ##### run something foreva!! #####
 function forever {
-    while ($true) { $args | Invoke-Expression }
+    while ($true) { Invoke-Expression "$args" }
 }
 
 ##### PS Plugins #####

@@ -1,5 +1,5 @@
 hide-cursor-when-typing = false
-padding-x = 5
+padding-x = 10
 padding-y = [10, 13]
 # env-vars = []
 confirm-before-quit = false
@@ -32,10 +32,10 @@ filters = []
 [keyboard]
 use-kitty-keyboard-protocol = true
 [fonts]
-family = "0xProto Nerd Font Propo"
+family = "0xProto Nerd Font Mono"
 features = ["cv12", "cv18", "calt"]
 use-drawable-characters = false
-size = 16
+size = 14
 [fonts.regular]
 family = "0xProto Nerd Font Mono"
 weight = 400
