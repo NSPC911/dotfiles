@@ -83,9 +83,9 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: ["media-info"]
+      left: ["media-info", "cava"]
       center: []
-      right: ["cava"]
+      right: []
 widgets:
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
@@ -341,8 +341,8 @@ widgets:
         on_right: "toggle_label"
         on_middle: "do_nothing"
       max_field_size:
-        label: 70
-        label_alt: 70
+        label: 48
+        label_alt: 48
       show_thumbnail: true
       controls_only: false
       controls_left: false

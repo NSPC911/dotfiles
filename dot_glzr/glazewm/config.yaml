@@ -3,7 +3,7 @@ general:
   shutdown_commands: []
   config_reload_commands: []
   focus_follows_cursor: true
-  toggle_workspace_on_refocus: false
+  toggle_workspace_on_refocus: true
 
   cursor_jump:
     enabled: true
@@ -94,6 +94,7 @@ window_rules:
         window_title: { equals: "Settings" }
       - window_process: { equals: "LiveCaptions" }
       - window_process: { equals: "Photos" }
+      - window_process: { equals: "CollapseLauncher" }
 
   - commands: ["ignore"]
     match:

@@ -1,5 +1,5 @@
 :root {
-  --main: #2e3440cc;
+  --main: #2e3440aa;
   --main-50p: #2e34407f;
   --nord-black0: #191d24;
   --nord-black1: #1e222a;
@@ -617,19 +617,25 @@ QPushButton {
   border-radius: 6px;
   margin: 1px
 }
+.task-bar {
+  margin-left: 56px;
+  margin-bottom: 4px;
+}
 .task-bar .media-widget {
   background-color: var(--main);
   border: 2px solid var(--nord-gray4);
   border-radius: 8px;
-  margin: 0px 7px 4px 56px;
+  margin: 0px;
+  margin-right: 6px;
   padding: 1px;
 }
-.task-bar .container-right {
-  /* cava */
-  margin-bottom: 5px;
-  margin-top: 1px;
+.task-bar .cava-widget {
+  background-color: var(--main);
+  border: 2px solid var(--nord-gray4);
+  border-radius: 8px;
+  margin: 0px;
+  padding: 0px 4px;
   overflow: hidden;
-  margin-right: 5px;
 }
 
 /* Bar widget */

@@ -4,18 +4,9 @@
   "screen_reader": false,
   "theme": "auto",
   "trusted_folders": [
-    "*",
-    "C:\\Users\\notso\\Git\\NSPC911\\forks\\helix",
-    "C:\\Users\\notso\\Git\\we-ascii-clouds",
-    "C:\\Users\\notso\\Git\\NSPC911\\rovr",
-    "C:\\Users\\notso\\Git\\NSPC911\\zcoop",
-    "C:\\Users\\notso\\Git\\NSPC911\\bongo-cat",
-    "C:\\Users\\notso\\Git\\NSPC911\\forks\\textual-image"
+    "*"
   ],
-  "allowed_urls": [
-    "https://caidan.dev",
-    "https://github.com"
-  ],
+  "allowed_urls": [],
   "alt_screen": true,
   "experimental": true,
   "installed_plugins": [
@@ -25,7 +16,7 @@
       "version": "1.0.0",
       "installed_at": "2026-02-18T15:00:03.586Z",
       "enabled": true,
-      "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\awesome-copilot"
+      "cache_path": "C:/Users/notso/.copilot/installed-plugins/awesome-copilot/awesome-copilot"
     },
     {
       "name": "context-engineering",
@@ -33,7 +24,7 @@
       "version": "1.0.0",
       "installed_at": "2026-02-18T15:00:21.103Z",
       "enabled": true,
-      "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\context-engineering"
+      "cache_path": "C:/Users/notso/.copilot/installed-plugins/awesome-copilot/context-engineering"
     },
     {
       "name": "frontend-web-dev",
@@ -41,7 +32,7 @@
       "version": "1.0.0",
       "installed_at": "2026-02-18T15:00:52.127Z",
       "enabled": true,
-      "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\frontend-web-dev"
+      "cache_path": "C:/Users/notso/.copilot/installed-plugins/awesome-copilot/frontend-web-dev"
     },
     {
       "name": "security-best-practices",
@@ -49,7 +40,7 @@
       "version": "1.0.0",
       "installed_at": "2026-02-18T15:01:43.567Z",
       "enabled": true,
-      "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\security-best-practices"
+      "cache_path": "C:/Users/notso/.copilot/installed-plugins/awesome-copilot/security-best-practices"
     },
     {
       "name": "python-mcp-development",
@@ -57,7 +48,10 @@
       "version": "1.0.0",
       "installed_at": "2026-02-18T15:01:49.894Z",
       "enabled": true,
-      "cache_path": "C:\\Users\\notso\\.copilot\\installed-plugins\\awesome-copilot\\python-mcp-development"
+      "cache_path": "C:/Users/notso/.copilot/installed-plugins/awesome-copilot/python-mcp-development"
     }
-  ]
+  ],
+  "model": "claude-sonnet-4.6",
+  "reasoning_effort": "low",
+  "firstLaunchAt": "2026-03-11T00:00:00.000Z"
 }

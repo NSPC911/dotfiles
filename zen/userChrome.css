@@ -46,18 +46,22 @@
   .tabbrowser-tab:not([pinned]):hover .tab-icon-stack {
     margin-left: 0 !important;
   }
-  #tabbrowser-tabbox:has(
-      > #zen-toast-container > hbox > button#zen-open-background-tab-button
-    )
-    > #tabbrowser-tabpanels {
+  #tabbrowser-tabbox:has(> #zen-toast-container > hbox > button#zen-open-background-tab-button) > #tabbrowser-tabpanels {
     animation: background_tab 0.25s ease;
   }
 
-  #tabbrowser-tabbox:has(
-      > #zen-toast-container > hbox > button#zen-copy-current-url-button
-    )
-    > #tabbrowser-tabpanels {
+  #tabbrowser-tabbox:has(> #zen-toast-container > hbox > button#zen-copy-current-url-button) > #tabbrowser-tabpanels {
     animation: clipboard_added 0.25s ease;
+  }
+
+  #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer browser {
+    background: transparent !important;
+    border-radius: 5px;
+  }
+
+  #tabbrowser-tabbox #tabbrowser-tabpanels .browserContainer {
+    border: 2px solid #2e3440;
+    border-radius: 5px;
   }
 
   .zen-toast {
