@@ -68,7 +68,7 @@ helix
 ```
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.3.0
-mistral-vibe v2.4.2
+mistral-vibe v2.5.0
 poethepoet v0.42.1
 poetry v2.3.2
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
@@ -77,7 +77,7 @@ rich-cli v1.8.1
 rovr v0.8.0.dev3 [required:  git+https://github.com/NSPC911/rovr]
 ruff v0.15.6
 ty v0.0.20 [required: ==0.0.20]
-zuban v0.6.1
+ytm-player v1.5.2
 ```
 
 #### pnpm global installs
