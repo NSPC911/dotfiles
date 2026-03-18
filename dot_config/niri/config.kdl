@@ -19,6 +19,7 @@ input {
         middle-emulation
         scroll-factor vertical=0.5 horizontal=0.5
         accel-speed 0.3
+        natural-scroll
     }
 
     focus-follows-mouse // Automatically focus windows under the mouse pointer
@@ -225,7 +226,7 @@ layout {
     gaps 8 // Gap between windows
     // center-focused-column "always" // Don’t auto-center focused column
     background-color "transparent"
-    empty-workspace-above-first
+    // empty-workspace-above-first
     // center-focused-column "on-overflow"
     always-center-single-column
 
@@ -236,14 +237,14 @@ layout {
     }
     default-column-width { proportion 0.8; }
     border {
-        off
+        on
         width 3
-        active-gradient from="#5e81ac" to="#88c0d0" angle=45 relative-to="workspace-view"
+        active-color "#88c0d0"
         inactive-color "#4c566a"
         urgent-color "#bf616a"
     }
     focus-ring {
-        on
+        off
         width 3
         active-color "#88c0d0"
         // inactive-color "#000000"
@@ -257,7 +258,12 @@ layout {
         color "#0007"
     }
 
-    struts {}
+    struts {
+        left -4
+        right -4
+        top -4
+        bottom -4
+    }
 
     tab-indicator {
         position "right"
@@ -328,7 +334,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 8
+    geometry-corner-radius 6
     clip-to-geometry true
     open-maximized-to-edges false
     // background-effect {

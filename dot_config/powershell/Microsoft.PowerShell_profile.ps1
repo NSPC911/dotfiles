@@ -652,9 +652,15 @@ function Convert-IntToSize {
 
 ##### something is wrong with my wifi #####
 function Reset-WiFi {
-    cmd /c "" "netsh interface set interface `"Wi-Fi`" admin=disable"
-    Start-Sleep -Seconds 5
-    cmd /c "" "netsh interface set interface `"Wi-Fi`" admin=enable"
+    Invoke-SpectreCommandWithStatus -Spinner "Dots2" -Title "Disabling Wi-Fi" -ScriptBlock {
+        cmd /c "" "netsh interface set interface `"Wi-Fi`" admin=disable"
+    }
+    Invoke-SpectreCommandWithStatus -Spinner "Dots2" -Title "Waiting for 5 seconds..." -ScriptBlock {
+        Start-Sleep -Seconds 5
+    }
+    Invoke-SpectreCommandWithStatus -Spinner "Dots2" -Title "Enabling Wi-Fi" -ScriptBlock {
+        cmd /c "" "netsh interface set interface `"Wi-Fi`" admin=enable"
+    }
 }
 
 

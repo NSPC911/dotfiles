@@ -165,7 +165,6 @@ kanagram
 kapman
 kapptemplate
 kasts
-kate
 katomic
 kbackup
 kblackbox
@@ -189,9 +188,6 @@ kdenlive
 kdepim-addons
 kdesdk-kio
 kdesdk-thumbnailers
-kdevelop
-kdevelop-php
-kdevelop-python
 kdf
 kdialog
 kdiamond
@@ -282,7 +278,6 @@ perl
 pipewire-alsa
 pipewire-pulse
 pkgfile
-plasma-desktop
 plocate
 plymouth
 pnpm
@@ -291,6 +286,7 @@ poppler-glib
 power-profiles-daemon
 powershell-bin
 proton-cachyos
+proton-ge-custom-bin
 pv
 python
 python-defusedxml
@@ -319,6 +315,7 @@ snapper
 sof-firmware
 splix
 steam
+steel-bin
 sudo
 superfile
 superhtml-bin
@@ -404,10 +401,12 @@ ollama-bin
 ov-bin
 pacseek
 powershell-bin
+proton-ge-custom-bin
 python-ignis-git
 redhat-fonts
 scooter
 sddm-silent-theme-git
+steel-bin
 superhtml-bin
 ttf-material-symbols-variable-git
 wezterm-git
