@@ -33,7 +33,9 @@ function ghet {
         return
     }
 
-    if (-not $release.assets -or $release.assets.Count -eq 0) {
+    $assets = $release.assets
+
+    if (-not $assets -or $assets.Count -eq 0) {
         Write-Host "╰─ no assets found in latest release '$(($release.name) -or $release.tag_name)'" -ForegroundColor Yellow
         Write-Host ""
         return

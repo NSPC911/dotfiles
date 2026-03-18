@@ -105,7 +105,8 @@
     }
   },
   "plugin": [
-    "oh-my-opencode"
+    "oh-my-opencode",
+    "opencode-wakatime"
   ],
   "keybinds": {
     "terminal_suspend": "none"

@@ -96,6 +96,8 @@ window_rules:
       - window_process: { equals: "Photos" }
       - window_process: { equals: "CollapseLauncher" }
 
+      - window_process: { equals: "PowerToys.KeyboardManagerEditor" }
+
   - commands: ["ignore"]
     match:
       - window_process: { equals: "zebar" }

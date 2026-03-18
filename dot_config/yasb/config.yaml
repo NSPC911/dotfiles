@@ -37,8 +37,8 @@ bars:
         [
           "power_menu",
           "launchpad",
-          "media-controls",
           "copilot",
+          "media-controls",
           "active_window",
         ]
       center: ["clock", "cpu"]
