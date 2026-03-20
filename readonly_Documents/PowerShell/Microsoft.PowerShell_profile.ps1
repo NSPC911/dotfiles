@@ -235,8 +235,8 @@ function symlink {
     New-Item -ItemType SymbolicLink -Path $ItemToSymlinkTo -Target (Resolve-Path $ItemToSymlinkFrom).Path
 }
 
-function Get-Folder-Size {
-    Get-ChildItem -Recurse | Measure-Object -Property Length -Sum | Select-Object @{Name="Size(GB)";Expression={[math]::round($_.Sum/1GB,2)}}
+function Get-FolderSize {
+    Get-ChildItem -Recurse -Force | Measure-Object -Property Length -Sum | Select-Object @{Name="Size(GB)";Expression={[math]::round($_.Sum/1GB,4)}}
 }
 
 function touch {
@@ -632,23 +632,23 @@ function fz {
 . "$PROFILE/../suggest-and-explain.ps1"
 
 ##### bytes to size #####
-function Convert-IntToSize {
-    param (
-        [long]$Bytes
-    )
+function Format-ByteSize {
+    [CmdletBinding()]
+    param([Parameter(Mandatory, ValueFromPipeline = $true)][long]$Bytes)
+
+    if ($Bytes -lt 1KB) { return "$Bytes B" }
 
     $units = "Bytes", "KB", "MB", "GB", "TB", "PB", "EB"
-    $index = 0
     $size = [double]$Bytes
+    $i = -1
 
-    while ($size -ge 1024 -and $index -lt ($units.Length - 1)) {
-        $size /= 1024
-        $index++
-    }
+    do {
+        $size /= 1KB
+        $i++
+    } while ($size -ge 1024 -and $i -lt $units.Length - 1)
 
-    "{0:N2} {1}" -f $size, $units[$index]
+    '{0:N2} {1}' -f $size, $units[$i]
 }
-
 
 ##### something is wrong with my wifi #####
 function Reset-WiFi {

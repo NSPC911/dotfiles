@@ -2,37 +2,37 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "github-copilot/claude-sonnet-4.6"
+      "model": "github-copilot/gpt-5.3-codex"
     },
     "librarian": {
-      "model": "github-copilot/gpt-5.1-codex-mini"
+      "model": "github-copilot/gpt-5.4-mini"
     },
     "explore": {
       "model": "github-copilot/gemini-3-flash-preview"
     },
     "oracle": {
-      "model": "github-copilot/gpt-4.1"
+      "model": "github-copilot/gemini-3.1-pro-preview"
     },
     "frontend-ui-ux-engineer": {
-      "model": "github-copilot/gemini-3-pro-preview"
+      "model": "github-copilot/gemini-3.1-pro-preview"
     },
     "document-writer": {
-      "model": "github-copilot/grok-code-fast-1"
+      "model": "github-copilot/gemini-3-flash-preview"
     },
     "multimodal-looker": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "github-copilot/gpt-5.3-codex"
     },
     "prometheus": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "github-copilot/gpt-5.3"
     },
     "OpenCode-Builder": {
-      "model": "github-copilot/grok-code-fast-1"
+      "model": "github-copilot/gpt-5.4-mini"
     },
     "atlas": {
-      "model": "github-copilot/claude-sonnet-4.6"
+      "model": "github-copilot/gpt-5.4"
     },
     "metis": {
-      "model": "github-copilot/gpt-5-codex-mini"
+      "model": "github-copilot/gemini-3.1-pro-preview"
     }
   }
 }

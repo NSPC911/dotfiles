@@ -75,7 +75,7 @@ ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
 rich-cli v1.8.1
 rovr v0.8.0.dev3 [required:  git+https://github.com/NSPC911/rovr]
-ruff v0.15.6
+ruff v0.15.7
 ty v0.0.20 [required: ==0.0.20]
 ytm-player v1.5.2
 ```
@@ -86,7 +86,7 @@ ytm-player v1.5.2
 ```
 │   dependencies:
 ├── @ansible/ansible-language-server@1.2.3
-├── @astrojs/language-server@2.16.5
+├── @astrojs/language-server@2.16.6
 ├── @fsouza/prettierd@0.27.0
 ├── @github/copilot@0.0.383
 ├── @google/gemini-cli@0.30.1
@@ -141,17 +141,17 @@ ytm-player v1.5.2
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     61         4733         4732            0            1
+ JSON                     61         4744         4743            0            1
  CSS                      11         3973         3201          281          491
  TOML                     11         1748         1462          164          122
- YAML                      5         1192         1072           53           67
- PowerShell                3         1034          880           57           97
- Scheme                    6          958          839           25           94
+ YAML                      5         1194         1073           53           68
+ PowerShell                3         1036          881           57           98
+ Scheme                    6          961          839           28           94
  INI                       1          687          170          414          103
  Lua                       1          241          220            9           12
  Markdown                 10          221            0          173           48
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   109        14787        12576         1176         1035
+ Total                   109        14805        12589         1179         1037
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

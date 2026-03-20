@@ -67,8 +67,8 @@
       "Info": "",
       "Name": "carapace-bin",
       "Source": "extras",
-      "Updated": "2026-02-25T08:52:04.2706412+08:00",
-      "Version": "1.6.3"
+      "Updated": "2026-03-19T23:52:37.1787635+08:00",
+      "Version": "1.6.4"
     },
     {
       "Info": "",
@@ -102,8 +102,8 @@
       "Info": "",
       "Name": "codebook",
       "Source": "le-bucket",
-      "Updated": "2026-03-14T23:09:18.4951302+08:00",
-      "Version": "0.3.33"
+      "Updated": "2026-03-20T23:38:44.0970461+08:00",
+      "Version": "0.3.35"
     },
     {
       "Info": "",
@@ -116,8 +116,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-03-16T22:32:23.95188+08:00",
-      "Version": "1.454.0"
+      "Updated": "2026-03-18T18:18:03.711027+08:00",
+      "Version": "1.457.0"
     },
     {
       "Info": "",
@@ -235,8 +235,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2026-03-16T22:32:37.835484+08:00",
-      "Version": "0.10.5.1"
+      "Updated": "2026-03-20T23:38:45.5388855+08:00",
+      "Version": "0.10.6.2"
     },
     {
       "Info": "",
@@ -375,15 +375,15 @@
       "Info": "",
       "Name": "ollama-full",
       "Source": "extras",
-      "Updated": "2026-03-18T16:28:57.5053027+08:00",
-      "Version": "0.18.1"
+      "Updated": "2026-03-20T00:09:23.2305219+08:00",
+      "Version": "0.18.2"
     },
     {
       "Info": "",
       "Name": "onefetch",
       "Source": "extras",
-      "Updated": "2026-01-14T12:09:47.0943954+08:00",
-      "Version": "2.26.1"
+      "Updated": "2026-03-19T23:55:56.2728566+08:00",
+      "Version": "2.27.1"
     },
     {
       "Info": "",
@@ -438,8 +438,8 @@
       "Info": "",
       "Name": "powertoys",
       "Source": "extras",
-      "Updated": "2026-02-11T08:19:08.1978932+08:00",
-      "Version": "0.97.2"
+      "Updated": "2026-03-19T19:39:56.6797156+08:00",
+      "Version": "0.98.0"
     },
     {
       "Info": "",
@@ -452,8 +452,8 @@
       "Info": "",
       "Name": "pwsh",
       "Source": "main",
-      "Updated": "2026-03-17T00:30:17.2093094+08:00",
-      "Version": "7.5.5"
+      "Updated": "2026-03-19T23:53:39.8953874+08:00",
+      "Version": "7.6.0"
     },
     {
       "Info": "",
@@ -527,6 +527,13 @@
     },
     {
       "Info": "",
+      "Name": "steel",
+      "Source": "C:\\Users\\notso\\Git\\NSPC911\\le-bucket\\bucket\\steel.json",
+      "Updated": "2026-03-18T21:53:47.6188575+08:00",
+      "Version": "0.8.2"
+    },
+    {
+      "Info": "",
       "Name": "stretchly",
       "Source": "extras",
       "Updated": "2026-01-14T12:11:20.9493377+08:00",
@@ -550,8 +557,8 @@
       "Info": "",
       "Name": "surge-downloader",
       "Source": "le-bucket",
-      "Updated": "2026-03-17T23:04:24.9287446+08:00",
-      "Version": "0.7.1"
+      "Updated": "2026-03-20T23:38:52.3588839+08:00",
+      "Version": "0.7.3"
     },
     {
       "Info": "",
@@ -592,8 +599,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-03-17T23:04:35.6316858+08:00",
-      "Version": "0.10.11"
+      "Updated": "2026-03-20T23:38:58.8499018+08:00",
+      "Version": "0.10.12"
     },
     {
       "Info": "",
@@ -669,8 +676,8 @@
       "Info": "",
       "Name": "zed",
       "Source": "extras",
-      "Updated": "2026-03-12T08:29:56.1834092+08:00",
-      "Version": "0.227.1"
+      "Updated": "2026-03-19T23:56:56.1704209+08:00",
+      "Version": "0.228.0"
     },
     {
       "Info": "",
@@ -689,34 +696,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1466,
+      "Manifests": 1472,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-03-18T13:00:18+08:00"
+      "Updated": "2026-03-20T20:32:51+08:00"
     },
     {
-      "Manifests": 2278,
+      "Manifests": 2279,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-03-18T12:59:16+08:00"
+      "Updated": "2026-03-20T20:32:27+08:00"
     },
     {
       "Manifests": 558,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-03-18T13:43:57+08:00"
+      "Updated": "2026-03-20T21:37:32+08:00"
     },
     {
       "Manifests": 388,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-03-18T12:59:52+08:00"
+      "Updated": "2026-03-20T20:32:36+08:00"
     },
     {
-      "Manifests": 33,
+      "Manifests": 34,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-03-18T11:22:26+08:00"
+      "Updated": "2026-03-20T13:31:34+08:00"
     }
   ],
   "config": {
