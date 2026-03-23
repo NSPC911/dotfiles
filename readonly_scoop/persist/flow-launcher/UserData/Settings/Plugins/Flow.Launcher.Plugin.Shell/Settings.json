@@ -21,7 +21,7 @@
     "yasbc_dev reload": 1,
     "tacky-borders.exe": 1,
     "rio-nightly --command cmd": 2,
-    "memreduct -clean:full": 3,
+    "memreduct -clean:full": 5,
     "hx": 1
   }
 }

@@ -5,10 +5,10 @@
       "model": "github-copilot/gpt-5.3-codex"
     },
     "librarian": {
-      "model": "github-copilot/gpt-5.4-mini"
+      "model": "mistral/devstral-2512"
     },
     "explore": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "mistral/devstral-2512"
     },
     "oracle": {
       "model": "github-copilot/gemini-3.1-pro-preview"
@@ -23,16 +23,19 @@
       "model": "github-copilot/gpt-5.3-codex"
     },
     "prometheus": {
-      "model": "github-copilot/gpt-5.3"
+      "model": "github-copilot/gemini-3.1-pro-preview"
     },
     "OpenCode-Builder": {
       "model": "github-copilot/gpt-5.4-mini"
     },
     "atlas": {
-      "model": "github-copilot/gpt-5.4"
+      "model": "github-copilot/gpt-5.3-codex"
     },
     "metis": {
-      "model": "github-copilot/gemini-3.1-pro-preview"
+      "model": "github-copilot/gpt-5.3-codex"
+    },
+    "sisyphus-junior": {
+      "model": "github-copilot/gpt-5.4-mini"
     }
   }
 }

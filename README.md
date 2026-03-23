@@ -67,17 +67,31 @@ helix
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
 ```
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
+- gitfetch
 hike v1.3.0
+- hike
 mistral-vibe v2.5.0
+- vibe
+- vibe-acp
 poethepoet v0.42.1
+- poe
 poetry v2.3.2
+- poetry
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
+- ptf
 pyright v1.1.408
+- pyright
+- pyright-langserver
+- pyright-python
+- pyright-python-langserver
 rich-cli v1.8.1
+- rich
 rovr v0.8.0.dev3 [required:  git+https://github.com/NSPC911/rovr]
+- rovr
 ruff v0.15.7
+- ruff
 ty v0.0.20 [required: ==0.0.20]
-ytm-player v1.5.2
+- ty
 ```
 
 #### pnpm global installs
@@ -141,17 +155,17 @@ ytm-player v1.5.2
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     61         4744         4743            0            1
+ JSON                     61         4726         4725            0            1
  CSS                      11         3973         3201          281          491
- TOML                     11         1748         1462          164          122
- YAML                      5         1194         1073           53           68
+ TOML                     11         1751         1464          164          123
+ YAML                      5         1195         1074           53           68
  PowerShell                3         1036          881           57           98
  Scheme                    6          961          839           28           94
  INI                       1          687          170          414          103
- Lua                       1          241          220            9           12
- Markdown                 10          221            0          173           48
+ Lua                       1          241          219           10           12
+ Markdown                 10          235            0          187           48
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   109        14805        12589         1179         1037
+ Total                   109        14805        12573         1194         1038
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

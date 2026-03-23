@@ -97,6 +97,7 @@ window_rules:
       - window_process: { equals: "CollapseLauncher" }
 
       - window_process: { equals: "PowerToys.KeyboardManagerEditor" }
+      - window_process: { equals: "rio" }
 
   - commands: ["ignore"]
     match:
@@ -140,102 +141,102 @@ binding_modes:
 
 keybindings:
   - commands: ["focus --direction left"]
-    bindings: ["lcmd+left", "ralt+left"]
+    bindings: ["lwin+left", "ralt+left"]
   - commands: ["focus --direction right"]
-    bindings: ["lcmd+right", "ralt+right"]
+    bindings: ["lwin+right", "ralt+right"]
   - commands: ["focus --direction up"]
-    bindings: ["lcmd+up", "ralt+up"]
+    bindings: ["lwin+up", "ralt+up"]
   - commands: ["focus --direction down"]
-    bindings: ["lcmd+down", "ralt+down"]
+    bindings: ["lwin+down", "ralt+down"]
 
   - commands: ["move --direction left", "wm-redraw"]
-    bindings: ["lcmd+shift+left", "ralt+shift+left"]
+    bindings: ["lwin+shift+left", "ralt+shift+left"]
   - commands: ["move --direction right", "wm-redraw"]
-    bindings: ["lcmd+shift+right", "ralt+shift+right"]
+    bindings: ["lwin+shift+right", "ralt+shift+right"]
   - commands: ["move --direction up", "wm-redraw"]
-    bindings: ["lcmd+shift+up", "ralt+shift+up"]
+    bindings: ["lwin+shift+up", "ralt+shift+up"]
   - commands: ["move --direction down", "wm-redraw"]
-    bindings: ["lcmd+shift+down", "ralt+shift+down"]
+    bindings: ["lwin+shift+down", "ralt+shift+down"]
 
   - commands: ["resize --width -5%", "wm-redraw"]
-    bindings: ["lcmd+oem_minus", "ralt+oem_minus"]
+    bindings: ["lwin+oem_minus", "ralt+oem_minus"]
   - commands: ["resize --width +5%", "wm-redraw"]
-    bindings: ["lcmd+oem_plus", "ralt+oem_plus"]
+    bindings: ["lwin+oem_plus", "ralt+oem_plus"]
   - commands: ["resize --height -5%", "wm-redraw"]
-    bindings: ["lcmd+shift+oem_minus", "ralt+shift+oem_minus"]
+    bindings: ["lwin+shift+oem_minus", "ralt+shift+oem_minus"]
   - commands: ["resize --height +5%", "wm-redraw"]
-    bindings: ["lcmd+shift+oem_plus", "ralt+shift+oem_plus"]
+    bindings: ["lwin+shift+oem_plus", "ralt+shift+oem_plus"]
 
-  # Disables window management and all other keybindings until lcmd+shift+, ralt# is pressed again.
+  # Disables window management and all other keybindings until lwin+shift+, ralt# is pressed again.
   # - commands: ['wm-toggle-pause']
-  #   bindings: ['lcmd+shift+p', 'ralt+shift+p']
+  #   bindings: ['lwin+shift+p', 'ralt+shift+p']
   - commands: ["toggle-tiling-direction"]
-    bindings: ["lcmd+shift+v", "ralt+v"]
+    bindings: ["lwin+shift+v", "ralt+v"]
   - commands: ["wm-cycle-focus", "wm-redraw"]
     bindings:
       [
-        "lcmd+oem_close_brackets",
-        "lcmd+oem_open_brackets",
+        "lwin+oem_close_brackets",
+        "lwin+oem_open_brackets",
         "ralt+oem_close_brackets",
         "ralt+oem_open_brackets",
       ]
 
   - commands: ["toggle-floating"]
-    bindings: ["lcmd+t", "ralt+t"]
+    bindings: ["lwin+t", "ralt+t"]
   - commands: ["toggle-fullscreen"]
-    bindings: ["lcmd+f", "ralt+f"]
+    bindings: ["lwin+f", "ralt+f"]
   - commands: ["toggle-minimized"]
-    bindings: ["lcmd+m", "ralt+m"]
+    bindings: ["lwin+m", "ralt+m"]
 
   - commands: ["close", "wm-redraw"]
-    bindings: ["lcmd+q", "ralt+q"]
+    bindings: ["lwin+q", "ralt+q"]
 
   - commands: ["set-tiling", "wm-redraw"]
-    bindings: ["lcmd+shift+r", "ralt+shift+r"]
+    bindings: ["lwin+shift+r", "ralt+shift+r"]
 
   - commands: ["focus --next-workspace", "wm-redraw"]
-    bindings: ["lcmd+oem_period", "ralt+oem_period"]
+    bindings: ["lwin+oem_period", "ralt+oem_period"]
   - commands: ["focus --prev-workspace", "wm-redraw"]
-    bindings: ["lcmd+oem_comma", "ralt+oem_comma"]
+    bindings: ["lwin+oem_comma", "ralt+oem_comma"]
   - commands: ["move --next-workspace", "focus --next-workspace", "wm-redraw"]
-    bindings: ["lcmd+shift+oem_period", "ralt+shift+oem_period"]
+    bindings: ["lwin+shift+oem_period", "ralt+shift+oem_period"]
   - commands: ["move --prev-workspace", "focus --prev-workspace", "wm-redraw"]
-    bindings: ["lcmd+shift+oem_comma", "ralt+shift+oem_comma"]
+    bindings: ["lwin+shift+oem_comma", "ralt+shift+oem_comma"]
 
   - commands: ["focus --recent-workspace"]
-    bindings: ["lcmd+d", "ralt+d"]
+    bindings: ["lwin+d", "ralt+d"]
   - commands: ["focus --workspace 1", "wm-redraw"]
-    bindings: ["lcmd+1", "ralt+1"]
+    bindings: ["lwin+1", "ralt+1"]
   - commands: ["focus --workspace 2", "wm-redraw"]
-    bindings: ["lcmd+2", "ralt+2"]
+    bindings: ["lwin+2", "ralt+2"]
   - commands: ["focus --workspace 3", "wm-redraw"]
-    bindings: ["lcmd+3", "ralt+3"]
+    bindings: ["lwin+3", "ralt+3"]
   - commands: ["focus --workspace 4", "wm-redraw"]
-    bindings: ["lcmd+4", "ralt+4"]
+    bindings: ["lwin+4", "ralt+4"]
   - commands: ["focus --workspace 5", "wm-redraw"]
-    bindings: ["lcmd+5", "ralt+5"]
+    bindings: ["lwin+5", "ralt+5"]
 
   - commands: ["move --workspace 1", "focus --workspace 1", "wm-redraw"]
-    bindings: ["lcmd+shift+1", "ralt+shift+1"]
+    bindings: ["lwin+shift+1", "ralt+shift+1"]
   - commands: ["move --workspace 2", "focus --workspace 2", "wm-redraw"]
-    bindings: ["lcmd+shift+2", "ralt+shift+2"]
+    bindings: ["lwin+shift+2", "ralt+shift+2"]
   - commands: ["move --workspace 3", "focus --workspace 3", "wm-redraw"]
-    bindings: ["lcmd+shift+3", "ralt+shift+3"]
+    bindings: ["lwin+shift+3", "ralt+shift+3"]
   - commands: ["move --workspace 4", "focus --workspace 4", "wm-redraw"]
-    bindings: ["lcmd+shift+4", "ralt+shift+4"]
+    bindings: ["lwin+shift+4", "ralt+shift+4"]
   - commands: ["move --workspace 5", "focus --workspace 5", "wm-redraw"]
-    bindings: ["lcmd+shift+5", "ralt+shift+5"]
+    bindings: ["lwin+shift+5", "ralt+shift+5"]
 
   - commands: ["shell-exec flow"]
-    bindings: ["lcmd+space"]
+    bindings: ["lwin+space"]
   # became unecessary in the latest yasb release
   # - commands:
   #     [
   #       "shell-exec --hide-window yasbc_dev toggle-widget launchpad --follow-mouse",
   #     ]
-  #   bindings: ["lcmd+s"]
+  #   bindings: ["lwin+s"]
   # - commands:
   #     [
   #       "shell-exec --hide-window yasbc_dev toggle-widget powermenu --follow-mouse",
   #     ]
-  #   bindings: ["lcmd+shift+l"]
+  #   bindings: ["lwin+shift+l"]
