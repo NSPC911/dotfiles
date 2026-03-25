@@ -248,7 +248,7 @@ language-servers = [
   "discord-rpc",
   { name = "codebook", only-features = ["code-action", "diagnostics"] },
   "taplo",
-  "tombi",
+  { name = "tombi", except-features = ["document-symbols"]},
   { name = "helix-gpt", only-features = ["code-action"] }
 ]
 

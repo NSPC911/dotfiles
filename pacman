@@ -242,6 +242,7 @@ micro
 mise
 mkinitcpio
 modemmanager
+mold
 mousetweaks
 mtools
 netctl
@@ -383,6 +384,7 @@ xwayland-satellite
 yaml-language-server
 yay
 yazi
+zellij
 zen-browser-bin
 zoxide
 amdgpu-pro-oglp
