@@ -638,7 +638,7 @@ function Format-ByteSize {
 
     if ($Bytes -lt 1KB) { return "$Bytes B" }
 
-    $units = "Bytes", "KB", "MB", "GB", "TB", "PB", "EB"
+    $units = "KB", "MB", "GB", "TB", "PB", "EB"
     $size = [double]$Bytes
     $i = -1
 
