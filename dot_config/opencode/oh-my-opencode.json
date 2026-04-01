@@ -2,16 +2,43 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "github-copilot/gpt-5.3-codex"
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "max"
     },
-    "librarian": {
-      "model": "mistral/devstral-2512"
+    "hephaestus": {
+      "model": "github-copilot/gpt-5.4",
+      "variant": "medium"
+    },
+    "oracle": {
+      "model": "github-copilot/gemini-3.1-pro-preview",
+      "variant": "high"
     },
     "explore": {
       "model": "mistral/devstral-2512"
     },
-    "oracle": {
-      "model": "github-copilot/gemini-3.1-pro-preview"
+    "multimodal-looker": {
+      "model": "github-copilot/gpt-5.3-codex"
+    },
+    "prometheus": {
+      "model": "github-copilot/gemini-3.1-pro-preview",
+      "variant": "max"
+    },
+    "metis": {
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "max"
+    },
+    "momus": {
+      "model": "github-copilot/gpt-5.4",
+      "variant": "xhigh"
+    },
+    "atlas": {
+      "model": "github-copilot/gpt-5.3-codex"
+    },
+    "sisyphus-junior": {
+      "model": "github-copilot/gpt-5.4-mini"
+    },
+    "librarian": {
+      "model": "github-copilot/claude-haiku-4.5"
     },
     "frontend-ui-ux-engineer": {
       "model": "github-copilot/gemini-3.1-pro-preview"
@@ -19,23 +46,34 @@
     "document-writer": {
       "model": "github-copilot/gemini-3-flash-preview"
     },
-    "multimodal-looker": {
-      "model": "github-copilot/gpt-5.3-codex"
-    },
-    "prometheus": {
-      "model": "github-copilot/gemini-3.1-pro-preview"
-    },
     "OpenCode-Builder": {
       "model": "github-copilot/gpt-5.4-mini"
+    }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "google/gemini-3.1-pro-preview",
+      "variant": "high"
     },
-    "atlas": {
-      "model": "github-copilot/gpt-5.3-codex"
+    "ultrabrain": {
+      "model": "google/gemini-3.1-pro-preview",
+      "variant": "high"
     },
-    "metis": {
-      "model": "github-copilot/gpt-5.3-codex"
+    "artistry": {
+      "model": "google/gemini-3.1-pro-preview",
+      "variant": "high"
     },
-    "sisyphus-junior": {
+    "quick": {
       "model": "github-copilot/gpt-5.4-mini"
+    },
+    "unspecified-low": {
+      "model": "github-copilot/claude-sonnet-4.6"
+    },
+    "unspecified-high": {
+      "model": "github-copilot/claude-sonnet-4.6"
+    },
+    "writing": {
+      "model": "google/gemini-3-flash-preview"
     }
   }
 }
