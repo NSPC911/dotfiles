@@ -221,6 +221,8 @@ Set-Alias -Name "whereis" -Value "where.exe"
 
 Set-Alias -Name "omp" -Value "oh-my-posh"
 
+Set-Alias -Name "save" -Value "Out-File"
+
 function Remove-Location { Remove-Item -Recurse -Force $args }
 Set-Alias -Name rmloc -Value Remove-Location
 
@@ -236,7 +238,7 @@ function symlink {
 }
 
 function Get-FolderSize {
-    Get-ChildItem -Recurse -Force | Measure-Object -Property Length -Sum | Select-Object @{Name="Size(GB)";Expression={[math]::round($_.Sum/1GB,4)}}
+    Get-ChildItem -Recurse -Force $args | Measure-Object -Property Length -Sum | Select-Object -Expand Sum | Format-ByteSize
 }
 
 function touch {
@@ -482,10 +484,11 @@ if (Get-Command scoop -ErrorAction SilentlyContinue) {
 
 # https://github.com/PowerShell/PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function SwitchPredictionView
 if ($IsWindows) {
     Remove-PSReadLineKeyHandler -Key "F2"
+    Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function SwitchPredictionView
 }
+Set-PSReadLineKeyHandler -Chord Ctrl+e -Function ViEditVisually
 Set-PSReadLineOption -BellStyle None
 # carapace stuff idk
 Set-PSReadLineOption -Colors @{

@@ -116,8 +116,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-03-25T23:09:35.9845577+08:00",
-      "Version": "1.458.0"
+      "Updated": "2026-03-29T09:10:41.8070867+08:00",
+      "Version": "1.459.0"
     },
     {
       "Info": "",
@@ -151,8 +151,8 @@
       "Info": "",
       "Name": "fastfetch",
       "Source": "main",
-      "Updated": "2026-03-07T22:52:02.4587467+08:00",
-      "Version": "2.60.0"
+      "Updated": "2026-03-29T09:10:38.6953977+08:00",
+      "Version": "2.61.0"
     },
     {
       "Info": "",
@@ -172,8 +172,8 @@
       "Info": "",
       "Name": "filelight",
       "Source": "extras",
-      "Updated": "2026-03-17T23:04:17.788052+08:00",
-      "Version": "26.04-2050"
+      "Updated": "2026-03-28T09:30:33.6289317+08:00",
+      "Version": "26.04-2056"
     },
     {
       "Info": "",
@@ -193,8 +193,8 @@
       "Info": "",
       "Name": "gh",
       "Source": "main",
-      "Updated": "2026-03-13T08:40:32.1099972+08:00",
-      "Version": "2.88.1"
+      "Updated": "2026-03-27T10:01:35.7672046+08:00",
+      "Version": "2.89.0"
     },
     {
       "Info": "",
@@ -263,8 +263,8 @@
       "Info": "",
       "Name": "innounp",
       "Source": "main",
-      "Updated": "2026-03-23T22:10:15.4500621+08:00",
-      "Version": "2.67.5"
+      "Updated": "2026-03-29T09:10:39.8806041+08:00",
+      "Version": "2.67.6"
     },
     {
       "Info": "",
@@ -368,15 +368,15 @@
       "Info": "",
       "Name": "ollama-full",
       "Source": "extras",
-      "Updated": "2026-03-20T00:09:23.2305219+08:00",
-      "Version": "0.18.2"
+      "Updated": "2026-03-30T18:12:12.3636206+08:00",
+      "Version": "0.19.0"
     },
     {
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-03-25T23:12:13.6583945+08:00",
-      "Version": "1.3.2"
+      "Updated": "2026-03-31T20:16:32.4092009+08:00",
+      "Version": "1.3.9"
     },
     {
       "Info": "",
@@ -417,8 +417,8 @@
       "Info": "",
       "Name": "powertoys",
       "Source": "extras",
-      "Updated": "2026-03-19T19:39:56.6797156+08:00",
-      "Version": "0.98.0"
+      "Updated": "2026-03-27T10:04:13.7596542+08:00",
+      "Version": "0.98.1"
     },
     {
       "Info": "",
@@ -426,6 +426,13 @@
       "Source": "le-bucket",
       "Updated": "2026-03-23T22:10:20.1828378+08:00",
       "Version": "0.3.8"
+    },
+    {
+      "Info": "",
+      "Name": "pup",
+      "Source": "main",
+      "Updated": "2026-03-28T16:48:39.034378+08:00",
+      "Version": "0.4.0"
     },
     {
       "Info": "",
@@ -473,8 +480,8 @@
       "Info": "",
       "Name": "rio-nightly",
       "Source": "le-bucket",
-      "Updated": "2026-03-25T23:12:43.2677526+08:00",
-      "Version": "2026-03-23"
+      "Updated": "2026-03-30T18:15:59.8572484+08:00",
+      "Version": "2026-03-29"
     },
     {
       "Info": "",
@@ -482,13 +489,6 @@
       "Source": "main",
       "Updated": "2026-01-14T12:10:29.5224333+08:00",
       "Version": "15.1.0"
-    },
-    {
-      "Info": "",
-      "Name": "rovr",
-      "Source": "le-bucket",
-      "Updated": "2026-03-24T18:01:33.9513086+08:00",
-      "Version": "0.7.0"
     },
     {
       "Info": "",
@@ -557,15 +557,15 @@
       "Info": "",
       "Name": "tinymist",
       "Source": "main",
-      "Updated": "2026-03-23T12:26:12.9109093+08:00",
-      "Version": "0.14.12"
+      "Updated": "2026-03-28T09:30:55.8532539+08:00",
+      "Version": "0.14.14"
     },
     {
       "Info": "",
       "Name": "tombi",
       "Source": "main",
-      "Updated": "2026-03-23T12:25:42.2580621+08:00",
-      "Version": "0.9.9"
+      "Updated": "2026-03-31T20:17:03.7248476+08:00",
+      "Version": "0.9.12"
     },
     {
       "Info": "",
@@ -578,8 +578,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-03-24T10:23:04.7575184+08:00",
-      "Version": "0.11.0"
+      "Updated": "2026-03-27T10:02:16.5363192+08:00",
+      "Version": "0.11.2"
     },
     {
       "Info": "",
@@ -592,8 +592,8 @@
       "Info": "",
       "Name": "wakatime-cli",
       "Source": "main",
-      "Updated": "2026-03-18T09:42:40.8924902+08:00",
-      "Version": "1.139.4"
+      "Updated": "2026-03-31T20:17:34.5704095+08:00",
+      "Version": "2.0.7"
     },
     {
       "Info": "",
@@ -634,8 +634,8 @@
       "Info": "",
       "Name": "yasb-dev",
       "Source": "le-bucket",
-      "Updated": "2026-03-21T09:06:33.61233+08:00",
-      "Version": "20260319-141010"
+      "Updated": "2026-03-27T10:02:29.4554778+08:00",
+      "Version": "20260324-181404"
     },
     {
       "Info": "",
@@ -653,13 +653,6 @@
     },
     {
       "Info": "",
-      "Name": "zed",
-      "Source": "extras",
-      "Updated": "2026-03-19T23:56:56.1704209+08:00",
-      "Version": "0.228.0"
-    },
-    {
-      "Info": "",
       "Name": "zellij",
       "Source": "le-bucket",
       "Updated": "2026-03-23T19:30:45.0106081+08:00",
@@ -669,8 +662,8 @@
       "Info": "",
       "Name": "zen-browser",
       "Source": "extras",
-      "Updated": "2026-03-17T00:29:38.8746278+08:00",
-      "Version": "1.19.3b"
+      "Updated": "2026-03-29T09:11:11.5009043+08:00",
+      "Version": "1.19.5b"
     },
     {
       "Info": "",
@@ -682,34 +675,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1474,
+      "Manifests": 1480,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-03-25T20:35:05+08:00"
+      "Updated": "2026-03-31T17:07:17+08:00"
     },
     {
-      "Manifests": 2282,
+      "Manifests": 2285,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-03-25T20:34:36+08:00"
+      "Updated": "2026-03-31T17:34:00+08:00"
     },
     {
-      "Manifests": 558,
+      "Manifests": 560,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-03-25T21:52:38+08:00"
+      "Updated": "2026-03-31T17:35:55+08:00"
     },
     {
-      "Manifests": 392,
+      "Manifests": 393,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-03-25T20:34:08+08:00"
+      "Updated": "2026-03-31T16:40:30+08:00"
     },
     {
       "Manifests": 36,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-03-25T17:11:08+08:00"
+      "Updated": "2026-03-31T11:31:37+08:00"
     }
   ],
   "config": {

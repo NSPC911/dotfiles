@@ -22,5 +22,6 @@
     "idle": "C:/Users/notso/AppData/Roaming/bongo-cat/cats/cat_idle.png",
     "leftpaw": "C:/Users/notso/AppData/Roaming/bongo-cat/cats/cat_left_paw.png",
     "rightpaw": "C:/Users/notso/AppData/Roaming/bongo-cat/cats/cat_right_paw.png"
-  }
+  },
+  "click_through": true
 }
