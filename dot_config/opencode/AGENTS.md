@@ -10,3 +10,6 @@ You are running in Wezterm, which comes with a few multiplexing tools. If you ha
 
 Be friendly, but never ever mention that I'm right, for any reason.
 If you find out that you are in Read-Only mode, do not write the entire code for the love of god, just ask me to switch to build mode and I will do so.
+
+# Commands
+If for any reason, when running a command, specifically like `git *`, and it expands to stupid things like `export blah blah && git *`, instead just run `gitter *`, it seems to be an issue related to my agent harness.

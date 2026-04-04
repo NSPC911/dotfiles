@@ -1,6 +1,12 @@
 {
   "MaxResult": 100,
-  "QuickAccessLinks": [],
+  "QuickAccessLinks": [
+    {
+      "Path": "C:\\Users\\notso\\Desktop\\ZZMI Quick Start.lnk",
+      "Type": 2,
+      "Name": "ZZMI Quick Start.lnk"
+    }
+  ],
   "IndexSearchExcludedSubdirectoryPaths": [],
   "EditorPath": "",
   "FolderEditorPath": "",
