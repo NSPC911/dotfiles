@@ -262,7 +262,6 @@ ntp
 obs-studio
 octopi
 oh-my-posh
-ollama-bin
 onefetch
 opencl-mesa
 opencode
@@ -395,11 +394,13 @@ dms-shell-bin
 iamb-git
 input-remapper-bin
 lazygit-git
+lib32-gst-plugins-base-libs
+lib32-gstreamer
+lib32-libsoup
 linux-wallpaperengine-git
 localsend-bin
 matugen-bin
 oh-my-posh
-ollama-bin
 ov-bin
 pacseek
 powershell-bin

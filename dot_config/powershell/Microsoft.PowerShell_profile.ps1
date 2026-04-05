@@ -20,7 +20,7 @@ function regenCache {
     # check existence of scoop (because im going to start using linux)
     if (Get-Command scoop -ErrorAction SilentlyContinue) {
         # setup only specific completions
-        $dontwant = @("bat", "gh", "git", "rg", "rustup", "taplo", "wezterm")
+        $dontwant = @("bat", "gh", "rg", "rustup", "taplo", "wezterm")
         Get-ChildItem -File "$HOME/scoop/shims" | Where-Object { $_.Name -like '*.exe' } | ForEach-Object {
             $thing = $_.BaseName
             if ($dontwant -notcontains $thing) {
@@ -266,6 +266,17 @@ if (-not ($IsWindows)) {
 }
 
 Set-Alias -Name "cat" -Value "bat"
+Set-Alias -Name "fst" -Value "Format-SpectreTable"
+
+Remove-Alias -Name "ls" -Scope Global -ErrorAction Ignore
+function ls {
+    param(
+        [Parameter(ValueFromRemainingArguments=$true)]
+        [object[]]$args
+    )
+    Import-Module -Name Terminal-Icons
+    Get-ChildItem $args
+}
 
 function Register-Completion {
     $out = carapace $args powershell
@@ -472,9 +483,9 @@ function forever {
 ##### PS Plugins #####
 Write-Host "`e[0J`e[0J`e[HAdding Plugins `e[s" -NoNewLine
 
-# https://github.com/devblackops/Terminal-Icons
-Write-Output "`e[u`e[0KTerminal-Icons"
-Import-Module -Name Terminal-Icons
+# # https://github.com/devblackops/Terminal-Icons
+# Write-Output "`e[u`e[0KTerminal-Icons"
+# Import-Module -Name Terminal-Icons
 
 # should be available if you installed scoop
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
@@ -489,6 +500,7 @@ if ($IsWindows) {
     Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function SwitchPredictionView
 }
 Set-PSReadLineKeyHandler -Chord Ctrl+e -Function ViEditVisually
+Set-PSReadLineKeyHandler -Chord Alt+l -ScriptBlock { [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt() }
 Set-PSReadLineOption -BellStyle None
 # carapace stuff idk
 Set-PSReadLineOption -Colors @{
@@ -502,9 +514,9 @@ Write-Output "`e[u`e[0KPsFzf"
 Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
 Set-PsFzfOption -EnableAliasFuzzySetEverything
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-# git completions https://github.com/kzrnm/git-completion-pwsh
-Write-Output "`e[u`e[0KGit Completions"
-Import-Module -Name git-completion
+# # git completions https://github.com/kzrnm/git-completion-pwsh
+# Write-Output "`e[u`e[0KGit Completions"
+# Import-Module -Name git-completion
 # spectre.console https://github.com/ShaunLawrie/PwshSpectreConsole
 Write-Output "`e[u`e[0KPwshSpectreConsole"
 $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
