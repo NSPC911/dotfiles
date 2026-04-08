@@ -7,3 +7,4 @@ img/*
 img/
 *.bak
 *.png
+root/*

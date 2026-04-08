@@ -81,7 +81,9 @@ dhclient
 diffutils
 dmidecode
 dmraid
-dms-shell-bin
+dms-shell
+dms-shell-hyprland
+dms-shell-niri
 dnsmasq
 dolphin
 dolphin-plugins
@@ -146,7 +148,7 @@ inetutils
 input-remapper-bin
 intel-media-driver
 intel-ucode
-iptables-nft
+iptables
 isoimagewriter
 itinerary
 iwd
@@ -358,6 +360,7 @@ which
 wireless-regdb
 wireplumber
 wl-clipboard
+wl-mirror
 wlogout
 wob
 woff2-font-awesome
@@ -390,13 +393,11 @@ amdgpu-pro-oglp
 beeper-v4-bin
 bibata-cursor-theme-bin
 carapace-bin
-dms-shell-bin
 iamb-git
 input-remapper-bin
 lazygit-git
 lib32-gst-plugins-base-libs
 lib32-gstreamer
-lib32-libsoup
 linux-wallpaperengine-git
 localsend-bin
 matugen-bin
@@ -409,6 +410,7 @@ python-ignis-git
 redhat-fonts
 scooter
 sddm-silent-theme-git
+splix
 steel-bin
 superhtml-bin
 ttf-material-symbols-variable-git

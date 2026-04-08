@@ -1,0 +1,18 @@
+#%PAM-1.0
+
+# 2. Fallback to password
+auth  sufficient   pam_unix.so try_first_pass likeauth nullok
+# 1. Try Fingerprint first
+auth  required     pam_fprintd.so
+
+# 1. check if password was typed
+# auth [success=1 default=ignore] pam_succeed_if.so auth_tokenok
+# 2. fingerprint check if password empty
+# auth sufficient pam_fprintd.so
+# 3. password was typed or fingerprint failed
+# auth required pam_unix.so try_first_pass likeauth nullok
+
+# session/account/password lines
+account include      system-login
+password include      system-login
+session include      system-login

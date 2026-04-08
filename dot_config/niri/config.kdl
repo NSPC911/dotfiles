@@ -171,7 +171,7 @@ binds {
     XF86MonBrightnessDown               { spawn-sh "bright down"; }
     XF86MonBrightnessUp                 { spawn-sh "bright up"; }
     // change display
-    MOD+P                               { spawn-sh "output-toggle"; }
+    MOD+P                               { spawn-sh "pwsh -nop -c output-toggle.ps1"; }
 
     // Mod+Shift+Alt+R { spawn "ignis" "run-command" "recorder-record-screen"; }
     // Mod+Alt+R { spawn "ignis" "run-command" "recorder-record-portal"; }
