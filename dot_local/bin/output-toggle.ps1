@@ -3,6 +3,9 @@ $niriOutput = (niri msg --json outputs | jq --sort-keys)
 $niriObj = ($niriOutput | ConvertFrom-Json)
 
 $monitors = ($niriOutput | jq "keys" | ConvertFrom-Json)
+if ($monitors.Length -ne 2) {
+    exit
+}
 
 # what we want to do is replicate something like win+p on windows, but using
 # niri and without duplicating (niri has no support for that yet unless
@@ -31,6 +34,5 @@ if ($isBothOn) {
     niri msg output $($monitors[1]) on
 } else {
     niri msg output $($monitors[1]) on
-    Start-Sleep -Seconds 2
     niri msg output $($monitors[0]) off
 }

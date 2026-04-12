@@ -98,7 +98,6 @@
   },
   "plugin": [
     "opencode-wakatime",
-    "oh-my-openagent@latest"
   ],
   "keybinds": {
     "terminal_suspend": "none"

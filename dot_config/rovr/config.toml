@@ -5,6 +5,8 @@ truncate_progress_file_path = true
 nerd_font = true
 show_line_numbers = true
 show_hidden_files = true
+[interface.mime_rules]
+"application/java-archive" = "archive"
 
 [theme]
 transparent = true
