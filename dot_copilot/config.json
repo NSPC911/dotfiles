@@ -53,5 +53,13 @@
   ],
   "firstLaunchAt": "2026-03-11T00:00:00.000Z",
   "colorMode": "high-contrast",
-  "streamerMode": false
+  "streamerMode": false,
+  "enabledPlugins": {
+    "awesome-copilot@awesome-copilot": true,
+    "context-engineering@awesome-copilot": true,
+    "frontend-web-dev@awesome-copilot": true,
+    "security-best-practices@awesome-copilot": true,
+    "python-mcp-development@awesome-copilot": true
+  },
+  "effortLevel": "high"
 }

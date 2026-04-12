@@ -270,12 +270,8 @@ Set-Alias -Name "fst" -Value "Format-SpectreTable"
 
 Remove-Alias -Name "ls" -Scope Global -ErrorAction Ignore
 function ls {
-    param(
-        [Parameter(ValueFromRemainingArguments=$true)]
-        [object[]]$args
-    )
     Import-Module -Name Terminal-Icons
-    Get-ChildItem $args
+    Get-ChildItem @args
 }
 
 function Register-Completion {
@@ -591,7 +587,7 @@ function fz {
         [object[]]$extra
     )
     if ($type -eq "edit") {
-        $file = Invoke-Fzf
+        $file = Invoke-Fzf -Preview "bat --color always --number --theme Nord {}"
         if ($null -ne $file) {
             hx $file
         }
@@ -681,6 +677,9 @@ function Reset-WiFi {
 
 ##### ghet from gh #####
 . "$PROFILE/../ghet.ps1"
+
+#### uv sync --upgrade but it is more interactive #####
+. "$PROFILE/../uvdate.ps1"
 
 ##### Other stuff #####
 Clear-Host

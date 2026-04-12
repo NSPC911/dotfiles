@@ -2,7 +2,7 @@
 $saveRunToHistory = $true
 $historyFilePath = (Get-PSReadLineOption).HistorySavePath
 
-if ($env:EDITOR -eq $null -or $env:EDITOR -eq "") {
+if ($null -eq $env:EDITOR -or $env:EDITOR -eq "") {
     if (Get-Command edit -ErrorAction SilentlyContinue) {
         $env:EDITOR = "edit"
     } elseif (Get-Command code -ErrorAction SilentlyContinue) {
@@ -17,22 +17,22 @@ if ($env:EDITOR -eq $null -or $env:EDITOR -eq "") {
 # needed for live stuff
 if ($null -eq (Get-Module -Name PwshSpectreConsole -ListAvailable)) { Install-Module -Name PwshSpectreConsole }
 
-$opencodeAvailable = (Get-Command opencode -ErrorAction SilentlyContinue) -ne $null
+$opencodeAvailable = $null -ne (Get-Command opencode -ErrorAction SilentlyContinue)
 $opencodeSuggesterModel = "mistral/codestral-latest"
 $ollamaExplainerModel = "codegemma:2b"
 
-$vibeAvailable = (Get-Command vibe -ErrorAction SilentlyContinue) -ne $null
+$vibeAvailable = $null -ne (Get-Command vibe -ErrorAction SilentlyContinue)
 
-$ollamaAvailable = (Get-Command ollama -ErrorAction SilentlyContinue) -ne $null
+$ollamaAvailable = $null -ne (Get-Command ollama -ErrorAction SilentlyContinue)
 $ollamaSuggesterModel = "codegemma:7b"
 $opencodeExplainerModel = "mistral/codestral-latest"
 
-$copilotAvailable = (Get-Command copilot -ErrorAction SilentlyContinue) -ne $null
+$copilotAvailable = $null -ne (Get-Command copilot -ErrorAction SilentlyContinue)
 $copilotSuggesterModel = "gpt-4.1" # slightly faster in my testing
 $copilotExplainerModel = "claude-haiku-4.5" # good balance of speed and quality
 
 
-$batAvailable = (Get-Command bat -ErrorAction SilentlyContinue) -ne $null
+$batAvailable = $null -ne (Get-Command bat -ErrorAction SilentlyContinue)
 
 function Write-PoshHighlighted {
     if ($batAvailable) {

@@ -53,7 +53,6 @@ function ghet {
     Write-Host "│ " -NoNewLine
     Write-Host "release: $releaser" -ForegroundColor Green
 
-    $docontinue = $true
     Write-Host "│ Select an asset to download:"
     $chosen = Read-SpectreSelection -Message "" -Choices $assets -ChoiceLabelProperty "name" -EnableSearch -SearchHighlightColor cyan3
     Write-Host "│ " -NoNewLine
