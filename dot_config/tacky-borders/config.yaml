@@ -55,6 +55,9 @@ global:
         opacity: 1.0
 
     inactive:
+      - type: Glow
+        radius: 8.0
+        opacity: 1.0
 
     enabled: True
 

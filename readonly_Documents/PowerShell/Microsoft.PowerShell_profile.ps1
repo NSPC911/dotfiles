@@ -524,7 +524,7 @@ function chezcd {
         chezmoi status
     }
 }
-function chezedit { chezmoi edit --apply $args }
+function chezedit { chezmoi edit --apply --watch $args }
 function chezadd { chezmoi add $args }
 function chezgit { chezmoi git $args }
 function chezsync {
