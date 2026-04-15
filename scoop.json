@@ -116,8 +116,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-04-11T10:03:57.5955664+08:00",
-      "Version": "1.467.0"
+      "Updated": "2026-04-15T17:57:32.9502616+08:00",
+      "Version": "1.470.0"
     },
     {
       "Info": "",
@@ -137,8 +137,8 @@
       "Info": "",
       "Name": "dotnet8-sdk",
       "Source": "versions",
-      "Updated": "2026-03-12T08:29:27.7542477+08:00",
-      "Version": "8.0.419"
+      "Updated": "2026-04-15T06:35:38.9695892+08:00",
+      "Version": "8.0.420"
     },
     {
       "Info": "",
@@ -200,8 +200,8 @@
       "Info": "",
       "Name": "git",
       "Source": "main",
-      "Updated": "2026-03-12T08:28:38.2919589+08:00",
-      "Version": "2.53.0.2"
+      "Updated": "2026-04-15T09:55:38.3257438+08:00",
+      "Version": "2.53.0.3"
     },
     {
       "Info": "",
@@ -235,8 +235,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2026-04-09T21:07:52.3120141+08:00",
-      "Version": "0.10.9.1"
+      "Updated": "2026-04-15T09:56:06.6049911+08:00",
+      "Version": "0.11.2.1"
     },
     {
       "Info": "",
@@ -291,8 +291,8 @@
       "Info": "",
       "Name": "lazygit",
       "Source": "extras",
-      "Updated": "2026-04-08T19:57:41.4495313+08:00",
-      "Version": "0.61.0"
+      "Updated": "2026-04-14T21:25:57.7850206+08:00",
+      "Version": "0.61.1"
     },
     {
       "Info": "",
@@ -305,8 +305,8 @@
       "Info": "",
       "Name": "lua-language-server",
       "Source": "main",
-      "Updated": "2026-04-09T21:07:42.9181381+08:00",
-      "Version": "3.18.1"
+      "Updated": "2026-04-15T09:56:26.1989638+08:00",
+      "Version": "3.18.2"
     },
     {
       "Info": "",
@@ -333,8 +333,8 @@
       "Info": "",
       "Name": "mold",
       "Source": "main",
-      "Updated": "2026-03-18T16:56:35.0990856+08:00",
-      "Version": "2.40.4"
+      "Updated": "2026-04-14T21:25:57.78387+08:00",
+      "Version": "2.41.0"
     },
     {
       "Info": "",
@@ -375,8 +375,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-04-10T15:29:57.6971391+08:00",
-      "Version": "1.4.3"
+      "Updated": "2026-04-15T17:57:45.8057247+08:00",
+      "Version": "1.4.6"
     },
     {
       "Info": "",
@@ -424,8 +424,8 @@
       "Info": "",
       "Name": "prek",
       "Source": "le-bucket",
-      "Updated": "2026-03-23T22:10:20.1828378+08:00",
-      "Version": "0.3.8"
+      "Updated": "2026-04-14T21:25:57.78387+08:00",
+      "Version": "0.3.9"
     },
     {
       "Info": "",
@@ -480,8 +480,8 @@
       "Info": "",
       "Name": "rio-nightly",
       "Source": "le-bucket",
-      "Updated": "2026-04-13T16:06:00.8871062+08:00",
-      "Version": "2026-04-12"
+      "Updated": "2026-04-14T21:26:30.1783136+08:00",
+      "Version": "2026-04-13"
     },
     {
       "Info": "",
@@ -543,8 +543,8 @@
       "Info": "",
       "Name": "surge-downloader",
       "Source": "le-bucket",
-      "Updated": "2026-04-13T16:05:31.7868992+08:00",
-      "Version": "0.8.0"
+      "Updated": "2026-04-15T09:57:07.4530688+08:00",
+      "Version": "0.8.1"
     },
     {
       "Info": "",
@@ -599,15 +599,15 @@
       "Info": "",
       "Name": "wakatime-cli",
       "Source": "main",
-      "Updated": "2026-04-13T16:06:30.6631741+08:00",
-      "Version": "2.2.3"
+      "Updated": "2026-04-15T17:57:59.4875168+08:00",
+      "Version": "2.3.0"
     },
     {
-      "Info": "",
+      "Info": "Held package",
       "Name": "wezterm-nightly",
       "Source": "versions",
-      "Updated": "2026-03-17T00:30:38.1381187+08:00",
-      "Version": "nightly-20260317"
+      "Updated": "2026-04-15T10:02:31.6586212+08:00",
+      "Version": "nightly-20260414"
     },
     {
       "Info": "",
@@ -620,8 +620,8 @@
       "Info": "",
       "Name": "windowsdesktop-runtime-8.0",
       "Source": "versions",
-      "Updated": "2026-03-12T08:31:16.592543+08:00",
-      "Version": "8.0.25"
+      "Updated": "2026-04-15T10:00:12.8325781+08:00",
+      "Version": "8.0.26"
     },
     {
       "Info": "",
@@ -682,34 +682,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1493,
+      "Manifests": 1495,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-04-13T13:23:32+08:00"
+      "Updated": "2026-04-15T20:42:29+08:00"
     },
     {
-      "Manifests": 2291,
+      "Manifests": 2293,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-04-13T13:23:26+08:00"
+      "Updated": "2026-04-15T20:42:03+08:00"
     },
     {
-      "Manifests": 568,
+      "Manifests": 571,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-04-13T15:07:25+08:00"
+      "Updated": "2026-04-15T17:54:38+08:00"
     },
     {
       "Manifests": 397,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-04-13T13:23:25+08:00"
+      "Updated": "2026-04-15T20:41:36+08:00"
     },
     {
       "Manifests": 36,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-04-13T14:27:52+08:00"
+      "Updated": "2026-04-15T17:52:58+08:00"
     }
   ],
   "config": {

@@ -267,6 +267,9 @@ if (-not ($IsWindows)) {
 
 Set-Alias -Name "cat" -Value "bat"
 Set-Alias -Name "fst" -Value "Format-SpectreTable"
+Set-Alias -Name "tojson" -Value "ConvertTo-Json"
+Set-Alias -Name "fromjson" -Value "ConvertFrom-Json"
+Set-Alias -Name "fbs" -Value "Format-ByteSize"
 
 Remove-Alias -Name "ls" -Scope Global -ErrorAction Ignore
 function ls {

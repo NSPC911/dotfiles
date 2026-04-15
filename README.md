@@ -69,7 +69,7 @@ helix
 ansible-lint v26.4.0
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.7.4
+mistral-vibe v2.7.5
 poethepoet v0.44.0
 poetry v2.3.4
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
@@ -90,7 +90,7 @@ ty v0.0.20 [required: ==0.0.20]
 @google/gemini-cli@0.30.1
 corepack@0.34.6
 live-server@1.2.2
-prettier@3.8.2
+prettier@3.8.3
 typescript@5.9.3
 typescript-language-server@5.1.3
 vscode-langservers-extracted@4.10.0
@@ -140,15 +140,15 @@ vscode-langservers-extracted@4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  JSON                     61         4778         4777            0            1
  CSS                      11         3973         3201          281          491
- TOML                     11         1756         1468          164          124
+ TOML                     11         1755         1468          164          123
  YAML                      5         1198         1077           53           68
- PowerShell                4         1104          937           63          104
+ PowerShell                4         1107          940           63          104
  Scheme                    6          961          840           27           94
  INI                       1          687          170          414          103
  Lua                       1          241          219           10           12
- Markdown                 10          221            0          173           48
+ Markdown                 10          224            0          175           49
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   110        14919        12689         1185         1045
+ Total                   110        14924        12692         1187         1045
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

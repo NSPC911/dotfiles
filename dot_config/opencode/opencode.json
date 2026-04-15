@@ -97,7 +97,7 @@
     }
   },
   "plugin": [
-    "opencode-wakatime",
+    "opencode-wakatime"
   ],
   "keybinds": {
     "terminal_suspend": "none"
