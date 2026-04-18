@@ -615,7 +615,7 @@ QPushButton {
   background-color: var(--nord-gray1);
   border: 2px solid var(--nord-cyan-base);
   border-radius: 6px;
-  margin: 1px
+  margin: 1px;
 }
 .task-bar {
   margin-left: 56px;

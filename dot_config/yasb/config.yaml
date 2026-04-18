@@ -33,14 +33,7 @@ bars:
       bottom: 0
       left: 10
     widgets:
-      left:
-        [
-          "power_menu",
-          "launchpad",
-          "copilot",
-          "media-controls",
-          "active_window",
-        ]
+      left: ["power_menu", "launchpad", "copilot", "media-controls", "active_window"]
       center: ["clock", "cpu"]
       right:
         [
@@ -123,7 +116,7 @@ widgets:
         icon_high: "\uf241"
         icon_full: "\uf240"
       charging_options:
-       icon_format: "{charging_icon}"
+        icon_format: "{charging_icon}"
   bluetooth:
     type: "yasb.bluetooth.BluetoothWidget"
     options:
@@ -149,8 +142,7 @@ widgets:
       auto_light_night_start_time: "19:00"
       auto_light_night_end_time: "06:45"
       auto_light_day_level: 75
-      brightness_icons:
-        ["\udb80\udcde", "\udb80\udcdd", "\udb80\udcdf", "\udb80\udce0"]
+      brightness_icons: ["\udb80\udcde", "\udb80\udcdd", "\udb80\udcdf", "\udb80\udce0"]
       brightness_menu:
         blur: true
         round_corners: true
@@ -436,14 +428,7 @@ widgets:
         on_middle: "do_nothing"
         on_left: "toggle_label"
       ethernet_icon: "\ueba9"
-      wifi_icons:
-        [
-          "\udb82\udd2e",
-          "\udb82\udd1f",
-          "\udb82\udd22",
-          "\udb82\udd25",
-          "\udb82\udd28",
-        ]
+      wifi_icons: ["\udb82\udd2e", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"]
   copilot:
     type: "yasb.copilot.CopilotWidget"
     options:

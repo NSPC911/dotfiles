@@ -136,7 +136,6 @@ window_rules:
     match:
       - window_title: { equals: "Mem Reduct" }
 
-
 binding_modes:
 
 keybindings:

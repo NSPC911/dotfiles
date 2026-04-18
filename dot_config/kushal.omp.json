@@ -84,9 +84,7 @@
           "type": "pnpm",
           "style": "powerline",
           "display_mode": "files",
-          "extensions": [
-            "pnpm-lock.yaml"
-          ],
+          "extensions": ["pnpm-lock.yaml"],
           "cache_duration": "1h"
         },
         {
@@ -183,9 +181,7 @@
           "foreground": "#03DED3",
           "type": "status",
           "style": "plain",
-          "foreground_templates": [
-            "{{ if gt .Code 0 }}#E5727A{{ else }}#B1C89D{{ end }}"
-          ]
+          "foreground_templates": ["{{ if gt .Code 0 }}#E5727A{{ else }}#B1C89D{{ end }}"]
         },
         {
           "options": {

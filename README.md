@@ -4,10 +4,10 @@ My Windows 11 config files, Nord + Translucency
 
 ## Screenshots
 
-| ![fetch](img/fetch.png) <br> gitfetch + fastfetch |                  ![helix](img/helixonly.png) <br> helix                   |
-| :-----------------------------------------------: | :-----------------------------------------------------------------------: |
-|   ![zen browser](img/zen.png) <br> zen browser    | ![rovr](img/rovr.png) <br> rovr, my file explorer                         |
-|                                                   |                           ![prompt](kushal.png)                           |
+| ![fetch](img/fetch.png) <br> gitfetch + fastfetch |      ![helix](img/helixonly.png) <br> helix       |
+| :-----------------------------------------------: | :-----------------------------------------------: |
+|   ![zen browser](img/zen.png) <br> zen browser    | ![rovr](img/rovr.png) <br> rovr, my file explorer |
+|                                                   |               ![prompt](kushal.png)               |
 
 ## Apps
 
@@ -65,6 +65,7 @@ helix
 #### uv tools
 
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
+
 ```
 ansible-lint v26.4.0
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
@@ -80,8 +81,10 @@ ty v0.0.20 [required: ==0.0.20]
 ```
 
 #### pnpm global installs
+
 <!--pnpm list -g, remove unnecessary parts-->
 <!--or if possible, run 'pnpm list --global --json | jq -r ".[0].dependencies[] | `"\(.from)@\(.version)`""',-->
+
 ```
 @ansible/ansible-language-server@1.2.3
 @astrojs/language-server@2.16.6
@@ -134,21 +137,22 @@ vscode-langservers-extracted@4.10.0
 ### Stats
 
 <!--tokei --sort lines,-->
+
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     61         4778         4777            0            1
- CSS                      11         3973         3201          281          491
- TOML                     11         1702         1414          164          124
- YAML                      5         1198         1077           53           68
+ JSON                     61         6559         6558            0            1
+ CSS                      11         3898         3137          281          480
+ TOML                     11         1696         1407          164          125
+ YAML                      5         1182         1062           53           67
  PowerShell                4         1101          934           63          104
  Scheme                    6          961          840           27           94
  INI                       1          687          170          414          103
  Lua                       1          243          219           12           12
- Markdown                 10          224            0          175           49
+ Markdown                 10          230            0          175           55
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   110        14867        12632         1189         1046
+ Total                   110        16557        14327         1189         1041
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

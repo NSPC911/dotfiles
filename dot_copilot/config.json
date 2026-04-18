@@ -3,9 +3,7 @@
   "renderMarkdown": true,
   "screenReader": false,
   "theme": "auto",
-  "trusted_folders": [
-    "*"
-  ],
+  "trusted_folders": ["*"],
   "allowed_urls": [],
   "alt_screen": true,
   "experimental": true,

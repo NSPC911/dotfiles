@@ -5,10 +5,10 @@ working-dir = "C:/Users/notso"
 margin = [5]
 
 [panel]
-padding = [0]       # Inner padding inside each panel
-row-gap = 2        # Vertical gap when split down
-column-gap = 2     # Horizontal gap when split right
-border-width = 2  # Border width around panels
+padding = [0] # Inner padding inside each panel
+row-gap = 2 # Vertical gap when split down
+column-gap = 2 # Horizontal gap when split right
+border-width = 2 # Border width around panels
 border-radius = 3 # Corner radius (0 = sharp)
 
 # [title]
@@ -67,9 +67,7 @@ clickable = false
 hide-if-single = true
 use-current-path = false
 unfocused-split-opacity = 0.99
-color-automation = [
-  { program = "hx", color = "#FF0000" }
-]
+color-automation = [{ program = "hx", color = "#FF0000" }]
 open-config-with-split = true
 
 [shell]
@@ -90,12 +88,12 @@ keys = [
   { key = "space", with = "control | shift", action = "ReceiveChar" },
   { key = "[", with = "control", action = "SelectPrevSplit" },
   { key = "]", with = "control", action = "SelectNextSplit" },
-  { key = "v", with = "alt | shift", action =  "ToggleViMode" },
+  { key = "v", with = "alt | shift", action = "ToggleViMode" },
   { key = "t", with = "control", action = "CreateTab" },
   { key = "w", with = "control", action = "CloseSplitOrTab" },
   { key = "o", with = "control", action = "OpenConfigEditor" },
   { key = "l", with = "control | shift", action = "SplitRight" },
-  { key = "k", with = "control | shift", action = "SplitDown"},
+  { key = "k", with = "control | shift", action = "SplitDown" },
 ]
 
 [colors]

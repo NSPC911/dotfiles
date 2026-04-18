@@ -54,4 +54,4 @@ gui:
     defaultFgColor:
       - "#D8DEE9"
 authorColors:
-  '*': '#b4befe'
+  "*": "#b4befe"

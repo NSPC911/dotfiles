@@ -3,12 +3,8 @@
     "ascii-wireframe": {
       "type": "stdio",
       "command": "pnpx",
-      "tools": [
-        "*"
-      ],
-      "args": [
-        "@wiretext/mcp"
-      ]
+      "tools": ["*"],
+      "args": ["@wiretext/mcp"]
     }
   }
 }

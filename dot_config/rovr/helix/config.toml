@@ -24,7 +24,7 @@ suspend = false
 transparent = true
 
 [metadata]
-filesize_suffix   = "decimal"
+filesize_suffix = "decimal"
 filesize_decimals = 2
 
 [keybinds]

@@ -4,93 +4,93 @@
     // "type": "data",
     // "source": "    _   __ _____  ____   ______ ____  ___ ___\n   / | / // ___/ / __ \\ / ____// __ \\[  /[  /\n  /  |/ / \\__ \\ / /_/ // /    / /_/ // / / /\n / /|  / ___/ // ____// /___  \\__  // / / /\n/_/ |_/ /____//_/     \\____/ /____//_/ /_/\u001b[2A",
     // "color": {
-      // "1": "cyan",
-      // "2": "bright_"
+    // "1": "cyan",
+    // "2": "bright_"
     // },
     // "position": "top"
-    "type": "none"
+    "type": "none",
   },
   "display": {
     "color": "cyan",
     "bar": {
       "border": {
         "Left": "[ ",
-        "Right": " ]"
-      }
+        "Right": " ]",
+      },
     },
     "hideCursor": true,
-    "separator": " - "
+    "separator": " - ",
   },
   "modules": [
     {
       "type": "host",
       "format": "{name}",
-      "key": "╭─ Host\t   "
+      "key": "╭─ Host\t   ",
     },
     {
       "type": "os",
       "format": "{pretty-name}-{arch}",
-      "key": "├─ OS\t   "
+      "key": "├─ OS\t   ",
     },
     {
       "type": "cpu",
       "key": "├─ CPU\t   ",
-      "format": "{name}"
+      "format": "{name}",
     },
     {
       "type": "memory",
-      "key": "├─ RAM\t   "
+      "key": "├─ RAM\t   ",
     },
     {
       "type": "disk",
-      "key": "├─ Disk\t   "
+      "key": "├─ Disk\t   ",
     },
     {
       "type": "display",
       "key": "╰─ Display ",
-      "format": "{width}x{height} ({scaled-width}x{scaled-height}) in {inch}\""
+      "format": "{width}x{height} ({scaled-width}x{scaled-height}) in {inch}\"",
     },
     {
       "type": "terminal",
-      "key": "╭─ Terminal"
+      "key": "╭─ Terminal",
     },
     {
       "type": "shell",
-      "key": "├─ Shell   "
+      "key": "├─ Shell   ",
     },
     {
       "type": "custom",
       "key": "╰─ Font\t   ",
-      "format": "CaskaydiaCove NF"
+      "format": "CaskaydiaCove NF",
     },
     {
       "type": "uptime",
-      "key": "╭─ Uptime  "
+      "key": "╭─ Uptime  ",
     },
     {
       "type": "media",
       "format": "{status} {title} - {artist}",
-      "key": "├─ Media   "
+      "key": "├─ Media   ",
     },
     {
       "type": "packages",
       "format": "{all}",
-      "key": "├─ Packages"
+      "key": "├─ Packages",
     },
     {
       "type": "editor",
-      "key": "├─ Editor  "
+      "key": "├─ Editor  ",
     },
     {
       "type": "wm",
       "format": "GlazeWM",
-      "key": "├─ WM\t   "
+      "key": "├─ WM\t   ",
     },
     {
       "type": "custom",
       "format": "Nord",
-      "key": "╰─ Theme   "
+      "key": "╰─ Theme   ",
     },
-    "break"
-  ]
+    "break",
+  ],
 }

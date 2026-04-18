@@ -37,7 +37,7 @@ command = "harper-ls"
 args = ["--stdio"]
 
 [language-server.harper-ls.config.harper-ls]
-dialact = "British"  # shit is not british
+dialact = "British" # shit is not british
 isolateEnglish = true
 
 [language-server.harper-ls.config.harper-ls.linters]
@@ -88,6 +88,10 @@ args = ["serve"]
 [language-server.helix-gpt]
 command = "helix-gpt"
 
+[language-server.oxfmt]
+command = "oxfmt"
+args = ["--lsp"]
+
 # requires: https://github.com/github/copilot-language-server-release
 [language-server.copilot]
 command = "copilot-language-server"
@@ -100,19 +104,28 @@ editorPluginInfo = { name = "helix-copilot", version = "0.1.0" }
 [language-server.powershell-lsp]
 command = "pwsh"
 args = [
-  "-nop", "-nol",
-  "-c", "~/Git/PowerShellEditorServices/PowerShellEditorServices/Start-EditorServices.ps1",
-  "-HostName", "Helix",
-  "-HostProfileId", "Helix",
-  "-LogLevel", "Normal",
+  "-nop",
+  "-nol",
+  "-c",
+  "~/Git/PowerShellEditorServices/PowerShellEditorServices/Start-EditorServices.ps1",
+  "-HostName",
+  "Helix",
+  "-HostProfileId",
+  "Helix",
+  "-LogLevel",
+  "Normal",
   "-Stdio",
-  "-SessionDetailsPath", "$HOME/Git/PowerShellEditorServices/PowerShellEditorServices.json",
+  "-SessionDetailsPath",
+  "$HOME/Git/PowerShellEditorServices/PowerShellEditorServices.json",
 ]
 
 [[language]]
 name = "python"
 language-servers = [
-  { name = "codebook", only-features = ["code-action", "diagnostics"] },
+  { name = "codebook", only-features = [
+    "code-action",
+    "diagnostics",
+  ] },
   { name = "pyright", except-features = [
     "goto-declaration",
     "goto-type-definition",
@@ -142,92 +155,63 @@ persistent-diagnostic-sources = ["ty"]
 name = "scss"
 file-types = ["scss", "tcss"]
 injection-regex = "(t|s)?css"
-language-servers = [
-  "vscode-css-language-server",
-]
+language-servers = ["vscode-css-language-server", "oxfmt"]
 
 [[language]]
 name = "scheme"
-language-servers = [
-  "steel",
-]
+language-servers = ["steel"]
 
 [[language]]
 name = "json"
 formatter = { command = "prettierd", args = [".json"] }
-language-servers = [
-  "vscode-json-language-server",
-]
+language-servers = ["oxfmt", "vscode-json-language-server"]
 auto-format = true
 
 [[language]]
 name = "javascript"
 formatter = { command = "pretterd", args = [".js"] }
-language-servers = [
-  "typescript-language-server",
-]
+language-servers = ["oxfmt", "typescript-language-server"]
 auto-format = true
 
 [[language]]
 name = "jsonc"
 formatter = { command = "prettierd", args = [".jsonc"] }
-language-servers = [
-  "vscode-json-language-server",
-]
+language-servers = ["oxfmt", "vscode-json-language-server"]
 auto-format = true
 
 [[language]]
 name = "yaml"
 formatter = { command = "prettierd", args = [".yaml"] }
-language-servers = [
-  "ansible-language-server",
-  "yaml-language-server",
-]
+language-servers = ["oxfmt", "ansible-language-server", "yaml-language-server"]
 
 [[language]]
 name = "css"
 formatter = { command = "prettierd", args = [".css"] }
-language-servers = [
-  "vscode-css-language-server",
-]
+language-servers = ["oxfmt", "vscode-css-language-server"]
 
 [[language]]
 name = "markdown"
-language-servers = [
-  "marksman",
-  "markdown-oxide",
-]
+language-servers = ["oxfmt", "marksman", "markdown-oxide"]
 formatter = { command = "prettierd", args = [".md"] }
 
 [[language]]
 name = "typst"
-language-servers = [
-  "tinymist",
-]
+language-servers = ["tinymist"]
 
 [[language]]
 name = "toml"
-language-servers = [
-  "taplo",
-  { name = "tombi", except-features = ["document-symbols"]},
-]
+language-servers = ["taplo", { name = "tombi", except-features = ["document-symbols"] }]
 
 [[language]]
 name = "powershell"
-language-servers = [
-  "powershell-lsp",
-]
+language-servers = ["powershell-lsp"]
 
 [[language]]
 name = "astro"
 scope = "source.astro"
 indent = { tab-width = 2, unit = "  " }
-language-servers = [
-  "astro-ls",
-]
+language-servers = ["astro-ls"]
 
 [[language]]
 name = "rust"
-language-servers = [
-  "rust-analyzer",
-]
+language-servers = ["rust-analyzer"]
