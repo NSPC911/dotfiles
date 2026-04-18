@@ -17,6 +17,8 @@ config.enable_kitty_keyboard = false -- kinda forced because escape keys dont se
 config.font = wezterm.font("CaskaydiaCove NFM")
 config.custom_block_glyphs = false
 config.cell_width = 1
+-- blur handled by windhawk
+-- transparency can be changed by ctrl + shift + o
 config.window_background_opacity = 0.75
 config.prefer_egl = true
 config.font_size = 11.5

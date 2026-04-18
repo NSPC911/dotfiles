@@ -2,7 +2,6 @@ hide-cursor-when-typing = false
 # env-vars = []
 confirm-before-quit = false
 working-dir = "C:/Users/notso"
-blur = true
 margin = [5]
 
 [panel]
@@ -41,22 +40,22 @@ filters = []
 [keyboard]
 use-kitty-keyboard-protocol = true
 [fonts]
-family = "0xProto Nerd Font Mono"
-features = ["cv12", "cv18", "calt"]
-use-drawable-characters = false
+family = "CaskaydiaCove Nerd Font Mono"
+use-drawable-characters = true
 size = 15
 [fonts.regular]
-family = "0xProto Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Mono"
 weight = 400
 [fonts.bold]
-family = "0xProto Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Mono"
 weight = 700
 [fonts.italic]
-family = "0xProto Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Mono"
 style = "Italic"
 weight = 400
 [fonts.bold-italic]
-family = "0xProto Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Mono"
+style = "Italic"
 weight = 700
 
 [scroll]

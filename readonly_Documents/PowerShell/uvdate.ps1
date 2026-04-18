@@ -2,7 +2,7 @@ function uvdate {
     Write-Host "Checking for package updates..." -ForegroundColor Yellow
     $changes = (uv sync --dry-run --upgrade --output-format json 2>$null | ConvertFrom-Json).sync.changes
 
-    if ($null -ne $changes) {
+    if ($changes.Length -ne 0) {
         Write-Host "`e[1A`e[2KParsing package updates..." -ForegroundColor Yellow
         $stats = @{}
         $tableRows = [System.Collections.Generic.List[object]]::new()
@@ -24,12 +24,12 @@ function uvdate {
             }
         }
         $statAsString = ($tableRows | Out-String).Trim().Split("`n") | ForEach-Object { $_.Trim() }
-        $global:header = $statAsString | Select-Object -first 1
-        $global:options = $statAsString | Select-Object -skip 2
+        $header = $statAsString | Select-Object -first 1
+        $options = $statAsString | Select-Object -skip 2
         [System.Console]::SetCursorPosition(0, [System.Console]::CursorTop - 1)
-        $output = $global:options | fzf --footer "$($global:header)" --multi --cycle --preview-window="hidden" --height="~100%"
+        $output = $options | fzf --footer $header --multi --cycle --preview-window="hidden" --height="~100%"
         if ($null -eq $output) {
-            Write-Host "`e[1A`e[2KNo packages selected for upgrade." -ForegroundColor Cyan
+            Write-Host "No packages selected for upgrade." -ForegroundColor Cyan
             return
         }
         $toUpdate = $output | ForEach-Object { $_.split(" ")[0] }
@@ -44,12 +44,6 @@ function uvdate {
     } else {
         # go up one cursor
         [System.Console]::SetCursorPosition(0, [System.Console]::CursorTop - 1)
-        uv run --no-project --with rich-typography python -c @"
-from rich.console import Console
-from rich_typography import Typography
-
-text = Typography.from_markup("[bold green]No packages to upgrade[/bold green]")
-Console().print(text)
-"@
+        Write-Host No packages to upgrade -ForegroundColor Green
     }
 }

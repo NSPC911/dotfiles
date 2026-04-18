@@ -88,15 +88,15 @@
       "Info": "",
       "Name": "chezmoi",
       "Source": "main",
-      "Updated": "2026-04-09T21:07:42.5116847+08:00",
-      "Version": "2.70.1"
+      "Updated": "2026-04-17T15:11:46.688204+08:00",
+      "Version": "2.70.2"
     },
     {
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Updated": "2026-04-10T15:29:33.0949674+08:00",
-      "Version": "1.9.18"
+      "Updated": "2026-04-17T15:12:06.6534621+08:00",
+      "Version": "1.9.19"
     },
     {
       "Info": "",
@@ -116,8 +116,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-04-15T17:57:32.9502616+08:00",
-      "Version": "1.470.0"
+      "Updated": "2026-04-17T15:12:27.1238415+08:00",
+      "Version": "1.471.0"
     },
     {
       "Info": "",
@@ -193,8 +193,8 @@
       "Info": "",
       "Name": "gh",
       "Source": "main",
-      "Updated": "2026-03-27T10:01:35.7672046+08:00",
-      "Version": "2.89.0"
+      "Updated": "2026-04-17T15:12:45.5521909+08:00",
+      "Version": "2.90.0"
     },
     {
       "Info": "",
@@ -354,8 +354,8 @@
       "Info": "",
       "Name": "nu",
       "Source": "main",
-      "Updated": "2026-04-12T09:32:34.2349128+08:00",
-      "Version": "0.112.1"
+      "Updated": "2026-04-17T15:13:06.0123262+08:00",
+      "Version": "0.112.2"
     },
     {
       "Info": "",
@@ -480,8 +480,8 @@
       "Info": "",
       "Name": "rio-nightly",
       "Source": "le-bucket",
-      "Updated": "2026-04-14T21:26:30.1783136+08:00",
-      "Version": "2026-04-13"
+      "Updated": "2026-04-17T15:13:43.9424693+08:00",
+      "Version": "2026-04-16"
     },
     {
       "Info": "",
@@ -585,8 +585,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-04-09T21:07:52.4399618+08:00",
-      "Version": "0.11.6"
+      "Updated": "2026-04-17T15:14:17.3753238+08:00",
+      "Version": "0.11.7"
     },
     {
       "Info": "",
@@ -599,8 +599,8 @@
       "Info": "",
       "Name": "wakatime-cli",
       "Source": "main",
-      "Updated": "2026-04-15T17:57:59.4875168+08:00",
-      "Version": "2.3.0"
+      "Updated": "2026-04-17T15:14:34.6098916+08:00",
+      "Version": "2.3.1"
     },
     {
       "Info": "Held package",
@@ -682,34 +682,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1495,
+      "Manifests": 1496,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-04-15T20:42:29+08:00"
+      "Updated": "2026-04-19T00:32:24+08:00"
     },
     {
-      "Manifests": 2293,
+      "Manifests": 2295,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-04-15T20:42:03+08:00"
+      "Updated": "2026-04-19T00:32:03+08:00"
     },
     {
       "Manifests": 571,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-04-15T17:54:38+08:00"
+      "Updated": "2026-04-19T01:01:23+08:00"
     },
     {
       "Manifests": 397,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-04-15T20:41:36+08:00"
+      "Updated": "2026-04-19T00:33:32+08:00"
     },
     {
       "Manifests": 36,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-04-15T17:52:58+08:00"
+      "Updated": "2026-04-18T11:32:26+08:00"
     }
   ],
   "config": {
