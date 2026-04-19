@@ -267,6 +267,9 @@ if (-not ($IsWindows)) {
 
 Set-Alias -Name "cat" -Value "bat"
 Set-Alias -Name "fst" -Value "Format-SpectreTable"
+Set-Alias -Name "tojson" -Value "ConvertTo-Json"
+Set-Alias -Name "fromjson" -Value "ConvertFrom-Json"
+Set-Alias -Name "fbs" -Value "Format-ByteSize"
 
 Remove-Alias -Name "ls" -Scope Global -ErrorAction Ignore
 function ls {
@@ -524,7 +527,7 @@ function chezcd {
         chezmoi status
     }
 }
-function chezedit { chezmoi edit --apply $args }
+function chezedit { chezmoi edit --apply --watch $args }
 function chezadd { chezmoi add $args }
 function chezgit { chezmoi git $args }
 function chezsync {

@@ -6,7 +6,7 @@ opacity = 0.75
 [font]
 normal = { family = "CaskaydiaCove NFM" }
 [terminal]
-shell = { program = "pwsh", args = [ "-NoLogo" ] }
+shell = { program = "pwsh", args = ["-NoLogo"] }
 [mouse]
 hide_when_typing = false
 [keyboard]
@@ -27,7 +27,7 @@ bindings = [
   { key = "I", mods = "Alt", mode = "Vi", action = "ScrollHalfPageUp" },
   { key = "L", mods = "Shift", mode = "Vi", action = "None" },
   { key = "C", mods = "Control | Shift", mode = "Vi", action = "Copy" },
-  { key = "Escape", mode = "Vi", action = "ToggleViMode"}
+  { key = "Escape", mode = "Vi", action = "ToggleViMode" },
 ]
 # nord theme thanks to https://gist.github.com/candidtim/6097565040a3aec839a8a2d28cb8887d
 [colors.primary]

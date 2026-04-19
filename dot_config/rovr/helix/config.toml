@@ -1,4 +1,4 @@
-#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.8.0.dev3/src/rovr/config/schema.json
+#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.8.2/src/rovr/config/schema.json
 
 [interface]
 truncate_progress_file_path = true
@@ -24,7 +24,7 @@ suspend = false
 transparent = true
 
 [metadata]
-filesize_suffix   = "decimal"
+filesize_suffix = "decimal"
 filesize_decimals = 2
 
 [keybinds]
@@ -61,4 +61,3 @@ threads = 5
 [plugins.file_one]
 enabled = true
 get_description = true
-

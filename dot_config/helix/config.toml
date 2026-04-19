@@ -7,7 +7,11 @@ C-S-s = ":wa"
 C-A-q = "wonly"
 C-z = "undo"
 C-y = "redo"
-C-f = [":new", ":insert-output wezterm cli split-pane --left --cells 26 --cwd %{current_working_directory} -- C:/Users/notso/Git/NSPC911/rovr/.venv/Scripts/rovr.exe --config-folder ~/.config/rovr/helix", ":buffer-close!"]
+C-f = [
+  ":new",
+  ":insert-output wezterm cli split-pane --left --cells 26 --cwd %{current_working_directory} -- C:/Users/notso/Git/NSPC911/rovr/.venv/Scripts/rovr.exe --config-folder ~/.config/rovr/helix",
+  ":buffer-close!",
+]
 tab = "rotate_view"
 S-tab = "rotate_view_reverse"
 "{" = ":buffer-previous"
@@ -23,7 +27,7 @@ l = "move_char_right"
 "-" = "decrement"
 "_" = "switch_to_lowercase"
 "+" = "switch_to_uppercase"
-w = "@<C-w>"  # easier to press 'w' than press 'C-w'
+w = "@<C-w>" # easier to press 'w' than press 'C-w'
 A-I = "append_mode"
 A-i = "insert_mode"
 I = "extend_line_up"
@@ -214,14 +218,38 @@ down = "no_op"
 # have some issues with getting copilot to work, so temporary
 # workaround is to pass to pwsh and run the copilot cli, which works fine, but is a bit janky ngl
 [keys.normal."C-w".a]
-c = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} pwsh -NoProfile -Command copilot", ":buffer-close!"]
-i = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode", ":buffer-close!"]
-v = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} vibe", ":buffer-close!"]
+c = [
+  ":new",
+  ":insert-output wezterm cli spawn --cwd %{current_working_directory} pwsh -NoProfile -Command copilot",
+  ":buffer-close!",
+]
+i = [
+  ":new",
+  ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode",
+  ":buffer-close!",
+]
+v = [
+  ":new",
+  ":insert-output wezterm cli spawn --cwd %{current_working_directory} vibe",
+  ":buffer-close!",
+]
 
 [keys.select."C-w".a]
-c = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} pwsh -NoProfile -Command copilot", ":buffer-close!"]
-i = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode", ":buffer-close!"]
-v = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} vibe", ":buffer-close!"]
+c = [
+  ":new",
+  ":insert-output wezterm cli spawn --cwd %{current_working_directory} pwsh -NoProfile -Command copilot",
+  ":buffer-close!",
+]
+i = [
+  ":new",
+  ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode",
+  ":buffer-close!",
+]
+v = [
+  ":new",
+  ":insert-output wezterm cli spawn --cwd %{current_working_directory} vibe",
+  ":buffer-close!",
+]
 
 # new buffer or terminal tab
 [keys.normal."C-w".n]
@@ -285,12 +313,7 @@ b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
-S = [
-  "split_selection_on_newline",
-  "extend_to_line_bounds",
-  ":sort",
-  "keep_primary_selection",
-]
+S = ["split_selection_on_newline", "extend_to_line_bounds", ":sort", "keep_primary_selection"]
 F = ":fmt"
 w = "no_op"
 A-c = "no_op"
@@ -306,14 +329,13 @@ k = "no_op"
 R = "no_op"
 
 [keys.normal."space".l]
-z = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} lazygit", ":buffer-close!"]
-p = "last_picker"
-k = [
+z = [
   ":new",
-  ":insert-output taskkill /f /im python.exe",
+  ":insert-output wezterm cli spawn --cwd %{current_working_directory} lazygit",
   ":buffer-close!",
-  ":lsp-restart",
 ]
+p = "last_picker"
+k = [":new", ":insert-output taskkill /f /im python.exe", ":buffer-close!", ":lsp-restart"]
 
 [keys.select."space"]
 c = "changed_file_picker"
@@ -325,12 +347,7 @@ b = "file_explorer_in_current_buffer_directory"
 B = "buffer_picker"
 g = "global_search"
 t = ":toggle-option soft-wrap.enable"
-S = [
-  "split_selection_on_newline",
-  "extend_to_line_bounds",
-  ":sort",
-  "keep_primary_selection",
-]
+S = ["split_selection_on_newline", "extend_to_line_bounds", ":sort", "keep_primary_selection"]
 F = ":fmt"
 w = "no_op"
 A-c = "no_op"
@@ -346,14 +363,13 @@ k = "no_op"
 R = "no_op"
 
 [keys.select."space".l]
-z = [":new", ":insert-output wezterm cli spawn --cwd %{current_working_directory} lazygit", ":buffer-close!"]
-p = "last_picker"
-k = [
+z = [
   ":new",
-  ":insert-output taskkill /f /im python.exe",
+  ":insert-output wezterm cli spawn --cwd %{current_working_directory} lazygit",
   ":buffer-close!",
-  ":lsp-restart",
 ]
+p = "last_picker"
+k = [":new", ":insert-output taskkill /f /im python.exe", ":buffer-close!", ":lsp-restart"]
 
 [keys.normal.z]
 i = "align_view_bottom"
@@ -548,7 +564,7 @@ atomic-save = false
 kitty-keyboard-protocol = "enabled"
 rounded-corners = true
 word-completion.trigger-length = 1
-gutters.line-numbers.min-width = 4  # enough for 9999 lines
+gutters.line-numbers.min-width = 4 # enough for 9999 lines
 smart-tab.enable = true
 
 [editor.file-picker]

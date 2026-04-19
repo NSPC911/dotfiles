@@ -172,6 +172,7 @@ binds {
     XF86MonBrightnessUp                 { spawn-sh "bright up"; }
     // change display
     MOD+P                               { spawn-sh "pwsh -nop -c output-toggle.ps1"; }
+    MOD+CTRL+P                          { spawn-sh "wl-mirror -F eDP-1"; }
 
     // Mod+Shift+Alt+R { spawn "ignis" "run-command" "recorder-record-screen"; }
     // Mod+Alt+R { spawn "ignis" "run-command" "recorder-record-portal"; }
@@ -201,18 +202,18 @@ layer-rule {
 }
 
 layer-rule {
-    match namespace="^noctalia-overview"
-    place-within-backdrop true
-}
-
-layer-rule {
-  match namespace="^noctalia-wallpaper*"
-  place-within-backdrop true
+    match namespace="dms:powermenu"
 }
 
 layer-rule {
     match namespace="^quickshell$"
     place-within-backdrop true
+}
+
+layer-rule {
+    background-effect {
+        xray false
+    }
 }
 
 overview {
@@ -318,7 +319,16 @@ animations {
 
 window-rule {
     match app-id=r#"zen$"# title="^Picture-in-Picture$"
-    open-floating true // Always float zen PiP windows
+}
+
+window-rule {
+    match app-id=r#"zen"#
+    draw-border-with-background false
+}
+
+window-rule {
+    match app-id="rio"
+    draw-border-with-background false
 }
 
 window-rule {
@@ -337,10 +347,10 @@ window-rule {
     geometry-corner-radius 6
     clip-to-geometry true
     open-maximized-to-edges false
-    // background-effect {
-    //     blur true
-    // }
-    // soon:tm:
+    background-effect {
+        blur true
+        xray false
+    }
 }
 
 // ────────────── Environment Variables ──────────────
