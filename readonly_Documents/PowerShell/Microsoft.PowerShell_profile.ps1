@@ -31,7 +31,7 @@ function regenCache {
                 }
             }
         }
-        $include = @("file", "tar", "curl", "cargo", "aria2c")
+        $include = @("file", "tar", "curl", "cargo", "aria2c", "python")
         $include | ForEach-Object {
             $caracomplete = carapace $_ powershell
             if ($null -ne $caracomplete) {
@@ -218,6 +218,7 @@ function nuke {
     taskkill.exe /F /IM $ProcessName
 }
 Set-Alias -Name "whereis" -Value "where.exe"
+Set-Alias -Name "which" -Value "where.exe"
 
 Set-Alias -Name "omp" -Value "oh-my-posh"
 

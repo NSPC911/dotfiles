@@ -76,6 +76,7 @@ poetry v2.3.4
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.408
 rich-cli v1.8.1
+rovr v0.8.2 [required:  git+https://github.com/NSPC911/rovr]
 ruff v0.15.11
 ty v0.0.20 [required: ==0.0.20]
 ```
@@ -91,7 +92,7 @@ ty v0.0.20 [required: ==0.0.20]
 @fsouza/prettierd@0.27.0
 @github/copilot@0.0.383
 @google/gemini-cli@0.30.1
-corepack@0.34.6
+corepack@0.34.7
 live-server@1.2.2
 oxfmt@0.45.0
 typescript@5.9.3
@@ -142,17 +143,17 @@ vscode-langservers-extracted@4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     61         6559         6558            0            1
+ JSON                     61         6625         6624            0            1
  CSS                      11         3898         3137          281          480
  TOML                     11         1696         1407          164          125
  YAML                      5         1182         1062           53           67
- PowerShell                4         1101          934           63          104
+ PowerShell                4         1102          935           63          104
  Scheme                    6          961          840           27           94
  INI                       1          687          170          414          103
  Lua                       1          243          219           12           12
- Markdown                 10          230            0          175           55
+ Markdown                 10          231            0          176           55
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   110        16557        14327         1189         1041
+ Total                   110        16625        14394         1190         1041
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
