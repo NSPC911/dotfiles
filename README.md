@@ -70,15 +70,15 @@ helix
 ansible-lint v26.4.0
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.7.6
+mistral-vibe v2.8.1
 poethepoet v0.44.0
 poetry v2.3.4
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
-pyright v1.1.408
+pyright v1.1.409
 rich-cli v1.8.1
 rovr v0.8.2 [required:  git+https://github.com/NSPC911/rovr]
-ruff v0.15.11
-ty v0.0.20 [required: ==0.0.20]
+ruff v0.15.12
+ty v0.0.32 [required: ==0.0.32]
 ```
 
 #### pnpm global installs
@@ -144,16 +144,16 @@ vscode-langservers-extracted@4.10.0
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  JSON                     61         6625         6624            0            1
- CSS                      11         3898         3137          281          480
- TOML                     11         1696         1407          164          125
- YAML                      5         1182         1062           53           67
- PowerShell                4         1102          935           63          104
+ CSS                      11         3961         3190          282          489
+ TOML                     11         1692         1403          164          125
+ YAML                      5         1187         1067           53           67
+ PowerShell                4         1120          949           64          107
  Scheme                    6          961          840           27           94
  INI                       1          687          170          414          103
  Lua                       1          243          219           12           12
  Markdown                 10          231            0          176           55
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   110        16625        14394         1190         1041
+ Total                   110        16707        14462         1192         1053
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

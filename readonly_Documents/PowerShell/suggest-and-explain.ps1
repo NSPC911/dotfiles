@@ -14,9 +14,6 @@ if ($null -eq $env:EDITOR -or $env:EDITOR -eq "") {
     }
 }
 
-# needed for live stuff
-if ($null -eq (Get-Module -Name PwshSpectreConsole -ListAvailable)) { Install-Module -Name PwshSpectreConsole }
-
 $opencodeAvailable = $null -ne (Get-Command opencode -ErrorAction SilentlyContinue)
 $opencodeSuggesterModel = "mistral/codestral-latest"
 $ollamaExplainerModel = "codegemma:2b"
@@ -51,6 +48,10 @@ function suggest {
         [Parameter(Position = 0, ValueFromRemainingArguments = $true)]
         [string]$Description
     )
+
+    if ($null -eq (Get-Module -Name PwshSpectreConsole -ListAvailable)) {
+        Install-Module -Name PwshSpectreConsole -Force
+    }
 
     Write-Host ""
 
@@ -227,6 +228,11 @@ function explain {
         Write-Host "Usage: ole <command to explain>" -ForegroundColor Red
         return
     }
+
+    if ($null -eq (Get-Module -Name PwshSpectreConsole -ListAvailable)) {
+        Install-Module -Name PwshSpectreConsole -Force
+    }
+
     $prompt = "Explain this PowerShell command: '$Command'. Include what it does, any parameters, and provide examples if helpful. Be concise. Format your response using Markdown (but do not wrap it in the markdown codeblock)"
 
     $result = Invoke-SpectreCommandWithStatus -Spinner "Point" -Title "[cyan]Thinking...[/]" -ScriptBlock {

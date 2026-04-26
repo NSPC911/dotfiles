@@ -2,8 +2,12 @@
   --funny-accent-background-colour: #2e34407f;
   --zen-main-browser-background-toolbar: transparent !important;
   --sidebar-border-color: transparent;
-  --border-border: 1.75px solid #88c0d0;
-  --toolbarbutton-hover-background: color-mix(in oklab, transparent 12.5%, #4c566a) !important;
+  --border-border: 2.5px solid #88c0d0;
+  --toolbarbutton-hover-background: color-mix(
+    in oklab,
+    transparent 12.5%,
+    #4c566a
+  ) !important;
   .tab-close-button {
     position: absolute !important;
   }
@@ -22,7 +26,9 @@
     display: none !important;
   }
   #zen-current-workspace-indicator-container
-    > .zen-current-workspace-indicator:has(> .zen-current-workspace-indicator-icon) {
+    > .zen-current-workspace-indicator:has(
+      > .zen-current-workspace-indicator-icon
+    ) {
     opacity: 1 !important;
   }
 
@@ -40,13 +46,11 @@
   .tabbrowser-tab:not([pinned]):hover .tab-icon-stack {
     margin-left: 0 !important;
   }
-  #tabbrowser-tabbox:has(> #zen-toast-container > hbox > button#zen-open-background-tab-button)
-    > #tabbrowser-tabpanels {
+  #tabbrowser-tabbox:has(> #zen-toast-container > hbox > button#zen-open-background-tab-button) > #tabbrowser-tabpanels {
     animation: background_tab 0.25s ease;
   }
 
-  #tabbrowser-tabbox:has(> #zen-toast-container > hbox > button#zen-copy-current-url-button)
-    > #tabbrowser-tabpanels {
+  #tabbrowser-tabbox:has(> #zen-toast-container > hbox > button#zen-copy-current-url-button) > #tabbrowser-tabpanels {
     animation: clipboard_added 0.25s ease;
   }
 
@@ -71,7 +75,7 @@
     &:hover {
       background: #2e3440 !important;
       transition-duration: 0s !important;
-      border: none !important;
+      border: none !important
     }
     button {
       background: #2e3440ff !important;
@@ -120,7 +124,7 @@
         backdrop-filter: blur(10px);
         &::before,
         &::after {
-          display: none;
+          display: none
         }
       }
     }
@@ -135,16 +139,16 @@
     color: white;
   }
   #tabbrowser-arrowscrollbox-periphery:hover .toolbarbutton-text:before {
-    content: "What now?";
+    content: "What now?"
   }
   #tabbrowser-arrowscrollbox-periphery:hover .toolbarbutton-icon {
     rotate: 135deg;
   }
   #tabbrowser-arrowscrollbox-periphery .toolbarbutton-icon {
-    transition: rotate 0.125s ease-out;
+    transition: rotate 0.125s ease-out
   }
   #navigator-toolbox ~ #zen-appcontent-wrapper #zen-tabbox-wrapper {
-    transition: filter 0.25s ease;
+    transition: filter 0.25s ease
   }
   #zenCreateNewPopup {
     background: transparent !important;
@@ -156,13 +160,19 @@
   filter: blur(5px) brightness(70%) !important;
 }
 
-.browserStack:has(#historySwipeAnimationPreviousArrow:not([style="translate: none;"])) browser {
+.browserStack:has(
+    #historySwipeAnimationPreviousArrow:not([style="translate: none;"])
+  )
+  browser {
   scale: 0.95 !important;
   transform: translateX(3%) !important;
   border-radius: 1em !important;
 }
 
-.browserStack:has(#historySwipeAnimationNextArrow:not([style="translate: none;"])) browser {
+.browserStack:has(
+    #historySwipeAnimationNextArrow:not([style="translate: none;"])
+  )
+  browser {
   scale: 0.95 !important;
   transform: translateX(-3%) !important;
   border-radius: 1em !important;
@@ -219,4 +229,57 @@
   55% {
     transform: scale(0.95) translateY(2.5%);
   }
+}
+
+@keyframes move_toolbox_right {
+  0%, 100% { left: 0px !important }
+  45%, 55% { left: 100px !important }
+}
+
+/* loading outer progress bar */
+@keyframes zen-progress-bar-pulse {
+  0%, 100% { opacity: 0.6 }
+  50% { opacity: 1 }
+}
+
+@keyframes zen-progress-bar-long-load {
+  0%, 100% { opacity: 1 }
+}
+
+@keyframes zen-progress-bar-settle {
+  to { opacity: 1; transform: scale(200%) }
+}
+
+@keyframes zen-progress-bar-gone {
+  from { border: 2px solid #88c0d0DD }
+  to { border: 2px solid transparent }
+}
+
+#zen-loading-progress-bar {
+  position: fixed;
+  inset: 0 !important;
+  transform: none !important;
+  background: transparent !important;
+  height: 100% !important;
+  width: 100% !important;
+  border-radius: 5px !important;
+  border: 2px solid #88c0d0;
+
+  &[long-load="true"] {
+    opacity: 1;
+    animation: zen-progress-bar-settle .3s ease-out forwards;
+    background: transparent !important;
+    border: 2px solid #88c0d0;
+
+    &::before { display: none }
+  }
+}
+
+.browserSidebarContainer:not(:has(> #zen-loading-progress-bar))::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+  animation: zen-progress-bar-gone 0.5s linear forwards;
+  cursor: none;
+  pointer-events: none;
 }

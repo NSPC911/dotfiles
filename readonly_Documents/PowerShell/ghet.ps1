@@ -1,10 +1,13 @@
-if ($null -eq (Get-Module -Name PwshSpectreConsole -ListAvailable)) { Install-Module -Name PwshSpectreConsole }
-
 function ghet {
     param(
         [Parameter(Mandatory=$true, Position=0)]
         [string]$RepoSlug
     )
+
+    if ($null -eq (Get-Module -Name PwshSpectreConsole -ListAvailable)) {
+        Install-Module -Name PwshSpectreConsole -Force
+    }
+
     Set-StrictMode -Version Latest
     $ErrorActionPreference = 'Stop'
 

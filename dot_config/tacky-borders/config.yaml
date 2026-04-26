@@ -9,7 +9,7 @@ global:
 
   border_offset: -1
 
-  border_radius: RoundSmall
+  border_radius: Round
 
   border_z_order: AboveWindow
   follow_native_border: True
@@ -44,8 +44,11 @@ global:
       # - type: Spiral
       #   duration: 10000
       #   easing: Linear
+      # - type: Fade
+      #   duration: 2500
+      #   easing: Linear
 
-    fps: 10
+    fps: 5
     enabled: True
 
   effects:

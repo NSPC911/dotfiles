@@ -181,7 +181,7 @@ widgets:
         round_corners: true
         alignment: "center"
         direction: "down"
-        offset_top: 0
+        offset_top: 7
         offset_left: 30
       callbacks:
         on_left: "toggle_calendar"
@@ -305,7 +305,7 @@ widgets:
         border_color: "system"
         alignment: "center"
         direction: "down"
-        offset_top: 5
+        offset_top: 7
         offset_left: 0
         thumbnail_corner_radius: 8
         thumbnail_size: 120
@@ -354,7 +354,7 @@ widgets:
         border_color: "system"
         alignment: "center"
         direction: "down"
-        offset_top: 5
+        offset_top: 7
         offset_left: 0
         thumbnail_corner_radius: 8
         thumbnail_size: 120
@@ -451,8 +451,8 @@ widgets:
         border_color: "#88c0d0"
         alignment: "right"
         direction: "down"
-        offset_top: 0
-        offset_left: 3
+        offset_top: 7
+        offset_left: 10
         chart: true
       callbacks:
         on_left: "toggle_popup"
