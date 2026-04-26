@@ -7,6 +7,7 @@ $CACHE = "$PROFILE/../cache"
 if (-not (Test-Path $CACHE)) {
     New-Item -ItemType Directory -Path $CACHE | Out-Null
 }
+$HomeAndClearLine = "`e[0J`e[H`e[2K"
 ##### Cache Completions #####
 $cacheCompletionLocation = "$cache/completion-cache.ps1"
 function regenCache {
@@ -20,7 +21,7 @@ function regenCache {
     # check existence of scoop (because im going to start using linux)
     if (Get-Command scoop -ErrorAction SilentlyContinue) {
         # setup only specific completions
-        $dontwant = @("bat", "gh", "rg", "rustup", "taplo", "wezterm")
+        $dontwant = @("bat", "gh", "gpg", "gpg-agent", "grep", "lazygit", "rg", "rustup", "taplo", "wezterm")
         Get-ChildItem -File "$HOME/scoop/shims" | Where-Object { $_.Name -like '*.exe' } | ForEach-Object {
             $thing = $_.BaseName
             if ($dontwant -notcontains $thing) {
@@ -31,7 +32,7 @@ function regenCache {
                 }
             }
         }
-        $include = @("file", "tar", "curl", "cargo", "aria2c")
+        $include = @("file", "tar", "curl", "cargo", "aria2c", "python")
         $include | ForEach-Object {
             $caracomplete = carapace $_ powershell
             if ($null -ne $caracomplete) {
@@ -43,26 +44,25 @@ function regenCache {
         $completions += carapace _carapace powershell
     }
 
-    # `e[2K to clear line
-    Write-Output "`e[H`e[2KSetting up zoxide"
+    Write-Output $HomeAndClearLine"Setting up zoxide"
     $completions += zoxide init powershell
 
-    Write-Output "`e[0J`e[HSetting up oh-my-posh"
+    Write-Output $HomeAndClearLine"Setting up oh-my-posh"
     $completions += oh-my-posh init powershell --config $HOME/.config/kushal.omp.json
 
-    Write-Output "`e[0J`e[HSetting up gh completions"
+    Write-Output $HomeAndClearLine"Setting up gh completions"
     $completions += gh completion -s powershell
 
-    Write-Output "`e[0J`e[HSetting up ty completions"
+    Write-Output $HomeAndClearLine"Setting up ty completions"
     $completions += ty generate-shell-completion powershell
 
-    Write-Output "`e[0J`e[HSetting up uv completions"
+    Write-Output $HomeAndClearLine"Setting up uv completions"
     $completions += uv generate-shell-completion powershell
 
-    Write-Output "`e[0J`e[HSetting up gix completions"
+    Write-Output $HomeAndClearLine"Setting up gix completions"
     $completions += gix completions -s powershell
 
-    Write-Output "`e[0J`e[HSetting up uvx completions"
+    Write-Output $HomeAndClearLine"Setting up uvx completions"
     $completions += uvx --generate-shell-completion powershell
 
     Write-Output "`e[HSetting up pixi completions"
@@ -71,40 +71,40 @@ function regenCache {
     # Write-Output "`e[HSetting up tuios completions"
     # $completions += tuios completion powershell
 
-    # Write-Output "`e[0J`e[HSetting up delta completions"
+    # Write-Output $homeAndClearLine"Setting up delta completions"
     # $completions += delta --generate-completion powershell
 
-    Write-Output "`e[0J`e[HSetting up taplo completions"
+    Write-Output $HomeAndClearLine"Setting up taplo completions"
     $completions += taplo completions powershell
 
-    Write-Output "`e[0J`e[HSetting up tombi completions"
+    Write-Output $HomeAndClearLine"Setting up tombi completions"
     $completions += tombi completion powershell
 
-    Write-Output "`e[0J`e[HSetting up typst completions"
+    Write-Output $HomeAndClearLine"Setting up typst completions"
     $completions += typst completions powershell
 
-    Write-Output "`e[0J`e[HSetting up batcat completions"
+    Write-Output $HomeAndClearLine"Setting up batcat completions"
     $completions += bat --completion ps1
 
-    Write-Output "`e[0J`e[HSetting up rustup completions"
+    Write-Output $HomeAndClearLine"Setting up rustup completions"
     $completions += rustup completions powershell
 
-    Write-Output "`e[0J`e[HSetting up chezmoi completions"
+    Write-Output $HomeAndClearLine"Setting up chezmoi completions"
     $completions += chezmoi completion powershell
 
-    Write-Output "`e[0J`e[HSetting up ripgrep completions"
+    Write-Output $HomeAndClearLine"Setting up ripgrep completions"
     $completions += rg --generate complete-powershell
 
-    Write-Output "`e[0J`e[HSetting up wezterm completions"
+    Write-Output $HomeAndClearLine"Setting up wezterm completions"
     $completions += wezterm shell-completion --shell power-shell
 
-    Write-Output "`e[0J`e[HSetting up regolith completions"
+    Write-Output $HomeAndClearLine"Setting up regolith completions"
     $completions += regolith completion powershell
 
-    Write-Output "`e[0J`e[HSetting up onefetch completions"
-    $completions += onefetch --generate powershell
+    # Write-Output $HomeAndClearLine"Setting up onefetch completions"
+    # $completions += onefetch --generate powershell
 
-    Write-Output "`e[0J`e[HSetting up poethepoet completions"
+    Write-Output $HomeAndClearLine"Setting up poethepoet completions"
     $completions += poe _powershell_completion
 
     # Extract all 'using' statements and remove duplicates
@@ -154,7 +154,7 @@ if (-not (Test-Path $cacheCompletionLocation)) {
 
 . $cacheCompletionLocation
 
-Write-Output "`e[0J`e[HDealing with functions and aliases..."
+Write-Output $HomeAndClearLine"Dealing with functions and aliases..."
 ## zoxide cant add them for some reason /shrug
 Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
 Set-Alias -Option AllScope -Name "cdi" -Value "__zoxide_zi"
@@ -218,6 +218,7 @@ function nuke {
     taskkill.exe /F /IM $ProcessName
 }
 Set-Alias -Name "whereis" -Value "where.exe"
+Set-Alias -Name "which" -Value "where.exe"
 
 Set-Alias -Name "omp" -Value "oh-my-posh"
 
@@ -480,7 +481,7 @@ function forever {
 }
 
 ##### PS Plugins #####
-Write-Host "`e[0J`e[0J`e[HAdding Plugins `e[s" -NoNewLine
+Write-Host $homeAndClearLine"Adding Plugins `e[s" -NoNewLine
 
 # # https://github.com/devblackops/Terminal-Icons
 # Write-Output "`e[u`e[0KTerminal-Icons"
@@ -643,8 +644,6 @@ function fz {
     }
 }
 
-. "$PROFILE/../suggest-and-explain.ps1"
-
 ##### bytes to size #####
 function Format-ByteSize {
     [CmdletBinding()]
@@ -677,6 +676,10 @@ function Reset-WiFi {
     }
 }
 
+Write-Host $HomeAndClearLine"Importing other functions"
+
+##### suggest and explain using ai #####
+. "$PROFILE/../suggest-and-explain.ps1"
 
 ##### ghet from gh #####
 . "$PROFILE/../ghet.ps1"
@@ -689,14 +692,21 @@ Clear-Host
 function fetch {
     param (
         [Parameter()]
-        [Switch]$Clear
+        [Switch]$Clear,
+        [Parameter()]
+        [Switch]$GitFetch
     )
     if ($Clear) {
         Clear-Host
     }
-    gitfetch --graph-only --custom-box 
-    Write-Host "`e[1A"
-    fastfetch
+    if ($GitFetch) {
+        Write-Host
+        gitfetch --graph-only --custom-box 
+        Write-Host "`e[1F"
+        fastfetch --logo none
+    } else {
+        fastfetch
+    }
 }
 fetch
 if (Test-Path $prevloc) {

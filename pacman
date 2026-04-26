@@ -59,6 +59,7 @@ cantor
 capitaine-cursors
 carapace-bin
 cava
+ccache
 chezmoi
 chwd
 codebook-lsp
@@ -132,7 +133,7 @@ helium-browser-bin
 hplip
 hwdetect
 hwinfo
-iamb-git
+iamb-bin
 inetutils
 input-remapper-bin
 intel-media-driver
@@ -221,6 +222,7 @@ ntp
 obs-studio
 octopi
 oh-my-posh-bin
+onboard
 onefetch
 opencl-mesa
 opencode
@@ -232,6 +234,7 @@ pacman-contrib
 pacseek
 pamixer
 paru
+patchelf
 pear-desktop
 perl
 pipewire-alsa
@@ -353,7 +356,7 @@ beeper-v4-bin
 bibata-cursor-theme-bin
 carapace-bin
 dms-shell-git
-iamb-git
+iamb-bin
 input-remapper-bin
 lazygit-git
 lib32-gst-plugins-base-libs
@@ -368,6 +371,7 @@ pacseek
 powershell-bin
 proton-ge-custom-bin
 python-ignis-git
+python-vlc
 redhat-fonts
 scooter
 sddm-silent-theme-git

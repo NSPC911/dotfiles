@@ -122,10 +122,6 @@ args = [
 [[language]]
 name = "python"
 language-servers = [
-  { name = "codebook", only-features = [
-    "code-action",
-    "diagnostics",
-  ] },
   { name = "pyright", except-features = [
     "goto-declaration",
     "goto-type-definition",

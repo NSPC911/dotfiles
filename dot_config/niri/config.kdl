@@ -219,7 +219,7 @@ layer-rule {
 overview {
     zoom 0.5
     workspace-shadow {
-        off
+        on
     }
 }
 
@@ -278,8 +278,8 @@ layout {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
     workspace-switch {
-        duration-ms 350
-        curve "cubic-bezier" 0 1 0.5 1.02
+        duration-ms 400
+        curve "cubic-bezier" 0 1 0.5 1
     }
     window-open {
         duration-ms 200
@@ -289,11 +289,11 @@ animations {
         duration-ms 0
     }
     horizontal-view-movement {
-        duration-ms 300
-        curve "cubic-bezier" 1 0 0 1
+        duration-ms 400
+        curve "cubic-bezier" 0.25 0.25 0 1
     }
     window-movement {
-        duration-ms 300
+        duration-ms 400
         curve "cubic-bezier" 1 0 0 1
     }
     window-resize {
@@ -309,8 +309,8 @@ animations {
         curve "ease-out-quad"
     }
     overview-open-close {
-        duration-ms 300
-        curve "cubic-bezier" 0.5 0 0.5 1
+        duration-ms 400
+        curve "cubic-bezier" 0 0 0.5 1
     }
 }
 
@@ -341,6 +341,12 @@ window-rule {
     match app-id="steam"
     open-on-workspace "messages"
     open-focused false
+}
+
+window-rule {
+    match app-id="onboard"
+    open-floating true
+    // Optionally remove borders/shadows if you want it cleaner
 }
 
 window-rule {
