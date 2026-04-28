@@ -54,7 +54,7 @@ global:
   effects:
     active:
       - type: Glow
-        radius: 12.0
+        radius: 4.0
         opacity: 1.0
 
     inactive:
