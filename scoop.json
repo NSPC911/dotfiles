@@ -67,8 +67,8 @@
       "Info": "",
       "Name": "carapace-bin",
       "Source": "extras",
-      "Updated": "2026-03-19T23:52:37.1787635+08:00",
-      "Version": "1.6.4"
+      "Updated": "2026-05-01T00:58:17.7133268+08:00",
+      "Version": "1.6.5"
     },
     {
       "Info": "",
@@ -88,8 +88,8 @@
       "Info": "",
       "Name": "chafa",
       "Source": "main",
-      "Updated": "2026-03-15T22:27:43.54903+08:00",
-      "Version": "1.18.1"
+      "Updated": "2026-05-01T00:58:20.9204919+08:00",
+      "Version": "1.18.2"
     },
     {
       "Info": "",
@@ -200,8 +200,8 @@
       "Info": "",
       "Name": "gh",
       "Source": "main",
-      "Updated": "2026-04-23T00:45:06.1729684+08:00",
-      "Version": "2.91.0"
+      "Updated": "2026-05-01T00:58:14.4477617+08:00",
+      "Version": "2.92.0"
     },
     {
       "Info": "",
@@ -221,8 +221,8 @@
       "Info": "",
       "Name": "gitoxide",
       "Source": "main",
-      "Updated": "2026-04-26T18:42:49.1281338+08:00",
-      "Version": "0.52.1"
+      "Updated": "2026-05-01T00:58:17.8773671+08:00",
+      "Version": "0.53.0"
     },
     {
       "Info": "",
@@ -242,8 +242,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2026-04-27T23:32:41.3429587+08:00",
-      "Version": "0.11.5.1"
+      "Updated": "2026-05-01T00:58:24.561436+08:00",
+      "Version": "0.11.7.1"
     },
     {
       "Info": "",
@@ -251,6 +251,13 @@
       "Source": "le-bucket",
       "Updated": "2026-01-14T12:08:13.1627795+08:00",
       "Version": "1.0.1"
+    },
+    {
+      "Info": "",
+      "Name": "hok",
+      "Source": "https://raw.githubusercontent.com/chawyehsu/dorado/refs/heads/master/bucket/hok.json",
+      "Updated": "2026-04-28T08:50:06.0831387+08:00",
+      "Version": "0.1.0-beta.7"
     },
     {
       "Info": "",
@@ -375,15 +382,15 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2026-04-11T10:02:35.6487082+08:00",
-      "Version": "29.10.0"
+      "Updated": "2026-05-01T00:59:13.061582+08:00",
+      "Version": "29.12.0"
     },
     {
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-04-27T23:32:38.4372196+08:00",
-      "Version": "1.14.28"
+      "Updated": "2026-05-01T00:59:16.0122923+08:00",
+      "Version": "1.14.30"
     },
     {
       "Info": "",
@@ -410,8 +417,8 @@
       "Info": "",
       "Name": "pixelorama",
       "Source": "extras",
-      "Updated": "2026-04-13T16:05:33.82715+08:00",
-      "Version": "1.1.9"
+      "Updated": "2026-05-01T00:59:17.3943521+08:00",
+      "Version": "1.1.10"
     },
     {
       "Info": "",
@@ -431,8 +438,8 @@
       "Info": "",
       "Name": "powertoys",
       "Source": "extras",
-      "Updated": "2026-03-27T10:04:13.7596542+08:00",
-      "Version": "0.98.1"
+      "Updated": "2026-05-01T01:03:31.714299+08:00",
+      "Version": "0.99.0"
     },
     {
       "Info": "",
@@ -494,8 +501,8 @@
       "Info": "",
       "Name": "rio-nightly",
       "Source": "le-bucket",
-      "Updated": "2026-04-27T23:34:03.1378114+08:00",
-      "Version": "2026-04-26"
+      "Updated": "2026-05-01T01:04:16.3236363+08:00",
+      "Version": "2026-04-29"
     },
     {
       "Info": "",
@@ -515,8 +522,8 @@
       "Info": "",
       "Name": "rufus",
       "Source": "extras",
-      "Updated": "2026-02-18T09:47:13.559284+08:00",
-      "Version": "4.13"
+      "Updated": "2026-05-01T00:59:57.8334168+08:00",
+      "Version": "4.14"
     },
     {
       "Info": "",
@@ -592,8 +599,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "main",
-      "Updated": "2026-04-28T08:04:53.1934698+08:00",
-      "Version": "0.9.25"
+      "Updated": "2026-05-01T01:00:01.2971366+08:00",
+      "Version": "0.10.1"
     },
     {
       "Info": "",
@@ -620,8 +627,8 @@
       "Info": "",
       "Name": "wakatime-cli",
       "Source": "main",
-      "Updated": "2026-04-28T08:05:48.0032862+08:00",
-      "Version": "2.9.0"
+      "Updated": "2026-05-01T01:00:02.9236697+08:00",
+      "Version": "2.9.3"
     },
     {
       "Info": "Held package",
@@ -662,8 +669,8 @@
       "Info": "",
       "Name": "yasb-dev",
       "Source": "le-bucket",
-      "Updated": "2026-04-26T09:26:46.4327167+08:00",
-      "Version": "20260425-185541"
+      "Updated": "2026-05-01T01:01:36.6872251+08:00",
+      "Version": "20260428-133837"
     },
     {
       "Info": "",
@@ -690,8 +697,8 @@
       "Info": "",
       "Name": "zen-browser",
       "Source": "extras",
-      "Updated": "2026-04-26T09:29:13.3168639+08:00",
-      "Version": "1.19.9b"
+      "Updated": "2026-05-01T01:00:20.6850951+08:00",
+      "Version": "1.19.11b"
     },
     {
       "Info": "",
@@ -703,34 +710,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1508,
+      "Manifests": 1509,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-04-28T04:42:54+08:00"
+      "Updated": "2026-05-01T00:51:27+08:00"
     },
     {
-      "Manifests": 2301,
+      "Manifests": 2305,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-04-28T04:41:41+08:00"
+      "Updated": "2026-05-01T00:51:40+08:00"
     },
     {
-      "Manifests": 572,
+      "Manifests": 578,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-04-28T05:31:48+08:00"
+      "Updated": "2026-04-30T22:28:27+08:00"
     },
     {
-      "Manifests": 398,
+      "Manifests": 403,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-04-28T07:42:55+08:00"
+      "Updated": "2026-05-01T00:52:00+08:00"
     },
     {
       "Manifests": 37,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-04-28T05:18:31+08:00"
+      "Updated": "2026-04-30T22:26:45+08:00"
     }
   ],
   "config": {

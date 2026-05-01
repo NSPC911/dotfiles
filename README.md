@@ -70,8 +70,8 @@ helix
 ansible-lint v26.4.0
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.8.1
-poethepoet v0.44.0
+mistral-vibe v2.9.3
+poethepoet v0.45.0
 poetry v2.3.4
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.409
@@ -88,7 +88,7 @@ ty v0.0.32 [required: ==0.0.32]
 
 ```
 @ansible/ansible-language-server@1.2.3
-@astrojs/language-server@2.16.6
+@astrojs/language-server@2.16.7
 @fsouza/prettierd@0.27.0
 @github/copilot@0.0.383
 @google/gemini-cli@0.30.1
@@ -143,17 +143,17 @@ vscode-langservers-extracted@4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     61         6632         6631            0            1
- CSS                      11         4027         3251          283          493
- TOML                     11         1692         1403          164          125
+ JSON                     61         6639         6638            0            1
+ CSS                      11         3984         3210          283          491
+ TOML                     11         1692         1402          165          125
  YAML                      5         1187         1067           53           67
- PowerShell                4         1120          949           64          107
+ PowerShell                4         1121          950           64          107
  Scheme                    6          961          840           27           94
  INI                       1          687          170          414          103
  Lua                       1          243          219           12           12
  Markdown                 10          231            0          176           55
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   110        16780        14530         1193         1057
+ Total                   110        16745        14496         1194         1055
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

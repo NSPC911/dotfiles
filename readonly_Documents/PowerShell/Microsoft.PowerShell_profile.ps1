@@ -338,7 +338,8 @@ function pyvenv() {
         [Parameter()][switch]$Upgrade,
         [Parameter()][switch]$Update,
         [Parameter()][switch]$NoSync,
-        [Parameter()][switch]$Offline
+        [Parameter()][switch]$Offline,
+        [Parameter()][switch]$NoCreate
     )
     $yellow = $PSStyle.Foreground.Yellow
     $cyan = $PSStyle.Foreground.Cyan
@@ -389,7 +390,7 @@ function pyvenv() {
                 Write-Host "./venv/bin/activate.ps1" -ForegroundColor Yellow
                 ./venv/bin/activate.ps1
             }
-        } elseif (-not (Test-Path .venv)) {
+        } elseif (-not (Test-Path .venv) -and -not $NoCreate) {
             Write-Host "┌❯ Creating new virtual environment"
             Write-Host "└─$yellow uv venv$reset"
             uv venv *>$null

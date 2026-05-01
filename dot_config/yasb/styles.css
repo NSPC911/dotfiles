@@ -89,6 +89,7 @@ QPushButton {
 .clock-widget,
 .yasb-bar .power-menu-widget {
   margin-right: -1px;
+  cursor: pointer
 }
 
 .cpu-widget {
@@ -438,6 +439,7 @@ QPushButton {
   font-weight: 550;
   margin: 0;
   padding: 0 2px;
+  cursor: pointer;
 }
 
 .media-widget .btn.disabled,
@@ -479,6 +481,7 @@ QPushButton {
   height: 200px;
   padding: 0;
   width: 180px;
+  cursor: pointer
 }
 
 .power-menu-popup .button .icon {

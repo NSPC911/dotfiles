@@ -13,7 +13,9 @@
   --dark-border: var(--dark-border-size) solid var(--dark-border-color);
   --bright-border-size: var(--dark-border-size);
   --bright-border-color: #88c0d0;
-  --bright-border: var(--dark-border) solid var(--bright-border-color);
+  --bright-border: var(--bright-border-size) solid var(--bright-border-color);
+  --alternate-bright-border-color: #848ead;
+  --alternate-bright-border: var(--bright-border-size) solid var(--alternate-bright-border-color);
 }
 
 /* navigator toolbox */
@@ -49,12 +51,11 @@
   &:is([zen-has-implicit-hover], [zen-has-hover], [zen-user-show])
     ~ #zen-appcontent-wrapper
     > #zen-tabbox-wrapper {
-    margin-left: calc(166px + var(--zen-element-separation)) !important;
-    margin-right: calc(0px - 166px + var(--zen-element-separation)) !important;
+    margin-left: 174px !important;
+    margin-right: -174px !important;
   }
   &[flash-popup="true"] > #titlebar > .zen-toolbar-background {
     background: #2e3440 !important;
-    border-right: var(--bright-border) !important;
   }
 }
 
@@ -114,53 +115,23 @@
   }
 }
 @keyframes background_tab {
-  0%,
-  100% {
-    transform: scale(1) translateX(0%);
-  }
-  45%,
-  55% {
-    transform: scale(0.95) translate(2.5%);
-  }
+  0%, 100% { transform: scale(1) translateX(0%) }
+  45%, 55% { transform: scale(0.95) translate(2.5%) }
 }
 @keyframes clipboard_added {
-  0%,
-  100% {
-    transform: scale(1) translateY(0%);
-  }
-  45%,
-  55% {
-    transform: scale(0.95) translateY(2.5%);
-  }
+  0%, 100% { transform: scale(1) translateY(0%) }
+  45%, 55% { transform: scale(0.95) translateY(2.5%) }
 }
 
 @keyframes move_toolbox_right {
-  0%,
-  100% {
-    left: 0px !important;
-  }
-  45%,
-  55% {
-    left: 100px !important;
-  }
+  0%, 100% { left: 0px !important }
+  45%, 55% { left: 100px !important }
 }
 
 /* loading outer progress bar */
 @keyframes zen-progress-bar-pulse {
-  0%,
-  100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes zen-progress-bar-long-load {
-  0%,
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0.25 }
+  100% { opacity: 1 }
 }
 
 @keyframes zen-progress-bar-settle {
@@ -171,54 +142,37 @@
 }
 
 @keyframes zen-progress-bar-gone {
-  from {
-    border: 2px solid #88c0d0dd;
-  }
-  to {
-    border: 2px solid transparent;
-  }
+  from { border: 2px solid rgb(from var(--alternate-bright-border-color) r g b / 80%) }
+  to { border: 2px solid transparent }
 }
 
 #zen-loading-progress-bar {
-  position: absolute;
-  left: 0 !important;
-  right: 0 !important;
-  top: 0 !important;
-  bottom: 0 !important;
+  display: none !important
+}
+
+.browserSidebarContainer::after {
+  content: "";
   inset: 0 !important;
-  transform: none !important;
-  background: transparent !important;
-  height: 100% !important;
-  border-radius: 5px !important;
-  border: 2px solid #88c0d0;
-
-  &[long-load="true"] {
-    opacity: 1;
-    animation: zen-progress-bar-settle 0.3s ease-out forwards;
-    background: transparent !important;
-    border: 2px solid #88c0d0;
-
-    &::before {
-      display: none;
-    }
-  }
-}
-
-.browserSidebarContainer[is-zen-split="true"] #zen-loading-progress-bar {
-  width: calc(100% - 10px) !important;
-}
-
-.browserSidebarContainer:not([is-zen-split="true"]) #zen-loading-progress-bar {
-  width: 100% !important;
+  transform: unset !important;
+  position: absolute;
+  cursor: none;
+  pointer-events: none;
+  overflow: hidden !important;
+  border-radius: 4px !important;
 }
 
 .browserSidebarContainer:not(:has(> #zen-loading-progress-bar))::after {
-  content: "";
-  inset: 0;
-  position: absolute;
   animation: zen-progress-bar-gone 0.5s linear forwards;
-  cursor: none;
-  pointer-events: none;
+}
+
+.browserSidebarContainer:has(> #zen-loading-progress-bar)::after {
+  border: var(--alternate-bright-border) !important;
+  border-width: 5px !important;
+  animation: 0.875s infinite alternate zen-progress-bar-pulse;
+}
+
+.browserSidebarContainer.deck-selected[is-zen-split="true"]:not(:has(> #zen-loading-progress-bar)) {
+  outline: var(--bright-border) !important;
 }
 
 #zen-main-app-wrapper {
