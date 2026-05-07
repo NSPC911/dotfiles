@@ -407,6 +407,22 @@ widgets:
       label: "<span>{icon}</span> {level}"
       label_alt: "{volume}"
       tooltip: true
+    audio_menu:
+      blur: true
+      round_corners: true
+      round_corners_type: "normal"
+      border_color: "system"
+      alignment: "right"
+      direction: "down"
+      offset_top: 6
+      offset_left: 0
+      show_apps: true
+      show_app_labels: false
+      show_app_icons: true
+      show_apps_expanded: false
+      app_icons:
+        toggle_down: "\uf078"
+        toggle_up: "\uf077"
       volume_icons:
         - "\ueee8"
         - "\uf026"

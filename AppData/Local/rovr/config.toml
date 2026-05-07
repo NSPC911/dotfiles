@@ -1,11 +1,11 @@
-#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.8.2/src/rovr/config/schema.json
+#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.9.0.dev1/src/rovr/config/schema.json
 
 [interface]
 truncate_progress_file_path = true
 nerd_font = true
 show_line_numbers = true
 show_hidden_files = true
-[interface.mime_rules]
+[settings.preview_rules]
 "application/java-archive" = "archive"
 
 [theme]

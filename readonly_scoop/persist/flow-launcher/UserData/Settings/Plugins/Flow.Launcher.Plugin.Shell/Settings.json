@@ -18,7 +18,7 @@
     "rio_nightly --command hx": 1,
     "rio-nightly --command hx": 3,
     "start \u0022\u0022 rio-nightly --start hx": 1,
-    "yasbc_dev reload": 1,
+    "yasbc_dev reload": 2,
     "tacky-borders.exe": 1,
     "rio-nightly --command cmd": 2,
     "memreduct -clean:full": 6,

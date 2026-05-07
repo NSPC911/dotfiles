@@ -612,7 +612,7 @@ function fz {
         }
     } elseif ($type -eq "cd") {
         function script:setter {
-            if ($IsWindows) { $preview = 'ls {} | select -expand name' }
+            if ($IsWindows) { $preview = 'gci -force {} | select -expand name' }
             else { $preview = 'ls -1a {}' }
             return (Get-ChildItem | Select-Object -ExpandProperty Name | Join-String -Separator "`n" -OutputPrefix "../`n" | Invoke-Fzf -Preview "$preview" -Header $PWD.Path -Cycle)
         }

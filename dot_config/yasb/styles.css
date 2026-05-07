@@ -65,6 +65,11 @@ QPushButton {
   outline: none !important;
 }
 
+.context-menu {
+  background-color: var(--main);
+  border: 2px solid var(--nord-cyan-base);
+}
+
 .audio-menu,
 .brightness-menu,
 .calendar,

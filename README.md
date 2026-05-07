@@ -70,13 +70,13 @@ helix
 ansible-lint v26.4.0
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.9.3
-poethepoet v0.45.0
-poetry v2.3.4
+mistral-vibe v2.9.4
+poethepoet v0.44.0 [required:  git+https://github.com/NSPC911-forks/poethepoet@fix-.bat]
+poetry v2.4.0
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.409
 rich-cli v1.8.1
-rovr v0.8.2 [required:  git+https://github.com/NSPC911/rovr]
+rovr v0.9.0.dev1 [required:  git+https://github.com/NSPC911/rovr]
 ruff v0.15.12
 ty v0.0.32 [required: ==0.0.32]
 ```
@@ -87,15 +87,15 @@ ty v0.0.32 [required: ==0.0.32]
 <!--or if possible, run 'pnpm list --global --json | jq -r ".[0].dependencies[] | `"\(.from)@\(.version)`""',-->
 
 ```
-@ansible/ansible-language-server@1.2.3
+@ansible/ansible-language-server@26.4.6
 @astrojs/language-server@2.16.7
 @fsouza/prettierd@0.27.0
-@github/copilot@0.0.383
-@google/gemini-cli@0.30.1
+@github/copilot@1.0.41
+@google/gemini-cli@0.41.1
 corepack@0.34.7
 live-server@1.2.2
-oxfmt@0.45.0
-typescript@5.9.3
+oxfmt@0.48.0
+typescript@6.0.3
 typescript-language-server@5.1.3
 vscode-langservers-extracted@4.10.0
 ```
@@ -143,17 +143,17 @@ vscode-langservers-extracted@4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     61         6639         6638            0            1
- CSS                      11         3984         3210          283          491
- TOML                     11         1692         1402          165          125
- YAML                      5         1187         1067           53           67
- PowerShell                4         1121          950           64          107
+ JSON                     58         6483         6482            0            1
+ CSS                      11         4032         3255          283          494
+ TOML                     11         1691         1402          164          125
+ YAML                      5         1203         1083           53           67
+ PowerShell                4         1118          948           64          106
  Scheme                    6          961          840           27           94
  INI                       1          687          170          414          103
  Lua                       1          243          219           12           12
  Markdown                 10          231            0          176           55
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   110        16745        14496         1194         1055
+ Total                   107        16649        14399         1193         1057
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

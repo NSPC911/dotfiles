@@ -4,10 +4,6 @@ function ghet {
         [string]$RepoSlug
     )
 
-    if ($null -eq (Get-Module -Name PwshSpectreConsole -ListAvailable)) {
-        Install-Module -Name PwshSpectreConsole -Force
-    }
-
     Set-StrictMode -Version Latest
     $ErrorActionPreference = 'Stop'
 
@@ -57,7 +53,8 @@ function ghet {
     Write-Host "release: $releaser" -ForegroundColor Green
 
     Write-Host "│ Select an asset to download:"
-    $chosen = Read-SpectreSelection -Message "" -Choices $assets -ChoiceLabelProperty "name" -EnableSearch -SearchHighlightColor cyan3
+    $chosen = ($assets | ForEach-Object { $_.name } | fzf --cycle --preview-window="hidden" --height="~100%" --border=none)
+    $chosen = $assets | Where-Object { $_.name -eq $chosen }
     Write-Host "│ " -NoNewLine
     Write-Host "`e[?25h`downloading '$($chosen.name)' ..." -ForegroundColor Cyan
     $outFile = Join-Path -Path (Get-Location) -ChildPath $chosen.name

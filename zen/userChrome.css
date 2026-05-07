@@ -16,6 +16,7 @@
   --bright-border: var(--bright-border-size) solid var(--bright-border-color);
   --alternate-bright-border-color: #848ead;
   --alternate-bright-border: var(--bright-border-size) solid var(--alternate-bright-border-color);
+  --white: #eceff4;
 }
 
 /* navigator toolbox */
@@ -48,13 +49,21 @@
       }
     }
   }
-  &:is([zen-has-implicit-hover], [zen-has-hover], [zen-user-show])
-    ~ #zen-appcontent-wrapper
+  &:is(
+    [zen-has-implicit-hover],
+    [zen-has-hover],
+    [zen-user-show],
+    [has-popup-menu="true"]
+  ) ~ #zen-appcontent-wrapper
     > #zen-tabbox-wrapper {
-    margin-left: 174px !important;
-    margin-right: -174px !important;
+      transform: translateX(168px) !important;
   }
-  &[flash-popup="true"] > #titlebar > .zen-toolbar-background {
+  &[flash-popup="true"]:not(:is(
+    [zen-has-implicit-hover],
+    [zen-has-hover],
+    [zen-user-show],
+    [has-popup-menu="true"])
+  ) > #titlebar > .zen-toolbar-background {
     background: #2e3440 !important;
   }
 }
@@ -130,20 +139,13 @@
 
 /* loading outer progress bar */
 @keyframes zen-progress-bar-pulse {
-  0% { opacity: 0.25 }
-  100% { opacity: 1 }
-}
-
-@keyframes zen-progress-bar-settle {
-  to {
-    opacity: 1;
-    transform: scale(200%);
-  }
+  from { opacity: 0 }
+  to { opacity: 1 }
 }
 
 @keyframes zen-progress-bar-gone {
-  from { border: 2px solid rgb(from var(--alternate-bright-border-color) r g b / 80%) }
-  to { border: 2px solid transparent }
+  0% { border: 5px solid rgb(from var(--alternate-bright-border-color) r g b / 80%) }
+  100% { border: 0px solid transparent }
 }
 
 #zen-loading-progress-bar {
@@ -159,6 +161,7 @@
   pointer-events: none;
   overflow: hidden !important;
   border-radius: 4px !important;
+  transition: border 0.25s linear;
 }
 
 .browserSidebarContainer:not(:has(> #zen-loading-progress-bar))::after {
@@ -171,8 +174,47 @@
   animation: 0.875s infinite alternate zen-progress-bar-pulse;
 }
 
-.browserSidebarContainer.deck-selected[is-zen-split="true"]:not(:has(> #zen-loading-progress-bar)) {
-  outline: var(--bright-border) !important;
+.browserSidebarContainer[is-zen-split="true"] {
+  .deck-selected {
+    outline: none !important;
+  }
+  & > .browserContainer {
+    transition: border 0.25s linear !important;
+    border: var(--dark-border) !important; 
+  }
+  &.deck-selected:not(:has(> #zen-loading-progress-bar)) > .browserContainer {
+    border: var(--bright-border) !important;
+  }
+}
+
+.browserSidebarContainer.deck-selected[is-zen-split="true"] {
+  outline: none !important;
+}
+
+.browserSidebarContainer .zen-view-splitter-header {
+  transition: background 0.25s linear;
+  > * {
+    transition: color 0.25s linear;
+  }
+}
+
+.browserSidebarContainer:not(.deck-selected) .zen-view-splitter-header {
+  background: var(--dark-border-color) !important;
+  > * {
+    color: contrast-color(var(--dark-border-color)) !important;
+  }
+}
+.browserSidebarContainer.deck-selected .zen-view-splitter-header {
+  background: var(--bright-border-color) !important;
+  > * {
+    color: contrast-color(var(--bright-border-color)) !important;
+  }
+}
+.browserSidebarContainer:has(> #zen-loading-progress-bar) .zen-view-splitter-header {
+  background: var(--alternate-bright-border-color) !important;
+  > * {
+    color: contrast-color(var(--alternate-bright-border-color)) !important;
+  }
 }
 
 #zen-main-app-wrapper {
@@ -297,7 +339,8 @@
   #navigator-toolbox ~ #zen-appcontent-wrapper #zen-tabbox-wrapper {
     transition:
       filter 0.25s ease,
-      margin 0.2s ease-in-out;
+      margin 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
   }
   #zenCreateNewPopup {
     background: transparent !important;

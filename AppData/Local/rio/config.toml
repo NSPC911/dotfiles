@@ -32,7 +32,6 @@ decorations = "Disabled"
 
 [renderer]
 performance = "low"
-backend = "automatic"
 disable-unfocused-render = false
 level = 1
 filters = []
