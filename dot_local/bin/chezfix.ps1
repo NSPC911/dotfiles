@@ -21,6 +21,7 @@ Copy-Item ./dot_wezterm.lua ~/.wezterm.lua -Force
     Write-Host "./dot_config/$_"
 }
 Copy-Item "./readonly_Documents/PowerShell/*" "~/.config/powershell/" -Force
-Copy-Item "./dot_copilot/*" "~/.copilot/" -Force 
+Copy-Item "./zen/*" "~/zen/" -Force
 git checkout linux
+Copy-Item "~/zen/*" "./zen/" -Force
 chezsync -NoAsk

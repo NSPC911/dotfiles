@@ -361,6 +361,7 @@ input-remapper-bin
 lazygit-git
 lib32-gst-plugins-base-libs
 lib32-gstreamer
+libkcompactdisc
 libkolabxml
 linux-wallpaperengine-git
 localsend-bin

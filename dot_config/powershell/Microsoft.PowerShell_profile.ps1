@@ -338,7 +338,8 @@ function pyvenv() {
         [Parameter()][switch]$Upgrade,
         [Parameter()][switch]$Update,
         [Parameter()][switch]$NoSync,
-        [Parameter()][switch]$Offline
+        [Parameter()][switch]$Offline,
+        [Parameter()][switch]$NoCreate
     )
     $yellow = $PSStyle.Foreground.Yellow
     $cyan = $PSStyle.Foreground.Cyan
@@ -389,7 +390,7 @@ function pyvenv() {
                 Write-Host "./venv/bin/activate.ps1" -ForegroundColor Yellow
                 ./venv/bin/activate.ps1
             }
-        } elseif (-not (Test-Path .venv)) {
+        } elseif (-not (Test-Path .venv) -and -not $NoCreate) {
             Write-Host "┌❯ Creating new virtual environment"
             Write-Host "└─$yellow uv venv$reset"
             uv venv *>$null
@@ -611,7 +612,7 @@ function fz {
         }
     } elseif ($type -eq "cd") {
         function script:setter {
-            if ($IsWindows) { $preview = 'ls {} | select -expand name' }
+            if ($IsWindows) { $preview = 'gci -force {} | select -expand name' }
             else { $preview = 'ls -1a {}' }
             return (Get-ChildItem | Select-Object -ExpandProperty Name | Join-String -Separator "`n" -OutputPrefix "../`n" | Invoke-Fzf -Preview "$preview" -Header $PWD.Path -Cycle)
         }

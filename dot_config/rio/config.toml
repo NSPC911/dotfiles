@@ -25,14 +25,13 @@ args = []
 # width = 600
 # height = 400
 mode = "windowed"
-opacity = 0
+# opacity = 0.5
 # opacity = 1
 blur = true
 decorations = "Disabled"
 
 [renderer]
 performance = "low"
-backend = "automatic"
 disable-unfocused-render = false
 level = 1
 filters = []
