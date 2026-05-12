@@ -18,6 +18,7 @@
   "WindowsContextMenuExcludedItems": "",
   "DefaultOpenFolderInFileManager": false,
   "DisplayMoreInformationInToolTip": false,
+  "BoostHomeFolderScore": true,
   "SearchActionKeyword": "*",
   "SearchActionKeywordEnabled": true,
   "FileContentSearchActionKeyword": "doc:",

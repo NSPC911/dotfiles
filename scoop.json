@@ -88,8 +88,8 @@
       "Info": "",
       "Name": "ccache",
       "Source": "main",
-      "Updated": "2026-04-21T21:22:53.0682077+08:00",
-      "Version": "4.12.3"
+      "Updated": "2026-05-10T22:51:56.6594778+08:00",
+      "Version": "4.13.6"
     },
     {
       "Info": "",
@@ -102,15 +102,15 @@
       "Info": "",
       "Name": "chezmoi",
       "Source": "main",
-      "Updated": "2026-04-17T15:11:46.688204+08:00",
-      "Version": "2.70.2"
+      "Updated": "2026-05-08T09:48:49.9182256+08:00",
+      "Version": "2.70.3"
     },
     {
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Updated": "2026-05-07T10:54:40.6053151+08:00",
-      "Version": "1.9.21"
+      "Updated": "2026-05-11T22:07:50.4513025+08:00",
+      "Version": "1.9.22"
     },
     {
       "Info": "",
@@ -123,15 +123,15 @@
       "Info": "",
       "Name": "collapse-launcher",
       "Source": "games",
-      "Updated": "2026-05-07T10:55:01.5586273+08:00",
-      "Version": "1.83.17"
+      "Updated": "2026-05-10T22:52:19.2726081+08:00",
+      "Version": "1.83.18"
     },
     {
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-05-07T10:55:10.8419332+08:00",
-      "Version": "1.482.0"
+      "Updated": "2026-05-08T09:49:03.245536+08:00",
+      "Version": "1.483.0"
     },
     {
       "Info": "",
@@ -193,15 +193,8 @@
       "Info": "",
       "Name": "flow-launcher",
       "Source": "extras",
-      "Updated": "2026-03-22T18:45:56.4193013+08:00",
-      "Version": "2.1.1"
-    },
-    {
-      "Info": "",
-      "Name": "freeze",
-      "Source": "https://raw.githubusercontent.com/charmbracelet/scoop-bucket/refs/heads/main/freeze.json",
-      "Updated": "2026-05-06T00:14:19.3434639+08:00",
-      "Version": "0.2.2"
+      "Updated": "2026-05-11T22:10:03.1948894+08:00",
+      "Version": "2.1.2"
     },
     {
       "Info": "",
@@ -249,8 +242,8 @@
       "Info": "",
       "Name": "go",
       "Source": "main",
-      "Updated": "2026-04-08T19:58:20.9569994+08:00",
-      "Version": "1.26.2"
+      "Updated": "2026-05-08T09:50:03.3427722+08:00",
+      "Version": "1.26.3"
     },
     {
       "Info": "",
@@ -272,13 +265,6 @@
       "Source": "https://raw.githubusercontent.com/chawyehsu/dorado/refs/heads/master/bucket/hok.json",
       "Updated": "2026-04-28T08:50:06.0831387+08:00",
       "Version": "0.1.0-beta.7"
-    },
-    {
-      "Info": "",
-      "Name": "hwmonitor",
-      "Source": "extras",
-      "Updated": "2026-04-06T16:37:15.3953954+08:00",
-      "Version": "1.63"
     },
     {
       "Info": "",
@@ -307,6 +293,13 @@
       "Source": "main",
       "Updated": "2026-01-14T12:08:27.5354768+08:00",
       "Version": "1.8.1"
+    },
+    {
+      "Info": "",
+      "Name": "just",
+      "Source": "main",
+      "Updated": "2026-05-12T14:29:06.3058845+08:00",
+      "Version": "1.51.0"
     },
     {
       "Info": "",
@@ -368,15 +361,15 @@
       "Info": "",
       "Name": "nodejs",
       "Source": "main",
-      "Updated": "2026-05-07T10:56:16.9971175+08:00",
-      "Version": "26.0.0"
+      "Updated": "2026-05-08T09:50:21.1534772+08:00",
+      "Version": "26.1.0"
     },
     {
       "Info": "",
       "Name": "notepadplusplus",
       "Source": "extras",
-      "Updated": "2026-04-27T23:32:37.1552521+08:00",
-      "Version": "8.9.4"
+      "Updated": "2026-05-11T22:07:50.8125742+08:00",
+      "Version": "8.9.5"
     },
     {
       "Info": "",
@@ -396,15 +389,15 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2026-05-07T10:56:22.30017+08:00",
-      "Version": "29.13.0"
+      "Updated": "2026-05-08T09:50:29.9417822+08:00",
+      "Version": "29.13.1"
     },
     {
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-05-07T10:56:27.7427176+08:00",
-      "Version": "1.14.40"
+      "Updated": "2026-05-11T22:09:48.0565276+08:00",
+      "Version": "1.14.48"
     },
     {
       "Info": "",
@@ -412,13 +405,6 @@
       "Source": "main",
       "Updated": "2026-04-21T20:34:50.0154069+08:00",
       "Version": "0.52.0"
-    },
-    {
-      "Info": "",
-      "Name": "oxicord",
-      "Source": "C:\\Users\\notso\\Git\\NSPC911\\le-bucket\\bucket\\oxicord.json",
-      "Updated": "2026-05-01T22:09:37.3872707+08:00",
-      "Version": "0.1.9"
     },
     {
       "Info": "",
@@ -438,15 +424,15 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2026-05-07T10:56:36.458319+08:00",
-      "Version": "11.0.7"
+      "Updated": "2026-05-12T21:35:52.7799063+08:00",
+      "Version": "11.1.1"
     },
     {
       "Info": "",
       "Name": "poppler",
       "Source": "main",
-      "Updated": "2026-02-24T21:07:29.7091013+08:00",
-      "Version": "25.12.0-0"
+      "Updated": "2026-05-10T22:53:42.210348+08:00",
+      "Version": "26.02.0-0"
     },
     {
       "Info": "",
@@ -501,8 +487,8 @@
       "Info": "",
       "Name": "revouninstaller",
       "Source": "extras",
-      "Updated": "2026-02-24T09:23:56.8323461+08:00",
-      "Version": "2.6.8"
+      "Updated": "2026-05-12T21:36:15.7090028+08:00",
+      "Version": "2.7.0"
     },
     {
       "Info": "",
@@ -543,7 +529,7 @@
       "Info": "",
       "Name": "scoop-completion",
       "Source": "extras",
-      "Updated": "2026-01-14T12:11:09.5719559+08:00",
+      "Updated": "2026-05-12T22:51:32.7834964+08:00",
       "Version": "0.3.0"
     },
     {
@@ -578,8 +564,8 @@
       "Info": "",
       "Name": "surge-downloader",
       "Source": "le-bucket",
-      "Updated": "2026-05-04T09:17:47.9576977+08:00",
-      "Version": "0.8.5"
+      "Updated": "2026-05-11T22:07:49.8682291+08:00",
+      "Version": "0.8.6"
     },
     {
       "Info": "",
@@ -599,15 +585,15 @@
       "Info": "",
       "Name": "tinymist",
       "Source": "main",
-      "Updated": "2026-04-05T20:04:15.7599126+08:00",
-      "Version": "0.14.16"
+      "Updated": "2026-05-11T22:08:06.8248811+08:00",
+      "Version": "0.14.18"
     },
     {
       "Info": "",
       "Name": "tombi",
       "Source": "main",
-      "Updated": "2026-05-07T10:56:53.0427129+08:00",
-      "Version": "0.10.6"
+      "Updated": "2026-05-11T22:09:45.1993844+08:00",
+      "Version": "0.11.1"
     },
     {
       "Info": "",
@@ -620,8 +606,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-05-07T10:56:56.9261063+08:00",
-      "Version": "0.11.11"
+      "Updated": "2026-05-11T22:08:07.9629669+08:00",
+      "Version": "0.11.13"
     },
     {
       "Info": "",
@@ -634,8 +620,8 @@
       "Info": "",
       "Name": "wakatime-cli",
       "Source": "main",
-      "Updated": "2026-05-07T10:56:59.9515225+08:00",
-      "Version": "2.13.0"
+      "Updated": "2026-05-12T06:29:03.2068995+08:00",
+      "Version": "2.13.1"
     },
     {
       "Info": "Held package",
@@ -683,8 +669,8 @@
       "Info": "",
       "Name": "yazi-nightly",
       "Source": "versions",
-      "Updated": "2026-03-14T23:13:29.0169785+08:00",
-      "Version": "fa1ee46"
+      "Updated": "2026-05-12T06:29:26.4164561+08:00",
+      "Version": "fde5633"
     },
     {
       "Info": "",
@@ -704,8 +690,8 @@
       "Info": "",
       "Name": "zen-browser",
       "Source": "extras",
-      "Updated": "2026-05-01T01:00:20.6850951+08:00",
-      "Version": "1.19.11b"
+      "Updated": "2026-05-11T22:09:52.311736+08:00",
+      "Version": "1.19.12b"
     },
     {
       "Info": "",
@@ -717,34 +703,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1522,
+      "Manifests": 1531,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-05-07T09:16:55+08:00"
+      "Updated": "2026-05-12T21:02:27+08:00"
     },
     {
-      "Manifests": 2305,
+      "Manifests": 2306,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-05-07T09:12:28+08:00"
+      "Updated": "2026-05-12T21:02:30+08:00"
     },
     {
       "Manifests": 580,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-05-07T05:35:24+08:00"
+      "Updated": "2026-05-12T18:44:20+08:00"
     },
     {
       "Manifests": 404,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-05-07T09:11:20+08:00"
+      "Updated": "2026-05-12T21:02:39+08:00"
     },
     {
       "Manifests": 37,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-05-07T05:34:08+08:00"
+      "Updated": "2026-05-11T19:38:38+08:00"
     }
   ],
   "config": {

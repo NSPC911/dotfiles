@@ -1,6 +1,6 @@
 function uvdate {
     Write-Host "Checking for package updates..." -ForegroundColor Yellow
-    $changes = (uv sync --dry-run --upgrade --output-format json 2>$null | ConvertFrom-Json).sync.changes
+    $changes = (uv sync --dry-run --upgrade --all-groups --all-extras --output-format json 2>$null | ConvertFrom-Json).sync.changes
 
     if ($changes.Length -ne 0) {
         Write-Host "`e[1A`e[2KParsing package updates..." -ForegroundColor Yellow

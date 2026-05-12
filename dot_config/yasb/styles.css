@@ -65,9 +65,11 @@ QPushButton {
   outline: none !important;
 }
 
-.context-menu {
-  background-color: var(--main);
+.tooltip {
+  background-color: var(--nord-gray1);
   border: 2px solid var(--nord-cyan-base);
+  border-radius: 6px;
+  padding: 4px;
 }
 
 .audio-menu,
