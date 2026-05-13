@@ -9,6 +9,7 @@ General:
   MarkStyleWidth: 1
   # HScrollWidth: 10%
   # VScrollLines: 2
+  Wrap: "none"
   Prompt:
     Normal:
     #      ShowFilename: true # Show the filename.
@@ -269,25 +270,3 @@ KeyBind:
     - "W"
   close_doc:
     - "w"
-
-Mode:
-  markdown:
-    SectionDelimiter: "^#"
-    WrapMode: false
-    Style:
-      SectionLine:
-        Background: "blue"
-  psql:
-    Header: 2
-    AlternateRows: true
-    ColumnMode: true
-    LineNumMode: true
-    WrapMode: false
-    ColumnDelimiter: "|"
-  mysql:
-    Header: 3
-    AlternateRows: true
-    ColumnMode: true
-    LineNumMode: true
-    WrapMode: false
-    ColumnDelimiter: "|"

@@ -65,10 +65,10 @@ function regenCache {
     Write-Output $HomeAndClearLine"Setting up uvx completions"
     $completions += uvx --generate-shell-completion powershell
 
-    Write-Output "`e[HSetting up pixi completions"
-    $completions += pixi completion --shell powershell
+    # Write-Output $HomeAndClearLine"Setting up pixi completions"
+    # $completions += pixi completion --shell powershell
 
-    # Write-Output "`e[HSetting up tuios completions"
+    # Write-Output $HomeAndClearLine"Setting up tuios completions"
     # $completions += tuios completion powershell
 
     # Write-Output $homeAndClearLine"Setting up delta completions"
@@ -218,7 +218,6 @@ function nuke {
     taskkill.exe /F /IM $ProcessName
 }
 Set-Alias -Name "whereis" -Value "where.exe"
-Set-Alias -Name "which" -Value "where.exe"
 
 Set-Alias -Name "omp" -Value "oh-my-posh"
 
@@ -275,6 +274,7 @@ Set-Alias -Name "fbs" -Value "Format-ByteSize"
 Remove-Alias -Name "ls" -Scope Global -ErrorAction Ignore
 function ls {
     Import-Module -Name Terminal-Icons
+    Set-Alias -Name "ls" -Value "Get-ChildItem"
     Get-ChildItem @args
 }
 
@@ -487,12 +487,6 @@ Write-Host $homeAndClearLine"Adding Plugins `e[s" -NoNewLine
 # # https://github.com/devblackops/Terminal-Icons
 # Write-Output "`e[u`e[0KTerminal-Icons"
 # Import-Module -Name Terminal-Icons
-
-# should be available if you installed scoop
-if (Get-Command scoop -ErrorAction SilentlyContinue) {
-    Write-Output "`e[u`e[0KScoop Completions"
-    Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)/modules/scoop-completion"
-}
 
 # https://github.com/PowerShell/PSReadLine
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete

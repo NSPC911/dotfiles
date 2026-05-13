@@ -236,7 +236,7 @@ layout {
         proportion 0.5
         proportion 0.66667
     }
-    default-column-width { proportion 0.8; }
+    default-column-width { proportion 0.75; }
     border {
         on
         width 3
@@ -279,7 +279,7 @@ layout {
 animations {
     workspace-switch {
         duration-ms 400
-        curve "cubic-bezier" 0 1 0.5 1
+        curve "cubic-bezier" 0 1 0.75 1.01
     }
     window-open {
         duration-ms 200
@@ -309,8 +309,8 @@ animations {
         curve "ease-out-quad"
     }
     overview-open-close {
-        duration-ms 400
-        curve "cubic-bezier" 0 0 0.5 1
+        duration-ms 300
+        curve "cubic-bezier" 0.4 0 0.6 1
     }
 }
 
