@@ -60,8 +60,8 @@
       "Info": "",
       "Name": "bun",
       "Source": "main",
-      "Updated": "2026-04-21T20:33:28.3073051+08:00",
-      "Version": "1.3.13"
+      "Updated": "2026-05-15T23:39:12.5292046+08:00",
+      "Version": "1.3.14"
     },
     {
       "Info": "",
@@ -74,8 +74,8 @@
       "Info": "",
       "Name": "carapace-bin",
       "Source": "extras",
-      "Updated": "2026-05-01T00:58:17.7133268+08:00",
-      "Version": "1.6.5"
+      "Updated": "2026-05-15T23:39:02.537465+08:00",
+      "Version": "1.6.6"
     },
     {
       "Info": "",
@@ -151,8 +151,8 @@
       "Info": "",
       "Name": "dotnet8-sdk",
       "Source": "versions",
-      "Updated": "2026-04-15T06:35:38.9695892+08:00",
-      "Version": "8.0.420"
+      "Updated": "2026-05-15T23:40:02.069722+08:00",
+      "Version": "8.0.421"
     },
     {
       "Info": "",
@@ -165,8 +165,8 @@
       "Info": "",
       "Name": "fastfetch",
       "Source": "main",
-      "Updated": "2026-04-24T09:45:29.5568925+08:00",
-      "Version": "2.62.1"
+      "Updated": "2026-05-15T23:39:00.0135765+08:00",
+      "Version": "2.63.1"
     },
     {
       "Info": "",
@@ -249,8 +249,8 @@
       "Info": "",
       "Name": "helium",
       "Source": "extras",
-      "Updated": "2026-05-07T10:56:03.6709585+08:00",
-      "Version": "0.12.1.1"
+      "Updated": "2026-05-15T23:39:14.1091131+08:00",
+      "Version": "0.12.3.1"
     },
     {
       "Info": "",
@@ -277,8 +277,8 @@
       "Info": "",
       "Name": "imagemagick",
       "Source": "main",
-      "Updated": "2026-04-23T00:45:23.8137566+08:00",
-      "Version": "7.1.2-21"
+      "Updated": "2026-05-15T23:39:32.5616635+08:00",
+      "Version": "7.1.2-22"
     },
     {
       "Info": "",
@@ -396,8 +396,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-05-11T22:09:48.0565276+08:00",
-      "Version": "1.14.48"
+      "Updated": "2026-05-16T23:23:29.8188905+08:00",
+      "Version": "1.15.1"
     },
     {
       "Info": "",
@@ -424,8 +424,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2026-05-12T21:35:52.7799063+08:00",
-      "Version": "11.1.1"
+      "Updated": "2026-05-15T23:39:43.8121216+08:00",
+      "Version": "11.1.2"
     },
     {
       "Info": "",
@@ -445,8 +445,8 @@
       "Info": "",
       "Name": "prek",
       "Source": "le-bucket",
-      "Updated": "2026-05-07T10:56:41.7232371+08:00",
-      "Version": "0.3.13"
+      "Updated": "2026-05-15T23:39:41.0926978+08:00",
+      "Version": "0.4.0"
     },
     {
       "Info": "",
@@ -466,8 +466,8 @@
       "Info": "",
       "Name": "regolith",
       "Source": "le-bucket",
-      "Updated": "2026-01-26T14:02:16.5872279+08:00",
-      "Version": "1.7.0"
+      "Updated": "2026-05-15T23:39:57.8080849+08:00",
+      "Version": "1.8.0"
     },
     {
       "Info": "",
@@ -583,6 +583,13 @@
     },
     {
       "Info": "",
+      "Name": "thide",
+      "Source": "le-bucket",
+      "Updated": "2026-05-15T09:58:45.9352874+08:00",
+      "Version": "0.1.1"
+    },
+    {
+      "Info": "",
       "Name": "tinymist",
       "Source": "main",
       "Updated": "2026-05-11T22:08:06.8248811+08:00",
@@ -592,8 +599,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "main",
-      "Updated": "2026-05-11T22:09:45.1993844+08:00",
-      "Version": "0.11.1"
+      "Updated": "2026-05-15T23:39:59.1357359+08:00",
+      "Version": "0.11.4"
     },
     {
       "Info": "",
@@ -606,8 +613,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-05-11T22:08:07.9629669+08:00",
-      "Version": "0.11.13"
+      "Updated": "2026-05-15T23:40:10.8023259+08:00",
+      "Version": "0.11.14"
     },
     {
       "Info": "",
@@ -620,8 +627,8 @@
       "Info": "",
       "Name": "wakatime-cli",
       "Source": "main",
-      "Updated": "2026-05-12T06:29:03.2068995+08:00",
-      "Version": "2.13.1"
+      "Updated": "2026-05-16T23:24:01.3325023+08:00",
+      "Version": "2.14.0"
     },
     {
       "Info": "Held package",
@@ -641,8 +648,8 @@
       "Info": "",
       "Name": "windowsdesktop-runtime-8.0",
       "Source": "versions",
-      "Updated": "2026-04-15T10:00:12.8325781+08:00",
-      "Version": "8.0.26"
+      "Updated": "2026-05-15T23:41:02.1072597+08:00",
+      "Version": "8.0.27"
     },
     {
       "Info": "",
@@ -682,16 +689,16 @@
     {
       "Info": "",
       "Name": "zellij",
-      "Source": "le-bucket",
-      "Updated": "2026-05-07T10:57:04.2585771+08:00",
-      "Version": "0.44.2"
+      "Source": "main",
+      "Updated": "2026-05-16T16:12:28.7515975+08:00",
+      "Version": "0.44.3"
     },
     {
       "Info": "",
       "Name": "zen-browser",
       "Source": "extras",
-      "Updated": "2026-05-11T22:09:52.311736+08:00",
-      "Version": "1.19.12b"
+      "Updated": "2026-05-15T23:40:34.3521298+08:00",
+      "Version": "1.19.13b"
     },
     {
       "Info": "",
@@ -703,34 +710,34 @@
   ],
   "buckets": [
     {
-      "Manifests": 1531,
+      "Manifests": 1540,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-05-12T21:02:27+08:00"
+      "Updated": "2026-05-16T22:55:06+08:00"
     },
     {
       "Manifests": 2306,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-05-12T21:02:30+08:00"
+      "Updated": "2026-05-16T20:42:09+08:00"
     },
     {
       "Manifests": 580,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-05-12T18:44:20+08:00"
+      "Updated": "2026-05-16T22:02:37+08:00"
     },
     {
       "Manifests": 404,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-05-12T21:02:39+08:00"
+      "Updated": "2026-05-16T20:42:31+08:00"
     },
     {
       "Manifests": 37,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-05-11T19:38:38+08:00"
+      "Updated": "2026-05-15T05:38:57+08:00"
     }
   ],
   "config": {
