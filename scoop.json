@@ -2,16 +2,9 @@
   "apps": [
     {
       "Info": "",
-      "Name": "7zip",
-      "Source": "main",
-      "Updated": "2026-05-07T10:54:56.3018695+08:00",
-      "Version": "26.01"
-    },
-    {
-      "Info": "",
       "Name": "7zip-zstd",
       "Source": "versions",
-      "Updated": "2026-05-03T18:12:30.7138815+08:00",
+      "Updated": "2026-05-18T22:22:49.2116192+08:00",
       "Version": "v25.01-v1.5.7-R4"
     },
     {
@@ -102,22 +95,22 @@
       "Info": "",
       "Name": "chezmoi",
       "Source": "main",
-      "Updated": "2026-05-08T09:48:49.9182256+08:00",
-      "Version": "2.70.3"
+      "Updated": "2026-05-22T00:51:22.9762901+08:00",
+      "Version": "2.70.4"
     },
     {
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Updated": "2026-05-11T22:07:50.4513025+08:00",
-      "Version": "1.9.22"
+      "Updated": "2026-05-18T18:33:13.6362496+08:00",
+      "Version": "1.9.23"
     },
     {
       "Info": "",
       "Name": "codebook",
       "Source": "le-bucket",
-      "Updated": "2026-05-07T10:54:47.622935+08:00",
-      "Version": "0.3.39"
+      "Updated": "2026-05-20T08:11:09.6312428+08:00",
+      "Version": "0.3.40"
     },
     {
       "Info": "",
@@ -130,8 +123,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-05-08T09:49:03.245536+08:00",
-      "Version": "1.483.0"
+      "Updated": "2026-05-22T00:50:59.967772+08:00",
+      "Version": "1.493.0"
     },
     {
       "Info": "",
@@ -153,6 +146,13 @@
       "Source": "versions",
       "Updated": "2026-05-15T23:40:02.069722+08:00",
       "Version": "8.0.421"
+    },
+    {
+      "Info": "",
+      "Name": "dwag",
+      "Source": "le-bucket",
+      "Updated": "2026-05-19T18:14:19.1755106+08:00",
+      "Version": "1.0.1"
     },
     {
       "Info": "",
@@ -186,8 +186,8 @@
       "Info": "",
       "Name": "filelight",
       "Source": "extras",
-      "Updated": "2026-05-07T10:55:51.9327394+08:00",
-      "Version": "26.04-2095"
+      "Updated": "2026-05-18T00:07:19.4529843+08:00",
+      "Version": "26.04-2103"
     },
     {
       "Info": "",
@@ -277,8 +277,8 @@
       "Info": "",
       "Name": "imagemagick",
       "Source": "main",
-      "Updated": "2026-05-15T23:39:32.5616635+08:00",
-      "Version": "7.1.2-22"
+      "Updated": "2026-05-18T18:33:24.29311+08:00",
+      "Version": "7.1.2-23"
     },
     {
       "Info": "",
@@ -361,15 +361,15 @@
       "Info": "",
       "Name": "nodejs",
       "Source": "main",
-      "Updated": "2026-05-08T09:50:21.1534772+08:00",
-      "Version": "26.1.0"
+      "Updated": "2026-05-22T00:51:26.5704043+08:00",
+      "Version": "26.2.0"
     },
     {
       "Info": "",
       "Name": "notepadplusplus",
       "Source": "extras",
-      "Updated": "2026-05-11T22:07:50.8125742+08:00",
-      "Version": "8.9.5"
+      "Updated": "2026-05-22T00:51:40.4809228+08:00",
+      "Version": "8.9.6"
     },
     {
       "Info": "",
@@ -389,15 +389,15 @@
       "Info": "",
       "Name": "oh-my-posh",
       "Source": "main",
-      "Updated": "2026-05-08T09:50:29.9417822+08:00",
-      "Version": "29.13.1"
+      "Updated": "2026-05-20T08:11:48.8071491+08:00",
+      "Version": "29.14.0"
     },
     {
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-05-16T23:23:29.8188905+08:00",
-      "Version": "1.15.1"
+      "Updated": "2026-05-22T00:51:49.8076139+08:00",
+      "Version": "1.15.6"
     },
     {
       "Info": "",
@@ -424,8 +424,8 @@
       "Info": "",
       "Name": "pnpm",
       "Source": "main",
-      "Updated": "2026-05-15T23:39:43.8121216+08:00",
-      "Version": "11.1.2"
+      "Updated": "2026-05-22T00:51:56.8847878+08:00",
+      "Version": "11.2.1"
     },
     {
       "Info": "",
@@ -445,8 +445,8 @@
       "Info": "",
       "Name": "prek",
       "Source": "le-bucket",
-      "Updated": "2026-05-15T23:39:41.0926978+08:00",
-      "Version": "0.4.0"
+      "Updated": "2026-05-22T00:52:04.1141118+08:00",
+      "Version": "0.4.1"
     },
     {
       "Info": "",
@@ -599,8 +599,8 @@
       "Info": "",
       "Name": "tombi",
       "Source": "main",
-      "Updated": "2026-05-15T23:39:59.1357359+08:00",
-      "Version": "0.11.4"
+      "Updated": "2026-05-18T00:07:32.6670506+08:00",
+      "Version": "0.11.5"
     },
     {
       "Info": "",
@@ -613,8 +613,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-05-15T23:40:10.8023259+08:00",
-      "Version": "0.11.14"
+      "Updated": "2026-05-20T08:12:11.7734073+08:00",
+      "Version": "0.11.15"
     },
     {
       "Info": "",
@@ -627,8 +627,8 @@
       "Info": "",
       "Name": "wakatime-cli",
       "Source": "main",
-      "Updated": "2026-05-16T23:24:01.3325023+08:00",
-      "Version": "2.14.0"
+      "Updated": "2026-05-22T00:52:23.8321267+08:00",
+      "Version": "2.14.7"
     },
     {
       "Info": "Held package",
@@ -710,42 +710,44 @@
   ],
   "buckets": [
     {
-      "Manifests": 1540,
+      "Manifests": 1545,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-05-16T22:55:06+08:00"
+      "Updated": "2026-05-21T21:29:08+08:00"
     },
     {
-      "Manifests": 2306,
+      "Manifests": 2302,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-05-16T20:42:09+08:00"
+      "Updated": "2026-05-21T21:31:22+08:00"
     },
     {
-      "Manifests": 580,
+      "Manifests": 582,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-05-16T22:02:37+08:00"
+      "Updated": "2026-05-21T23:54:09+08:00"
     },
     {
-      "Manifests": 404,
+      "Manifests": 405,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-05-16T20:42:31+08:00"
+      "Updated": "2026-05-21T21:28:15+08:00"
     },
     {
-      "Manifests": 37,
+      "Manifests": 39,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-05-15T05:38:57+08:00"
+      "Updated": "2026-05-21T12:48:42+08:00"
     }
   ],
   "config": {
     "aria2-enabled": true,
     "aria2-warning-enabled": false,
     "force_update": false,
+    "ignore_running_processes": true,
     "scoop_branch": "develop",
     "scoop_repo": "https://github.com/ScoopInstaller/Scoop",
-    "update_nightly": true
+    "update_nightly": true,
+    "use_external_7zip": true
   }
 }

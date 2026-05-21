@@ -589,7 +589,7 @@ function fz {
             "kill", "nuke",
             "checkout", "switch", "branch",
             "stash",
-            "scoop", "install",
+            "uninstall", "install", "update",
             "cd",
             "rg", "fd"
         )]
@@ -610,9 +610,37 @@ function fz {
         Invoke-FuzzyHistory
     } elseif (($type -eq "kill") -or ($type -eq "nuke")) {
         Invoke-FuzzyKillProcess
-    } elseif (($type -eq "scoop") -or ($type -eq "install")) {
+    } elseif ($type -eq "install") {
         if (Get-Command scoop -ErrorAction SilentlyContinue) {
             Invoke-FuzzyScoop
+        } else {
+            Write-Error "Scoop is not installed on this system."
+        }
+    } elseif ($type -eq "uninstall") {
+        # no fuzzy uninstaller, so we make our own
+        if (Get-Command scoop -ErrorAction SilentlyContinue) {
+            $apps = scoop list 2>$null | Select-Object -ExpandProperty Name
+            Write-Host "`e[1F" -NoNewLine
+            $apps = $apps | Invoke-Fzf -Header "Select an app to uninstall" -Preview "scoop info {}" -Multi
+            if ($null -ne $apps) {
+                scoop uninstall $apps
+            }
+        } else {
+            Write-Error "Scoop is not installed on this system."
+        }
+    } elseif ($type -eq "update") {
+        if (Get-Command scoop -ErrorAction SilentlyContinue) {
+            scoop update *>$null
+            $apps = scoop status
+            $stringedapps = ($apps | Out-String).Trim().Split("`n") | ForEach-Object { $_.Trim() }
+            $header = $stringedapps | Select-Object -First 1
+            $appslist = $stringedapps | Select-Object -Skip 2
+            Write-Host "`e[1F" -NoNewLine
+            $apps = $appslist | Invoke-Fzf -Header "$header" -Multi -Cycle
+            $apps = $apps | ForEach-Object { $_.Split()[0] }
+            if ($null -ne $apps) {
+                scoop update $apps
+            }
         } else {
             Write-Error "Scoop is not installed on this system."
         }
