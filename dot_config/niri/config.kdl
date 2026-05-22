@@ -350,6 +350,11 @@ window-rule {
 }
 
 window-rule {
+    match title="Vencord QuickCSS Editor"
+    open-floating true
+}
+
+window-rule {
     geometry-corner-radius 6
     clip-to-geometry true
     open-maximized-to-edges false

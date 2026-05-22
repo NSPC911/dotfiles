@@ -274,7 +274,7 @@ Set-Alias -Name "fbs" -Value "Format-ByteSize"
 Remove-Alias -Name "ls" -Scope Global -ErrorAction Ignore
 function ls {
     Import-Module -Name Terminal-Icons
-    Set-Alias -Name "ls" -Value "Get-ChildItem"
+    Set-Alias -Name "ls" -Value "Get-ChildItem" -Scope Global
     Get-ChildItem @args
 }
 
@@ -353,31 +353,13 @@ function pyvenv() {
             Write-Host "└─$yellow deactivate"
             deactivate
         }
-        Write-Host "┌❯ Activating virtual environment"
-        Write-Host "└─$yellow poetry env activate | Invoke-Expression"
-        poetry env activate | Invoke-Expression
-        Write-Host "Virtual Environment is active!" -ForegroundColor Green
-        if (-not $NoSync) {
-            Write-Host "┌❯ Installing packages with 'pyproject.toml'"
-            Write-Host "└─ " -NoNewLine
-            $flags = ""
-            if ($AllGroups) {
-                $flags += "--all-groups "
-            }
-            if ($AllExtras) {
-                $flags += "--all-extras "
-            }
-            $flags = $flags.Trim()
-            if ($flags -eq "") {
-                Write-Host "poetry install --sync" -ForegroundColor Yellow
-                poetry install --sync *>$null
-            } else {
-                Write-Host "poetry install --sync $flags" -ForegroundColor Yellow
-                poetry install --sync $flags.Split() *>$null
-            }
-            return
+        if ($null -eq (poetry env list)) {
+            Write-Host "┌❯ Creating new virtual environment"
+        } else{
+            Write-Host "┌❯ Activating virtual environment"
         }
-        Write-Host "Virtual Environment has been synced!" -ForegroundColor Green
+        Write-Host "└─$yellow poetry env activate | Invoke-Expression"
+        poetry env activate 2>$null | Invoke-Expression
     } else {
         if ((Test-Path "venv/") -and (-not (Test-Path ".venv/"))) {
             Write-Host "┌❯ Using$cyan venv$reset"
@@ -407,9 +389,35 @@ function pyvenv() {
                 ./.venv/bin/activate.ps1
             }
         }
-        Write-Host "Virtual Environment is active!" -ForegroundColor Green -NoNewLine
-        $pyVersion = uv run --no-sync python --version 2>$null
-        Write-Host " ($pyVersion)" -ForegroundColor Cyan
+    }
+    Write-Host "Virtual Environment is active!" -ForegroundColor Green -NoNewLine
+    Write-Host " ($(python --version)" -ForegroundColor Cyan -NoNewline
+    if ((python -c "import sys;print(getattr(sys, '_is_gil_enabled', lambda: True)())") -eq "False") {
+        Write-Host "t" -ForegroundColor Red -NoNewLine
+    }
+    Write-Host ")" -ForegroundColor Cyan
+
+    if ($Poetry) {
+        if (-not $NoSync) {
+            Write-Host "┌❯ Installing packages with 'pyproject.toml'"
+            Write-Host "└─ " -NoNewLine
+            $flags = ""
+            if ($AllGroups) {
+                $flags += "--all-groups "
+            }
+            if ($AllExtras) {
+                $flags += "--all-extras "
+            }
+            $flags = $flags.Trim()
+            if ($flags -eq "") {
+                Write-Host "poetry install --sync" -ForegroundColor Yellow
+                poetry install --sync *>$null
+            } else {
+                Write-Host "poetry install --sync $flags" -ForegroundColor Yellow
+                poetry install --sync $flags.Split() *>$null
+            }
+        }
+    } else {
         if (-not $NoSync) {
             if (Test-Path pyproject.toml) {
                 Write-Host "┌❯ Syncing packages with 'pyproject.toml'"
@@ -443,14 +451,18 @@ function pyvenv() {
                 Write-Host "┌❯ There are no packages available to be synced"
                 Write-Host "└❯ Make sure to either$cyan uv init --bare$reset or$cyan touch requirements.txt$reset!"
             }
-            Write-Host "Virtual Environment has been synced!" -ForegroundColor Green -NoNewLine
-            $packagesJson = (uv pip list --format json)
-            if ($packagesJson -eq "[]") {
-                Write-Host " (0 packages installed)" -ForegroundColor Cyan
-            } else {
-                $packages = ($packagesJson | jq .[].name).Split("`n").Length
-                Write-Host " ($packages packages installed)" -ForegroundColor Cyan
-            }
+        }
+    }
+    Write-Host "Virtual Environment has been synced!" -ForegroundColor Green -NoNewLine
+    if ($Poetry) {
+        Write-Host " ($((poetry show | ForEach-Object { if ($_ -notlike "*(!)*") {$_} } | Measure-Object -Line).lines) packages installed)" -ForegroundColor Cyan
+    } else {
+        $packagesJson = (uv pip list --format json)
+        if ($packagesJson -eq "[]") {
+            Write-Host " (0 packages installed)" -ForegroundColor Cyan
+        } else {
+            $packages = ($packagesJson | jq .[].name).Split("`n").Length
+            Write-Host " ($packages packages installed)" -ForegroundColor Cyan
         }
     }
 }
