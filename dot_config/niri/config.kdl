@@ -58,6 +58,7 @@ binds {
 
     // ─── Applications ───
     MOD+RETURN                          hotkey-overlay-title="Open Terminal: wezterm" { spawn-sh "wezterm"; }
+    MOD+SHIFT+RETURN                    hotkey-overlay-title="Open Terminal: kitty" { spawn-sh "rio"; }
     MOD+SPACE                           hotkey-overlay-title="Open App Launcher: dms launcher" { spawn-sh "dms ipc launcher toggle"; }
     MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen"; }
     // MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
@@ -87,10 +88,10 @@ binds {
     MOD+UP                              { focus-window-up; }
     MOD+DOWN                            { focus-window-down; }
 
-    MOD+CTRL+LEFT                       { move-column-left; }
-    MOD+CTRL+RIGHT                      { move-column-right; }
-    MOD+SHIFT+LEFT                      { consume-or-expel-window-left; }
-    MOD+SHIFT+RIGHT                     { consume-or-expel-window-right; }
+    MOD+CTRL+LEFT                       { consume-or-expel-window-left; }
+    MOD+CTRL+RIGHT                      { consume-or-expel-window-right; }
+    MOD+SHIFT+LEFT                      { move-column-left; }
+    MOD+SHIFT+RIGHT                     { move-column-right; }
     MOD+SHIFT+UP                        { move-window-up; }
     MOD+SHIFT+DOWN                      { move-window-down; }
 
@@ -154,6 +155,8 @@ binds {
     MOD+F                               { maximize-column; }
     MOD+SHIFT+F                         { fullscreen-window; }
     MOD+CTRL+F                          { expand-column-to-available-width; }
+    MOD+bracketright                    { switch-focus-between-floating-and-tiling; }
+    MOD+bracketleft                     { switch-focus-between-floating-and-tiling; }
 
     // ─── Screenshots ───
     MOD+SHIFT+S                         { screenshot; }
@@ -224,19 +227,19 @@ overview {
 }
 
 layout {
-    gaps 8 // Gap between windows
+    gaps 4 // Gap between windows
     // center-focused-column "always" // Don’t auto-center focused column
     background-color "transparent"
     // empty-workspace-above-first
-    // center-focused-column "on-overflow"
+    center-focused-column "on-overflow"
     always-center-single-column
 
     preset-column-widths {
-        proportion 0.33333
+        proportion 0.2
         proportion 0.5
-        proportion 0.66667
+        proportion 0.8
     }
-    default-column-width { proportion 0.75; }
+    default-column-width { proportion 0.80; }
     border {
         on
         width 3
@@ -260,10 +263,10 @@ layout {
     }
 
     struts {
-        left -4
-        right -4
-        top -4
-        bottom -4
+        left 0
+        right 0
+        top 0
+        bottom 0
     }
 
     tab-indicator {
@@ -327,6 +330,15 @@ window-rule {
 }
 
 window-rule {
+    match app-id="net.sapples.LiveCaptions"
+    draw-border-with-background false
+    background-effect {
+        blur true
+        xray true
+    }
+}
+
+window-rule {
     match app-id="rio"
     draw-border-with-background false
 }
@@ -346,7 +358,11 @@ window-rule {
 window-rule {
     match app-id="onboard"
     open-floating true
-    // Optionally remove borders/shadows if you want it cleaner
+}
+
+window-rule {
+    match title="zoom" app-id="zoom"
+    open-floating true
 }
 
 window-rule {
@@ -372,7 +388,7 @@ environment {
     EDITOR "hx"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     PAGER "ov"
-    PATH "/usr/lib/powershell-7:/home/nspc911/.local/bin:/home/nspc911/.local/share/pnpm:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/nspc911/.cargo/bin:/home/nspc911/go/bin"
+    PATH "/usr/lib/powershell-7:/home/nspc911/.local/bin:/home/nspc911/.local/share/pnpm/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/nspc911/.cargo/bin:/home/nspc911/go/bin"
     QT_QPA_PLATFORM "wayland"
     QT_QPA_PLATFORMTHEME "gtk3"
     QT_QPA_PLATFORMTHEME_QT6 "gtk3"
