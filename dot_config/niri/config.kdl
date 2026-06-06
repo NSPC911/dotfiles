@@ -22,9 +22,11 @@ input {
         natural-scroll
     }
 
-    focus-follows-mouse // Automatically focus windows under the mouse pointer
+    focus-follows-mouse max-scroll-amount="0%" // Automatically focus windows under the mouse pointer
     warp-mouse-to-focus
     workspace-auto-back-and-forth // Enable workspace back & forth switching
+
+    mouse
 }
 
 // ────────────── Output Configuration ──────────────
@@ -40,13 +42,13 @@ output "eDP-1" {
 
 output "DP-3" {
     mode "1920x1080@74.973"
-    scale 1.00
+    scale 1.0
     position x=0 y=-1080
 }
 
 output "DP-1" {
     mode "1920x1080@74.973"
-    scale 1.00
+    scale 1.0
     position x=0 y=-1080
 }
 
@@ -57,28 +59,28 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+RETURN                          hotkey-overlay-title="Open Terminal: wezterm" { spawn-sh "wezterm"; }
-    MOD+SHIFT+RETURN                    hotkey-overlay-title="Open Terminal: kitty" { spawn-sh "rio"; }
-    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: dms launcher" { spawn-sh "dms ipc launcher toggle"; }
-    MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen"; }
+    MOD+RETURN hotkey-overlay-title="Open Terminal: wezterm" { spawn-sh "wezterm"; }
+    MOD+SHIFT+RETURN hotkey-overlay-title="Open Terminal: rio"     { spawn-sh "rio"; }
+    MOD+SPACE hotkey-overlay-title="Open App Launcher: dms launcher" { spawn-sh "dms ipc launcher toggle"; }
+    // MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen"; }
     // MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
-    MOD+SHIFT+L                         hotkey-overlay-title="Show DMS Power Menu" { spawn-sh "dms ipc call powermenu toggle"; }
-    MOD+L                               hotkey-overlay-title="Show DMS Power Menu" { spawn-sh "dms ipc call lock lock"; }
+    MOD+SHIFT+L hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call powermenu toggle"; }
+    MOD+L hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call lock lock"; }
 
     // Please choose your own file manager
-    MOD+E                             hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
+    MOD+E hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
 
     // ─── Audio Controls ───
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
-    XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-    XF86AudioMute                       allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute                    allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    XF86AudioNext                       allow-when-locked=true { spawn-sh "playerctl next"; }
-    XF86AudioPause                      allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioPlay                       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioPrev                       allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
 
     // ─── Window Movement and Focus ───
     MOD+Q                               { close-window; }
@@ -144,10 +146,14 @@ binds {
     // ─── Layout Controls ───
     MOD+C                               { center-column; }
     MOD+CTRL+C                          { center-visible-columns; }
-    MOD+MINUS         cooldown-ms=125   { set-column-width "-10%"; }
-    MOD+EQUAL         cooldown-ms=125   { set-column-width "+10%"; }
-    MOD+SHIFT+MINUS   cooldown-ms=125   { set-window-height "-10%"; }
-    MOD+SHIFT+EQUAL   cooldown-ms=125   { set-window-height "+10%"; }
+    MOD+MINUS cooldown-ms=125   { set-column-width "-10%"; }
+    MOD+EQUAL cooldown-ms=125   { set-column-width "+10%"; }
+    MOD+CTRL+MINUS cooldown-ms=125   { set-column-width "-1%"; }
+    MOD+CTRL+EQUAL cooldown-ms=125   { set-column-width "+1%"; }
+    MOD+SHIFT+MINUS cooldown-ms=125   { set-window-height "-10%"; }
+    MOD+SHIFT+EQUAL cooldown-ms=125   { set-window-height "+10%"; }
+
+    MOD+M                               { switch-preset-column-width; }
 
     // ─── Modes ───
     MOD+T                               { toggle-window-floating; }
@@ -168,8 +174,9 @@ binds {
     MOD+ESCAPE allow-inhibiting=false   { toggle-keyboard-shortcuts-inhibit; }
 
     // ─── Exit / Power ───
-    CTRL+ALT+DELETE                     { quit; } // Also quits Niri
-    MOD+O      repeat=false             { toggle-overview; }
+    CTRL+ALT+DELETE                     { quit; }
+ // Also quits Niri
+    MOD+O repeat=false             { toggle-overview; }
     // brightness fixer
     XF86MonBrightnessDown               { spawn-sh "bright down"; }
     XF86MonBrightnessUp                 { spawn-sh "bright up"; }
@@ -229,17 +236,18 @@ overview {
 layout {
     gaps 4 // Gap between windows
     // center-focused-column "always" // Don’t auto-center focused column
+    center-focused-column "on-overflow"
     background-color "transparent"
     // empty-workspace-above-first
-    center-focused-column "on-overflow"
     always-center-single-column
 
     preset-column-widths {
-        proportion 0.2
+        proportion 0.25
         proportion 0.5
-        proportion 0.8
+        proportion 0.75
+        proportion 1.0
     }
-    default-column-width { proportion 0.80; }
+    default-column-width { proportion 0.8; }
     border {
         on
         width 3
@@ -281,8 +289,8 @@ layout {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
     workspace-switch {
-        duration-ms 400
-        curve "cubic-bezier" 0 1 0.75 1.01
+        duration-ms 375
+        curve "cubic-bezier" 0 -0.5 0 1.125
     }
     window-open {
         duration-ms 200
@@ -293,7 +301,7 @@ animations {
     }
     horizontal-view-movement {
         duration-ms 400
-        curve "cubic-bezier" 0.25 0.25 0 1
+        curve "cubic-bezier" 0.25 0.25 0 1.0675
     }
     window-movement {
         duration-ms 400
@@ -312,8 +320,7 @@ animations {
         curve "ease-out-quad"
     }
     overview-open-close {
-        duration-ms 300
-        curve "cubic-bezier" 0.4 0 0.6 1
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
 }
 
@@ -321,11 +328,13 @@ animations {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
 window-rule {
-    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    match app-id=r"zen$" title="^Picture-in-Picture$"
 }
 
 window-rule {
-    match app-id=r#"zen"#
+    match app-id=r"zen"
+    match app-id="Alacritty"
+    match app-id="rio"
     draw-border-with-background false
 }
 
@@ -339,7 +348,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id="rio"
     draw-border-with-background false
 }
 
@@ -347,6 +355,7 @@ window-rule {
     match app-id="vesktop"
     open-on-workspace "messages"
     open-focused false
+    opacity 0.875
 }
 
 window-rule {
@@ -373,11 +382,11 @@ window-rule {
 window-rule {
     geometry-corner-radius 6
     clip-to-geometry true
-    open-maximized-to-edges false
     background-effect {
         blur true
         xray false
     }
+    open-maximized-to-edges false
 }
 
 // ────────────── Environment Variables ──────────────
@@ -433,12 +442,12 @@ recent-windows {
     binds {
         Alt+Tab         { next-window; }
         Alt+Shift+Tab   { previous-window; }
-        Alt+grave       { next-window     filter="app-id"; }
+        Alt+grave       { next-window filter="app-id"; }
         Alt+Shift+grave { previous-window filter="app-id"; }
 
         Mod+Tab         { next-window; }
         Mod+Shift+Tab   { previous-window; }
-        Mod+grave       { next-window     filter="app-id"; }
+        Mod+grave       { next-window filter="app-id"; }
         Mod+Shift+grave { previous-window filter="app-id"; }
     }
 }

@@ -53,7 +53,12 @@ function ghet {
     Write-Host "release: $releaser" -ForegroundColor Green
 
     Write-Host "│ Select an asset to download:"
-    $chosen = ($assets | ForEach-Object { $_.name } | fzf --cycle --preview-window="hidden" --height="~100%" --border=none)
+    $chosen = ($assets | ForEach-Object { $_.name } | fzf --cycle --preview-window="hidden" --height="~100%" --style=default --border=left --margin=0 --multi=0)
+    if ($null -eq $chosen) {
+        Write-Host "╰─ no asset selected, exiting." -ForegroundColor Yellow
+        Write-Host ""
+        return
+    }
     $chosen = $assets | Where-Object { $_.name -eq $chosen }
     Write-Host "│ " -NoNewLine
     Write-Host "`e[?25h`downloading '$($chosen.name)' ..." -ForegroundColor Cyan

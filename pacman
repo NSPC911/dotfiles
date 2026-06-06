@@ -1,3 +1,4 @@
+7zip
 accessibility-inspector
 accountsservice
 adw-gtk-theme
@@ -41,7 +42,6 @@ cachyos-hello
 cachyos-hooks
 cachyos-kernel-manager
 cachyos-keyring
-cachyos-micro-settings
 cachyos-mirrorlist
 cachyos-niri-settings
 cachyos-nord-gtk-theme-git
@@ -82,6 +82,7 @@ dnsmasq
 dolphin
 dolphin-plugins
 dosfstools
+downgrade
 dragon
 duf
 e2fsprogs
@@ -104,6 +105,7 @@ foomatic-db-gutenprint-ppds
 foomatic-db-nonfree
 foomatic-db-nonfree-ppds
 foomatic-db-ppds
+foot
 fprintd
 francis
 fsarchiver
@@ -198,6 +200,7 @@ libopenraw
 libqalculate
 libselinux
 libsepol
+libsoup
 libwnck3
 linux-cachyos
 linux-cachyos-bore-lto
@@ -222,7 +225,6 @@ mdadm
 meld
 mesa-utils
 meson
-micro
 mise
 mkinitcpio
 modemmanager
@@ -243,10 +245,13 @@ noto-fonts-emoji
 npm
 nss-mdns
 ntp
+nushell
+obs-cli
 obs-studio-browser
 octopi
 oh-my-posh-bin
 onefetch
+openbsd-netcat
 opencl-mesa
 opencode
 openssh
@@ -260,6 +265,7 @@ paru
 patchelf
 pear-desktop
 perl
+perl-image-exiftool
 pipewire-alsa
 pipewire-pulse
 pkgfile
@@ -271,6 +277,7 @@ poppler-glib
 power-profiles-daemon
 powershell-bin
 prek-bin
+prismlauncher
 proton-cachyos
 proton-ge-custom-bin
 pv
@@ -281,6 +288,7 @@ python-packaging
 python-pyqt5
 python-reportlab
 qt5ct
+quickshell-git
 rebuild-detector
 redhat-fonts
 reflector
@@ -331,6 +339,7 @@ ttf-liberation
 ttf-material-symbols-variable-git
 ttf-meslo-nerd
 ttf-opensans
+tuios-bin
 typst
 ufw
 unrar
@@ -348,6 +357,7 @@ waybar
 wayland-protocols
 wev
 wezterm-nightly-bin
+wf-recorder
 wget
 which
 wireless-regdb
@@ -376,6 +386,7 @@ xorg-xinput
 xorg-xkill
 xorg-xrandr
 xorg-xwayland
+xterm
 xwayland-run-git
 xwayland-satellite
 yaml-language-server
