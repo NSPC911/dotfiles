@@ -380,6 +380,11 @@ window-rule {
 }
 
 window-rule {
+    match app-id="p3x-onenote"
+    opacity 0.75
+}
+
+window-rule {
     geometry-corner-radius 6
     clip-to-geometry true
     background-effect {
