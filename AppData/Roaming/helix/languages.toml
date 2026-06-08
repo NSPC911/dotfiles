@@ -1,4 +1,4 @@
-global-language-servers = ["copilot", "discord-rpc", "codebook"]
+global-language-servers = ["copilot", "discord-rpc", "harper"]
 
 # requires: https://github.com/astral-sh/ruff
 [language-server.ruff]
@@ -32,7 +32,7 @@ reportUndefinedVariable = "none"
 reportMissingImports = "none"
 
 # requires: https://github.com/Automattic/harper
-[language-server.harper-ls]
+[language-server.harper]
 command = "harper-ls"
 args = ["--stdio"]
 
@@ -166,7 +166,7 @@ auto-format = true
 
 [[language]]
 name = "javascript"
-formatter = { command = "pretterd", args = [".js"] }
+formatter = { command = "prettierd", args = [".js"] }
 language-servers = ["oxfmt", "typescript-language-server"]
 auto-format = true
 

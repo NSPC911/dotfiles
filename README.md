@@ -71,14 +71,13 @@ helix
 ansible-lint v26.4.0
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.9.6
+mistral-vibe v2.14.0
 poethepoet v0.46.0
 poetry v2.4.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
-pyright v1.1.409
+pyright v1.1.410
 rich-cli v1.8.1
-rovr v0.8.3 [required:  git+https://github.com/NSPC911/rovr]
-ruff v0.15.13
+ruff v0.15.16
 ty v0.0.32 [required: ==0.0.32]
 ```
 
@@ -88,16 +87,16 @@ ty v0.0.32 [required: ==0.0.32]
 <!--or if possible, run 'pnpm list --global --json | jq -r ".[0].dependencies[] | `"\(.from)@\(.version)`""',-->
 
 ```
-@ansible/ansible-language-server@26.5.0
-@astrojs/language-server@2.16.8
+@ansible/ansible-language-server@26.6.0
+@astrojs/language-server@2.16.10
 @fsouza/prettierd@0.27.0
-@github/copilot@1.0.48
-@google/gemini-cli@0.42.0
-corepack@0.34.7
+@github/copilot@1.0.60
+@google/gemini-cli@0.43.0
+corepack@0.35.0
 live-server@1.2.2
-oxfmt@0.49.0
+oxfmt@0.52.0
 typescript@6.0.3
-typescript-language-server@5.2.0
+typescript-language-server@5.3.0
 vscode-langservers-extracted@4.10.0
 ```
 
@@ -121,7 +120,6 @@ vscode-langservers-extracted@4.10.0
 | Terminal-Icons                       | nerdfont icons in Get-ChildItem + more | `Install-Module Terminal-Icons`                       |
 | PwshSpectreConsole                   | advanced console features              | `Install-Module PwshSpectreConsole`                   |
 | PSToml                               | toml parsing                           | `Install-Module PSToml`                               |
-| scoop-completions                    | scoop completions                      | `scoop install scoop-completion`                      |
 | PSEverything                         | everything integration into powershell | `Install-Module PSEverything`                         |
 
 #### Previously used, but no longer using
@@ -144,17 +142,17 @@ vscode-langservers-extracted@4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     58         6477         6476            0            1
- CSS                      11         4034         3257          283          494
- TOML                     11         1691         1401          165          125
+ JSON                     58         6472         6471            0            1
+ CSS                      11         4062         3281          283          498
+ TOML                     11         1692         1402          165          125
  YAML                      5         1182         1063           53           66
- PowerShell                4         1124          953           65          106
+ PowerShell                4         1157          985           66          106
  Scheme                    6          961          840           27           94
  INI                       1          687          170          414          103
  Lua                       1          243          219           12           12
- Markdown                 10          232            0          177           55
+ Markdown                 10          230            0          175           55
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   107        16631        14379         1196         1056
+ Total                   107        16686        14431         1195         1060
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

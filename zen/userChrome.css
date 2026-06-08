@@ -19,6 +19,13 @@
   --white: #eceff4;
 }
 
+#browser {
+  --multiplier: 1;
+  &:has(> #navigator-toolbox[zen-right-side="true"]) {
+    --multiplier: -1;
+  }
+}
+
 /* navigator toolbox */
 #navigator-toolbox#navigator-toolbox#navigator-toolbox {
   transition-duration: 0.2s !important;
@@ -49,28 +56,34 @@
       }
     }
   }
-  &:is(
-    [zen-has-implicit-hover],
-    [zen-has-hover],
-    [zen-user-show],
-    [has-popup-menu="true"]
-  ) ~ #zen-appcontent-wrapper
-    > #zen-tabbox-wrapper {
-      transform: translateX(168px) !important;
-  }
-  &[flash-popup="true"]:not(:is(
-    [zen-has-implicit-hover],
-    [zen-has-hover],
-    [zen-user-show],
-    [has-popup-menu="true"])
-  ) > #titlebar > .zen-toolbar-background {
-    background: #2e3440 !important;
+  &:not(:has(> #zen-sidebar-top-buttons)) {
+    &:is(
+      [zen-has-implicit-hover],
+      [zen-has-hover],
+      [zen-user-show],
+      [has-popup-menu="true"]
+    ) ~ #zen-appcontent-wrapper
+      > #zen-tabbox-wrapper {
+        transform: translateX(calc(168px * var(--multiplier))) !important;
+    }
+    &[flash-popup="true"]:not(:is(
+      [zen-has-implicit-hover],
+      [zen-has-hover],
+      [zen-user-show],
+      [has-popup-menu="true"])
+    ) > #titlebar > .zen-toolbar-background {
+      background: #2e3440 !important;
+    }
   }
 }
 
 /* url bar zoom animation */
 #browser:has(#urlbar[open][zen-floating-urlbar="true"]) {
   filter: blur(5px) brightness(70%) !important;
+}
+
+.browserStack browser {
+  transition: scale 0.2s ease, transform 0.2s ease
 }
 
 .browserStack:has(
@@ -180,7 +193,7 @@
   }
   & > .browserContainer {
     transition: border 0.25s linear !important;
-    border: var(--dark-border) !important; 
+    border: var(--dark-border) !important;
   }
   &.deck-selected:not(:has(> #zen-loading-progress-bar)) > .browserContainer {
     border: var(--bright-border) !important;
@@ -214,6 +227,21 @@
   background: var(--alternate-bright-border-color) !important;
   > * {
     color: contrast-color(var(--alternate-bright-border-color)) !important;
+  }
+}
+
+[animating-background="true"] #zen-tabbox-wrapper {
+  filter: blur(10px)
+}
+
+#zen-tabbox-wrapper > #tabbrowser-tabbox > #sidebar-box[sidebar-panel-open] {
+  border: var(--dark-border) !important;
+  width: 204px !important;
+  position: absolute !important;
+  bottom: 0;
+  top: 0;
+  & ~ #tabbrowser-tabpanels {
+    transform: translateX(208px)
   }
 }
 
