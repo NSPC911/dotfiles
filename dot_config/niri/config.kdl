@@ -59,13 +59,14 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+RETURN hotkey-overlay-title="Open Terminal: wezterm" { spawn-sh "wezterm"; }
-    MOD+SHIFT+RETURN hotkey-overlay-title="Open Terminal: rio"     { spawn-sh "rio"; }
-    MOD+SPACE hotkey-overlay-title="Open App Launcher: dms launcher" { spawn-sh "dms ipc launcher toggle"; }
+    MOD+RETURN hotkey-overlay-title="Open Terminal: wezterm"         { spawn-sh "wezterm"; }
+    MOD+SHIFT+RETURN hotkey-overlay-title="Open Terminal: kitty"     { spawn-sh "kitty"; }
+    MOD+SPACE hotkey-overlay-title="Open App List: dms" { spawn-sh "dms ipc spotlight-bar toggle"; }
+    MOD+S     hotkey-overlay-title="Open App Launcher: dms" { spawn-sh "dms ipc spotlight toggle"; }
     // MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen"; }
     // MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
     MOD+SHIFT+L hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call powermenu toggle"; }
-    MOD+L hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call lock lock"; }
+    MOD+L       hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call lock lock"; }
 
     // Please choose your own file manager
     MOD+E hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
@@ -75,12 +76,12 @@ binds {
     // The allow-when-locked=true property makes them work even when the session is locked.
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-    XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
-    XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPause       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
 
     // ─── Window Movement and Focus ───
     MOD+Q                               { close-window; }
@@ -92,10 +93,10 @@ binds {
 
     MOD+CTRL+LEFT                       { consume-or-expel-window-left; }
     MOD+CTRL+RIGHT                      { consume-or-expel-window-right; }
-    MOD+SHIFT+LEFT                      { move-column-left; }
-    MOD+SHIFT+RIGHT                     { move-column-right; }
-    MOD+SHIFT+UP                        { move-window-up; }
-    MOD+SHIFT+DOWN                      { move-window-down; }
+    MOD+SHIFT+LEFT     cooldown-ms=125  { move-column-left; }
+    MOD+SHIFT+RIGHT    cooldown-ms=125  { move-column-right; }
+    MOD+SHIFT+UP       cooldown-ms=125  { move-window-up; }
+    MOD+SHIFT+DOWN     cooldown-ms=125  { move-window-down; }
 
     MOD+HOME                            { focus-column-first; }
     MOD+END                             { focus-column-last; }
@@ -146,12 +147,12 @@ binds {
     // ─── Layout Controls ───
     MOD+C                               { center-column; }
     MOD+CTRL+C                          { center-visible-columns; }
-    MOD+MINUS cooldown-ms=125   { set-column-width "-10%"; }
-    MOD+EQUAL cooldown-ms=125   { set-column-width "+10%"; }
-    MOD+CTRL+MINUS cooldown-ms=125   { set-column-width "-1%"; }
-    MOD+CTRL+EQUAL cooldown-ms=125   { set-column-width "+1%"; }
-    MOD+SHIFT+MINUS cooldown-ms=125   { set-window-height "-10%"; }
-    MOD+SHIFT+EQUAL cooldown-ms=125   { set-window-height "+10%"; }
+    MOD+MINUS         cooldown-ms=125   { set-column-width "-10%"; }
+    MOD+EQUAL         cooldown-ms=125   { set-column-width "+10%"; }
+    MOD+CTRL+MINUS    cooldown-ms=125   { set-column-width "-1%"; }
+    MOD+CTRL+EQUAL    cooldown-ms=125   { set-column-width "+1%"; }
+    MOD+SHIFT+MINUS   cooldown-ms=125   { set-window-height "-10%"; }
+    MOD+SHIFT+EQUAL   cooldown-ms=125   { set-window-height "+10%"; }
 
     MOD+M                               { switch-preset-column-width; }
 
@@ -175,8 +176,7 @@ binds {
 
     // ─── Exit / Power ───
     CTRL+ALT+DELETE                     { quit; }
- // Also quits Niri
-    MOD+O repeat=false             { toggle-overview; }
+    MOD+O repeat=false                  { toggle-overview; }
     // brightness fixer
     XF86MonBrightnessDown               { spawn-sh "bright down"; }
     XF86MonBrightnessUp                 { spawn-sh "bright up"; }
@@ -186,7 +186,9 @@ binds {
 
     // Mod+Shift+Alt+R { spawn "ignis" "run-command" "recorder-record-screen"; }
     // Mod+Alt+R { spawn "ignis" "run-command" "recorder-record-portal"; }
-    Mod+V { spawn "dms" "ipc" "clipboard" "toggle"; }
+    Mod+V                               { spawn "dms" "ipc" "clipboard" "toggle"; }
+    MOD+SHIFT+C                         { spawn "dms" "ipc" "color-picker" "toggle"; }
+    MOD+SHIFT+N                         { spawn "dms" "ipc" "notepad" "toggle"; }
 }
 
 // ────────────── Startup Applications ──────────────
@@ -212,12 +214,18 @@ layer-rule {
 }
 
 layer-rule {
-    match namespace="dms:powermenu"
+    match namespace="^quickshell$"
+    place-within-backdrop true
 }
 
 layer-rule {
-    match namespace="^quickshell$"
-    place-within-backdrop true
+    match namespace="dms:power-menu"
+    match namespace="dms:clipboard"
+    match namespace="dms:color-picker"
+    match namespace="dms:spotlight"
+    match namespace="dms:app-launcher"
+    match namespace="dms:toast"
+    baba-is-float true
 }
 
 layer-rule {
@@ -236,7 +244,7 @@ overview {
 layout {
     gaps 4 // Gap between windows
     // center-focused-column "always" // Don’t auto-center focused column
-    center-focused-column "on-overflow"
+    // center-focused-column "on-overflow"
     background-color "transparent"
     // empty-workspace-above-first
     always-center-single-column
@@ -247,7 +255,7 @@ layout {
         proportion 0.75
         proportion 1.0
     }
-    default-column-width { proportion 0.8; }
+    default-column-width { proportion 1.0; }
     border {
         on
         width 3
@@ -320,16 +328,13 @@ animations {
         curve "ease-out-quad"
     }
     overview-open-close {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+        duration-ms 400
+        curve "cubic-bezier" 0.25 0.25 0 1.0675
     }
 }
 
 // ────────────── Window Rules ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
-
-window-rule {
-    match app-id=r"zen$" title="^Picture-in-Picture$"
-}
 
 window-rule {
     match app-id=r"zen"
@@ -348,10 +353,6 @@ window-rule {
 }
 
 window-rule {
-    draw-border-with-background false
-}
-
-window-rule {
     match app-id="vesktop"
     open-on-workspace "messages"
     open-focused false
@@ -366,12 +367,11 @@ window-rule {
 
 window-rule {
     match app-id="onboard"
-    open-floating true
-}
-
-window-rule {
+    match title="Incoming Connection" app-id="zen"
     match title="zoom" app-id="zoom"
+    match app-id=r"zen$" title="^Picture-in-Picture$"
     open-floating true
+    baba-is-float true
 }
 
 window-rule {
@@ -381,7 +381,7 @@ window-rule {
 
 window-rule {
     match app-id="p3x-onenote"
-    opacity 0.75
+    opacity 0.875
 }
 
 window-rule {
@@ -416,6 +416,7 @@ environment {
 
 hotkey-overlay {
     skip-at-startup
+    hide-not-bound
 }
 
 // workspaces
@@ -430,7 +431,7 @@ workspace "misc"
 recent-windows {
     debounce-ms 750
 
-    open-delay-ms 150
+    open-delay-ms 250
 
     highlight {
         active-color "#88C0D0FF"
@@ -461,6 +462,15 @@ config-notification {
     disable-failed
 }
 
+clipboard {
+    disable-primary
+}
+
+blur {
+    offset 2.0
+}
+
+
 // spawn-at-startup "waybar"
 
 // spawn-at-startup "qs" "-c" "noctalia-shell"
@@ -470,12 +480,9 @@ config-notification {
 // include "dms/layout.kdl"
 include "dms/alttab.kdl"
 include "dms/binds.kdl"
-// include "dms/cursor.kdl"
-// spawn-at-startup "linux-wallpaperengine" "--screen-root" "eDP-1" "--bg" "3589511017" "--scaling" "stretch"
+include "dms/cursor.kdl"
 
 spawn-at-startup "steam"
 spawn-at-startup "pkill" "kgpg"
 // spawn-at-startup "ignis" "init"
 // spawn-at-startup "swww-daemon"
-
-include "dms/cursor.kdl"

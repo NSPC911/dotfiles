@@ -19,6 +19,15 @@
   --white: #eceff4;
 }
 
+#browser {
+  --multiplier: 1;
+  --n-zen-sidebar-width: 190px;
+  --gap: var(--zen-element-separation);
+  &:has(> #navigator-toolbox[zen-right-side="true"]) {
+    --multiplier: -1;
+  }
+}
+
 /* navigator toolbox */
 #navigator-toolbox#navigator-toolbox#navigator-toolbox {
   transition-duration: 0.2s !important;
@@ -30,6 +39,7 @@
   border: none !important;
   > #titlebar {
     border: none !important;
+    width: var(--n-zen-sidebar-width) !important;
     &::before,
     &::after,
     & > * {
@@ -39,7 +49,7 @@
     & > .zen-toolbar-background {
       display: block;
       background: #4c566a44 !important;
-      border-radius: 4px !important;
+      border-radius: var(--zen-native-inner-radius) !important;
       padding: 0 !important;
       border: var(--dark-border);
       box-shadow: none !important;
@@ -49,28 +59,38 @@
       }
     }
   }
-  &:is(
-    [zen-has-implicit-hover],
-    [zen-has-hover],
-    [zen-user-show],
-    [has-popup-menu="true"]
-  ) ~ #zen-appcontent-wrapper
-    > #zen-tabbox-wrapper {
-      transform: translateX(168px) !important;
-  }
-  &[flash-popup="true"]:not(:is(
-    [zen-has-implicit-hover],
-    [zen-has-hover],
-    [zen-user-show],
-    [has-popup-menu="true"])
-  ) > #titlebar > .zen-toolbar-background {
-    background: #2e3440 !important;
+  &:not(:has(> #zen-sidebar-top-buttons)) {
+    &:is(
+      [zen-has-implicit-hover],
+      [zen-has-hover],
+      [zen-user-show],
+      [has-popup-menu="true"]
+    ) ~ #zen-appcontent-wrapper
+      > #zen-tabbox-wrapper {
+        transform: translateX(calc((var(--n-zen-sidebar-width) + var(--gap)) * var(--multiplier))) !important;
+    }
+    &[flash-popup="true"]:not(:is(
+      [zen-has-implicit-hover],
+      [zen-has-hover],
+      [zen-user-show],
+      [has-popup-menu="true"])
+    ) > #titlebar > .zen-toolbar-background {
+      background: #2e3440 !important;
+    }
   }
 }
 
 /* url bar zoom animation */
+#browser {
+  transition: filter 0.125s ease-in-out, transform 0.25s cubic-bezier(0.25, 0.25, 0, 1.0675);
+}
 #browser:has(#urlbar[open][zen-floating-urlbar="true"]) {
   filter: blur(5px) brightness(70%) !important;
+  transform: scale(1.1)
+}
+
+.browserStack browser {
+  transition: scale 0.2s ease, transform 0.2s ease
 }
 
 .browserStack:has(
@@ -160,7 +180,7 @@
   cursor: none;
   pointer-events: none;
   overflow: hidden !important;
-  border-radius: 4px !important;
+  border-radius: var(--zen-native-inner-radius) !important;
   transition: border 0.25s linear;
 }
 
@@ -180,7 +200,7 @@
   }
   & > .browserContainer {
     transition: border 0.25s linear !important;
-    border: var(--dark-border) !important; 
+    border: var(--dark-border) !important;
   }
   &.deck-selected:not(:has(> #zen-loading-progress-bar)) > .browserContainer {
     border: var(--bright-border) !important;
@@ -214,6 +234,22 @@
   background: var(--alternate-bright-border-color) !important;
   > * {
     color: contrast-color(var(--alternate-bright-border-color)) !important;
+  }
+}
+
+[animating-background="true"] #zen-tabbox-wrapper {
+  filter: blur(10px)
+}
+
+#zen-tabbox-wrapper > #tabbrowser-tabbox > #sidebar-box[sidebar-panel-open] {
+  border: var(--dark-border) !important;
+  width: var(--n-zen-sidebar-width) !important;
+  min-width: unset !important;
+  position: absolute !important;
+  bottom: 0;
+  top: 0;
+  & ~ #tabbrowser-tabpanels {
+    transform: translateX(208px)
   }
 }
 
@@ -257,14 +293,19 @@
     margin-left: 0 !important;
   }
   #tabbrowser-tabbox:has(
-      > #zen-toast-container > hbox > button#zen-open-background-tab-button
+      > #zen-toast-container > hbox > :is(
+          button#zen-open-background-tab-button
+      )
     )
     > #tabbrowser-tabpanels {
     animation: background_tab 0.25s ease;
   }
 
   #tabbrowser-tabbox:has(
-      > #zen-toast-container > hbox > button#zen-copy-current-url-button
+      > #zen-toast-container > hbox :is(
+        > button#zen-copy-current-url-button,
+        vbox > label[data-l10n-id="zen-copy-current-url-confirmation"]
+      )
     )
     > #tabbrowser-tabpanels {
     animation: clipboard_added 0.25s ease;
@@ -272,12 +313,12 @@
 
   #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer browser {
     background: transparent !important;
-    border-radius: 5px;
+    border-radius: var(--zen-native-inner-radius);
   }
 
   #tabbrowser-tabbox #tabbrowser-tabpanels .browserContainer {
     border: var(--dark-border);
-    border-radius: 5px;
+    border-radius: var(--zen-native-inner-radius);
   }
 
   .zen-toast {

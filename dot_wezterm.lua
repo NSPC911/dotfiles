@@ -36,10 +36,10 @@ else
 end
 
 config.window_padding = {
-	left = 10,
-	right = 10,
-	top = 10,
-	bottom = 6,
+	left = 8,
+	right = 8,
+	top = 8,
+	bottom = 5,
 }
 
 -- tabs

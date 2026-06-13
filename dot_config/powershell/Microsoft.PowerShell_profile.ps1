@@ -722,6 +722,27 @@ Write-Host $HomeAndClearLine"Importing other functions"
 #### uv sync --upgrade but it is more interactive #####
 . "$PROFILE/../uvdate.ps1"
 
+#### wordle ####
+function wordle {
+    param (
+        [Parameter()]
+        [string]$Chars
+    )
+    $words = (Invoke-RestMethod https://gist.githubusercontent.com/slushman/34e60d6bc479ac8fc698df8c226e4264/raw/cf702f098856c72a81d79f69b11f0a8c333e7d2f/wordle-list).split("`n")
+    $words | ForEach-Object {
+        $contains = $true
+        ForEach ($char in $Chars.ToCharArray()) {
+            if (-not $_.Contains($char)) {
+                $contains = $false
+                break
+            }
+        }
+        if ($contains) {
+            $_
+        }
+    }
+}
+
 ##### Other stuff #####
 Clear-Host
 function fetch {

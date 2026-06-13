@@ -3,14 +3,12 @@ accessibility-inspector
 accountsservice
 adw-gtk-theme
 alacritty
-alligator
 alsa-firmware
 alsa-plugins
 alsa-utils
 amdgpu-pro-oglp
 angelfish
 aria2
-arianna
 ark
 audex
 audiocd-kio
@@ -29,7 +27,6 @@ bluez
 bluez-hid2hci
 bluez-libs
 bluez-utils
-bomber
 bovo
 brightnessctl
 btop
@@ -111,6 +108,7 @@ fprintd
 francis
 fsarchiver
 ghostscript
+ghostty
 git
 git-lfs
 github-cli
@@ -119,6 +117,7 @@ glances
 glib2-devel
 gnome-bluetooth-3.0
 go
+gpu-screen-recorder
 greetd
 grub
 grub-btrfs-support
@@ -211,7 +210,9 @@ linux-cachyos-gcc
 linux-cachyos-gcc-headers
 linux-cachyos-headers
 linux-firmware
+linux-wallpaper-engine-ux
 linux-wallpaperengine-git
+lldb
 localsend-bin
 logrotate
 lsb-release
@@ -274,6 +275,8 @@ pkgfile
 plocate
 plymouth
 pnpm
+podman
+podman-compose
 polkit-kde-agent
 poppler-glib
 power-profiles-daemon
@@ -362,6 +365,7 @@ wezterm-nightly-bin
 wf-recorder
 wget
 which
+winboat-bin
 wireless-regdb
 wireplumber
 wl-clipboard
