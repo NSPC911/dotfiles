@@ -1,0 +1,10 @@
+theme = Nord
+font-family = "CaskaydiaCove Nerd Font Mono"
+background-opacity = 0.75
+command = "pwsh -NoLogo"
+window-decoration = auto
+gtk-wide-tabs = false
+window-padding-x = 5
+window-padding-y = 5
+window-padding-balance = true
+resize-overlay = never

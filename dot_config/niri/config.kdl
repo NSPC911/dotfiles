@@ -189,6 +189,8 @@ binds {
     Mod+V                               { spawn "dms" "ipc" "clipboard" "toggle"; }
     MOD+SHIFT+C                         { spawn "dms" "ipc" "color-picker" "toggle"; }
     MOD+SHIFT+N                         { spawn "dms" "ipc" "notepad" "toggle"; }
+
+    CTRL+ALT+R                          { spawn "dms" "ipc" "call" "screenRecorder" "toggleRecording"; }
 }
 
 // ────────────── Startup Applications ──────────────
@@ -425,8 +427,6 @@ workspace "terminal"
 workspace "browser"
 
 workspace "messages"
-
-workspace "misc"
 
 recent-windows {
     debounce-ms 750

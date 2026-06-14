@@ -203,10 +203,10 @@ tabline.setup({
 		},
 	},
 	sections = {
-		tabline_a = { "workspace" },
+		tabline_a = { "  wezterm " },
 		tabline_b = {
 			"datetime",
-				"battery"
+			"battery"
 		},
 		tabline_c = {},
 		tab_active = {

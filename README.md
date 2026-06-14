@@ -1,37 +1,32 @@
 # dotfiles
 
-My Windows 11 config files, Nord + Translucency
+The alternate side, the linux version. Still Nord + Transparency.
 
 ## Screenshots
 
-| ![fetch](img/fetch.png) <br> gitfetch + fastfetch |                  ![helix](img/helixonly.png) <br> helix                   |
-| :-----------------------------------------------: | :-----------------------------------------------------------------------: |
-|   ![zen browser](img/zen.png) <br> zen browser    | ![youtube music](img/youtubemusic.png) <br> youtube music (a bit scuffed) |
-| ![rovr](img/rovr.png) <br> rovr, my file explorer |                           ![prompt](kushal.png)                           |
+| ![fetch](img/fetch.png) <br> gitfetch + fastfetch |      ![helix](img/helixonly.png) <br> helix       |
+| :-----------------------------------------------: | :-----------------------------------------------: |
+|   ![zen browser](img/zen.png) <br> zen browser    | ![rovr](img/rovr.png) <br> rovr, my file explorer |
 
 ## Apps
 
 #### Categories
 
-| Type                  | App                                                                                                                 | Location in repository                                                    |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| Tiling Manager        | [GlazeWM](https://github.com/glzr-io/glazewm)                                                                       | `dot_glzr/glazewm/config.yaml`                                            |
-| Window Borders        | [Tacky Borders](https://github.com/lukeyou05/tacky-borders)                                                         | `dot_config/tacky-borders/config.yaml`                                    |
-| Tiling Helper         | [AltSnap](https://github.com/RamonUnch/AltSnap)                                                                     | `readonly_scoop/persist/altsnap/AltSnap.ini`                              |
-| Status Bar            | [yasb](https://github.com/amnweb/yasb)                                                                              | `dot_config/yasb/`                                                        |
-| Terminal **emulator** | [wezterm](https://github.com/wezterm/wezterm)                                                                       | `.wezterm.lua`                                                            |
-| Terminal              | [PowerShell 7.5](https://github.com/PowerShell/PowerShell)                                                          | `OneDrive/readonly_Documents/PowerShell/Microsoft.PowerShell_profile.ps1` |
-| Fetch                 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) + [gitfetch](https://github.com/Matars/gitfetch)            | fastfetch: `dot_config/fastfetch/config.jsonc`                            |
-| Prompt                | [oh-my-posh](https://github.com/jandedobbeleer/oh-my-posh)                                                          | `dot_config/kushal.omp.json`                                              |
-| Mod Manager           | [Windhawk](https://github.com/ramensoftware/windhawk)                                                               | `windhawk/`                                                               |
-| Editor                | [helix](https://github.com/helix-editor/helix) [(custom built)](https://github.com/NSPC911-forks/helix/tree/patchy) | `AppData/Roaming/helix/`                                                  |
-| File Explorer (TUI)   | [rovr](https://github.com/NSPC911/rovr)                                                                             | `AppData/Local/rovr/`                                                     |
-| Browser               | [Zen](https://github.com/zen-browser/desktop)                                                                       | `zen/userChrome.css`                                                      |
-| Discord Mod           | [Vencord](https://github.com/Vendicated/Vencord)                                                                    | [NSPC911/themes:vencord](https://github.com/NSPC911/themes/tree/vencord)  |
-| Git UI                | [lazygit](https://github.com/jesseduffield/lazygit)                                                                 | `AppData/Local/lazygit/config.yml`                                        |
-| File Output           | [bat](https://github.com/sharkdp/bat)                                                                               | `readonly_scoop/persist/bat/`                                             |
-| Launcher              | [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher)                                                     | `readonly_scoop/persist/flow-launcher/UserData/Settings/`                 |
-| Pager                 | [ov](https://github.com/noborus/ov)                                                                                 | `dot_config/ov/config.yaml`                                               |
+| Type                  | App                                                                                                                 | Location in repository                                                   |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Window Manager        | [niri](https://github.com/niri-wm/niri)                                                                             | `dot_config/niri/config.kdl`                                             |
+| GUI Shell             | [DankMaterialShell](https://github.com/AvengeMedia/DankMaterialShell)                                               | `dot_config/DankMaterialShell/settings.json`                             |
+| Terminal **emulator** | [wezterm](https://github.com/wezterm/wezterm)                                                                       | `dot_wezterm.lua`                                                        |
+| Terminal              | [PowerShell 7.5](https://github.com/PowerShell/PowerShell)                                                          | `dot_config/powershell/Microsoft.PowerShell_profile.ps1`                 |
+| Fetch                 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) + [gitfetch](https://github.com/Matars/gitfetch)            | fastfetch: `dot_config/fastfetch/config.jsonc`                           |
+| Prompt                | [oh-my-posh](https://github.com/jandedobbeleer/oh-my-posh)                                                          | `dot_config/kushal.omp.json`                                             |
+| Editor                | [helix](https://github.com/helix-editor/helix) [(custom built)](https://github.com/NSPC911-forks/helix/tree/patchy) | `dot_config/helix/`                                                      |
+| File Explorer (TUI)   | [rovr](https://github.com/NSPC911/rovr)                                                                             | `dot_config/rovr/`                                                       |
+| Browser               | [Zen](https://github.com/zen-browser/desktop)                                                                       | `zen/`                                                                   |
+| Discord Mod           | [Vencord](https://github.com/Vendicated/Vencord)                                                                    | [NSPC911/themes:vencord](https://github.com/NSPC911/themes/tree/vencord) |
+| Git UI                | [lazygit](https://github.com/jesseduffield/lazygit)                                                                 | `dot_config/lazygit/config.yml`                                          |
+| File Output           | [bat](https://github.com/sharkdp/bat)                                                                               | `dot_config/bat/config`                                                  |
+| Pager                 | [ov](https://github.com/noborus/ov)                                                                                 | `dot_config/ov/config.yaml`                                              |
 
 #### Wallpaper
 
@@ -46,14 +41,10 @@ Generally I switch between 3 options (screenshots from steam!)
 | Type            | Link                                                                                               |
 | --------------- | -------------------------------------------------------------------------------------------------- |
 | Nerd Font       | [CaskaydiaCove NF](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/CascadiaCode) |
-| Package Manager | [scoop](https://github.com/ScoopInstaller/scoop)                                                   |
-| Utilities       | [PowerToys](https://github.com/Microsoft/PowerToys)                                                |
-| Fun             | [bongocat](https://github.com/NSPC911/bongo-cat)                                                   |
+| Package Manager | [yay](https://github.com/jguer/yay)                                                                |
 | Pixel Art       | [Pixelorama](https://github.com/Orama-Interactive/Pixelorama)                                      |
-| File Indexer    | [everything](https://voidtools.com)                                                                |
-| Music           | [youtube-music](https://github.com/th-ch/youtube-music)                                            |
-| Roblox Mod      | [BloxStrap](https://github.com/bloxstraplabs/bloxstrap)                                            |
-| Cursor          | https://www.deviantart.com/jepricreations/art/Windows-11-Cursors-Concept-886489356                 |
+| Roblox          | [Sober](https://sober.vinegarhq.org/)                                                              |
+| Cursor          | [Bibata](https://github.com/ful1e5/Bibata_Cursor)                                                  |
 
 #### cargo installations
 
@@ -67,37 +58,40 @@ helix
 #### uv tools
 
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
+
 ```
-cased-kit v3.5.1
+ansible-lint v26.4.0
+batrachian-toad v0.6.20
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
-hike v1.2.1
-mistral-vibe v1.3.5
-poethepoet v0.40.0
-poetry v2.3.1
+hike v1.4.0
+mistral-vibe v2.14.1
+poethepoet v0.46.0
+poetry v2.4.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
-pyright v1.1.408
+pyright v1.1.410
 rich-cli v1.8.1
-rovr v0.7.0.dev2 [required:  git+https://github.com/nspc911/rovr@dev] [with: textual-speedups]
-ruff v0.14.14
-ty v0.0.8 [required: ==0.0.8]
+rovr v0.9.1.post1 [required:  git+https://github.com/nspc911/rovr]
+ruff v0.15.17
+ty v0.0.40 [required: ==0.0.40]
 ```
 
 #### pnpm global installs
 
 <!--pnpm list -g, remove header-->
+
 ```
-@ansible/ansible-language-server 1.2.3
-@astrojs/language-server 2.16.3
-@fsouza/prettierd 0.26.2
-@github/copilot 0.0.383
-@google/gemini-cli 0.13.0
-corepack 0.34.5
-live-server 1.2.2
-prettier 3.8.1
-typescript 5.9.3
-typescript-language-server 5.1.3
-vscode-langservers-extracted 4.10.0
-wezterm-mcp 1.0.0
+@agentclientprotocol/claude-agent-acp@0.38.0
+@ansible/ansible-language-server@26.6.0
+@anthropic-ai/claude-code@2.1.173
+@astrojs/language-server@2.16.10
+@fsouza/prettierd@0.27.0
+@github/copilot@1.0.61
+@google/gemini-cli@0.42.0
+live-server@1.2.2
+oxfmt@0.51.0
+typescript@6.0.3
+typescript-language-server@5.3.0
+vscode-langservers-extracted@4.10.0
 ```
 
 #### Browser extensions (zen)
@@ -137,24 +131,22 @@ wezterm-mcp 1.0.0
 ### Stats
 
 <!--tokei --sort lines-->
-```shell
+
+```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     52         4167         4166            0            1
- CSS                      11         3939         3167          282          490
- TOML                     11         1722         1435          165          122
- YAML                      5         1199         1096           41           62
- Scheme                    6          955          840           21           94
- PowerShell                1          895          758           53           84
- INI                       1          687          170          414          103
- Lua                       1          240          219            9           12
-─────────────────────────────────────────────────────────────────────────────────
- Markdown                 10          207            0          158           49
- |- Shell                  1           18           18            0            0
- (Total)                              225           18          158           49
+ JSON                     20         4140         4140            0            0
+ CSS                      11         3304         2668          247          389
+ TOML                     11         1692         1401          167          124
+ PowerShell                6         1249         1063           73          113
+ Scheme                    6          961          840           27           94
+ YAML                      2          329          308           17            4
+ Lua                       1          243          219           12           12
+ Markdown                 10          227            0          172           55
+ BASH                      1           84           60           13           11
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    98        14029        11869         1143         1017
+ Total                    68        12229        10699          728          802
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

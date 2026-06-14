@@ -263,6 +263,12 @@ if (-not ($IsWindows)) {
     Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
     Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function DeleteWord
     Set-PSReadLineKeyHandler -Chord Ctrl+Backspace -Function BackwardDeleteWord
+    if (Get-Command "wf-recorder" -CommandType Application -ErrorAction SilentlyContinue) {
+        function rec {
+            wf-recorder -f ~/Videos/rec-$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").mp4
+            Write-Host "Saved recording to $output" -ForegroundColor Green
+        }
+    }
 }
 
 Set-Alias -Name "cat" -Value "bat"

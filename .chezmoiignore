@@ -8,3 +8,5 @@ img/
 *.bak
 *.png
 root/*
+pacman
+README.md
