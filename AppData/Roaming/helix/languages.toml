@@ -1,4 +1,4 @@
-global-language-servers = ["copilot", "discord-rpc", "harper"]
+global-language-servers = ["copilot", "discord-rpc", "codebook"]
 
 # requires: https://github.com/astral-sh/ruff
 [language-server.ruff]

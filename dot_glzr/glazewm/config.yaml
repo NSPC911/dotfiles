@@ -128,6 +128,7 @@ window_rules:
         window_title: { regex: ".*? - Print" }
       - window_title: { equals: "Cap Target Select" }
       - window_title: { equals: "Cap Recording Controls" }
+      - window_process: { equals: "msrdc" }
 
   - commands: ["set-tiling", "wm-redraw"]
     match:

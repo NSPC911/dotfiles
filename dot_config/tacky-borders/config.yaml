@@ -128,3 +128,7 @@ window_rules:
   - match: Title
     name: "Cap Recording Controls"
     enabled: False
+
+  - match: Process
+    name: msrdc
+    enabled: False

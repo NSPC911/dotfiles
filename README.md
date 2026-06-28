@@ -71,14 +71,14 @@ helix
 ansible-lint v26.4.0
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.14.0
-poethepoet v0.46.0
+mistral-vibe v2.18.0
+poethepoet v0.47.0
 poetry v2.4.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
-pyright v1.1.410
+pyright v1.1.411
 rich-cli v1.8.1
-ruff v0.15.16
-ty v0.0.32 [required: ==0.0.32]
+ruff v0.15.20
+ty v0.0.49 [required: ==0.0.49]
 ```
 
 #### pnpm global installs
@@ -90,7 +90,7 @@ ty v0.0.32 [required: ==0.0.32]
 @ansible/ansible-language-server@26.6.0
 @astrojs/language-server@2.16.10
 @fsouza/prettierd@0.27.0
-@github/copilot@1.0.60
+@github/copilot@1.0.65
 @google/gemini-cli@0.43.0
 corepack@0.35.0
 live-server@1.2.2
@@ -144,15 +144,15 @@ vscode-langservers-extracted@4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  JSON                     58         6472         6471            0            1
  CSS                      11         4062         3281          283          498
- TOML                     11         1692         1402          165          125
- YAML                      5         1182         1063           53           66
- PowerShell                4         1157          985           66          106
+ TOML                     11         1693         1402          165          126
+ YAML                      5         1187         1067           53           67
+ PowerShell                4         1184         1010           67          107
  Scheme                    6          961          840           27           94
  INI                       1          687          170          414          103
  Lua                       1          243          219           12           12
  Markdown                 10          230            0          175           55
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   107        16686        14431         1195         1060
+ Total                   107        16719        14460         1196         1063
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
