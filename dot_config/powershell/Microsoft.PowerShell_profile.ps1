@@ -45,7 +45,7 @@ function regenCache {
     }
 
     Write-Output $HomeAndClearLine"Setting up zoxide"
-    $completions += zoxide init powershell
+    $completions += zoxide init powershell --cmd zd
 
     Write-Output $HomeAndClearLine"Setting up oh-my-posh"
     $completions += oh-my-posh init powershell --config $HOME/.config/kushal.omp.json
@@ -177,9 +177,15 @@ function global:__zoxide_cd($dir, $literal) {
             zoxide add .
         }
     }
+    Get-Location | Select-Object -Expand Path | Out-File $prevloc
 }
 function global:__zoxide_zi {
-    $result = __zoxide_bin query --list | Invoke-Fzf -Preview 'dir /B {}'
+    $query = $args -join " "
+    if ($IsWindows) {
+        $result = __zoxide_bin query --list | Invoke-Fzf -Preview 'dir /B {}' -Query $query
+    } else {
+        $result = __zoxide_bin query --list | Invoke-Fzf -Preview 'ls {}' -Query $query
+    }
     if ($null -ne $result) {
         __zoxide_cd $result $true
     }

@@ -17,4 +17,4 @@
 
 ; (showkeys-toggle)
 ; (helix-discord-rpc.discord-rpc-connect)
-; (require "wakatime/wakatime.scm")
+(require "wakatime/wakatime.scm")

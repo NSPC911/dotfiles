@@ -12,7 +12,6 @@ aria2
 ark
 audex
 audiocd-kio
-audiotube
 awesome-terminal-fonts
 base
 base-devel
@@ -117,6 +116,7 @@ glances
 glib2-devel
 gnome-bluetooth-3.0
 go
+go-task
 gpu-screen-recorder
 greetd
 grub
@@ -283,7 +283,8 @@ power-profiles-daemon
 powershell-bin
 prek-bin
 prismlauncher
-proton-cachyos
+proton-cachyos-native
+proton-cachyos-slr
 proton-ge-custom-bin
 pv
 python
@@ -318,6 +319,7 @@ snapper
 sof-firmware
 splix
 steam
+steamcmd
 steel-bin
 sudo
 superfile

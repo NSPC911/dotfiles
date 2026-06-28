@@ -61,6 +61,7 @@ binds {
     // ─── Applications ───
     MOD+RETURN hotkey-overlay-title="Open Terminal: wezterm"         { spawn-sh "wezterm"; }
     MOD+SHIFT+RETURN hotkey-overlay-title="Open Terminal: kitty"     { spawn-sh "kitty"; }
+    MOD+CTRL+RETURN hotkey-overlay-title="Open Terminal: ghostty"     { spawn-sh "ghostty"; }
     MOD+SPACE hotkey-overlay-title="Open App List: dms" { spawn-sh "dms ipc spotlight-bar toggle"; }
     MOD+S     hotkey-overlay-title="Open App Launcher: dms" { spawn-sh "dms ipc spotlight toggle"; }
     // MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen"; }
@@ -161,7 +162,7 @@ binds {
     MOD+W                               { toggle-column-tabbed-display; }
     MOD+F                               { maximize-column; }
     MOD+SHIFT+F                         { fullscreen-window; }
-    MOD+CTRL+F                          { expand-column-to-available-width; }
+    MOD+CTRL+F                          { maximize-window-to-edges; }
     MOD+bracketright                    { switch-focus-between-floating-and-tiling; }
     MOD+bracketleft                     { switch-focus-between-floating-and-tiling; }
 
@@ -246,7 +247,7 @@ overview {
 layout {
     gaps 4 // Gap between windows
     // center-focused-column "always" // Don’t auto-center focused column
-    // center-focused-column "on-overflow"
+    center-focused-column "on-overflow"
     background-color "transparent"
     // empty-workspace-above-first
     always-center-single-column
@@ -257,7 +258,7 @@ layout {
         proportion 0.75
         proportion 1.0
     }
-    default-column-width { proportion 1.0; }
+    default-column-width { proportion 0.9; }
     border {
         on
         width 3
@@ -371,19 +372,28 @@ window-rule {
     match app-id="onboard"
     match title="Incoming Connection" app-id="zen"
     match title="zoom" app-id="zoom"
+    match title="zoom" app-id="Zoom Workspace"
+    match app-id="zoom" title="annotate_toolbar"
+    match app-id="zoom" title="Meeting chat"
     match app-id=r"zen$" title="^Picture-in-Picture$"
+    match app-id="Windscribe"
+    match title="Zen - Choose User Profile"
     open-floating true
     baba-is-float true
 }
 
 window-rule {
     match title="Vencord QuickCSS Editor"
+    match app-id="org.gnome.Nautilus"
     open-floating true
 }
 
 window-rule {
-    match app-id="p3x-onenote"
-    opacity 0.875
+    match app-id="Windscribe"
+    draw-border-with-background false
+    background-effect {
+        xray true
+    }
 }
 
 window-rule {
@@ -484,5 +494,6 @@ include "dms/cursor.kdl"
 
 spawn-at-startup "steam"
 spawn-at-startup "pkill" "kgpg"
+// spawn-at-startup "powershell" "-NoProfile" "/home/nspc911/.config/niri/niri-centered.ps1"
 // spawn-at-startup "ignis" "init"
 // spawn-at-startup "swww-daemon"
