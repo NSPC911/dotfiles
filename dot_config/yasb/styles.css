@@ -8,7 +8,7 @@
   --nord-blue0: #5e81ac;
   --nord-blue1: #81a1c1;
   --nord-blue2: #88c0d0;
-  --nord-cyan-base: #8fbcbb;
+  --nord-cyan-base: #88c0d0;
   --nord-cyan-bright: #9fc6c5;
   --nord-cyan-dim: #80b3b2;
   --nord-gray-white: #9aa2bc;
@@ -81,6 +81,57 @@ QPushButton {
   border-radius: 8px;
   border: 3.25px solid var(--nord-cyan-base);
 }
+
+.brightness-menu {
+    background-color: rgba(36, 36, 36, 0.75);
+    min-width: 300px;
+}
+/* Grouping for monitor rows including title and sliders */
+.brightness-menu .monitor-row {
+    background-color: rgba(139, 69, 19, 0);
+    margin: 12px;
+}
+/*
+.monitor-0 is indexed as the first monitor row,
+adjust if you have multiple monitors and want to style them differently correctly.
+*/
+.brightness-menu .monitor-row.monitor-0 {
+    margin-bottom: 0;
+}
+.brightness-menu .monitor-title  {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 4px;
+}
+.brightness-menu .monitor-subtitle {
+    font-size: 11px;
+    color: #a6adc8;
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+/* Container for the sliders to create a grouped appearance including icons and sliders */
+.brightness-menu .slider-rows {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 16px;
+}
+.brightness-menu .slider-icon {
+    font-family: "Segoe Fluent Icons";
+}
+.brightness-menu .slider-row {
+    margin: 4px 0;
+    padding: 8px 0px;
+}
+/* optional styles for the brightness and contrast sliders */
+.brightness-slider::groove {}
+.contrast-slider::groove {}
+.brightness-slider::handle{}
+.contrast-slider::handle{}
+
+/* Brightness progress bar styles if enabled */
+.brightness-widget .progress-container {}
+
 
 .calendar .calendar-table {
   background-color: transparent;
@@ -600,27 +651,6 @@ QPushButton {
   padding: 0px 2px;
 }
 
-/* .yasb-bar .active-window-widget { */
-/* .yasb-bar .cpu-widget, */
-/* .yasb-bar .notification-widget { */
-/* border-bottom-right-radius: 8px; */
-/* border-right: 2px solid var(--nord-cyan-base); */
-/* border-top-right-radius: 8px; */
-/* margin-right: 0; */
-/* } */
-
-/* .yasb-bar .clock-widget, */
-/* .yasb-bar .glazewm-tiling-direction, */
-/* .yasb-bar .power-menu-widget { */
-/* border-bottom-left-radius: 8px; */
-/* border-left: 2px solid var(--nord-cyan-base); */
-/* border-top-left-radius: 8px; */
-/* margin-left: 0; */
-/* } */
-
-/* .yasb-bar .widget { */
-/* background-color: var(--main); */
-/* } */
 .yasb-bar {
   background-color: var(--nord-gray1);
   border: 2px solid var(--nord-cyan-base);
@@ -646,170 +676,4 @@ QPushButton {
   margin: 0px;
   padding: 0px 4px;
   overflow: hidden;
-}
-
-/* Bar widget */
-.copilot-widget .icon {
-  font-size: 14px;
-  padding-right: 1px;
-}
-.copilot-widget .label.warning,
-.copilot-widget .icon.warning {
-  color: #ebcb8b;
-}
-.copilot-widget .label.critical,
-.copilot-widget .icon.critical {
-  color: #bf616a;
-}
-/* Menu container */
-.copilot-menu {
-  background: var(--main-50p);
-  min-width: 400px;
-}
-
-/* Header */
-.copilot-menu .header {
-  font-size: 18px;
-  padding: 12px 0 0 12px;
-  color: white;
-}
-
-/* Section containers */
-.copilot-menu .section {
-  background-color: rgba(0, 0, 0, 0.2);
-  border: 1px solid #5e81ac;
-  border-radius: 14px;
-  margin: 6px 12px;
-}
-.copilot-menu .section-title {
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  margin-left: -3px;
-  color: #fff;
-}
-.copilot-menu .section.progress-section .section-title {
-  margin-bottom: 0;
-  margin-left: 0;
-}
-/* Progress bar - track (background) */
-.copilot-menu .progress-bar {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-/* Progress bar - fill (foreground) */
-.copilot-menu .progress-bar .fill {
-  background-color: #88c0d0;
-  border-radius: 4px;
-}
-
-/* Progress bar states */
-.copilot-menu .progress-bar.warning .fill {
-  background-color: #ebcb8b;
-}
-
-.copilot-menu .progress-bar.critical .fill {
-  background-color: #bf616a;
-}
-
-/* Progress section text */
-.copilot-menu .usage-count {
-  font-size: 12px;
-  color: #b1b1b1;
-  font-weight: 600;
-}
-
-.copilot-menu .usage-percent {
-  font-size: 12px;
-  color: #b1b1b1;
-}
-
-.copilot-menu .reset-date {
-  font-size: 11px;
-  color: #b1b1b1;
-}
-
-/* Spending section */
-.copilot-menu .stat-label {
-  color: #b1b1b1;
-  font-size: 12px;
-}
-
-.copilot-menu .stat-value {
-  color: #b1b1b1;
-  font-size: 12px;
-}
-
-.copilot-menu .stat-row.total .stat-value {
-  color: #10b981;
-}
-/* Model section - different colors for each model */
-.copilot-menu .model-name {
-  color: #b1b1b1;
-  font-size: 12px;
-  font-family: "Segoe UI";
-}
-
-.copilot-menu .model-count {
-  color: #b1b1b1;
-  font-size: 12px;
-}
-
-.copilot-menu .progress-bar.model-0 .fill {
-  background-color: #bf616a;
-}
-
-.copilot-menu .progress-bar.model-1 .fill {
-  background-color: #d08770;
-}
-
-.copilot-menu .progress-bar.model-2 .fill {
-  background-color: #ebcb8b;
-}
-
-.copilot-menu .progress-bar.model-3 .fill {
-  background-color: #97b67c;
-}
-
-.copilot-menu .progress-bar.model-4 .fill {
-  background-color: #88c0d0;
-}
-
-/* Chart - line and fill color controlled by 'color' property */
-.copilot-menu .usage-chart {
-  color: #88c0d0;
-}
-.copilot-menu .chart-section {
-  margin-bottom: 12px;
-}
-
-/* Error section */
-.copilot-menu .error-section {
-  background: transparent;
-  border: none;
-  padding: 32px 0;
-}
-
-.copilot-menu .error-icon {
-  color: #d8dee9;
-  font-size: 88px;
-}
-
-.copilot-menu .error-message {
-  color: #c0c0c0;
-  font-size: 14px;
-}
-
-/* Empty/loading state */
-.copilot-menu .empty-icon {
-  padding-top: 32px;
-  color: #d8dee9;
-  font-size: 88px;
-}
-
-.copilot-menu .empty-message {
-  color: #d8dee9;
-  font-size: 14px;
-  padding-bottom: 32px;
 }

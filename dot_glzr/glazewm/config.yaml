@@ -12,14 +12,6 @@ general:
   hide_method: "cloak"
   show_all_in_taskbar: false
 
-# 1199
-# animations:
-#   window_move:
-#     enabled: true
-#     duration_ms: 100
-#     easing: "ease_in_out"
-#     threshold_px: 10
-
 # Animation settings for workspace switches (slide-in + fade-out).
 animations:
   workspace_switch:
@@ -27,7 +19,19 @@ animations:
     duration_ms: 375
     # Easing function: 'linear', 'ease_in_out', 'ease_in', 'ease_out',
     # 'ease_in_out_cubic', 'ease_in_cubic', 'ease_out_cubic', 'ease_out_spring'
-    easing: "ease_out_cubic"
+    easing: "cubic_bezier(0, -0.5, 0, 1.125)"
+    direction: vertical
+    zoom_factor: 0.0
+  window_move:
+    enabled: true
+    duration_ms: 250
+    easing: "cubic_bezier(0.25, 0.25, 0, 1.0675)"
+    threshold_px: 10
+  window_open:
+    enabled: true
+    duration_ms: 250
+    easing: "ease_in_out"
+    style: fade
 
 gaps:
   scale_with_dpi: true
@@ -36,7 +40,7 @@ gaps:
     top: "8px"
     right: "8px"
     bottom: "8px"
-    left: "12px"
+    left: "13px"
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -129,6 +133,7 @@ window_rules:
       - window_title: { equals: "Cap Target Select" }
       - window_title: { equals: "Cap Recording Controls" }
       - window_process: { equals: "msrdc" }
+      - window_process: { equals: "Beatblock" }
 
   - commands: ["set-tiling", "wm-redraw"]
     match:

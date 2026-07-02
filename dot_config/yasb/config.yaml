@@ -30,10 +30,10 @@ bars:
     padding:
       top: 6
       right: 6
-      bottom: 0
+      bottom: -1
       left: 10
     widgets:
-      left: ["power_menu", "launchpad", "copilot", "media-controls", "active_window"]
+      left: ["power_menu", "launchpad", "media-controls", "active_window"]
       center: ["clock", "cpu"]
       right:
         [
@@ -445,36 +445,3 @@ widgets:
         on_left: "toggle_label"
       ethernet_icon: "\ueba9"
       wifi_icons: ["\udb82\udd2e", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"]
-  copilot:
-    type: "yasb.copilot.CopilotWidget"
-    options:
-      label: "{icon} {percentage}%"
-      label_alt: "{icon} {used}/{allowance}"
-      token: "env"
-      plan: "pro"
-      tooltip: false
-      update_interval: 120
-      icons:
-        copilot: "\uf113"
-        error: "\uf071"
-      thresholds:
-        warning: 75
-        critical: 90
-      menu:
-        blur: true
-        round_corners: true
-        round_corners_type: "normal"
-        border_color: "#88c0d0"
-        alignment: "right"
-        direction: "down"
-        offset_top: 7
-        offset_left: 10
-        chart: true
-      callbacks:
-        on_left: "toggle_popup"
-        on_middle: "refresh"
-        on_right: "toggle_label"
-      animation:
-        enabled: true
-        type: "fadeInOut"
-        duration: 200
