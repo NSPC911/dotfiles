@@ -753,7 +753,7 @@ function wordle {
         [Parameter()]
         [string]$Chars
     )
-    $words = (Invoke-RestMethod https://gist.githubusercontent.com/dracos/dd0668f281e685bad51479e5acaadb93/raw/6bfa15d263d6d5b63840a8e5b64e04b382fdb079/valid-wordle-words.txt).split("`n")
+    $words = (gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2026-03-10" /gists/dd0668f281e685bad51479e5acaadb93 | ConvertFrom-Json).files."valid-wordle-words.txt".content.split("`n")
     $words | ForEach-Object {
         $contains = $true
         ForEach ($char in $Chars.ToCharArray()) {

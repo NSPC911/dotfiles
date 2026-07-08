@@ -36,24 +36,6 @@ input {
 // You will have to remove "/-" and edit it before it takes effect.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 
-output "eDP-1" {
-    mode "1920x1200@59.999"
-    scale 1.375
-    position x=0 y=0
-}
-
-output "DP-3" {
-    mode "1920x1080@74.973"
-    scale 1.0
-    position x=0 y=-1080
-}
-
-output "DP-1" {
-    mode "1920x1080@74.973"
-    scale 1.0
-    position x=0 y=-1080
-}
-
 // ────────────── Keybindings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
 
@@ -499,7 +481,7 @@ clipboard {
 }
 
 blur {
-    offset 2.0
+    offset 2.5
 }
 
 
@@ -510,13 +492,13 @@ blur {
 // include "./noctalia.kdl"
 // include "dms/colors.kdl"
 // include "dms/layout.kdl"
-include "dms/alttab.kdl"
-include "dms/binds.kdl"
+// include "dms/alttab.kdl"
 include "dms/cursor.kdl"
+include "dms/outputs.kdl"
 
-spawn-at-startup "steam"
 spawn-at-startup "pkill" "kgpg"
 spawn-at-startup "linux-wallpaperengine" "--screen-root" "eDP-1" "--bg" "1176090049" "--scaling" "fill" "--screenshot" "~/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent"
+spawn-at-startup "linux-wallpaperengine" "--screen-root" "DP-3" "--bg" "1176090049" "--scaling" "fill" "--screenshot" "~/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent"
 spawn-sh-at-startup "swaybg --image ~/Pictures/Wallpapers/blurred_1176090049.png"
 // spawn-at-startup "powershell" "-NoProfile" "/home/nspc911/.config/niri/niri-centered.ps1"
 // spawn-at-startup "ignis" "init"
