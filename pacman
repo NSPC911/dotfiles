@@ -17,6 +17,7 @@ base
 base-devel
 bash-completion
 bat
+bc
 beeper-v4-bin
 bemenu
 bemenu-wayland
@@ -84,7 +85,9 @@ duf
 e2fsprogs
 efibootmgr
 efitools
+electron38
 elisa
+entr
 ethtool
 ex-vi-compat
 exfatprogs
@@ -135,8 +138,10 @@ helium-browser-bin
 hplip
 hwdetect
 hwinfo
+hyperfine
 iamb-bin
 inetutils
+inotify-tools
 input-remapper-bin
 intel-media-driver
 intel-ucode
@@ -185,6 +190,7 @@ lib32-libshout
 lib32-mesa
 lib32-opencl-mesa
 lib32-rust-libs
+lib32-sdl2_image
 lib32-sdl2-compat
 lib32-taglib
 lib32-twolame
@@ -196,6 +202,7 @@ libdvdcss
 libfprint
 libgsf
 libheif
+libinput-tools
 libnautilus-extension
 libopenraw
 libqalculate
@@ -329,6 +336,7 @@ swaybg
 swaylock-effects-git
 swaylock-fancy-git
 sysfsutils
+sysstat
 system-config-printer
 taplo-cli
 texinfo
@@ -362,12 +370,14 @@ vpl-gpu-rt
 vulkan-intel
 waybar
 wayland-protocols
+waytator
 wev
 wezterm-nightly-bin
 wf-recorder
 wget
 which
 winboat-bin
+winpodx
 wireless-regdb
 wireplumber
 wl-clipboard

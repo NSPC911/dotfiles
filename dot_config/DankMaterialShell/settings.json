@@ -45,11 +45,11 @@
   "m3ElevationIntensity": 12,
   "m3ElevationOpacity": 30,
   "m3ElevationColorMode": "default",
-  "m3ElevationLightDirection": "top",
+  "m3ElevationLightDirection": "autoBar",
   "m3ElevationCustomColor": "#000000",
   "modalElevationEnabled": true,
-  "popoutElevationEnabled": true,
-  "barElevationEnabled": true,
+  "popoutElevationEnabled": false,
+  "barElevationEnabled": false,
   "blurEnabled": true,
   "blurForegroundLayers": false,
   "blurLayerOutlineOpacity": 0.1,
@@ -128,24 +128,36 @@
       "width": 50
     },
     {
-      "id": "idleInhibitor",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "doNotDisturb",
-      "enabled": true,
-      "width": 50
-    },
-    {
       "id": "nightMode",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "darkMode",
       "enabled": true,
       "width": 50
     },
     {
       "id": "battery",
       "enabled": true,
-      "width": 50
+      "width": 25
+    },
+    {
+      "id": "idleInhibitor",
+      "enabled": true,
+      "width": 25
+    },
+    {
+      "id": "doNotDisturb",
+      "enabled": true,
+      "width": 25
+    },
+    {
+      "id": "diskUsage",
+      "enabled": true,
+      "width": 25,
+      "instanceId": "mrc2ze3c66j6zjz0qx1g8p4godnzpk",
+      "mountPath": "/"
     }
   ],
   "showWorkspaceIndex": false,
@@ -464,9 +476,7 @@
   "updaterAllowAUR": true,
   "displayNameMode": "system",
   "screenPreferences": {
-    "wallpaper": [
-      "all"
-    ]
+    "wallpaper": []
   },
   "showOnLastDisplay": {},
   "niriOutputSettings": {},
@@ -527,10 +537,6 @@
       ],
       "rightWidgets": [
         {
-          "id": "workspaceSwitcher",
-          "enabled": false
-        },
-        {
           "id": "systemTray",
           "enabled": true
         },
@@ -559,7 +565,7 @@
           "enabled": true
         }
       ],
-      "spacing": 0,
+      "spacing": -1,
       "innerPadding": 0,
       "bottomGap": 0,
       "transparency": 0.75,
@@ -568,7 +574,7 @@
       "noBackground": false,
       "gothCornersEnabled": true,
       "gothCornerRadiusOverride": false,
-      "gothCornerRadiusValue": 15,
+      "gothCornerRadiusValue": 12,
       "borderEnabled": false,
       "borderColor": "primary",
       "borderOpacity": 1,
@@ -601,10 +607,10 @@
       "maximizeWidgetIcons": false
     },
     {
-      "id": "bar1780972911967",
-      "name": "Bar 2",
+      "id": "bar1782612780577",
+      "name": "Bar 3",
       "enabled": true,
-      "position": 0,
+      "position": 1,
       "screenPreferences": [
         "all"
       ],
@@ -614,24 +620,29 @@
       "rightWidgets": [
         {
           "id": "music",
+          "enabled": true,
+          "mediaSize": 3
+        },
+        {
+          "id": "bongoCat",
           "enabled": true
         },
         {
           "id": "spacer",
           "enabled": true,
-          "size": 33
+          "size": 31
         }
       ],
-      "spacing": 2,
-      "innerPadding": 0,
+      "spacing": 0,
+      "innerPadding": 10,
       "bottomGap": -50,
       "transparency": 0,
-      "widgetTransparency": 1,
+      "widgetTransparency": 0.75,
       "squareCorners": false,
       "noBackground": false,
       "gothCornersEnabled": false,
       "gothCornerRadiusOverride": false,
-      "gothCornerRadiusValue": 0,
+      "gothCornerRadiusValue": 15,
       "borderEnabled": false,
       "borderColor": "primary",
       "borderOpacity": 1,
@@ -639,8 +650,8 @@
       "widgetOutlineEnabled": false,
       "widgetOutlineColor": "primary",
       "widgetOutlineOpacity": 1,
-      "widgetOutlineThickness": 2,
-      "widgetPadding": 8,
+      "widgetOutlineThickness": 1,
+      "widgetPadding": 10,
       "maximizeWidgetIcons": false,
       "maximizeWidgetText": false,
       "removeWidgetPadding": false,
@@ -656,7 +667,7 @@
       "popupGapsManual": 44,
       "maximizeDetection": false,
       "useOverlayLayer": false,
-      "scrollEnabled": false,
+      "scrollEnabled": true,
       "scrollXBehavior": "column",
       "scrollYBehavior": "workspace",
       "shadowIntensity": 0,

@@ -41,7 +41,20 @@ function regenCache {
             }
         }
     } else {
-        $completions += carapace _carapace powershell
+        carapace _carapace powershell | ForEach-Object {
+            $line = $_
+            $contains = $false
+            @("hx", "ls", "rm", "mv", "kill", "sleep", "cat") | ForEach-Object {
+                if ($line -like "*'$($_).exe'*") { $contains = $true }
+            }
+            if (-not $contains) {
+                $completions += $line
+                if ($line -like "Register-ArgumentCompleter -Native*") {
+                    $tool = $line.Split()[-3].Trim("'")
+                    Write-Host "`e[u`e[0K$tool"
+                }
+            }
+        }
     }
 
     Write-Output $HomeAndClearLine"Setting up zoxide"
@@ -740,7 +753,7 @@ function wordle {
         [Parameter()]
         [string]$Chars
     )
-    $words = (Invoke-RestMethod https://gist.githubusercontent.com/slushman/34e60d6bc479ac8fc698df8c226e4264/raw/cf702f098856c72a81d79f69b11f0a8c333e7d2f/wordle-list).split("`n")
+    $words = (Invoke-RestMethod https://gist.githubusercontent.com/dracos/dd0668f281e685bad51479e5acaadb93/raw/6bfa15d263d6d5b63840a8e5b64e04b382fdb079/valid-wordle-words.txt).split("`n")
     $words | ForEach-Object {
         $contains = $true
         ForEach ($char in $Chars.ToCharArray()) {

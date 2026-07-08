@@ -28,11 +28,26 @@ foreach ($monitor in $monitors) {
 # so basically first is extend, second is second screen only, third is primary only
 if ($isBothOn) {
     # turn off the second monitor
+    niri msg output $($monitors[0]) on
+    $zeroOn = $true
     niri msg output $($monitors[1]) off
+    $oneOn = $false
 } elseif ($monitorStates.$($monitors[0]) -eq "off") {
     niri msg output $($monitors[0]) on
+    $zeroOn = $true
     niri msg output $($monitors[1]) on
+    $oneOn = $true
 } else {
     niri msg output $($monitors[1]) on
+    $oneOn = $true
     niri msg output $($monitors[0]) off
+    $zeroOn = $false
+}
+
+Stop-Process -Name "linux-wallpaperengine" -ErrorAction SilentlyContinue
+if ($zeroOn) {
+    Start-Process linux-wallpaperengine -ArgumentList 1176090049, "--scaling", "fill", "--screenshot", "$Home/Pictures/Wallpapers/1176090049.png", "--disable-mouse", "--disable-parallax", "--fullscreen-pause-only-active", "--fps", "20", "--silent", "--screen-root", $($monitors[0])
+}
+if ($oneOn) {
+    Start-Process linux-wallpaperengine -ArgumentList 1176090049, "--scaling", "fill", "--screenshot", "$Home/Pictures/Wallpapers/1176090049.png", "--disable-mouse", "--disable-parallax", "--fullscreen-pause-only-active", "--fps", "20", "--silent", "--screen-root", $($monitors[1])
 }

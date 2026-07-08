@@ -621,6 +621,14 @@ display-progress-messages = true
 enable = false
 wrap-indicator = "󱞶 "
 
+[editor.whitespace]
+nbsp = "all"
+nnbsp = "all"
+
+[editor.whitespace.characters]
+nbsp = "NBSP"
+nnbsp = "NNBSP"
+
 [icons]
 fs.enabled = true
 ui.virtual.wrap = " 󱞶 "

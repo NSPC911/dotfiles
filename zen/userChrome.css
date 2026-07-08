@@ -80,13 +80,8 @@
   }
 }
 
-/* url bar zoom animation */
-#browser {
-  transition: filter 0.125s ease-in-out, transform 0.25s cubic-bezier(0.25, 0.25, 0, 1.0675);
-}
 #browser:has(#urlbar[open][zen-floating-urlbar="true"]) {
   filter: blur(5px) brightness(70%) !important;
-  transform: scale(1.1)
 }
 
 .browserStack browser {
@@ -243,7 +238,7 @@
 
 #zen-tabbox-wrapper > #tabbrowser-tabbox > #sidebar-box[sidebar-panel-open] {
   border: var(--dark-border) !important;
-  width: var(--n-zen-sidebar-width) !important;
+  width: calc(var(--n-zen-sidebar-width) + var(--gap) * 1.1) !important;
   min-width: unset !important;
   position: absolute !important;
   bottom: 0;

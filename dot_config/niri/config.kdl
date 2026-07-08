@@ -16,7 +16,7 @@ input {
 
     touchpad {
         tap
-        middle-emulation
+        // middle-emulation
         scroll-factor vertical=0.5 horizontal=0.5
         accel-speed 0.3
         natural-scroll
@@ -26,7 +26,9 @@ input {
     warp-mouse-to-focus
     workspace-auto-back-and-forth // Enable workspace back & forth switching
 
-    mouse
+    mouse {
+        accel-speed 0.5
+    }
 }
 
 // ────────────── Output Configuration ──────────────
@@ -167,8 +169,9 @@ binds {
     MOD+bracketleft                     { switch-focus-between-floating-and-tiling; }
 
     // ─── Screenshots ───
-    MOD+SHIFT+S                         { screenshot; }
-    MOD+SHIFT+P                         { spawn-sh "dms screenshot"; }
+    MOD+CTRL+S                         { screenshot; }
+    // MOD+SHIFT+P                         { spawn-sh "dms screenshot"; }
+    MOD+SHIFT+S                          { spawn-sh "grim -g \"$(slurp -b '#2e34407f' -c '#88c0d0')\" - | waytator"; }
 
     // ─── Emergency Escape Key ───
     // Use this when a fullscreen app blocks your keybinds.
@@ -182,7 +185,7 @@ binds {
     XF86MonBrightnessDown               { spawn-sh "bright down"; }
     XF86MonBrightnessUp                 { spawn-sh "bright up"; }
     // change display
-    MOD+P                               { spawn-sh "pwsh -nop -c output-toggle.ps1"; }
+    MOD+P                               { spawn-sh "pwsh -nop -c ~/.config/niri/output-toggle.ps1"; }
     MOD+CTRL+P                          { spawn-sh "wl-mirror -F eDP-1"; }
 
     // Mod+Shift+Alt+R { spawn "ignis" "run-command" "recorder-record-screen"; }
@@ -212,12 +215,21 @@ cursor {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 
 layer-rule {
+    background-effect {
+        xray false
+    }
+}
+
+layer-rule {
     match namespace="dms:blurwallpaper"
+    match namespace="linux-wallpaperengine"
+    // match namespace="wallpaper"
+    match namespace="^quickshell$"
     place-within-backdrop true
 }
 
 layer-rule {
-    match namespace="^quickshell$"
+    match namespace="wallpaper"
     place-within-backdrop true
 }
 
@@ -231,14 +243,10 @@ layer-rule {
     baba-is-float true
 }
 
-layer-rule {
-    background-effect {
-        xray false
-    }
-}
-
 overview {
     zoom 0.5
+    // backdrop-color "#2e3440"
+    backdrop-color "transparent"
     workspace-shadow {
         on
     }
@@ -290,8 +298,8 @@ layout {
 
     tab-indicator {
         position "right"
-        gap 0
-        width 4
+        gap -3
+        width 3
         length total-proportion=0.95
     }
 }
@@ -308,7 +316,7 @@ animations {
         curve "ease-out-quad"
     }
     window-close {
-        duration-ms 0
+        duration-ms 200
     }
     horizontal-view-movement {
         duration-ms 400
@@ -316,7 +324,7 @@ animations {
     }
     window-movement {
         duration-ms 400
-        curve "cubic-bezier" 1 0 0 1
+        curve "cubic-bezier" 0.25 0.25 0 1.0675
     }
     window-resize {
         duration-ms 300
@@ -340,9 +348,20 @@ animations {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
 window-rule {
+    geometry-corner-radius 6
+    clip-to-geometry true
+    background-effect {
+        blur true
+        xray false
+    }
+    open-maximized-to-edges false
+}
+
+window-rule {
     match app-id=r"zen"
     match app-id="Alacritty"
     match app-id="rio"
+    match app-id="dev.faetalize.waytator"
     draw-border-with-background false
 }
 
@@ -363,6 +382,13 @@ window-rule {
 }
 
 window-rule {
+    match app-id="org.kde.elisa"
+    match app-id="steam"
+    match app-id="com.danklinux.dms" title="Settings"
+    opacity 0.875
+}
+
+window-rule {
     match app-id="steam"
     open-on-workspace "messages"
     open-focused false
@@ -378,6 +404,7 @@ window-rule {
     match app-id=r"zen$" title="^Picture-in-Picture$"
     match app-id="Windscribe"
     match title="Zen - Choose User Profile"
+    match app-id="polkit"
     open-floating true
     baba-is-float true
 }
@@ -397,13 +424,8 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 6
-    clip-to-geometry true
-    background-effect {
-        blur true
-        xray false
-    }
-    open-maximized-to-edges false
+    match app-id=r#"^dev\.faetalize\.waytator$"#
+    open-floating true
 }
 
 // ────────────── Environment Variables ──────────────
@@ -414,7 +436,7 @@ environment {
     EDITOR "hx"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     PAGER "ov"
-    PATH "/usr/lib/powershell-7:/home/nspc911/.local/bin:/home/nspc911/.local/share/pnpm/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/nspc911/.cargo/bin:/home/nspc911/go/bin"
+    PATH "/usr/lib/powershell-7:/home/nspc911/.local/bin:/home/nspc911/.local/share/pnpm/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/nspc911/.cargo/bin:/home/nspc911/go/bin:/home/linuxbrew/.linuxbrew/bin"
     QT_QPA_PLATFORM "wayland"
     QT_QPA_PLATFORMTHEME "gtk3"
     QT_QPA_PLATFORMTHEME_QT6 "gtk3"
@@ -452,7 +474,7 @@ recent-windows {
 
     previews {
         max-height 480
-        max-scale 0.5
+        max-scale 1
     }
 
     binds {
@@ -494,6 +516,8 @@ include "dms/cursor.kdl"
 
 spawn-at-startup "steam"
 spawn-at-startup "pkill" "kgpg"
+spawn-at-startup "linux-wallpaperengine" "--screen-root" "eDP-1" "--bg" "1176090049" "--scaling" "fill" "--screenshot" "~/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent"
+spawn-sh-at-startup "swaybg --image ~/Pictures/Wallpapers/blurred_1176090049.png"
 // spawn-at-startup "powershell" "-NoProfile" "/home/nspc911/.config/niri/niri-centered.ps1"
 // spawn-at-startup "ignis" "init"
 // spawn-at-startup "swww-daemon"

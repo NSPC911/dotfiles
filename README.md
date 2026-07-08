@@ -60,19 +60,19 @@ helix
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
 
 ```
-ansible-lint v26.4.0
+ansible-lint v26.6.0
 batrachian-toad v0.6.20
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.14.1
-poethepoet v0.46.0
-poetry v2.4.1
+mistral-vibe v2.19.0
+poethepoet v0.48.0
+poetry v2.4.1 [with: more-itertools==11.0.2]
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
-pyright v1.1.410
+pyright v1.1.411
 rich-cli v1.8.1
-rovr v0.9.1.post1 [required:  git+https://github.com/nspc911/rovr]
-ruff v0.15.17
-ty v0.0.40 [required: ==0.0.40]
+rovr v0.10.0 [required:  git+https://github.com/NSPC911/rovr]
+ruff v0.15.20
+ty v0.0.49 [required: ==0.0.49]
 ```
 
 #### pnpm global installs
@@ -82,10 +82,10 @@ ty v0.0.40 [required: ==0.0.40]
 ```
 @agentclientprotocol/claude-agent-acp@0.38.0
 @ansible/ansible-language-server@26.6.0
-@anthropic-ai/claude-code@2.1.173
-@astrojs/language-server@2.16.10
+@anthropic-ai/claude-code@2.1.202
+@astrojs/language-server@2.16.11
 @fsouza/prettierd@0.27.0
-@github/copilot@1.0.61
+@github/copilot@1.0.68
 @google/gemini-cli@0.42.0
 live-server@1.2.2
 oxfmt@0.51.0
@@ -136,17 +136,17 @@ vscode-langservers-extracted@4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     20         4140         4140            0            0
- CSS                      11         3304         2668          247          389
- TOML                     11         1692         1401          167          124
- PowerShell                6         1249         1063           73          113
- Scheme                    6          961          840           27           94
+ JSON                     20         4151         4151            0            0
+ CSS                      11         3299         2664          246          389
+ TOML                     11         1723         1415          182          126
+ PowerShell                7         1334         1142           78          114
+ Scheme                    6          970          850           26           94
  YAML                      2          329          308           17            4
  Lua                       1          243          219           12           12
- Markdown                 10          227            0          172           55
+ Markdown                 10          224            0          169           55
  BASH                      1           84           60           13           11
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    68        12229        10699          728          802
+ Total                    69        12357        10809          743          805
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
