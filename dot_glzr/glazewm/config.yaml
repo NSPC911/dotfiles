@@ -133,7 +133,6 @@ window_rules:
       - window_title: { equals: "Cap Target Select" }
       - window_title: { equals: "Cap Recording Controls" }
       - window_process: { equals: "msrdc" }
-      - window_process: { equals: "Beatblock" }
 
   - commands: ["set-tiling", "wm-redraw"]
     match:

@@ -4,6 +4,7 @@
 ; (require (prefix-in helix-discord-rpc. "helix-discord-rpc/helix-discord-rpc.scm"))
 ; https://github.com/Xerxes-2/wakatime.hx
 (require "wakatime/wakatime.scm")
+(require "forest/forest.scm")
 
 ; scroll snapped to center
 (require "./smooth-scroll.scm")
@@ -17,4 +18,4 @@
 
 ; (showkeys-toggle)
 ; (helix-discord-rpc.discord-rpc-connect)
-; (require "wakatime/wakatime.scm")
+

@@ -83,8 +83,7 @@
     },
     {
       "type": "wm",
-      "format": "GlazeWM",
-      "key": "├─ WM\t   ",
+      "key": "├─ WM\t   "
     },
     {
       "type": "custom",

@@ -83,45 +83,36 @@ QPushButton {
 }
 
 .brightness-menu {
-    background-color: rgba(36, 36, 36, 0.75);
-    min-width: 300px;
+  background-color: var(--main);
+  min-width: 300px;
 }
-/* Grouping for monitor rows including title and sliders */
 .brightness-menu .monitor-row {
-    background-color: rgba(139, 69, 19, 0);
-    margin: 12px;
-}
-/*
-.monitor-0 is indexed as the first monitor row,
-adjust if you have multiple monitors and want to style them differently correctly.
-*/
-.brightness-menu .monitor-row.monitor-0 {
-    margin-bottom: 0;
+  margin: 12px;
 }
 .brightness-menu .monitor-title  {
-    font-size: 13px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-top: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 4px;
 }
 .brightness-menu .monitor-subtitle {
-    font-size: 11px;
-    color: #a6adc8;
-    margin-top: 2px;
-    margin-bottom: 8px;
+  font-size: 11px;
+  color: #a6adc8;
+  margin-top: 2px;
+  margin-bottom: 8px;
 }
 /* Container for the sliders to create a grouped appearance including icons and sliders */
 .brightness-menu .slider-rows {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 16px;
+  border: 2px solid var(--nord-cyan-base);
+  border-radius: 8px;
+  padding: 2px 10px;
 }
 .brightness-menu .slider-icon {
-    font-family: "Segoe Fluent Icons";
+  font-family: "Segoe Fluent Icons";
 }
 .brightness-menu .slider-row {
-    margin: 4px 0;
-    padding: 8px 0px;
+  margin: 4px 0;
+  padding: 1px 0px;
 }
 /* optional styles for the brightness and contrast sliders */
 .brightness-slider::groove {}

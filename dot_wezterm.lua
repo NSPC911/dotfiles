@@ -36,10 +36,10 @@ else
 end
 
 config.window_padding = {
-	left = 10,
-	right = 10,
-	top = 10,
-	bottom = 6,
+	left = 8,
+	right = 8,
+	top = 8,
+	bottom = 5,
 }
 
 -- tabs
@@ -187,27 +187,36 @@ config.colors = {
 
 -- Plugins
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+local function weztermOrWorkspace()
+	local active_workspace =  wezterm.mux.get_active_workspace()
+	if active_workspace == "default" then
+		return "  wezterm "
+	else
+		return "  " .. active_workspace .. " "
+	end
+end
+
 tabline.setup({
 	options = {
 		icons_enabled = true,
 		theme = "nord",
 		tabs_enabled = true,
 		theme_overrides = {
-			normal_mode = { c = { bg = "rgba(46, 52, 64, 0)" } },
+			normal_mode = {
+				a = { bg = "rgb(136, 192, 208)" },
+				c = { bg = "rgba(46, 52, 64, 0)" }
+			},
 			copy_mode = {  c = { bg = "rgba(46, 52, 64, 0)" }  },
 			tab = {
-				active = { fg = "#2e3440", bg = "#81a1c1" },
-				inactive = { fg = "#eceff4", bg = "rgba(46, 52, 64, 0)" },
+				active = { fg = "#2e3440", bg = "#88c0d0" },
+				inactive = { fg = "#eceff4", bg = "rgba(59, 66, 82, 0)" },
 				inactive_hover = { fg = "#b48ead", bg = "rgba(46, 52, 64, 0)" },
 			}
 		},
 	},
 	sections = {
-		tabline_a = { "workspace" },
-		tabline_b = {
-			"datetime",
-				"battery"
-		},
+		tabline_a = { weztermOrWorkspace },
+		tabline_b = {},
 		tabline_c = {},
 		tab_active = {
 			" [",
@@ -222,7 +231,7 @@ tabline.setup({
 			}
 		},
 		tab_inactive = {
-			{ Background = { Color = "#2e3440" } },
+			{ Background = { Color = "#3b4252" } },
 			" [",
 			{
 				"index",

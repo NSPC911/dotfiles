@@ -9,7 +9,7 @@ C-z = "undo"
 C-y = "redo"
 C-f = [
   ":new",
-  ":insert-output wezterm cli split-pane --left --cells 32 --cwd %{current_working_directory} -- rovr --config-folder ~/.config/rovr/helix",
+  ":insert-output wezterm cli split-pane --left --cells 34 --cwd %{current_working_directory} -- rovr --config-folder ~/.config/rovr/helix",
   ":buffer-close!",
 ]
 tab = "rotate_view"
@@ -90,10 +90,12 @@ C-o = "no_op"
 
 # goto mode (why is there two versions)
 [keys.normal.g]
-i = ":page-up-smooth"
+# i = ":page-up-smooth"
+i = "page_cursor_up"
 j = "goto_first_nonwhitespace"
 J = "goto_line_start"
-k = ":page-down-smooth"
+# k = ":page-down-smooth"
+k = "page_cursor_down"
 K = "goto_last_line"
 L = "goto_line_end_newline"
 l = "goto_line_end"
@@ -619,17 +621,18 @@ display-progress-messages = true
 enable = false
 wrap-indicator = "󱞶 "
 
-[icons]
-fs.enabled = true
-ui.virtual.wrap = " 󱞶 "
-kind.enabled = true
+[editor.whitespace]
+nbsp = "all"
+nnbsp = "all"
 
-[icons.diagnostic]
-warning = "\uf071"
-error = "\uebfb"
-hint = "\ued83"
-info = "\uf449"
+[icons]
+fs.enable = true
+kind.enable = true
+
+[icons.ui]
+workspace = " W"
+virtual.wrap = " 󱞶 "
 
 [icons.vcs]
-enabled = true
+enable = true
 deleted = "⏽"

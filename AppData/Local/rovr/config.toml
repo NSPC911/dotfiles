@@ -1,4 +1,4 @@
-#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.0/src/rovr/config/schema.json
+#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.0rc1/src/rovr/config/schema.json
 
 [interface]
 truncate_progress_file_path = true
@@ -8,6 +8,7 @@ show_hidden_files = true
 
 [settings.preview_rules]
 "application/java-archive" = "archive"
+"audio/x-mod" = "remime"
 
 [theme]
 transparent = true
@@ -18,6 +19,7 @@ filesize_decimals = 2
 
 [keybinds]
 new = ["n"]
+open = ["ctrl+o"]
 up = ["up", "i"]
 down = ["down", "k"]
 up_tree = ["left", "j"]
