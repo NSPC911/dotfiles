@@ -174,20 +174,24 @@ Set-Alias -Option AllScope -Name "cdi" -Value "__zoxide_zi"
 # temporary fix for zoxide
 $prevloc = "$PROFILE/../prevloc"
 function global:__zoxide_cd($dir, $literal) {
-    $dir = if ($literal) {
-        Set-Location -LiteralPath $dir -Passthru -ErrorAction Stop
-        zoxide add .
-        Get-Location | Select-Object -Expand Path | Out-File $prevloc
+    if ($null -eq $dir) {
+        Set-Location
+        $dir = Get-Location | Select-Object -Expand Path
     } else {
-        if ($dir -eq '-' -and ($PSVersionTable.PSVersion -lt 6.1)) {
-            Write-Error "cd - is not supported below PowerShell 6.1. Please upgrade your version of PowerShell."
-        }
-        elseif ($dir -eq '+' -and ($PSVersionTable.PSVersion -lt 6.2)) {
-            Write-Error "cd + is not supported below PowerShell 6.2. Please upgrade your version of PowerShell."
-        }
-        else {
-            Set-Location -Path $dir -Passthru -ErrorAction Stop
+        $dir = if ($literal) {
+            Set-Location -LiteralPath $dir -Passthru -ErrorAction Stop
             zoxide add .
+        } else {
+            if ($dir -eq '-' -and ($PSVersionTable.PSVersion -lt 6.1)) {
+                Write-Error "cd - is not supported below PowerShell 6.1. Please upgrade your version of PowerShell."
+            }
+            elseif ($dir -eq '+' -and ($PSVersionTable.PSVersion -lt 6.2)) {
+                Write-Error "cd + is not supported below PowerShell 6.2. Please upgrade your version of PowerShell."
+            }
+            else {
+                Set-Location -Path $dir -Passthru -ErrorAction Stop
+                zoxide add .
+            }
         }
     }
     Get-Location | Select-Object -Expand Path | Out-File $prevloc

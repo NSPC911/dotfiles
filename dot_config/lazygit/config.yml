@@ -55,3 +55,8 @@ gui:
       - "#D8DEE9"
 authorColors:
   "*": "#b4befe"
+os:
+  editorPreset: helix
+  edit: "/home/nspc911/.cargo/bin/hx {{filename}}"
+  editAtLine: "/home/nspc911/.cargo/bin/hx {{filename}}:{{line}}"
+  editInTerminal: true

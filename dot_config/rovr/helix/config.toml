@@ -1,4 +1,4 @@
-#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.0/src/rovr/config/schema.json
+#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.0.dev1/src/rovr/config/schema.json
 
 [interface]
 truncate_progress_file_path = true
@@ -12,13 +12,14 @@ enabled = false
 [interface.compact_mode]
 buttons = true
 
-[settings.editor]
-open_all_in_editor = true
+[settings.openers.groups]
+"general" = [{ run = "powershell -noni -nop -nol -c rovr-helix", orphan = true }]
+[settings.openers.match]
+"*" = ["general"]
 
 [settings.editor.file]
 run = "powershell -noni -nop -nol -c rovr-helix"
-block = true
-suspend = false
+orphan = true
 
 [theme]
 transparent = true

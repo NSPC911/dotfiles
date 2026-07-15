@@ -87,7 +87,6 @@ efibootmgr
 efitools
 electron38
 elisa
-entr
 ethtool
 ex-vi-compat
 exfatprogs
@@ -141,7 +140,6 @@ hwinfo
 hyperfine
 iamb-bin
 inetutils
-inotify-tools
 input-remapper-bin
 intel-media-driver
 intel-ucode
@@ -345,6 +343,7 @@ time
 tinymist
 tokei
 tombi
+trashy
 ttf-bitstream-vera
 ttf-dejavu
 ttf-fantasque-nerd

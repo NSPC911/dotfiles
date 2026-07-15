@@ -51,3 +51,7 @@ if ($zeroOn) {
 if ($oneOn) {
     Start-Process linux-wallpaperengine -ArgumentList 1176090049, "--scaling", "fill", "--screenshot", "$Home/Pictures/Wallpapers/1176090049.png", "--disable-mouse", "--disable-parallax", "--fullscreen-pause-only-active", "--fps", "20", "--silent", "--screen-root", $($monitors[1])
 }
+
+
+Start-Sleep -Seconds 2
+magick ~/Pictures/Wallpapers/1176090049.png -blur 0x15 ~/Pictures/Wallpapers/blurred_1176090049.png

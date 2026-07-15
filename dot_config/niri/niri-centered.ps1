@@ -34,10 +34,18 @@ niri msg -j event-stream | ForEach-Object {
             )
         ) {
             # kinda parse
-            $workspaceID = (niri msg -j windows | ConvertFrom-Json | Where-Object { $_.id -eq $windowID }).workspace_id
-            $numOfWindowsInWorkspace = (niri msg -j windows | ConvertFrom-Json | Where-Object { $_.workspace_id -eq $workspaceID -and -not $_.is_floating }).length
+            $windows = (niri msg -j windows | ConvertFrom-Json)
+            $workspaceID = ($windows | Where-Object { $_.id -eq $windowID }).workspace_id
+            $numOfWindowsInWorkspace = ($windows | Where-Object { $_.workspace_id -eq $workspaceID -and -not $_.is_floating }).length
+            # find the last pos in scrolling layout
+            $lastX = 0
+            ForEach ($w in $windows) {
+                if ($w.workspace_id -eq $workspaceID -and -not $w.is_floating) {
+                    $lastX = [Math]::Max($lastX, $w.layout.pos_in_scrolling_layout[0])
+                }
+            }
             if (
-                $window.layout.pos_in_scrolling_layout[0] -ne 1 -and $window.layout.pos_in_scrolling_layout[0] -ne $numOfWindowsInWorkspace
+                $window.layout.pos_in_scrolling_layout[0] -ne 1 -and $window.layout.pos_in_scrolling_layout[0] -ne $lastX
             ) {
                 # make window centered if it's too wide
                 niri msg -j action center-window --id $windowID

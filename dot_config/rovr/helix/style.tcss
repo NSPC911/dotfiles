@@ -1,5 +1,3 @@
-$border-style: round;
-$footer_unfocus_height: 3;
 $footer_focus_height: 9;
 
 Screen.-filelist-only {
@@ -10,7 +8,7 @@ Screen.-filelist-only {
   #footer {
     layout: vertical;
     margin: 0;
-    height: $footer_unfocus_height;
+    height: 3;
     &:focus-within {
       height: $footer_focus_height;
       max-height: 40vh;
