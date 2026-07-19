@@ -2,7 +2,7 @@ if ([Console]::IsOutputRedirected) {
     # If output is redirected, skip the rest of the profile to avoid issues with non-interactive shells
     return
 }
-Set-Location $HOME
+$initial_dir = (Get-Location).Path
 $CACHE = "$PROFILE/../cache"
 if (-not (Test-Path $CACHE)) {
     New-Item -ItemType Directory -Path $CACHE | Out-Null
@@ -17,108 +17,11 @@ function regenCache {
 
     $completions = @()
 
-    Write-Host "`e[HSetting up carapace `e[s" -NoNewLine
-    # check existence of scoop (because im going to start using linux)
-    if (Get-Command scoop -ErrorAction SilentlyContinue) {
-        # setup only specific completions
-        $dontwant = @("bat", "gh", "gpg", "gpg-agent", "grep", "lazygit", "rg", "rustup", "taplo", "wezterm")
-        Get-ChildItem -File "$HOME/scoop/shims" | Where-Object { $_.Name -like '*.exe' } | ForEach-Object {
-            $thing = $_.BaseName
-            if ($dontwant -notcontains $thing) {
-                $caracomplete = carapace $thing powershell
-                if ($null -ne $caracomplete) {
-                    $completions += $caracomplete
-                    Write-Host "`e[u`e[0K$thing"
-                }
-            }
-        }
-        $include = @("file", "tar", "curl", "cargo", "aria2c", "python")
-        $include | ForEach-Object {
-            $caracomplete = carapace $_ powershell
-            if ($null -ne $caracomplete) {
-                $completions += $caracomplete
-                Write-Host "`e[u`e[0K$_"
-            }
-        }
-    } else {
-        carapace _carapace powershell | ForEach-Object {
-            $line = $_
-            $contains = $false
-            @("hx", "ls", "rm", "mv", "kill", "sleep", "cat") | ForEach-Object {
-                if ($line -like "*'$($_).exe'*") { $contains = $true }
-            }
-            if (-not $contains) {
-                $completions += $line
-                if ($line -like "Register-ArgumentCompleter -Native*") {
-                    $tool = $line.Split()[-3].Trim("'")
-                    Write-Host "`e[u`e[0K$tool"
-                }
-            }
-        }
-    }
-
     Write-Output $HomeAndClearLine"Setting up zoxide"
     $completions += zoxide init powershell --cmd zd
 
     Write-Output $HomeAndClearLine"Setting up oh-my-posh"
     $completions += oh-my-posh init powershell --config $HOME/.config/kushal.omp.json
-
-    Write-Output $HomeAndClearLine"Setting up gh completions"
-    $completions += gh completion -s powershell
-
-    Write-Output $HomeAndClearLine"Setting up ty completions"
-    $completions += ty generate-shell-completion powershell
-
-    Write-Output $HomeAndClearLine"Setting up uv completions"
-    $completions += uv generate-shell-completion powershell
-
-    Write-Output $HomeAndClearLine"Setting up gix completions"
-    $completions += gix completions -s powershell
-
-    Write-Output $HomeAndClearLine"Setting up uvx completions"
-    $completions += uvx --generate-shell-completion powershell
-
-    # Write-Output $HomeAndClearLine"Setting up pixi completions"
-    # $completions += pixi completion --shell powershell
-
-    # Write-Output $HomeAndClearLine"Setting up tuios completions"
-    # $completions += tuios completion powershell
-
-    # Write-Output $homeAndClearLine"Setting up delta completions"
-    # $completions += delta --generate-completion powershell
-
-    Write-Output $HomeAndClearLine"Setting up taplo completions"
-    $completions += taplo completions powershell
-
-    Write-Output $HomeAndClearLine"Setting up tombi completions"
-    $completions += tombi completion powershell
-
-    Write-Output $HomeAndClearLine"Setting up typst completions"
-    $completions += typst completions powershell
-
-    Write-Output $HomeAndClearLine"Setting up batcat completions"
-    $completions += bat --completion ps1
-
-    Write-Output $HomeAndClearLine"Setting up rustup completions"
-    $completions += rustup completions powershell
-
-    Write-Output $HomeAndClearLine"Setting up chezmoi completions"
-    $completions += chezmoi completion powershell
-
-    Write-Output $HomeAndClearLine"Setting up ripgrep completions"
-    $completions += rg --generate complete-powershell
-
-    Write-Output $HomeAndClearLine"Setting up wezterm completions"
-    $completions += wezterm shell-completion --shell power-shell
-
-    Write-Output $HomeAndClearLine"Setting up regolith completions"
-    $completions += regolith completion powershell
-
-    # Write-Output $HomeAndClearLine"Setting up onefetch completions"
-    # $completions += onefetch --generate powershell
-
-    Write-Output $HomeAndClearLine"Setting up poethepoet completions"
-    $completions += poe _powershell_completion
 
     # Extract all 'using' statements and remove duplicates
     $usingStatements = @()
@@ -168,6 +71,44 @@ if (-not (Test-Path $cacheCompletionLocation)) {
 . $cacheCompletionLocation
 
 Write-Output $HomeAndClearLine"Dealing with functions and aliases..."
+
+function Register-LazyCompletion {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$CommandName,
+
+        [Parameter(Mandatory = $true)]
+        [string]$Completer
+    )
+    return @"
+    function _lazycomplete_$CommandName {
+        param(`$wordToComplete, `$commandAst, `$cursorPosition)
+        Register-ArgumentCompleter -Native -CommandName '$CommandName' -ScriptBlock {}
+        $Completer | out-string | invoke-expression
+        [System.Management.Automation.CommandCompletion]::CompleteInput(`$commandAst.ToString().PadRight(`$cursorPosition, ' ').Substring(0, `$cursorPosition), `$cursorPosition, `$null).CompletionMatches
+    }
+    Register-ArgumentCompleter -Native -CommandName '$CommandName' -ScriptBlock (Get-Item "Function:_lazycomplete_$CommandName").ScriptBlock
+"@
+}
+@{
+    "gh" = "gh completion --shell powershell"
+    "ty" = "ty generate-shell-completion powershell"
+    "uv" = "uv generate-shell-completion powershell"
+    "uvx" = "uvx --generate-shell-completion powershell"
+    "gix" = "gix completions --shell powershell"
+    "taplo" = "taplo completions powershell"
+    "tombi" = "tombi completion powershell"
+    "typst" = "typst completions powershell"
+    "bat" = "bat --completion ps1"
+    "chezmoi" = "chezmoi completion powershell"
+    "rg" = "rg --generate complete-powershell"
+    "rustup" = "rustup completions powershell"
+    "wezterm" = "wezterm shell-completion --shell power-shell"
+    "regolith" = "regolith completion powershell"
+    "poe" = "poe _powershell_completion"
+    "git" = "carapace git powershell"
+}.GetEnumerator() | ForEach-Object { Register-LazyCompletion -CommandName $_.Key -Completer $_.Value } | Out-String | Invoke-Expression
+
 ## zoxide cant add them for some reason /shrug
 Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
 Set-Alias -Option AllScope -Name "cdi" -Value "__zoxide_zi"
@@ -548,8 +489,8 @@ Set-PSReadLineOption -Colors @{
 # fuzzy: https://github.com/kelleyma49/PSFzf
 Write-Output "`e[u`e[0KPsFzf"
 Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
-Set-PsFzfOption -EnableAliasFuzzySetEverything
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+# New-Alias -Name "cde" -Scope Global -Value Set-LocationFuzzyEverything -ErrorAction Ignore
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r' -EnableAliasFuzzySetEverything
 # # git completions https://github.com/kzrnm/git-completion-pwsh
 # Write-Output "`e[u`e[0KGit Completions"
 # Import-Module -Name git-completion
@@ -742,14 +683,32 @@ function Reset-WiFi {
 
 Write-Host $HomeAndClearLine"Importing other functions"
 
+function Register-LazyImport {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string[]]$FunctionName,
+
+        [Parameter(Mandatory = $true)]
+        [string]$ScriptPath
+    )
+    foreach ($name in $FunctionName) {
+        Invoke-Expression @"
+function global:$name {
+    . '$ScriptPath'
+    $name @args
+}
+"@
+    }
+}
+
 ##### suggest and explain using ai #####
-. "$PROFILE/../suggest-and-explain.ps1"
+Register-LazyImport -FunctionName "suggest", "explain" -ScriptPath "$PROFILE/../suggest-and-explain.ps1"
 
 ##### ghet from gh #####
-. "$PROFILE/../ghet.ps1"
+Register-LazyImport -FunctionName "ghet" -ScriptPath "$PROFILE/../ghet.ps1"
 
 #### uv sync --upgrade but it is more interactive #####
-. "$PROFILE/../uvdate.ps1"
+Register-LazyImport -FunctionName "uvdate" -ScriptPath "$PROFILE/../uvdate.ps1"
 
 #### wordle ####
 function wordle {
@@ -794,7 +753,7 @@ function fetch {
     }
 }
 fetch
-if (Test-Path $prevloc) {
+if ((Test-Path $prevloc) -and ($initial_dir -eq $HOME)) {
     $newloc = Get-Content "$prevloc"
     if ($newloc -ne $HOME) {
         if (Test-Path $newloc) {
@@ -807,6 +766,7 @@ if (Test-Path $prevloc) {
             Write-Host -ForegroundColor Red " but it no longer exists now."
         }
     }
+    Write-Host
 }
 # check for venv and deactivate
 if (Get-Command -Name "deactivate" -CommandType Function -ErrorAction SilentlyContinue) {

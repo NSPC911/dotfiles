@@ -33,9 +33,9 @@ input {
         // Scale bottom right 50% of tablet to full screen
         // calibration-matrix 2.0 0.0 -1.0 0.0 2.0 -1.0
         // Scale bottom right 33% of tablet to full screen
-        calibration-matrix 3.0 0.0 -1.875 0.0 2.0 -1.0
-        // scale center 50% of tablet to full screen
-        // calibration-matrix 2.0 0.0 -0.5 0.0 2.0 -0.5
+        // calibration-matrix 3.0 0.0 -1.875 0.0 2.0 -1.0
+        // scale center right 33% of tablet to full screen
+        calibration-matrix 3.0 0.0 -1.875 0.0 3.0 -1.5
     }
 }
 
@@ -375,6 +375,7 @@ window-rule {
     match app-id="org.kde.elisa"
     match app-id="steam"
     match app-id="com.danklinux.dms" title="Settings"
+    match app-id="org.gnome.Nautilus"
     opacity 0.875
     draw-border-with-background false
 }
@@ -508,7 +509,7 @@ include "dms/outputs.kdl"
 spawn-at-startup "pkill" "kgpg"
 spawn-at-startup "linux-wallpaperengine" "--screen-root" "eDP-1" "--bg" "1176090049" "--scaling" "fill" "--screenshot" "~/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent"
 spawn-at-startup "linux-wallpaperengine" "--screen-root" "DP-3" "--bg" "1176090049" "--scaling" "fill" "--screenshot" "~/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent"
-spawn-sh-at-startup "swaybg --image ~/Pictures/Wallpapers/blurred_1176090049.png"
+spawn-sh-at-startup "swaybg --image ~/Pictures/Wallpapers/blurred_1176090049.png --output '*'"
 // spawn-at-startup "powershell" "-NoProfile" "/home/nspc911/.config/niri/niri-centered.ps1"
 // spawn-at-startup "ignis" "init"
 // spawn-at-startup "swww-daemon"

@@ -241,6 +241,7 @@
   "shell_integration": true,
   "patch_pwsh_bleed": true,
   "streaming": 100,
+  "pwd": "osc7",
   "valid_line": {
     "background": "transparent",
     "foreground": "#ffffff",

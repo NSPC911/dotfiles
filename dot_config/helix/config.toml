@@ -625,14 +625,10 @@ wrap-indicator = "󱞶 "
 nbsp = "all"
 nnbsp = "all"
 
-[editor.whitespace.characters]
-nbsp = "NBSP"
-nnbsp = "NNBSP"
-
 [icons]
-fs.enabled = true
+fs.enable = true
 ui.virtual.wrap = " 󱞶 "
-kind.enabled = true
+kind.enable = true
 
 [icons.diagnostic]
 warning = "\uf071"
@@ -641,5 +637,5 @@ hint = "\ued83"
 info = "\uf449"
 
 [icons.vcs]
-enabled = true
+enable = true
 deleted = "⏽"

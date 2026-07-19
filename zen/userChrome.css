@@ -28,8 +28,19 @@
   }
 }
 
+#main-window {
+  --fullscreen-side: 0px;
+  &[sizemode="fullscreen"] #browser {
+    --fullscreen-side: 16px;
+  }
+}
+
+#main-window[sizemode="fullscreen"] #navigator-toolbox {
+  margin-bottom: -2px !important;
+  height: calc(100% - 73px) !important;
+}
 /* navigator toolbox */
-#navigator-toolbox#navigator-toolbox#navigator-toolbox {
+#navigator-toolbox {
   transition-duration: 0.2s !important;
   transition-timing-function: ease-in-out !important;
   height: calc(100% - 80.5px) !important;
@@ -67,7 +78,7 @@
       [has-popup-menu="true"]
     ) ~ #zen-appcontent-wrapper
       > #zen-tabbox-wrapper {
-        transform: translateX(calc((var(--n-zen-sidebar-width) + var(--gap)) * var(--multiplier))) !important;
+        transform: translateX(calc((var(--n-zen-sidebar-width) + var(--gap)) * var(--multiplier) + var(--fullscreen-side))) !important;
     }
     &[flash-popup="true"]:not(:is(
       [zen-has-implicit-hover],

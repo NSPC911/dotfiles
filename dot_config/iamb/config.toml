@@ -1,0 +1,7 @@
+[profiles."matrix.org"]
+user_id = "@nspc911:matrix.org"
+
+[settings.image_preview]
+protocol.type = "iterm2"
+protocol.font_size = [ 10, 20 ]
+size = { height = 20, width = 120 }
