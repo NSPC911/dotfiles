@@ -4,9 +4,8 @@ if ([Console]::IsOutputRedirected) {
 }
 $initial_dir = (Get-Location).Path
 $CACHE = "$PROFILE/../cache"
-if (-not (Test-Path $CACHE)) {
-    New-Item -ItemType Directory -Path $CACHE | Out-Null
-}
+if (-not (Test-Path $CACHE)) { New-Item -ItemType Directory -Path $CACHE | Out-Null }
+$CACHE = (Resolve-Path $CACHE).Path
 $HomeAndClearLine = "`e[0J`e[H`e[2K"
 ##### Cache Completions #####
 $cacheCompletionLocation = "$cache/completion-cache.ps1"
@@ -68,7 +67,7 @@ if (-not (Test-Path $cacheCompletionLocation)) {
     Write-Output "Using script cache..."
 }
 
-. $cacheCompletionLocation
+Get-Content $cacheCompletionLocation | Out-String | Invoke-Expression
 
 Write-Output $HomeAndClearLine"Dealing with functions and aliases..."
 
@@ -105,8 +104,15 @@ function Register-LazyCompletion {
     "rustup" = "rustup completions powershell"
     "wezterm" = "wezterm shell-completion --shell power-shell"
     "regolith" = "regolith completion powershell"
+    "niri" = "niri completions power-shell"
     "poe" = "poe _powershell_completion"
     "git" = "carapace git powershell"
+    "systemctl" = "carapace systemctl powershell"
+    "journalctl" = "carapace journalctl powershell"
+    "hyperfine" = "carapace hyperfine powershell"
+    "kitty" = "carapace kitty powershell"
+    "magick" = "carapace magick powershell"
+    "python" = "carapace python powershell"
 }.GetEnumerator() | ForEach-Object { Register-LazyCompletion -CommandName $_.Key -Completer $_.Value } | Out-String | Invoke-Expression
 
 ## zoxide cant add them for some reason /shrug
@@ -221,7 +227,7 @@ if (-not ($IsWindows)) {
     Set-Alias -Name "mv" -Value "Move-Item"
     Set-Alias -Name "cp" -Value "Copy-Item"
     Set-Alias -Name "ps" -Value "Get-Process"
-    Set-Alias -Name "kill" -Value "Kill-Process"
+    Set-Alias -Name "sort" -Value "Sort-Object"
     Set-Alias -Name "sleep" -Value "Start-Sleep"
     Set-PSReadLineKeyHandler -Chord Ctrl+LeftArrow -Function BackwardWord
     Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
@@ -767,8 +773,4 @@ if ((Test-Path $prevloc) -and ($initial_dir -eq $HOME)) {
         }
     }
     Write-Host
-}
-# check for venv and deactivate
-if (Get-Command -Name "deactivate" -CommandType Function -ErrorAction SilentlyContinue) {
-    deactivate
 }

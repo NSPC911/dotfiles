@@ -34,8 +34,11 @@ input {
         // calibration-matrix 2.0 0.0 -1.0 0.0 2.0 -1.0
         // Scale bottom right 33% of tablet to full screen
         // calibration-matrix 3.0 0.0 -1.875 0.0 2.0 -1.0
-        // scale center right 33% of tablet to full screen
-        calibration-matrix 3.0 0.0 -1.875 0.0 3.0 -1.5
+        // Scale to 33% in bottom right padded corner i guess?
+        calibration-matrix 3.0 0.0 -1.75 0.0 4.0 -1.75
+    }
+    touch {
+        map-to-output "eDP-1"
     }
 }
 
@@ -59,7 +62,7 @@ binds {
     // MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen"; }
     // MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
     MOD+SHIFT+L hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call powermenu toggle"; }
-    MOD+L       hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call lock lock"; }
+    // MOD+L       hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call lock lock"; }
 
     // Please choose your own file manager
     MOD+E hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
@@ -146,6 +149,8 @@ binds {
     MOD+CTRL+EQUAL    cooldown-ms=125   { set-column-width "+1%"; }
     MOD+SHIFT+MINUS   cooldown-ms=125   { set-window-height "-10%"; }
     MOD+SHIFT+EQUAL   cooldown-ms=125   { set-window-height "+10%"; }
+    MOD+SHIFT+CTRL+MINUS  cooldown-ms=125   { set-window-height "-1%"; }
+    MOD+SHIFT+CTRL+EQUAL  cooldown-ms=125   { set-window-height "+1%"; }
 
     MOD+M                               { switch-preset-column-width; }
 
@@ -393,7 +398,7 @@ window-rule {
     match title="zoom" app-id="Zoom Workspace"
     match app-id="zoom" title="annotate_toolbar"
     match app-id="zoom" title="Meeting chat"
-    match app-id=r"zen$" title="^Picture-in-Picture$"
+    // match app-id=r"zen$" title="^Picture-in-Picture$"
     match app-id="Windscribe"
     match title="Zen - Choose User Profile"
     match app-id="polkit"

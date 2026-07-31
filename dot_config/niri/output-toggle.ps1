@@ -45,13 +45,15 @@ if ($isBothOn) {
 }
 
 Stop-Process -Name "linux-wallpaperengine" -ErrorAction SilentlyContinue
+Stop-Process -Name "swaybg" -ErrorAction SilentlyContinue
 if ($zeroOn) {
-    Start-Process linux-wallpaperengine -ArgumentList 1176090049, "--scaling", "fill", "--screenshot", "$Home/Pictures/Wallpapers/1176090049.png", "--disable-mouse", "--disable-parallax", "--fullscreen-pause-only-active", "--fps", "20", "--silent", "--screen-root", $($monitors[0])
+    niri msg action spawn -- linux-wallpaperengine 1176090049 "--scaling" "fill" "--screenshot" "$HOME/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent" "--screen-root" $($monitors[0])
 }
 if ($oneOn) {
-    Start-Process linux-wallpaperengine -ArgumentList 1176090049, "--scaling", "fill", "--screenshot", "$Home/Pictures/Wallpapers/1176090049.png", "--disable-mouse", "--disable-parallax", "--fullscreen-pause-only-active", "--fps", "20", "--silent", "--screen-root", $($monitors[1])
+    niri msg action spawn -- linux-wallpaperengine 1176090049 "--scaling" "fill" "--screenshot" "$HOME/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent" "--screen-root" $($monitors[1])
 }
-
-
-Start-Sleep -Seconds 2
+Start-Sleep -Seconds 1
 magick ~/Pictures/Wallpapers/1176090049.png -blur 0x15 ~/Pictures/Wallpapers/blurred_1176090049.png
+
+niri msg action spawn-sh -- "swaybg --image ~/Pictures/Wallpapers/blurred_1176090049.png --output '*'"
+

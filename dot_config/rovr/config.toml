@@ -1,10 +1,15 @@
-#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.0.dev1/src/rovr/config/schema.json
+#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.0/src/rovr/config/schema.json
 
 [interface]
 truncate_progress_file_path = true
 nerd_font = true
 show_line_numbers = true
 show_hidden_files = true
+details_list = [
+  { type = "git" }
+]
+[interface.image_viewer]
+protocol = "Sixel"
 
 [settings.preview_rules]
 "application/java-archive" = "archive"

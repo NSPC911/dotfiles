@@ -619,7 +619,7 @@ display-progress-messages = true
 
 [editor.soft-wrap]
 enable = false
-wrap-indicator = "󱞶 "
+wrap-indicator = "󱞶"
 
 [editor.whitespace]
 nbsp = "all"
@@ -628,13 +628,8 @@ nnbsp = "all"
 [icons]
 fs.enable = true
 ui.virtual.wrap = " 󱞶 "
+ui.workspace = " W"
 kind.enable = true
-
-[icons.diagnostic]
-warning = "\uf071"
-error = "\uebfb"
-hint = "\ued83"
-info = "\uf449"
 
 [icons.vcs]
 enable = true

@@ -32,7 +32,7 @@
   "firstDayOfWeek": -1,
   "showWeekNumber": false,
   "calendarBackend": "auto",
-  "use24HourClock": true,
+  "clockFormat": "24h",
   "showSeconds": true,
   "padHours12Hour": false,
   "useFahrenheit": false,
@@ -43,8 +43,8 @@
   "syncComponentAnimationSpeeds": false,
   "popoutAnimationSpeed": 0,
   "popoutCustomAnimationDuration": 29,
-  "modalAnimationSpeed": 1,
-  "modalCustomAnimationDuration": 150,
+  "modalAnimationSpeed": 3,
+  "modalCustomAnimationDuration": 1000,
   "enableRippleEffects": false,
   "animationVariant": 1,
   "motionEffect": 0,
@@ -60,6 +60,7 @@
   "blurEnabled": true,
   "blurForegroundLayers": false,
   "blurLayerOutlineOpacity": 0.1,
+  "blurBorderEnabled": true,
   "blurBorderColor": "primary",
   "blurBorderCustomColor": "#ffffff",
   "blurBorderOpacity": 0,
@@ -82,8 +83,8 @@
   "enabledGpuPciIds": [],
   "showSystemTray": true,
   "systemTrayIconTintMode": "none",
-  "systemTrayIconTintSaturation": 50,
-  "systemTrayIconTintStrength": 135,
+  "systemTrayIconTintSaturation": 0,
+  "systemTrayIconTintStrength": 200,
   "showClock": true,
   "showNotificationButton": true,
   "showBattery": true,
@@ -122,7 +123,8 @@
     {
       "id": "brightnessSlider",
       "enabled": true,
-      "width": 50
+      "width": 50,
+      "deviceName": "backlight:intel_backlight"
     },
     {
       "id": "wifi",
@@ -249,12 +251,10 @@
   "greeterEnableFprint": false,
   "greeterEnableU2f": false,
   "greeterWallpaperPath": "",
-  "greeterUse24HourClock": true,
-  "greeterShowSeconds": false,
-  "greeterPadHours12Hour": false,
   "greeterLockDateFormat": "",
   "greeterFontFamily": "CaskaydiaMono NFM",
   "greeterWallpaperFillMode": "",
+  "greeterPamExternallyManaged": false,
   "greeterSyncPending": true,
   "greeterSyncBaseline": {
     "greeterFontFamily": ""
@@ -276,6 +276,7 @@
   },
   "appDrawerSectionViewModes": {},
   "niriOverviewOverlayEnabled": false,
+  "niriOverviewLauncherStyle": "full",
   "dankLauncherV2Size": "compact",
   "dankLauncherV2ShowSourceBadges": true,
   "dankLauncherV2BorderEnabled": true,
@@ -350,7 +351,7 @@
   "notepadUseMonospace": true,
   "notepadFontFamily": "",
   "notepadFontSize": 14,
-  "notificationSummaryFontSize": 0,
+  "notificationSummaryFontSize": 14,
   "notificationBodyFontSize": 0,
   "notepadShowLineNumbers": false,
   "notepadAutoSave": false,
@@ -389,6 +390,7 @@
   "batteryLowNotificationType": 0,
   "batteryCriticalNotificationType": 1,
   "batteryAutoPowerSaver": false,
+  "lowerDisplayRefreshRateOnBattery": false,
   "lockBeforeSuspend": false,
   "loginctlLockIntegration": true,
   "fadeToLockEnabled": true,
@@ -396,13 +398,10 @@
   "fadeToDpmsEnabled": true,
   "fadeToDpmsGracePeriod": 5,
   "launchPrefix": "",
-  "brightnessDevicePins": {},
-  "wifiNetworkPins": {
-    "preferredWifi": [
-      "sweethome-5G",
-      "is-this-wifi-free"
-    ]
+  "brightnessDevicePins": {
+    "S27R35x": "backlight:intel_backlight"
   },
+  "wifiNetworkPins": {},
   "bluetoothDevicePins": {},
   "audioInputDevicePins": {},
   "audioOutputDevicePins": {},
@@ -483,6 +482,7 @@
   "notificationOverlayEnabled": true,
   "notificationPopupShadowEnabled": true,
   "notificationPopupPrivacyMode": false,
+  "notificationForegroundLayers": true,
   "modalDarkenBackground": false,
   "lockScreenShowPowerActions": true,
   "lockScreenShowSystemIcons": true,
@@ -497,6 +497,11 @@
   "maxFprintTries": 15,
   "enableU2f": false,
   "u2fMode": "or",
+  "lockPamPath": "",
+  "lockPamInlineFprint": false,
+  "lockPamInlineU2f": false,
+  "lockPamExternallyManaged": false,
+  "lockU2fPamPath": "",
   "lockScreenInactiveColor": "#000000",
   "lockScreenNotificationMode": 0,
   "lockScreenVideoEnabled": false,
@@ -507,18 +512,18 @@
   "lockScreenFontFamily": "",
   "hideBrightnessSlider": false,
   "notificationTimeoutLow": 5000,
-  "notificationTimeoutNormal": 5000,
-  "notificationTimeoutCritical": 0,
-  "notificationCompactMode": false,
-  "notificationShowTimeoutBar": false,
+  "notificationTimeoutNormal": 8000,
+  "notificationTimeoutCritical": 10000,
+  "notificationCompactMode": true,
+  "notificationShowTimeoutBar": true,
   "notificationDedupeEnabled": true,
   "notificationPopupPosition": 0,
-  "notificationAnimationSpeed": 4,
+  "notificationAnimationSpeed": 2,
   "notificationCustomAnimationDuration": 100,
   "notificationHistoryEnabled": true,
   "notificationHistoryMaxCount": 50,
-  "notificationHistoryMaxAgeDays": 7,
-  "notificationHistorySaveLow": true,
+  "notificationHistoryMaxAgeDays": 3,
+  "notificationHistorySaveLow": false,
   "notificationHistorySaveNormal": true,
   "notificationHistorySaveCritical": true,
   "notificationRules": [],
@@ -560,6 +565,7 @@
   "updaterIntervalSeconds": 1800,
   "updaterIncludeFlatpak": true,
   "updaterAllowAUR": true,
+  "updaterIgnoredPackages": [],
   "displayNameMode": "model",
   "screenPreferences": {
     "wallpaper": []
@@ -578,6 +584,17 @@
   "activeDisplayProfile": {
     "niri": "auto_8dbb704e"
   },
+  "activeDisplayProfileModes": {
+    "niri": {
+      "Samsung Display Corp. 0x4187 Unknown": {
+        "mode": "1920x1200@59.999"
+      },
+      "Samsung Electric Company S27R35x H4UR800578": {
+        "mode": "1920x1080@74.973"
+      }
+    }
+  },
+  "displayPreviousRefreshModes": {},
   "displayProfileAutoSelect": true,
   "displayShowDisconnected": false,
   "displaySnapToEdge": true,
@@ -660,7 +677,7 @@
           "enabled": true
         }
       ],
-      "spacing": -1,
+      "spacing": 0,
       "innerPadding": 0,
       "bottomGap": 0,
       "transparency": 0.75,
@@ -669,11 +686,11 @@
       "noBackground": false,
       "gothCornersEnabled": true,
       "gothCornerRadiusOverride": true,
-      "gothCornerRadiusValue": 16,
+      "gothCornerRadiusValue": 12,
       "borderEnabled": false,
       "borderColor": "primary",
       "borderOpacity": 1,
-      "borderThickness": 2,
+      "borderThickness": 1,
       "widgetOutlineEnabled": false,
       "widgetOutlineColor": "primary",
       "widgetOutlineOpacity": 1,
@@ -699,7 +716,10 @@
       "widgetPadding": 8,
       "removeWidgetPadding": false,
       "maximizeWidgetText": false,
-      "maximizeWidgetIcons": false
+      "maximizeWidgetIcons": false,
+      "iconScale": 1,
+      "barInsetPadding": 4,
+      "hoverPopouts": false
     },
     {
       "id": "bar1782612780577",
@@ -728,7 +748,7 @@
           "size": 31
         }
       ],
-      "spacing": 0,
+      "spacing": -1,
       "innerPadding": 10,
       "bottomGap": -50,
       "transparency": 0,
@@ -745,7 +765,7 @@
       "widgetOutlineEnabled": false,
       "widgetOutlineColor": "primary",
       "widgetOutlineOpacity": 1,
-      "widgetOutlineThickness": 1,
+      "widgetOutlineThickness": 2,
       "widgetPadding": 10,
       "maximizeWidgetIcons": false,
       "maximizeWidgetText": false,

@@ -28,14 +28,6 @@ The alternate side, the linux version. Still Nord + Transparency.
 | File Output           | [bat](https://github.com/sharkdp/bat)                                                                               | `dot_config/bat/config`                                                  |
 | Pager                 | [ov](https://github.com/noborus/ov)                                                                                 | `dot_config/ov/config.yaml`                                              |
 
-#### Wallpaper
-
-Generally I switch between 3 options (screenshots from steam!)
-
-|   ![Lost Cat.](https://images.steamusercontent.com/ugc/2459620193690498958/1CF63A48848CDB76FFEFC3A4B2B54D37FB142BA3/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3352465485)   | ![Lost Cat 3](https://images.steamusercontent.com/ugc/2404452368859591676/D8CBBE411A86066BA5B3D9554BB1F8EEDB7DE61F/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3360569178) |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| ![Sunset Cat [4k]](https://images.steamusercontent.com/ugc/43443618358467438/204AE1F0F54142B3670712E3546E6E2EE76D07BE/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true) <br> [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3373818743) |                                                                                                                                                                                                                                                                                 |
-
 #### No config
 
 | Type            | Link                                                                                               |
@@ -64,14 +56,14 @@ ansible-lint v26.6.0
 batrachian-toad v0.6.20
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.19.0
+mistral-vibe v2.22.0
 poethepoet v0.48.0
 poetry v2.4.1 [with: more-itertools==11.0.2]
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.411
 rich-cli v1.8.1
-rovr v0.10.0 [required:  git+https://github.com/NSPC911/rovr]
-ruff v0.15.20
+rovr v0.10.0.dev1 [required:  git+https://github.com/NSPC911/rovr]
+ruff v0.15.22
 ty v0.0.49 [required: ==0.0.49]
 ```
 
@@ -82,10 +74,9 @@ ty v0.0.49 [required: ==0.0.49]
 ```
 @agentclientprotocol/claude-agent-acp@0.38.0
 @ansible/ansible-language-server@26.6.0
-@anthropic-ai/claude-code@2.1.202
-@astrojs/language-server@2.16.11
+@astrojs/language-server@2.16.13
 @fsouza/prettierd@0.27.0
-@github/copilot@1.0.68
+@github/copilot@1.0.73
 @google/gemini-cli@0.42.0
 live-server@1.2.2
 oxfmt@0.51.0
@@ -136,17 +127,18 @@ vscode-langservers-extracted@4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     20         4151         4151            0            0
- CSS                      11         3299         2664          246          389
- TOML                     11         1723         1415          182          126
- PowerShell                7         1334         1142           78          114
- Scheme                    6          970          850           26           94
- YAML                      2          329          308           17            4
+ JSON                     21         4329         4329            0            0
+ CSS                      11         3310         2674          246          390
+ TOML                     12         1735         1427          169          139
+ PowerShell                7         1314         1144           69          101
+ Scheme                    6          983          850           36           97
+ YAML                      2          334          313           17            4
  Lua                       1          243          219           12           12
- Markdown                 10          224            0          169           55
+ Markdown                 10          215            0          163           52
  BASH                      1           84           60           13           11
+ SVG                       2           46           46            0            0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    69        12357        10809          743          805
+ Total                    73        12593        11062          725          806
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

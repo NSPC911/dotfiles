@@ -61,6 +61,7 @@ chezmoi
 chwd
 codebook-lsp
 colord-kde
+concord-bin
 cpupower
 cryptsetup
 cups
@@ -85,9 +86,9 @@ duf
 e2fsprogs
 efibootmgr
 efitools
-electron38
 elisa
 ethtool
+evtest
 ex-vi-compat
 exfatprogs
 f2fs-tools
@@ -96,7 +97,6 @@ ffmpegthumbnailer
 ffmpegthumbs
 filelight
 firefox
-flameshot
 flatpak
 foomatic-db
 foomatic-db-engine
@@ -156,9 +156,9 @@ kcron
 kde-dev-utils
 kde-inotify-survey
 kdebugsettings
-kdeconnect
 kdegraphics-thumbnailers
 kdenetwork-filesharing
+kdenlive
 kdesdk-kio
 kdesdk-thumbnailers
 kdf
@@ -188,7 +188,6 @@ lib32-libshout
 lib32-mesa
 lib32-opencl-mesa
 lib32-rust-libs
-lib32-sdl2_image
 lib32-sdl2-compat
 lib32-taglib
 lib32-twolame
@@ -217,6 +216,7 @@ linux-cachyos-headers
 linux-firmware
 linux-wallpaper-engine-ux
 linux-wallpaperengine-git
+lisgd
 lldb
 localsend-bin
 logrotate
@@ -259,6 +259,7 @@ obs-studio-browser
 octopi
 oh-my-posh-bin
 onefetch
+openai-codex-bin
 openbsd-netcat
 opencl-mesa
 opencode
@@ -271,7 +272,6 @@ pacseek
 pamixer
 paru
 patchelf
-pear-desktop
 perl
 perl-image-exiftool
 pipewire-alsa
@@ -337,12 +337,15 @@ sysfsutils
 sysstat
 system-config-printer
 taplo-cli
+tesseract
 texinfo
 thermald
 time
 tinymist
 tokei
 tombi
+touche
+touchegg
 trashy
 ttf-bitstream-vera
 ttf-dejavu
@@ -376,7 +379,6 @@ wf-recorder
 wget
 which
 winboat-bin
-winpodx
 wireless-regdb
 wireplumber
 wl-clipboard
@@ -387,6 +389,7 @@ woff2-font-awesome
 wofi
 wpa_supplicant
 wtype
+wvkbd
 xclip
 xdg-desktop-portal-gnome
 xdg-desktop-portal-wlr
