@@ -20,18 +20,24 @@ config.cell_width = 1
 -- blur handled by windhawk
 -- transparency can be changed by ctrl + shift + o
 config.window_background_opacity = 0.75
-config.prefer_egl = true
 config.font_size = 11.5
--- use only when screenshotting
--- config.font_size = 12.5
+-- config.enable_scroll_bar = true
 
-config.window_decorations = "NONE | RESIZE"
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "LowPower"
+
+config.swallow_mouse_click_on_pane_focus = false
+
 config.default_prog = { "pwsh", "-NoLogo" }
 -- config.default_prog = { "nu" }
 config.initial_cols = 80
 if wezterm.target_triple:find("linux") then
     config.window_decorations = "NONE"
 else
+	if wezterm.target_triple:find("windows") then
+		config.webgpu_preferred_adapter = wezterm.gui.enumerate_gpus()[1]
+		config.win32_system_backdrop = "Disable"
+	end
 	config.window_decorations = "NONE | RESIZE"
 end
 

@@ -44,6 +44,13 @@
     },
     {
       "Info": "",
+      "Name": "beeper",
+      "Source": "extras",
+      "Updated": "2026-07-31T10:56:19.1709043+08:00",
+      "Version": "4.3.0"
+    },
+    {
+      "Info": "",
       "Name": "bloxstrap",
       "Source": "games",
       "Updated": "2026-06-14T23:37:18.1148329+08:00",
@@ -102,8 +109,8 @@
       "Info": "",
       "Name": "codex",
       "Source": "main",
-      "Updated": "2026-07-26T12:17:02.7444015+08:00",
-      "Version": "0.145.0"
+      "Updated": "2026-07-30T22:46:33.7438882+08:00",
+      "Version": "0.146.0"
     },
     {
       "Info": "",
@@ -116,8 +123,8 @@
       "Info": "",
       "Name": "copilot-language-server",
       "Source": "le-bucket",
-      "Updated": "2026-07-28T18:37:19.5957708+08:00",
-      "Version": "1.523.3"
+      "Updated": "2026-07-31T10:53:20.6637384+08:00",
+      "Version": "1.527.1"
     },
     {
       "Info": "",
@@ -235,8 +242,8 @@
       "Info": "",
       "Name": "harper",
       "Source": "main",
-      "Updated": "2026-06-28T17:26:52.4223719+08:00",
-      "Version": "2.6.0"
+      "Updated": "2026-07-30T22:47:33.4924486+08:00",
+      "Version": "2.7.0"
     },
     {
       "Info": "",
@@ -354,8 +361,8 @@
       "Info": "",
       "Name": "nodejs",
       "Source": "main",
-      "Updated": "2026-07-10T17:01:18.2971281+08:00",
-      "Version": "26.5.0"
+      "Updated": "2026-07-30T22:48:50.2713863+08:00",
+      "Version": "26.5.1"
     },
     {
       "Info": "",
@@ -389,8 +396,8 @@
       "Info": "",
       "Name": "opencode",
       "Source": "main",
-      "Updated": "2026-07-28T18:41:23.3488233+08:00",
-      "Version": "1.18.8"
+      "Updated": "2026-07-31T10:53:28.357892+08:00",
+      "Version": "1.18.10"
     },
     {
       "Info": "",
@@ -403,8 +410,8 @@
       "Info": "",
       "Name": "pixelorama",
       "Source": "extras",
-      "Updated": "2026-06-14T23:54:03.8513416+08:00",
-      "Version": "1.1.10"
+      "Updated": "2026-07-30T22:49:51.6820356+08:00",
+      "Version": "1.2"
     },
     {
       "Info": "",
@@ -543,8 +550,8 @@
       "Info": "",
       "Name": "surge-downloader",
       "Source": "le-bucket",
-      "Updated": "2026-06-22T16:49:29.2419183+08:00",
-      "Version": "0.10.0"
+      "Updated": "2026-07-30T22:50:19.9258032+08:00",
+      "Version": "0.11.0"
     },
     {
       "Info": "",
@@ -592,8 +599,8 @@
       "Info": "",
       "Name": "uv",
       "Source": "main",
-      "Updated": "2026-07-28T18:44:04.928345+08:00",
-      "Version": "0.11.32"
+      "Updated": "2026-07-29T20:15:45.0334824+08:00",
+      "Version": "0.12.0"
     },
     {
       "Info": "",
@@ -620,8 +627,8 @@
       "Info": "Held package",
       "Name": "wezterm-nightly",
       "Source": "versions",
-      "Updated": "2026-07-20T11:40:17.0936923+08:00",
-      "Version": "nightly-20260720"
+      "Updated": "2026-07-31T06:40:00.4284549+08:00",
+      "Version": "nightly-20260731"
     },
     {
       "Info": "",
@@ -655,8 +662,8 @@
       "Info": "",
       "Name": "yasb-preview",
       "Source": "le-bucket",
-      "Updated": "2026-07-13T08:16:49.8973446+08:00",
-      "Version": "20260710-094830"
+      "Updated": "2026-07-30T11:53:11.7663798+08:00",
+      "Version": "20260730-012400"
     },
     {
       "Info": "",
@@ -676,8 +683,8 @@
       "Info": "",
       "Name": "zen-browser",
       "Source": "extras",
-      "Updated": "2026-07-28T18:46:19.6103899+08:00",
-      "Version": "1.21.9b"
+      "Updated": "2026-07-31T10:53:49.8805109+08:00",
+      "Version": "1.21.10b"
     },
     {
       "Info": "",
@@ -689,40 +696,40 @@
   ],
   "buckets": [
     {
-      "Manifests": 1614,
+      "Manifests": 1618,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2026-07-28T17:16:50+08:00"
+      "Updated": "2026-07-31T10:38:43+08:00"
     },
     {
-      "Manifests": 2352,
+      "Manifests": 2354,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2026-07-28T17:16:57+08:00"
+      "Updated": "2026-07-31T08:58:04+08:00"
     },
     {
       "Manifests": 593,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2026-07-28T14:45:28+08:00"
+      "Updated": "2026-07-31T05:37:20+08:00"
     },
     {
       "Manifests": 132,
       "Name": "nonportable",
       "Source": "https://github.com/ScoopInstaller/Nonportable",
-      "Updated": "2026-07-28T05:32:11+08:00"
+      "Updated": "2026-07-30T22:37:18+08:00"
     },
     {
-      "Manifests": 414,
+      "Manifests": 416,
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2026-07-28T14:42:31+08:00"
+      "Updated": "2026-07-31T05:34:05+08:00"
     },
     {
       "Manifests": 38,
       "Name": "le-bucket",
       "Source": "https://github.com/NSPC911/le-bucket",
-      "Updated": "2026-07-28T14:44:31+08:00"
+      "Updated": "2026-07-31T01:52:22+08:00"
     }
   ],
   "config": {

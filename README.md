@@ -71,7 +71,7 @@ helix
 ansible-lint v26.6.0
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.22.0
+mistral-vibe v2.23.2
 poethepoet v0.48.0
 poetry v2.4.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
@@ -79,7 +79,7 @@ pyright v1.1.411
 pytrash v0.4.0
 rich-cli v1.8.1
 rovr v0.10.0rc1 [required:  git+https://github.com/NSPC911/rovr]
-ruff v0.16.0
+ruff v0.16.1
 ty v0.0.49 [required: ==0.0.49]
 ```
 
@@ -91,7 +91,7 @@ ty v0.0.49 [required: ==0.0.49]
 ```
 @astrojs/language-server@2.16.13
 @fsouza/prettierd@0.27.0
-@github/copilot@1.0.75
+@github/copilot@1.0.76
 @google/gemini-cli@0.43.0
 corepack@0.35.0
 live-server@1.2.2
@@ -143,17 +143,17 @@ vscode-langservers-extracted@4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     58         6465         6464            0            1
+ JSON                     58         6410         6409            0            1
  CSS                      11         3917         3188          254          475
  TOML                     11         1698         1404          167          127
- PowerShell                4         1167         1017           58           92
+ PowerShell                4         1160         1013           57           90
  YAML                      5         1160         1042           52           66
  Scheme                    6          962          841           26           95
  INI                       1          687          170          414          103
- Lua                       1          252          227           12           13
+ Lua                       1          258          232           11           15
  Markdown                 10          231            0          176           55
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   107        16539        14353         1159         1027
+ Total                   107        16483        14299         1157         1027
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
