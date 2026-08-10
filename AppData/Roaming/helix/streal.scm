@@ -6,8 +6,10 @@
 (struct StrealState (paths mode) #:mutable)
 
 (define keymap-help '("<space>" "Add / remove current file"
+                      "a"       "Add current file"
                       "1..9"    "Open file"
-                      "<esc>, q"  "Close popup"
+                      "<esc>"   "Close popup"
+                      "q"       "Close popup"
                       "k"       "Open in horizontal split"
                       "l"       "Open in vertical split"
                       "d"       "Delete mode"
@@ -207,15 +209,22 @@
               event-result/close)))]
       [(eqv? char #\space)
         (if current-path
-            (begin
-              (if (member current-path paths)
-                  (remove-path paths current-path)
-                  (write-paths (append paths (list current-path)))
-                )
-              event-result/close)
-            (begin
-              (helix.echo "No path to save")
-              event-result/consume))]
+          (begin
+            (if (member current-path paths)
+                (remove-path paths current-path)
+                (write-paths (append paths (list current-path)))
+              )
+            event-result/close)
+          (begin
+            (helix.echo "No path to save")
+            event-result/consume))]
+      [(eqv? char #\a)
+        (if current-path
+          (begin
+            (if (not (member current-path paths))
+                (write-paths (append paths (list current-path)))
+            )
+          event-result/close))]
       [(eqv? char #\e)
         (switch-or-open (construct-path) mode)
         event-result/close]

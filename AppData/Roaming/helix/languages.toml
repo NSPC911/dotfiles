@@ -32,7 +32,7 @@ reportUndefinedVariable = "none"
 reportMissingImports = "none"
 
 # requires: https://github.com/Automattic/harper
-[language-server.harper]
+[language-server.harper-ls]
 command = "harper-ls"
 args = ["--stdio"]
 
@@ -142,7 +142,6 @@ language-servers = [
     "rename-symbol",
   ] },
   "ruff",
-  { name = "helix-gpt", only-features = ["code-action"] },
 ]
 auto-format = true
 roots = ["pyproject.toml", "requirements.txt", "poetry.lock", "uv.lock"]
@@ -166,7 +165,7 @@ auto-format = true
 
 [[language]]
 name = "javascript"
-formatter = { command = "prettierd", args = [".js"] }
+formatter = { command = "pretterd", args = [".js"] }
 language-servers = ["oxfmt", "typescript-language-server"]
 auto-format = true
 

@@ -1,14 +1,16 @@
-#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.0rc1/src/rovr/config/schema.json
+#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.1/src/rovr/config/schema.json
 
 [interface]
 truncate_progress_file_path = true
 nerd_font = true
 show_line_numbers = true
 show_hidden_files = true
+details_list = [
+  { type = "git" }
+]
 
 [settings.preview_rules]
 "application/java-archive" = "archive"
-"audio/x-mod" = "remime"
 
 [theme]
 transparent = true
@@ -16,6 +18,11 @@ transparent = true
 [metadata]
 filesize_suffix = "decimal"
 filesize_decimals = 2
+
+[[icons.files]]
+icon = ""
+color = "#6d8086"
+pattern = "*.kdl"
 
 [keybinds]
 new = ["n"]

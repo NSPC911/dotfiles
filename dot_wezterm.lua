@@ -26,7 +26,7 @@ config.font_size = 11.5
 config.front_end = "WebGpu"
 config.webgpu_power_preference = "LowPower"
 
-config.swallow_mouse_click_on_pane_focus = false
+config.swallow_mouse_click_on_pane_focus = true
 
 config.default_prog = { "pwsh", "-NoLogo" }
 -- config.default_prog = { "nu" }
@@ -202,6 +202,14 @@ local function weztermOrWorkspace()
 	end
 end
 
+local function get_process_title(tab)
+  local title = tab.tab_title
+  if title and #title > 0 then
+    return title .. " "
+  end
+  return tab.active_pane.title .. " "
+end
+
 tabline.setup({
 	options = {
 		icons_enabled = true,
@@ -216,7 +224,7 @@ tabline.setup({
 			tab = {
 				active = { fg = "#2e3440", bg = "#88c0d0" },
 				inactive = { fg = "#eceff4", bg = "rgba(59, 66, 82, 0)" },
-				inactive_hover = { fg = "#b48ead", bg = "rgba(46, 52, 64, 0)" },
+				inactive_hover = { fg = "#b48ead", bg = "rgba(59, 66, 82, 0)" },
 			}
 		},
 	},
@@ -230,10 +238,11 @@ tabline.setup({
 				"index",
 				padding = 0
 			},
-			"]",
+			"] ",
+			get_process_title,
 			{
-				"process",
-				icons_enabled = false
+				"zoomed",
+				padding = 0
 			}
 		},
 		tab_inactive = {
@@ -243,11 +252,12 @@ tabline.setup({
 				"index",
 				padding = 0
 			},
-			"]",
+			"] ",
+			get_process_title,
 			{
-				"process",
-				icons_enabled = false
-			},
+				"zoomed",
+				padding = 0
+			}
 		},
 		tabline_x = {},
 		tabline_y = {},

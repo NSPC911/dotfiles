@@ -1,109 +1,118 @@
-#:schema https://zakj.github.io/helix-theme-schema/theme.json
 # From https://github.com/5-pebbles/nordic-helix
 
-# Syntax Highlighting
-"attribute" = { fg = "yellow_base" }
-"constructor" = { fg = "cyan_bright" }
-"label" = { fg = "orange_base", modifiers = ["bold"] }
-"operator" = { fg = "white0" }
-"tag" = { fg = "blue1" }
-"namespace" = { fg = "yellow_dim" }
-"special" = { fg = "orange_base" }
-# types
-"type" = { fg = "yellow_bright" }
-# constants
-"constant" = { fg = "magenta_bright" }
-"constant.character" = { fg = "green_base" }
-"constant.character.escape" = { fg = "magenta_bright" }
-# string
-"string" = { fg = "green_base" }
-"string.regex" = { fg = "magenta_bright" }
-# variables
-"variable" = { fg = "white0" }
-"variable.builtin" = { fg = "blue0" }
-"variable.parameter" = { fg = "whiteblue0" }
-"variable.other.member" = { fg = "cyan_bright" }
-# functions
-"function" = { fg = "blue2" }
-"function.macro" = { fg = "red_base" }
-# punctuations
-"punctuation.delimiter" = { fg = "gray5", modifiers = ["italic"] }
-"punctuation.special" = { fg = "orange_base" }
-"punctuation.bracket" = { fg = "cyan_bright" }
-# comments
+"attribute" = "yellow_base"
 "comment" = { fg = "gray8", modifiers = ["italic"] } # gray4 is unreadable
-# keywords
-"keyword" = { fg = "orange_base" }
+
+"constant" = "magenta_bright"
+"constant.builtin" = "magenta_base"
+"constant.builtin.boolean" = "magenta_base"
+"constant.builtin.character" = "magenta_base"
+"constant.builtin.macro" = "magenta_base"
+"constant.builtin.numeric" = "magenta_base"
+"constant.character" = "green_base"
+"constant.character.escape" = "magenta_bright"
+"constructor" = "cyan_bright"
+
+"diagnostic.deprecated" = { modifiers = ["dim"] }
+"diagnostic.error" = { underline = { color = "red_base", style = "curl" } }
+"error" = "red_bright"
+"diagnostic.hint" = { underline = { color = "green_base", style = "curl" } }
+"hint" = "green_base"
+"diagnostic.info" = { underline = { color = "blue1", style = "curl" } }
+"info" = "blue1"
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.warning" = { underline = { color = "yellow_base", style = "curl" } }
+"warning" = "yellow_base"
+
+"diff.delta" = "blue0"
+"diff.minus" = "red_base"
+"diff.plus" = "green_base"
+
+"function" = "blue2"
+"function.builtin" = "blue1"
+"function.method" = "blue2"
+"function.macro" = "red_base"
+"function.special" = "blue1"
+
+"git.delta.moved" = { bg = "blue2" }
+
+"keyword" = "orange_base"
 "keyword.control.conditional" = { fg = "orange_bright", modifiers = ["bold"] }
-"keyword.control.repeat" = { fg = "orange_base", modifiers = ["bold"] }
+"keyword.control.exception" = "red_dim"
 "keyword.control.import" = { fg = "green_base", modifiers = ["bold"] }
-"keyword.control.return" = { fg = "gray6" }
-"keyword.control.exception" = { fg = "red_dim" }
-"keyword.operator" = { fg = "yellow_dim" }
-"keyword.function" = { fg = "orange_dim" }
-# Markup Formatting
+"keyword.control.repeat" = { fg = "orange_base", modifiers = ["bold"] }
+"keyword.control.return" = "gray6"
+"keyword.function" = "orange_dim"
+"keyword.operator" = "yellow_dim"
+
+"label" = { fg = "orange_base", modifiers = ["bold"] }
+
+"markup.bold" = { modifiers = ["bold"] }
 "markup.heading.1" = { fg = "yellow_bright", modifiers = ["bold", "underlined"] }
 "markup.heading.2" = { fg = "orange_bright", modifiers = ["bold"] }
 "markup.heading.3" = { fg = "magenta_bright", modifiers = ["bold"] }
-"markup.heading.4" = { fg = "green_bright" }
+"markup.heading.4" = "green_bright"
 "markup.heading.5" = { fg = "blue2", modifiers = ["italic"] }
 "markup.heading.6" = { fg = "cyan_bright", modifiers = ["italic"] }
-"markup.bold" = { modifiers = ["bold"] }
 "markup.italic" = { modifiers = ["italic"] }
-"markup.strikethrough" = { modifiers = ["crossed_out"] }
-"markup.list" = { fg = "orange_base" }
-"markup.list.checked" = { fg = "green_base" }
-"markup.list.unchecked" = { fg = "red_base" }
-"markup.link.url" = { fg = "blue1", modifiers = ["underlined"] }
 "markup.link.label" = { fg = "blue2", modifiers = ["underlined"] }
-"markup.link.text" = { fg = "magenta_dim" }
+"markup.link.text" = "magenta_dim"
+"markup.link.url" = { fg = "blue1", modifiers = ["underlined"] }
+"markup.list" = "orange_base"
+"markup.list.checked" = "green_base"
+"markup.list.unchecked" = "red_base"
 "markup.quote" = { fg = "gray4", modifiers = ["italic"] }
 "markup.raw" = { bg = "black0", fg = "white2" }
 "markup.raw.block" = { bg = "black0", fg = "white2" }
 "markup.raw.inline" = { bg = "black0", fg = "white2" }
-# Diffs
-"diff.plus" = { fg = "green_base" }
-"diff.minus" = { fg = "red_base" }
-"diff.delta" = { fg = "blue0" }
-"git.delta.moved" = { bg = "blue2" }
-# UI
-"ui.cursor" = { fg = "black0", bg = "white0" }
-"ui.cursor.primary" = { fg = "black1", bg = "white0" }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+
+"namespace" = "yellow_dim"
+"operator" = "white0"
+
+"punctuation.bracket" = "cyan_bright"
+"punctuation.delimiter" = { fg = "gray5", modifiers = ["italic"] }
+"punctuation.special" = "orange_base"
+
+"special" = "orange_base"
+"string" = "green_base"
+"string.regex" = "magenta_bright"
+
+"tag" = "blue1"
+"type" = "yellow_bright"
+
 "ui.background" = {}
 "ui.bufferline" = {}
+# "ui.bufferline.inactive" = { modifiers = ["reversed"], fg = "gray6", bg = "white1" }
 "ui.bufferline.active" = { modifiers = ["reversed"] }
+"ui.cursor" = { fg = "black0", bg = "white0" }
 "ui.cursor.match" = { bg = "gray4" }
-"ui.linenr" = { fg = "gray6" }
-"ui.linenr.selected" = { fg = "white3" }
+"ui.cursor.primary" = { fg = "black1", bg = "white0" }
+"ui.cursorline.primary" = { bg = "gray0" }
 "ui.gutter.selected" = { bg = "black0" }
+"ui.help" = {}
+"ui.linenr" = "gray6"
+"ui.linenr.selected" = "white3"
+"ui.menu" = {}
+"ui.menu.scroll" = { fg = "white1", bg = "gray0" }
+"ui.menu.selected" = { modifiers = ["underlined"] }
 "ui.popup" = {}
 "ui.popup.info" = {}
-"ui.window" = {}
-"ui.help" = {}
-"ui.text.focus" = { bg = "gray2" }
-"ui.menu" = {}
-"ui.menu.selected" = { modifiers = ["underlined"] }
-"ui.menu.scroll" = { fg = "white1", bg = "gray0" }
 "ui.selection" = { bg = "gray4" }
-"ui.cursorline.primary" = { bg = "gray0" }
+"ui.text.focus" = { bg = "gray2" }
+
 # virtual stuff
-"ui.virtual.ruler" = { bg = "gray1" }
-"ui.virtual.indent-guide" = { fg = "gray5" }
+"ui.virtual.indent-guide" = "gray5"
 "ui.virtual.inlay-hint" = { fg = "gray8", modifiers = ["dim"] }
 "ui.virtual.jump-label" = { fg = "cyan_base", modifiers = ["reversed"] }
-"ui.virtual.wrap" = { fg = "gray4" }
+"ui.virtual.ruler" = { bg = "gray1" }
 "ui.virtual.whitespace" = {}
-# Diagnostic Messages
-"error" = { fg = "red_bright" }
-"warning" = { fg = "yellow_base" }
-"info" = { fg = "blue1" }
-"hint" = { fg = "green_base" }
-"diagnostic.error" = { underline = { color = "red_base", style = "curl" } }
-"diagnostic.warning" = { underline = { color = "yellow_base", style = "curl" } }
-"diagnostic.info" = { underline = { color = "blue1", style = "curl" } }
-"diagnostic.hint" = { underline = { color = "green_base", style = "curl" } }
-"diagnostic.unnecessary" = { modifiers = ["dim"] }
-"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+"ui.virtual.wrap" = "gray4"
+"ui.window" = {}
+"variable" = "white0"
+"variable.builtin" = "blue0"
+"variable.other.member" = "cyan_bright"
+"variable.parameter" = "whiteblue0"
 # statusline
 "ui.statusline" = { bg = "black2" }
 "ui.statusline.inactive" = { bg = "black0" }
@@ -113,32 +122,33 @@
 # Requires PR:13666
 ## left
 "ui.statusline.version-control" = { bg = "green_bright", fg = "black1" }
-"ui.statusline.file-type" = { fg = "white2" }
-"ui.statusline.file-name" = { fg = "white2" }
+"ui.statusline.file-type" = "white2"
+"ui.statusline.file-name" = "white2"
 "ui.statusline.file-modification-indicator" = { fg = "red_bright", modifiers = ["bold"] }
-"ui.statusline.file-encoding" = { fg = "black0" }
-"ui.statusline.register" = { fg = "magenta_bright" }
+"ui.statusline.file-encoding" = "black0"
+"ui.statusline.register" = "magenta_bright"
 ## right
-"ui.statusline.diagnostics" = { fg = "red_bright" }
-"ui.statusline.workspace-diagnostics" = { fg = "orange_bright" }
-"ui.statusline.position" = { fg = "yellow_bright" }
-"ui.statusline.primary-selection-length" = { fg = "green_bright" }
-"ui.statusline.selections" = { fg = "blue2" }
-"ui.statusline.total-line-numbers" = { fg = "magenta_bright" }
+"ui.statusline.diagnostics" = "red_bright"
+"ui.statusline.workspace-diagnostics" = "orange_bright"
+"ui.statusline.position" = "yellow_bright"
+"ui.statusline.primary-selection-length" = "green_bright"
+"ui.statusline.selections" = "blue2"
+"ui.statusline.total-line-numbers" = "magenta_bright"
 ## inactive left
-"ui.statusline.inactive.version-control" = { fg = "green_dim" }
-"ui.statusline.inactive.file-name" = { fg = "white0" }
-"ui.statusline.inactive.file-type" = { fg = "white0" }
+"ui.statusline.inactive.version-control" = "green_dim"
+"ui.statusline.inactive.file-name" = "white0"
+"ui.statusline.inactive.file-type" = "white0"
 "ui.statusline.inactive.file-modification-indicator" = { fg = "red_dim", modifiers = ["bold"] }
 "ui.statusline.inactive.file-encoding" = { bg = "white0", fg = "black0" }
 ## inactive right
-"ui.statusline.inactive.register" = { fg = "magenta_bright" }
-"ui.statusline.inactive.diagnostics" = { fg = "red_dim" }
-"ui.statusline.inactive.workspace-diagnostics" = { fg = "orange_dim" }
-"ui.statusline.inactive.position" = { fg = "yellow_dim" }
-"ui.statusline.inactive.primary-selection-length" = { fg = "green_dim" }
-"ui.statusline.inactive.selections" = { fg = "blue0" }
-"ui.statusline.inactive.total-line-numbers" = { fg = "magenta_dim" }
+"ui.statusline.inactive.register" = "magenta_bright"
+"ui.statusline.inactive.diagnostics" = "red_dim"
+"ui.statusline.inactive.workspace-diagnostics" = "orange_dim"
+"ui.statusline.inactive.position" = "yellow_dim"
+"ui.statusline.inactive.primary-selection-length" = "green_dim"
+"ui.statusline.inactive.selections" = "blue0"
+"ui.statusline.inactive.total-line-numbers" = "magenta_dim"
+rainbow = ["red_base", "orange_base", "yellow_base", "green_base", "cyan_base", "blue1", "magenta_base"]
 
 # Color Palette
 [palette]

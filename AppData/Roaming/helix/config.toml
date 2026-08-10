@@ -90,12 +90,12 @@ C-o = "no_op"
 
 # goto mode (why is there two versions)
 [keys.normal.g]
-i = ":page-up-smooth"
-# i = "page_cursor_up"
+# i = ":page-up-smooth"
+i = "page_cursor_up"
 j = "goto_first_nonwhitespace"
 J = "goto_line_start"
-k = ":page-down-smooth"
-# k = "page_cursor_down"
+# k = ":page-down-smooth"
+k = "page_cursor_down"
 K = "goto_last_line"
 L = "goto_line_end_newline"
 l = "goto_line_end"
@@ -523,7 +523,7 @@ C-S-s = ":wa"
 A-i = "move_visual_line_up"
 A-j = "move_char_left"
 A-k = "move_visual_line_down"
-A-l = ["inline_completion_accept", "move_char_right"]
+A-l = "move_char_right"
 C-z = "undo"
 C-y = "redo"
 C-f = "search"
@@ -567,7 +567,10 @@ kitty-keyboard-protocol = "enabled"
 rounded-corners = true
 word-completion.trigger-length = 1
 gutters.line-numbers.min-width = 4 # enough for 9999 lines
-smart-tab.enable = true
+
+[editor.smart-tab]
+enable = true
+accept-inline-completion = true
 
 [editor.file-picker]
 hidden = false
@@ -619,7 +622,7 @@ display-progress-messages = true
 
 [editor.soft-wrap]
 enable = false
-wrap-indicator = "󱞶 "
+wrap-indicator = "󱞶"
 
 [editor.whitespace]
 nbsp = "all"
@@ -627,11 +630,9 @@ nnbsp = "all"
 
 [icons]
 fs.enable = true
+ui.virtual.wrap = " 󱞶 "
+ui.workspace = " W"
 kind.enable = true
-
-[icons.ui]
-workspace = " W"
-virtual.wrap = "󱞶"
 
 [icons.vcs]
 enable = true

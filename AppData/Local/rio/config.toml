@@ -15,7 +15,7 @@ border-radius = 3 # Corner radius (0 = sharp)
 # placeholder = ""
 
 [effects]
-trail-cursor = false
+trail-cursor = true
 
 [editor]
 program = "hx"
