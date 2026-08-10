@@ -745,7 +745,7 @@
         {
           "id": "spacer",
           "enabled": true,
-          "size": 31
+          "size": 27
         }
       ],
       "spacing": -1,
@@ -762,7 +762,7 @@
       "borderColor": "primary",
       "borderOpacity": 1,
       "borderThickness": 2,
-      "widgetOutlineEnabled": false,
+      "widgetOutlineEnabled": true,
       "widgetOutlineColor": "primary",
       "widgetOutlineOpacity": 1,
       "widgetOutlineThickness": 2,

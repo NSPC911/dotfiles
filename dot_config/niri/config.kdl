@@ -1,15 +1,10 @@
-// Niri configuration for CachyOS
-// For documentation and full reference, see: https://github.com/YaLTeR/niri/wiki
-
-// ────────────── Input Configuration ──────────────
+// -------------- Input Configuration --------------
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 
 input {
     keyboard {
-        xkb {
-            layout "us" // Use the German keyboard layout
-        }
-        numlock // Enable numlock on startup
+        xkb { layout "us"; }
+        numlock
         repeat-delay 300
         repeat-rate 25
     }
@@ -22,13 +17,13 @@ input {
         natural-scroll
     }
 
-    focus-follows-mouse max-scroll-amount="0%" // Automatically focus windows under the mouse pointer
+    // Automatically focus windows under the mouse pointer
+    focus-follows-mouse max-scroll-amount="0%"
     warp-mouse-to-focus
-    workspace-auto-back-and-forth // Enable workspace back & forth switching
+    // Enable workspace back & forth switching
+    workspace-auto-back-and-forth
 
-    mouse {
-        accel-speed 0.5
-    }
+    mouse { accel-speed 0.5; }
     tablet {
         // Scale bottom right 50% of tablet to full screen
         // calibration-matrix 2.0 0.0 -1.0 0.0 2.0 -1.0
@@ -36,50 +31,40 @@ input {
         // calibration-matrix 3.0 0.0 -1.875 0.0 2.0 -1.0
         // Scale to 33% in bottom right padded corner i guess?
         calibration-matrix 3.0 0.0 -1.75 0.0 4.0 -1.75
-    }
-    touch {
         map-to-output "eDP-1"
     }
+    touch { map-to-output "eDP-1"; }
 }
 
-// ────────────── Output Configuration ──────────────
-// You can run `niri msg outputs` to get the correct name for your displays.
-// You will have to remove "/-" and edit it before it takes effect.
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-
-// ────────────── Keybindings ──────────────
+// -------------- Keybindings --------------
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
 
 binds {
-    MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
+    MOD+SHIFT+ESCAPE                    { show-hotkey-overlay; }
 
-    // ─── Applications ───
-    MOD+RETURN hotkey-overlay-title="Open Terminal: wezterm"         { spawn-sh "wezterm"; }
-    MOD+SHIFT+RETURN hotkey-overlay-title="Open Terminal: kitty"     { spawn-sh "kitty"; }
-    MOD+CTRL+RETURN hotkey-overlay-title="Open Terminal: ghostty"     { spawn-sh "ghostty"; }
-    MOD+SPACE hotkey-overlay-title="Open App List: dms" { spawn-sh "dms ipc spotlight-bar toggle"; }
-    MOD+S     hotkey-overlay-title="Open App Launcher: dms" { spawn-sh "dms ipc spotlight toggle"; }
-    // MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen"; }
-    // MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
-    MOD+SHIFT+L hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call powermenu toggle"; }
-    // MOD+L       hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call lock lock"; }
+    // --- Applications ---
+    MOD+RETURN           hotkey-overlay-title="Open Terminal: wezterm" { spawn-sh "wezterm"; }
+    MOD+SHIFT+RETURN     hotkey-overlay-title="Open Terminal: kitty"   { spawn-sh "kitty"; }
+    MOD+CTRL+RETURN      hotkey-overlay-title="Open Terminal: ghostty" { spawn-sh "ghostty"; }
+    MOD+SPACE            hotkey-overlay-title="Open App List: dms"     { spawn-sh "dms ipc spotlight-bar toggle"; }
+    MOD+S                hotkey-overlay-title="Open App Launcher: dms" { spawn-sh "dms ipc spotlight toggle"; }
+    MOD+SHIFT+L          hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call powermenu toggle"; }
+    MOD+L                hotkey-overlay-title="Show DMS Power Menu"    { spawn-sh "dms ipc call lock lock"; }
+    MOD+E                hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
 
-    // Please choose your own file manager
-    MOD+E hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
-
-    // ─── Audio Controls ───
+    // --- Audio Controls ---
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
-    XF86AudioPause       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioRaiseVolume  allow-when-locked=true  { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    XF86AudioLowerVolume  allow-when-locked=true  { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    XF86AudioMute         allow-when-locked=true  { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute      allow-when-locked=true  { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioNext         allow-when-locked=true  { spawn-sh "playerctl next"; }
+    XF86AudioPause        allow-when-locked=true  { spawn-sh "playerctl play-pause"; }
+    XF86AudioPlay         allow-when-locked=true  { spawn-sh "playerctl play-pause"; }
+    XF86AudioPrev         allow-when-locked=true  { spawn-sh "playerctl previous"; }
 
-    // ─── Window Movement and Focus ───
+    // --- Window Movement and Focus ---
     MOD+Q                               { close-window; }
 
     MOD+LEFT                            { focus-column-left; }
@@ -105,7 +90,7 @@ binds {
     MOD+SHIFT+CTRL+COMMA                { move-column-to-monitor-up; }
     MOD+SHIFT+CTRL+PERIOD               { move-column-to-monitor-down; }
 
-    // ─── Workspace Switching ───
+    // --- Workspace Switching ---
     MOD+WHEELSCROLLDOWN                 { focus-workspace-down; }
     MOD+WHEELSCROLLUP                   { focus-workspace-up; }
     MOD+CTRL+WHEELSCROLLDOWN            { move-column-to-workspace-down; }
@@ -140,21 +125,21 @@ binds {
 
     MOD+D                               { focus-workspace-previous; }
 
-    // ─── Layout Controls ───
-    MOD+C                               { center-column; }
-    MOD+CTRL+C                          { center-visible-columns; }
-    MOD+MINUS         cooldown-ms=125   { set-column-width "-10%"; }
-    MOD+EQUAL         cooldown-ms=125   { set-column-width "+10%"; }
-    MOD+CTRL+MINUS    cooldown-ms=125   { set-column-width "-1%"; }
-    MOD+CTRL+EQUAL    cooldown-ms=125   { set-column-width "+1%"; }
-    MOD+SHIFT+MINUS   cooldown-ms=125   { set-window-height "-10%"; }
-    MOD+SHIFT+EQUAL   cooldown-ms=125   { set-window-height "+10%"; }
+    // --- Layout Controls ---
+    MOD+C                                   { center-column; }
+    MOD+CTRL+C                              { spawn-sh "pwsh -nop -c ~/.config/niri/niri-toggle-centered.ps1"; }
+    MOD+MINUS             cooldown-ms=125   { set-column-width "-10%"; }
+    MOD+EQUAL             cooldown-ms=125   { set-column-width "+10%"; }
+    MOD+CTRL+MINUS        cooldown-ms=125   { set-column-width "-1%"; }
+    MOD+CTRL+EQUAL        cooldown-ms=125   { set-column-width "+1%"; }
+    MOD+SHIFT+MINUS       cooldown-ms=125   { set-window-height "-10%"; }
+    MOD+SHIFT+EQUAL       cooldown-ms=125   { set-window-height "+10%"; }
     MOD+SHIFT+CTRL+MINUS  cooldown-ms=125   { set-window-height "-1%"; }
     MOD+SHIFT+CTRL+EQUAL  cooldown-ms=125   { set-window-height "+1%"; }
 
     MOD+M                               { switch-preset-column-width; }
 
-    // ─── Modes ───
+    // --- Modes ---
     MOD+T                               { toggle-window-floating; }
     MOD+W                               { toggle-column-tabbed-display; }
     MOD+F                               { maximize-column; }
@@ -163,19 +148,19 @@ binds {
     MOD+bracketright                    { switch-focus-between-floating-and-tiling; }
     MOD+bracketleft                     { switch-focus-between-floating-and-tiling; }
 
-    // ─── Screenshots ───
-    MOD+CTRL+S                         { screenshot; }
+    // --- Screenshots ---
+    MOD+CTRL+S                          { screenshot; }
     // MOD+SHIFT+P                         { spawn-sh "dms screenshot"; }
-    MOD+SHIFT+S                          { spawn-sh "grim -g \"$(slurp -b '#2e34407f' -c '#88c0d0')\" - | waytator"; }
+    MOD+SHIFT+S                         { spawn-sh "grim -g \"$(slurp -b '#2e34407f' -c '#88c0d0')\" - | waytator"; }
 
-    // ─── Emergency Escape Key ───
+    // --- Emergency Escape Key ---
     // Use this when a fullscreen app blocks your keybinds.
     // It disables any active keyboard shortcut inhibitor, restoring control.
     MOD+ESCAPE allow-inhibiting=false   { toggle-keyboard-shortcuts-inhibit; }
 
-    // ─── Exit / Power ───
+    // --- Exit / Power ---
     CTRL+ALT+DELETE                     { quit; }
-    MOD+O repeat=false                  { toggle-overview; }
+    MOD+Tab repeat=false                { toggle-overview; }
     // brightness fixer
     XF86MonBrightnessDown               { spawn-sh "bright down"; }
     XF86MonBrightnessUp                 { spawn-sh "bright up"; }
@@ -192,27 +177,11 @@ binds {
     CTRL+ALT+R                          { spawn "dms" "ipc" "call" "screenRecorder" "toggleRecording"; }
 }
 
-// ────────────── Startup Applications ──────────────
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
-
-spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
-// spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
-// spawn-sh-at-startup "swww img /usr/share/wallpapers/cachyos-wallpapers/Skyscraper.png" // Set wallpaper
-
-prefer-no-csd // Disable program decorations
-
-cursor {
-    xcursor-theme "Bibata-Modern-Classic"
-    xcursor-size 24
-}
-
-// ────────────── Layout Settings ──────────────
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+// -------------- Layer Rules --------------
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layer-Rules
 
 layer-rule {
-    background-effect {
-        xray false
-    }
+    background-effect { xray false; }
 }
 
 layer-rule {
@@ -238,26 +207,21 @@ layer-rule {
     baba-is-float true
 }
 
-overview {
-    zoom 0.5
-    // backdrop-color "#2e3440"
-    backdrop-color "transparent"
-    workspace-shadow {
-        on
-    }
-}
+// -------------- Layout --------------
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 
 layout {
-    gaps 4 // Gap between windows
-    // center-focused-column "always" // Don’t auto-center focused column
-    center-focused-column "on-overflow"
+    gaps 4
+    // center-focused-column "always"
+    // center-focused-column "on-overflow"
     background-color "transparent"
+
     // empty-workspace-above-first
     always-center-single-column
 
     preset-column-widths {
         proportion 0.25
-        proportion 0.5
+        proportion 0.4997
         proportion 0.75
         proportion 1.0
     }
@@ -269,20 +233,10 @@ layout {
         inactive-color "#4c566a"
         urgent-color "#bf616a"
     }
-    focus-ring {
-        off
-        width 3
-        active-color "#88c0d0"
-        // inactive-color "#000000"
-    }
 
-    shadow {
-        off
-        softness 30
-        spread 0
-        offset x=0 y=5
-        color "#0007"
-    }
+    focus-ring { off; }
+
+    shadow { off; }
 
     struts {
         left 0
@@ -299,12 +253,13 @@ layout {
     }
 }
 
-// ────────────── Animation Settings ──────────────
+// -------------- Animation Settings ---------------
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+
 animations {
     workspace-switch {
         duration-ms 375
-        curve "cubic-bezier" 0 -0.5 0 1.125
+        curve "cubic-bezier" 0 -0.5 0 1.05
     }
     window-open {
         duration-ms 200
@@ -315,11 +270,11 @@ animations {
     }
     horizontal-view-movement {
         duration-ms 400
-        curve "cubic-bezier" 0.25 0.25 0 1.0675
+        curve "cubic-bezier" 0.25 0.25 0 1.05
     }
     window-movement {
         duration-ms 400
-        curve "cubic-bezier" 0.25 0.25 0 1.0675
+        curve "cubic-bezier" 0.25 0.25 0 1
     }
     window-resize {
         duration-ms 300
@@ -335,11 +290,11 @@ animations {
     }
     overview-open-close {
         duration-ms 400
-        curve "cubic-bezier" 0.25 0.25 0 1.0675
+        curve "cubic-bezier" 0.25 0.25 0 1
     }
 }
 
-// ────────────── Window Rules ──────────────
+// -------------- Window Rules --------------
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
 window-rule {
@@ -371,14 +326,16 @@ window-rule {
 
 window-rule {
     match app-id="vesktop"
+    match app-id="discord"
+    match app-id="steam"
     open-on-workspace "messages"
+    draw-border-with-background false
     open-focused false
     opacity 0.875
 }
 
 window-rule {
     match app-id="org.kde.elisa"
-    match app-id="steam"
     match app-id="com.danklinux.dms" title="Settings"
     match app-id="org.gnome.Nautilus"
     opacity 0.875
@@ -407,8 +364,19 @@ window-rule {
 }
 
 window-rule {
+    match title="meeting bottombar popup" app-id="zoom"
+    match title=r#"Participants \([^\)]\)"# app-id="zoom"
+    default-column-width { fixed 299; }
+    default-window-height { fixed 255; }
+    default-floating-position x=0 y=75 relative-to="bottom"
+    open-floating true
+    baba-is-float true
+}
+
+window-rule {
     match title="Vencord QuickCSS Editor"
     match app-id="org.gnome.Nautilus"
+    match app-id=r#"^dev\.faetalize\.waytator$"#
     open-floating true
 }
 
@@ -420,12 +388,7 @@ window-rule {
     }
 }
 
-window-rule {
-    match app-id=r#"^dev\.faetalize\.waytator$"#
-    open-floating true
-}
-
-// ────────────── Environment Variables ──────────────
+// -------------- Environment Variables --------------
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
 
 environment {
@@ -445,17 +408,49 @@ environment {
     FZF_DEFAULT_OPTS "--multi --separator \"-\" --preview \"bat --color always --number --theme Nord {}\" --color \"dark\" --style full:rounded --border none --margin \"0,1,0,1\" --color=spinner:#88c0d0,hl:#88c0d0 --color=fg:#d8dee9,header:#88c0d0,info:#88c0d0,pointer:#88c0d0 --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#88c0d0,hl+:#8fbcbb --color=selected-bg:#4c566a,bg+:#4c566a --color=border:#4c566a,label:#88c0d0"
 }
 
+prefer-no-csd
+
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 24
+}
+
+gestures {
+    hot-corners { off; }
+}
+
 hotkey-overlay {
     skip-at-startup
     hide-not-bound
 }
 
-// workspaces
 workspace "terminal"
 
 workspace "browser"
 
 workspace "messages"
+
+overview {
+    zoom 0.5
+    // backdrop-color "#2e3440"
+    backdrop-color "transparent"
+    workspace-shadow { on; }
+}
+
+config-notification { disable-failed; }
+
+clipboard { disable-primary; }
+
+blur {
+    passes 3
+    offset 2.5
+    noise 0.02
+    saturation 1.5
+}
+
+
+// -------------- Recent Windows --------------
+// https://niri-wm.github.io/niri/Configuration:-Recent-Windows.html
 
 recent-windows {
     debounce-ms 750
@@ -475,30 +470,20 @@ recent-windows {
     }
 
     binds {
-        Alt+Tab         { next-window; }
-        Alt+Shift+Tab   { previous-window; }
-        Alt+grave       { next-window filter="app-id"; }
-        Alt+Shift+grave { previous-window filter="app-id"; }
+        // Alt+Tab         { next-window; }
+        // Alt+Shift+Tab   { previous-window; }
+        // Alt+grave       { next-window filter="app-id"; }
+        // Alt+Shift+grave { previous-window filter="app-id"; }
 
-        Mod+Tab         { next-window; }
-        Mod+Shift+Tab   { previous-window; }
-        Mod+grave       { next-window filter="app-id"; }
-        Mod+Shift+grave { previous-window filter="app-id"; }
+        // Mod+Tab         { next-window; }
+        // Mod+Shift+Tab   { previous-window; }
+        // Mod+grave       { next-window filter="app-id"; }
+        // Mod+Shift+grave { previous-window filter="app-id"; }
     }
 }
 
-config-notification {
-    disable-failed
-}
-
-clipboard {
-    disable-primary
-}
-
-blur {
-    offset 2.5
-}
-
+// -------------- Startup Applications --------------
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 
 // spawn-at-startup "waybar"
 
@@ -511,10 +496,14 @@ blur {
 include "dms/cursor.kdl"
 include "dms/outputs.kdl"
 
+include "center-focused-column.kdl"
+
 spawn-at-startup "pkill" "kgpg"
 spawn-at-startup "linux-wallpaperengine" "--screen-root" "eDP-1" "--bg" "1176090049" "--scaling" "fill" "--screenshot" "~/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent"
 spawn-at-startup "linux-wallpaperengine" "--screen-root" "DP-3" "--bg" "1176090049" "--scaling" "fill" "--screenshot" "~/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent"
 spawn-sh-at-startup "swaybg --image ~/Pictures/Wallpapers/blurred_1176090049.png --output '*'"
+spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &"
+
 // spawn-at-startup "powershell" "-NoProfile" "/home/nspc911/.config/niri/niri-centered.ps1"
 // spawn-at-startup "ignis" "init"
 // spawn-at-startup "swww-daemon"

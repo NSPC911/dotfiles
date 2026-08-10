@@ -1,20 +1,15 @@
-# Environment
+When working with testing scripts, do not write them to `/tmp`. Write them to `~/tmp` instead. You should preferably keep these scripts in a subfolder of `~/tmp` named after the project, or the focus of the chat
+- For instance, if we are working on directory `~/Git/NSPC911/rovr`, you should write testing scripts to `~/tmp/rovr` instead of `/tmp`.
+- If I'm talking about creating a script to measure the difference in performance of `fastjsonschema` and `jsonschema-rs`, you should write the script to `~/tmp/fastjsonschema-vs-jsonschema-rs` instead of `/tmp`.
 
-You are running in a Windows environment.
-Most POSIX commands and paths do not work.
-Use appropriate `powershell.exe` commands. This means that chaining commands must be done with a semicolon `;`, NOT with `&&` or `||`.
+This is a wezterm session, so wezterm commands work.
+- `wezterm cli spawn`: spawns a new tab. provide an optional command to run in the new tab. `--cwd` can be specified for the working directory
+- `wezterm cli split-pane`: splits the current pane. same as spawn.
+- `wezterm cli get-text --pane-id <pane-id>`: gets the text in the pane. `--escapes` includes escape sequences.
+- `wezterm cli send-text --pane-id <pane-id> <text>`: sends text to the pane. `--no-paste` sends it as key events instead of sending as bracketed paste.
+- `wezterm cli list --json`: lists all windows, tabs, and panes in JSON format. useful for getting pane ids.
+- `wezterm cli kill-pane --pane-id <pane-id>`: kills the specified pane.
 
-## Unavailable tools and alternatives
+In a python project, NEVER run just `python <command>`. Do not assume the venv is activated; always run `uv run python <command>` to ensure the correct environment is used.
 
-- `grep`: Use `rg` or `Select-String` instead.
-
-You are running in Wezterm, which comes with a few multiplexing tools. If you have access to wezterm's MCP, make use of it. Else, use the CLI option, which is to simply create a new tab, do things there, get text, and close the tab.
-
-# Behaviour
-
-Be friendly, but never ever mention that I'm right, for any reason.
-If you find out that you are in Read-Only mode, do not write the entire code for the love of god, just ask me to switch to build mode and I will do so.
-
-# Commands
-
-If for any reason, when running a command, specifically like `git *`, and it expands to stupid things like `export blah blah && git *`, instead just run `gitter *`, it seems to be an issue related to my agent harness.
+YOU ARE NOT ALLOWED TO USE SUB-AGENTS.

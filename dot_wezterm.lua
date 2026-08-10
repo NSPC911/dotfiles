@@ -20,18 +20,24 @@ config.cell_width = 1
 -- blur handled by windhawk
 -- transparency can be changed by ctrl + shift + o
 config.window_background_opacity = 0.75
-config.prefer_egl = true
 config.font_size = 11.5
--- use only when screenshotting
--- config.font_size = 12.5
+-- config.enable_scroll_bar = true
 
-config.window_decorations = "NONE | RESIZE"
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "LowPower"
+
+config.swallow_mouse_click_on_pane_focus = true
+
 config.default_prog = { "pwsh", "-NoLogo" }
 -- config.default_prog = { "nu" }
 config.initial_cols = 80
 if wezterm.target_triple:find("linux") then
     config.window_decorations = "NONE"
 else
+	if wezterm.target_triple:find("windows") then
+		config.webgpu_preferred_adapter = wezterm.gui.enumerate_gpus()[1]
+		config.win32_system_backdrop = "Disable"
+	end
 	config.window_decorations = "NONE | RESIZE"
 end
 
@@ -187,27 +193,51 @@ config.colors = {
 
 -- Plugins
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+local function weztermOrWorkspace()
+	local active_workspace =  wezterm.mux.get_active_workspace()
+	if active_workspace == "default" then
+		return "  wezterm "
+	else
+		return "  " .. active_workspace .. " "
+	end
+end
+
+local function get_process_title(tab)
+	if wezterm.target_triple:find("windows") then
+		-- use exe itself
+		local proc_name = tab.active_pane.foreground_process_name
+		if proc_name then
+			return proc_name .. " "
+		end
+	end
+  local title = tab.tab_title
+  if title and #title > 0 then
+    return title .. " "
+  end
+  return tab.active_pane.title .. " "
+end
+
 tabline.setup({
 	options = {
 		icons_enabled = true,
 		theme = "nord",
 		tabs_enabled = true,
 		theme_overrides = {
-			normal_mode = { c = { bg = "rgba(46, 52, 64, 0)" } },
+			normal_mode = {
+				a = { bg = "rgb(136, 192, 208)" },
+				c = { bg = "rgba(46, 52, 64, 0)" }
+			},
 			copy_mode = {  c = { bg = "rgba(46, 52, 64, 0)" }  },
 			tab = {
-				active = { fg = "#2e3440", bg = "#81a1c1" },
-				inactive = { fg = "#eceff4", bg = "rgba(46, 52, 64, 0)" },
-				inactive_hover = { fg = "#b48ead", bg = "rgba(46, 52, 64, 0)" },
+				active = { fg = "#2e3440", bg = "#88c0d0" },
+				inactive = { fg = "#eceff4", bg = "rgba(59, 66, 82, 0)" },
+				inactive_hover = { fg = "#b48ead", bg = "rgba(59, 66, 82, 0)" },
 			}
 		},
 	},
 	sections = {
-		tabline_a = { "  wezterm " },
-		tabline_b = {
-			"datetime",
-			"battery"
-		},
+		tabline_a = { weztermOrWorkspace },
+		tabline_b = {},
 		tabline_c = {},
 		tab_active = {
 			" [",
@@ -215,24 +245,26 @@ tabline.setup({
 				"index",
 				padding = 0
 			},
-			"]",
+			"] ",
+			get_process_title,
 			{
-				"process",
-				icons_enabled = false
+				"zoomed",
+				padding = 0
 			}
 		},
 		tab_inactive = {
-			{ Background = { Color = "#2e3440" } },
+			{ Background = { Color = "#3b4252" } },
 			" [",
 			{
 				"index",
 				padding = 0
 			},
-			"]",
+			"] ",
+			get_process_title,
 			{
-				"process",
-				icons_enabled = false
-			},
+				"zoomed",
+				padding = 0
+			}
 		},
 		tabline_x = {},
 		tabline_y = {},

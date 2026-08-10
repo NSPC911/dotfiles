@@ -1,6 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "system",
   "autoupdate": false,
   "mcp": {},
   "formatter": {
@@ -46,8 +45,5 @@
       "extensions": [".toml"]
     }
   },
-  "plugin": ["opencode-wakatime"],
-  "keybinds": {
-    "terminal_suspend": "none"
-  }
+  "plugin": ["opencode-wakatime", "opencode-pty", "@dietrichgebert/ponytail"]
 }

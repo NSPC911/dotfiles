@@ -7,10 +7,8 @@ alsa-firmware
 alsa-plugins
 alsa-utils
 amdgpu-pro-oglp
-angelfish
 aria2
 ark
-audex
 audiocd-kio
 awesome-terminal-fonts
 base
@@ -52,13 +50,14 @@ cachyos-wallpapers
 cachyos-zsh-config
 calligra
 cantarell-fonts
-cantor
 capitaine-cursors
 carapace-bin
 cava
+cbonsai
 ccache
 chezmoi
 chwd
+cmatrix
 codebook-lsp
 colord-kde
 concord-bin
@@ -72,6 +71,7 @@ device-mapper
 dgop
 dhclient
 diffutils
+discord
 dmidecode
 dmraid
 dms-shell-git
@@ -86,6 +86,7 @@ duf
 e2fsprogs
 efibootmgr
 efitools
+elio-bin
 elisa
 ethtool
 evtest
@@ -106,7 +107,6 @@ foomatic-db-nonfree-ppds
 foomatic-db-ppds
 foot
 fprintd
-francis
 fsarchiver
 ghostscript
 ghostty
@@ -168,6 +168,7 @@ keyd
 kgpg
 khelpcenter
 kitty
+kmscon
 kvantum
 kvantum-theme-nordic-git
 lazygit
@@ -176,8 +177,6 @@ lib32-aalib
 lib32-cdparanoia
 lib32-flac
 lib32-glew
-lib32-gst-plugins-base-libs
-lib32-gstreamer
 lib32-libavc1394
 lib32-libcaca
 lib32-libdv
@@ -187,7 +186,6 @@ lib32-libraw1394
 lib32-libshout
 lib32-mesa
 lib32-opencl-mesa
-lib32-rust-libs
 lib32-sdl2-compat
 lib32-taglib
 lib32-twolame
@@ -217,6 +215,7 @@ linux-firmware
 linux-wallpaper-engine-ux
 linux-wallpaperengine-git
 lisgd
+litehtml0.9
 lldb
 localsend-bin
 logrotate
@@ -294,7 +293,6 @@ proton-ge-custom-bin
 pv
 python
 python-defusedxml
-python-ignis-git
 python-packaging
 python-pyqt5
 python-reportlab
@@ -312,6 +310,7 @@ rsync
 rtkit
 rustup
 s-nail
+sccache
 scooter
 scx-manager
 sddm
@@ -392,6 +391,7 @@ wtype
 wvkbd
 xclip
 xdg-desktop-portal-gnome
+xdg-desktop-portal-termfilechooser-boydaihungst-git
 xdg-desktop-portal-wlr
 xdg-user-dirs
 xf86-input-libinput

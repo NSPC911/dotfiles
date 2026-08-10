@@ -1,4 +1,4 @@
-global-language-servers = ["discord-rpc", "codebook"]
+global-language-servers = ["copilot", "discord-rpc", "codebook"]
 
 # requires: https://github.com/astral-sh/ruff
 [language-server.ruff]
@@ -142,7 +142,6 @@ language-servers = [
     "rename-symbol",
   ] },
   "ruff",
-  { name = "helix-gpt", only-features = ["code-action"] },
 ]
 auto-format = true
 roots = ["pyproject.toml", "requirements.txt", "poetry.lock", "uv.lock"]

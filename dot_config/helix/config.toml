@@ -523,7 +523,7 @@ C-S-s = ":wa"
 A-i = "move_visual_line_up"
 A-j = "move_char_left"
 A-k = "move_visual_line_down"
-A-l = ["inline_completion_accept", "move_char_right"]
+A-l = "move_char_right"
 C-z = "undo"
 C-y = "redo"
 C-f = "search"
@@ -567,7 +567,10 @@ kitty-keyboard-protocol = "enabled"
 rounded-corners = true
 word-completion.trigger-length = 1
 gutters.line-numbers.min-width = 4 # enough for 9999 lines
-smart-tab.enable = true
+
+[editor.smart-tab]
+enable = true
+accept-inline-completion = true
 
 [editor.file-picker]
 hidden = false

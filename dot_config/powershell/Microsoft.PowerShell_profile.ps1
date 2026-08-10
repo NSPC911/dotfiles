@@ -512,6 +512,25 @@ function chezcd {
     }
 }
 function chezedit { chezmoi edit --apply --watch $args }
+function config {
+    param(
+        [Parameter(Mandatory)][string]$app
+    )
+    switch ($app) {
+        "niri" { chezedit "~/.config/niri/config.kdl" }
+        "rovr" { chezedit "~/.config/rovr/" }
+        "helix" { chezedit "~/.config/helix/" }
+        "opencode" { chezedit "~/.config/opencode/opencode.json" }
+        "dms" { chezedit "~/.config/DankMaterialShell/settings.json" }
+        "pwsh" { chezedit $PROFILE }
+        "wezterm" { chezedit "~/.wezterm.lua" }
+        "kitty" { chezedit "~/.config/kitty/kitty.conf" }
+        default {
+            Write-Host "App not known, add it yourself"
+            hx "$($PROFILE):515"
+        }
+    }
+}
 function chezadd { chezmoi add $args }
 function chezgit { chezmoi git $args }
 function chezsync {
@@ -737,6 +756,13 @@ function wordle {
     }
 }
 
+function nf {
+    uv run --no-project --with nerdfont python -c @"
+import nerdfont
+for name, icon in nerdfont.icons.items():
+    print(icon, name)
+"@ 2>$null | fzf --ignore-case --style=minimal
+}
 ##### Other stuff #####
 Clear-Host
 function fetch {
