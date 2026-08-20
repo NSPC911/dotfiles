@@ -39,21 +39,21 @@ filters = []
 [keyboard]
 use-kitty-keyboard-protocol = true
 [fonts]
-family = "CaskaydiaCove Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Propo"
 use-drawable-characters = true
 size = 15
 [fonts.regular]
-family = "CaskaydiaCove Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Propo"
 weight = 400
 [fonts.bold]
-family = "CaskaydiaCove Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Propo"
 weight = 700
 [fonts.italic]
-family = "CaskaydiaCove Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Propo"
 style = "Italic"
 weight = 400
 [fonts.bold-italic]
-family = "CaskaydiaCove Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Propo"
 style = "Italic"
 weight = 700
 

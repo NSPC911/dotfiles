@@ -35,12 +35,12 @@ animations:
 
 gaps:
   scale_with_dpi: true
-  inner_gap: "10px"
+  inner_gap: "4px"
   outer_gap:
-    top: "8px"
-    right: "8px"
-    bottom: "8px"
-    left: "13px"
+    top: "4px"
+    right: "4px"
+    bottom: "4px"
+    left: "4px"
 
 window_effects:
   # Visual effects to apply to the focused window.

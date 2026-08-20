@@ -546,6 +546,7 @@ j = { k = "@f<esc><esc>" }
 
 # editor config
 [editor]
+title-format = "hx %{buffer_name}"
 scrolloff = 2
 scroll-lines = 1
 cursorline = true

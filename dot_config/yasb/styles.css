@@ -76,7 +76,8 @@ QPushButton {
 .brightness-menu,
 .calendar,
 .launchpad-container,
-.media-menu {
+.media-menu,
+.systray-popup {
   background-color: var(--main);
   border-radius: 8px;
   border: 3.25px solid var(--nord-cyan-base);
@@ -123,7 +124,6 @@ QPushButton {
 /* Brightness progress bar styles if enabled */
 .brightness-widget .progress-container {}
 
-
 .calendar .calendar-table {
   background-color: transparent;
   border-radius: 8px;
@@ -165,7 +165,7 @@ QPushButton {
   border-radius: 6px;
   color: transparent;
   height: 12px;
-  margin: 0 1px;
+  margin: 1px 1px;
   min-width: 12px;
   width: 12px;
 }
@@ -516,6 +516,10 @@ QPushButton {
   font-size: 12px;
 }
 
+.notification-widget .widget-container {
+  margin-right: 3px;
+}
+
 .power-menu-popup {
   background-color: var(--main-50p);
   border-radius: 12px;
@@ -611,6 +615,71 @@ QPushButton {
   border-color: var(--nord-cyan-base);
 }
 
+.systray .widget-container {
+  margin-right: -4px;
+}
+.systray .button {
+  background: transparent;
+  border: none;
+  margin: 2px;
+  cursor: pointer;
+}
+.systray-popup .button,
+.systray .unpinned-visibility-btn {
+  background: transparent;
+  border: none;
+  padding: 6px;
+}
+.systray .unpinned-visibility-btn {
+  margin-right: 4px;
+  cursor: pointer;
+}
+.systray .unpinned-visibility-btn:checked {
+  margin-right: 6px;
+}
+.systray-popup .button:hover {
+  border: 2px solid var(--nord-cyan-dim);
+  border-radius: 6px;
+}
+
+.systray-popup {
+  padding: 2px;
+}
+
+.taskbar-widget .app-container {
+  margin: 0px 2px;
+}
+.taskbar-preview {
+  border-radius: 8px;
+  background-color: #2b2c2d;
+  border: 2px solid var(--nord-cyan-base);
+}
+.taskbar-preview.flashing {
+  background-color: var(--nord-orange-dim);
+}
+.taskbar-preview .header {
+  padding-bottom: 8px;
+  padding-top: 0px;
+}
+.taskbar-preview .header .title {
+  color: #d6d6d6;
+  font-weight: 600;
+  font-size: 13px;
+}
+.taskbar-preview .close-button {
+  color: #999;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  min-width: 20px;
+  border-radius: 4px;
+  min-height: 20px;
+}
+.taskbar-preview .close-button:hover {
+  color: rgb(255, 255, 255);
+  background-color: var(--nord-red-bright);
+}
+
 .uptime {
   color: var(--nord-cyan-base);
   font-size: 14px;
@@ -648,6 +717,11 @@ QPushButton {
   border-radius: 6px;
   margin: 1px;
 }
+
+.yasb-bar .widget {
+  cursor: pointer;
+}
+
 .task-bar {
   margin-left: 56px;
   margin-bottom: 4px;

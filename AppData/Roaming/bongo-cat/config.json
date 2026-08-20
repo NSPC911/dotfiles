@@ -5,13 +5,15 @@
   "delay": 0.1,
   "width": 174,
   "height": 105,
-  "offset_from_bottom": -5,
+  "offset_from_bottom": -10,
   "offset_from_right": 9,
+  "click_through": true,
+  "force_on_taskbar": false,
   "fullscreen": {
     "show": true,
     "offset_from_bottom": -60,
     "use_offset_from_bottom": false,
-    "use_custom_cats": true,
+    "use_custom_cats": false,
     "cat_states": {
       "idle": "C:/Users/notso/AppData/Roaming/bongo-cat/cats/cat_idle_keyboard.png",
       "leftpaw": "C:/Users/notso/AppData/Roaming/bongo-cat/cats/cat_left_paw_keyboard.png",
@@ -22,6 +24,5 @@
     "idle": "C:/Users/notso/AppData/Roaming/bongo-cat/cats/cat_idle.png",
     "leftpaw": "C:/Users/notso/AppData/Roaming/bongo-cat/cats/cat_left_paw.png",
     "rightpaw": "C:/Users/notso/AppData/Roaming/bongo-cat/cats/cat_right_paw.png"
-  },
-  "click_through": true
+  }
 }

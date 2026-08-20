@@ -8,14 +8,13 @@ bars:
     screens: ["*"]
     class_name: "yasb-bar"
     alignment:
-      position: "top"
-      center: true
+      position: "bottom"
+      align: "center"
     animation:
       enabled: false
       duration: 1000
     blur_effect:
       enabled: false
-      acrylic: false
       dark_mode: true
       round_corners: true
       round_corners_type: "normal"
@@ -23,62 +22,37 @@ bars:
     window_flags:
       always_on_top: true
       windows_app_bar: true
-      hide_on_fullscreen: true
+      hide_on_fullscreen: false
     dimensions:
       width: "100%"
-      height: 30
+      height: 31
     padding:
-      top: 6
-      right: 6
-      bottom: -1
-      left: 10
+      top: 0
+      right: 2
+      bottom: 4
+      left: 2
     widgets:
-      left: ["power_menu", "launchpad", "media-controls", "active_window"]
+      left: [
+          "power_menu",
+          "launchpad",
+          "media-controls",
+          "glazewm_workspaces",
+          "taskbar",
+          # "active_window"
+        ]
       center: ["clock", "cpu"]
       right:
         [
-          "glazewm_tiling_direction",
-          "glazewm_workspaces",
+          # "glazewm_tiling_direction",
+          "systray",
+          "toggle_keyboard",
           "bluetooth",
           "wifi",
           "brightness",
-          "battery",
           "volume",
+          "battery",
           "notifications",
         ]
-  task-bar:
-    enabled: true
-    screens: ["*"]
-    class_name: "task-bar"
-    alignment:
-      position: "bottom"
-      center: true
-    animation:
-      enabled: false
-      duration: 1000
-    blur_effect:
-      enabled: false
-      acrylic: false
-      dark_mode: false
-      round_corners: false
-      round_corners_type: "small"
-      border_color: "none"
-    window_flags:
-      always_on_top: false
-      windows_app_bar: false
-      hide_on_fullscreen: true
-    dimensions:
-      width: "100%"
-      height: 44
-    padding:
-      top: 0
-      left: 0
-      bottom: 0
-      right: 0
-    widgets:
-      left: ["media-info", "cava"]
-      center: []
-      right: []
 widgets:
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
@@ -127,14 +101,15 @@ widgets:
         bluetooth_off: "\udb80\udcb2"
         bluetooth_connected: "\udb80\udcb1"
       callbacks:
+        on_left: "do_nothing"
         on_right: "exec cmd.exe /c start ms-settings:bluetooth"
   brightness:
     type: "yasb.brightness.BrightnessWidget"
     options:
-      label: "<span>{icon}</span> {percent}%"
+      label: "<span>{icon}</span>"
       label_alt: "<span>{icon}</span> {percent}%"
       tooltip: false
-      hide_unsupported: true
+      invert_wheel: true
       brightness_toggle_level: [0, 50, 100]
       auto_light: false
       auto_light_icon: "\udb80\udce1"
@@ -169,7 +144,7 @@ widgets:
       bar_spacing: 6
       bar_width: 14
       sleep_timer: 1
-      hide_empty: true
+      hide_empty: false
   clock:
     type: "yasb.clock.ClockWidget"
     options:
@@ -180,9 +155,9 @@ widgets:
         blur: true
         round_corners: true
         alignment: "center"
-        direction: "down"
-        offset_top: 7
-        offset_left: 30
+        direction: "up"
+        offset_top: 5
+        offset_left: 0
       callbacks:
         on_left: "toggle_calendar"
         on_middle: "next_timezone"
@@ -192,7 +167,7 @@ widgets:
     options:
       label: "<span>\uf4bc</span> {info[percent][total]}%"
       label_alt: "<span>\uf437</span> {info[histograms][cpu_percent]}"
-      update_interval: 2000
+      update_interval: 1000
       histogram_icons:
         - "\u2581" # 0%
         - "\u2581" # 10%
@@ -207,11 +182,6 @@ widgets:
       callbacks:
         on_right: "do_nothing"
         on_middle: "reload_cava"
-      label_shadow:
-        enabled: false
-        color: "black"
-        radius: 3
-        offset: [1, 1]
   glazewm_tiling_direction:
     type: "glazewm.tiling_direction.GlazewmTilingDirectionWidget"
     options:
@@ -226,19 +196,13 @@ widgets:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
       offline_label: " "
-      hide_empty_workspaces: false
       monitor_exclusive: false
-      hide_if_offline: false
+      hide_if_offline: true
+      enable_scroll_switching: false
       populated_label: " "
       empty_label: " "
       active_populated_label: " "
       active_empty_label: " "
-      btn_shadow:
-        enabled: false
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-      animation: true
   launchpad:
     type: "yasb.launchpad.LaunchpadWidget"
     options:
@@ -263,16 +227,6 @@ widgets:
       keybindings:
         - keys: "ctrl+alt+shift+f24"
           action: "toggle_launchpad"
-      app_title_shadow:
-        enabled: false
-        color: "#00000090"
-        offset: [1, 1]
-        radius: 2
-      app_icon_shadow:
-        enabled: false
-        color: "#00000090"
-        offset: [0, 2]
-        radius: 8
   media-controls:
     type: "yasb.media.MediaWidget"
     options:
@@ -317,11 +271,6 @@ widgets:
         pause: "\ue769"
         prev_track: "\ue892"
         next_track: "\ue893"
-      label_shadow:
-        enabled: false
-        color: "black"
-        radius: 3
-        offset: [1, 1]
   media-info:
     type: "yasb.media.MediaWidget"
     options:
@@ -366,18 +315,16 @@ widgets:
         pause: "\ue769"
         prev_track: "\ue892"
         next_track: "\ue893"
-      label_shadow:
-        enabled: false
-        color: "black"
-        radius: 3
-        offset: [1, 1]
   notifications:
     type: "yasb.notifications.NotificationsWidget"
     options:
-      label: "<span>\uf476</span> {count}"
-      label_alt: "{count} notifications"
+      label: "<span>{icon}</span> "
+      label_alt: "<span>{icon}</span> {count} "
       hide_empty: false
-      tooltip: false
+      tooltip: true
+      icons:
+        new: "\U000f116b"
+        default: "\U000f009a"
       callbacks:
         on_left: "toggle_notification"
         on_right: "toggle_label"
@@ -401,12 +348,74 @@ widgets:
       keybindings:
         - keys: "win+shift+l"
           action: "toggle_power_menu"
+  systray:
+    type: "yasb.systray.SystrayWidget"
+    options:
+      class_name: "systray"
+      label_collapsed: "\uf078"
+      label_expanded: "\uf054"
+      label_position: "left"
+      icon_size: 16
+      pin_click_modifier: "alt"
+      show_unpinned: false
+      show_unpinned_button: true
+      show_battery: false
+      show_volume: false
+      show_network: false
+      show_in_popup: true
+      use_hook: false
+      hide_icons: []
+      popup:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: None
+        alignment: "center"
+        direction: "up"
+        offset_top: 6
+        offset_left: 0
+  toggle_keyboard:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: "\uf11c"
+      class_name: "toggle-keyboard"
+      tooltip: false
+      callbacks:
+        on_left: 'exec cmd.exe /c %cd%\Git\random-clones\yasb\.venv\Scripts\python -c "from core.widgets.services.control_center.api.keyboard import TouchKeyboardService;TouchKeyboardService.toggle()"'
+  taskbar:
+    type: "yasb.taskbar.TaskbarWidget"
+    options:
+      icon_size: 16
+      tooltip: true
+      show_only_visible: true
+      strict_filtering: true
+      monitor_exclusive: false
+      animation:
+        enabled: false
+        duration: 200
+      preview:
+        enabled: true
+        width: 240
+        delay: 400
+        padding: 8
+        margin: 8
+      title_label:
+        enabled: false
+        show: "always"
+        min_length: 10
+        max_length: 30
+      ignore_apps:
+        processes: []
+        titles: []
+        classes: []
   volume:
     type: "yasb.volume.VolumeWidget"
     options:
       label: "<span>{icon}</span> {level}"
       label_alt: "{volume}"
       tooltip: true
+      invert_wheel: true
+      mute_text: "0%"
     audio_menu:
       blur: true
       round_corners: true

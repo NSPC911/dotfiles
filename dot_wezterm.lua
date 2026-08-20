@@ -207,7 +207,19 @@ local function get_process_title(tab)
   if title and #title > 0 then
     return title .. " "
   end
-  return tab.active_pane.title .. " "
+  local active_pane_title = tab.active_pane.title
+  if wezterm.target_triple:find("windows") then
+  	--- we need to make some changes to make the title nicer at times
+  	if active_pane_title:find("Administrator:") then
+  		active_pane_title = active_pane_title:gsub("Administrator: ", "")
+  	end
+  	if active_pane_title:find("clink") then
+  		-- problem is that for some reason, title becomes `Administrator: hx <file> - "<clink path>\clink.bat"  inject --autorun`
+  		-- so we need to remove the clink part
+  		active_pane_title = active_pane_title:gsub('- ".*clink.bat".*', "")
+  	end
+  end
+  return active_pane_title .. " "
 end
 
 tabline.setup({

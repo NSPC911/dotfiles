@@ -89,6 +89,7 @@ function Register-LazyCompletion {
     Register-ArgumentCompleter -Native -CommandName '$CommandName' -ScriptBlock (Get-Item "Function:_lazycomplete_$CommandName").ScriptBlock
 "@
 }
+
 @{
     "gh" = "gh completion --shell powershell"
     "ty" = "ty generate-shell-completion powershell"
@@ -516,19 +517,38 @@ function config {
     param(
         [Parameter(Mandatory)][string]$app
     )
-    switch ($app) {
-        "niri" { chezedit "~/.config/niri/config.kdl" }
-        "rovr" { chezedit "~/.config/rovr/" }
-        "helix" { chezedit "~/.config/helix/" }
-        "opencode" { chezedit "~/.config/opencode/opencode.json" }
-        "dms" { chezedit "~/.config/DankMaterialShell/settings.json" }
-        "pwsh" { chezedit $PROFILE }
-        "wezterm" { chezedit "~/.wezterm.lua" }
-        "kitty" { chezedit "~/.config/kitty/kitty.conf" }
-        default {
-            Write-Host "App not known, add it yourself"
-            hx "$($PROFILE):515"
+    if ($IsWindows) {
+        switch ($app) {
+            "rovr" { chezedit "~/AppData/Local/rovr" }
+            "helix" { chezedit "~/AppData/Roaming/helix" }
+            "opencode" { chezedit "~/.config/opencode/opencode.json" }
+            "yasb" { chezedit "~/.config/yasb" }
+            "tacky-borders" { chezedit "~/.config/tacky-borders/config.yaml" }
+            "pwsh" { chezedit $PROFILE }
+            "wezterm" { chezedit "~/AppData/Roaming/wezterm" }
+            "glazewm" { chezedit "~/.glzr/glazewm/config.yaml" }
+            "default" {
+                Write-Host "App not known, add it yourself"
+                hx "$($PROFILE):515"
+            }
         }
+    } elseif ($IsLinux) {
+        switch ($app) {
+            "niri" { chezedit "~/.config/niri/config.kdl" }
+            "rovr" { chezedit "~/.config/rovr/" }
+            "helix" { chezedit "~/.config/helix/" }
+            "opencode" { chezedit "~/.config/opencode/opencode.json" }
+            "dms" { chezedit "~/.config/DankMaterialShell/settings.json" }
+            "pwsh" { chezedit $PROFILE }
+            "wezterm" { chezedit "~/.wezterm.lua" }
+            "kitty" { chezedit "~/.config/kitty/kitty.conf" }
+            default {
+                Write-Host "App not known, add it yourself"
+                hx "$($PROFILE):515"
+            }
+        }
+    } else {
+        Write-Host "Unsupported OS for config function"
     }
 }
 function chezadd { chezmoi add $args }
@@ -757,11 +777,7 @@ function wordle {
 }
 
 function nf {
-    uv run --no-project --with nerdfont python -c @"
-import nerdfont
-for name, icon in nerdfont.icons.items():
-    print(icon, name)
-"@ 2>$null | fzf --ignore-case --style=minimal
+    uv run --no-project --with nerdfont python -c "import nerdfont`nfor name, icon in nerdfont.icons.items():`n`tprint(icon, hex(ord(icon)).ljust(7), name)" 2>$null | fzf --ignore-case --style=minimal
 }
 ##### Other stuff #####
 Clear-Host

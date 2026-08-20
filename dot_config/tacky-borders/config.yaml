@@ -5,7 +5,7 @@ enable_logging: False
 rendering_backend: V2
 
 global:
-  border_width: 2.5
+  border_width: 2
 
   border_offset: -1
 
