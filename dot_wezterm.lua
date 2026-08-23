@@ -13,7 +13,7 @@ config.cursor_blink_rate = 0
 
 config.hide_mouse_cursor_when_typing = false
 config.term = "xterm-256color"
-config.enable_kitty_keyboard = false -- kinda forced because escape keys dont send anything while kitty is enabled
+config.enable_kitty_keyboard = true
 config.font = wezterm.font("CaskaydiaCove NFM")
 config.custom_block_glyphs = false
 config.cell_width = 1
@@ -211,10 +211,16 @@ local function get_process_title(tab)
 		end
 	end
   local title = tab.tab_title
+  local new_title = ""
   if title and #title > 0 then
-    return title .. " "
-  end
-  return tab.active_pane.title .. " "
+    new_title = title .. " "
+  else
+	  new_title = tab.active_pane.title .. " "
+	end
+	-- if #new_title > 30 then
+	-- 	new_title = new_title:sub(1, 13) .. "..." .. new_title:sub(-13)
+	-- end
+	return new_title
 end
 
 tabline.setup({

@@ -546,6 +546,7 @@ j = { k = "@f<esc><esc>" }
 
 # editor config
 [editor]
+title-format = "hx %{buffer_name}"
 scrolloff = 2
 scroll-lines = 1
 cursorline = true
@@ -565,8 +566,8 @@ rainbow-brackets = true
 atomic-save = false
 kitty-keyboard-protocol = "enabled"
 rounded-corners = true
-word-completion.trigger-length = 1
-gutters.line-numbers.min-width = 4 # enough for 9999 lines
+word-completion.trigger-length = 3
+gutters.line-numbers.min-width = 1
 
 [editor.smart-tab]
 enable = true

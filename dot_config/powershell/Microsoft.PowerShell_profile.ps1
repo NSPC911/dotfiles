@@ -67,7 +67,7 @@ if (-not (Test-Path $cacheCompletionLocation)) {
     Write-Output "Using script cache..."
 }
 
-Get-Content $cacheCompletionLocation | Out-String | Invoke-Expression
+. $cacheCompletionLocation
 
 Write-Output $HomeAndClearLine"Dealing with functions and aliases..."
 
@@ -101,6 +101,7 @@ function Register-LazyCompletion {
     "bat" = "bat --completion ps1"
     "chezmoi" = "chezmoi completion powershell"
     "rg" = "rg --generate complete-powershell"
+    "fd" = "carapace fd powershell"
     "rustup" = "rustup completions powershell"
     "wezterm" = "wezterm shell-completion --shell power-shell"
     "regolith" = "regolith completion powershell"
@@ -113,6 +114,7 @@ function Register-LazyCompletion {
     "kitty" = "carapace kitty powershell"
     "magick" = "carapace magick powershell"
     "python" = "carapace python powershell"
+    "yay" = "carapace yay powershell"
 }.GetEnumerator() | ForEach-Object { Register-LazyCompletion -CommandName $_.Key -Completer $_.Value } | Out-String | Invoke-Expression
 
 ## zoxide cant add them for some reason /shrug
@@ -495,8 +497,11 @@ Set-PSReadLineOption -Colors @{
 # fuzzy: https://github.com/kelleyma49/PSFzf
 Write-Output "`e[u`e[0KPsFzf"
 Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
-# New-Alias -Name "cde" -Scope Global -Value Set-LocationFuzzyEverything -ErrorAction Ignore
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r' -EnableAliasFuzzySetEverything
+Set-PSReadLineKeyHandler -Chord "Ctrl+t" -ScriptBlock { Invoke-FzfPsReadlineHandlerProvider }
+Set-PSReadLineKeyHandler -Chord "Ctrl+r" -ScriptBlock { Invoke-FzfPsReadlineHandlerHistory }
+Set-PSReadLineKeyHandler -Chord "Alt+c" -ScriptBlock { Invoke-FzfPsReadlineHandlerSetLocation }
+Set-PSReadLineKeyHandler -Chord "Alt+a" -ScriptBlock { Invoke-FzfPsReadlineHandlerHistoryArgs }
+function cde { Set-LocationFuzzyEverything @args }
 # # git completions https://github.com/kzrnm/git-completion-pwsh
 # Write-Output "`e[u`e[0KGit Completions"
 # Import-Module -Name git-completion
@@ -764,7 +769,7 @@ for name, icon in nerdfont.icons.items():
 "@ 2>$null | fzf --ignore-case --style=minimal
 }
 ##### Other stuff #####
-Clear-Host
+Write-Host "`e[1J`e[H"
 function fetch {
     param (
         [Parameter()]

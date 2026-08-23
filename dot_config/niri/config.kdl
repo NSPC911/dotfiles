@@ -32,6 +32,7 @@ input {
         // Scale to 33% in bottom right padded corner i guess?
         calibration-matrix 3.0 0.0 -1.75 0.0 4.0 -1.75
         map-to-output "eDP-1"
+        // map-to-focused-window
     }
     touch { map-to-output "eDP-1"; }
 }
@@ -147,6 +148,8 @@ binds {
     MOD+CTRL+F                          { maximize-window-to-edges; }
     MOD+bracketright                    { switch-focus-between-floating-and-tiling; }
     MOD+bracketleft                     { switch-focus-between-floating-and-tiling; }
+    MOD+o                 repeat=false  { toggle-overview; }
+    MOD+tab               repeat=false  { toggle-overview; }
 
     // --- Screenshots ---
     MOD+CTRL+S                          { screenshot; }
@@ -160,7 +163,6 @@ binds {
 
     // --- Exit / Power ---
     CTRL+ALT+DELETE                     { quit; }
-    MOD+Tab repeat=false                { toggle-overview; }
     // brightness fixer
     XF86MonBrightnessDown               { spawn-sh "bright down"; }
     XF86MonBrightnessUp                 { spawn-sh "bright up"; }
@@ -259,6 +261,7 @@ layout {
 animations {
     workspace-switch {
         duration-ms 375
+        // duration-ms 3750
         curve "cubic-bezier" 0 -0.5 0 1.05
     }
     window-open {
@@ -312,6 +315,7 @@ window-rule {
     match app-id="Alacritty"
     match app-id="rio"
     match app-id="dev.faetalize.waytator"
+    match app-id="org.wezfurlong.wezterm"
     draw-border-with-background false
 }
 
@@ -470,8 +474,8 @@ recent-windows {
     }
 
     binds {
-        // Alt+Tab         { next-window; }
-        // Alt+Shift+Tab   { previous-window; }
+        Alt+Tab         { next-window; }
+        Alt+Shift+Tab   { previous-window; }
         // Alt+grave       { next-window filter="app-id"; }
         // Alt+Shift+grave { previous-window filter="app-id"; }
 
