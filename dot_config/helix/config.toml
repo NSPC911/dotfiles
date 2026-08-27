@@ -518,6 +518,8 @@ w = "@<C-w>"
 
 # insert mode
 [keys.insert]
+tab = "indent"
+S-tab = "unindent"
 C-s = ["normal_mode", ":w"]
 C-S-s = ":wa"
 A-i = "move_visual_line_up"

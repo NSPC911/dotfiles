@@ -152,9 +152,9 @@ binds {
     MOD+tab               repeat=false  { toggle-overview; }
 
     // --- Screenshots ---
-    MOD+CTRL+S                          { screenshot; }
+    MOD+SHIFT+S                         { screenshot; }
     // MOD+SHIFT+P                         { spawn-sh "dms screenshot"; }
-    MOD+SHIFT+S                         { spawn-sh "grim -g \"$(slurp -b '#2e34407f' -c '#88c0d0')\" - | waytator"; }
+    MOD+CTRL+S                          { spawn-sh "grim -g \"$(slurp -b '#2e34407f' -c '#88c0d0')\" - | waytator"; }
 
     // --- Emergency Escape Key ---
     // Use this when a fullscreen app blocks your keybinds.

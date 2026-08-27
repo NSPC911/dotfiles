@@ -769,7 +769,7 @@ for name, icon in nerdfont.icons.items():
 "@ 2>$null | fzf --ignore-case --style=minimal
 }
 ##### Other stuff #####
-Write-Host "`e[1J`e[H"
+Write-Host "`e[1J`e[H" -NoNewline
 function fetch {
     param (
         [Parameter()]

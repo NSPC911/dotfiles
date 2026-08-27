@@ -52,18 +52,18 @@ helix
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
 
 ```
-ansible-lint v26.6.0
+ansible-lint v26.8.0
 batrachian-toad v0.6.20
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.22.0
+mistral-vibe v2.24.3
 poethepoet v0.48.0
 poetry v2.4.1 [with: more-itertools==11.0.2]
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.411
 rich-cli v1.8.1
-rovr v0.10.0.dev1 [required:  git+https://github.com/NSPC911/rovr]
-ruff v0.15.22
+rovr v0.10.1.post1 [required:  git+https://github.com/NSPC911/rovr]
+ruff v0.16.4
 ty v0.0.49 [required: ==0.0.49]
 ```
 
@@ -72,12 +72,9 @@ ty v0.0.49 [required: ==0.0.49]
 <!--pnpm list -g, remove header-->
 
 ```
-@agentclientprotocol/claude-agent-acp@0.38.0
 @ansible/ansible-language-server@26.6.0
-@astrojs/language-server@2.16.13
+@astrojs/language-server@2.16.15
 @fsouza/prettierd@0.27.0
-@github/copilot@1.0.73
-@google/gemini-cli@0.42.0
 live-server@1.2.2
 oxfmt@0.51.0
 typescript@6.0.3
@@ -104,7 +101,6 @@ vscode-langservers-extracted@4.10.0
 | Terminal-Icons                       | nerdfont icons in Get-ChildItem + more | `Install-Module Terminal-Icons`                       |
 | PwshSpectreConsole                   | advanced console features              | `Install-Module PwshSpectreConsole`                   |
 | PSToml                               | toml parsing                           | `Install-Module PSToml`                               |
-| scoop-completions                    | scoop completions                      | `scoop install scoop-completion`                      |
 | PSEverything                         | everything integration into powershell | `Install-Module PSEverything`                         |
 
 #### Previously used, but no longer using
@@ -113,11 +109,7 @@ vscode-langservers-extracted@4.10.0
 | ------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | Terminal emulator   | [rio](https://github.com/raphamorim/rio)                              | `AppData/Local/rio/`                                               |
 | Terminal emulator   | [alacritty](https://github.com/alacritty/alacritty)                   | `AppData/Roaming/alacritty/`                                       |
-| Tiling Manager      | [komorebi](https://github.com/LGUG2Z/komorebi)                        | `komorebi.json`                                                    |
 | File Explorer (TUI) | [superfile](https://github.com/yorukot/superfile)                     | `AppData/Local/superfile/`                                         |
-| File Explorer (GUI) | [OneCommanger](https://www.onecommander.com)                          | `readonly_scoop/persist/onecommander/Settings/OneCommanderV3.json` |
-| Hotkey Daemon       | [whkd](https://github.com/LGUG2Z/whkd)                                | `dot_config/whkdrc`                                                |
-| Transparency        | [MicaForEveryone](https://github.com/MicaForEveryone/MicaForEveryone) | `AppData/Local/Mica For Everyone/MicaForEveryone.conf`             |
 
 ### Stats
 
@@ -127,18 +119,18 @@ vscode-langservers-extracted@4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     21         4329         4329            0            0
+ JSON                     21         3848         3848            0            0
  CSS                      11         3310         2674          246          390
- TOML                     12         1735         1427          169          139
- PowerShell                7         1314         1144           69          101
- Scheme                    6          983          850           36           97
+ Scheme                    7         2458         2044          128          286
+ TOML                     12         1750         1439          169          142
+ PowerShell                8         1356         1189           67          100
  YAML                      2          334          313           17            4
- Lua                       1          243          219           12           12
- Markdown                 10          215            0          163           52
+ Lua                       1          281          250           15           16
+ Markdown                 10          205            0          158           47
  BASH                      1           84           60           13           11
  SVG                       2           46           46            0            0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    73        12593        11062          725          806
+ Total                    75        13672        11863          813          996
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
