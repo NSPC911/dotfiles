@@ -31,3 +31,13 @@
 	colorMovedWS = ignore-all-space
 [init]
 	defaultBranch = main
+[core]
+	pager = delta
+[interactive]
+	diffFilter = 'delta
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+[merge]
+	conflictStyle = zdiff3

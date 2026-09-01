@@ -41,7 +41,7 @@ o = "move_next_word_end"
 C-a = "select_all"
 A-j = { j = "save_selection", i = "jump_backward", k = "jump_forward", p = "jumplist_picker" }
 A-c = "toggle_line_comments"
-A-C = "toggle_block_comments"
+A-S-c = "toggle_block_comments"
 "`" = "switch_case"
 C-r = [":lsp-restart", ":reload-all"]
 "/" = "search"
@@ -217,14 +217,7 @@ right = "no_op"
 up = "no_op"
 down = "no_op"
 
-# have some issues with getting copilot to work, so temporary
-# workaround is to pass to pwsh and run the copilot cli, which works fine, but is a bit janky ngl
 [keys.normal."C-w".a]
-c = [
-  ":new",
-  ":insert-output wezterm cli spawn --cwd %{current_working_directory} pwsh -NoProfile -Command copilot",
-  ":buffer-close!",
-]
 i = [
   ":new",
   ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode",
@@ -237,11 +230,6 @@ v = [
 ]
 
 [keys.select."C-w".a]
-c = [
-  ":new",
-  ":insert-output wezterm cli spawn --cwd %{current_working_directory} pwsh -NoProfile -Command copilot",
-  ":buffer-close!",
-]
 i = [
   ":new",
   ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode",

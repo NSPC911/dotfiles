@@ -1,4 +1,4 @@
-#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.1/src/rovr/assets/schema.json
+#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.1.post1/src/rovr/assets/schema.json
 
 [interface]
 truncate_progress_file_path = true

@@ -381,7 +381,7 @@ widgets:
       class_name: "toggle-keyboard"
       tooltip: false
       callbacks:
-        on_left: 'exec cmd.exe /c %cd%\Git\random-clones\yasb\.venv\Scripts\python -c "from core.widgets.services.control_center.api.keyboard import TouchKeyboardService;TouchKeyboardService.toggle()"'
+        on_left: 'exec uvx --with git+https://github.com/amnweb/yasb python -c "from core.widgets.services.control_center.api.keyboard import TouchKeyboardService;TouchKeyboardService.toggle()"'
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:

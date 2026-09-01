@@ -55,12 +55,21 @@
 )
 
 ; https://github.com/Ra77a3l3-jar/moka.hx
-; cant even run it bruh
+; ; cant even run it bruh
+; pretty cool, but im going to use the default one instead thanks
 ; (require "moka/moka.scm")
 ; (moka-configure!
 ;  #:sections
 ;  (list
-;   (moka-section (list (moka-segment 'mode) (moka-segment 'file)) #:align 'left)
-;   (moka-section (list (moka-segment 'lsp) (moka-segment 'git-branch) (moka-segment 'position)) #:align 'right)))
-
+;   (moka-section (list (moka-segment 'mode #:bg "#88c0d0" #:fg "#2e3440" #:bubble? #f #:gap 0)
+;                        (moka-segment 'file #:bg "#4c566a" #:fg "#d8dee9" #:bubble? #f #:gap 0)
+;                        (moka-segment 'git-branch #:bg "#3b4252" #:fg "#d8dee9" #:bubble? #f))
+;                 #:align 'left)
+;   (moka-section (list (moka-segment 'position #:bg "#5e81ac" #:fg "#eceff4" #:bubble? #f))
+;                 #:align 'right)))
 ; (moka-enable!)
+; (moka-bufferline-configure!
+;  #:active (moka-buffer-style #:bg "#89b4fa" #:fg "#1e1e2e" #:bubble? #t)
+;  #:inactive (moka-buffer-style #:bg "#313244" #:fg "#a6adc8" #:bubble? #t)
+;  #:gap 0)
+; (moka-bufferline-enable!)
