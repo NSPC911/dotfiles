@@ -518,7 +518,8 @@ w = "@<C-w>"
 
 # insert mode
 [keys.insert]
-tab = "indent"
+tab = "smart_tab"
+# "?" = "command_palette"
 S-tab = "unindent"
 C-s = ["normal_mode", ":w"]
 C-S-s = ":wa"
@@ -545,7 +546,6 @@ C-k = "no_op"
 '"' = "@f<esc>\"\"<esc>jd<A-i>"
 j = { k = "@f<esc><esc>" }
 
-
 # editor config
 [editor]
 title-format = "hx %{buffer_name}"
@@ -568,7 +568,7 @@ rainbow-brackets = true
 atomic-save = false
 kitty-keyboard-protocol = "enabled"
 rounded-corners = true
-word-completion.trigger-length = 3
+word-completion.trigger-length = 1
 gutters.line-numbers.min-width = 1
 
 [editor.smart-tab]

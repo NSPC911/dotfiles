@@ -11,5 +11,6 @@ This is a wezterm session, so wezterm commands work.
 - `wezterm cli kill-pane --pane-id <pane-id>`: kills the specified pane.
 
 In a python project, NEVER run just `python <command>`. Do not assume the venv is activated; always run `uv run python <command>` to ensure the correct environment is used.
+In a rust project, always run with `mold -run cargo +nightly -Z codegen-backend`. This is to speed up compilation times.
 
 YOU ARE NOT ALLOWED TO USE SUB-AGENTS.

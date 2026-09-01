@@ -64,6 +64,14 @@ binds {
     XF86AudioPause        allow-when-locked=true  { spawn-sh "playerctl play-pause"; }
     XF86AudioPlay         allow-when-locked=true  { spawn-sh "playerctl play-pause"; }
     XF86AudioPrev         allow-when-locked=true  { spawn-sh "playerctl previous"; }
+    Shift+XF86AudioRaiseVolume  allow-when-locked=true  { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    Shift+XF86AudioLowerVolume  allow-when-locked=true  { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    Shift+XF86AudioMute         allow-when-locked=true  { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    Shift+XF86AudioMicMute      allow-when-locked=true  { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    Shift+XF86AudioNext         allow-when-locked=true  { spawn-sh "playerctl next"; }
+    Shift+XF86AudioPause        allow-when-locked=true  { spawn-sh "playerctl play-pause"; }
+    Shift+XF86AudioPlay         allow-when-locked=true  { spawn-sh "playerctl play-pause"; }
+    Shift+XF86AudioPrev         allow-when-locked=true  { spawn-sh "playerctl previous"; }
 
     // --- Window Movement and Focus ---
     MOD+Q                               { close-window; }

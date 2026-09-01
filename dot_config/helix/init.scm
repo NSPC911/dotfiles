@@ -33,26 +33,26 @@
 
 
 ; changed keybinds a bit
-; (require "./forest.scm")
-; (forest-configure! 'left #:ignore (list ".git" "target" "__pycache__" "node_modules" "venv" ".venv" ".ruff_cache" ".pytest_cache"))
-; (forest-set-style! 'snacks) ; or 'mini or 'snacks
-; (forest-set-keybinds!
-;   (hash 'down "k"
-;         'up "i"
-;         'enter "l"
-;         'back "j"
-;         'search "/"
-;         'create "n"
-;         'rename "r"
-;         'delete "d"
-;         'refresh "R"
-;         'toggle-hidden "."
-;         'toggle-git-ignored "I"
-;         'wider "+"
-;         'narrower "_"
-;         'quit "q"
-;   )
-; )
+(require "./forest.scm")
+(forest-configure! 'left #:ignore (list ".git" "target" "__pycache__" "node_modules" "venv" ".venv" ".ruff_cache" ".pytest_cache"))
+(forest-set-style! 'snacks) ; or 'mini or 'snacks
+(forest-set-keybinds!
+  (hash 'down "k"
+        'up "i"
+        'enter "l"
+        'back "j"
+        'search "/"
+        'create "n"
+        'rename "r"
+        'delete "d"
+        'refresh "R"
+        'toggle-hidden "."
+        'toggle-git-ignored "I"
+        'wider "+"
+        'narrower "_"
+        'quit "q"
+  )
+)
 
 ; https://github.com/Ra77a3l3-jar/moka.hx
 ; cant even run it bruh

@@ -22,8 +22,8 @@
   "popoutElevationEnabled": false,
   "barElevationEnabled": false,
   "blurEnabled": true,
-  "blurForegroundLayers": false,
-  "blurLayerOutlineOpacity": 0.1,
+  "foregroundLayerTransparency": 0.75,
+  "blurLayerOutlineOpacity": 0.25,
   "blurBorderColor": "primary",
   "blurBorderOpacity": 0,
   "systemTrayIconTintSaturation": 0,
@@ -181,6 +181,17 @@
   "notificationCustomAnimationDuration": 100,
   "notificationHistoryMaxAgeDays": 3,
   "notificationHistorySaveLow": false,
+  "notificationRules": [
+    {
+      "enabled": false,
+      "field": "appName",
+      "pattern": "",
+      "matchType": "contains",
+      "action": "default",
+      "urgency": "default",
+      "bypassDnd": false
+    }
+  ],
   "osdAlwaysShowValue": true,
   "osdPosition": 0,
   "osdPowerProfileEnabled": true,
