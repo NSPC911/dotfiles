@@ -11,6 +11,14 @@ function uvdate {
     $changes = $changes -split "`n"
     $changes | ForEach-Object {
         $parts = $_.split(" ")
+        if (($parts[0] -eq "Remove")) {
+            $options = $options + [PSCustomObject]@{
+                Name = $parts[1]
+                Current = $parts[2]
+                New = "Removed"
+            }
+            return
+        }
         if (($parts[0] -ne "Update") -or ($parts[3] -ne "->")) {
             Write-Error "Received incorrect string: ``$_``"
             return
@@ -25,7 +33,7 @@ function uvdate {
     $optionsAsArray = ($options | Out-String).Trim() -Split "`n"
     $header = $optionsAsArray | Select-Object -First 1
     $body = ($optionsAsArray | Select-Object -Skip 4 -SkipLast 1 | ForEach-Object { $_.Trim() }) -join "`n"
-    $output = $body | fzf --footer "$($header.Trim())" --multi --cycle --preview-window="hidden" --height="~100%" --ignore-case
+    $output = $body | fzf --footer "$($header.Trim())" --multi --cycle --preview-window="hidden" --height="~50%" --ignore-case
     if ($null -eq $output) {
         Write-Host "No packages selected for update." -ForegroundColor Yellow
         return

@@ -34,7 +34,7 @@ input {
         map-to-output "eDP-1"
         // map-to-focused-window
     }
-    touch { map-to-output "eDP-1"; }
+    // touch { map-to-output "eDP-1"; }
 }
 
 // -------------- Keybindings --------------
@@ -189,14 +189,28 @@ binds {
 
 
     // neru attempt
-    // XF86Tools { spawn "neru" "action" "move_mouse_relative" "--dx" "0" "--dy" "-20"; }
-    // XF86Launch5 { spawn "neru" "action" "move_mouse_relative" "--dx" "-20" "--dy" "0"; }
-    // XF86Launch6 { spawn "neru" "action" "move_mouse_relative" "--dx" "0" "--dy" "+20"; }
-    // XF86Launch7 { spawn "neru" "action" "move_mouse_relative" "--dx" "20" "--dy" "0"; }
-    // SHIFT+XF86Tools { spawn "neru" "action" "scroll_up" "--steps" "5"; }
-    // SHIFT+XF86Launch5 { spawn "neru" "action" "scroll_left" "--steps" "5"; }
-    // SHIFT+XF86Launch6 { spawn "neru" "action" "scroll_down" "--steps" "5"; }
-    // SHIFT+XF86Launch7  { spawn "neru" "action" "scroll_right" "--steps" "5"; }
+    XF86Tools { spawn "neru" "action" "move_mouse_relative" "--dx" "0" "--dy" "-20"; }
+    XF86Launch5 { spawn "neru" "action" "move_mouse_relative" "--dx" "-20" "--dy" "0"; }
+    XF86Launch6 { spawn "neru" "action" "move_mouse_relative" "--dx" "0" "--dy" "+20"; }
+    XF86Launch7 { spawn "neru" "action" "move_mouse_relative" "--dx" "20" "--dy" "0"; }
+    SHIFT+XF86Tools { spawn "neru" "action" "scroll_up" "--steps" "5"; }
+    SHIFT+XF86Launch5 { spawn "neru" "action" "scroll_left" "--steps" "5"; }
+    SHIFT+XF86Launch6 { spawn "neru" "action" "scroll_down" "--steps" "5"; }
+    SHIFT+XF86Launch7  { spawn "neru" "action" "scroll_right" "--steps" "5"; }
+
+    TouchSwipe fingers=3 direction="up" natural-scroll=true { focus-workspace-up; }
+    TouchSwipe fingers=3 direction="down" natural-scroll=true { focus-workspace-down; }
+    TouchSwipe fingers=3 direction="left" natural-scroll=true { focus-column-left; }
+    TouchSwipe fingers=3 direction="right" natural-scroll=true { focus-column-right; }
+    TouchSwipe fingers=4 direction="up" natural-scroll=false { open-overview; }
+    TouchSwipe fingers=4 direction="down" natural-scroll=false { close-overview; }
+
+    TouchPadSwipe fingers=3 direction="up" natural-scroll=true { focus-workspace-up; }
+    TouchPadSwipe fingers=3 direction="down" natural-scroll=true { focus-workspace-down; }
+    TouchPadSwipe fingers=3 direction="left" natural-scroll=true { focus-column-left; }
+    TouchPadSwipe fingers=3 direction="right" natural-scroll=true { focus-column-right; }
+    TouchPadSwipe fingers=4 direction="up" natural-scroll=false { open-overview; }
+    TouchPadSwipe fingers=4 direction="down" natural-scroll=false { close-overview; }
 }
 
 // -------------- Layer Rules --------------

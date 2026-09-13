@@ -428,6 +428,12 @@
     },
     "dms_clipboard_search": {
       "trigger": "cb"
+    },
+    "dms_power": {
+      "trigger": "pw"
+    },
+    "dms_qr_generator": {
+      "trigger": "qrg"
     }
   },
   "clipboardEnterToPaste": true,
@@ -441,5 +447,5 @@
   "frameLauncherEmergeSide": "top",
   "frameLauncherArcExtender": true,
   "frameMode": "separate",
-  "configVersion": 16
+  "configVersion": 18
 }

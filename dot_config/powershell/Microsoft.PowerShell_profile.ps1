@@ -6,7 +6,7 @@ $initial_dir = (Get-Location).Path
 $CACHE = "$PROFILE/../cache"
 if (-not (Test-Path $CACHE)) { New-Item -ItemType Directory -Path $CACHE | Out-Null }
 $CACHE = (Resolve-Path $CACHE).Path
-$HomeAndClearLine = "`e[0J`e[H`e[2K"
+$HomeAndClearLine = "`e[2K`e[1F"
 ##### Cache Completions #####
 $cacheCompletionLocation = "$cache/completion-cache.ps1"
 function regenCache {
@@ -522,7 +522,7 @@ function config {
         [Parameter(Mandatory)][string]$app
     )
     switch ($app) {
-        "niri" { chezedit "~/.config/niri/config.kdl" }
+        "niri" { chezedit "~/.config/niri/fork.kdl" }
         "rovr" { chezedit "~/.config/rovr/" }
         "helix" { chezedit "~/.config/helix/" }
         "opencode" { chezedit "~/.config/opencode/opencode.json" }
@@ -530,6 +530,7 @@ function config {
         "pwsh" { chezedit $PROFILE }
         "wezterm" { chezedit "~/.wezterm.lua" }
         "kitty" { chezedit "~/.config/kitty/kitty.conf" }
+        "ov" { chezedit "~/.config/ov/config.yaml" }
         default {
             Write-Host "App not known, add it yourself"
             hx "$($PROFILE):515"
@@ -744,13 +745,21 @@ Register-LazyImport -FunctionName "uvdate" -ScriptPath "$PROFILE/../uvdate.ps1"
 function wordle {
     param (
         [Parameter()]
-        [string]$Chars
+        [string]$exists,
+        [Parameter()]
+        [string]$notexists
     )
     $words = (gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2026-03-10" /gists/dd0668f281e685bad51479e5acaadb93 | ConvertFrom-Json).files."valid-wordle-words.txt".content.split("`n")
     $words | ForEach-Object {
         $contains = $true
-        ForEach ($char in $Chars.ToCharArray()) {
+        ForEach ($char in $exists.ToCharArray()) {
             if (-not $_.Contains($char)) {
+                $contains = $false
+                break
+            }
+        }
+        ForEach ($char in $notexists.ToCharArray()) {
+            if ($_.Contains($char)) {
                 $contains = $false
                 break
             }
@@ -789,7 +798,7 @@ function fetch {
         fastfetch
     }
 }
-fetch
+# fetch
 if ((Test-Path $prevloc) -and ($initial_dir -eq $HOME)) {
     $newloc = Get-Content "$prevloc"
     if ($newloc -ne $HOME) {

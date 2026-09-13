@@ -44,36 +44,40 @@ The alternate side, the linux version. Still Nord + Transparency.
 tokei
 > cargo install --git https://github.com/XAMPPRocky/tokei.git tokei
 helix
-> cargo xtask steel
+> gix clone https://github.com/NSPC911-forks/helix
+> cd helix
+> git checkout patchy
+> mold -run cargo +nightly install --features "git,steel" --profile opt --config 'build.rustflags="-C target-cpu=native"' --path helix-term
+niri
+> gix clone https://github.com/NSPC911/forked-niri
+> cd forked-niri
+> git checkout patchy
+> mold -run cargo build --release
 ```
 
 #### uv tools
-
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
-
 ```
 ansible-lint v26.8.0
 batrachian-toad v0.6.20
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.24.5
+mistral-vibe v2.25.0
 poethepoet v0.48.0
-poetry v2.4.2 [with: more-itertools==11.0.2]
+poetry v2.4.3 [with: more-itertools==11.0.2]
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.411
 rich-cli v1.8.1
 rovr v0.10.1.post1 [required:  git+https://github.com/NSPC911/rovr]
-ruff v0.16.5
+ruff v0.16.6
 ty v0.0.49 [required: ==0.0.49]
 ```
 
 #### pnpm global installs
-
 <!--pnpm list -g, remove header-->
-
 ```
 @ansible/ansible-language-server@26.6.0
-@astrojs/language-server@2.16.15
+@astrojs/language-server@2.16.16
 @fsouza/prettierd@0.27.0
 live-server@1.2.2
 oxfmt@0.51.0
@@ -119,18 +123,18 @@ vscode-langservers-extracted@4.10.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     21         3848         3848            0            0
+ JSON                     20         3864         3864            0            0
  CSS                      11         3310         2674          246          390
- Scheme                    7         2458         2044          128          286
- TOML                     12         1750         1439          169          142
- PowerShell                8         1356         1189           67          100
+ Scheme                    7         2458         2064          108          286
+ TOML                     12         2002         1666          173          163
+ PowerShell                8         1388         1217           69          102
  YAML                      2          334          313           17            4
  Lua                       1          281          250           15           16
- Markdown                 10          205            0          158           47
+ Markdown                 10          210            0          166           44
  BASH                      1           84           60           13           11
  SVG                       2           46           46            0            0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    75        13672        11863          813          996
+ Total                    74        13977        12154          807         1016
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

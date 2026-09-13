@@ -55,7 +55,7 @@ enabled = true
 show_scores = true
 
 [plugins.bat]
-enabled = true
+enabled = false
 executable = "bat"
 
 [plugins.poppler]
