@@ -3,6 +3,7 @@ hide-cursor-when-typing = false
 confirm-before-quit = false
 working-dir = "C:/Users/notso"
 margin = [5]
+copy-on-select = true
 
 [panel]
 padding = [0] # Inner padding inside each panel
@@ -118,8 +119,8 @@ light_magenta = '#b48ead'
 light_cyan = '#8fbcbb'
 light_white = '#eceff4'
 tabs = "#81a1c1"
-tabs-foregroud = "#d8dee9"
-tabs-active = "#434c5e"
+tabs-foregroud = "#434c5e"
+tabs-active = "#d8dee9"
 tabs-active-highlight = "#8fbcbb"
 tabs-active-foreground = "#D8DEE9"
 bar = "#00000000"

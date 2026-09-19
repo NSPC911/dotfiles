@@ -67,6 +67,7 @@ dart-sass
 device-mapper
 dgop
 dhclient
+diff-so-fancy
 diffutils
 discord
 dmidecode
@@ -115,6 +116,7 @@ gitoxide
 glances
 glib2-devel
 gnome-bluetooth-3.0
+gnome-terminal
 go
 go-task
 gpu-screen-recorder
@@ -128,6 +130,7 @@ gst-plugin-pipewire
 gst-plugin-va
 gst-plugins-bad
 gst-plugins-ugly
+gtkd
 gutenprint
 haveged
 hdparm
@@ -138,7 +141,6 @@ hwinfo
 hyperfine
 iamb-bin
 inetutils
-input-remapper-bin
 intel-media-driver
 intel-ucode
 iptables
@@ -167,6 +169,7 @@ kgpg
 khelpcenter
 kitty
 kmscon
+konsole
 kvantum
 kvantum-theme-nordic-git
 lazygit
@@ -174,10 +177,8 @@ less
 lib32-aalib
 lib32-audit
 lib32-cdparanoia
-lib32-dbus-glib
 lib32-duktape
 lib32-flac
-lib32-gettext
 lib32-giflib
 lib32-glew
 lib32-glib-networking
@@ -185,14 +186,12 @@ lib32-gpm
 lib32-imlib2
 lib32-libavc1394
 lib32-libcaca
-lib32-libcanberra
 lib32-libcap
 lib32-libdv
 lib32-libiec61883
-lib32-libmodplug
 lib32-libnl
 lib32-libnsl
-lib32-libpcap
+lib32-libpcap-git
 lib32-libproxy
 lib32-libpulse
 lib32-libraw1394
@@ -200,20 +199,16 @@ lib32-libshout
 lib32-libsoup3
 lib32-libtheora
 lib32-libtirpc
-lib32-libvdpau
 lib32-libvpx
 lib32-libwebp
 lib32-mesa
 lib32-mpg123
-lib32-openal
 lib32-opencl-mesa
-lib32-orc
 lib32-pam
 lib32-popt
 lib32-sdl2-compat
 lib32-speex
 lib32-taglib
-lib32-tdb
 lib32-twolame
 lib32-v4l-utils
 lib32-vulkan-intel
@@ -229,7 +224,6 @@ libopenraw
 libqalculate
 libselinux
 libsepol
-libsoup
 libwnck3
 linux-cachyos
 linux-cachyos-bore-lto
@@ -241,7 +235,6 @@ linux-firmware
 linux-wallpaper-engine-ux
 linux-wallpaperengine-git
 lisgd
-litehtml0.9
 lldb
 localsend-bin
 logrotate
@@ -261,9 +254,9 @@ mise
 mkinitcpio
 modemmanager
 mold
+mouseless
 mousetweaks
 mtools
-neru-bin
 netctl
 networkmanager
 networkmanager-openvpn
@@ -283,11 +276,12 @@ obs-cli
 obs-studio-browser
 octopi
 oh-my-posh-bin
+oh-my-zsh-git
 onefetch
 openai-codex-bin
 openbsd-netcat
 opencl-mesa
-opencode
+opencode-bin
 openssh
 os-prober
 otf-font-awesome
@@ -346,6 +340,7 @@ sg3_utils
 signon-kwallet-extension
 smartmontools
 snapper
+socat
 sof-firmware
 splix
 steam
@@ -365,12 +360,11 @@ taplo-cli
 tesseract
 texinfo
 thermald
+tilix
 time
 tinymist
 tokei
 tombi
-touche
-touchegg
 trashy
 ttf-bitstream-vera
 ttf-dejavu
@@ -403,7 +397,6 @@ wezterm-nightly-bin
 wf-recorder
 wget
 which
-winboat-bin
 wireless-regdb
 wireplumber
 wl-clipboard
@@ -442,3 +435,8 @@ zellij
 zen-browser-bin
 zoom
 zoxide
+zsh
+zsh-autosuggestions
+zsh-completions
+zsh-history-substring-search
+zsh-syntax-highlighting

@@ -6,7 +6,43 @@ $wasCentered = $false
 $doCentering = $false
 $doPopupFollowWorkspace = $true
 
+$thisFileMtime = (Get-Item $MyInvocation.MyCommand.Path).LastWriteTime
+
+systemctl --user -q is-active niri-patched.service
+$np = $LASTEXITCODE
+systemctl --user -q is-active niri.service
+$p = $LASTEXITCODE
+
+if (($np -eq 0) -and ($p -eq 0)) {
+    Write-Error "Both niri and niri-patched are running. Please stop one of them."
+    exit 1
+} elseif ($np -ne 0 -and $p -ne 0) {
+    Write-Error "Neither niri nor niri-patched is running. Please start one of them."
+    exit 1
+} elseif ($np -eq 0) {
+    $niri = "niri-patched"
+} else {
+    $niri = "niri"
+}
+
+Write-Host "Using $niri"
+
+function niri {
+    param(
+        # Captures everything else passed to the function
+        [Parameter(ValueFromRemainingArguments = $true)]
+        [string[]]$rags
+    )
+    & $niri @rags
+}
+
 niri msg -j event-stream | ForEach-Object {
+    if ((Get-Item $MyInvocation.MyCommand.Path).LastWriteTime -ne $thisFileMtime) {
+        Write-Host "Reloading script due to file change..."
+        niri msg action spawn -- powershell -NoProfile $MyInvocation.MyCommand.Path
+        dms notify "Reloaded niri-stream.ps1 due to file change."
+        exit
+    }
     $parsed = $_ | ConvertFrom-Json -AsHashtable
     if ($doCentering) {
         if ($parsed.ContainsKey("WindowFocusChanged")) {
@@ -41,7 +77,6 @@ niri msg -j event-stream | ForEach-Object {
                 # kinda parse
                 $windows = (niri msg -j windows | ConvertFrom-Json)
                 $workspaceID = ($windows | Where-Object { $_.id -eq $windowID }).workspace_id
-                $numOfWindowsInWorkspace = ($windows | Where-Object { $_.workspace_id -eq $workspaceID -and -not $_.is_floating }).length
                 # find the last pos in scrolling layout
                 $lastX = 0
                 ForEach ($w in $windows) {
@@ -64,11 +99,11 @@ niri msg -j event-stream | ForEach-Object {
     }
     if ($doPopupFollowWorkspace) {
         if ($parsed.ContainsKey("WorkspaceActivated")) {
-            $workspaceID = $parsed.WorkspaceActivated.id
+            # so stupid right? I could have used `$workspaceID = $parsed.WorkspaceActivated.id`
+            # but niri only sends workspace id, but uses idx for moving windows
+            $workspaceID = (niri msg -j workspaces | ConvertFrom-JSON | Where-Object { $_.is_active -eq $true }).idx
             $popupwindows = niri msg -j windows | ConvertFrom-JSON | Where-Object { $_.is_floating -eq $true }
-            $popupwindows | ForEach-Object {
-                niri msg action move-window-to-workspace --window-id $_.id $workspaceID
-            }
+            $popupwindows | ForEach-Object { niri msg action move-window-to-workspace --window-id $_.id $workspaceID }
         }
     }
 }

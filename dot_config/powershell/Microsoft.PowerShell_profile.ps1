@@ -1,7 +1,11 @@
-if ([Console]::IsOutputRedirected) {
+if ([Console]::IsOutputRedirected -or [Console]::IsInputRedirected -or [Console]::IsErrorRedirected) {
     # If output is redirected, skip the rest of the profile to avoid issues with non-interactive shells
-    return
+    function write-host {}
+    function write-output {}
+    function clear-host {}
+    $script:redirected = $true
 }
+
 $initial_dir = (Get-Location).Path
 $CACHE = "$PROFILE/../cache"
 if (-not (Test-Path $CACHE)) { New-Item -ItemType Directory -Path $CACHE | Out-Null }
@@ -522,7 +526,7 @@ function config {
         [Parameter(Mandatory)][string]$app
     )
     switch ($app) {
-        "niri" { chezedit "~/.config/niri/fork.kdl" }
+        "niri" { chezedit "~/.config/niri" }
         "rovr" { chezedit "~/.config/rovr/" }
         "helix" { chezedit "~/.config/helix/" }
         "opencode" { chezedit "~/.config/opencode/opencode.json" }
@@ -532,8 +536,12 @@ function config {
         "kitty" { chezedit "~/.config/kitty/kitty.conf" }
         "ov" { chezedit "~/.config/ov/config.yaml" }
         default {
-            Write-Host "App not known, add it yourself"
-            hx "$($PROFILE):515"
+            if (Get-Location "~/.config/$app" -ErrorAction SilentlyContinue) {
+                chezedit "~/.config/$app"
+            } else {
+                Write-Host "App not known, add it yourself"
+                hx "$($PROFILE):520"
+            }
         }
     }
 }
@@ -786,9 +794,8 @@ function fetch {
         [Parameter()]
         [Switch]$GitFetch
     )
-    if ($Clear) {
-        Clear-Host
-    }
+    if ($script:redirected) { return }
+    if ($Clear) { Clear-Host }
     if ($GitFetch) {
         Write-Host
         gitfetch --graph-only --custom-box 
@@ -813,4 +820,10 @@ if ((Test-Path $prevloc) -and ($initial_dir -eq $HOME)) {
         }
     }
     Write-Host
+}
+
+if ($script:redirected) {
+    Remove-Item -Path Function:\Write-Host -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path Function:\Write-Output -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path Function:\Clear-host -Force -ErrorAction SilentlyContinue
 }
