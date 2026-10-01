@@ -3,6 +3,7 @@ hide-cursor-when-typing = false
 confirm-before-quit = false
 working-dir = "C:/Users/notso"
 margin = [5]
+copy-on-select = true
 
 [panel]
 padding = [0] # Inner padding inside each panel
@@ -26,7 +27,7 @@ args = []
 # height = 400
 mode = "windowed"
 # opacity = 0.5
-# opacity = 1
+opacity = 0.75
 blur = true
 decorations = "Disabled"
 
@@ -39,21 +40,21 @@ filters = []
 [keyboard]
 use-kitty-keyboard-protocol = true
 [fonts]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "CaskaydiaCove Nerd Font Mono"
 use-drawable-characters = true
 size = 15
 [fonts.regular]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "CaskaydiaCove Nerd Font Mono"
 weight = 400
 [fonts.bold]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "CaskaydiaCove Nerd Font Mono"
 weight = 700
 [fonts.italic]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "CaskaydiaCove Nerd Font Mono"
 style = "Italic"
 weight = 400
 [fonts.bold-italic]
-family = "CaskaydiaCove Nerd Font Propo"
+family = "CaskaydiaCove Nerd Font Mono"
 style = "Italic"
 weight = 700
 
@@ -118,8 +119,8 @@ light_magenta = '#b48ead'
 light_cyan = '#8fbcbb'
 light_white = '#eceff4'
 tabs = "#81a1c1"
-tabs-foregroud = "#d8dee9"
-tabs-active = "#434c5e"
+tabs-foregroud = "#434c5e"
+tabs-active = "#d8dee9"
 tabs-active-highlight = "#8fbcbb"
 tabs-active-foreground = "#D8DEE9"
 bar = "#00000000"

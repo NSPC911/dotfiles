@@ -1,12 +1,16 @@
-if ([Console]::IsOutputRedirected) {
+if ([Console]::IsOutputRedirected -or [Console]::IsInputRedirected -or [Console]::IsErrorRedirected) {
     # If output is redirected, skip the rest of the profile to avoid issues with non-interactive shells
-    return
+    function write-host {}
+    function write-output {}
+    function clear-host {}
+    $script:redirected = $true
 }
+
 $initial_dir = (Get-Location).Path
 $CACHE = "$PROFILE/../cache"
 if (-not (Test-Path $CACHE)) { New-Item -ItemType Directory -Path $CACHE | Out-Null }
 $CACHE = (Resolve-Path $CACHE).Path
-$HomeAndClearLine = "`e[0J`e[H`e[2K"
+$HomeAndClearLine = "`e[2K`e[1F"
 ##### Cache Completions #####
 $cacheCompletionLocation = "$cache/completion-cache.ps1"
 function regenCache {
@@ -67,7 +71,7 @@ if (-not (Test-Path $cacheCompletionLocation)) {
     Write-Output "Using script cache..."
 }
 
-Get-Content $cacheCompletionLocation | Out-String | Invoke-Expression
+. $cacheCompletionLocation
 
 Write-Output $HomeAndClearLine"Dealing with functions and aliases..."
 
@@ -89,7 +93,6 @@ function Register-LazyCompletion {
     Register-ArgumentCompleter -Native -CommandName '$CommandName' -ScriptBlock (Get-Item "Function:_lazycomplete_$CommandName").ScriptBlock
 "@
 }
-
 @{
     "gh" = "gh completion --shell powershell"
     "ty" = "ty generate-shell-completion powershell"
@@ -102,6 +105,7 @@ function Register-LazyCompletion {
     "bat" = "bat --completion ps1"
     "chezmoi" = "chezmoi completion powershell"
     "rg" = "rg --generate complete-powershell"
+    "fd" = "carapace fd powershell"
     "rustup" = "rustup completions powershell"
     "wezterm" = "wezterm shell-completion --shell power-shell"
     "regolith" = "regolith completion powershell"
@@ -114,6 +118,7 @@ function Register-LazyCompletion {
     "kitty" = "carapace kitty powershell"
     "magick" = "carapace magick powershell"
     "python" = "carapace python powershell"
+    "yay" = "carapace yay powershell"
 }.GetEnumerator() | ForEach-Object { Register-LazyCompletion -CommandName $_.Key -Completer $_.Value } | Out-String | Invoke-Expression
 
 ## zoxide cant add them for some reason /shrug
@@ -496,8 +501,11 @@ Set-PSReadLineOption -Colors @{
 # fuzzy: https://github.com/kelleyma49/PSFzf
 Write-Output "`e[u`e[0KPsFzf"
 Set-PSReadLineKeyHandler -Chord "Shift+Tab" -ScriptBlock { Invoke-FzfTabCompletion }
-# New-Alias -Name "cde" -Scope Global -Value Set-LocationFuzzyEverything -ErrorAction Ignore
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r' -EnableAliasFuzzySetEverything
+Set-PSReadLineKeyHandler -Chord "Ctrl+t" -ScriptBlock { Invoke-FzfPsReadlineHandlerProvider }
+Set-PSReadLineKeyHandler -Chord "Ctrl+r" -ScriptBlock { Invoke-FzfPsReadlineHandlerHistory }
+Set-PSReadLineKeyHandler -Chord "Alt+c" -ScriptBlock { Invoke-FzfPsReadlineHandlerSetLocation }
+Set-PSReadLineKeyHandler -Chord "Alt+a" -ScriptBlock { Invoke-FzfPsReadlineHandlerHistoryArgs }
+function cde { Set-LocationFuzzyEverything @args }
 # # git completions https://github.com/kzrnm/git-completion-pwsh
 # Write-Output "`e[u`e[0KGit Completions"
 # Import-Module -Name git-completion
@@ -517,38 +525,27 @@ function config {
     param(
         [Parameter(Mandatory)][string]$app
     )
-    if ($IsWindows) {
-        switch ($app) {
-            "rovr" { chezedit "~/AppData/Local/rovr" }
-            "helix" { chezedit "~/AppData/Roaming/helix" }
-            "opencode" { chezedit "~/.config/opencode/opencode.json" }
-            "yasb" { chezedit "~/.config/yasb" }
-            "tacky-borders" { chezedit "~/.config/tacky-borders/config.yaml" }
-            "pwsh" { chezedit $PROFILE }
-            "wezterm" { chezedit "~/AppData/Roaming/wezterm" }
-            "glazewm" { chezedit "~/.glzr/glazewm/config.yaml" }
-            "default" {
+    switch ($app) {
+        "niri" { chezedit "~/.config/niri" }
+        "rovr" { chezedit ($IsLinux ? "~/.config/rovr/" : "~/AppData/Local/rovr") }
+        "helix" { chezedit ($IsLinux ? "~/.config/helix/" : "~/AppData/Roaming/helix") }
+        "opencode" { chezedit "~/.config/opencode/opencode.json" }
+        "dms" { chezedit "~/.config/DankMaterialShell/settings.json" }
+        "pwsh" { chezedit $PROFILE }
+        "wezterm" { chezedit "~/.wezterm.lua" }
+        "kitty" { chezedit "~/.config/kitty/kitty.conf" }
+        "ov" { chezedit "~/.config/ov/config.yaml" }
+        "yasb" { chezedit "~/.config/yasb/config.yaml" }
+        "glazewm" { chezedit "~/.glzr/glazewm/config.yaml" }
+        "borders" { chezedit "~/.config/tacky-borders/config.yaml" }
+        default {
+            if (Get-Location "~/.config/$app" -ErrorAction SilentlyContinue) {
+                chezedit "~/.config/$app"
+            } else {
                 Write-Host "App not known, add it yourself"
-                hx "$($PROFILE):515"
+                hx "$($PROFILE):520"
             }
         }
-    } elseif ($IsLinux) {
-        switch ($app) {
-            "niri" { chezedit "~/.config/niri/config.kdl" }
-            "rovr" { chezedit "~/.config/rovr/" }
-            "helix" { chezedit "~/.config/helix/" }
-            "opencode" { chezedit "~/.config/opencode/opencode.json" }
-            "dms" { chezedit "~/.config/DankMaterialShell/settings.json" }
-            "pwsh" { chezedit $PROFILE }
-            "wezterm" { chezedit "~/.wezterm.lua" }
-            "kitty" { chezedit "~/.config/kitty/kitty.conf" }
-            default {
-                Write-Host "App not known, add it yourself"
-                hx "$($PROFILE):515"
-            }
-        }
-    } else {
-        Write-Host "Unsupported OS for config function"
     }
 }
 function chezadd { chezmoi add $args }
@@ -759,13 +756,21 @@ Register-LazyImport -FunctionName "uvdate" -ScriptPath "$PROFILE/../uvdate.ps1"
 function wordle {
     param (
         [Parameter()]
-        [string]$Chars
+        [string]$exists,
+        [Parameter()]
+        [string]$notexists
     )
     $words = (gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2026-03-10" /gists/dd0668f281e685bad51479e5acaadb93 | ConvertFrom-Json).files."valid-wordle-words.txt".content.split("`n")
     $words | ForEach-Object {
         $contains = $true
-        ForEach ($char in $Chars.ToCharArray()) {
+        ForEach ($char in $exists.ToCharArray()) {
             if (-not $_.Contains($char)) {
+                $contains = $false
+                break
+            }
+        }
+        ForEach ($char in $notexists.ToCharArray()) {
+            if ($_.Contains($char)) {
                 $contains = $false
                 break
             }
@@ -777,10 +782,14 @@ function wordle {
 }
 
 function nf {
-    uv run --no-project --with nerdfont python -c "import nerdfont`nfor name, icon in nerdfont.icons.items():`n`tprint(icon, hex(ord(icon)).ljust(7), name)" 2>$null | fzf --ignore-case --style=minimal
+    uv run --no-project --with nerdfont python -c @"
+import nerdfont
+for name, icon in nerdfont.icons.items():
+    print(icon, name)
+"@ 2>$null | fzf --ignore-case --style=minimal
 }
 ##### Other stuff #####
-Clear-Host
+Write-Host "`e[1J`e[H" -NoNewline
 function fetch {
     param (
         [Parameter()]
@@ -788,9 +797,8 @@ function fetch {
         [Parameter()]
         [Switch]$GitFetch
     )
-    if ($Clear) {
-        Clear-Host
-    }
+    if ($script:redirected) { return }
+    if ($Clear) { Clear-Host }
     if ($GitFetch) {
         Write-Host
         gitfetch --graph-only --custom-box 
@@ -800,7 +808,7 @@ function fetch {
         fastfetch
     }
 }
-fetch
+# fetch
 if ((Test-Path $prevloc) -and ($initial_dir -eq $HOME)) {
     $newloc = Get-Content "$prevloc"
     if ($newloc -ne $HOME) {
@@ -815,4 +823,10 @@ if ((Test-Path $prevloc) -and ($initial_dir -eq $HOME)) {
         }
     }
     Write-Host
+}
+
+if ($script:redirected) {
+    Remove-Item -Path Function:\Write-Host -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path Function:\Write-Output -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path Function:\Clear-host -Force -ErrorAction SilentlyContinue
 }

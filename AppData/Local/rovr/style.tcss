@@ -1,5 +1,3 @@
 #file_list_details_header {
   display: none;
 }
-
-$border-focused: red
