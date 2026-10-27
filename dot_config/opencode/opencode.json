@@ -45,5 +45,5 @@
       "extensions": [".toml"]
     }
   },
-  "plugin": ["opencode-wakatime", "opencode-pty", "@dietrichgebert/ponytail"]
+  "plugin": ["opencode-wakatime", "@dietrichgebert/ponytail"]
 }

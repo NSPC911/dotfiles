@@ -4,6 +4,8 @@ if ([Console]::IsOutputRedirected -or [Console]::IsInputRedirected -or [Console]
     function write-output {}
     function clear-host {}
     $script:redirected = $true
+} else {
+    Set-PSReadlineOption -PredictionSource History -BellStyle None
 }
 
 $initial_dir = (Get-Location).Path
@@ -66,12 +68,12 @@ if (-not (Test-Path $cacheCompletionLocation)) {
         Start-Process pwsh -Verb RunAs -ArgumentList "-Command exit" -WindowStyle Hidden
     } else {
         regenCache
+        . $cacheCompletionLocation
     }
 } else {
     Write-Output "Using script cache..."
+    . $cacheCompletionLocation
 }
-
-. $cacheCompletionLocation
 
 Write-Output $HomeAndClearLine"Dealing with functions and aliases..."
 
@@ -239,12 +241,6 @@ if (-not ($IsWindows)) {
     Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
     Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function DeleteWord
     Set-PSReadLineKeyHandler -Chord Ctrl+Backspace -Function BackwardDeleteWord
-    if (Get-Command "wf-recorder" -CommandType Application -ErrorAction SilentlyContinue) {
-        function rec {
-            wf-recorder -f ~/Videos/rec-$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").mp4
-            Write-Host "Saved recording to $output" -ForegroundColor Green
-        }
-    }
 }
 
 Set-Alias -Name "cat" -Value "bat"
@@ -282,7 +278,7 @@ function Watch-OMPrompt {
     Start-Sleep -Milliseconds 500
     # keep in mind that omp-test folder isn't added to the dotfiles
     # you need to `uv init`, `cargo init`, `go mod init`, `pnpm init`, `bun init`, `touch test.lua`
-    wezterm cli split-pane --bottom --cells 3 --pane-id $newTab --cwd "C:/Users/notso/Git/omp-test" -- pwsh -noni -nop -nol -c @"
+    wezterm cli split-pane --bottom --cells 3 --pane-id $newTab --cwd "~/Git/omp-test" -- pwsh -noni -nop -nol -c @"
 oh-my-posh print primary --config $ConfigPath
 `$lastMod = `(Get-Item $ConfigPath`).LastWriteTime
 while `(`$true`) `{
@@ -490,13 +486,20 @@ if ($IsWindows) {
 }
 Set-PSReadLineKeyHandler -Chord Ctrl+e -Function ViEditVisually
 Set-PSReadLineKeyHandler -Chord Alt+l -ScriptBlock { [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt() }
-Set-PSReadLineOption -BellStyle None
-# carapace stuff idk
-Set-PSReadLineOption -Colors @{
-    ListPredictionSelected = "`e[7m"
-    Selection = "`e[7m"
-    Parameter = "`e[38;5;245m"
-    Operator = "`e[38;5;245m"
+Set-PSReadLineOption -HistoryNoDuplicates -PredictionViewStyle InlineView -TerminateOrphanedConsoleApps -ShowToolTips -Colors @{
+        ListPredictionSelected = "`e[7m"
+        Selection = "`e[7m"
+        Parameter = "`e[38;5;245m"
+        Operator = "`e[38;5;245m"
+    }
+function PSConsoleHostReadLine {
+    [System.Diagnostics.DebuggerHidden()]
+    param()
+    $lastRunStatus = $?
+    Microsoft.PowerShell.Core\Set-StrictMode -Off
+    $script = [Microsoft.PowerShell.PSConsoleReadLine]::ReadLine($host.Runspace, $ExecutionContext, $lastRunStatus)
+    $Host.UI.RawUI.WindowTitle = "> $script"
+    return $script
 }
 # fuzzy: https://github.com/kelleyma49/PSFzf
 Write-Output "`e[u`e[0KPsFzf"
@@ -535,11 +538,10 @@ function config {
         "wezterm" { chezedit "~/.wezterm.lua" }
         "kitty" { chezedit "~/.config/kitty/kitty.conf" }
         "ov" { chezedit "~/.config/ov/config.yaml" }
-        "yasb" { chezedit "~/.config/yasb/config.yaml" }
         "glazewm" { chezedit "~/.glzr/glazewm/config.yaml" }
         "borders" { chezedit "~/.config/tacky-borders/config.yaml" }
         default {
-            if (Get-Location "~/.config/$app" -ErrorAction SilentlyContinue) {
+            if (Test-Path "~/.config/$app") {
                 chezedit "~/.config/$app"
             } else {
                 Write-Host "App not known, add it yourself"
@@ -683,9 +685,9 @@ function fz {
         }
     } elseif (($type -eq "rg") -or ($type -eq "fd")) {
         if ($null -eq $extra) {
-            $extra = ""
+            $extra = "hi"
         }
-        Invoke-PsFzfRipgrep $extra
+        Invoke-PsFzfRipgrep @extra
     } else {
         Write-Error "Unknown operation $type. Allowed: edit, status, history/his/h, kill/nuke, checkout/switch/branch, scoop/install, cd, rg, fd"
     }
@@ -780,6 +782,11 @@ function wordle {
         }
     }
 }
+
+##### stop and start saving history #####
+##### so that i can do funny stuff  #####
+function Stop-History  { Set-PSReadlineOption -HistorySaveStyle SaveNothing       }
+function Start-History { Set-PSReadlineOption -HistorySaveStyle SaveIncrementally }
 
 function nf {
     uv run --no-project --with nerdfont python -c @"

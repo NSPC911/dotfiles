@@ -13,25 +13,26 @@ My Windows 11 config files, Nord + Translucency
 
 #### Categories
 
-| Type                  | App                                                                                                                 | Location in repository                                                    |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| Tiling Manager        | [GlazeWM](https://github.com/glzr-io/glazewm)                                                                       | `dot_glzr/glazewm/config.yaml`                                            |
-| Window Borders        | [Tacky Borders](https://github.com/lukeyou05/tacky-borders)                                                         | `dot_config/tacky-borders/config.yaml`                                    |
-| Tiling Helper         | [AltSnap](https://github.com/RamonUnch/AltSnap)                                                                     | `readonly_scoop/persist/altsnap/AltSnap.ini`                              |
-| Status Bar            | [yasb](https://github.com/amnweb/yasb)                                                                              | `dot_config/yasb/`                                                        |
-| Terminal **emulator** | [wezterm](https://github.com/wezterm/wezterm)                                                                       | `.wezterm.lua`                                                            |
-| Terminal              | [PowerShell 7.5](https://github.com/PowerShell/PowerShell)                                                          | `OneDrive/readonly_Documents/PowerShell/Microsoft.PowerShell_profile.ps1` |
-| Fetch                 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) + [gitfetch](https://github.com/Matars/gitfetch)            | fastfetch: `dot_config/fastfetch/config.jsonc`                            |
-| Prompt                | [oh-my-posh](https://github.com/jandedobbeleer/oh-my-posh)                                                          | `dot_config/kushal.omp.json`                                              |
-| Mod Manager           | [Windhawk](https://github.com/ramensoftware/windhawk)                                                               | `windhawk/`                                                               |
-| Editor                | [helix](https://github.com/helix-editor/helix) [(custom built)](https://github.com/NSPC911-forks/helix/tree/patchy) | `AppData/Roaming/helix/`                                                  |
-| File Explorer (TUI)   | [rovr](https://github.com/NSPC911/rovr)                                                                             | `AppData/Local/rovr/`                                                     |
-| Browser               | [Zen](https://github.com/zen-browser/desktop)                                                                       | `zen/userChrome.css`                                                      |
-| Discord Mod           | [Vencord](https://github.com/Vendicated/Vencord)                                                                    | [NSPC911/themes:vencord](https://github.com/NSPC911/themes/tree/vencord)  |
-| Git UI                | [lazygit](https://github.com/jesseduffield/lazygit)                                                                 | `AppData/Local/lazygit/config.yml`                                        |
-| File Output           | [bat](https://github.com/sharkdp/bat)                                                                               | `readonly_scoop/persist/bat/`                                             |
-| Launcher              | [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher)                                                     | `readonly_scoop/persist/flow-launcher/UserData/Settings/`                 |
-| Pager                 | [ov](https://github.com/noborus/ov)                                                                                 | `dot_config/ov/config.yaml`                                               |
+| Type                   | App                                                                                                                 | Location in repository                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Tiling Manager         | [GlazeWM](https://github.com/glzr-io/glazewm)                                                                       | `dot_glzr/glazewm/config.yaml`                                            |
+| Window Borders         | [Tacky Borders](https://github.com/lukeyou05/tacky-borders)                                                         | `dot_config/tacky-borders/config.yaml`                                    |
+| Tiling Helper          | [AltSnap](https://github.com/RamonUnch/AltSnap)                                                                     | `readonly_scoop/persist/altsnap/AltSnap.ini`                              |
+| Status Bar             | [yasb](https://github.com/amnweb/yasb)                                                                              | `dot_config/yasb/`                                                        |
+| Terminal **emulator**  | [wezterm](https://github.com/wezterm/wezterm)                                                                       | `.wezterm.lua`                                                            |
+| Terminal               | [PowerShell 7.5](https://github.com/PowerShell/PowerShell)                                                          | `OneDrive/readonly_Documents/PowerShell/Microsoft.PowerShell_profile.ps1` |
+| Fetch                  | [fastfetch](https://github.com/fastfetch-cli/fastfetch) + [gitfetch](https://github.com/Matars/gitfetch)            | fastfetch: `dot_config/fastfetch/config.jsonc`                            |
+| Prompt                 | [oh-my-posh](https://github.com/jandedobbeleer/oh-my-posh)                                                          | `dot_config/kushal.omp.json`                                              |
+| Mod Manager            | [Windhawk](https://github.com/ramensoftware/windhawk)                                                               | `windhawk/`                                                               |
+| Editor                 | [helix](https://github.com/helix-editor/helix) [(custom built)](https://github.com/NSPC911-forks/helix/tree/patchy) | `AppData/Roaming/helix/`                                                  |
+| File Explorer (TUI)    | [rovr](https://github.com/NSPC911/rovr)                                                                             | `AppData/Local/rovr/`                                                     |
+| Browser                | [Zen](https://github.com/zen-browser/desktop)                                                                       | `zen/userChrome.css`                                                      |
+| Discord Mod            | [Vencord](https://github.com/Vendicated/Vencord)                                                                    | [NSPC911/themes:vencord](https://github.com/NSPC911/themes/tree/vencord)  |
+| Git UI                 | [lazygit](https://github.com/jesseduffield/lazygit)                                                                 | `AppData/Local/lazygit/config.yml`                                        |
+| File Output            | [bat](https://github.com/sharkdp/bat)                                                                               | `readonly_scoop/persist/bat/`                                             |
+| Launcher               | [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher)                                                     | `readonly_scoop/persist/flow-launcher/UserData/Settings/`                 |
+| Pager                  | [ov](https://github.com/noborus/ov)                                                                                 | `dot_config/ov/config.yaml`                                               |
+| Keyboard Mouse Control | [mousemaster](https://github.com/petoncle/mousemaster)                                                              | `readonly_scoop/persist/mousemaster/mousemaster.properties`               |
 
 #### Wallpaper
 
@@ -63,34 +64,28 @@ helix
 ```
 
 #### uv tools
-
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
-
 ```
-ansible-lint v26.9.0
+ansible-lint v26.10.0
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.25.8
+mistral-vibe v2.26.1
 poethepoet v0.48.0
 poetry v2.5.1
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.414
 pytrash v0.4.0
 rich-cli v1.8.1
-ruff v0.16.8
+ruff v0.17.0
 ty v0.0.49 [required: ==0.0.49]
 ```
 
 #### pnpm global installs
-
 <!--pnpm list -g, remove unnecessary parts-->
 <!--or if possible, run 'pnpm list --global --json | jq -r ".[0].dependencies[] | `"\(.from)@\(.version)`""',-->
-
 ```
-@astrojs/language-server@2.17.1
+@astrojs/language-server@2.17.2
 @fsouza/prettierd@0.27.0
-@github/copilot@1.0.88
-@google/gemini-cli@0.43.0
 corepack@0.35.0
 live-server@1.2.2
 oxfmt@0.52.0
@@ -134,23 +129,22 @@ vscode-langservers-extracted@4.10.0
 | Transparency        | [MicaForEveryone](https://github.com/MicaForEveryone/MicaForEveryone) | `AppData/Local/Mica For Everyone/MicaForEveryone.conf`             |
 
 ### Stats
-
 <!--tokei --sort lines,-->
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     58         6417         6416            0            1
- CSS                      11         3991         3257          254          480
- Scheme                    7         2467         2066          116          285
- TOML                     12         1982         1656          164          162
- PowerShell                4         1226         1078           56           92
- YAML                      5         1169         1049           54           66
+ JSON                     58         6440         6439            0            1
+ CSS                      11         4028         3289          258          481
+ Scheme                    7         2467         2065          117          285
+ TOML                     12         2004         1662          177          165
+ PowerShell                4         1237         1079           66           92
+ YAML                      5         1190         1069           55           66
  INI                       1          687          170          414          103
- Lua                       1          280          250           14           16
- Markdown                 10          227            0          176           51
+ Lua                       1          303          273           14           16
+ Markdown                 10          220            0          175           45
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   109        18446        15942         1248         1256
+ Total                   109        18576        16046         1276         1254
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

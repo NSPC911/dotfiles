@@ -26,6 +26,20 @@ icon = ""
 color = "#E74C3C"
 pattern = "*.pxo"
 
+# [settings.previewers.helium]
+# command = ["C:/Users/notso/scoop/apps/helium/current/chrome.exe", "--do-not-de-elevate", "--headless", "--no-first-run", "--disable-gpu", "--user-data-dir=%tmpdir", "--screenshot=%file", "%h"]
+# file = "%temp.png"
+# type = "image"
+# on_nonzero_exit = "text"
+
+# [settings.preview_rules."text/html"]
+# default = "text"
+# extensions = { html = "helium", htm = "helium" }
+
+# [settings.preview_rules."text/plain"]
+# default = "text"
+# extensions = { html = "helium", htm = "helium" }
+
 [keybinds]
 new = ["n"]
 open = ["ctrl+o"]

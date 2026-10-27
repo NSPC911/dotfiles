@@ -8,7 +8,6 @@
 	amend = commit --amend --no-edit
 	new = checkout -b
 	back = reset --soft HEAD~1
-	head-reset = reset --hard HEAD
 	branches = branch --list --all --color=always
 	ball = push --force --no-verify
 [user]
@@ -17,11 +16,11 @@
 [credential "helperselector"]
     selected = manager
 [credential "https://github.com"]
-	helper = 
-	helper = !'C:\\Users\\notso\\scoop\\apps\\gh\\current\\bin\\gh.exe' auth git-credential
+	helper =
+	helper = !gh.exe auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !'C:\\Users\\notso\\scoop\\apps\\gh\\current\\bin\\gh.exe' auth git-credential
+	helper =
+	helper = !gh.exe auth git-credential
 [credential]
 	helper = manager
 [credential "https://myhost.com"]
@@ -34,7 +33,7 @@
 [core]
 	pager = delta
 [interactive]
-	diffFilter = 'delta
+	diffFilter = delta
 [delta]
 	navigate = true
 	side-by-side = true

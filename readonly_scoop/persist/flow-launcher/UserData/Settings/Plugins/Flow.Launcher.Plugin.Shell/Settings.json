@@ -35,8 +35,9 @@
     "start \u0022\u0022 \u0022rio -e hx\u0022": 1,
     "start \u0022\u0022 wezterm start helix-ghost": 1,
     "wezterm start helix-ghost": 1,
-    "yasbc reload": 1,
+    "yasbc reload": 4,
     "wezterm -c powershell": 1,
-    "wezterm start powershell": 1
+    "wezterm start powershell": 1,
+    "pwsh -c fz kill": 1
   }
 }

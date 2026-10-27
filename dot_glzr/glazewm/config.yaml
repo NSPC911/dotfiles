@@ -10,7 +10,7 @@ general:
     trigger: "window_focus"
 
   hide_method: "cloak"
-  show_all_in_taskbar: false
+  show_all_in_taskbar: true
 
 # Animation settings for workspace switches (slide-in + fade-out).
 animations:
@@ -39,6 +39,7 @@ gaps:
   outer_gap:
     top: "4px"
     right: "4px"
+    # right: "330px"
     bottom: "4px"
     left: "4px"
 
@@ -90,7 +91,7 @@ workspaces:
   - name: "5"
 
 window_rules:
-  - commands: ["toggle-floating"]
+  - commands: ["set-floating"]
     match:
       - window_process: { equals: "SnippingTool" }
 
@@ -104,6 +105,10 @@ window_rules:
 
       - window_process: { equals: "PowerToys.KeyboardManagerEditor" }
       - window_process: { equals: "rio" }
+      - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
+        window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
+      - window_process: { equals: "obs" }
+        window_title: { equals: "Remux Recording" }
 
   - commands: ["ignore"]
     match:
@@ -111,8 +116,6 @@ window_rules:
       - window_process: { equals: "overkeys" }
       - window_process: { equals: "keyviz" }
 
-      - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
-        window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
       - window_title: { equals: "Environment Variables" }
         window_process: { equals: "SystemPropertiesAdvanced" }
 
@@ -142,6 +145,10 @@ window_rules:
   - commands: ["close"]
     match:
       - window_title: { equals: "Mem Reduct" }
+  - commands: ["position --x-pos 14 --y-pos 14"]
+    match:
+      - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
+        window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
 
 binding_modes:
 

@@ -13,7 +13,7 @@ gui:
   skipStashWarning: true
   skipNoStagedFilesWarning: true
   skipRewordInEditorWarning: true
-  useHunkModeInStagingView: true
+  useHunkModeInDiffView: true
   showRootItemInFileTree: false
   showRandomTip: false
   showIcons: true
@@ -22,7 +22,7 @@ gui:
   animateExplosion: false
   nerdFontsVersion: "3"
   showBranchCommitHash: true
-  wrapLinesInStagingView: false
+  wrapLinesInDiffView: false
   showNumstatInFilesView: true
   commitLength:
     show: true

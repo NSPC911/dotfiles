@@ -1,3 +1,28 @@
 #file_list_details_header {
   display: none;
 }
+Screen.-filelist-only {
+  #headerArea { height: 1 }
+  #menuwrapper,
+  #footer { margin: 0 }
+  #main { margin: 0 }
+  #footer {
+    layout: vertical;
+    margin: 0;
+    height: $footer_unfocus_height;
+    &:focus-within {
+      height: $footer_focus_height;
+      max-height: 40vh;
+    }
+    & > * {
+      border-bottom: none;
+      height: 1fr
+    }
+    &:focus-within > * { height: 1 }
+    &:focus-within > *:focus-within,
+    &:focus-within > *:focus { height: 1fr }
+  }
+  YesOrNo #dialog {
+    padding:0 !important
+  }
+}

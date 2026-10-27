@@ -29,21 +29,20 @@ bars:
     padding:
       top: 0
       right: 2
-      bottom: 4
+      bottom: 3
       left: 2
     widgets:
       left: [
           "power_menu",
-          "launchpad",
-          "media-controls",
+          # "launchpad",
           "glazewm_workspaces",
           "taskbar",
-          # "active_window"
         ]
-      center: ["clock", "cpu"]
+      center: ["clock"]
       right:
         [
-          # "glazewm_tiling_direction",
+          "window_switcher",
+          "media",
           "systray",
           "toggle_keyboard",
           "bluetooth",
@@ -227,7 +226,7 @@ widgets:
       keybindings:
         - keys: "ctrl+alt+shift+f24"
           action: "toggle_launchpad"
-  media-controls:
+  media:
     type: "yasb.media.MediaWidget"
     options:
       label: " {title} "
@@ -240,8 +239,8 @@ widgets:
       max_field_size:
         label: 35
         label_alt: 35
-      show_thumbnail: false
-      controls_only: true
+      show_thumbnail: true
+      controls_only: false
       controls_left: false
       controls_hide: false
       thumbnail_alpha: 127
@@ -258,7 +257,7 @@ widgets:
         round_corners_type: "normal"
         border_color: "system"
         alignment: "center"
-        direction: "down"
+        direction: "up"
         offset_top: 7
         offset_left: 0
         thumbnail_corner_radius: 8
@@ -454,3 +453,18 @@ widgets:
         on_left: "toggle_label"
       ethernet_icon: "\ueba9"
       wifi_icons: ["\udb82\udd2e", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"]
+  window_switcher:
+    type: "yasb.window_switcher.WindowSwitcherWidget"
+    options:
+      # label: "\udb84\udcac"
+      label: ""
+      icon_size: 72
+      max_visible_apps: 5
+      show_title: false
+      preview:
+        enabled: true
+        width: 360
+      keybindings:
+        - keys: "ctrl+alt+shift+f23"
+          action: "toggle_window_switcher"
+          screen: "cursor"

@@ -21,7 +21,7 @@
 
 ; show one key once at a time
 (require "./showkeys.scm")
-(showkeys-toggle)
+; (showkeys-toggle)
 
 
 ; no installation command

@@ -59,19 +59,10 @@
 "alt+right" = { action = "hist_next", desc = "Go to the next directory" }
 "u" = "hist_previous"
 "v" = { action = "toggle_visual", desc = "Toggle visual selection" }
-"%" = { action = "toggle_all", desc = "Toggle selection of all files" }
-"ctrl+a" = "toggle_all"
 "." = { action = "toggle_hidden_files", desc = "Toggle hidden files" }
-"shift+up" = { action = "select_cursor(-1)", desc = "Extend selection upward" }
-"I" = "select_cursor(-1)"
-"shift+down" = { action = "select_cursor(1)", desc = "Extend selection downward" }
-"K" = "select_cursor(1)"
-"shift+pageup" = { action = "select_cursor_page(-1)", desc = "Extend selection up one page" }
-"shift+pagedown" = { action = "select_cursor_page(1)", desc = "Extend selection down one page" }
-"shift+home" = { action = "select_home", desc = "Extend selection to the first file" }
-"shift+end" = { action = "select_end", desc = "Extend selection to the last file" }
 "ctrl+o" = { action = "open", desc = "Open selected files" }
-"e" = { action = "open_editor", desc = "Open the current file in an editor" }
+# "e" = { action = 'open_editor', desc = "Open the current file in editor" }
+"e" = { action = 'run_command(["hx", "%s"], "suspend")', desc = "Open the current file in hx" }
 "shift+f10" = { action = "open_right_click_menu", desc = "Open the context menu" }
 # "Y" = { action = "copy.open_popup", desc = "Open the copy menu" }
 # "," = { action = "sort_order.open_popup", desc = "Open the sort menu" }
@@ -117,6 +108,19 @@ desc = "Sort order"
 "g" = "home"
 "end" = "end"
 "G" = "end"
+
+[selectionlists]
+"%" = { action = "toggle_all", desc = "Toggle selection of all files" }
+"ctrl+a" = "toggle_all"
+"ctrl+r" = { action = "invert_selections", desc = "Invert selections" }
+"shift+up" = { action = "select_cursor(-1)", desc = "Extend selection upward" }
+"I" = "select_cursor(-1)"
+"shift+down" = { action = "select_cursor(1)", desc = "Extend selection downward" }
+"K" = "select_cursor(1)"
+"shift+pageup" = { action = "select_cursor_page(-1)", desc = "Extend selection up one page" }
+"shift+pagedown" = { action = "select_cursor_page(1)", desc = "Extend selection down one page" }
+"shift+home" = { action = "select_home", desc = "Extend selection to the first file" }
+"shift+end" = { action = "select_end", desc = "Extend selection to the last file" }
 
 [lists]
 "up" = { action = "cursor(-1)", desc = "Move up" }
@@ -251,3 +255,5 @@ desc = "Sort order"
 "tab" = "cycle_mode"
 "shift+tab" = "cycle_mode"
 
+[button]
+"enter" = "press"

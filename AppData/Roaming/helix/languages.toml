@@ -196,7 +196,10 @@ language-servers = ["tinymist"]
 
 [[language]]
 name = "toml"
-language-servers = ["taplo", { name = "tombi", except-features = ["document-symbols"] }]
+language-servers = [
+  # "taplo",
+  { name = "tombi", except-features = ["document-symbols"] }
+]
 
 [[language]]
 name = "powershell"
