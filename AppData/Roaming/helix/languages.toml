@@ -129,8 +129,8 @@ language-servers = [
     "goto-implementation",
   ] },
   { name = "ty", except-features = [
-    "format",
     "goto-definition",
+    "format",
     "signature-help",
     "hover",
     "document-highlight",

@@ -209,16 +209,6 @@
             "url": "http://127.0.0.1:26538/api/v1/repeat-mode",
             "method": "GET"
           }
-        },
-        {
-          "type": "http",
-          "style": "plain",
-          "foreground": "#D6DEEB",
-          "template": " {{ if .Body.isPaused }}\uf04c{{ else }}\uf04b{{ end }} {{ .Body.title }} - {{ .Body.artist }}",
-          "options": {
-            "url": "http://127.0.0.1:26538/api/v1/song-info",
-            "method": "GET"
-          }
         }
       ],
       "newline": true

@@ -257,3 +257,8 @@ desc = "Sort order"
 
 [button]
 "enter" = "press"
+
+[processes]
+"a" = "new_test_bar"
+"d" = "delete"
+"del" = "delete"

@@ -7,7 +7,7 @@
 	fixup = commit --fixup
 	amend = commit --amend --no-edit
 	new = checkout -b
-	back = reset --soft HEAD~1
+	back = !git reset --soft HEAD~1 && git log -1
 	branches = branch --list --all --color=always
 	ball = push --force --no-verify
 [user]
@@ -25,18 +25,18 @@
 	helper = manager
 [credential "https://myhost.com"]
 	provider = generic
-[diff]
-	colorMoved = default
-	colorMovedWS = ignore-all-space
+# [diff]
+# 	colorMoved = default
+# 	colorMovedWS = ignore-all-space
 [init]
 	defaultBranch = main
 [core]
 	pager = delta
 [interactive]
-	diffFilter = delta
+	diffFilter = delta --color-only
 [delta]
 	navigate = true
-	side-by-side = true
+	side-by-side = false
 	line-numbers = true
 [merge]
 	conflictStyle = zdiff3

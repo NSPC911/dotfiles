@@ -1,4 +1,4 @@
-#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.2.post1/src/rovr/assets/schema.json
+#:schema https://raw.githubusercontent.com/NSPC911/rovr/refs/tags/v0.10.3/src/rovr/assets/schema.json
 
 [interface]
 truncate_progress_file_path = true
@@ -26,19 +26,25 @@ icon = ""
 color = "#E74C3C"
 pattern = "*.pxo"
 
-# [settings.previewers.helium]
-# command = ["C:/Users/notso/scoop/apps/helium/current/chrome.exe", "--do-not-de-elevate", "--headless", "--no-first-run", "--disable-gpu", "--user-data-dir=%tmpdir", "--screenshot=%file", "%h"]
-# file = "%temp.png"
-# type = "image"
-# on_nonzero_exit = "text"
+[settings.previewers.pixelorama]
+command = ['pixelorama', '--headless', '--quit', '--', '%h', '--export', '--output', '%file']
+file = "%temp.png"
+type = "image"
 
-# [settings.preview_rules."text/html"]
-# default = "text"
-# extensions = { html = "helium", htm = "helium" }
+[settings.previewers.libreoffice]
+command = ["python", "~/Git/NSPC911/libre.py", "%h", "%file"]
+file = "%temp.pdf"
+type = "pdf"
 
-# [settings.preview_rules."text/plain"]
-# default = "text"
-# extensions = { html = "helium", htm = "helium" }
+[settings.preview_rules]
+"application/(vnd\\.)?openxmlformats-officedocument.*" = "libreoffice"
+"application/oasis.opendocument.*" = "libreoffice"
+"application/ms-*" = "libreoffice"
+"application/msword" = "libreoffice"
+
+[settings.preview_rules."application/zip"]
+default = "archive"
+extensions = { pxo = "pixelorama" }
 
 [keybinds]
 new = ["n"]
@@ -71,6 +77,7 @@ executable = "bat"
 
 [plugins.poppler]
 threads = 5
+pdf_batch_size = 5
 
 [plugins.file_one]
 enabled = true

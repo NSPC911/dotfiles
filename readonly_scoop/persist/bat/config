@@ -2,3 +2,4 @@
 --italic-text=always
 --paging=auto
 --wrap=never
+--set-terminal-title

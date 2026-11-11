@@ -136,7 +136,7 @@ config.keys = {
 		action = wezterm.action.CloseCurrentPane { confirm = true },
 	},
 	{
-		key = "e",
+		key = "t",
 		mods = "ALT",
 		action = act.PromptInputLine {
 			description = "Enter name for tab",
@@ -149,8 +149,8 @@ config.keys = {
 		},
 	},
 	{
-		key = "E",
-		mods = "ALT|SHIFT",
+		key = "w",
+		mods = "ALT",
 		action = act.PromptInputLine {
 			description = "Enter name for new workspace",
 			action = wezterm.action_callback(function(window, pane, line)

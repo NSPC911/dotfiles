@@ -89,14 +89,15 @@ function Register-LazyCompletion {
     function _lazycomplete_$CommandName {
         param(`$wordToComplete, `$commandAst, `$cursorPosition)
         Register-ArgumentCompleter -Native -CommandName '$CommandName' -ScriptBlock {}
-        $Completer | out-string | invoke-expression
+        . { $Completer | out-string | invoke-expression }
         [System.Management.Automation.CommandCompletion]::CompleteInput(`$commandAst.ToString().PadRight(`$cursorPosition, ' ').Substring(0, `$cursorPosition), `$cursorPosition, `$null).CompletionMatches
     }
     Register-ArgumentCompleter -Native -CommandName '$CommandName' -ScriptBlock (Get-Item "Function:_lazycomplete_$CommandName").ScriptBlock
 "@
 }
-@{
-    "gh" = "gh completion --shell powershell"
+
+$completions = @{
+    "gh" = "gh completion --shell powershell" # (doesnt work due to reasons)
     "ty" = "ty generate-shell-completion powershell"
     "uv" = "uv generate-shell-completion powershell"
     "uvx" = "uvx --generate-shell-completion powershell"
@@ -121,7 +122,14 @@ function Register-LazyCompletion {
     "magick" = "carapace magick powershell"
     "python" = "carapace python powershell"
     "yay" = "carapace yay powershell"
-}.GetEnumerator() | ForEach-Object { Register-LazyCompletion -CommandName $_.Key -Completer $_.Value } | Out-String | Invoke-Expression
+}
+
+$sb = [System.Text.StringBuilder]::new()
+foreach ($item in $completions.GetEnumerator()) {
+    [void]$sb.AppendLine((Register-LazyCompletion -CommandName $item.Key -Completer $item.Value))
+}
+
+[scriptblock]::Create($sb.ToString()).Invoke()
 
 ## zoxide cant add them for some reason /shrug
 Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
@@ -197,6 +205,16 @@ function nuke {
 }
 Set-Alias -Name "whereis" -Value "where.exe"
 
+# i keep typing it
+$ExecutionContext.InvokeCommand.CommandNotFoundAction = {
+    param([string]$CommandName, [System.Management.Automation.CommandLookupEventArgs]$eArgs)
+    $cleanWord = $CommandName -replace '[^a-zA-Z]', ''
+    if ($cleanWord.Length -le 5 -and $cleanWord.Length -gt 3 -and ($cleanWord -match '^[clear]+$')) {
+        Clear-Host
+        $eArgs.StopProcessing = $true
+    }
+}
+
 Set-Alias -Name "omp" -Value "oh-my-posh"
 
 Set-Alias -Name "save" -Value "Out-File"
@@ -213,6 +231,17 @@ function symlink {
         [string]$ItemToSymlinkTo
     )
     New-Item -ItemType SymbolicLink -Path $ItemToSymlinkTo -Target (Resolve-Path $ItemToSymlinkFrom).Path
+}
+
+function hardlink {
+    param(
+        [Parameter(Position = 0)]
+        [string]$ItemToSymlinkFrom,
+
+        [Parameter(Position = 1)]
+        [string]$ItemToSymlinkTo
+    )
+    New-Item -ItemType HardLink -Path $ItemToSymlinkTo -Target (Resolve-Path $ItemToSymlinkFrom).Path
 }
 
 function Get-FolderSize {
@@ -278,7 +307,7 @@ function Watch-OMPrompt {
     Start-Sleep -Milliseconds 500
     # keep in mind that omp-test folder isn't added to the dotfiles
     # you need to `uv init`, `cargo init`, `go mod init`, `pnpm init`, `bun init`, `touch test.lua`
-    wezterm cli split-pane --bottom --cells 3 --pane-id $newTab --cwd "~/Git/omp-test" -- pwsh -noni -nop -nol -c @"
+    wezterm cli split-pane --bottom --cells 3 --pane-id $newTab --cwd (Get-Item "~/Git/omp-test").FullName -- pwsh -noni -nop -nol -c @"
 oh-my-posh print primary --config $ConfigPath
 `$lastMod = `(Get-Item $ConfigPath`).LastWriteTime
 while `(`$true`) `{
@@ -463,7 +492,7 @@ Set-Alias -Name "lz" -Value "lazygit"
 
 ##### Give me my full history man #####
 function Get-FullHistory {
-    Get-Content (Get-PSReadlineOption).HistorySavePath | Where-Object {$_ -like "*$find*"} | Get-Unique
+    Get-Content (Get-PSReadlineOption).HistorySavePath | Where-Object {$_ -like "*$find*"}
 }
 
 ##### run something foreva!! #####
@@ -545,7 +574,7 @@ function config {
                 chezedit "~/.config/$app"
             } else {
                 Write-Host "App not known, add it yourself"
-                hx "$($PROFILE):520"
+                hx "$($PROFILE):545"
             }
         }
     }
@@ -791,8 +820,17 @@ function Start-History { Set-PSReadlineOption -HistorySaveStyle SaveIncrementall
 function nf {
     uv run --no-project --with nerdfont python -c @"
 import nerdfont
-for name, icon in nerdfont.icons.items():
-    print(icon, name)
+
+# need to do this else there is duplicates
+icons = {k: v for k, v in nerdfont.icons.items()}
+
+for name, icon in icons.items():
+    hexed = hex(ord(icon))[2:].upper()
+    if len(hexed) <= 4:
+        hexed = f"    \\u{hexed:0>4}"
+    else:
+        hexed = f"\\U{hexed:0>8}"
+    print(icon, hexed, name)
 "@ 2>$null | fzf --ignore-case --style=minimal
 }
 ##### Other stuff #####

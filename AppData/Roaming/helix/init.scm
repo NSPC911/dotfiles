@@ -14,10 +14,11 @@
 ; https://github.com/RoastBeefer00/fidget.hx
 ; (require "fidget.hx/fidget.scm")
 
+; https://github.com/Ra77a3l3-jar/who.hx
+(require "who/who.scm")
 
 ; scroll snapped to center
 ; (require "./smooth-scroll.scm")
-
 
 ; show one key once at a time
 (require "./showkeys.scm")
@@ -30,7 +31,6 @@
 
 ; changed path it saves to and better keybinds
 (require "./streal.scm")
-
 
 ; changed keybinds a bit
 (require "./forest.scm")

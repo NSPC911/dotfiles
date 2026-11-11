@@ -180,6 +180,15 @@ keybindings:
   - commands: ["resize --height +5%", "wm-redraw"]
     bindings: ["lwin+shift+oem_plus", "ralt+shift+oem_plus"]
 
+  - commands: ["resize --width -1%", "wm-redraw"]
+    bindings: ["lwin+ctrl+oem_minus", "ralt+ctrl+oem_minus"]
+  - commands: ["resize --width +1%", "wm-redraw"]
+    bindings: ["lwin+ctrl+oem_plus", "ralt+ctrl+oem_plus"]
+  - commands: ["resize --height -1%", "wm-redraw"]
+    bindings: ["lwin+ctrl+shift+oem_minus", "ralt+ctrl+shift+oem_minus"]
+  - commands: ["resize --height +1%", "wm-redraw"]
+    bindings: ["lwin+ctrl+shift+oem_plus", "ralt+ctrl+shift+oem_plus"]
+
   # Disables window management and all other keybindings until lwin+shift+, ralt# is pressed again.
   # - commands: ['wm-toggle-pause']
   #   bindings: ['lwin+shift+p', 'ralt+shift+p']

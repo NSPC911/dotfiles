@@ -34,7 +34,7 @@ bars:
     widgets:
       left: [
           "power_menu",
-          # "launchpad",
+          "launchpad",
           "glazewm_workspaces",
           "taskbar",
         ]

@@ -21,9 +21,9 @@
     "yasbc_dev reload": 3,
     "tacky-borders.exe": 1,
     "rio-nightly --command cmd": 2,
-    "memreduct -clean:full": 6,
+    "memreduct -clean:full": 7,
     "hx": 1,
-    "pwsh": 1,
+    "pwsh": 2,
     "rio-nightly --command rovr": 2,
     "wezterm spawn powershell": 1,
     "wezterm start -e powershell": 1,
@@ -35,9 +35,13 @@
     "start \u0022\u0022 \u0022rio -e hx\u0022": 1,
     "start \u0022\u0022 wezterm start helix-ghost": 1,
     "wezterm start helix-ghost": 1,
-    "yasbc reload": 4,
+    "yasbc reload": 5,
     "wezterm -c powershell": 1,
     "wezterm start powershell": 1,
-    "pwsh -c fz kill": 1
+    "pwsh -c fz kill": 1,
+    "thide show": 2,
+    "thide hide": 1,
+    "pwsh -c scoop update wezterm-nightly": 1,
+    "yasbc stop": 1
   }
 }
