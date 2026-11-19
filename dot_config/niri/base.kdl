@@ -30,12 +30,11 @@ input {
         // Scale bottom right 33% of tablet to full screen
         // calibration-matrix 3.0 0.0 -1.875 0.0 2.0 -1.0
         // Scale to 33% in bottom right padded corner i guess?
-        calibration-matrix 3.0 0.0 -1.75 0.0 4.0 -1.75
+        calibration-matrix 3.5 0.0 -2.0 0.0 3.5 -2.0
         map-to-output "eDP-1"
         // map-to-focused-window
     }
 }
-
 // -------------- Keybindings --------------
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
 
@@ -63,14 +62,13 @@ binds {
     XF86AudioPause        allow-when-locked=true  { spawn-sh "playerctl play-pause"; }
     XF86AudioPlay         allow-when-locked=true  { spawn-sh "playerctl play-pause"; }
     XF86AudioPrev         allow-when-locked=true  { spawn-sh "playerctl previous"; }
-    Shift+XF86AudioRaiseVolume  allow-when-locked=true  { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
-    Shift+XF86AudioLowerVolume  allow-when-locked=true  { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-    Shift+XF86AudioMute         allow-when-locked=true  { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    Shift+XF86AudioMicMute      allow-when-locked=true  { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    Shift+XF86AudioNext         allow-when-locked=true  { spawn-sh "playerctl next"; }
-    Shift+XF86AudioPause        allow-when-locked=true  { spawn-sh "playerctl play-pause"; }
-    Shift+XF86AudioPlay         allow-when-locked=true  { spawn-sh "playerctl play-pause"; }
-    Shift+XF86AudioPrev         allow-when-locked=true  { spawn-sh "playerctl previous"; }
+    Shift+f2              allow-when-locked=true  { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    Shift+f3              allow-when-locked=true  { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    Shift+f4              allow-when-locked=true  { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    Shift+f5              allow-when-locked=true  { spawn-sh "playerctl pause"; }
+    Shift+f6              allow-when-locked=true  { spawn-sh "playerctl previous"; }
+    Shift+f7              allow-when-locked=true  { spawn-sh "playerctl play-pause"; }
+    Shift+f8              allow-when-locked=true  { spawn-sh "playerctl next"; }
 
     // --- Window Movement and Focus ---
     MOD+Q                               { close-window; }
@@ -185,6 +183,7 @@ binds {
     MOD+SHIFT+N                         { spawn "dms" "ipc" "notepad" "toggle"; }
 
     CTRL+ALT+R                          { spawn "dms" "ipc" "call" "screenRecorder" "toggleRecording"; }
+    Mod+SHIFT+W                         { spawn "skwd-wall-v2"; }
 }
 
 // -------------- Layer Rules --------------
@@ -193,17 +192,14 @@ binds {
 layer-rule {
     background-effect { xray false; }
 }
-
 layer-rule {
-    match namespace="dms:blurwallpaper"
+    // match namespace="dms:blurwallpaper"
     match namespace="linux-wallpaperengine"
-    // match namespace="wallpaper"
     match namespace="^quickshell$"
-    place-within-backdrop true
-}
-
-layer-rule {
-    match namespace="wallpaper"
+    match namespace="^skwd-paper-backdrop$"
+    match namespace="^skwd-paper-stationary$"
+    match namespace="^skwd-paper-vk$"
+    // match namespace="wallpaper"
     place-within-backdrop true
 }
 
@@ -340,6 +336,7 @@ window-rule {
     match app-id="vesktop"
     match app-id="discord"
     match app-id="steam"
+    match app-id="Beeper"
     open-on-workspace "messages"
     draw-border-with-background false
     open-focused false
@@ -512,12 +509,20 @@ include "dms/outputs.kdl"
 include "center-focused-column.kdl"
 
 spawn-at-startup "pkill" "kgpg"
-spawn-at-startup "linux-wallpaperengine" "--screen-root" "eDP-1" "--bg" "1176090049" "--scaling" "fill" "--screenshot" "~/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent"
-spawn-at-startup "linux-wallpaperengine" "--screen-root" "DP-3" "--bg" "1176090049" "--scaling" "fill" "--screenshot" "~/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent"
-spawn-sh-at-startup "swaybg --image ~/Pictures/Wallpapers/blurred_1176090049.png --output '*'"
+// spawn-at-startup "linux-wallpaperengine" "--screen-root" "eDP-1" "--bg" "1176090049" "--scaling" "fill" "--screenshot" "~/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent"
+// spawn-at-startup "linux-wallpaperengine" "--screen-root" "DP-3" "--bg" "1176090049" "--scaling" "fill" "--screenshot" "~/Pictures/Wallpapers/1176090049.png" "--disable-mouse" "--disable-parallax" "--fullscreen-pause-only-active" "--fps" "20" "--silent"
+// spawn-sh-at-startup "swaybg --image ~/Pictures/Wallpapers/blurred_1176090049.png --output '*'"
 spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &"
+// spawn-sh-at-startup """
+// powershell -NoProfile -Command '
+// if (Get-Process )
+// '
+// """
 // spawn-at-startup "neru" "launch"
 
 spawn-at-startup "powershell" "-NoProfile" "/home/nspc911/.config/niri/niri-stream.ps1"
 // spawn-at-startup "ignis" "init"
 // spawn-at-startup "swww-daemon"
+
+// DMS Include Configs
+include "dms/input.kdl"

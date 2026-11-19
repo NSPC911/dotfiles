@@ -2,6 +2,12 @@
 $saveRunToHistory = $true
 $historyFilePath = (Get-PSReadLineOption).HistorySavePath
 
+function Stop-Render  { write-host "`e[?2026h" -NoNewLine }
+function Start-Render { write-host "`e[?2026l" -NoNewLine }
+function New-TempFile {
+    return New-Item ([System.IO.Path]::GetTempPath() + ([System.IO.Path]::GetRandomFileName() -split ".")[0] + ".ps1")
+}
+
 if ($null -eq $env:EDITOR -or $env:EDITOR -eq "") {
     if (Get-Command edit -ErrorAction SilentlyContinue) {
         $env:EDITOR = "edit"
@@ -92,11 +98,13 @@ function suggest {
 
     do {
         # claude sonnet helped do this part, pretty cool imo
+        stop-render
         Write-Host "╰❯ " -NoNewLine
         for ($i = 0; $i -lt $options.Count; $i++) {
             if ($i -eq $selectedIndex) { Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -ForegroundColor Black -BackgroundColor Cyan -NoNewLine }
             else { Write-Host " [$($options[$i][0])]$($options[$i].Substring(1)) " -NoNewLine }
         }
+        start-render
         Write-Host "`e[?25l`n"
         $key = [System.Console]::ReadKey($true)
         Write-Host "`e[2F`e[2K" -NoNewLine
@@ -157,17 +165,15 @@ function suggest {
                 }
                 2 {
                     Write-Host "·  $(Write-PoshHighlighted '$editThis = New-TemporaryFile')"
-                    $editThis = New-TemporaryFile
-                    Write-Host "·  $(Write-PoshHighlighted '$editThis = Rename-Item -Path $editThis.FullName -NewName ($editThis.BaseName + ".ps1") -PassThru')"
-                    $editThis = Rename-Item -Path $editThis.FullName -NewName ($editThis.BaseName + ".ps1") -PassThru
+                    $editThis = New-TempFile
                     Write-Host "·  $(Write-PoshHighlighted '$command | Out-File $editThis')"
                     "$command" | Out-File $editThis
                     Write-Host "·  $(Write-PoshHighlighted '& $env:EDITOR $editThis')"
                     & $env:EDITOR $editThis
                     Write-Host "·  $(Write-PoshHighlighted '$command = (Get-Content $editThis)')"
                     $command = (Get-Content $editThis)
-                    Write-Host "·  $(Write-PoshHighlighted 'Remove-Item $editThis -ErrorAction SilentlyContinue -Force')"
-                    Remove-Item $editThis -ErrorAction SilentlyContinue -Force
+                    Write-Host "· $(Write-PoshHighlighted '$editThis.Delete()')"
+                    $editThis.Delete()
                     Write-Host "│"
                     Write-Host "├─ Modified command:"
                     Write-Host "│"

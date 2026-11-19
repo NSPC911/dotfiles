@@ -23,22 +23,31 @@
   --multiplier: 1;
   --n-zen-sidebar-width: 190px;
   --gap: var(--zen-element-separation);
-  &:has(> #navigator-toolbox[zen-right-side="true"]) {
-    --multiplier: -1;
-  }
+  transition: filter 0.25s ease;
+  &:has(> #navigator-toolbox[zen-right-side="true"])
+  { --multiplier: -1 }
+  /* when opening the url bar, blur everything else */
+  &:has(#urlbar[open][zen-floating-urlbar="true"])
+  { filter: blur(5px) brightness(70%) !important }
+}
+
+#urlbar[open] {
+  transition: box-shadow 0.5s ease, backdrop-filter 0.5s ease;
+  box-shadow: 5px 5px 20px black;
+  backdrop-filter: blur(10px);
 }
 
 #main-window {
   --fullscreen-side: 0px;
-  &[sizemode="fullscreen"] #browser {
-    --fullscreen-side: 16px;
-  }
+  &[sizemode="fullscreen"] #browser
+  { --fullscreen-side: 16px }
 }
 
 #main-window[sizemode="fullscreen"] #navigator-toolbox {
   margin-bottom: -2px !important;
   height: calc(100% - 73px) !important;
 }
+
 /* navigator toolbox */
 #navigator-toolbox {
   transition-duration: 0.2s !important;
@@ -91,8 +100,12 @@
   }
 }
 
-#browser:has(#urlbar[open][zen-floating-urlbar="true"]) {
-  filter: blur(5px) brightness(70%) !important;
+.browserContainer:has(+ .dialogStack:not([hidden])) > .browserStack {
+  filter: blur(10px);
+  scale: 0.95;
+}
+.browserStack {
+  transition: filter 0.5s ease, scale 0.5s ease
 }
 
 .browserStack browser {
@@ -117,7 +130,7 @@
   border-radius: 1em !important;
 }
 
-/* Minimal Exit Menu Patched */
+/*-------------------- Minimal Exit Menu Patched ----------------------------------*/
 .titlebar-buttonbox {
   margin-right: 20px;
   .titlebar-button {
@@ -163,7 +176,7 @@
   45%, 55% { left: 100px !important }
 }
 
-/* loading outer progress bar */
+/*------------------------------ loading outer progress bar -----------------------------*/
 @keyframes zen-progress-bar-pulse {
   from { opacity: 0 }
   to { opacity: 1 }
@@ -189,6 +202,13 @@
   border-radius: var(--zen-native-inner-radius) !important;
   transition: border 0.25s linear;
 }
+.browserSidebarContainer.zen-glance-overlay::after {
+  width: calc(80% - 12px);
+  top: 2px !important;
+  bottom: 2px;
+  left: 10% !important;
+  border-radius: calc(var(--zen-native-inner-radius) / var(--zen-squircle-value)) !important;
+}
 
 .browserSidebarContainer:not(:has(> #zen-loading-progress-bar))::after {
   animation: zen-progress-bar-gone 0.5s linear forwards;
@@ -201,52 +221,52 @@
 }
 
 .browserSidebarContainer[is-zen-split="true"] {
-  .deck-selected {
-    outline: none !important;
-  }
+  .deck-selected { outline: none !important }
   & > .browserContainer {
     transition: border 0.25s linear !important;
     border: var(--dark-border) !important;
   }
-  &.deck-selected:not(:has(> #zen-loading-progress-bar)) > .browserContainer {
-    border: var(--bright-border) !important;
-  }
+  &.deck-selected:not(:has(> #zen-loading-progress-bar)) > .browserContainer
+  { border: var(--bright-border) !important; margin-right: 1px !important; }
 }
 
-.browserSidebarContainer.deck-selected[is-zen-split="true"] {
-  outline: none !important;
-}
+.browserSidebarContainer.deck-selected[is-zen-split="true"]
+{ outline: none !important }
 
 .browserSidebarContainer .zen-view-splitter-header {
   transition: background 0.25s linear;
-  > * {
-    transition: color 0.25s linear;
-  }
+  > * { transition: color 0.25s linear }
 }
 
 .browserSidebarContainer:not(.deck-selected) .zen-view-splitter-header {
   background: var(--dark-border-color) !important;
-  > * {
-    color: contrast-color(var(--dark-border-color)) !important;
-  }
+  > * { color: contrast-color(var(--dark-border-color)) !important }
 }
 .browserSidebarContainer.deck-selected .zen-view-splitter-header {
   background: var(--bright-border-color) !important;
-  > * {
-    color: contrast-color(var(--bright-border-color)) !important;
-  }
+  > * { color: contrast-color(var(--bright-border-color)) !important }
 }
-.browserSidebarContainer:has(> #zen-loading-progress-bar) .zen-view-splitter-header {
+.browserSidebarContainer/*:has(> #zen-loading-progress-bar)*/ .zen-view-splitter-header {
   background: var(--alternate-bright-border-color) !important;
-  > * {
-    color: contrast-color(var(--alternate-bright-border-color)) !important;
+  > * { color: contrast-color(var(--alternate-bright-border-color)) !important }
+}
+
+hbox.browserSidebarContainer {
+  transition: filter 0.5s ease, transform 0.5s ease;
+  /* this is to solve a specific eyesore i have where for some unknown
+     reason, the border right on a split on the left can just become 
+     thinner, some weird dark css magic happening ig so like quick fix */
+  padding-right: 1px;
+  /* im not entirely sure why dragging a tab into a split
+     results in it getting a transform style property 
+     checking for :none seems to fix it though            */
+  &[style*="transform"]:not([style*="transform: none"]) {
+    transition: filter 0.75s ease, transform 0.5s ease;
+    filter: blur(10px);
   }
 }
 
-[animating-background="true"] #zen-tabbox-wrapper {
-  filter: blur(10px)
-}
-
+/* i dont know what this does tbh, but im keeping it just in case */
 #zen-tabbox-wrapper > #tabbrowser-tabbox > #sidebar-box[sidebar-panel-open] {
   border: var(--dark-border) !important;
   width: calc(var(--n-zen-sidebar-width) + var(--gap) * 1.1) !important;
@@ -259,6 +279,14 @@
   }
 }
 
+
+/* blur glance/preview thing 
+   i think this is broken though */
+[animating-background="true"] #zen-tabbox-wrapper {
+  filter: blur(10px)
+}
+
+/* some generic overrides that ive yet to comment */
 #zen-main-app-wrapper {
   .tab-close-button {
     position: absolute !important;
@@ -274,6 +302,7 @@
     background-color: var(--funny-accent-background-colour) !important;
     backdrop-filter: blur(10px) !important;
   }
+  /* didnt like the indicators tbh */
   #zen-workspaces-button {
     display: none !important;
   }
@@ -287,17 +316,9 @@
   .tab-background {
     border-radius: 8px !important;
   }
-
-  .tab-close-button {
-    position: absolute !important;
-  }
-
-  .tab-content {
-    position: relative !important;
-  }
-  .tabbrowser-tab:not([pinned]):hover .tab-icon-stack {
-    margin-left: 0 !important;
-  }
+  
+  /* bounce right because tab is opening on
+     left since i use left tab bar          */
   #tabbrowser-tabbox:has(
       > #zen-toast-container > hbox > :is(
           button#zen-open-background-tab-button

@@ -4,6 +4,8 @@ if ([Console]::IsOutputRedirected -or [Console]::IsInputRedirected -or [Console]
     function write-output {}
     function clear-host {}
     $script:redirected = $true
+} else {
+    Set-PSReadlineOption -PredictionSource History -BellStyle None
 }
 
 $initial_dir = (Get-Location).Path
@@ -66,12 +68,12 @@ if (-not (Test-Path $cacheCompletionLocation)) {
         Start-Process pwsh -Verb RunAs -ArgumentList "-Command exit" -WindowStyle Hidden
     } else {
         regenCache
+        . $cacheCompletionLocation
     }
 } else {
     Write-Output "Using script cache..."
+    . $cacheCompletionLocation
 }
-
-. $cacheCompletionLocation
 
 Write-Output $HomeAndClearLine"Dealing with functions and aliases..."
 
@@ -87,14 +89,15 @@ function Register-LazyCompletion {
     function _lazycomplete_$CommandName {
         param(`$wordToComplete, `$commandAst, `$cursorPosition)
         Register-ArgumentCompleter -Native -CommandName '$CommandName' -ScriptBlock {}
-        $Completer | out-string | invoke-expression
+        . { $Completer | out-string | invoke-expression }
         [System.Management.Automation.CommandCompletion]::CompleteInput(`$commandAst.ToString().PadRight(`$cursorPosition, ' ').Substring(0, `$cursorPosition), `$cursorPosition, `$null).CompletionMatches
     }
     Register-ArgumentCompleter -Native -CommandName '$CommandName' -ScriptBlock (Get-Item "Function:_lazycomplete_$CommandName").ScriptBlock
 "@
 }
-@{
-    "gh" = "gh completion --shell powershell"
+
+$completions = @{
+    "gh" = "gh completion --shell powershell" # (doesnt work due to reasons)
     "ty" = "ty generate-shell-completion powershell"
     "uv" = "uv generate-shell-completion powershell"
     "uvx" = "uvx --generate-shell-completion powershell"
@@ -119,7 +122,14 @@ function Register-LazyCompletion {
     "magick" = "carapace magick powershell"
     "python" = "carapace python powershell"
     "yay" = "carapace yay powershell"
-}.GetEnumerator() | ForEach-Object { Register-LazyCompletion -CommandName $_.Key -Completer $_.Value } | Out-String | Invoke-Expression
+}
+
+$sb = [System.Text.StringBuilder]::new()
+foreach ($item in $completions.GetEnumerator()) {
+    [void]$sb.AppendLine((Register-LazyCompletion -CommandName $item.Key -Completer $item.Value))
+}
+
+[scriptblock]::Create($sb.ToString()).Invoke()
 
 ## zoxide cant add them for some reason /shrug
 Set-Alias -Option AllScope -Name "cd" -Value "__zoxide_z"
@@ -195,6 +205,16 @@ function nuke {
 }
 Set-Alias -Name "whereis" -Value "where.exe"
 
+# i keep typing it
+$ExecutionContext.InvokeCommand.CommandNotFoundAction = {
+    param([string]$CommandName, [System.Management.Automation.CommandLookupEventArgs]$eArgs)
+    $cleanWord = $CommandName -replace '[^a-zA-Z]', ''
+    if ($cleanWord.Length -le 5 -and $cleanWord.Length -gt 3 -and ($cleanWord -match '^[clear]+$')) {
+        Clear-Host
+        $eArgs.StopProcessing = $true
+    }
+}
+
 Set-Alias -Name "omp" -Value "oh-my-posh"
 
 Set-Alias -Name "save" -Value "Out-File"
@@ -211,6 +231,17 @@ function symlink {
         [string]$ItemToSymlinkTo
     )
     New-Item -ItemType SymbolicLink -Path $ItemToSymlinkTo -Target (Resolve-Path $ItemToSymlinkFrom).Path
+}
+
+function hardlink {
+    param(
+        [Parameter(Position = 0)]
+        [string]$ItemToSymlinkFrom,
+
+        [Parameter(Position = 1)]
+        [string]$ItemToSymlinkTo
+    )
+    New-Item -ItemType HardLink -Path $ItemToSymlinkTo -Target (Resolve-Path $ItemToSymlinkFrom).Path
 }
 
 function Get-FolderSize {
@@ -239,12 +270,6 @@ if (-not ($IsWindows)) {
     Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
     Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function DeleteWord
     Set-PSReadLineKeyHandler -Chord Ctrl+Backspace -Function BackwardDeleteWord
-    if (Get-Command "wf-recorder" -CommandType Application -ErrorAction SilentlyContinue) {
-        function rec {
-            wf-recorder -f ~/Videos/rec-$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss").mp4
-            Write-Host "Saved recording to $output" -ForegroundColor Green
-        }
-    }
 }
 
 Set-Alias -Name "cat" -Value "bat"
@@ -282,7 +307,7 @@ function Watch-OMPrompt {
     Start-Sleep -Milliseconds 500
     # keep in mind that omp-test folder isn't added to the dotfiles
     # you need to `uv init`, `cargo init`, `go mod init`, `pnpm init`, `bun init`, `touch test.lua`
-    wezterm cli split-pane --bottom --cells 3 --pane-id $newTab --cwd "C:/Users/notso/Git/omp-test" -- pwsh -noni -nop -nol -c @"
+    wezterm cli split-pane --bottom --cells 3 --pane-id $newTab --cwd (Get-Item "~/Git/omp-test").FullName -- pwsh -noni -nop -nol -c @"
 oh-my-posh print primary --config $ConfigPath
 `$lastMod = `(Get-Item $ConfigPath`).LastWriteTime
 while `(`$true`) `{
@@ -467,7 +492,7 @@ Set-Alias -Name "lz" -Value "lazygit"
 
 ##### Give me my full history man #####
 function Get-FullHistory {
-    Get-Content (Get-PSReadlineOption).HistorySavePath | Where-Object {$_ -like "*$find*"} | Get-Unique
+    Get-Content (Get-PSReadlineOption).HistorySavePath | Where-Object {$_ -like "*$find*"}
 }
 
 ##### run something foreva!! #####
@@ -486,17 +511,24 @@ Write-Host $homeAndClearLine"Adding Plugins `e[s" -NoNewLine
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 if ($IsWindows) {
     Remove-PSReadLineKeyHandler -Key "F2"
-    Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function SwitchPredictionView
+    Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function SwitchPredictionView -TerminateOrphanedConsoleApps
 }
 Set-PSReadLineKeyHandler -Chord Ctrl+e -Function ViEditVisually
 Set-PSReadLineKeyHandler -Chord Alt+l -ScriptBlock { [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt() }
-Set-PSReadLineOption -BellStyle None
-# carapace stuff idk
-Set-PSReadLineOption -Colors @{
-    ListPredictionSelected = "`e[7m"
-    Selection = "`e[7m"
-    Parameter = "`e[38;5;245m"
-    Operator = "`e[38;5;245m"
+Set-PSReadLineOption -HistoryNoDuplicates -PredictionViewStyle InlineView -ShowToolTips -Colors @{
+        ListPredictionSelected = "`e[7m"
+        Selection = "`e[7m"
+        Parameter = "`e[38;5;245m"
+        Operator = "`e[38;5;245m"
+    }
+function PSConsoleHostReadLine {
+    [System.Diagnostics.DebuggerHidden()]
+    param()
+    $lastRunStatus = $?
+    Microsoft.PowerShell.Core\Set-StrictMode -Off
+    $script = [Microsoft.PowerShell.PSConsoleReadLine]::ReadLine($host.Runspace, $ExecutionContext, $lastRunStatus)
+    $Host.UI.RawUI.WindowTitle = "> $script"
+    return $script
 }
 # fuzzy: https://github.com/kelleyma49/PSFzf
 Write-Output "`e[u`e[0KPsFzf"
@@ -527,20 +559,22 @@ function config {
     )
     switch ($app) {
         "niri" { chezedit "~/.config/niri" }
-        "rovr" { chezedit "~/.config/rovr/" }
-        "helix" { chezedit "~/.config/helix/" }
+        "rovr" { chezedit ($IsLinux ? "~/.config/rovr/" : "~/AppData/Local/rovr") }
+        "helix" { chezedit ($IsLinux ? "~/.config/helix/" : "~/AppData/Roaming/helix") }
         "opencode" { chezedit "~/.config/opencode/opencode.json" }
         "dms" { chezedit "~/.config/DankMaterialShell/settings.json" }
         "pwsh" { chezedit $PROFILE }
         "wezterm" { chezedit "~/.wezterm.lua" }
         "kitty" { chezedit "~/.config/kitty/kitty.conf" }
         "ov" { chezedit "~/.config/ov/config.yaml" }
+        "glazewm" { chezedit "~/.glzr/glazewm/config.yaml" }
+        "borders" { chezedit "~/.config/tacky-borders/config.yaml" }
         default {
-            if (Get-Location "~/.config/$app" -ErrorAction SilentlyContinue) {
+            if (Test-Path "~/.config/$app") {
                 chezedit "~/.config/$app"
             } else {
                 Write-Host "App not known, add it yourself"
-                hx "$($PROFILE):520"
+                hx "$($PROFILE):545"
             }
         }
     }
@@ -680,9 +714,9 @@ function fz {
         }
     } elseif (($type -eq "rg") -or ($type -eq "fd")) {
         if ($null -eq $extra) {
-            $extra = ""
+            $extra = "hi"
         }
-        Invoke-PsFzfRipgrep $extra
+        Invoke-PsFzfRipgrep @extra
     } else {
         Write-Error "Unknown operation $type. Allowed: edit, status, history/his/h, kill/nuke, checkout/switch/branch, scoop/install, cd, rg, fd"
     }
@@ -778,11 +812,25 @@ function wordle {
     }
 }
 
+##### stop and start saving history #####
+##### so that i can do funny stuff  #####
+function Stop-History  { Set-PSReadlineOption -HistorySaveStyle SaveNothing       }
+function Start-History { Set-PSReadlineOption -HistorySaveStyle SaveIncrementally }
+
 function nf {
     uv run --no-project --with nerdfont python -c @"
 import nerdfont
-for name, icon in nerdfont.icons.items():
-    print(icon, name)
+
+# need to do this else there is duplicates
+icons = {k: v for k, v in nerdfont.icons.items()}
+
+for name, icon in icons.items():
+    hexed = hex(ord(icon))[2:].upper()
+    if len(hexed) <= 4:
+        hexed = f"    \\u{hexed:0>4}"
+    else:
+        hexed = f"\\U{hexed:0>8}"
+    print(icon, hexed, name)
 "@ 2>$null | fzf --ignore-case --style=minimal
 }
 ##### Other stuff #####

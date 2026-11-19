@@ -13,7 +13,7 @@ config.cursor_blink_rate = 0
 
 config.hide_mouse_cursor_when_typing = false
 config.term = "xterm-256color"
-config.enable_kitty_keyboard = true
+config.enable_kitty_keyboard = false
 config.font = wezterm.font("CaskaydiaCove NFM")
 config.custom_block_glyphs = false
 config.cell_width = 1
@@ -32,7 +32,7 @@ config.default_prog = { "pwsh", "-NoLogo" }
 -- config.default_prog = { "nu" }
 config.initial_cols = 80
 if wezterm.target_triple:find("linux") then
-    config.window_decorations = "NONE"
+	config.window_decorations = "NONE"
 else
 	if wezterm.target_triple:find("windows") then
 		config.webgpu_preferred_adapter = wezterm.gui.enumerate_gpus()[1]
@@ -101,11 +101,26 @@ config.keys = {
 		action = wezterm.action_callback(function(window, _)
 			local overrides = window:get_config_overrides() or {}
 			if overrides.window_background_opacity == nil then
-				overrides.window_background_opacity = 0.8
+				overrides.window_background_opacity = 0.75
 			end
 			overrides.window_background_opacity = overrides.window_background_opacity - 0.125
-			if overrides.window_background_opacity <= 0 then
+			if overrides.window_background_opacity < 0 then
 				overrides.window_background_opacity = 1
+			end
+			window:set_config_overrides(overrides)
+		end),
+	},
+	{
+		key = "O",
+		mods = "CTRL|SHIFT|ALT",
+		action = wezterm.action_callback(function(window, _)
+			local overrides = window:get_config_overrides() or {}
+			if overrides.window_background_opacity == nil then
+				overrides.window_background_opacity = 0.75
+			end
+			overrides.window_background_opacity = overrides.window_background_opacity + 0.125
+			if overrides.window_background_opacity > 1 then
+				overrides.window_background_opacity = 0
 			end
 			window:set_config_overrides(overrides)
 		end),
@@ -121,7 +136,7 @@ config.keys = {
 		action = wezterm.action.CloseCurrentPane { confirm = true },
 	},
 	{
-		key = "e",
+		key = "t",
 		mods = "ALT",
 		action = act.PromptInputLine {
 			description = "Enter name for tab",
@@ -134,8 +149,8 @@ config.keys = {
 		},
 	},
 	{
-		key = "E",
-		mods = "ALT|SHIFT",
+		key = "w",
+		mods = "ALT",
 		action = act.PromptInputLine {
 			description = "Enter name for new workspace",
 			action = wezterm.action_callback(function(window, pane, line)
@@ -194,7 +209,7 @@ config.colors = {
 -- Plugins
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 local function weztermOrWorkspace()
-	local active_workspace =  wezterm.mux.get_active_workspace()
+	local active_workspace = wezterm.mux.get_active_workspace()
 	if active_workspace == "default" then
 		return "  wezterm "
 	else
@@ -203,24 +218,31 @@ local function weztermOrWorkspace()
 end
 
 local function get_process_title(tab)
-	if wezterm.target_triple:find("windows") then
-		-- use exe itself
-		local proc_name = tab.active_pane.foreground_process_name
-		if proc_name then
-			return proc_name .. " "
+	local title = tab.tab_title
+	if not (title and #title > 0) then
+		title = tab.active_pane.title
+		if wezterm.target_triple:find("windows") then
+			--- we need to make some changes to make the title nicer at times
+			if title:find("Administrator:") then
+				title = title:gsub("Administrator: ", "")
+			end
+			if title:find("clink") then
+				-- problem is that for some reason, title becomes `Administrator: hx <file> - "<clink path>\clink.bat"  inject --autorun`
+				-- so we need to remove the clink part
+				title = title:gsub('- ".*clink.bat".*', "")
+			end
+		else
+			if title and #title > 0 then
+				title = title .. " "
+			else
+				title = tab.active_pane.title .. " "
+			end
+		end
+		if #title > 38 then
+			title = title:sub(1, 20) .. "..." .. title:sub(-15)
 		end
 	end
-  local title = tab.tab_title
-  local new_title = ""
-  if title and #title > 0 then
-    new_title = title .. " "
-  else
-	  new_title = tab.active_pane.title .. " "
-	end
-	-- if #new_title > 30 then
-	-- 	new_title = new_title:sub(1, 13) .. "..." .. new_title:sub(-13)
-	-- end
-	return new_title
+	return title .. " "
 end
 
 tabline.setup({
@@ -233,7 +255,7 @@ tabline.setup({
 				a = { bg = "rgb(136, 192, 208)" },
 				c = { bg = "rgba(46, 52, 64, 0)" }
 			},
-			copy_mode = {  c = { bg = "rgba(46, 52, 64, 0)" }  },
+			copy_mode = { c = { bg = "rgba(46, 52, 64, 0)" } },
 			tab = {
 				active = { fg = "#2e3440", bg = "#88c0d0" },
 				inactive = { fg = "#eceff4", bg = "rgba(59, 66, 82, 0)" },

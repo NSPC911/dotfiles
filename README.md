@@ -41,14 +41,16 @@ The alternate side, the linux version. Still Nord + Transparency.
 #### cargo installations
 
 ```
-tokei
+# tokei
 > cargo install --git https://github.com/XAMPPRocky/tokei.git tokei
-helix
+
+# helix
 > gix clone https://github.com/NSPC911-forks/helix
 > cd helix
 > git checkout patchy
 > mold -run cargo +nightly install --features "git,steel" --profile opt --config 'build.rustflags="-C target-cpu=native"' --path helix-term
-niri
+
+# niri
 > gix clone https://github.com/NSPC911/forked-niri
 > cd forked-niri
 > git checkout patchy
@@ -58,30 +60,28 @@ niri
 #### uv tools
 <!--uv tool list --show-with --show-extras --show-version-specifiers, remove `- `-->
 ```
-ansible-lint v26.8.0
+ansible-lint v26.11.0
 batrachian-toad v0.6.20
 gitfetch v1.3.2 [required:  git+https://github.com/matars/gitfetch@4a113b5e05d200c83422d30e21391b47886186e0]
 hike v1.4.0
-mistral-vibe v2.25.5
-poethepoet v0.48.0
-poetry v2.4.3 [with: more-itertools==11.0.2]
+poethepoet v0.49.0
+poetry v2.5.1 [with: more-itertools==11.0.2]
 ptf v0.1.0 [required:  git+https://github.com/nspc911/ptf]
 pyright v1.1.414
 rich-cli v1.8.1
-rovr v0.10.2.post1 [required:  git+https://github.com/NSPC911/rovr]
-ruff v0.16.8
-ty v0.0.49 [required: ==0.0.49]
+ruff v0.17.5
+ty v0.0.80 [required: ==0.0.80]
 ```
 
 #### pnpm global installs
 <!--pnpm list -g, remove header-->
 ```
 @ansible/ansible-language-server@26.6.0
-@astrojs/language-server@2.17.0
+@astrojs/language-server@2.17.3
 @fsouza/prettierd@0.27.0
 live-server@1.2.2
 oxfmt@0.51.0
-prettier@3.9.8
+prettier@3.10.1
 typescript@6.0.3
 typescript-language-server@5.3.0
 vscode-langservers-extracted@4.10.0
@@ -117,26 +117,23 @@ vscode-langservers-extracted@4.10.0
 | File Explorer (TUI) | [superfile](https://github.com/yorukot/superfile)                     | `AppData/Local/superfile/`                                         |
 
 ### Stats
-
 <!--tokei --sort lines-->
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- JSON                     21         3865         3865            0            0
- CSS                      11         3310         2674          246          390
- Scheme                    7         2458         2064          108          286
- TOML                     12         2003         1667          173          163
- PowerShell                8         1436         1255           72          109
- YAML                      2          334          313           17            4
- Lua                       1          281          250           15           16
- Markdown                 10          211            0          167           44
+ JSON                     16         4211         4211            0            0
+ Scheme                    7         2467         2066          118          283
+ TOML                     13         2023         1689          166          168
+ PowerShell                8         1494         1284           94          116
+ CSS                       2          460          402           17           41
+ YAML                      2          330          309           17            4
+ Lua                       1          303          273           14           16
+ Markdown                  2          165            0          139           26
  Shell                     1           99           58           26           15
  BASH                      1           84           60           13           11
- SVG                       2           46           46            0            0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                    76        14127        12252          837         1038
+ Total                    53        11636        10352          604          680
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

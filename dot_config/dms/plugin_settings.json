@@ -1,0 +1,292 @@
+{
+  "linuxWallpaperEngine": {
+    "enabled": false,
+    "monitorScenes": {
+      "eDP-1": "1176090049",
+      "DP-3": "1176090049",
+      "DP-1": "1176090049"
+    },
+    "sceneSettings": {
+      "1550989740": {
+        "properties": {
+          "colorWall": [
+            1,
+            1,
+            1
+          ],
+          "consistency": 65,
+          "solve": true,
+          "speed": 0,
+          "volumeMultiplier": 0,
+          "resetTime": 0,
+          "density": 75,
+          "colorLine": [
+            0.5176470588235295,
+            1,
+            1
+          ],
+          "colorLineDone": [
+            0.3254901960784314,
+            1,
+            1
+          ],
+          "colorMargin": [
+            0.5529411764705883,
+            1,
+            1
+          ],
+          "colorPath1": [
+            1,
+            1,
+            1
+          ],
+          "colorPath2": [
+            1,
+            1,
+            1
+          ],
+          "colorProcessed": [
+            1,
+            1,
+            1
+          ],
+          "colorUnprocessed": [
+            1,
+            1,
+            1
+          ],
+          "framesPerUpdate": 26,
+          "marginBottom": 65,
+          "marginLeft": 64,
+          "marginRight": 41
+        },
+        "screenshotDelay": 60,
+        "fullscreenPauseOnlyActive": true,
+        "noFullscreenPause": true
+      },
+      "1962375063": {
+        "scaling": "fill",
+        "fps": 39
+      },
+      "2216519976": {
+        "fps": 48,
+        "scaling": "fill",
+        "noFullscreenPause": true
+      },
+      "2533303198": {
+        "fullscreenPauseOnlyActive": false,
+        "noFullscreenPause": true
+      },
+      "2798072874": {
+        "fps": 24,
+        "disableParticles": true,
+        "disableParallax": true,
+        "noFullscreenPause": true,
+        "fullscreenPauseOnlyActive": true,
+        "disableMouse": true,
+        "screenshotDelay": 99
+      },
+      "2867182492": {
+        "fps": 29,
+        "scaling": "fit",
+        "properties": {
+          "smalltext": true
+        }
+      },
+      "2944773634": {
+        "fullscreenPauseOnlyActive": false,
+        "noFullscreenPause": true,
+        "disableParticles": true,
+        "disableParallax": true
+      },
+      "2971992264": {
+        "fullscreenPauseOnlyActive": true,
+        "noFullscreenPause": true
+      },
+      "3172644398": {
+        "fps": 60
+      },
+      "3208739106": {
+        "scaling": "stretch",
+        "fps": 60
+      },
+      "3241782461": {
+        "fps": 58,
+        "disableParticles": true,
+        "disableParallax": true,
+        "noFullscreenPause": true,
+        "fullscreenPauseOnlyActive": false,
+        "disableMouse": true
+      },
+      "3417620731": {
+        "scaling": "stretch",
+        "fps": 10,
+        "noAudioProcessing": true,
+        "disableParticles": true,
+        "disableParallax": true,
+        "noFullscreenPause": true,
+        "screenshotDelay": 150,
+        "disableMouse": true,
+        "properties": {
+          "time": false,
+          "birds": true,
+          "date": false,
+          "day": false
+        }
+      },
+      "3539544537": {
+        "noAutoMute": false,
+        "fps": 71,
+        "properties": {
+          "enableidlevoice": null,
+          "enablevoice": null,
+          "posX": 50,
+          "posY": 48,
+          "schemecolor": null,
+          "size": 78,
+          "voicelanguage": null,
+          "voicevolume": null
+        }
+      },
+      "3589511017": {
+        "disableParticles": true,
+        "noFullscreenPause": true,
+        "noAudioProcessing": true,
+        "disableMouse": true,
+        "scaling": "stretch",
+        "fps": 30,
+        "screenshotDelay": 30,
+        "disableParallax": true
+      },
+      "3597772384": {
+        "disableParticles": true,
+        "disableParallax": true,
+        "fps": 50
+      },
+      "3601696953": {
+        "properties": {
+          "sign": true
+        },
+        "fps": 22
+      }
+    },
+    "generateStaticWallpaper": true,
+    "monitorPlaylists": {},
+    "playlistShuffle": false,
+    "playlistIntervalMinutes": 1,
+    "pauseOnBattery": true
+  },
+  "displayManager": {
+    "enabled": false
+  },
+  "dmsLenovoBatterySettings": {
+    "enabled": true
+  },
+  "dankBatteryAlerts": {
+    "enabled": true
+  },
+  "fullscreenPowerMenu": {
+    "enabled": false,
+    "menuOpacity": 0
+  },
+  "discordVoice": {
+    "enabled": false
+  },
+  "wallpaperBingWidget": {
+    "enabled": true
+  },
+  "activateLinux": {
+    "enabled": false
+  },
+  "screenRecorder": {
+    "enabled": true,
+    "fps": "60",
+    "quality": "very_high",
+    "recordAudio": true,
+    "recordCursor": true
+  },
+  "dankAudioVisualizer": {
+    "enabled": false
+  },
+  "bongoCat": {
+    "enabled": true,
+    "catSizePercent": 113,
+    "catYOffset": 2,
+    "catColorMode": "classic",
+    "catCustomColor": "#88c0d0",
+    "pawHoldTime": 25,
+    "mouseEnabled": false,
+    "showMetrics": true,
+    "metricsInBar": false,
+    "enableBlinking": true,
+    "showHints": true,
+    "waitingTimeout": 5,
+    "soundEnabled": false,
+    "soundVolume": 5,
+    "soundProfile": "pop",
+    "classicIdle": true
+  },
+  "screenCaptureToolbar": {
+    "enabled": true,
+    "captureMode": "full"
+  },
+  "typingSounds": {
+    "enabled": false,
+    "mouseEnabled": false,
+    "selectedPackPath": "/home/nspc911/.config/DankMaterialShell/plugins/typingSounds/soundpacks/turquoise",
+    "volume": 21
+  },
+  "codeIsland": {
+    "enabled": false
+  },
+  "emojiLauncher": {
+    "enabled": true,
+    "pasteOnSelect": true,
+    "recentEmojis": "✅,❤️,😅,μ,∆,😂,⚠️,🔫,😀"
+  },
+  "aiQuotas": {
+    "enabled": false,
+    "claudeEnabled": false,
+    "openCodeEnabled": false,
+    "deepSeekEnabled": false,
+    "openRouterEnabled": false,
+    "grokEnabled": false,
+    "antigravityEnabled": false,
+    "refreshInterval": 90,
+    "showResetCountdown": true,
+    "displayMode": "remaining",
+    "pinnedLimits": "{\"claude\":[\"5h\"],\"codex\":[],\"opencode\":[\"Rolling\"],\"deepseek\":[\"balance\"],\"openrouter\":[\"balance\"],\"grok\":[\"Billing\"],\"antigravity\":[\"Gemini Models - Five Hour Limit Remaining\"]}"
+  },
+  "enderPulse": {
+    "enabled": false,
+    "variants": [
+      {
+        "id": "builtin_output",
+        "name": "System output",
+        "audioTarget": "system",
+        "audioBackend": "auto",
+        "customAudioSource": "",
+        "icon": "volume_up",
+        "description": "EnderPulse audio source: System output"
+      },
+      {
+        "id": "builtin_microphone",
+        "name": "Microphone input",
+        "audioTarget": "microphone",
+        "audioBackend": "auto",
+        "customAudioSource": "",
+        "icon": "mic",
+        "description": "EnderPulse audio source: Microphone input"
+      }
+    ],
+    "mode": "mirror",
+    "barLength": 180,
+    "palette": "material",
+    "bandCount": 50,
+    "sensitivity": 100,
+    "smoothing": 45,
+    "glow": 45,
+    "backgroundOpacity": 0,
+    "fadeDelay": 1
+  }
+}

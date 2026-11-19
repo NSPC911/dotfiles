@@ -41,7 +41,7 @@ o = "move_next_word_end"
 C-a = "select_all"
 A-j = { j = "save_selection", i = "jump_backward", k = "jump_forward", p = "jumplist_picker" }
 A-c = "toggle_line_comments"
-A-C = "toggle_block_comments"
+A-S-c = "toggle_block_comments"
 "`" = "switch_case"
 C-r = [":lsp-restart", ":reload-all"]
 "/" = "search"
@@ -102,12 +102,12 @@ l = "goto_line_end"
 ret = "goto_file_start"
 d = "goto_definition"
 W = ":flash"
+b = ":sh git log -L %{cursor_line}:%{file_path_absolute}"
+t = "goto_type_definition"
 e = "no_op"
 f = "no_op"
 D = "no_op"
-t = "no_op"
 c = "no_op"
-b = "no_op"
 a = "no_op"
 m = "no_op"
 n = "no_op"
@@ -127,12 +127,12 @@ L = "extend_to_line_end_newline"
 l = "extend_to_line_end"
 ret = "extend_to_file_start"
 W = ":flash-extend"
+b = ":sh git log -L %{cursor_line}:%{file_path_absolute}"
+t = "goto_type_definition"
 e = "no_op"
 f = "no_op"
 D = "no_op"
-t = "no_op"
 c = "no_op"
-b = "no_op"
 a = "no_op"
 m = "no_op"
 n = "no_op"
@@ -217,14 +217,7 @@ right = "no_op"
 up = "no_op"
 down = "no_op"
 
-# have some issues with getting copilot to work, so temporary
-# workaround is to pass to pwsh and run the copilot cli, which works fine, but is a bit janky ngl
 [keys.normal."C-w".a]
-c = [
-  ":new",
-  ":insert-output wezterm cli spawn --cwd %{current_working_directory} pwsh -NoProfile -Command copilot",
-  ":buffer-close!",
-]
 i = [
   ":new",
   ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode",
@@ -237,11 +230,6 @@ v = [
 ]
 
 [keys.select."C-w".a]
-c = [
-  ":new",
-  ":insert-output wezterm cli spawn --cwd %{current_working_directory} pwsh -NoProfile -Command copilot",
-  ":buffer-close!",
-]
 i = [
   ":new",
   ":insert-output wezterm cli spawn --cwd %{current_working_directory} opencode",
@@ -518,9 +506,6 @@ w = "@<C-w>"
 
 # insert mode
 [keys.insert]
-tab = "smart_tab"
-# "?" = "command_palette"
-S-tab = "unindent"
 C-s = ["normal_mode", ":w"]
 C-S-s = ":wa"
 A-i = "move_visual_line_up"
@@ -546,6 +531,7 @@ C-k = "no_op"
 '"' = "@f<esc>\"\"<esc>jd<A-i>"
 j = { k = "@f<esc><esc>" }
 
+
 # editor config
 [editor]
 title-format = "hx %{buffer_name}"
@@ -569,7 +555,7 @@ atomic-save = false
 kitty-keyboard-protocol = "enabled"
 rounded-corners = true
 word-completion.trigger-length = 1
-gutters.line-numbers.min-width = 1
+gutters.line-numbers.min-width = 4 # enough for 9999 lines
 
 [editor.smart-tab]
 enable = true

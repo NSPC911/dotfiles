@@ -14,8 +14,8 @@ binds {
     TouchPadSwipe fingers=4 direction="down" natural-scroll=false { close-overview; }
 }
 
-layout {
-    prefer-focus-tiled true
+input {
+    center-area-percentage width="0%" height="0%"
 }
 
 animations {

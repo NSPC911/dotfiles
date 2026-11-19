@@ -10,6 +10,7 @@ amdgpu-pro-oglp
 aria2
 ark
 audiocd-kio
+auto-cpufreq
 awesome-terminal-fonts
 base
 base-devel
@@ -25,7 +26,6 @@ bluez
 bluez-hid2hci
 bluez-libs
 bluez-utils
-bovo
 brightnessctl
 btop
 btrfs-assistant
@@ -55,6 +55,7 @@ cbonsai
 ccache
 chezmoi
 chwd
+cmake
 cmatrix
 codebook-lsp
 colord-kde
@@ -65,23 +66,20 @@ cups-filters
 cups-pdf
 dart-sass
 device-mapper
-dgop
 dhclient
-diff-so-fancy
 diffutils
 discord
 dmidecode
 dmraid
-dms-shell-git
-dms-shell-niri
 dnsmasq
 dolphin
 dolphin-plugins
 dosfstools
 downgrade
-dragon
 driftwm
 duf
+dux-gop
+dux-shell
 e2fsprogs
 efibootmgr
 efitools
@@ -110,6 +108,7 @@ fsarchiver
 ghostscript
 ghostty
 git
+git-delta
 git-lfs
 github-cli
 gitoxide
@@ -147,7 +146,6 @@ iptables
 isoimagewriter
 iwd
 jfsutils
-juk
 just
 k3b
 kamera
@@ -214,6 +212,7 @@ lib32-v4l-utils
 lib32-vulkan-intel
 lib32-wavpack
 libadwaita
+libayatana-indicator
 libdvdcss
 libfprint
 libgsf
@@ -232,8 +231,6 @@ linux-cachyos-gcc
 linux-cachyos-gcc-headers
 linux-cachyos-headers
 linux-firmware
-linux-wallpaper-engine-ux
-linux-wallpaperengine-git
 lisgd
 lldb
 localsend-bin
@@ -255,7 +252,6 @@ mkinitcpio
 modemmanager
 mold
 mouseless
-mousetweaks
 mtools
 netctl
 networkmanager
@@ -274,7 +270,6 @@ ntp
 nushell
 obs-cli
 obs-studio-browser
-octopi
 oh-my-posh-bin
 oh-my-zsh-git
 onefetch
@@ -293,6 +288,7 @@ paru
 patchelf
 perl
 perl-image-exiftool
+pi
 pipewire-alsa
 pipewire-pulse
 pkgfile
@@ -331,6 +327,7 @@ rtkit
 rustup
 s-nail
 sccache
+scdoc
 scooter
 scx-manager
 sddm
@@ -338,6 +335,12 @@ sddm-silent-theme-git
 semver
 sg3_utils
 signon-kwallet-extension
+skwd-deck-bin
+skwd-deck-steamworks-bin
+skwd-lens-bin
+skwd-lens-model
+skwd-paper-bin
+skwd-wall-v2-bin
 smartmontools
 snapper
 socat
@@ -384,7 +387,6 @@ upower
 usb_modeswitch
 usbutils
 uv
-vesktop
 vim
 vlc-plugins-all
 vpl-gpu-rt

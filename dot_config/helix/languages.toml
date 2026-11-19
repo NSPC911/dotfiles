@@ -129,8 +129,8 @@ language-servers = [
     "goto-implementation",
   ] },
   { name = "ty", except-features = [
-    "format",
     "goto-definition",
+    "format",
     "signature-help",
     "hover",
     "document-highlight",
@@ -196,7 +196,10 @@ language-servers = ["tinymist"]
 
 [[language]]
 name = "toml"
-language-servers = ["taplo", { name = "tombi", except-features = ["document-symbols"] }]
+language-servers = [
+  # "taplo",
+  { name = "tombi", except-features = ["document-symbols"] }
+]
 
 [[language]]
 name = "powershell"

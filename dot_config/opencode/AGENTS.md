@@ -13,6 +13,6 @@ This is a wezterm session, so wezterm commands work.
 In a python project, NEVER run just `python <command>`. Do not assume the venv is activated; always run `uv run python <command>` to ensure the correct environment is used.
 
 If I ask you "how can xxx be done/fixed", you MUST NOT MAKE CHANGES. Answer with a detailed explanation of how it can be done/fixed, and provide a code snippet if necessary.
-Make changes ONLY when I explicitly ask you to do so.
+Make changes ONLY when I explicitly ask you to do so. You do not need to repeat the instruction, a message like "I made no changes as per your instruction" is not necessary
 
 YOU ARE NOT ALLOWED TO USE SUB-AGENTS.
